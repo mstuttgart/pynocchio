@@ -44,10 +44,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         # Ajustamos o tamanho minimo que a janela pode assumir
         self.setMinimumSize(QApplication.desktop().screenGeometry().size() * 0.8)
 
-        # self.labelStatus = QLabel('teste')
-        #
-        self.statusbar = self.statusBar()
-        # self.statusbar.addPermanentWidget(self.labelStatus, 200)
+        self._on_action_show_statusbar__triggered()
+        self._on_action_show_toolbar__triggered()
 
     def centralize_window(self):
 
@@ -106,6 +104,20 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         checked_action = self.actionGroupView.checkedAction()
         self.model.adjustType = checked_action.text()
         self.scrollAreaViewer.label.setPixmap(self.model.get_current_page())
+
+    def _on_action_show_toolbar__triggered(self):
+
+        if self.action_show_toolbar.isChecked():
+            self.toolbar.show()
+        else:
+            self.toolbar.hide()
+
+    def _on_action_show_statusbar__triggered(self):
+
+        if self.action_show_statusbar.isChecked():
+            self.statusbar.show()
+        else:
+            self.statusbar.hide()
 
     def _on_action_about__triggered(self):
 
