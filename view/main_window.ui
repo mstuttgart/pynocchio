@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>629</width>
-    <height>403</height>
+    <height>417</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -105,7 +105,7 @@
            <x>0</x>
            <y>0</y>
            <width>620</width>
-           <height>341</height>
+           <height>338</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -202,8 +202,8 @@
     <property name="title">
      <string>&amp;Settings</string>
     </property>
-    <addaction name="action_Show_Toolbar"/>
-    <addaction name="actionShow_Statusbar"/>
+    <addaction name="action_show_toolbar"/>
+    <addaction name="action_show_statusbar"/>
     <addaction name="separator"/>
     <addaction name="action_preferences"/>
    </widget>
@@ -273,6 +273,7 @@
    <addaction name="separator"/>
    <addaction name="action_Exit"/>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <action name="action_open">
    <property name="icon">
     <iconset>
@@ -291,7 +292,7 @@
      <normaloff>../image/gtk-info.svg</normaloff>../image/gtk-info.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;About Reader</string>
+    <string>&amp;About Pyellow</string>
    </property>
   </action>
   <action name="action_about_qt">
@@ -322,7 +323,7 @@
      <normaloff>../image/go-next.svg</normaloff>../image/go-next.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Next Page</string>
+    <string>&amp;Next page</string>
    </property>
    <property name="shortcut">
     <string>Right</string>
@@ -343,7 +344,7 @@
      <normaloff>../image/go-previous.svg</normaloff>../image/go-previous.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Previous Page</string>
+    <string>&amp;Previous page</string>
    </property>
    <property name="shortcut">
     <string>Left</string>
@@ -355,7 +356,7 @@
      <normaloff>../image/go-first.svg</normaloff>../image/go-first.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;First Page</string>
+    <string>&amp;First page</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Left</string>
@@ -370,7 +371,7 @@
      <normaloff>../image/go-last.svg</normaloff>../image/go-last.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Last Page</string>
+    <string>&amp;Last page</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Right</string>
@@ -385,7 +386,7 @@
      <normaloff>../image/object-rotate-left.svg</normaloff>../image/object-rotate-left.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Rotate Left</string>
+    <string>&amp;Rotate left</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+R</string>
@@ -423,7 +424,7 @@
      <normaloff>../image/zoom-fit-height.svg</normaloff>../image/zoom-fit-height.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Vertical Adjust</string>
+    <string>&amp;Vertical adjust</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+J</string>
@@ -444,7 +445,7 @@
      <normaloff>../image/zoom-fit-width.svg</normaloff>../image/zoom-fit-width.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Horizontal Adjust</string>
+    <string>&amp;Horizontal adjust</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+K</string>
@@ -532,19 +533,25 @@
      <normaloff>../image/zoom-original.svg</normaloff>../image/zoom-original.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Original Fit</string>
+    <string>&amp;Original fit</string>
    </property>
   </action>
-  <action name="action_Show_Toolbar">
+  <action name="action_show_toolbar">
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
     <bool>true</bool>
    </property>
    <property name="text">
     <string>&amp;Show Toolbar</string>
    </property>
   </action>
-  <action name="actionShow_Statusbar">
+  <action name="action_show_statusbar">
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
     <bool>true</bool>
    </property>
    <property name="text">
