@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Michell Stuttgart Faria</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>629</width>
+    <height>403</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Chromics</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../image/address-book-new.svg</normaloff>../image/address-book-new.svg</iconset>
+  </property>
+  <property name="accessibleName">
+   <string>Chromics</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>22</width>
+    <height>22</height>
+   </size>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>628</width>
+     <height>349</height>
+    </size>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMaximumSize</enum>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="Viewer" name="scrollAreaViewer">
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>620</width>
+           <height>341</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="lineWidth">
+             <number>0</number>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../image/address-book-new.svg</pixmap>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>629</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <widget class="QMenu" name="menu_file">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="action_open"/>
+    <addaction name="separator"/>
+    <addaction name="action_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_view">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="action_fullscreen"/>
+    <addaction name="separator"/>
+    <addaction name="action_original_fit"/>
+    <addaction name="action_vertical_adjust"/>
+    <addaction name="action_horizontal_adjust"/>
+    <addaction name="action_best_fit"/>
+    <addaction name="separator"/>
+    <addaction name="action_rotate_left"/>
+    <addaction name="action_rotate_right"/>
+   </widget>
+   <widget class="QMenu" name="menu_navegation">
+    <property name="title">
+     <string>&amp;Navegation</string>
+    </property>
+    <addaction name="action_next_page"/>
+    <addaction name="action_previous_page"/>
+    <addaction name="separator"/>
+    <addaction name="action_first_page"/>
+    <addaction name="action_last_page"/>
+    <addaction name="separator"/>
+    <addaction name="action_go_to_page"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_about"/>
+    <addaction name="action_about_qt"/>
+   </widget>
+   <widget class="QMenu" name="menu_Settings">
+    <property name="title">
+     <string>&amp;Settings</string>
+    </property>
+    <addaction name="action_Show_Toolbar"/>
+    <addaction name="actionShow_Statusbar"/>
+    <addaction name="separator"/>
+    <addaction name="action_preferences"/>
+   </widget>
+   <widget class="QMenu" name="menu_Bookmark">
+    <property name="title">
+     <string>&amp;Bookmark</string>
+    </property>
+    <addaction name="action_Add_Bookmark"/>
+    <addaction name="action_Remove_Bookmark"/>
+    <addaction name="actionBookmark_Manager"/>
+   </widget>
+   <addaction name="menu_file"/>
+   <addaction name="menu_view"/>
+   <addaction name="menu_navegation"/>
+   <addaction name="menu_Bookmark"/>
+   <addaction name="menu_Settings"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QToolBar" name="toolbar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+   <property name="acceptDrops">
+    <bool>true</bool>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_open"/>
+   <addaction name="separator"/>
+   <addaction name="action_first_page"/>
+   <addaction name="action_previous_page"/>
+   <addaction name="action_next_page"/>
+   <addaction name="action_last_page"/>
+   <addaction name="separator"/>
+   <addaction name="action_rotate_left"/>
+   <addaction name="action_rotate_right"/>
+   <addaction name="separator"/>
+   <addaction name="action_best_fit"/>
+   <addaction name="action_vertical_adjust"/>
+   <addaction name="action_horizontal_adjust"/>
+   <addaction name="action_fullscreen"/>
+   <addaction name="separator"/>
+   <addaction name="action_Exit"/>
+  </widget>
+  <action name="action_open">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/address-book-new.svg</normaloff>../image/address-book-new.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_about">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/gtk-info.svg</normaloff>../image/gtk-info.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;About Reader</string>
+   </property>
+  </action>
+  <action name="action_about_qt">
+   <property name="icon">
+    <iconset theme="help-qt">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>&amp;About Qt</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/quit.png</normaloff>../image/quit.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_next_page">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/go-next.svg</normaloff>../image/go-next.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Next Page</string>
+   </property>
+   <property name="shortcut">
+    <string>Right</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+   <property name="priority">
+    <enum>QAction::NormalPriority</enum>
+   </property>
+  </action>
+  <action name="action_previous_page">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/go-previous.svg</normaloff>../image/go-previous.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Previous Page</string>
+   </property>
+   <property name="shortcut">
+    <string>Left</string>
+   </property>
+  </action>
+  <action name="action_first_page">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/go-first.svg</normaloff>../image/go-first.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;First Page</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Left</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="action_last_page">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/go-last.svg</normaloff>../image/go-last.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Last Page</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Right</string>
+   </property>
+  </action>
+  <action name="action_rotate_left">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/object-rotate-left.svg</normaloff>../image/object-rotate-left.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Rotate Left</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+R</string>
+   </property>
+  </action>
+  <action name="action_rotate_right">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/object-rotate-right.svg</normaloff>../image/object-rotate-right.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Rotate right</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="action_Keep_Transforming">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Keep Transforming</string>
+   </property>
+  </action>
+  <action name="action_vertical_adjust">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/zoom-fit-height.svg</normaloff>../image/zoom-fit-height.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Vertical Adjust</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+J</string>
+   </property>
+   <property name="autoRepeat">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_horizontal_adjust">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/zoom-fit-width.svg</normaloff>../image/zoom-fit-width.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Horizontal Adjust</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+K</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="icon">
+    <iconset theme="zoom-in">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Zoom &amp;In</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="icon">
+    <iconset theme="zoom-out">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Zoom &amp;Out</string>
+   </property>
+  </action>
+  <action name="action_fullscreen">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/view-fullscreen.svg</normaloff>../image/view-fullscreen.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Fullscreen</string>
+   </property>
+   <property name="shortcut">
+    <string>F</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WidgetShortcut</enum>
+   </property>
+  </action>
+  <action name="action_go_to_page">
+   <property name="text">
+    <string>&amp;Go to page...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="action_best_fit">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/zoom-best-fit.svg</normaloff>../image/zoom-best-fit.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Whole page</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="action_preferences">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/document-properties.svg</normaloff>../image/document-properties.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Preferences</string>
+   </property>
+  </action>
+  <action name="action_original_fit">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/zoom-original.svg</normaloff>../image/zoom-original.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Original Fit</string>
+   </property>
+  </action>
+  <action name="action_Show_Toolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Show Toolbar</string>
+   </property>
+  </action>
+  <action name="actionShow_Statusbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>S&amp;how Statusbar</string>
+   </property>
+  </action>
+  <action name="action_Add_Bookmark">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/bookmark-new.svg</normaloff>../image/bookmark-new.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Add bookmark</string>
+   </property>
+  </action>
+  <action name="action_Remove_Bookmark">
+   <property name="text">
+    <string>&amp;Remove bookmark</string>
+   </property>
+  </action>
+  <action name="actionBookmark_Manager">
+   <property name="icon">
+    <iconset>
+     <normaloff>../image/document-properties.svg</normaloff>../image/document-properties.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Bookmark &amp;manager</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Viewer</class>
+   <extends>QScrollArea</extends>
+   <header location="global">viewer.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>action_Exit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
