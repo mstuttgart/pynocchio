@@ -96,14 +96,14 @@ class Model(QtCore.QObject):
 
     def _resize_page(self, pix_map):
 
-        if self.adjustType == '&Vertical Adjust':
+        if self.adjustType == '&Vertical adjust':
             pix_map = pix_map.scaledToHeight(self.screenSize.height(), QtCore.Qt.SmoothTransformation)
 
-        elif self.adjustType == '&Horizontal Adjust':
-            pix_map = pix_map.scaledToWidth(self.screenSize.width(), QtCore.Qt.SmoothTransformation)
-
-        elif self.adjustType == '&Best Fit':
+        elif self.adjustType == '&Horizontal adjust':
             pix_map = pix_map.scaledToWidth(self.screenSize.width() * 0.8, QtCore.Qt.SmoothTransformation)
+
+        elif self.adjustType == '&Whole page':
+            pix_map = pix_map.scaledToWidth(self.screenSize.width(), QtCore.Qt.SmoothTransformation)
 
         return pix_map
 

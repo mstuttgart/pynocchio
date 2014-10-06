@@ -26,6 +26,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self.actionGroupView = QtGui.QActionGroup(self)
 
+        self.actionGroupView.addAction(self.action_original_fit)
         self.actionGroupView.addAction(self.action_vertical_adjust)
         self.actionGroupView.addAction(self.action_horizontal_adjust)
         self.actionGroupView.addAction(self.action_best_fit)
@@ -35,7 +36,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self.actionGroupView.triggered.connect(self._on_action_group_view_adjust)
 
-        self.centralize_window()
+        self._centralize_window()
 
         self.goToDialog = None
         self.preference_dialog = PreferenceDialog(self)
@@ -47,7 +48,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self._on_action_show_statusbar__triggered()
         self._on_action_show_toolbar__triggered()
 
-    def centralize_window(self):
+    def _centralize_window(self):
 
         screen = QtGui.QDesktopWidget().screenGeometry()
         size = self.geometry()

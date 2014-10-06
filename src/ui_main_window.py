@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main_window.ui'
+# Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Mon Oct  6 00:05:13 2014
+# Created: Mon Oct  6 08:08:43 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -180,12 +180,6 @@ class Ui_MainWindow(object):
         icon11.addPixmap(QtGui.QPixmap("../image/zoom-fit-width.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_horizontal_adjust.setIcon(icon11)
         self.action_horizontal_adjust.setObjectName("action_horizontal_adjust")
-        self.actionZoom_In = QtGui.QAction(MainWindow)
-        self.actionZoom_In.setIcon(icon2)
-        self.actionZoom_In.setObjectName("actionZoom_In")
-        self.actionZoom_Out = QtGui.QAction(MainWindow)
-        self.actionZoom_Out.setIcon(icon2)
-        self.actionZoom_Out.setObjectName("actionZoom_Out")
         self.action_fullscreen = QtGui.QAction(MainWindow)
         self.action_fullscreen.setCheckable(False)
         icon12 = QtGui.QIcon()
@@ -227,6 +221,9 @@ class Ui_MainWindow(object):
         self.action_Add_Bookmark.setIcon(icon16)
         self.action_Add_Bookmark.setObjectName("action_Add_Bookmark")
         self.action_Remove_Bookmark = QtGui.QAction(MainWindow)
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap("../image/edit-delete.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_Remove_Bookmark.setIcon(icon17)
         self.action_Remove_Bookmark.setObjectName("action_Remove_Bookmark")
         self.actionBookmark_Manager = QtGui.QAction(MainWindow)
         self.actionBookmark_Manager.setIcon(icon14)
@@ -243,6 +240,7 @@ class Ui_MainWindow(object):
         self.menu_view.addSeparator()
         self.menu_view.addAction(self.action_rotate_left)
         self.menu_view.addAction(self.action_rotate_right)
+        self.menu_view.addAction(self.action_Keep_Transforming)
         self.menu_navegation.addAction(self.action_next_page)
         self.menu_navegation.addAction(self.action_previous_page)
         self.menu_navegation.addSeparator()
@@ -275,9 +273,9 @@ class Ui_MainWindow(object):
         self.toolbar.addAction(self.action_rotate_left)
         self.toolbar.addAction(self.action_rotate_right)
         self.toolbar.addSeparator()
-        self.toolbar.addAction(self.action_best_fit)
         self.toolbar.addAction(self.action_vertical_adjust)
         self.toolbar.addAction(self.action_horizontal_adjust)
+        self.toolbar.addAction(self.action_best_fit)
         self.toolbar.addAction(self.action_fullscreen)
         self.toolbar.addSeparator()
         self.toolbar.addAction(self.action_Exit)
@@ -319,8 +317,6 @@ class Ui_MainWindow(object):
         self.action_vertical_adjust.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+J", None, QtGui.QApplication.UnicodeUTF8))
         self.action_horizontal_adjust.setText(QtGui.QApplication.translate("MainWindow", "&Horizontal adjust", None, QtGui.QApplication.UnicodeUTF8))
         self.action_horizontal_adjust.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+K", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionZoom_In.setText(QtGui.QApplication.translate("MainWindow", "Zoom &In", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionZoom_Out.setText(QtGui.QApplication.translate("MainWindow", "Zoom &Out", None, QtGui.QApplication.UnicodeUTF8))
         self.action_fullscreen.setText(QtGui.QApplication.translate("MainWindow", "&Fullscreen", None, QtGui.QApplication.UnicodeUTF8))
         self.action_fullscreen.setShortcut(QtGui.QApplication.translate("MainWindow", "F", None, QtGui.QApplication.UnicodeUTF8))
         self.action_go_to_page.setText(QtGui.QApplication.translate("MainWindow", "&Go to page...", None, QtGui.QApplication.UnicodeUTF8))
