@@ -89,10 +89,10 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _on_action_fullscreen__triggered(self):
 
         if self.isFullScreen():
-            self.toolbar.show()
             self.menubar.show()
-            self.statusbar.show()
             self.showMaximized()
+            self._on_action_show_toolbar__triggered()
+            self._on_action_show_statusbar__triggered()
 
         else:
             self.showFullScreen()

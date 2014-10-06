@@ -54,5 +54,11 @@ class GoToDialog(QDialog, Ui_GoPageDialog):
         self.change_label_image()
         super(GoToDialog, self).update()
 
+    def show(self):
 
+        current_page_idx = self.model.get_current_page_index()
 
+        self.lineEdit_current_page.setText(str(current_page_idx + 1))
+        self.spinBox_go_page.setValue(current_page_idx + 1)
+
+        super(GoToDialog, self).show()

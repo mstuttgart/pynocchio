@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'preference_dialog.ui'
 #
-# Created: Sun Oct  5 12:01:51 2014
+# Created: Mon Oct  6 00:07:10 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
