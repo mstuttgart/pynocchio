@@ -15,15 +15,6 @@ class GoToDialog(QDialog, Ui_GoPageDialog):
         self.model = model
         self.viewer = viewer
 
-        current_page_idx = model.get_current_page_index()
-        num_page = model.comic.get_number_of_pages()
-
-        self.lineEdit_current_page.setText(str(current_page_idx + 1))
-        self.lineEdit_num_page.setText(str(num_page))
-
-        self.spinBox_go_page.setValue(current_page_idx + 1)
-        self.spinBox_go_page.setMaximum(num_page)
-
         self.dialogHeight = self.height()
         self.change_label_image()
 
@@ -57,8 +48,12 @@ class GoToDialog(QDialog, Ui_GoPageDialog):
     def show(self):
 
         current_page_idx = self.model.get_current_page_index()
+        num_page = self.model.comic.get_number_of_pages()
 
         self.lineEdit_current_page.setText(str(current_page_idx + 1))
+        self.lineEdit_num_page.setText(str(num_page))
+
         self.spinBox_go_page.setValue(current_page_idx + 1)
+        self.spinBox_go_page.setMaximum(num_page)
 
         super(GoToDialog, self).show()
