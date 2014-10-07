@@ -1,5 +1,4 @@
 
-#TODO: Decidir nome do leitor
 #TODO: Ajustar QDialog de configuração, adicionado as actions de cor de brackground e default path
 #TODO: Criar uma classe exclusiva para a QFileDialog quando importamos quadrinhos
 #TODO: Adicionar suporte a visualização de figurar avulsas
@@ -9,10 +8,7 @@
 #TODO: Cria arquivo de tradução inglês (prioridade) e português
 #TODO: Open directory importando diretorios com imagens para visualização
 #TODO: Menu de quadrinhos recentemente abertos
-#TODO: Menu Exibir adicioanar: originalFit, wholePage, preserve rotation, two pages, manga mode
-#TODO: renomear menu Go para Navigation
+#TODO: Menu Exibir adicioanar: preserve rotation, two pages, manga mode
 #TODO: Adicionar menu Bookmarks com as opções: add bookmark, remove bookmark, manage bookmarks
-#TODO: Settings com a opção de esconder a barra de tarefas e a barra de status
 #TODO: Implementar mecanismo de cache para pre-carregar um dado numero de paginas
 #TODO: Adicionar a informação dos tipos de arquivos suportados na aboutDialog
-#TODO: Status bar com o nome da página, número e dimensão da página
