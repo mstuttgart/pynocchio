@@ -18,14 +18,14 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Chromics</string>
+   <string>Pyellow</string>
   </property>
   <property name="windowIcon">
    <iconset>
     <normaloff>../image/address-book-new.svg</normaloff>../image/address-book-new.svg</iconset>
   </property>
   <property name="accessibleName">
-   <string>Chromics</string>
+   <string>Pyellow</string>
   </property>
   <property name="iconSize">
    <size>
@@ -162,6 +162,7 @@
      <string>&amp;File</string>
     </property>
     <addaction name="action_open"/>
+    <addaction name="actionOpen_Folder"/>
     <addaction name="separator"/>
     <addaction name="action_Exit"/>
    </widget>
@@ -178,7 +179,6 @@
     <addaction name="separator"/>
     <addaction name="action_rotate_left"/>
     <addaction name="action_rotate_right"/>
-    <addaction name="action_Keep_Transforming"/>
    </widget>
    <widget class="QMenu" name="menu_navegation">
     <property name="title">
@@ -277,8 +277,8 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action_open">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/address-book-new.svg</normaloff>../image/address-book-new.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/address-book-new.svg</normaloff>:/image/address-book-new.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -289,8 +289,8 @@
   </action>
   <action name="action_about">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/gtk-info.svg</normaloff>../image/gtk-info.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/gtk-info.svg</normaloff>:/image/gtk-info.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;About Pyellow</string>
@@ -308,8 +308,8 @@
   </action>
   <action name="action_Exit">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/quit.png</normaloff>../image/quit.png</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/system-shutdown.svg</normaloff>:/image/system-shutdown.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
@@ -320,8 +320,8 @@
   </action>
   <action name="action_next_page">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/go-next.svg</normaloff>../image/go-next.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/go-next.svg</normaloff>:/image/go-next.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Next page</string>
@@ -341,8 +341,8 @@
   </action>
   <action name="action_previous_page">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/go-previous.svg</normaloff>../image/go-previous.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/go-previous.svg</normaloff>:/image/go-previous.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Previous page</string>
@@ -353,8 +353,8 @@
   </action>
   <action name="action_first_page">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/go-first.svg</normaloff>../image/go-first.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/go-first.svg</normaloff>:/image/go-first.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;First page</string>
@@ -368,8 +368,8 @@
   </action>
   <action name="action_last_page">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/go-last.svg</normaloff>../image/go-last.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/go-last.svg</normaloff>:/image/go-last.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Last page</string>
@@ -383,8 +383,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>../image/object-rotate-left.svg</normaloff>../image/object-rotate-left.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/object-rotate-left.svg</normaloff>:/image/object-rotate-left.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Rotate left</string>
@@ -395,8 +395,8 @@
   </action>
   <action name="action_rotate_right">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/object-rotate-right.svg</normaloff>../image/object-rotate-right.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/object-rotate-right.svg</normaloff>:/image/object-rotate-right.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Rotate right</string>
@@ -421,8 +421,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>../image/zoom-fit-height.svg</normaloff>../image/zoom-fit-height.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/zoom-fit-height.svg</normaloff>:/image/zoom-fit-height.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Vertical adjust</string>
@@ -442,8 +442,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>../image/zoom-fit-width.svg</normaloff>../image/zoom-fit-width.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/zoom-fit-width.svg</normaloff>:/image/zoom-fit-width.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Horizontal adjust</string>
@@ -457,8 +457,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>../image/view-fullscreen.svg</normaloff>../image/view-fullscreen.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/view-fullscreen.svg</normaloff>:/image/view-fullscreen.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Fullscreen</string>
@@ -486,8 +486,8 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>../image/zoom-best-fit.svg</normaloff>../image/zoom-best-fit.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/zoom-best-fit.svg</normaloff>:/image/zoom-best-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Whole page</string>
@@ -498,8 +498,8 @@
   </action>
   <action name="action_preferences">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/document-properties.svg</normaloff>../image/document-properties.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/document-properties.svg</normaloff>:/image/document-properties.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Preferences</string>
@@ -509,9 +509,12 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
    <property name="icon">
-    <iconset>
-     <normaloff>../image/zoom-original.svg</normaloff>../image/zoom-original.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/zoom-original.svg</normaloff>:/image/zoom-original.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Original fit</string>
@@ -541,8 +544,8 @@
   </action>
   <action name="action_Add_Bookmark">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/bookmark-new.svg</normaloff>../image/bookmark-new.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/bookmark-new.svg</normaloff>:/image/bookmark-new.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Add bookmark</string>
@@ -550,8 +553,8 @@
   </action>
   <action name="action_Remove_Bookmark">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/edit-delete.svg</normaloff>../image/edit-delete.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/edit-delete.svg</normaloff>:/image/edit-delete.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Remove bookmark</string>
@@ -559,11 +562,20 @@
   </action>
   <action name="actionBookmark_Manager">
    <property name="icon">
-    <iconset>
-     <normaloff>../image/document-properties.svg</normaloff>../image/document-properties.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/document-properties.svg</normaloff>:/image/document-properties.svg</iconset>
    </property>
    <property name="text">
     <string>Bookmark &amp;manager</string>
+   </property>
+  </action>
+  <action name="actionOpen_Folder">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/document-open.svg</normaloff>:/image/document-open.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Open &amp;Folder</string>
    </property>
   </action>
  </widget>
@@ -575,7 +587,9 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../resource/main_window.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>action_Exit</sender>

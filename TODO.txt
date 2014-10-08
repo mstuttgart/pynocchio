@@ -3,12 +3,11 @@
 #TODO: Criar uma classe exclusiva para a QFileDialog quando importamos quadrinhos
 #TODO: Adicionar suporte a visualização de figurar avulsas
 #TODO: Adicionar detalhes da página (número, dimensões) na QStatusBar
-#TODO: Inserir imagens em um arquivo de resource
 #TODO: Implementar rotina para salvar configuração do leitor
 #TODO: Cria arquivo de tradução inglês (prioridade) e português
 #TODO: Open directory importando diretorios com imagens para visualização
 #TODO: Menu de quadrinhos recentemente abertos
-#TODO: Menu Exibir adicioanar: preserve rotation, two pages, manga mode
+#TODO: Menu Exibir adicioanar: two pages, manga mode
 #TODO: Adicionar menu Bookmarks com as opções: add bookmark, remove bookmark, manage bookmarks
 #TODO: Implementar mecanismo de cache para pre-carregar um dado numero de paginas
 #TODO: Adicionar a informação dos tipos de arquivos suportados na aboutDialog

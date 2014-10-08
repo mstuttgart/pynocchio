@@ -9,7 +9,7 @@ def main():
     import sys
 
     app = QtGui.QApplication(sys.argv)
-    app.setApplicationName('PySideDemoApplication')
+    app.setApplicationName('Pyellow')
 
     main_window = MainWindow()
     main_window.show()

@@ -1,0 +1,24 @@
+<RCC>
+  <qresource>
+    <file>../image/address-book-new.svg</file>
+    <file>../image/bookmark-new.svg</file>
+    <file>../image/document-open.svg</file>
+    <file>../image/document-properties.svg</file>
+    <file>../image/edit-delete.svg</file>
+    <file>../image/go-first.svg</file>
+    <file>../image/go-last.svg</file>
+    <file>../image/system-shutdown.svg</file>
+    <file>../image/view-fullscreen.svg</file>
+    <file>../image/view-restore.svg</file>
+    <file>../image/zoom-best-fit.svg</file>
+    <file>../image/zoom-fit-height.svg</file>
+    <file>../image/zoom-fit-width.svg</file>
+    <file>../image/zoom-original.svg</file>
+    <file>../image/go-next.svg</file>
+    <file>../image/go-previous.svg</file>
+    <file>../image/gtk-info.svg</file>
+    <file>../image/object-rotate-left.svg</file>
+    <file>../image/object-rotate-right.svg</file>
+    <file>../image/quit.png</file>
+  </qresource>
+</RCC>
