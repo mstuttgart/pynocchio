@@ -23,6 +23,9 @@ class Model(QtCore.QObject):
         #     'All supported files (*.zip *.cbz *.rar *.cbr)\
         #     ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
         #     ;;All files (*)')
+        #
+
+        teste = QtGui.QFileDialog.getExistingDirectory(None, "Open Directory", "/home", QtGui.QFileDialog.ShowDirsOnly | QtGui.QFileDialog.DontResolveSymlinks)
 
         fname = '../quadrinhos/_scansPROJECT_Hoshigami_no_Satsuki.zip'
 
