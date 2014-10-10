@@ -52,8 +52,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         screen = QtGui.QDesktopWidget().screenGeometry()
         size = self.geometry()
-        x_center = (screen.width()-size.width())/2
-        y_center = (screen.height()-size.height())/2
+        x_center = (screen.width() - size.width())/2
+        y_center = (screen.height() - size.height())/2
         self.move(x_center, y_center)
 
     def _on_action_open__triggered(self):
