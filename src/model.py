@@ -61,8 +61,14 @@ class Model(QtCore.QObject):
         self.rotateAngle = (self.rotateAngle + 90) % 360
         return self.get_current_page()
 
+    def get_comic_name(self):
+        return self.comic.name
+
     def get_current_page(self):
         return self._load_pixmap_from_data()
+
+    def get_current_page_title(self):
+        return self.comic.get_current_page_title()
 
     def set_current_page_index(self, idx):
         self.comic.set_current_page_index(idx)

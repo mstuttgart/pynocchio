@@ -1,7 +1,5 @@
 
 #TODO: Ajustar QDialog de configuração, adicionado as actions de cor de brackground e default path
-#TODO: Criar uma classe exclusiva para a QFileDialog quando importamos quadrinhos
-#TODO: Adicionar suporte a visualização de figurar avulsas
 #TODO: Adicionar detalhes da página (número, dimensões) na QStatusBar
 #TODO: Implementar rotina para salvar configuração do leitor
 #TODO: Cria arquivo de tradução inglês (prioridade) e português

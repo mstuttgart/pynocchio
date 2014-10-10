@@ -73,8 +73,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self.setWindowTitle(self.model.comic.name)
                 self.goToDialog = GoToDialog(self.model, self.scrollAreaViewer)
 
-        # self.statusbar.showMessage(str(self.model.comic.current_page_index+1))
-        #
+                self._update_status_bar()
 
     def _on_action_open_folder__triggered(self):
 
@@ -90,29 +89,44 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self.setWindowTitle(self.model.comic.name)
                 self.goToDialog = GoToDialog(self.model, self.scrollAreaViewer)
 
+                self._update_status_bar()
+
+
     def _on_action_preferences__triggered(self):
         self.preference_dialog.show()
 
+
     def _on_action_next_page__triggered(self):
         self.scrollAreaViewer.next_page()
+        self._update_status_bar()
+
 
     def _on_action_previous_page__triggered(self):
         self.scrollAreaViewer.previous_page()
+        self._update_status_bar()
+
 
     def _on_action_first_page__triggered(self):
         self.scrollAreaViewer.first_page()
+        self._update_status_bar()
+
 
     def _on_action_last_page__triggered(self):
         self.scrollAreaViewer.last_page()
+        self._update_status_bar()
+
 
     def _on_action_go_to_page__triggered(self):
         self.goToDialog.show()
 
+
     def _on_action_rotate_left__triggered(self):
         self.scrollAreaViewer.rotate_left()
 
+
     def _on_action_rotate_right__triggered(self):
         self.scrollAreaViewer.rotate_right()
+
 
     def _on_action_fullscreen__triggered(self):
 
@@ -128,10 +142,12 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self.menubar.hide()
             self.statusbar.hide()
 
+
     def _on_action_group_view_adjust(self):
         checked_action = self.actionGroupView.checkedAction()
         self.model.adjustType = checked_action.text()
         self.scrollAreaViewer.label.setPixmap(self.model.get_current_page())
+
 
     def _on_action_show_toolbar__triggered(self):
 
@@ -140,18 +156,37 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         else:
             self.toolbar.hide()
 
+
     def _on_action_show_statusbar__triggered(self):
 
         if self.action_show_statusbar.isChecked():
             self.statusbar.show()
+            self._update_status_bar()
         else:
             self.statusbar.hide()
+
 
     def _on_action_about__triggered(self):
         self.aboutDialog.show()
 
+
     def _on_action_about_qt__triggered(self):
         QMessageBox.aboutQt(self, self.tr(u'About Qt'))
+
+
+    def _update_status_bar(self):
+
+        if self.statusbar.isVisible():
+
+            n_page = str(self.model.get_current_page_index() + 1)
+            page_width = str(self.model.get_current_page().width())
+            page_height = str(self.model.get_current_page().height())
+            page_title = self.model.get_current_page_title()
+
+            label = n_page + ' ' + page_title + ' ' + page_width + ' x ' + page_height
+
+            self.statusbar.showMessage(label)
+
 
     def keyPressEvent(self, event):
 
@@ -165,6 +200,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         else:
             super(MainWindow, self).keyPressEvent(event)
+
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
 
