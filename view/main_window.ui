@@ -162,7 +162,7 @@
      <string>&amp;File</string>
     </property>
     <addaction name="action_open"/>
-    <addaction name="actionOpen_Folder"/>
+    <addaction name="action_open_folder"/>
     <addaction name="separator"/>
     <addaction name="action_Exit"/>
    </widget>
@@ -439,7 +439,7 @@
     <bool>true</bool>
    </property>
    <property name="checked">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
@@ -483,7 +483,7 @@
     <bool>true</bool>
    </property>
    <property name="checked">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
@@ -569,7 +569,7 @@
     <string>Bookmark &amp;manager</string>
    </property>
   </action>
-  <action name="actionOpen_Folder">
+  <action name="action_open_folder">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/document-open.svg</normaloff>:/image/document-open.svg</iconset>

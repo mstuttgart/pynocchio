@@ -5,7 +5,6 @@
 #TODO: Adicionar detalhes da página (número, dimensões) na QStatusBar
 #TODO: Implementar rotina para salvar configuração do leitor
 #TODO: Cria arquivo de tradução inglês (prioridade) e português
-#TODO: Open directory importando diretorios com imagens para visualização
 #TODO: Menu de quadrinhos recentemente abertos
 #TODO: Menu Exibir adicioanar: two pages, manga mode
 #TODO: Adicionar menu Bookmarks com as opções: add bookmark, remove bookmark, manage bookmarks

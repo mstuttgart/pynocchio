@@ -52,16 +52,43 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         screen = QtGui.QDesktopWidget().screenGeometry()
         size = self.geometry()
-        self.move((screen.width()-size.width())/2, (screen.height()-size.height())/2)
+        x_center = (screen.width()-size.width())/2
+        y_center = (screen.height()-size.height())/2
+        self.move(x_center, y_center)
 
     def _on_action_open__triggered(self):
 
-        pix_map, comic_title = self.model.open()
-        self.scrollAreaViewer.label.setPixmap(pix_map)
-        self.setWindowTitle(comic_title)
+        fname, filt = QtGui.QFileDialog.getOpenFileName(
+            self.parent(), 'Open comic file', QtCore.QDir.currentPath(),
+            'All supported files (*.zip *.cbz *.rar *.cbr)\
+            ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
+            ;;All files (*)')
 
-        self.goToDialog = GoToDialog(self.model, self.scrollAreaViewer)
+        if fname:
+
+            pix_map = self.model.load_comic(fname)
+
+            if pix_map is not None:
+                self.scrollAreaViewer.label.setPixmap(pix_map)
+                self.setWindowTitle(self.model.comic.name)
+                self.goToDialog = GoToDialog(self.model, self.scrollAreaViewer)
+
         # self.statusbar.showMessage(str(self.model.comic.current_page_index+1))
+        #
+
+    def _on_action_open_folder__triggered(self):
+
+        path = QtGui.QFileDialog.getExistingDirectory(
+            None, "Open Directory", QtCore.QDir.currentPath(), QtGui.QFileDialog.ShowDirsOnly)
+
+        if len(path) != 0:
+
+            pix_map = self.model.load_folder(path)
+
+            if pix_map is not None:
+                self.scrollAreaViewer.label.setPixmap(pix_map)
+                self.setWindowTitle(self.model.comic.name)
+                self.goToDialog = GoToDialog(self.model, self.scrollAreaViewer)
 
     def _on_action_preferences__triggered(self):
         self.preference_dialog.show()
@@ -121,19 +148,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self.statusbar.hide()
 
     def _on_action_about__triggered(self):
-
-        # msg = u'<center>' \
-        #       u'<h1>Chromics</h1>' \
-        #       u'<br>Copyright 2014<br>Michell Stuttgart Faria' \
-        #       u'<>'
-        #
-        #       u'</center>'
-        # QMessageBox.about(self, u'About App', msg)
-
         self.aboutDialog.show()
 
     def _on_action_about_qt__triggered(self):
-        """Handler for the Help/About Qt action"""
         QMessageBox.aboutQt(self, self.tr(u'About Qt'))
 
     def keyPressEvent(self, event):

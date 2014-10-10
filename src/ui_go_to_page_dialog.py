@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'view/go_to_page_dialog.ui'
 #
-# Created: Tue Oct  7 23:21:34 2014
-#      by: pyside-uic 0.2.15 running on PySide 1.2.2
+# Created: Wed Oct  8 22:38:34 2014
+#      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
 

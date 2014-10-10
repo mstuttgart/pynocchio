@@ -16,28 +16,26 @@ class Model(QtCore.QObject):
         self.screenSize = 0
         self.rotateAngle = 0
 
-    def open(self):
+    def load_comic(self, file_name):
 
-        # fname, filt = QtGui.QFileDialog.getOpenFileName(
-        #     self.parent(), 'Open comic file', QtCore.QDir.currentPath(),
-        #     'All supported files (*.zip *.cbz *.rar *.cbr)\
-        #     ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
-        #     ;;All files (*)')
-        #
+        self.comic = Comic()
 
-        teste = QtGui.QFileDialog.getExistingDirectory(None, "Open Directory", "/home", QtGui.QFileDialog.ShowDirsOnly | QtGui.QFileDialog.DontResolveSymlinks)
-
-        fname = '../quadrinhos/_scansPROJECT_Hoshigami_no_Satsuki.zip'
-
-        if fname is not None:
-
-            self.comic = Comic()
-
-            if self.comic.load(fname):
-                print u"Comic Loaded"
-                return self.get_current_page(), self.comic.name
+        if self.comic.load(file_name):
+            print 'comic loaded'
+            return self.get_current_page()
 
         return None
+
+    def load_folder(self, folder_name):
+
+        self.comic = Comic()
+
+        if self.comic.load_folder(folder_name):
+            print 'comic loaded'
+            return self.get_current_page()
+
+        return None
+
 
     def next_page(self):
         self.comic.go_next_page()

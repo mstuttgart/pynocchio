@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'view/about_dialog.ui'
 #
-# Created: Tue Oct  7 23:21:34 2014
-#      by: pyside-uic 0.2.15 running on PySide 1.2.2
+# Created: Wed Oct  8 22:38:34 2014
+#      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,27 +12,24 @@ from PySide import QtCore, QtGui
 class Ui_AboutDialog(object):
     def setupUi(self, AboutDialog):
         AboutDialog.setObjectName("AboutDialog")
-        AboutDialog.resize(400, 423)
+        AboutDialog.resize(441, 471)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../image/forest.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutDialog.setWindowIcon(icon)
         AboutDialog.setAutoFillBackground(False)
         self.horizontalLayout = QtGui.QHBoxLayout(AboutDialog)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.tabWidget = QtGui.QTabWidget(AboutDialog)
-        self.tabWidget.setObjectName("tabWidget")
-        self.tab = QtGui.QWidget()
-        self.tab.setObjectName("tab")
-        self.verticalLayout = QtGui.QVBoxLayout(self.tab)
+        self.widget = QtGui.QWidget(AboutDialog)
+        self.widget.setObjectName("widget")
+        self.verticalLayout = QtGui.QVBoxLayout(self.widget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.textBrowser = QtGui.QTextBrowser(self.tab)
+        self.textBrowser = QtGui.QTextBrowser(self.widget)
         self.textBrowser.setObjectName("textBrowser")
         self.verticalLayout.addWidget(self.textBrowser)
-        self.tabWidget.addTab(self.tab, "")
-        self.horizontalLayout.addWidget(self.tabWidget)
+        self.horizontalLayout.addWidget(self.widget)
 
         self.retranslateUi(AboutDialog)
-        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(AboutDialog)
 
     def retranslateUi(self, AboutDialog):
@@ -50,5 +47,4 @@ class Ui_AboutDialog(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Published under <a href=\"http://www.gnu.org/copyleft/gpl.html\"><span style=\" text-decoration: underline; color:#c19441;\">GPL v3</span></a> license. </p>\n"
 "<p style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#302f2d;\">Third-party software and resources</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Icons by Elementary USU icons were desinged by <a href=\"http://kde-look.org/content/show.php/?content=148128\"><span style=\" text-decoration: underline; color:#c19441;\">Lokster</span></a>. </p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QtGui.QApplication.translate("AboutDialog", "Tab 1", None, QtGui.QApplication.UnicodeUTF8))
 

@@ -2,7 +2,10 @@
 
 from rar_loader import *
 from zip_loader import *
+from folder_loader import *
+
 import collections
+import os.path
 
 
 class Comic(object):
@@ -20,23 +23,46 @@ class Comic(object):
 
     def load(self, filename):
 
-        if ZipLoader.is_zip_file(filename):
-            self._load_content(ZipLoader(), filename)
+        try:
 
-        elif RarLoader.is_rar_file(filename):
-            self._load_content(RarLoader(), filename)
+            if ZipLoader.is_zip_file(filename):
 
-        else:
-            print 'File type is not supported!'
+                if not self._load_content(ZipLoader(), filename):
+                    raise 'failed open comic!'
+
+                return True
+
+            elif RarLoader.is_rar_file(filename):
+                if not self._load_content(RarLoader(), filename):
+                    raise 'failed open comic!'
+
+                return True
+        except:
+            raise 'A error ocurred in open comic file!'
+
+        print 'File type is not supported!'
+
+        return False
+
+    def load_folder(self, folder_name):
+
+        if FolderLoader.is_folder(folder_name):
+            return self._load_content(FolderLoader(), folder_name)
+
+        print 'Not is folder'
+        return False
+
+    def _load_content(self, loader, file_name):
+        pages, titles, self.path, self.name = loader.load_file(file_name)
+
+        if len(pages) == 0:
             return False
+
+        self.page_data = self.Pages(pages, titles)
 
         self.current_page_index = 0
 
         return True
-
-    def _load_content(self, loader, file_name):
-        pages, titles, self.path, self.name = loader.load_file(file_name)
-        self.page_data = self.Pages(pages, titles)
 
     def get_current_page(self):
         return self.page_data.data[self.current_page_index]

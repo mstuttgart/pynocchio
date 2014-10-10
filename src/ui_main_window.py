@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'view/main_window.ui'
+# Form implementation generated from reading ui file 'main_window.ui'
 #
-# Created: Tue Oct  7 23:21:34 2014
-#      by: pyside-uic 0.2.15 running on PySide 1.2.2
+# Created: Thu Oct  9 07:39:22 2014
+#      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -177,7 +177,7 @@ class Ui_MainWindow(object):
         self.action_vertical_adjust.setObjectName("action_vertical_adjust")
         self.action_horizontal_adjust = QtGui.QAction(MainWindow)
         self.action_horizontal_adjust.setCheckable(True)
-        self.action_horizontal_adjust.setChecked(False)
+        self.action_horizontal_adjust.setChecked(True)
         icon12 = QtGui.QIcon()
         icon12.addPixmap(QtGui.QPixmap(":/image/zoom-fit-width.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_horizontal_adjust.setIcon(icon12)
@@ -193,7 +193,7 @@ class Ui_MainWindow(object):
         self.action_go_to_page.setObjectName("action_go_to_page")
         self.action_best_fit = QtGui.QAction(MainWindow)
         self.action_best_fit.setCheckable(True)
-        self.action_best_fit.setChecked(True)
+        self.action_best_fit.setChecked(False)
         icon14 = QtGui.QIcon()
         icon14.addPixmap(QtGui.QPixmap(":/image/zoom-best-fit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_best_fit.setIcon(icon14)
@@ -231,13 +231,13 @@ class Ui_MainWindow(object):
         self.actionBookmark_Manager = QtGui.QAction(MainWindow)
         self.actionBookmark_Manager.setIcon(icon15)
         self.actionBookmark_Manager.setObjectName("actionBookmark_Manager")
-        self.actionOpen_Folder = QtGui.QAction(MainWindow)
+        self.action_open_folder = QtGui.QAction(MainWindow)
         icon19 = QtGui.QIcon()
         icon19.addPixmap(QtGui.QPixmap(":/image/document-open.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.actionOpen_Folder.setIcon(icon19)
-        self.actionOpen_Folder.setObjectName("actionOpen_Folder")
+        self.action_open_folder.setIcon(icon19)
+        self.action_open_folder.setObjectName("action_open_folder")
         self.menu_file.addAction(self.action_open)
-        self.menu_file.addAction(self.actionOpen_Folder)
+        self.menu_file.addAction(self.action_open_folder)
         self.menu_file.addSeparator()
         self.menu_file.addAction(self.action_Exit)
         self.menu_view.addAction(self.action_fullscreen)
@@ -338,7 +338,7 @@ class Ui_MainWindow(object):
         self.action_Add_Bookmark.setText(QtGui.QApplication.translate("MainWindow", "&Add bookmark", None, QtGui.QApplication.UnicodeUTF8))
         self.action_Remove_Bookmark.setText(QtGui.QApplication.translate("MainWindow", "&Remove bookmark", None, QtGui.QApplication.UnicodeUTF8))
         self.actionBookmark_Manager.setText(QtGui.QApplication.translate("MainWindow", "Bookmark &manager", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionOpen_Folder.setText(QtGui.QApplication.translate("MainWindow", "Open &Folder", None, QtGui.QApplication.UnicodeUTF8))
+        self.action_open_folder.setText(QtGui.QApplication.translate("MainWindow", "Open &Folder", None, QtGui.QApplication.UnicodeUTF8))
 
 from viewer import Viewer
 import main_window_rc
