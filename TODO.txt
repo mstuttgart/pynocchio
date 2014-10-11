@@ -1,6 +1,5 @@
 
 #TODO: Ajustar QDialog de configuração, adicionado as actions de cor de brackground e default path
-#TODO: Adicionar detalhes da página (número, dimensões) na QStatusBar
 #TODO: Implementar rotina para salvar configuração do leitor
 #TODO: Cria arquivo de tradução inglês (prioridade) e português
 #TODO: Menu de quadrinhos recentemente abertos
