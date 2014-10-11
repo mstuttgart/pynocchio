@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main_window.ui'
+# Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Thu Oct  9 07:39:22 2014
+# Created: Sat Oct 11 08:09:26 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -222,6 +222,7 @@ class Ui_MainWindow(object):
         icon17 = QtGui.QIcon()
         icon17.addPixmap(QtGui.QPixmap(":/image/bookmark-new.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_Add_Bookmark.setIcon(icon17)
+        self.action_Add_Bookmark.setVisible(True)
         self.action_Add_Bookmark.setObjectName("action_Add_Bookmark")
         self.action_Remove_Bookmark = QtGui.QAction(MainWindow)
         icon18 = QtGui.QIcon()
@@ -261,7 +262,6 @@ class Ui_MainWindow(object):
         self.menu_Settings.addAction(self.action_show_toolbar)
         self.menu_Settings.addAction(self.action_show_statusbar)
         self.menu_Settings.addSeparator()
-        self.menu_Settings.addAction(self.action_preferences)
         self.menu_Bookmark.addAction(self.action_Add_Bookmark)
         self.menu_Bookmark.addAction(self.action_Remove_Bookmark)
         self.menu_Bookmark.addAction(self.actionBookmark_Manager)

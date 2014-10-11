@@ -4,9 +4,21 @@ from PySide.QtGui import QDialog
 from ui_preference_dialog import *
 
 
-class PreferenceDialog(QDialog, Ui_PreferenceDialog):
+class PreferenceDialog(QDialog):
 
     def __init__(self, parent=None):
         super(PreferenceDialog, self).__init__(parent)
-        self.setupUi(self)
+
+        self.preference_dialog = Ui_PreferenceDialog()
+
+        self.preference_dialog.setupUi(self)
+
+
+
+
+    # def _select_path_action(self):
+
+
+
+
 

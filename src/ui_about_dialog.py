@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/about_dialog.ui'
 #
-# Created: Wed Oct  8 22:38:34 2014
+# Created: Sat Oct 11 08:09:26 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
