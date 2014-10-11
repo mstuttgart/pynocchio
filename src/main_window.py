@@ -183,7 +183,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             page_height = str(self.model.get_current_page().height())
             page_title = self.model.get_current_page_title()
 
-            label = n_page + ' ' + page_title + ' ' + page_width + ' x ' + page_height
+            label = 'Page: ' + n_page + '\t\t\t\t\tTitle: ' + page_title + '\t\t\t\t\tWidth: ' \
+                    + page_width + '\t\t\t\t\tHeight: ' + page_height
 
             self.statusbar.showMessage(label)
 
