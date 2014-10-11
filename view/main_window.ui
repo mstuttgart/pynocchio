@@ -206,7 +206,6 @@
     <addaction name="action_show_toolbar"/>
     <addaction name="action_show_statusbar"/>
     <addaction name="separator"/>
-    <addaction name="action_preferences"/>
    </widget>
    <widget class="QMenu" name="menu_Bookmark">
     <property name="title">
@@ -549,6 +548,9 @@
    </property>
    <property name="text">
     <string>&amp;Add bookmark</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
   <action name="action_Remove_Bookmark">
