@@ -20,24 +20,31 @@ class Viewer(QScrollArea):
     def next_page(self):
         self.update_view(self.model.next_page())
 
+
     def previous_page(self):
         self.update_view(self.model.previous_page())
+
 
     def first_page(self):
         self.update_view(self.model.first_page())
 
+
     def last_page(self):
         self.update_view(self.model.last_page())
+
 
     def rotate_left(self):
         self.update_view(self.model.rotate_left())
 
+
     def rotate_right(self):
         self.update_view(self.model.rotate_right())
 
-    def update_view(self, pixmap):
-        self.label.setPixmap(pixmap)
+
+    def update_view(self, pix_map):
+        self.label.setPixmap(pix_map)
         self.verticalScrollBar().setValue(0)
+
 
     def change_cursor(self):
 
@@ -45,6 +52,7 @@ class Viewer(QScrollArea):
             self.setCursor(Qt.ClosedHandCursor)
         else:
             self.setCursor(Qt.OpenHandCursor)
+
 
     def keyPressEvent(self, *args, **kwargs):
 
@@ -55,19 +63,15 @@ class Viewer(QScrollArea):
 
             if modifiers == Qt.ControlModifier:
                 self.last_page()
-                print 'passei por aqui last'
             else:
                 self.next_page()
-                print 'passei por aqui right'
 
         elif key == Qt.Key_Left:
 
             if modifiers == Qt.ControlModifier:
                 self.first_page()
-                print 'passei por aqui first'
             else:
                 self.previous_page()
-                print 'passei por aqui left'
 
         elif key == Qt.Key_R:
 
@@ -80,7 +84,6 @@ class Viewer(QScrollArea):
         else:
             super(Viewer, self).keyPressEvent(*args, **kwargs)
 
-        print 'keypress'
 
     def mousePressEvent(self, *args, **kwargs):
 
@@ -92,12 +95,16 @@ class Viewer(QScrollArea):
 
         self.change_cursor()
 
-        print 'mouse move'
+        super(Viewer, self).mousePressEvent(*args, **kwargs)
+
 
     def mouseReleaseEvent(self, *args, **kwargs):
 
         self.dragMouse = False
         self.change_cursor()
+
+        super(Viewer, self).mouseReleaseEvent(*args, **kwargs)
+
 
     def mouseMoveEvent(self, *args, **kwargs):
 
@@ -119,7 +126,8 @@ class Viewer(QScrollArea):
             self.dragPosition['x'] = event.x()
             self.dragPosition['y'] = event.y()
 
-            print 'mouse move event'
+        super(Viewer, self).mouseMoveEvent(*args, **kwargs)
+
 
     def resizeEvent(self, *args, **kwargs):
 
@@ -129,8 +137,6 @@ class Viewer(QScrollArea):
 
         if self.model.comic is not None:
             self.label.setPixmap(self.model.get_current_page())
-
-        print 'resize_event'
 
         super(Viewer, self).resizeEvent(*args, **kwargs)
 
