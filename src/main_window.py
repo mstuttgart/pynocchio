@@ -74,6 +74,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self.goToDialog = GoToDialog(self.model, self.scrollAreaViewer)
 
                 self._update_status_bar()
+                self._enable_actions()
 
     def _on_action_open_folder__triggered(self):
 
@@ -90,6 +91,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self.goToDialog = GoToDialog(self.model, self.scrollAreaViewer)
 
                 self._update_status_bar()
+                self._enable_actions()
 
 
     def _on_action_preferences__triggered(self):
@@ -187,6 +189,25 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                     + page_width + '\t\t\t\t\tHeight: ' + page_height
 
             self.statusbar.showMessage(label)
+
+    def _enable_actions(self):
+
+        self.action_fullscreen.setEnabled(True)
+        self.action_original_fit.setEnabled(True)
+        self.action_best_fit.setEnabled(True)
+        self.action_horizontal_adjust.setEnabled(True)
+        self.action_vertical_adjust.setEnabled(True)
+        self.action_rotate_left.setEnabled(True)
+        self.action_rotate_right.setEnabled(True)
+
+        self.action_next_page.setEnabled(True)
+        self.action_first_page.setEnabled(True)
+        self.action_previous_page.setEnabled(True)
+        self.action_last_page.setEnabled(True)
+        self.action_go_to_page.setEnabled(True)
+
+        self.action_add_bookmark.setEnabled(True)
+        self.action_remove_bookmark.setEnabled(True)
 
 
     def keyPressEvent(self, event):

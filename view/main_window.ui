@@ -211,9 +211,9 @@
     <property name="title">
      <string>&amp;Bookmark</string>
     </property>
-    <addaction name="action_Add_Bookmark"/>
-    <addaction name="action_Remove_Bookmark"/>
-    <addaction name="actionBookmark_Manager"/>
+    <addaction name="action_add_bookmark"/>
+    <addaction name="action_remove_bookmark"/>
+    <addaction name="action_bookmark_manager"/>
    </widget>
    <addaction name="menu_file"/>
    <addaction name="menu_view"/>
@@ -318,6 +318,9 @@
    </property>
   </action>
   <action name="action_next_page">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/go-next.svg</normaloff>:/image/go-next.svg</iconset>
@@ -339,6 +342,9 @@
    </property>
   </action>
   <action name="action_previous_page">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/go-previous.svg</normaloff>:/image/go-previous.svg</iconset>
@@ -351,6 +357,9 @@
    </property>
   </action>
   <action name="action_first_page">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/go-first.svg</normaloff>:/image/go-first.svg</iconset>
@@ -366,6 +375,9 @@
    </property>
   </action>
   <action name="action_last_page">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/go-last.svg</normaloff>:/image/go-last.svg</iconset>
@@ -381,6 +393,9 @@
    <property name="checkable">
     <bool>false</bool>
    </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/object-rotate-left.svg</normaloff>:/image/object-rotate-left.svg</iconset>
@@ -393,6 +408,9 @@
    </property>
   </action>
   <action name="action_rotate_right">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/object-rotate-right.svg</normaloff>:/image/object-rotate-right.svg</iconset>
@@ -419,6 +437,9 @@
    <property name="checked">
     <bool>false</bool>
    </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/zoom-fit-height.svg</normaloff>:/image/zoom-fit-height.svg</iconset>
@@ -440,6 +461,9 @@
    <property name="checked">
     <bool>true</bool>
    </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/zoom-fit-width.svg</normaloff>:/image/zoom-fit-width.svg</iconset>
@@ -453,6 +477,9 @@
   </action>
   <action name="action_fullscreen">
    <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
     <bool>false</bool>
    </property>
    <property name="icon">
@@ -470,6 +497,9 @@
    </property>
   </action>
   <action name="action_go_to_page">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>&amp;Go to page...</string>
    </property>
@@ -482,6 +512,9 @@
     <bool>true</bool>
    </property>
    <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
     <bool>false</bool>
    </property>
    <property name="icon">
@@ -509,6 +542,9 @@
     <bool>true</bool>
    </property>
    <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
     <bool>false</bool>
    </property>
    <property name="icon">
@@ -541,7 +577,10 @@
     <string>S&amp;how Statusbar</string>
    </property>
   </action>
-  <action name="action_Add_Bookmark">
+  <action name="action_add_bookmark">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/bookmark-new.svg</normaloff>:/image/bookmark-new.svg</iconset>
@@ -553,7 +592,10 @@
     <bool>true</bool>
    </property>
   </action>
-  <action name="action_Remove_Bookmark">
+  <action name="action_remove_bookmark">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/edit-delete.svg</normaloff>:/image/edit-delete.svg</iconset>
@@ -562,7 +604,7 @@
     <string>&amp;Remove bookmark</string>
    </property>
   </action>
-  <action name="actionBookmark_Manager">
+  <action name="action_bookmark_manager">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/image/document-properties.svg</normaloff>:/image/document-properties.svg</iconset>
