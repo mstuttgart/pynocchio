@@ -77,6 +77,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self._update_status_bar()
                 self._enable_actions()
 
+            self.setCursor(Qt.ArrowCursor)
+
     def _on_action_open_folder__triggered(self):
 
         path = QtGui.QFileDialog.getExistingDirectory(
@@ -187,7 +189,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             page_title = self.model.get_current_page_title()
 
             label = 'Page: ' + n_page + '\t\t\t\t\tTitle: ' + page_title + '\t\t\t\t\tWidth: ' \
-                    + page_width + '\t\t\t\t\tHeight: ' + page_height
+                    + page_width + ' px\t\t\t\t\tHeight: ' + page_height + ' px'
 
             self.statusbar.showMessage(label)
 
