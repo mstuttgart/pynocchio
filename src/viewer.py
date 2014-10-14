@@ -42,8 +42,10 @@ class Viewer(QScrollArea):
 
 
     def update_view(self, pix_map):
-        self.label.setPixmap(pix_map)
-        self.verticalScrollBar().setValue(0)
+
+        if pix_map is not None:
+            self.label.setPixmap(pix_map)
+            self.verticalScrollBar().setValue(0)
 
 
     def change_cursor(self):
@@ -58,6 +60,9 @@ class Viewer(QScrollArea):
 
         key = args[0].key()
         modifiers = args[0].modifiers()
+
+        if self.model.comic is None:
+            return None
 
         if key == Qt.Key_Right:
 

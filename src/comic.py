@@ -69,11 +69,19 @@ class Comic(object):
 
 
     def get_current_page(self):
-        return self.page_data.data[self.current_page_index]
+
+        if self.page_data is not None:
+            return self.page_data.data[self.current_page_index]
+
+        return None
 
 
     def get_current_page_title(self):
-        return self.page_data.title[self.current_page_index]
+
+        if self.page_data is not None:
+            return self.page_data.title[self.current_page_index]
+
+        return None
 
 
     def go_next_page(self):

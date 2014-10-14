@@ -66,6 +66,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         if fname:
 
+            self.setCursor(Qt.WaitCursor)
             pix_map = self.model.load_comic(fname)
 
             if pix_map is not None:
@@ -178,7 +179,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
     def _update_status_bar(self):
 
-        if self.statusbar.isVisible():
+        if self.statusbar.isVisible() and self.model.comic is not None:
 
             n_page = str(self.model.get_current_page_index() + 1)
             page_width = str(self.model.get_current_page().width())

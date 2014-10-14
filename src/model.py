@@ -38,19 +38,30 @@ class Model(QtCore.QObject):
 
 
     def next_page(self):
-        self.comic.go_next_page()
+
+        if self.comic is not None:
+            self.comic.go_next_page()
+
         return self.get_current_page()
 
     def previous_page(self):
-        self.comic.go_previous_page()
+
+        if self.comic is not None:
+            self.comic.go_previous_page()
         return self.get_current_page()
 
     def first_page(self):
-        self.comic.go_first_page()
+
+        if self.comic is not None:
+            self.comic.go_first_page()
+
         return self.get_current_page()
 
     def last_page(self):
-        self.comic.go_last_page()
+
+        if self.comic is not None:
+            self.comic.go_last_page()
+
         return self.get_current_page()
 
     def rotate_left(self):
@@ -62,24 +73,45 @@ class Model(QtCore.QObject):
         return self.get_current_page()
 
     def get_comic_name(self):
-        return self.comic.name
+
+        if self.comic is not None:
+            return self.comic.name
+
+        return None
 
     def get_current_page(self):
         return self._load_pixmap_from_data()
 
     def get_current_page_title(self):
-        return self.comic.get_current_page_title()
+
+        if self.comic is not None:
+            return self.comic.get_current_page_title()
+
+        return None
 
     def set_current_page_index(self, idx):
-        self.comic.set_current_page_index(idx)
+
+        if self.comic is not None:
+            self.comic.set_current_page_index(idx)
+
+        # return None
 
     def get_current_page_index(self):
-        return self.comic.current_page_index
+
+        if self.comic is not None:
+            return self.comic.current_page_index
+
+        return -1
 
     def _load_pixmap_from_data(self):
 
-        page = self.comic.get_current_page()
-        self.original_pixmap.loadFromData(page)
+        page = None
+
+        if self.comic is not None:
+            page = self.comic.get_current_page()
+
+        if page is not None:
+            self.original_pixmap.loadFromData(page)
 
         return self.update_content()
 
@@ -103,16 +135,20 @@ class Model(QtCore.QObject):
 
     def _resize_page(self, pix_map):
 
-        if self.adjustType == '&Vertical adjust':
-            pix_map = pix_map.scaledToHeight(self.screenSize.height(), QtCore.Qt.SmoothTransformation)
+        if self.comic is not None:
 
-        elif self.adjustType == '&Horizontal adjust':
-            pix_map = pix_map.scaledToWidth(self.screenSize.width() * 0.8, QtCore.Qt.SmoothTransformation)
+            if self.adjustType == '&Vertical adjust':
+                pix_map = pix_map.scaledToHeight(self.screenSize.height(), QtCore.Qt.SmoothTransformation)
 
-        elif self.adjustType == '&Whole page':
-            pix_map = pix_map.scaledToWidth(self.screenSize.width(), QtCore.Qt.SmoothTransformation)
+            elif self.adjustType == '&Horizontal adjust':
+                pix_map = pix_map.scaledToWidth(self.screenSize.width() * 0.8, QtCore.Qt.SmoothTransformation)
 
-        return pix_map
+            elif self.adjustType == '&Whole page':
+                pix_map = pix_map.scaledToWidth(self.screenSize.width(), QtCore.Qt.SmoothTransformation)
+
+            return pix_map
+
+        return None
 
     def set_size(self, new_size):
         self.screenSize = new_size
