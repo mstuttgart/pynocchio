@@ -9,4 +9,3 @@
 #TODO: Adicionar a informação dos tipos de arquivos suportados na aboutDialog
 #TODO: Ajuster scroll da classe viewer para quando usar previusPage() o scroll voltar a posição onde estava antes de mudar de página (maior praticidade na leitura)
 #TODO: Resource file para os outros dialogs
-#TODO: Mostrar barra de progresso durante carregamento das comics.
