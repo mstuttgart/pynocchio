@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/about_dialog.ui'
 #
-# Created: Mon Oct 13 09:29:24 2014
+# Created: Tue Oct 14 23:27:08 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,23 +17,23 @@ class Ui_AboutDialog(object):
         icon.addPixmap(QtGui.QPixmap("../image/forest.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutDialog.setWindowIcon(icon)
         AboutDialog.setAutoFillBackground(False)
+        AboutDialog.setModal(True)
         self.horizontalLayout = QtGui.QHBoxLayout(AboutDialog)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.widget = QtGui.QWidget(AboutDialog)
-        self.widget.setObjectName("widget")
-        self.verticalLayout = QtGui.QVBoxLayout(self.widget)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.groupBox = QtGui.QGroupBox(AboutDialog)
+        self.groupBox.setObjectName("groupBox")
+        self.verticalLayout = QtGui.QVBoxLayout(self.groupBox)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.textBrowser = QtGui.QTextBrowser(self.widget)
+        self.textBrowser = QtGui.QTextBrowser(self.groupBox)
         self.textBrowser.setObjectName("textBrowser")
         self.verticalLayout.addWidget(self.textBrowser)
-        self.horizontalLayout.addWidget(self.widget)
+        self.horizontalLayout.addWidget(self.groupBox)
 
         self.retranslateUi(AboutDialog)
         QtCore.QMetaObject.connectSlotsByName(AboutDialog)
 
     def retranslateUi(self, AboutDialog):
-        AboutDialog.setWindowTitle(QtGui.QApplication.translate("AboutDialog", "Dialog", None, QtGui.QApplication.UnicodeUTF8))
+        AboutDialog.setWindowTitle(QtGui.QApplication.translate("AboutDialog", "About Pyellow Comic Reader", None, QtGui.QApplication.UnicodeUTF8))
         self.textBrowser.setHtml(QtGui.QApplication.translate("AboutDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

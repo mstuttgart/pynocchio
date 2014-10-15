@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Mon Oct 13 09:29:24 2014
+# Created: Tue Oct 14 23:27:08 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -89,8 +89,6 @@ class Ui_MainWindow(object):
         self.menu_Help.setObjectName("menu_Help")
         self.menu_Settings = QtGui.QMenu(self.menubar)
         self.menu_Settings.setObjectName("menu_Settings")
-        self.menu_Bookmark = QtGui.QMenu(self.menubar)
-        self.menu_Bookmark.setObjectName("menu_Bookmark")
         MainWindow.setMenuBar(self.menubar)
         self.toolbar = QtGui.QToolBar(MainWindow)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Maximum)
@@ -276,13 +274,9 @@ class Ui_MainWindow(object):
         self.menu_Settings.addAction(self.action_show_toolbar)
         self.menu_Settings.addAction(self.action_show_statusbar)
         self.menu_Settings.addSeparator()
-        self.menu_Bookmark.addAction(self.action_add_bookmark)
-        self.menu_Bookmark.addAction(self.action_remove_bookmark)
-        self.menu_Bookmark.addAction(self.action_bookmark_manager)
         self.menubar.addAction(self.menu_file.menuAction())
         self.menubar.addAction(self.menu_view.menuAction())
         self.menubar.addAction(self.menu_navegation.menuAction())
-        self.menubar.addAction(self.menu_Bookmark.menuAction())
         self.menubar.addAction(self.menu_Settings.menuAction())
         self.menubar.addAction(self.menu_Help.menuAction())
         self.toolbar.addAction(self.action_open)
@@ -314,7 +308,6 @@ class Ui_MainWindow(object):
         self.menu_navegation.setTitle(QtGui.QApplication.translate("MainWindow", "&Navegation", None, QtGui.QApplication.UnicodeUTF8))
         self.menu_Help.setTitle(QtGui.QApplication.translate("MainWindow", "&Help", None, QtGui.QApplication.UnicodeUTF8))
         self.menu_Settings.setTitle(QtGui.QApplication.translate("MainWindow", "&Settings", None, QtGui.QApplication.UnicodeUTF8))
-        self.menu_Bookmark.setTitle(QtGui.QApplication.translate("MainWindow", "&Bookmark", None, QtGui.QApplication.UnicodeUTF8))
         self.toolbar.setWindowTitle(QtGui.QApplication.translate("MainWindow", "toolBar", None, QtGui.QApplication.UnicodeUTF8))
         self.action_open.setText(QtGui.QApplication.translate("MainWindow", "&Open", None, QtGui.QApplication.UnicodeUTF8))
         self.action_open.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+O", None, QtGui.QApplication.UnicodeUTF8))
