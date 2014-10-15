@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>About Pyellow Comic Reader</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -20,9 +20,12 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QWidget" name="widget" native="true">
+    <widget class="QGroupBox" name="groupBox">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QTextBrowser" name="textBrowser">

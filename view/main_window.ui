@@ -207,18 +207,9 @@
     <addaction name="action_show_statusbar"/>
     <addaction name="separator"/>
    </widget>
-   <widget class="QMenu" name="menu_Bookmark">
-    <property name="title">
-     <string>&amp;Bookmark</string>
-    </property>
-    <addaction name="action_add_bookmark"/>
-    <addaction name="action_remove_bookmark"/>
-    <addaction name="action_bookmark_manager"/>
-   </widget>
    <addaction name="menu_file"/>
    <addaction name="menu_view"/>
    <addaction name="menu_navegation"/>
-   <addaction name="menu_Bookmark"/>
    <addaction name="menu_Settings"/>
    <addaction name="menu_Help"/>
   </widget>
