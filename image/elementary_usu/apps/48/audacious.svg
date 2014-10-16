@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   id="svg1306"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docbase="/home/httpd/html/Audacious"
+   sodipodi:docname="Audacious-icon-2.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0">
+  <defs
+     id="defs1308">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 32 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="64 : 32 : 1"
+       inkscape:persp3d-origin="32 : 21.333333 : 1"
+       id="perspective12" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="-27.522231"
+     inkscape:cy="25.26903"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:document-units="px"
+     inkscape:grid-bbox="true"
+     inkscape:window-width="1198"
+     inkscape:window-height="788"
+     inkscape:window-x="0"
+     inkscape:window-y="24" />
+  <metadata
+     id="metadata1311">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Audacious icon</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>nhjm449</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:description>Font: Circulate BRK</dc:description>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="bg" />
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <g
+       id="g2393"
+       transform="matrix(0.625,0,0,0.625,4,4)">
+      <rect
+         y="0"
+         x="0"
+         height="64"
+         width="64"
+         id="rect2056"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-opacity:1" />
+      <path
+         id="path2167"
+         d="M 11.336,32 C 11.336002,34.874674 11.877334,37.562671 12.96,40.064 C 14.042666,42.565333 15.517331,44.749331 17.384,46.616 C 19.25066,48.48266 21.434658,49.957326 23.936,51.04 C 26.43732,52.122657 29.125317,52.66399 32,52.664 C 34.837311,52.66399 37.506642,52.122657 40.008,51.04 C 42.546637,49.957326 44.749302,48.48266 46.616,46.616 C 48.482631,44.749331 49.957296,42.565333 51.04,40.064 C 52.122628,37.562671 52.66396,34.874674 52.664,32 C 52.66396,29.16268 52.122628,26.493349 51.04,23.992 C 49.957296,21.453354 48.482631,19.25069 46.616,17.384 C 44.749302,15.51736 42.546637,14.042695 40.008,12.96 C 37.506642,11.877364 34.837311,11.336031 32,11.336 C 29.125317,11.336031 26.43732,11.877364 23.936,12.96 C 21.434658,14.042695 19.25066,15.51736 17.384,17.384 C 15.517331,19.25069 14.042666,21.453354 12.96,23.992 C 11.877334,26.493349 11.336002,29.16268 11.336,32"
+         style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;text-anchor:start;fill:#d9d9d9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Circulate BRK" />
+      <path
+         id="text1314"
+         d="M 30.04,34.8 C 30.039983,35.39734 30.226649,35.826673 30.6,36.088 C 30.973315,36.312006 31.421315,36.424006 31.944,36.424 L 32.56,36.424 C 32.67198,36.424006 32.72798,36.386672 32.728,36.312 C 32.802647,36.237339 32.933313,36.106673 33.12,35.92 C 33.34398,35.73334 33.493313,35.602673 33.568,35.528 C 33.642646,35.416007 33.679979,35.266674 33.68,35.08 C 33.679979,34.893341 33.679979,34.744007 33.68,34.632 L 33.68,34.072 C 33.642646,33.960008 33.549313,33.829342 33.4,33.68 C 33.28798,33.493342 33.157313,33.400009 33.008,33.4 L 30.936,33.4 C 30.637316,33.400009 30.413316,33.586675 30.264,33.96 C 30.11465,34.296008 30.039983,34.576008 30.04,34.8"
+         style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;text-anchor:start;fill:#d9d9d9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Circulate BRK" />
+      <text
+         id="text2385"
+         y="41.887695"
+         x="20.635742"
+         style="font-size:36px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana Bold"
+         xml:space="preserve"><tspan
+           y="41.887695"
+           x="20.635742"
+           id="tspan2387"
+           sodipodi:role="line">a</tspan></text>
+    </g>
+  </g>
+</svg>

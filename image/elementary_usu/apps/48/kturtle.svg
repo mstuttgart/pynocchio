@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   x="0.0000000"
+   y="0.0000000"
+   width="48"
+   height="48"
+   viewBox="0 0 256 256"
+   id="svg1432"
+   xml:space="preserve"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="kturtle.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"><metadata
+   id="metadata10"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+   inkscape:window-height="480"
+   inkscape:window-width="640"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   guidetolerance="10.0"
+   gridtolerance="10.0"
+   objecttolerance="10.0"
+   borderopacity="1.0"
+   bordercolor="#666666"
+   pagecolor="#ffffff"
+   id="base"
+   showgrid="false" /><defs
+   id="defs1536"><inkscape:perspective
+     sodipodi:type="inkscape:persp3d"
+     inkscape:vp_x="0 : 128 : 1"
+     inkscape:vp_y="0 : 1000 : 0"
+     inkscape:vp_z="256 : 128 : 1"
+     inkscape:persp3d-origin="128 : 85.333333 : 1"
+     id="perspective12" /><linearGradient
+     id="linearGradient4785"><stop
+       style="stop-color:#067a07;stop-opacity:1.0000000"
+       offset="0.0000000"
+       id="stop4787" /><stop
+       style="stop-color:#a9eea8;stop-opacity:0.75634515"
+       offset="1.0000000"
+       id="stop4789" /></linearGradient><linearGradient
+     x1="-202.46512"
+     y1="52.046551"
+     x2="-76.252312"
+     y2="248.37537"
+     id="linearGradient4791"
+     xlink:href="#linearGradient4785"
+     gradientUnits="userSpaceOnUse"
+     gradientTransform="matrix(0.8874729,0,0,0.8874729,270.82992,26.453693)" /></defs>
+	
+<path
+   d="M 110.81678,24.900651 L 110.81678,42.083875 L 93.633558,42.083875 L 93.633558,59.2671 L 93.633558,76.450325 L 110.81678,76.450325 L 110.81678,93.633549 L 93.633558,93.633549 L 93.633558,110.81677 L 76.450334,110.81677 L 76.450334,128 L 59.267109,128 L 59.267109,145.18323 L 59.267109,162.36644 L 59.267109,179.54968 L 76.450334,179.54968 L 76.450334,196.73289 L 93.633558,196.73289 L 93.633558,213.91612 L 110.81678,213.91612 L 127.99999,213.91612 L 145.18323,213.91612 L 162.36643,213.91612 L 162.36643,196.73289 L 179.54969,196.73289 L 179.54969,179.54968 L 196.73291,179.54968 L 196.73291,162.36644 L 196.73291,145.18323 L 196.73291,128 L 179.54969,128 L 179.54969,110.81677 L 162.36643,110.81677 L 162.36643,93.633549 L 145.18323,93.633549 L 145.18323,76.450325 L 162.36643,76.450325 L 162.36643,59.2671 L 162.36643,42.083875 L 145.18323,42.083875 L 145.18323,24.900651 L 127.99999,24.900651 L 110.81678,24.900651 z M 179.54969,110.81677 L 196.73291,110.81677 L 196.73291,93.633549 L 213.91611,93.633549 L 213.91611,76.450325 L 196.73291,76.450325 L 179.54969,76.450325 L 179.54969,93.633549 L 179.54969,110.81677 z M 179.54969,196.73289 L 179.54969,213.91612 L 179.54969,231.09935 L 196.73291,231.09935 L 213.91611,231.09935 L 213.91611,213.91612 L 196.73291,213.91612 L 196.73291,196.73289 L 179.54969,196.73289 z M 76.450334,196.73289 L 59.267109,196.73289 L 59.267109,213.91612 L 42.083885,213.91612 L 42.083885,231.09935 L 59.267109,231.09935 L 76.450334,231.09935 L 76.450334,213.91612 L 76.450334,196.73289 z M 76.450334,110.81677 L 76.450334,93.633549 L 76.450334,76.450325 L 59.267109,76.450325 L 42.083885,76.450325 L 42.083885,93.633549 L 59.267109,93.633549 L 59.267109,110.81677 L 76.450334,110.81677 z"
+   style="opacity:1;fill:url(#linearGradient4791);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:7.13463211;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;overflow:visible"
+   id="path4057" /></svg>

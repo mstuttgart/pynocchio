@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="48" height="48" id="svg2211">
+  <defs id="defs2214">
+    <linearGradient id="linearGradient4281">
+      <stop style="stop-color: rgb(255, 255, 255); stop-opacity: 1;" offset="0" id="stop4283"/>
+      <stop style="stop-color: rgb(159, 39, 57); stop-opacity: 1;" offset="1" id="stop4285"/>
+    </linearGradient>
+    <linearGradient id="linearGradient4244">
+      <stop style="stop-color: rgb(255, 255, 255); stop-opacity: 1;" offset="0" id="stop4246"/>
+      <stop style="stop-color: rgb(175, 167, 198); stop-opacity: 1;" offset="0.17570542" id="stop4267"/>
+      <stop style="stop-color: rgb(75, 79, 142); stop-opacity: 1;" offset="0.60860282" id="stop4261"/>
+      <stop style="stop-color: rgb(37, 50, 117); stop-opacity: 1;" offset="0.85355651" id="stop4270"/>
+      <stop style="stop-color: rgb(0, 21, 93); stop-opacity: 1;" offset="1" id="stop4248"/>
+    </linearGradient>
+    <linearGradient id="linearGradient3216">
+      <stop style="stop-color: rgb(255, 255, 255); stop-opacity: 1;" offset="0" id="stop3224"/>
+      <stop style="stop-color: rgb(211, 191, 234); stop-opacity: 1;" offset="0.00784519" id="stop3237"/>
+      <stop style="stop-color: rgb(189, 159, 224); stop-opacity: 1;" offset="0.02284679" id="stop3239"/>
+      <stop style="stop-color: rgb(178, 143, 219); stop-opacity: 1;" offset="0.0325824" id="stop3241"/>
+      <stop style="stop-color: rgb(173, 135, 216); stop-opacity: 1;" offset="0.07117078" id="stop3243"/>
+      <stop style="stop-color: rgb(170, 131, 215); stop-opacity: 1;" offset="0.2421875" id="stop3245"/>
+      <stop style="stop-color: rgb(169, 129, 214); stop-opacity: 1;" offset="0.24609375" id="stop3247"/>
+      <stop style="stop-color: rgb(168, 128, 214); stop-opacity: 1;" offset="0.24804688" id="stop3249"/>
+      <stop style="stop-color: rgb(168, 127, 214); stop-opacity: 1;" offset="0.24902344" id="stop3251"/>
+      <stop style="stop-color: rgb(168, 127, 214); stop-opacity: 1;" offset="0.24951172" id="stop3253"/>
+      <stop style="stop-color: rgb(168, 127, 214); stop-opacity: 1;" offset="0.24987793" id="stop3255"/>
+      <stop style="stop-color: rgb(168, 127, 214); stop-opacity: 1;" offset="0.24987793" id="stop3257"/>
+      <stop style="stop-color: rgb(168, 127, 214); stop-opacity: 1;" offset="0.24993896" id="stop3259"/>
+      <stop style="stop-color: rgb(168, 127, 214); stop-opacity: 1;" offset="0.24996948" id="stop3261"/>
+      <stop style="stop-color: rgb(168, 127, 214); stop-opacity: 1;" offset="0.24999578" id="stop3263"/>
+      <stop style="stop-color: rgb(168, 127, 214); stop-opacity: 1;" offset="0.25" id="stop3228"/>
+      <stop style="stop-color: rgb(125, 63, 193); stop-opacity: 1;" offset="0.375" id="stop3230"/>
+      <stop style="stop-color: rgb(103, 31, 183); stop-opacity: 1;" offset="0.4375" id="stop3232"/>
+      <stop style="stop-color: rgb(82, 0, 173); stop-opacity: 1;" offset="0.5" id="stop3226"/>
+      <stop style="stop-color: rgb(63, 0, 231); stop-opacity: 1;" offset="1" id="stop3220"/>
+    </linearGradient>
+    <radialGradient cx="10.367113" cy="12.515939" r="20.571428" fx="8.0648556" fy="11.953024" id="radialGradient4250" xlink:href="#linearGradient4244" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.49376, 1.39048, -1.00586, 1.08057, 5.61124, -17.4)"/>
+    <radialGradient cx="9.3303061" cy="13.350715" r="20.571428" fx="7.0280466" fy="12.7878" id="radialGradient4279" xlink:href="#linearGradient4281" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.9321, 1.82407, -1.01344, 1.07346, 2.36022, -20.6205)"/>
+  </defs>
+  <g style="display: inline;" id="layer1"/>
+  <g style="display: inline;" id="layer3">
+    <path d="M 44.571428 23.809525 A 20.571428 20 0 1 1  3.4285717,23.809525 A 20.571428 20 0 1 1  44.571428 23.809525 z" transform="translate(-0.888889, -0.0634924)" style="fill: url(#radialGradient4279) rgb(0, 0, 0); fill-opacity: 1; display: inline;" id="path4277"/>
+  </g>
+  <g style="display: inline;" id="layer2">
+    <path d="M 44.571428 23.809525 A 20.571428 20 0 1 1  3.4285717,23.809525 A 20.571428 20 0 1 1  44.571428 23.809525 z" transform="translate(1.01587, 0.253968)" style="fill: url(#radialGradient4250) rgb(0, 0, 0); fill-opacity: 1;" id="path4242"/>
+  </g>
+  <g style="display: inline;" id="layer4">
+    <path d="M 4.8726345,19.620132 L 46.636272,19.620132" style="fill: rgb(172, 189, 225); fill-opacity: 1; fill-rule: evenodd; stroke: rgb(172, 189, 225); stroke-width: 0.718302px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1;" id="path6086"/>
+    <path d="M 4.4803972,22.657456 L 46.634618,22.657456" style="fill: rgb(172, 189, 225); fill-opacity: 1; fill-rule: evenodd; stroke: rgb(172, 189, 225); stroke-width: 0.721653px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; display: inline;" id="path6109"/>
+    <path d="M 4.4938244,25.669163 L 46.648045,25.669163" style="fill: rgb(172, 189, 225); fill-opacity: 1; fill-rule: evenodd; stroke: rgb(172, 189, 225); stroke-width: 0.721653px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; display: inline;" id="path6111"/>
+    <path d="M 4.8983214,28.672363 L 46.670786,28.672363" style="fill: rgb(172, 189, 225); fill-opacity: 1; fill-rule: evenodd; stroke: rgb(172, 189, 225); stroke-width: 0.718378px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; display: inline;" id="path6113"/>
+  </g>
+</svg>

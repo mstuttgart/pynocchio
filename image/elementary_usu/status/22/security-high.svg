@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="22"
+   height="22"
+   id="svg3773"
+   version="1.1"
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="security-high.svg">
+  <defs
+     id="defs3775" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.580761"
+     inkscape:cx="2.2068724"
+     inkscape:cy="14.075447"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px" />
+  <metadata
+     id="metadata3778">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(0,6)">
+    <path
+       inkscape:connector-curvature="0"
+       d="m 4.5714285,-2.7142855 12.8571425,0 0,7.7142854 C 17.428571,8.8108315 11,12.714286 11,12.714286 c 0,0 -6.4285715,-3.7919835 -6.4285715,-7.7142861 l 0,-7.7142854 z"
+       id="rect3259-2-8-6"
+       sodipodi:nodetypes="cccccc"
+       style="color:#bebebe;fill:none;stroke:#3a3935;stroke-width:2.57142854;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible" />
+    <path
+       inkscape:connector-curvature="0"
+       d="m 6.2861066,-1.2857144 0,6.2857143 c 0,0.5615972 1.1866957,2.5792801 2.8973215,4.1250001 0.9040269,0.8168758 1.1571529,0.912246 1.8169639,1.375 0.659812,-0.462754 0.912938,-0.5581242 1.816965,-1.375 1.710625,-1.54572 2.897321,-3.5634029 2.897321,-4.1250001 l 0,-6.2857143 -9.4285714,0 z"
+       id="rect4034-7-1-6"
+       sodipodi:nodetypes="ccscsccc"
+       style="color:#bebebe;fill:#3a3935;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible" />
+  </g>
+</svg>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:modified="true"
+   inkscape:export-ydpi="90"
+   inkscape:export-xdpi="90"
+   inkscape:export-filename="/home/andreas/project/inkscape/22x22/actions/align-horisontal-center.png"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   sodipodi:docname="align-horizontal-center.svg"
+   version="1.0"
+   inkscape:version="0.48.1 r9760"
+   sodipodi:version="0.32"
+   id="svg10958"
+   height="22"
+   width="22">
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.197802"
+     inkscape:cx="2.0240429"
+     inkscape:cy="14.993313"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     width="22px"
+     height="22px"
+     inkscape:window-width="1366"
+     inkscape:window-height="688"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       id="grid3021"
+       type="xygrid" />
+  </sodipodi:namedview>
+  <defs
+     id="defs10960">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2968">
+      <stop
+         style="stop-color:#ce5c00;stop-opacity:1"
+         offset="0"
+         id="stop2970" />
+      <stop
+         style="stop-color:#ce5c00;stop-opacity:0"
+         offset="1"
+         id="stop2972" />
+    </linearGradient>
+    <linearGradient
+       y2="489.35938"
+       x2="186.93732"
+       y1="489.35938"
+       x1="187.60938"
+       gradientTransform="translate(-395.9999,-981)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4708"
+       xlink:href="#linearGradient2968"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2974">
+      <stop
+         style="stop-color:#fcaf3e;stop-opacity:1"
+         offset="0"
+         id="stop2976" />
+      <stop
+         style="stop-color:#fcaf3e;stop-opacity:0"
+         offset="1"
+         id="stop2978" />
+    </linearGradient>
+    <linearGradient
+       y2="489.54688"
+       x2="187.1716"
+       y1="489.54688"
+       x1="187.81554"
+       gradientTransform="translate(-395.9999,-981)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4706"
+       xlink:href="#linearGradient2974"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2986">
+      <stop
+         style="stop-color:#ce5c00;stop-opacity:1"
+         offset="0"
+         id="stop2988" />
+      <stop
+         style="stop-color:#ce5c00;stop-opacity:0"
+         offset="1"
+         id="stop2990" />
+    </linearGradient>
+    <linearGradient
+       y2="489.35938"
+       x2="186.93732"
+       y1="489.35938"
+       x1="187.60938"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4704"
+       xlink:href="#linearGradient2986"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2980">
+      <stop
+         style="stop-color:#fcaf3e;stop-opacity:1"
+         offset="0"
+         id="stop2982" />
+      <stop
+         style="stop-color:#fcaf3e;stop-opacity:0"
+         offset="1"
+         id="stop2984" />
+    </linearGradient>
+    <linearGradient
+       y2="489.54688"
+       x2="187.1716"
+       y1="489.54688"
+       x1="187.81554"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4702"
+       xlink:href="#linearGradient2980"
+       inkscape:collect="always" />
+  </defs>
+  <metadata
+     id="metadata10963">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1"
+     id="layer1">
+    <g
+       id="g3328"
+       transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,1.000000)">
+      <g
+         transform="matrix(1.000000,0.000000,0.000000,1.000000,3.000000,0.000000)"
+         id="g3276">
+        <rect
+           style="stroke-linejoin:round;stroke-opacity:1;fill-opacity:1;stroke-dashoffset:0;stroke:#888a85;stroke-linecap:butt;stroke-miterlimit:3;stroke-dasharray:none;stroke-width:1.0;display:inline;fill:#d3d7cf"
+           id="rect3851"
+           width="7.0"
+           height="7.0"
+           x="-11.5"
+           y="-9.5"
+           transform="matrix(-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000)"
+           inkscape:export-filename="/home/lapo/Desktop/align-distribute.tar.gz_FILES/align-stuff.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <rect
+           style="stroke-linejoin:miter;stroke-opacity:1;stroke-dashoffset:0;stroke:#ffffff;stroke-linecap:butt;stroke-miterlimit:3;stroke-dasharray:none;stroke-width:1.0;display:inline;fill:none"
+           id="rect3859"
+           width="5.0"
+           height="5.0"
+           x="-10.5"
+           y="-8.5"
+           transform="matrix(-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000)"
+           rx="0"
+           ry="0"
+           inkscape:export-filename="/home/lapo/Desktop/align-distribute.tar.gz_FILES/align-stuff.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+      </g>
+      <g
+         transform="matrix(1.000000,0.000000,0.000000,1.000000,-2.000000,9.000000)"
+         id="g3276-6">
+        <rect
+           style="stroke-linejoin:round;stroke-opacity:1;fill-opacity:1;stroke-dashoffset:0;stroke:#888a85;stroke-linecap:butt;stroke-miterlimit:3;stroke-dasharray:none;stroke-width:1.0;display:inline;fill:#d3d7cf"
+           id="rect3851-1"
+           width="7.0"
+           height="7.0"
+           x="-11.5"
+           y="-9.5"
+           transform="matrix(-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000)"
+           inkscape:export-filename="/home/lapo/Desktop/align-distribute.tar.gz_FILES/align-stuff.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <rect
+           style="stroke-linejoin:miter;stroke-opacity:1;stroke-dashoffset:0;stroke:#ffffff;stroke-linecap:butt;stroke-miterlimit:3;stroke-dasharray:none;stroke-width:1.0;display:inline;fill:none"
+           id="rect3859-3"
+           width="5.0"
+           height="5.0"
+           x="-10.5"
+           y="-8.5"
+           transform="matrix(-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000)"
+           rx="0"
+           ry="0"
+           inkscape:export-filename="/home/lapo/Desktop/align-distribute.tar.gz_FILES/align-stuff.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+      </g>
+      <g
+         transform="matrix(1.000000,0.000000,0.000000,1.000000,8.000000,9.000000)"
+         id="g3276-6-2">
+        <rect
+           style="stroke-linejoin:round;stroke-opacity:1;fill-opacity:1;stroke-dashoffset:0;stroke:#888a85;stroke-linecap:butt;stroke-miterlimit:3;stroke-dasharray:none;stroke-width:1.0;display:inline;fill:#d3d7cf"
+           id="rect3851-1-1"
+           width="7.0"
+           height="7.0"
+           x="-11.5"
+           y="-9.5"
+           transform="matrix(-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000)"
+           inkscape:export-filename="/home/lapo/Desktop/align-distribute.tar.gz_FILES/align-stuff.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <rect
+           style="stroke-linejoin:miter;stroke-opacity:1;stroke-dashoffset:0;stroke:#ffffff;stroke-linecap:butt;stroke-miterlimit:3;stroke-dasharray:none;stroke-width:1.0;display:inline;fill:none"
+           id="rect3859-3-5"
+           width="5.0"
+           height="5.0"
+           x="-10.5"
+           y="-8.5"
+           transform="matrix(-1.000000,0.000000,0.000000,-1.000000,0.000000,0.000000)"
+           rx="0"
+           ry="0"
+           inkscape:export-filename="/home/lapo/Desktop/align-distribute.tar.gz_FILES/align-stuff.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+      </g>
+    </g>
+  </g>
+</svg>
