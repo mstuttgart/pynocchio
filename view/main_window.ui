@@ -22,7 +22,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../image/address-book-new.svg</normaloff>../image/address-book-new.svg</iconset>
+    <normaloff>../image/desenho.svg</normaloff>../image/desenho.svg</iconset>
   </property>
   <property name="accessibleName">
    <string>Pyellow</string>
@@ -74,12 +74,12 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="Viewer" name="scrollAreaViewer">
+       <widget class="Viewer" name="scroll_area_viewer">
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(0, 0, 0);</string>
+         <string notr="true">background-color: rgb(5, 5, 5);</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -99,7 +99,7 @@
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
+        <widget class="QWidget" name="scroll_area_widget_contents">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -124,7 +124,7 @@
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap>../image/address-book-new.svg</pixmap>
+             <pixmap>../image/desenho_1.png</pixmap>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>

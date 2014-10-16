@@ -21,8 +21,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self.model = Model(self)
 
-        self.scrollAreaViewer.model = self.model
-        self.scrollAreaViewer.label = self.label
+        self.scroll_area_viewer.model = self.model
+        self.scroll_area_viewer.label = self.label
 
         self.actionGroupView = QtGui.QActionGroup(self)
 
@@ -70,9 +70,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             pix_map = self.model.load_comic(fname)
 
             if pix_map is not None:
-                self.scrollAreaViewer.label.setPixmap(pix_map)
+                self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
-                self.goToDialog = GoToDialog(self.model, self.scrollAreaViewer)
+                self.goToDialog = GoToDialog(self.model, self.scroll_area_viewer)
 
                 self._update_status_bar()
                 self._enable_actions()
@@ -89,9 +89,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             pix_map = self.model.load_folder(path)
 
             if pix_map is not None:
-                self.scrollAreaViewer.label.setPixmap(pix_map)
+                self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
-                self.goToDialog = GoToDialog(self.model, self.scrollAreaViewer)
+                self.goToDialog = GoToDialog(self.model, self.scroll_area_viewer)
 
                 self._update_status_bar()
                 self._enable_actions()
@@ -102,22 +102,22 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
 
     def _on_action_next_page__triggered(self):
-        self.scrollAreaViewer.next_page()
+        self.scroll_area_viewer.next_page()
         self._update_status_bar()
 
 
     def _on_action_previous_page__triggered(self):
-        self.scrollAreaViewer.previous_page()
+        self.scroll_area_viewer.previous_page()
         self._update_status_bar()
 
 
     def _on_action_first_page__triggered(self):
-        self.scrollAreaViewer.first_page()
+        self.scroll_area_viewer.first_page()
         self._update_status_bar()
 
 
     def _on_action_last_page__triggered(self):
-        self.scrollAreaViewer.last_page()
+        self.scroll_area_viewer.last_page()
         self._update_status_bar()
 
 
@@ -126,11 +126,11 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
 
     def _on_action_rotate_left__triggered(self):
-        self.scrollAreaViewer.rotate_left()
+        self.scroll_area_viewer.rotate_left()
 
 
     def _on_action_rotate_right__triggered(self):
-        self.scrollAreaViewer.rotate_right()
+        self.scroll_area_viewer.rotate_right()
 
 
     def _on_action_fullscreen__triggered(self):
@@ -151,7 +151,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _on_action_group_view_adjust(self):
         checked_action = self.actionGroupView.checkedAction()
         self.model.adjustType = checked_action.text()
-        self.scrollAreaViewer.label.setPixmap(self.model.get_current_page())
+        self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
 
 
     def _on_action_show_toolbar__triggered(self):

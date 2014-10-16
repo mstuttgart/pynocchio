@@ -1,6 +1,7 @@
 <RCC>
   <qresource>
     <file>../image/address-book-new.svg</file>
+    <file>../image/desenho_1.png</file>
     <file>../image/bookmark-new.svg</file>
     <file>../image/document-open.svg</file>
     <file>../image/document-properties.svg</file>
