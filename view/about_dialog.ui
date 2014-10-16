@@ -14,8 +14,8 @@
    <string>About Pyellow Comic Reader</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../image/forest.svg</normaloff>../image/forest.svg</iconset>
+   <iconset resource="../resource/main_window.qrc">
+    <normaloff>:/image/desenho_1.png</normaloff>:/image/desenho_1.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -39,12 +39,12 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#302f2d;&quot;&gt;General Information&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pyellow Comic Reader - version beta&lt;br /&gt;by Michell Stuttgart Faria&lt;/p&gt;
 &lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:x-large; color:#302f2d;&quot;&gt;Contact: &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;e-mail: michellstut@gmail.com &lt;/p&gt;
-&lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;github: https://github.com/MStuttgart&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;e-mail: &lt;a href=&quot;michellstut@gmail.com &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#7aa328;&quot;&gt;michellstut&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;github: &lt;a href=&quot;https://github.com/MStuttgart&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#7aa328;&quot;&gt;MStuttgart&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:x-large; color:#302f2d;&quot;&gt;License&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Published under &lt;a href=&quot;http://www.gnu.org/copyleft/gpl.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c19441;&quot;&gt;GPL v3&lt;/span&gt;&lt;/a&gt; license. &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Published under &lt;a href=&quot;http://www.gnu.org/copyleft/gpl.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#7aa328;&quot;&gt;GPL v3&lt;/span&gt;&lt;/a&gt; license. &lt;/p&gt;
 &lt;p style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#302f2d;&quot;&gt;Third-party software and resources&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Icons by Elementary USU icons were desinged by &lt;a href=&quot;http://kde-look.org/content/show.php/?content=148128&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c19441;&quot;&gt;Lokster&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Icons by Elementary USU icons were desinged by &lt;a href=&quot;http://kde-look.org/content/show.php/?content=148128&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#7aa328;&quot;&gt;Lokster&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>

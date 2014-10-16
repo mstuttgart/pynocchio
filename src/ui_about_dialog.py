@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/about_dialog.ui'
 #
-# Created: Thu Oct 16 13:17:44 2014
+# Created: Thu Oct 16 13:26:35 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -14,7 +14,7 @@ class Ui_AboutDialog(object):
         AboutDialog.setObjectName("AboutDialog")
         AboutDialog.resize(441, 471)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../image/forest.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/image/desenho_1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutDialog.setWindowIcon(icon)
         AboutDialog.setAutoFillBackground(False)
         AboutDialog.setModal(True)
@@ -43,11 +43,11 @@ class Ui_AboutDialog(object):
 "<p style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#302f2d;\">General Information</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Pyellow Comic Reader - version beta<br />by Michell Stuttgart Faria</p>\n"
 "<p style=\" margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:x-large; color:#302f2d;\">Contact: </span></p>\n"
-"<p style=\" margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">e-mail: michellstut@gmail.com </p>\n"
-"<p style=\" margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">github: https://github.com/MStuttgart</p>\n"
+"<p style=\" margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">e-mail: <a href=\"michellstut@gmail.com \"><span style=\" text-decoration: underline; color:#7aa328;\">michellstut</span></a></p>\n"
+"<p style=\" margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">github: <a href=\"https://github.com/MStuttgart\"><span style=\" text-decoration: underline; color:#7aa328;\">MStuttgart</span></a></p>\n"
 "<p style=\" margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:x-large; color:#302f2d;\">License</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Published under <a href=\"http://www.gnu.org/copyleft/gpl.html\"><span style=\" text-decoration: underline; color:#c19441;\">GPL v3</span></a> license. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Published under <a href=\"http://www.gnu.org/copyleft/gpl.html\"><span style=\" text-decoration: underline; color:#7aa328;\">GPL v3</span></a> license. </p>\n"
 "<p style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#302f2d;\">Third-party software and resources</span></p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Icons by Elementary USU icons were desinged by <a href=\"http://kde-look.org/content/show.php/?content=148128\"><span style=\" text-decoration: underline; color:#c19441;\">Lokster</span></a>. </p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Icons by Elementary USU icons were desinged by <a href=\"http://kde-look.org/content/show.php/?content=148128\"><span style=\" text-decoration: underline; color:#7aa328;\">Lokster</span></a>. </p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
 
 import main_window_rc
