@@ -36,7 +36,6 @@ class Model(QtCore.QObject):
 
         return None
 
-
     def next_page(self):
 
         if self.comic is not None:
@@ -138,13 +137,16 @@ class Model(QtCore.QObject):
         if self.comic is not None:
 
             if self.adjustType == '&Vertical adjust':
-                pix_map = pix_map.scaledToHeight(self.screenSize.height(), QtCore.Qt.SmoothTransformation)
+                pix_map = pix_map.scaledToHeight(
+                    self.screenSize.height(), QtCore.Qt.SmoothTransformation)
 
             elif self.adjustType == '&Horizontal adjust':
-                pix_map = pix_map.scaledToWidth(self.screenSize.width() * 0.8, QtCore.Qt.SmoothTransformation)
+                pix_map = pix_map.scaledToWidth(
+                    self.screenSize.width() * 0.8, QtCore.Qt.SmoothTransformation)
 
             elif self.adjustType == '&Whole page':
-                pix_map = pix_map.scaledToWidth(self.screenSize.width(), QtCore.Qt.SmoothTransformation)
+                pix_map = pix_map.scaledToWidth(
+                    self.screenSize.width(), QtCore.Qt.SmoothTransformation)
 
             return pix_map
 

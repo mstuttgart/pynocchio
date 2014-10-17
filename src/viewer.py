@@ -20,26 +20,20 @@ class Viewer(QScrollArea):
     def next_page(self):
         self.update_view(self.model.next_page())
 
-
     def previous_page(self):
         self.update_view(self.model.previous_page())
-
 
     def first_page(self):
         self.update_view(self.model.first_page())
 
-
     def last_page(self):
         self.update_view(self.model.last_page())
-
 
     def rotate_left(self):
         self.update_view(self.model.rotate_left())
 
-
     def rotate_right(self):
         self.update_view(self.model.rotate_right())
-
 
     def update_view(self, pix_map):
 
@@ -47,14 +41,12 @@ class Viewer(QScrollArea):
             self.label.setPixmap(pix_map)
             self.verticalScrollBar().setValue(0)
 
-
     def change_cursor(self):
 
         if self.dragMouse:
             self.setCursor(Qt.ClosedHandCursor)
         else:
             self.setCursor(Qt.OpenHandCursor)
-
 
     def keyPressEvent(self, *args, **kwargs):
 
@@ -89,7 +81,6 @@ class Viewer(QScrollArea):
         else:
             super(Viewer, self).keyPressEvent(*args, **kwargs)
 
-
     def mousePressEvent(self, *args, **kwargs):
 
         event = args[0]
@@ -102,14 +93,12 @@ class Viewer(QScrollArea):
 
         super(Viewer, self).mousePressEvent(*args, **kwargs)
 
-
     def mouseReleaseEvent(self, *args, **kwargs):
 
         self.dragMouse = False
         self.change_cursor()
 
         super(Viewer, self).mouseReleaseEvent(*args, **kwargs)
-
 
     def mouseMoveEvent(self, *args, **kwargs):
 
@@ -133,7 +122,6 @@ class Viewer(QScrollArea):
 
         super(Viewer, self).mouseMoveEvent(*args, **kwargs)
 
-
     def resizeEvent(self, *args, **kwargs):
 
         new_size = args[0].size()
@@ -144,5 +132,3 @@ class Viewer(QScrollArea):
             self.label.setPixmap(self.model.get_current_page())
 
         super(Viewer, self).resizeEvent(*args, **kwargs)
-
-

@@ -10,15 +10,4 @@ class PreferenceDialog(QDialog):
         super(PreferenceDialog, self).__init__(parent)
 
         self.preference_dialog = Ui_PreferenceDialog()
-
         self.preference_dialog.setupUi(self)
-
-
-
-
-    # def _select_path_action(self):
-
-
-
-
-

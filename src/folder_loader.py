@@ -28,7 +28,6 @@ class FolderLoader(Loader):
             page_data.append(qfile.readAll())
             page_title.append(f)
 
-
     @staticmethod
     def is_folder(file_name):
         return os.path.isdir(file_name)

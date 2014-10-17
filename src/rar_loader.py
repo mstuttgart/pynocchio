@@ -24,4 +24,3 @@ class RarLoader(Loader):
     @staticmethod
     def is_rar_file(file_name):
         return rarfile.is_rarfile(file_name)
-

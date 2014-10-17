@@ -34,7 +34,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         checked_action = self.actionGroupView.checkedAction()
         self.model.adjustType = checked_action.text()
 
-        self.actionGroupView.triggered.connect(self._on_action_group_view_adjust)
+        self.actionGroupView.triggered.connect(
+            self._on_action_group_view_adjust)
 
         self._centralize_window()
 
@@ -43,7 +44,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self.aboutDialog = AboutDialog(self)
 
         # Ajustamos o tamanho minimo que a janela pode assumir
-        self.setMinimumSize(QApplication.desktop().screenGeometry().size() * 0.8)
+        self.setMinimumSize(
+            QApplication.desktop().screenGeometry().size() * 0.8)
 
         self._on_action_show_statusbar__triggered()
         self._on_action_show_toolbar__triggered()
@@ -59,10 +61,11 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _on_action_open__triggered(self):
 
         fname, filt = QtGui.QFileDialog.getOpenFileName(
-            self.parent(), 'Open comic file', QtCore.QDir.currentPath(),
-            'All supported files (*.zip *.cbz *.rar *.cbr)\
+            self.parent(), self.tr(
+                'Open comic file'), QtCore.QDir.currentPath(),
+            self.tr('All supported files (*.zip *.cbz *.rar *.cbr)\
             ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
-            ;;All files (*)')
+            ;;All files (*)'))
 
         if fname:
 
@@ -72,7 +75,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             if pix_map is not None:
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
-                self.goToDialog = GoToDialog(self.model, self.scroll_area_viewer)
+                self.goToDialog = GoToDialog(
+                    self.model, self.scroll_area_viewer)
 
                 self._update_status_bar()
                 self._enable_actions()
@@ -82,7 +86,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _on_action_open_folder__triggered(self):
 
         path = QtGui.QFileDialog.getExistingDirectory(
-            None, "Open Directory", QtCore.QDir.currentPath(), QtGui.QFileDialog.ShowDirsOnly)
+            None, self.tr("Open Directory"), QtCore.QDir.currentPath(), QtGui.QFileDialog.ShowDirsOnly)
 
         if len(path) != 0:
 
@@ -91,47 +95,39 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             if pix_map is not None:
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
-                self.goToDialog = GoToDialog(self.model, self.scroll_area_viewer)
+                self.goToDialog = GoToDialog(
+                    self.model, self.scroll_area_viewer)
 
                 self._update_status_bar()
                 self._enable_actions()
 
-
     def _on_action_preferences__triggered(self):
         self.preference_dialog.show()
-
 
     def _on_action_next_page__triggered(self):
         self.scroll_area_viewer.next_page()
         self._update_status_bar()
 
-
     def _on_action_previous_page__triggered(self):
         self.scroll_area_viewer.previous_page()
         self._update_status_bar()
-
 
     def _on_action_first_page__triggered(self):
         self.scroll_area_viewer.first_page()
         self._update_status_bar()
 
-
     def _on_action_last_page__triggered(self):
         self.scroll_area_viewer.last_page()
         self._update_status_bar()
 
-
     def _on_action_go_to_page__triggered(self):
         self.goToDialog.show()
-
 
     def _on_action_rotate_left__triggered(self):
         self.scroll_area_viewer.rotate_left()
 
-
     def _on_action_rotate_right__triggered(self):
         self.scroll_area_viewer.rotate_right()
-
 
     def _on_action_fullscreen__triggered(self):
 
@@ -147,12 +143,10 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self.menubar.hide()
             self.statusbar.hide()
 
-
     def _on_action_group_view_adjust(self):
         checked_action = self.actionGroupView.checkedAction()
         self.model.adjustType = checked_action.text()
         self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
-
 
     def _on_action_show_toolbar__triggered(self):
 
@@ -160,7 +154,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self.toolbar.show()
         else:
             self.toolbar.hide()
-
 
     def _on_action_show_statusbar__triggered(self):
 
@@ -170,14 +163,19 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         else:
             self.statusbar.hide()
 
-
     def _on_action_about__triggered(self):
-        self.aboutDialog.show()
-
+        # self.aboutDialog.show()
+        #
+        QtGui.QMessageBox.about(self,  self.tr("About Pyellow Comic Reader"),
+                                self.tr("<p>The <b>Pyellow Comic Reader</b> is a "
+                                        "image viewer specialized in manga/comic reading.</p>"
+                                        "<p>Developer: Michell Stuttgart</p>"
+                                        "<p>Contact: michellstut@gmail.com</p>"
+                                        "<p>Github: https://github.com/MStuttgart</p>"
+                                        "Pyellow Comic Reader (C) Michell Stuttgart 2014</p>"))
 
     def _on_action_about_qt__triggered(self):
         QMessageBox.aboutQt(self, self.tr(u'About Qt'))
-
 
     def _update_status_bar(self):
 
@@ -188,8 +186,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             page_height = str(self.model.get_current_page().height())
             page_title = self.model.get_current_page_title()
 
-            label = 'Page: ' + n_page + '\t\t\t\t\tTitle: ' + page_title + '\t\t\t\t\tWidth: ' \
-                    + page_width + ' px\t\t\t\t\tHeight: ' + page_height + ' px'
+            label = 'Page: ' + n_page + '\t\t\t\t\tTitle: ' \
+                + page_title + '\t\t\t\t\tWidth: ' \
+                + page_width + ' px\t\t\t\t\tHeight: ' + page_height + ' px'
 
             self.statusbar.showMessage(label)
 
@@ -212,7 +211,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self.action_add_bookmark.setEnabled(True)
         self.action_remove_bookmark.setEnabled(True)
 
-
     def keyPressEvent(self, event):
 
         key = event.key()
@@ -225,7 +223,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         else:
             super(MainWindow, self).keyPressEvent(event)
-
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
 

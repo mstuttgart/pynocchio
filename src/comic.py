@@ -5,7 +5,6 @@ from zip_loader import *
 from folder_loader import *
 
 import collections
-import os.path
 
 
 class Comic(object):
@@ -21,7 +20,6 @@ class Comic(object):
         self.current_page_index = 0
         self.page_data = None
 
-
     def load(self, filename):
 
         try:
@@ -29,22 +27,21 @@ class Comic(object):
             if ZipLoader.is_zip_file(filename):
 
                 if not self._load_content(ZipLoader(), filename):
-                    raise 'failed open comic!'
+                    raise self.tr('failed open comic!')
 
                 return True
 
             elif RarLoader.is_rar_file(filename):
                 if not self._load_content(RarLoader(), filename):
-                    raise 'failed open comic!'
+                    raise self.tr('failed open comic!')
 
                 return True
         except:
-            raise 'A error ocurred in open comic file!'
+            raise self.tr('A error ocurred in open comic file!')
 
-        print 'File type is not supported!'
+        print self.tr('File type is not supported!')
 
         return False
-
 
     def load_folder(self, folder_name):
 
@@ -53,7 +50,6 @@ class Comic(object):
 
         print 'Not is folder'
         return False
-
 
     def _load_content(self, loader, file_name):
         pages, titles, self.path, self.name = loader.load_file(file_name)
@@ -67,14 +63,12 @@ class Comic(object):
 
         return True
 
-
     def get_current_page(self):
 
         if self.page_data is not None:
             return self.page_data.data[self.current_page_index]
 
         return None
-
 
     def get_current_page_title(self):
 
@@ -83,14 +77,12 @@ class Comic(object):
 
         return None
 
-
     def go_next_page(self):
 
         range_list = range(0, self.get_number_of_pages() - 1)
 
         if self.current_page_index in range_list:
             self.current_page_index += 1
-
 
     def go_previous_page(self):
 
@@ -99,21 +91,16 @@ class Comic(object):
         if self.current_page_index in range_list:
             self.current_page_index -= 1
 
-
     def go_first_page(self):
         self.current_page_index = 0
 
-
     def go_last_page(self):
         self.current_page_index = self.get_number_of_pages() - 1
-
 
     def set_current_page_index(self, idx):
 
         if idx in range(0, self.get_number_of_pages()):
             self.current_page_index = idx
 
-
     def get_number_of_pages(self):
         return len(self.page_data.data)
-

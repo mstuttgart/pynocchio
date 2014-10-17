@@ -23,5 +23,3 @@ class Loader(object):
 
     def _load_core(self, page_data, page_title, file_name):
         pass
-
-
