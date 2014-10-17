@@ -26,10 +26,3 @@ class ZipLoader(Loader):
     @staticmethod
     def is_zip_file(file_name):
         return zipfile.is_zipfile(file_name)
-
-
-
-
-
-
-

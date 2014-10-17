@@ -167,12 +167,12 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         # self.aboutDialog.show()
         #
         QtGui.QMessageBox.about(self,  self.tr("About Pyellow Comic Reader"),
-                                self.tr("<p>The <b>Pyellow Comic Reader</b> is a "
-                                        "image viewer specialized in manga/comic reading.</p>"
-                                        "<p>Developer: Michell Stuttgart</p>"
-                                        "<p>Contact: michellstut@gmail.com</p>"
-                                        "<p>Github: https://github.com/MStuttgart</p>"
-                                        "Pyellow Comic Reader (C) Michell Stuttgart 2014</p>"))
+                    self.tr("<p>The <b>Pyellow Comic Reader</b> is a "
+                    "image viewer specialized in manga/comic reading.</p>"
+                    "<p>Developer: Michell Stuttgart</p>"
+                    "<p>Contact: michellstut@gmail.com</p>"
+                    "<p>Github: https://github.com/MStuttgart</p>"
+                    "Pyellow Comic Reader (C) Michell Stuttgart 2014</p>"))
 
     def _on_action_about_qt__triggered(self):
         QMessageBox.aboutQt(self, self.tr(u'About Qt'))
