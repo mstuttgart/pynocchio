@@ -22,7 +22,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../image/desenho.svg</normaloff>../image/desenho.svg</iconset>
+    <normaloff>../image/freeiconmaker (1)/freeiconmaker_2 1.png</normaloff>../image/freeiconmaker (1)/freeiconmaker_2 1.png</iconset>
   </property>
   <property name="accessibleName">
    <string>Pyellow</string>
@@ -82,10 +82,13 @@
          <string notr="true">background-color: rgb(5, 5, 5);</string>
         </property>
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
         </property>
         <property name="verticalScrollBarPolicy">
          <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -104,8 +107,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>620</width>
-           <height>338</height>
+           <width>626</width>
+           <height>341</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -124,7 +127,7 @@
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap>../image/desenho_1.png</pixmap>
+             <pixmap>../image/freeiconmaker (1)/freeiconmaker_2 1.png</pixmap>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -145,7 +148,7 @@
      <x>0</x>
      <y>0</y>
      <width>629</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -253,10 +256,12 @@
    <addaction name="action_previous_page"/>
    <addaction name="action_next_page"/>
    <addaction name="action_last_page"/>
+   <addaction name="action_go_to_page"/>
    <addaction name="separator"/>
    <addaction name="action_rotate_left"/>
    <addaction name="action_rotate_right"/>
    <addaction name="separator"/>
+   <addaction name="action_original_fit"/>
    <addaction name="action_vertical_adjust"/>
    <addaction name="action_horizontal_adjust"/>
    <addaction name="action_best_fit"/>
@@ -268,7 +273,7 @@
   <action name="action_open">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/address-book-new.svg</normaloff>:/image/address-book-new.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_20.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_20.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -280,7 +285,7 @@
   <action name="action_about">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/gtk-info.svg</normaloff>:/image/gtk-info.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_31.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_31.png</iconset>
    </property>
    <property name="text">
     <string>&amp;About Pyellow</string>
@@ -299,7 +304,7 @@
   <action name="action_Exit">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/system-shutdown.svg</normaloff>:/image/system-shutdown.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_8.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_8.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
@@ -314,7 +319,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/go-next.svg</normaloff>:/image/go-next.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_0.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_0.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Next page</string>
@@ -338,7 +343,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/go-previous.svg</normaloff>:/image/go-previous.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_1.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_1.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Previous page</string>
@@ -353,7 +358,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/go-first.svg</normaloff>:/image/go-first.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_2.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_2.png</iconset>
    </property>
    <property name="text">
     <string>&amp;First page</string>
@@ -371,7 +376,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/go-last.svg</normaloff>:/image/go-last.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_3.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_3.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Last page</string>
@@ -389,7 +394,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/object-rotate-left.svg</normaloff>:/image/object-rotate-left.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_10.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_10.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Rotate left</string>
@@ -404,21 +409,13 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/object-rotate-right.svg</normaloff>:/image/object-rotate-right.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_9.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_9.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Rotate right</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
-   </property>
-  </action>
-  <action name="action_Keep_Transforming">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Keep Transforming</string>
    </property>
   </action>
   <action name="action_vertical_adjust">
@@ -433,7 +430,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/zoom-fit-height.svg</normaloff>:/image/zoom-fit-height.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_7.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_7.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Vertical adjust</string>
@@ -457,7 +454,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/zoom-fit-width.svg</normaloff>:/image/zoom-fit-width.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_5.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_5.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Horizontal adjust</string>
@@ -475,7 +472,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/view-fullscreen.svg</normaloff>:/image/view-fullscreen.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_25.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_25.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Fullscreen</string>
@@ -490,6 +487,10 @@
   <action name="action_go_to_page">
    <property name="enabled">
     <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_30.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_30.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Go to page...</string>
@@ -510,7 +511,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/zoom-best-fit.svg</normaloff>:/image/zoom-best-fit.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_17.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_17.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Whole page</string>
@@ -540,7 +541,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/zoom-original.svg</normaloff>:/image/zoom-original.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_6.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_6.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Original fit</string>
@@ -607,7 +608,7 @@
   <action name="action_open_folder">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/document-open.svg</normaloff>:/image/document-open.svg</iconset>
+     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_21.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_21.png</iconset>
    </property>
    <property name="text">
     <string>Open &amp;Folder</string>
