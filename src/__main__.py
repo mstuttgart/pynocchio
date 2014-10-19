@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from PySide import QtGui
+from PySide.QtGui import QApplication
 from main_window import MainWindow
 
 
@@ -8,8 +8,8 @@ def main():
 
     import sys
 
-    app = QtGui.QApplication(sys.argv)
-    app.setApplicationName('Pyellow')
+    app = QApplication(sys.argv)
+    app.setApplicationName('Pynocchio')
 
     main_window = MainWindow()
     main_window.show()

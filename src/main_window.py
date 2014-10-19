@@ -3,7 +3,7 @@
 from PySide.QtCore import *
 from PySide.QtGui import *
 from ui_main_window import *
-from smartside import *
+from smartside import SmartSide
 from model import Model
 from go_to_dialog import *
 from preference_dialog import *
@@ -147,6 +147,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         checked_action = self.actionGroupView.checkedAction()
         self.model.adjustType = checked_action.text()
         self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
+        self._update_status_bar()
 
     def _on_action_show_toolbar__triggered(self):
 
@@ -166,13 +167,16 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _on_action_about__triggered(self):
         # self.aboutDialog.show()
         #
-        QtGui.QMessageBox.about(self,  self.tr("About Pyellow Comic Reader"),
-                    self.tr("<p>The <b>Pyellow Comic Reader</b> is a "
-                    "image viewer specialized in manga/comic reading.</p>"
-                    "<p>Developer: Michell Stuttgart</p>"
-                    "<p>Contact: michellstut@gmail.com</p>"
-                    "<p>Github: https://github.com/MStuttgart</p>"
-                    "Pyellow Comic Reader (C) Michell Stuttgart 2014</p>"))
+
+        msg = "<p>The <b>Pynocchio Comic Reader</b> is a " \
+              + "image viewer specialized in manga/comic reading.</p>" \
+              + "<p>Developer: Michell Stuttgart</p>" \
+              + "<p>Contact: michellstut@gmail.com</p>" \
+              + "<p>Github: https://github.com/MStuttgart</p>" \
+              + "Pynocchio Comic Reader (C) Michell Stuttgart 2014</p>"
+
+        QtGui.QMessageBox.about(self, self.tr("About Pynocchio Comic Reader"),
+                                self.tr(msg))
 
     def _on_action_about_qt__triggered(self):
         QMessageBox.aboutQt(self, self.tr(u'About Qt'))
@@ -186,9 +190,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             page_height = str(self.model.get_current_page().height())
             page_title = self.model.get_current_page_title()
 
-            label = 'Page: ' + n_page + '\t\t\t\t\tTitle: ' \
-                + page_title + '\t\t\t\t\tWidth: ' \
-                + page_width + ' px\t\t\t\t\tHeight: ' + page_height + ' px'
+            label = self.tr('Page: ') + n_page + '\t\t\t\t\t' + self.tr('Title: ') \
+                + page_title + '\t\t\t\t\t' + self.tr('Width: ') \
+                + page_width + ' px' + '\t\t\t\t\t' + self.tr('Height: ') + page_height + ' px'
 
             self.statusbar.showMessage(label)
 
