@@ -21,8 +21,8 @@
    <string>Pynocchio Comic Reader</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../image/freeiconmaker (1)/freeiconmaker_2 1.png</normaloff>../image/freeiconmaker (1)/freeiconmaker_2 1.png</iconset>
+   <iconset resource="../resource/main_window.qrc">
+    <normaloff>:/icons/icons/freeiconmaker_2 1.png</normaloff>:/icons/icons/freeiconmaker_2 1.png</iconset>
   </property>
   <property name="accessibleName">
    <string>Pyellow</string>
