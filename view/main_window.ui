@@ -127,7 +127,7 @@
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap>../image/freeiconmaker (1)/freeiconmaker_2 1.png</pixmap>
+             <pixmap resource="../resource/main_window.qrc">:/icons/icons/freeiconmaker_2 1.png</pixmap>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -273,7 +273,7 @@
   <action name="action_open">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_20.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_20.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_8.png</normaloff>:/icons/icons/freeiconmaker_8.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -285,7 +285,7 @@
   <action name="action_about">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_31.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_31.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_31.png</normaloff>:/icons/icons/freeiconmaker_31.png</iconset>
    </property>
    <property name="text">
     <string>&amp;About Pynocchio</string>
@@ -304,7 +304,7 @@
   <action name="action_Exit">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_8.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_8.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_27.png</normaloff>:/icons/icons/freeiconmaker_27.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
@@ -319,7 +319,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_0.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_0.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_0.png</normaloff>:/icons/icons/freeiconmaker_0.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Next page</string>
@@ -343,7 +343,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_1.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_1.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_1.png</normaloff>:/icons/icons/freeiconmaker_1.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Previous page</string>
@@ -358,7 +358,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_2.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_2.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_2.png</normaloff>:/icons/icons/freeiconmaker_2.png</iconset>
    </property>
    <property name="text">
     <string>&amp;First page</string>
@@ -376,7 +376,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_3.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_3.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_3.png</normaloff>:/icons/icons/freeiconmaker_3.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Last page</string>
@@ -394,7 +394,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_10.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_10.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_10.png</normaloff>:/icons/icons/freeiconmaker_10.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Rotate left</string>
@@ -409,7 +409,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_9.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_9.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_9.png</normaloff>:/icons/icons/freeiconmaker_9.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Rotate right</string>
@@ -430,7 +430,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_7.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_7.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_7.png</normaloff>:/icons/icons/freeiconmaker_7.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Vertical adjust</string>
@@ -454,7 +454,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_5.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_5.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_5.png</normaloff>:/icons/icons/freeiconmaker_5.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Horizontal adjust</string>
@@ -472,7 +472,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_25.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_25.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_13.png</normaloff>:/icons/icons/freeiconmaker_13.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Fullscreen</string>
@@ -490,7 +490,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_30.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_30.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_30.png</normaloff>:/icons/icons/freeiconmaker_30.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Go to page...</string>
@@ -511,7 +511,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_17.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_17.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_4.png</normaloff>:/icons/icons/freeiconmaker_4.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Whole page</string>
@@ -522,7 +522,7 @@
   </action>
   <action name="action_preferences">
    <property name="icon">
-    <iconset resource="../resource/main_window.qrc">
+    <iconset>
      <normaloff>:/image/document-properties.svg</normaloff>:/image/document-properties.svg</iconset>
    </property>
    <property name="text">
@@ -541,7 +541,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_6.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_6.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_6.png</normaloff>:/icons/icons/freeiconmaker_6.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Original fit</string>
@@ -574,7 +574,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../resource/main_window.qrc">
+    <iconset>
      <normaloff>:/image/bookmark-new.svg</normaloff>:/image/bookmark-new.svg</iconset>
    </property>
    <property name="text">
@@ -589,7 +589,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../resource/main_window.qrc">
+    <iconset>
      <normaloff>:/image/edit-delete.svg</normaloff>:/image/edit-delete.svg</iconset>
    </property>
    <property name="text">
@@ -598,7 +598,7 @@
   </action>
   <action name="action_bookmark_manager">
    <property name="icon">
-    <iconset resource="../resource/main_window.qrc">
+    <iconset>
      <normaloff>:/image/document-properties.svg</normaloff>:/image/document-properties.svg</iconset>
    </property>
    <property name="text">
@@ -608,7 +608,7 @@
   <action name="action_open_folder">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/image/freeiconmaker (1)/freeiconmaker_21.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_21.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_21.png</normaloff>:/icons/icons/freeiconmaker_21.png</iconset>
    </property>
    <property name="text">
     <string>Open &amp;Folder</string>

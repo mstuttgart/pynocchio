@@ -14,8 +14,8 @@
    <string>Go to Page</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../image/forest.svg</normaloff>../image/forest.svg</iconset>
+   <iconset resource="../resource/main_window.qrc">
+    <normaloff>:/icons/icons/freeiconmaker_2 1.png</normaloff>:/icons/icons/freeiconmaker_2 1.png</iconset>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -57,8 +57,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>259</width>
-             <height>354</height>
+             <width>253</width>
+             <height>350</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
@@ -190,7 +190,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resource/main_window.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

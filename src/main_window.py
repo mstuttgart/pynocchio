@@ -86,7 +86,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _on_action_open_folder__triggered(self):
 
         path = QtGui.QFileDialog.getExistingDirectory(
-            None, self.tr("Open Directory"), QtCore.QDir.currentPath(), QtGui.QFileDialog.ShowDirsOnly)
+            None, self.tr("Open Directory"), QtCore.QDir.currentPath(),
+            QtGui.QFileDialog.ShowDirsOnly)
 
         if len(path) != 0:
 
@@ -166,19 +167,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
     def _on_action_about__triggered(self):
         self.aboutDialog.show()
-
-
-        # msg = "<p>The <b>Pynocchio Comic Reader</b> is a " \
-        #       + "free image viewer specialized in manga/comic reading.</p>" \
-        #       + "<p>Developer: Michell Stuttgart</p>" \
-        #       + "<p>Contact: michellstut@gmail.com</p>" \
-        #       + "<p>Github: https://github.com/MStuttgart</p>" \
-        #       + "<p>Resources: <href=\"https://www.iconfinder.com/iconsets/streamline-icon-set-free-pack\"> \
-        #        Streamline icon set</></p>" \
-        #       + "Pynocchio Comic Reader (C) Michell Stuttgart 2014</p>"
-
-        # QtGui.QMessageBox.about(self, self.tr("About Pynocchio Comic Reader"),
-        #                         self.tr(msg))
 
     def _on_action_about_qt__triggered(self):
         QMessageBox.aboutQt(self, self.tr(u'About Qt'))

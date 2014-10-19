@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/go_to_page_dialog.ui'
 #
-# Created: Sun Oct 19 12:28:03 2014
+# Created: Sun Oct 19 12:44:25 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -14,7 +14,7 @@ class Ui_GoPageDialog(object):
         GoPageDialog.setObjectName("GoPageDialog")
         GoPageDialog.resize(283, 513)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../image/forest.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_2 1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         GoPageDialog.setWindowIcon(icon)
         GoPageDialog.setModal(True)
         self.verticalLayout = QtGui.QVBoxLayout(GoPageDialog)
@@ -35,7 +35,7 @@ class Ui_GoPageDialog(object):
         self.scrollArea.setAlignment(QtCore.Qt.AlignCenter)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 259, 354))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 253, 350))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.horizontalLayout = QtGui.QHBoxLayout(self.scrollAreaWidgetContents_2)
         self.horizontalLayout.setObjectName("horizontalLayout")
@@ -110,3 +110,4 @@ class Ui_GoPageDialog(object):
         self.label_current_page.setText(QtGui.QApplication.translate("GoPageDialog", "Current page:        ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_go_page.setText(QtGui.QApplication.translate("GoPageDialog", "Go to page:           ", None, QtGui.QApplication.UnicodeUTF8))
 
+import main_window_rc
