@@ -6,7 +6,7 @@ from ui_main_window import *
 from smartside import SmartSide
 from model import Model
 from go_to_dialog import *
-from preference_dialog import *
+# from preference_dialog import *
 from about_dialog import *
 
 
@@ -40,8 +40,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self._centralize_window()
 
         self.goToDialog = None
-        self.preference_dialog = PreferenceDialog(self)
-        self.aboutDialog = AboutDialog(self)
+        # self.preference_dialog = PreferenceDialog(self)
+        self.aboutDialog = None
 
         # Ajustamos o tamanho minimo que a janela pode assumir
         self.setMinimumSize(
@@ -49,6 +49,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self._on_action_show_statusbar__triggered()
         self._on_action_show_toolbar__triggered()
+
+        self.action_about_qt.setIcon(
+                                     QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
     def _centralize_window(self):
 
@@ -102,8 +105,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self._update_status_bar()
                 self._enable_actions()
 
-    def _on_action_preferences__triggered(self):
-        self.preference_dialog.show()
+    # def _on_action_preferences__triggered(self):
+        # self.preference_dialog.show()
 
     def _on_action_next_page__triggered(self):
         self.scroll_area_viewer.next_page()
@@ -166,6 +169,10 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self.statusbar.hide()
 
     def _on_action_about__triggered(self):
+
+        if self.aboutDialog is None:
+            self.aboutDialog = AboutDialog(self)
+
         self.aboutDialog.show()
 
     def _on_action_about_qt__triggered(self):

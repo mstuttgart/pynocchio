@@ -292,11 +292,6 @@
    </property>
   </action>
   <action name="action_about_qt">
-   <property name="icon">
-    <iconset theme="help-qt">
-     <normaloff/>
-    </iconset>
-   </property>
    <property name="text">
     <string>&amp;About Qt</string>
    </property>
