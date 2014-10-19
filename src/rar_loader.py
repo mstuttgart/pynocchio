@@ -10,14 +10,26 @@ class RarLoader(Loader):
 
         rar = rarfile.RarFile(file_name, 'r')
 
-        for info in rar.infolist():
+        name_list = rar.namelist()
+        name_list.sort()
 
-            if not info.isdir():
+        # for info in rar.infolist():
 
-                data = rar.read(info.filename)
+        #     if not info.isdir():
+
+        #         data = rar.read(info.filename)
+
+        #         page_data.append(data)
+        #         page_title.append(info.filename)
+
+        for filename in name_list:
+
+            if not rar.getinfo(filename).isdir():
+
+                data = rar.read(filename)
 
                 page_data.append(data)
-                page_title.append(info.filename)
+                page_title.append(filename)
 
         rar.close()
 
