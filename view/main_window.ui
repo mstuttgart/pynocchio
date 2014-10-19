@@ -472,7 +472,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_13.png</normaloff>:/icons/icons/freeiconmaker_13.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_25.png</normaloff>:/icons/icons/freeiconmaker_25.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Fullscreen</string>
