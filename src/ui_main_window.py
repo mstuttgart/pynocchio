@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Sun Oct 19 13:27:11 2014
+# Created: Sun Oct 19 16:44:09 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -110,7 +110,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.action_open = QtGui.QAction(MainWindow)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_18.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_open.setIcon(icon1)
         self.action_open.setObjectName("action_open")
         self.action_about = QtGui.QAction(MainWindow)
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
         self.action_about_qt.setObjectName("action_about_qt")
         self.action_Exit = QtGui.QAction(MainWindow)
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_27.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_Exit.setIcon(icon4)
         self.action_Exit.setObjectName("action_Exit")
         self.action_next_page = QtGui.QAction(MainWindow)
@@ -190,7 +190,7 @@ class Ui_MainWindow(object):
         self.action_fullscreen.setCheckable(False)
         self.action_fullscreen.setEnabled(False)
         icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_13.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon13.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_25.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_fullscreen.setIcon(icon13)
         self.action_fullscreen.setShortcutContext(QtCore.Qt.WidgetShortcut)
         self.action_fullscreen.setObjectName("action_fullscreen")

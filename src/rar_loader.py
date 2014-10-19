@@ -13,15 +13,6 @@ class RarLoader(Loader):
         name_list = rar.namelist()
         name_list.sort()
 
-        # for info in rar.infolist():
-
-        #     if not info.isdir():
-
-        #         data = rar.read(info.filename)
-
-        #         page_data.append(data)
-        #         page_title.append(info.filename)
-
         for filename in name_list:
 
             if not rar.getinfo(filename).isdir():

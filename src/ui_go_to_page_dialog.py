@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/go_to_page_dialog.ui'
 #
-# Created: Sun Oct 19 13:27:11 2014
+# Created: Sun Oct 19 16:44:09 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -14,7 +14,7 @@ class Ui_GoPageDialog(object):
         GoPageDialog.setObjectName("GoPageDialog")
         GoPageDialog.resize(283, 513)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_2 1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         GoPageDialog.setWindowIcon(icon)
         GoPageDialog.setModal(True)
         self.verticalLayout = QtGui.QVBoxLayout(GoPageDialog)

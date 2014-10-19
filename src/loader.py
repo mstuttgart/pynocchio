@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 import os
+from PySide.QtGui import QMessageBox
 
 
 class Loader(object):
@@ -17,7 +18,7 @@ class Loader(object):
         if len(data_pages) != 0:
             print 'Load Comic file successfully'
         else:
-            print 'Load Comic file failed'
+            QMessageBox.information(self, self.tr('Error'), self.tr("Load Comic failed!"))
 
         return data_pages, page_titles, path_head, path_tail
 

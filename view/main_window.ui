@@ -273,7 +273,7 @@
   <action name="action_open">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_8.png</normaloff>:/icons/icons/freeiconmaker_8.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_18.png</normaloff>:/icons/icons/freeiconmaker_18.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -304,7 +304,7 @@
   <action name="action_Exit">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_27.png</normaloff>:/icons/icons/freeiconmaker_27.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_8.png</normaloff>:/icons/icons/freeiconmaker_8.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
