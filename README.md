@@ -1,4 +1,4 @@
-pyellow-comic-reader
+pynocchio-comic-reader
 ====================
 
-Pyellow is a image viewer specialized in manga/comic reading.
+Pynocchio is a image viewer specialized in manga/comic reading.
