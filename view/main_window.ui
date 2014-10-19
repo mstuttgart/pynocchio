@@ -18,7 +18,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Pyellow</string>
+   <string>Pynocchio Comic Reader</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -288,7 +288,7 @@
      <normaloff>:/image/freeiconmaker (1)/freeiconmaker_31.png</normaloff>:/image/freeiconmaker (1)/freeiconmaker_31.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;About Pyellow</string>
+    <string>&amp;About Pynocchio</string>
    </property>
   </action>
   <action name="action_about_qt">

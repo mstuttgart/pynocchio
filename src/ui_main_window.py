@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Sun Oct 19 02:17:03 2014
+# Created: Sun Oct 19 12:24:23 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -304,7 +304,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Pyellow", None, QtGui.QApplication.UnicodeUTF8))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Pynocchio Comic Reader", None, QtGui.QApplication.UnicodeUTF8))
         MainWindow.setAccessibleName(QtGui.QApplication.translate("MainWindow", "Pyellow", None, QtGui.QApplication.UnicodeUTF8))
         self.menu_file.setTitle(QtGui.QApplication.translate("MainWindow", "&File", None, QtGui.QApplication.UnicodeUTF8))
         self.menu_view.setTitle(QtGui.QApplication.translate("MainWindow", "&View", None, QtGui.QApplication.UnicodeUTF8))
@@ -314,7 +314,7 @@ class Ui_MainWindow(object):
         self.toolbar.setWindowTitle(QtGui.QApplication.translate("MainWindow", "toolBar", None, QtGui.QApplication.UnicodeUTF8))
         self.action_open.setText(QtGui.QApplication.translate("MainWindow", "&Open", None, QtGui.QApplication.UnicodeUTF8))
         self.action_open.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+O", None, QtGui.QApplication.UnicodeUTF8))
-        self.action_about.setText(QtGui.QApplication.translate("MainWindow", "&About Pyellow", None, QtGui.QApplication.UnicodeUTF8))
+        self.action_about.setText(QtGui.QApplication.translate("MainWindow", "&About Pynocchio", None, QtGui.QApplication.UnicodeUTF8))
         self.action_about_qt.setText(QtGui.QApplication.translate("MainWindow", "&About Qt", None, QtGui.QApplication.UnicodeUTF8))
         self.action_Exit.setText(QtGui.QApplication.translate("MainWindow", "&Exit", None, QtGui.QApplication.UnicodeUTF8))
         self.action_Exit.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+Q", None, QtGui.QApplication.UnicodeUTF8))

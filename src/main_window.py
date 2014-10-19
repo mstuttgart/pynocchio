@@ -165,18 +165,20 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self.statusbar.hide()
 
     def _on_action_about__triggered(self):
-        # self.aboutDialog.show()
-        #
+        self.aboutDialog.show()
 
-        msg = "<p>The <b>Pynocchio Comic Reader</b> is a " \
-              + "image viewer specialized in manga/comic reading.</p>" \
-              + "<p>Developer: Michell Stuttgart</p>" \
-              + "<p>Contact: michellstut@gmail.com</p>" \
-              + "<p>Github: https://github.com/MStuttgart</p>" \
-              + "Pynocchio Comic Reader (C) Michell Stuttgart 2014</p>"
 
-        QtGui.QMessageBox.about(self, self.tr("About Pynocchio Comic Reader"),
-                                self.tr(msg))
+        # msg = "<p>The <b>Pynocchio Comic Reader</b> is a " \
+        #       + "free image viewer specialized in manga/comic reading.</p>" \
+        #       + "<p>Developer: Michell Stuttgart</p>" \
+        #       + "<p>Contact: michellstut@gmail.com</p>" \
+        #       + "<p>Github: https://github.com/MStuttgart</p>" \
+        #       + "<p>Resources: <href=\"https://www.iconfinder.com/iconsets/streamline-icon-set-free-pack\"> \
+        #        Streamline icon set</></p>" \
+        #       + "Pynocchio Comic Reader (C) Michell Stuttgart 2014</p>"
+
+        # QtGui.QMessageBox.about(self, self.tr("About Pynocchio Comic Reader"),
+        #                         self.tr(msg))
 
     def _on_action_about_qt__triggered(self):
         QMessageBox.aboutQt(self, self.tr(u'About Qt'))
@@ -236,3 +238,4 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self._on_action_fullscreen__triggered()
         else:
             super(MainWindow, self).mousePressEvent(*args, **kwargs)
+
