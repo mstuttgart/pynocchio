@@ -2,6 +2,7 @@
 
 from rar_loader import *
 from zip_loader import *
+from tar_loader import *
 from folder_loader import *
 
 import collections
@@ -36,10 +37,18 @@ class Comic(object):
                     raise self.tr('failed open comic!')
 
                 return True
+
+            elif TarLoader.is_tar_file(filename):
+
+                if not self._load_content(TarLoader(), filename):
+                    raise self.tr('failed open comic!')
+
+                return True
         except:
             raise self.tr('A error ocurred in open comic file!')
 
-        print self.tr('File type is not supported!')
+        QtGui.QMessageBox.information(
+                                      self, self.tr('Error'), self.tr("File type is not supported!!"))
 
         return False
 

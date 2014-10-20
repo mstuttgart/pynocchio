@@ -68,7 +68,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 'Open comic file'), QtCore.QDir.currentPath(),
             self.tr('All supported files (*.zip *.cbz *.rar *.cbr)\
             ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
-            ;;All files (*)'))
+            ;;Tar Files (*.tar *.cbt);;All files (*)'))
 
         if fname:
 
