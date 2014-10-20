@@ -47,8 +47,7 @@ class Comic(object):
         except:
             raise self.tr('A error ocurred in open comic file!')
 
-        QtGui.QMessageBox.information(
-                                      self, self.tr('Error'), self.tr("File type is not supported!!"))
+        QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("File type is not supported!!"))
 
         return False
 
@@ -67,7 +66,6 @@ class Comic(object):
             return False
 
         self.page_data = self.Pages(pages, titles)
-
         self.current_page_index = 0
 
         return True

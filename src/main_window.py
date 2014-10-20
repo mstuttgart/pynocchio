@@ -64,9 +64,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _on_action_open__triggered(self):
 
         fname, filt = QtGui.QFileDialog.getOpenFileName(
-            self.parent(), self.tr(
-                'Open comic file'), QtCore.QDir.currentPath(),
-            self.tr('All supported files (*.zip *.cbz *.rar *.cbr)\
+            self.parent(), self.tr('Open comic file'),
+            QtCore.QDir.currentPath(),
+            self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt)\
             ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
             ;;Tar Files (*.tar *.cbt);;All files (*)'))
 
