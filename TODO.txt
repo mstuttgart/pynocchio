@@ -10,4 +10,4 @@
 #TODO: Ajuster scroll da classe viewer para quando usar previusPage() o scroll voltar a posição onde estava antes de mudar de página (maior praticidade na leitura)
 #TODO: Resource file para os outros dialogs
 #TODO: Controle de zoom para o usurio
-#TODO: memorizar posicao da scroolbar da view. para quando o usuario voltar para a pagina anterior ele fique na posicao onde terminou de ler.
+#TODO: memorizar posiçao da scroolbar da view. para quando o usuario voltar para a pagina anterior ele fique na posiçao onde terminou de ler.
