@@ -77,7 +77,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
             if pix_map is not None:
                 self.scroll_area_viewer.label.setPixmap(pix_map)
-                self.setWindowTitle(self.model.comic.name)
+                self.setWindowTitle(self.windowTitle() + ": " + self.model.comic.name)
                 self.goToDialog = GoToDialog(
                     self.model, self.scroll_area_viewer)
 
