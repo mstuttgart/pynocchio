@@ -21,7 +21,6 @@ class Model(QtCore.QObject):
         self.comic = Comic()
 
         if self.comic.load(file_name):
-            print 'comic loaded'
             return self.get_current_page()
 
         return None

@@ -47,7 +47,7 @@ class Comic(object):
         except:
             raise self.tr('A error ocurred in open comic file!')
 
-        QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("File type is not supported!!"))
+        QMessageBox.information(self, self.tr('Error'), self.tr("File type is not supported!!"))
 
         return False
 

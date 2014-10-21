@@ -20,6 +20,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self.auto_connect()
 
         self.model = Model(self)
+        self.goToDialog = None
+        # self.preference_dialog = PreferenceDialog(self)
+        self.aboutDialog = None
 
         self.scroll_area_viewer.model = self.model
         self.scroll_area_viewer.label = self.label
@@ -39,10 +42,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self._centralize_window()
 
-        self.goToDialog = None
-        # self.preference_dialog = PreferenceDialog(self)
-        self.aboutDialog = None
-
         # Ajustamos o tamanho minimo que a janela pode assumir
         self.setMinimumSize(
             QApplication.desktop().screenGeometry().size() * 0.8)
@@ -50,8 +49,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self._on_action_show_statusbar__triggered()
         self._on_action_show_toolbar__triggered()
 
-        self.action_about_qt.setIcon(
-                                     QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
+        self.action_about_qt.setIcon(QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
     def _centralize_window(self):
 

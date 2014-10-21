@@ -9,7 +9,10 @@ class ZipLoader(Loader):
 
     def _load_core(self, page_data, page_title, file_name):
 
-        zf = zipfile.ZipFile(file_name, 'r')
+        try:
+            zf = zipfile.ZipFile(file_name, 'r')
+        except:
+            raise zipfile.BadZipfile
 
         name_list = zf.namelist()
         name_list.sort()
@@ -17,7 +20,6 @@ class ZipLoader(Loader):
         for info in name_list:
 
             data = zf.read(info)
-
             page_data.append(data)
             page_title.append(info)
 
