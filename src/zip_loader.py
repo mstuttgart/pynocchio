@@ -15,8 +15,10 @@ class ZipLoader(Loader):
 
         try:
             zf = zipfile.ZipFile(file_name, 'r')
-        except:
-            raise zipfile.BadZipfile
+        except zipfile.BadZipfile, err:
+            print '%20s  %s' % (file_name, err)
+        except zipfile.LargeZipFile, err:
+            print '%20s  %s' % (file_name, err)
 
         name_list = zf.namelist()
         name_list.sort()
