@@ -2,12 +2,17 @@
 from PySide import QtCore, QtGui
 from comic import Comic
 
+from rar_loader import *
+from zip_loader import *
+from tar_loader import *
+from folder_loader import *
+
 
 class Model(QtCore.QObject):
 
     def __init__(self, parent=None):
 
-        QtCore.QObject.__init__(self, parent)
+        super(Model, self).__init__(parent)
 
         self.comic = None
         self.original_pixmap = QtGui.QPixmap()
@@ -18,22 +23,68 @@ class Model(QtCore.QObject):
 
     def load_comic(self, file_name):
 
-        self.comic = Comic()
+        if ZipLoader.is_zip_file(file_name):
 
-        if self.comic.load(file_name):
-            return self.get_current_page()
+            if not self._load_content(ZipLoader(), file_name):
+                print self.tr('failed open comic!')
 
-        return None
+            return True
+
+        elif RarLoader.is_rar_file(file_name):
+
+            if not self._load_content(RarLoader(), file_name):
+                print self.tr('failed open comic!')
+
+            return True
+
+        elif TarLoader.is_tar_file(file_name):
+
+            if not self._load_content(TarLoader(), file_name):
+                print self.tr('failed open comic!')
+
+            return True
+
+        self.tr('A error ocurred in open comic file!')
+
+        # QMessageBox.information(self, self.tr('Error'), self.tr("File type is not supported!!"))
+
+        return False
+
+        # self.comic = Comic()
+        #
+        # if self.comic.load(file_name):
+        #     return self.get_current_page()
+        #
+        # return None
 
     def load_folder(self, folder_name):
 
-        self.comic = Comic()
+        # self.comic = Comic()
+        #
+        # if self.comic.load_folder(folder_name):
+        #     print 'comic loaded'
+        #     return self.get_current_page()
+        #
+        # return None
 
-        if self.comic.load_folder(folder_name):
-            print 'comic loaded'
-            return self.get_current_page()
+        if FolderLoader.is_folder(folder_name):
+            return self._load_content(FolderLoader(), folder_name)
 
-        return None
+        print 'Not is folder'
+        return False
+
+    def _load_content(self, loader, file_name):
+
+        pages, titles, path, name = loader.load_file(file_name)
+
+        if len(pages) == 0:
+            return False
+
+        self.comic = Comic(name, path, pages, titles)
+        # self.page_data = self.Pages(pages, titles)
+        self.current_page_index = 0
+
+        return True
 
     def next_page(self):
 

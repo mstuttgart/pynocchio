@@ -68,10 +68,11 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
             ;;Tar Files (*.tar *.cbt);;All files (*)'))
 
-        if fname:
+        if fname and self.model.load_comic(fname):
 
-            self.setCursor(Qt.WaitCursor)
-            pix_map = self.model.load_comic(fname)
+            # self.setCursor(Qt.WaitCursor)
+            # pix_map = self.model.load_comic(fname)
+            pix_map = self.model.get_current_page()
 
             if pix_map is not None:
                 self.scroll_area_viewer.label.setPixmap(pix_map)
@@ -82,7 +83,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self._update_status_bar()
                 self._enable_actions()
 
-            self.setCursor(Qt.ArrowCursor)
+            # self.setCursor(Qt.ArrowCursor)
 
     def _on_action_open_folder__triggered(self):
 

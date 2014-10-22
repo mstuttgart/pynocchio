@@ -11,14 +11,12 @@ class FolderLoader(Loader):
 
         files_list = []
 
-        # Percorremos diretorios e sub-diretorios procurando
-        # arquivos com as extensoes abaixo
-        for dirpath, dirnames, files in os.walk(file_name):
+        for dir_path, dir_names, files in os.walk(file_name):
 
             for extension in ('*.jpg', '*.jpeg', '*.gif', '*.png'):
 
                 for f in fnmatch.filter(files, extension):
-                    files_list.append(os.path.join(dirpath, f))
+                    files_list.append(os.path.join(dir_path, f))
 
         for f in files_list:
 

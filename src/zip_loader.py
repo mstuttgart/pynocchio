@@ -18,11 +18,9 @@ class ZipLoader(Loader):
         name_list.sort()
 
         for info in name_list:
-
-            if filename[:-3] in ['.jpg', '.png']:
-                data = zf.read(info)
-                page_data.append(data)
-                page_title.append(info)
+            data = zf.read(info)
+            page_data.append(data)
+            page_title.append(info)
 
         zf.close()
 

@@ -6,69 +6,70 @@ from tar_loader import *
 from folder_loader import *
 
 import collections
+from PySide.QtCore import QObject
 
 
-class Comic(object):
+class Comic(QObject):
 
     Pages = collections.namedtuple('Page', 'data title')
 
-    def __init__(self):
+    def __init__(self, name, path, pages, titles, parent=None):
 
-        object.__init__(self)
+        super(Comic, self).__init__(parent)
 
-        self.name = ''
-        self.path = ''
+        self.name = name
+        self.path = path
         self.current_page_index = 0
-        self.page_data = None
-
-    def load(self, filename):
-
-        try:
-
-            if ZipLoader.is_zip_file(filename):
-
-                if not self._load_content(ZipLoader(), filename):
-                    raise self.tr('failed open comic!')
-
-                return True
-
-            elif RarLoader.is_rar_file(filename):
-                if not self._load_content(RarLoader(), filename):
-                    raise self.tr('failed open comic!')
-
-                return True
-
-            elif TarLoader.is_tar_file(filename):
-
-                if not self._load_content(TarLoader(), filename):
-                    raise self.tr('failed open comic!')
-
-                return True
-        except:
-            raise self.tr('A error ocurred in open comic file!')
-
-        # QMessageBox.information(self, self.tr('Error'), self.tr("File type is not supported!!"))
-
-        return False
-
-    def load_folder(self, folder_name):
-
-        if FolderLoader.is_folder(folder_name):
-            return self._load_content(FolderLoader(), folder_name)
-
-        print 'Not is folder'
-        return False
-
-    def _load_content(self, loader, file_name):
-        pages, titles, self.path, self.name = loader.load_file(file_name)
-
-        if len(pages) == 0:
-            return False
-
         self.page_data = self.Pages(pages, titles)
-        self.current_page_index = 0
 
-        return True
+    # def load(self, filename):
+    #
+    #     if ZipLoader.is_zip_file(filename):
+    #
+    #         if not self._load_content(ZipLoader(), filename):
+    #             print self.tr('failed open comic!')
+    #
+    #         return True
+    #
+    #     elif RarLoader.is_rar_file(filename):
+    #
+    #         if not self._load_content(RarLoader(), filename):
+    #             print self.tr('failed open comic!')
+    #
+    #         return True
+    #
+    #     elif TarLoader.is_tar_file(filename):
+    #
+    #         if not self._load_content(TarLoader(), filename):
+    #             print self.tr('failed open comic!')
+    #
+    #         return True
+    #
+    #     self.tr('A error ocurred in open comic file!')
+    #
+    #     # QMessageBox.information(self, self.tr('Error'), self.tr("File type is not supported!!"))
+    #
+    #     return False
+
+    # def load_folder(self, folder_name):
+    #
+    #     if FolderLoader.is_folder(folder_name):
+    #         return self._load_content(FolderLoader(), folder_name)
+    #
+    #     print 'Not is folder'
+    #     return False
+    #
+    # def _load_content(self, loader, file_name):
+    #
+    #     pages, titles, self.path, self.name = loader.load_file(file_name)
+    #
+    #     if len(pages) == 0:
+    #         return False
+    #
+    #     self.page_data = self.Pages(pages, titles)
+    #     self.current_page_index = 0
+    #
+    #     return True
 
     def get_current_page(self):
 
