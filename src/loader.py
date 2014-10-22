@@ -6,6 +6,11 @@ from PySide.QtGui import QMessageBox
 
 class Loader(object):
 
+    def __init__(self):
+        super(Loader, self).__init__()
+
+        self.extension = ['.png', '.jpg', '.jpeg', '.gif']
+
     def load_file(self, file_name):
 
         data_pages = []

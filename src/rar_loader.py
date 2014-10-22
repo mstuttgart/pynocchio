@@ -2,9 +2,13 @@
 
 import rarfile
 from loader import *
+import os.path
 
 
 class RarLoader(Loader):
+
+    def __init__(self):
+        super(RarLoader, self).__init__()
 
     def _load_core(self, page_data, page_title, file_name):
 
@@ -15,10 +19,11 @@ class RarLoader(Loader):
 
         for filename in name_list:
 
-            if not rar.getinfo(filename).isdir():
+            _, file_extension = os.path.splitext(filename)
+
+            if not rar.getinfo(filename).isdir() and file_extension in self.extension:
 
                 data = rar.read(filename)
-
                 page_data.append(data)
                 page_title.append(filename)
 

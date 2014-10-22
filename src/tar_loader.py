@@ -1,10 +1,14 @@
 # -*- coding: UTF-8 -*-
 
-import tarfile
 from loader import *
+import tarfile
+import os.path
 
 
 class TarLoader(Loader):
+
+    def __init__(self):
+        super(TarLoader, self).__init__()
 
     def _load_core(self, page_data, page_title, file_name):
 
@@ -15,10 +19,11 @@ class TarLoader(Loader):
 
         for filename in name_list:
 
-            if not tar.getmember(filename).isdir():
+            _, file_extension = os.path.splitext(filename)
+
+            if not tar.getmember(filename).isdir() and file_extension in self.extension:
 
                 data = tar.extractfile(filename).read()
-
                 page_data.append(data)
                 page_title.append(filename)
 
