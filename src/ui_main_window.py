@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Sun Oct 19 18:32:58 2014
+# Created: Wed Oct 22 07:57:59 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -59,6 +59,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3 = QtGui.QVBoxLayout(self.scroll_area_widget_contents)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.label = QtGui.QLabel(self.scroll_area_widget_contents)
+        self.label.setCursor(QtCore.Qt.OpenHandCursor)
         self.label.setAutoFillBackground(False)
         self.label.setFrameShape(QtGui.QFrame.NoFrame)
         self.label.setLineWidth(0)
@@ -106,6 +107,7 @@ class Ui_MainWindow(object):
         self.toolbar.setObjectName("toolbar")
         MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolbar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
+        self.statusbar.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         self.action_open = QtGui.QAction(MainWindow)

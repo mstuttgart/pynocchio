@@ -114,6 +114,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <widget class="QLabel" name="label">
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
             <property name="autoFillBackground">
              <bool>false</bool>
             </property>
@@ -269,7 +272,11 @@
    <addaction name="separator"/>
    <addaction name="action_Exit"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+  </widget>
   <action name="action_open">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
