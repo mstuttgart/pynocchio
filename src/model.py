@@ -50,22 +50,7 @@ class Model(QtCore.QObject):
 
         return False
 
-        # self.comic = Comic()
-        #
-        # if self.comic.load(file_name):
-        #     return self.get_current_page()
-        #
-        # return None
-
     def load_folder(self, folder_name):
-
-        # self.comic = Comic()
-        #
-        # if self.comic.load_folder(folder_name):
-        #     print 'comic loaded'
-        #     return self.get_current_page()
-        #
-        # return None
 
         if FolderLoader.is_folder(folder_name):
             return self._load_content(FolderLoader(), folder_name)
@@ -81,7 +66,6 @@ class Model(QtCore.QObject):
             return False
 
         self.comic = Comic(name, path, pages, titles)
-        # self.page_data = self.Pages(pages, titles)
         self.current_page_index = 0
 
         return True
