@@ -23,31 +23,21 @@ class Model(QtCore.QObject):
 
     def load_comic(self, file_name):
 
-        if ZipLoader.is_zip_file(file_name):
+        try:
 
-            if not self._load_content(ZipLoader(), file_name):
-                print self.tr('failed open comic!')
+            if ZipLoader.is_zip_file(file_name):
+                return self._load_content(ZipLoader(), file_name)
 
-            return True
+            elif RarLoader.is_rar_file(file_name):
+                return self._load_content(RarLoader(), file_name)
 
-        elif RarLoader.is_rar_file(file_name):
+            elif TarLoader.is_tar_file(file_name):
+                return self._load_content(TarLoader(), file_name)
 
-            if not self._load_content(RarLoader(), file_name):
-                print self.tr('failed open comic!')
+        except IOError, err:
+            print '%20s  %s' % (file_name, err)
 
-            return True
-
-        elif TarLoader.is_tar_file(file_name):
-
-            if not self._load_content(TarLoader(), file_name):
-                print self.tr('failed open comic!')
-
-            return True
-
-        self.tr('A error ocurred in open comic file!')
-
-        # QMessageBox.information(self, self.tr('Error'), self.tr("File type is not supported!!"))
-
+        print self.tr('A error ocurred in open comic file!')
         return False
 
     def load_folder(self, folder_name):

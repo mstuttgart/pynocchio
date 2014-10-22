@@ -41,10 +41,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self._on_action_group_view_adjust)
 
         self._centralize_window()
-
-        # Ajustamos o tamanho minimo que a janela pode assumir
-        self.setMinimumSize(
-            QApplication.desktop().screenGeometry().size() * 0.8)
+        self.setMinimumSize(QApplication.desktop().screenGeometry().size() * 0.8)
 
         self._on_action_show_statusbar__triggered()
         self._on_action_show_toolbar__triggered()
@@ -62,28 +59,37 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _on_action_open__triggered(self):
 
         fname, filt = QtGui.QFileDialog.getOpenFileName(
-            self.parent(), self.tr('Open comic file'),
-            QtCore.QDir.currentPath(),
+            self.parent(), self.tr('Open comic file'), QtCore.QDir.currentPath(),
             self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt)\
             ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
             ;;Tar Files (*.tar *.cbt);;All files (*)'))
 
-        if fname and self.model.load_comic(fname):
+        if len(fname) == 0:
+            return
 
-            # self.setCursor(Qt.WaitCursor)
-            # pix_map = self.model.load_comic(fname)
+        self.setCursor(Qt.WaitCursor)
+
+        if self.model.load_comic(fname):
+
             pix_map = self.model.get_current_page()
 
             if pix_map is not None:
+
+                self.goToDialog = GoToDialog(self.model, self.scroll_area_viewer)
+
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.windowTitle() + ": " + self.model.comic.name)
-                self.goToDialog = GoToDialog(
-                    self.model, self.scroll_area_viewer)
 
                 self._update_status_bar()
                 self._enable_actions()
 
-            # self.setCursor(Qt.ArrowCursor)
+            else:
+                QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
+
+        else:
+            QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + fname)
+
+        self.setCursor(Qt.ArrowCursor)
 
     def _on_action_open_folder__triggered(self):
 
@@ -91,18 +97,25 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             None, self.tr("Open Directory"), QtCore.QDir.currentPath(),
             QtGui.QFileDialog.ShowDirsOnly)
 
-        if len(path) != 0:
+        if len(path) == 0:
+            return
+
+        if self.model.load_comic(path):
 
             pix_map = self.model.load_folder(path)
 
             if pix_map is not None:
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
-                self.goToDialog = GoToDialog(
-                    self.model, self.scroll_area_viewer)
+                self.goToDialog = GoToDialog(self.model, self.scroll_area_viewer)
 
                 self._update_status_bar()
                 self._enable_actions()
+
+            else:
+                QMessageBox.information(self, self.tr('Error'), self.tr("Folder don't have image files!!"))
+        else:
+            QMessageBox.information(self, self.tr('Error'), self.tr("Error to load folder!!") + path)
 
     # def _on_action_preferences__triggered(self):
         # self.preference_dialog.show()
@@ -147,6 +160,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self.statusbar.hide()
 
     def _on_action_group_view_adjust(self):
+
         checked_action = self.actionGroupView.checkedAction()
         self.model.adjustType = checked_action.text()
         self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())

@@ -12,7 +12,10 @@ class TarLoader(Loader):
 
     def _load_core(self, page_data, page_title, file_name):
 
-        tar = tarfile.open(file_name, 'r')
+        try:
+            tar = tarfile.open(file_name, 'r')
+        except:
+            raise tarfile.CompressionError
 
         name_list = tar.getnames()
         name_list.sort()
@@ -23,7 +26,13 @@ class TarLoader(Loader):
 
             if not tar.getmember(filename).isdir() and file_extension in self.extension:
 
-                data = tar.extractfile(filename).read()
+                try:
+                    data = tar.extractfile(filename).read()
+                except tarfile.ExtractError, err:
+                    print '%20s  %s' % (filename, err)
+                except tarfile.ReadError, err:
+                    print '%20s  %s' % (filename, err)
+
                 page_data.append(data)
                 page_title.append(filename)
 

@@ -12,7 +12,10 @@ class RarLoader(Loader):
 
     def _load_core(self, page_data, page_title, file_name):
 
-        rar = rarfile.RarFile(file_name, 'r')
+        try:
+            rar = rarfile.RarFile(file_name, 'r')
+        except rarfile.RarOpenError, err:
+            print '%20s  %s' % (file_name, err)
 
         name_list = rar.namelist()
         name_list.sort()
