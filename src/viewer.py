@@ -15,31 +15,39 @@ class Viewer(QScrollArea):
         self.dragMouse = False
         self.dragPosition = {'x': 0, 'y': 0}
 
+        self.lastScrollPosition = 0
+
         self.change_cursor()
 
     def next_page(self):
         self.update_view(self.model.next_page())
+        self.lastScrollPosition = self.verticalScrollBar().value()
+        self.verticalScrollBar().setValue(0)
 
     def previous_page(self):
         self.update_view(self.model.previous_page())
+        self.verticalScrollBar().setValue(self.lastScrollPosition)
 
     def first_page(self):
         self.update_view(self.model.first_page())
+        self.verticalScrollBar().setValue(0)
 
     def last_page(self):
         self.update_view(self.model.last_page())
+        self.verticalScrollBar().setValue(0)
 
     def rotate_left(self):
         self.update_view(self.model.rotate_left())
+        self.verticalScrollBar().setValue(0)
 
     def rotate_right(self):
         self.update_view(self.model.rotate_right())
+        self.verticalScrollBar().setValue(0)
 
     def update_view(self, pix_map):
 
         if pix_map is not None:
             self.label.setPixmap(pix_map)
-            self.verticalScrollBar().setValue(0)
 
     def change_cursor(self):
 
