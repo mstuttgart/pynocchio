@@ -167,9 +167,19 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <widget class="QMenu" name="menu_Recent_files">
+     <property name="title">
+      <string>&amp;Recent files</string>
+     </property>
+     <addaction name="actionFile1"/>
+     <addaction name="actionFile2"/>
+     <addaction name="actionFile3"/>
+     <addaction name="actionFile4"/>
+     <addaction name="actionFile5"/>
+    </widget>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>
-    <addaction name="action_recent_files"/>
+    <addaction name="menu_Recent_files"/>
     <addaction name="separator"/>
     <addaction name="action_Exit"/>
    </widget>
@@ -629,9 +639,29 @@
     <bool>true</bool>
    </property>
   </action>
-  <action name="action_recent_files">
+  <action name="actionFile1">
    <property name="text">
-    <string>&amp;Recent files</string>
+    <string>file1</string>
+   </property>
+  </action>
+  <action name="actionFile2">
+   <property name="text">
+    <string>file2</string>
+   </property>
+  </action>
+  <action name="actionFile3">
+   <property name="text">
+    <string>file3</string>
+   </property>
+  </action>
+  <action name="actionFile4">
+   <property name="text">
+    <string>file4</string>
+   </property>
+  </action>
+  <action name="actionFile5">
+   <property name="text">
+    <string>file5</string>
    </property>
   </action>
  </widget>
