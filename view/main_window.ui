@@ -108,7 +108,7 @@
            <x>0</x>
            <y>0</y>
            <width>626</width>
-           <height>341</height>
+           <height>344</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -151,7 +151,7 @@
      <x>0</x>
      <y>0</y>
      <width>629</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -169,6 +169,7 @@
     </property>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>
+    <addaction name="action_recent_files"/>
     <addaction name="separator"/>
     <addaction name="action_Exit"/>
    </widget>
@@ -287,6 +288,12 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
    </property>
   </action>
   <action name="action_about">
@@ -614,6 +621,17 @@
    </property>
    <property name="text">
     <string>Open &amp;Folder</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_recent_files">
+   <property name="text">
+    <string>&amp;Recent files</string>
    </property>
   </action>
  </widget>
