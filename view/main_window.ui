@@ -171,11 +171,11 @@
      <property name="title">
       <string>&amp;Recent files</string>
      </property>
-     <addaction name="actionFile1"/>
-     <addaction name="actionFile2"/>
-     <addaction name="actionFile3"/>
-     <addaction name="actionFile4"/>
-     <addaction name="actionFile5"/>
+     <addaction name="recent_file_1"/>
+     <addaction name="recent_file_2"/>
+     <addaction name="recent_file_3"/>
+     <addaction name="recent_file_4"/>
+     <addaction name="recent_file_5"/>
     </widget>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>
@@ -639,29 +639,44 @@
     <bool>true</bool>
    </property>
   </action>
-  <action name="actionFile1">
+  <action name="recent_file_1">
    <property name="text">
     <string>file1</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
-  <action name="actionFile2">
+  <action name="recent_file_2">
    <property name="text">
     <string>file2</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
-  <action name="actionFile3">
+  <action name="recent_file_3">
    <property name="text">
     <string>file3</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
-  <action name="actionFile4">
+  <action name="recent_file_4">
    <property name="text">
     <string>file4</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
-  <action name="actionFile5">
+  <action name="recent_file_5">
    <property name="text">
     <string>file5</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
  </widget>
