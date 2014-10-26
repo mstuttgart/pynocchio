@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Sat Oct 25 09:22:24 2014
+# Created: Sun Oct 26 00:21:20 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -83,8 +83,8 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         self.menu_file = QtGui.QMenu(self.menubar)
         self.menu_file.setObjectName("menu_file")
-        self.menu_Recent_files = QtGui.QMenu(self.menu_file)
-        self.menu_Recent_files.setObjectName("menu_Recent_files")
+        self.menu_recent_files = QtGui.QMenu(self.menu_file)
+        self.menu_recent_files.setObjectName("menu_recent_files")
         self.menu_view = QtGui.QMenu(self.menubar)
         self.menu_view.setObjectName("menu_view")
         self.menu_navegation = QtGui.QMenu(self.menubar)
@@ -270,14 +270,14 @@ class Ui_MainWindow(object):
         self.recent_file_5 = QtGui.QAction(MainWindow)
         self.recent_file_5.setVisible(False)
         self.recent_file_5.setObjectName("recent_file_5")
-        self.menu_Recent_files.addAction(self.recent_file_1)
-        self.menu_Recent_files.addAction(self.recent_file_2)
-        self.menu_Recent_files.addAction(self.recent_file_3)
-        self.menu_Recent_files.addAction(self.recent_file_4)
-        self.menu_Recent_files.addAction(self.recent_file_5)
+        self.menu_recent_files.addAction(self.recent_file_1)
+        self.menu_recent_files.addAction(self.recent_file_2)
+        self.menu_recent_files.addAction(self.recent_file_3)
+        self.menu_recent_files.addAction(self.recent_file_4)
+        self.menu_recent_files.addAction(self.recent_file_5)
         self.menu_file.addAction(self.action_open)
         self.menu_file.addAction(self.action_open_folder)
-        self.menu_file.addAction(self.menu_Recent_files.menuAction())
+        self.menu_file.addAction(self.menu_recent_files.menuAction())
         self.menu_file.addSeparator()
         self.menu_file.addAction(self.action_Exit)
         self.menu_view.addAction(self.action_fullscreen)
@@ -333,7 +333,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Pynocchio Comic Reader", None, QtGui.QApplication.UnicodeUTF8))
         MainWindow.setAccessibleName(QtGui.QApplication.translate("MainWindow", "Pyellow", None, QtGui.QApplication.UnicodeUTF8))
         self.menu_file.setTitle(QtGui.QApplication.translate("MainWindow", "&File", None, QtGui.QApplication.UnicodeUTF8))
-        self.menu_Recent_files.setTitle(QtGui.QApplication.translate("MainWindow", "&Recent files", None, QtGui.QApplication.UnicodeUTF8))
+        self.menu_recent_files.setTitle(QtGui.QApplication.translate("MainWindow", "&Recent files", None, QtGui.QApplication.UnicodeUTF8))
         self.menu_view.setTitle(QtGui.QApplication.translate("MainWindow", "&View", None, QtGui.QApplication.UnicodeUTF8))
         self.menu_navegation.setTitle(QtGui.QApplication.translate("MainWindow", "&Navegation", None, QtGui.QApplication.UnicodeUTF8))
         self.menu_Help.setTitle(QtGui.QApplication.translate("MainWindow", "&Help", None, QtGui.QApplication.UnicodeUTF8))

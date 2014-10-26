@@ -8,6 +8,7 @@ from model import Model
 from go_to_dialog import *
 # from preference_dialog import *
 from about_dialog import *
+from recent_files_manager import RecentFileManager
 
 
 class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
@@ -48,6 +49,16 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self.action_about_qt.setIcon(QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
+        self.recentFileManager = RecentFileManager(self.menu_recent_files)
+
+        self.recentFileManager.add_action(self.recent_file_1)
+        self.recentFileManager.add_action(self.recent_file_2)
+        self.recentFileManager.add_action(self.recent_file_3)
+        self.recentFileManager.add_action(self.recent_file_4)
+        self.recentFileManager.add_action(self.recent_file_5)
+
+        # self.recentFileManager.update_recent_action_list()
+
     def _centralize_window(self):
 
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -83,6 +94,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self._update_status_bar()
                 self._enable_actions()
 
+                self.recentFileManager.load_file(fname, self.model.comic.name)
+
             else:
                 QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
 
@@ -100,9 +113,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         if len(path) == 0:
             return
 
-        if self.model.load_comic(path):
+        if self.model.load_folder(path):
 
-            pix_map = self.model.load_folder(path)
+            pix_map = self.model.get_current_page()
 
             if pix_map is not None:
                 self.scroll_area_viewer.label.setPixmap(pix_map)
@@ -205,6 +218,10 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 + page_width + ' px' + '\t\t\t\t\t' + self.tr('Height: ') + page_height + ' px'
 
             self.statusbar.showMessage(label)
+
+    def _update_recent_files_list(self):
+
+        self.menu_recent_files.get
 
     def _enable_actions(self):
 

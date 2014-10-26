@@ -167,7 +167,7 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <widget class="QMenu" name="menu_Recent_files">
+    <widget class="QMenu" name="menu_recent_files">
      <property name="title">
       <string>&amp;Recent files</string>
      </property>
@@ -179,7 +179,7 @@
     </widget>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>
-    <addaction name="menu_Recent_files"/>
+    <addaction name="menu_recent_files"/>
     <addaction name="separator"/>
     <addaction name="action_Exit"/>
    </widget>
