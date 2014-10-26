@@ -54,8 +54,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self.recentFileManager.add_action(self.recent_file_1)
         self.recentFileManager.add_action(self.recent_file_2)
         self.recentFileManager.add_action(self.recent_file_3)
-        self.recentFileManager.add_action(self.recent_file_4)
-        self.recentFileManager.add_action(self.recent_file_5)
+        # self.recentFileManager.add_action(self.recent_file_4)
+        # self.recentFileManager.add_action(self.recent_file_5)
 
         # self.recentFileManager.update_recent_action_list()
 
@@ -89,7 +89,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self.goToDialog = GoToDialog(self.model, self.scroll_area_viewer)
 
                 self.scroll_area_viewer.label.setPixmap(pix_map)
-                self.setWindowTitle(self.windowTitle() + ": " + self.model.comic.name)
+                self.setWindowTitle(self.model.comic.name)
 
                 self._update_status_bar()
                 self._enable_actions()
