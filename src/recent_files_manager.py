@@ -7,23 +7,32 @@ from Queue import Queue
 
 class RecentFileManager(QObject):
 
-    MAX_RECENT_FILES = 5
+    MAX_RECENT_FILES = 3
 
     def __init__(self, parent=None):
         super(RecentFileManager, self).__init__(parent)
-        self.recent_files_action_list = Queue(self.MAX_RECENT_FILES)
+        self.recent_files_action_queue = Queue(self.MAX_RECENT_FILES)
+        self.recent_files_action_list = []
 
     def add_action(self, action):
-        self.recent_files_action_list.put((action, action.text()))
+        self.recent_files_action_list.append({'action': action, 'path': ''})
 
     def load_file(self, file_path, comic_name):
 
-        if not self.recent_files_action_list.empty():
+        if self.recent_files_action_queue.qsize() >= self.MAX_RECENT_FILES:
+            self.recent_files_action_queue.get()
 
-            action, text = self.recent_files_action_list.get()
-            action.setVisible(True)
-            action.setText(comic_name)
-            self.recent_files_action_list.put((action, file_path))
+        self.recent_files_action_queue.put((comic_name, file_path))
+
+        for i in range(0, self.recent_files_action_queue.qsize()):
+
+            text, path = self.recent_files_action_queue.get()
+
+            self.recent_files_action_list[self.MAX_RECENT_FILES - 1 - i]['action'].setText(text)
+            self.recent_files_action_list[self.MAX_RECENT_FILES - 1 - i]['action'].setVisible(True)
+            self.recent_files_action_list[self.MAX_RECENT_FILES - 1 - i]['path'] = path
+
+            self.recent_files_action_queue.put((text, path))
 
 
     # def adjust_for_current_file(self, file_path):
