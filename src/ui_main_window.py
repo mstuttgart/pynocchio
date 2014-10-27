@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Sun Oct 26 00:21:20 2014
+# Created: Mon Oct 27 17:51:49 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -174,7 +174,7 @@ class Ui_MainWindow(object):
         self.action_rotate_right.setObjectName("action_rotate_right")
         self.action_vertical_adjust = QtGui.QAction(MainWindow)
         self.action_vertical_adjust.setCheckable(True)
-        self.action_vertical_adjust.setChecked(False)
+        self.action_vertical_adjust.setChecked(True)
         self.action_vertical_adjust.setEnabled(False)
         icon10 = QtGui.QIcon()
         icon10.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_7.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -183,7 +183,7 @@ class Ui_MainWindow(object):
         self.action_vertical_adjust.setObjectName("action_vertical_adjust")
         self.action_horizontal_adjust = QtGui.QAction(MainWindow)
         self.action_horizontal_adjust.setCheckable(True)
-        self.action_horizontal_adjust.setChecked(True)
+        self.action_horizontal_adjust.setChecked(False)
         self.action_horizontal_adjust.setEnabled(False)
         icon11 = QtGui.QIcon()
         icon11.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_5.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
