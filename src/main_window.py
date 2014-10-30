@@ -49,21 +49,15 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self.action_about_qt.setIcon(QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
-        actions = [self.recent_file_1, self.recent_file_2, self.recent_file_3]
-
-        # actions.append(self.recent_file_1)
-        # actions.append(self.recent_file_2)
-        # actions.append(self.recent_file_3)
+        actions = [
+            self.recent_file_1,
+            self.recent_file_2,
+            self.recent_file_3,
+            self.recent_file_4,
+            self.recent_file_5
+        ]
 
         self.recentFileManager = RecentFileManager(actions)
-
-        # self.recentFileManager.add_action(self.recent_file_1)
-        # self.recentFileManager.add_action(self.recent_file_2)
-        # self.recentFileManager.add_action(self.recent_file_3)
-        # self.recentFileManager.add_action(self.recent_file_4)
-        # self.recentFileManager.add_action(self.recent_file_5)
-
-        # self.recentFileManager.update_recent_action_list()
 
     def _centralize_window(self):
 
