@@ -9,10 +9,16 @@ class RecentFileManager(QObject):
 
     MAX_RECENT_FILES = 3
 
-    def __init__(self, parent=None):
+    def __init__(self, actions, parent=None):
         super(RecentFileManager, self).__init__(parent)
         self.recent_files_action_queue = Queue(self.MAX_RECENT_FILES)
+
         self.recent_files_action_list = []
+
+        for i in actions:
+            self.recent_files_action_list.append({'action': i, 'path': ''})
+
+        self._load_settings()
 
     def add_action(self, action):
         self.recent_files_action_list.append({'action': action, 'path': ''})
@@ -36,7 +42,43 @@ class RecentFileManager(QObject):
 
     def _load_settings(self):
 
-        from PySide.QtCore import QSettings
+        import ConfigParser
+
+        config = ConfigParser.ConfigParser()
+        config.read("recent_files.ini")
+
+        section_list = config.sections()
+        section_list.reverse()
+
+        for sec in section_list:
+            comic_name = config.get(sec, 'name')
+            comic_path = config.get(sec, 'path')
+            self.load_file(comic_path, comic_name)
+
+    def save_settings(self):
+
+        import ConfigParser
+
+        config = ConfigParser.ConfigParser()
+
+        file_settings = open("recent_files.ini", "w")
+
+        for i in range(0, len(self.recent_files_action_list)):
+
+            if self.recent_files_action_list[i]['action'].isVisible():
+
+                section = "RECENT_FILE_" + str(i)
+
+                config.add_section(section)
+
+                comic_name = self.recent_files_action_list[i]['action'].text()
+                comic_path = self.recent_files_action_list[i]['path']
+
+                config.set(section, "name", comic_name)
+                config.set(section, "path", comic_path)
+
+        config.write(file_settings)
+        file_settings.close()
 
 
 

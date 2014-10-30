@@ -178,7 +178,7 @@
     <addaction name="action_open_folder"/>
     <addaction name="menu_recent_files"/>
     <addaction name="separator"/>
-    <addaction name="action_Exit"/>
+    <addaction name="action_exit"/>
    </widget>
    <widget class="QMenu" name="menu_view">
     <property name="title">
@@ -278,7 +278,7 @@
    <addaction name="action_best_fit"/>
    <addaction name="action_fullscreen"/>
    <addaction name="separator"/>
-   <addaction name="action_Exit"/>
+   <addaction name="action_exit"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="focusPolicy">
@@ -317,7 +317,7 @@
     <string>&amp;About Qt</string>
    </property>
   </action>
-  <action name="action_Exit">
+  <action name="action_exit">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/icons/icons/freeiconmaker_8.png</normaloff>:/icons/icons/freeiconmaker_8.png</iconset>
@@ -688,22 +688,5 @@
  <resources>
   <include location="../resource/main_window.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>action_Exit</sender>
-   <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>313</x>
-     <y>199</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

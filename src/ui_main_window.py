@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Thu Oct 30 08:10:15 2014
+# Created: Thu Oct 30 12:39:14 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -125,11 +125,11 @@ class Ui_MainWindow(object):
         self.action_about.setObjectName("action_about")
         self.action_about_qt = QtGui.QAction(MainWindow)
         self.action_about_qt.setObjectName("action_about_qt")
-        self.action_Exit = QtGui.QAction(MainWindow)
+        self.action_exit = QtGui.QAction(MainWindow)
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_Exit.setIcon(icon3)
-        self.action_Exit.setObjectName("action_Exit")
+        self.action_exit.setIcon(icon3)
+        self.action_exit.setObjectName("action_exit")
         self.action_next_page = QtGui.QAction(MainWindow)
         self.action_next_page.setEnabled(False)
         icon4 = QtGui.QIcon()
@@ -278,7 +278,7 @@ class Ui_MainWindow(object):
         self.menu_file.addAction(self.action_open_folder)
         self.menu_file.addAction(self.menu_recent_files.menuAction())
         self.menu_file.addSeparator()
-        self.menu_file.addAction(self.action_Exit)
+        self.menu_file.addAction(self.action_exit)
         self.menu_view.addAction(self.action_fullscreen)
         self.menu_view.addSeparator()
         self.menu_view.addAction(self.action_original_fit)
@@ -322,10 +322,9 @@ class Ui_MainWindow(object):
         self.toolbar.addAction(self.action_best_fit)
         self.toolbar.addAction(self.action_fullscreen)
         self.toolbar.addSeparator()
-        self.toolbar.addAction(self.action_Exit)
+        self.toolbar.addAction(self.action_exit)
 
         self.retranslateUi(MainWindow)
-        QtCore.QObject.connect(self.action_Exit, QtCore.SIGNAL("triggered()"), MainWindow.close)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -342,8 +341,8 @@ class Ui_MainWindow(object):
         self.action_open.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+O", None, QtGui.QApplication.UnicodeUTF8))
         self.action_about.setText(QtGui.QApplication.translate("MainWindow", "&About Pynocchio", None, QtGui.QApplication.UnicodeUTF8))
         self.action_about_qt.setText(QtGui.QApplication.translate("MainWindow", "&About Qt", None, QtGui.QApplication.UnicodeUTF8))
-        self.action_Exit.setText(QtGui.QApplication.translate("MainWindow", "&Exit", None, QtGui.QApplication.UnicodeUTF8))
-        self.action_Exit.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+Q", None, QtGui.QApplication.UnicodeUTF8))
+        self.action_exit.setText(QtGui.QApplication.translate("MainWindow", "&Exit", None, QtGui.QApplication.UnicodeUTF8))
+        self.action_exit.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+Q", None, QtGui.QApplication.UnicodeUTF8))
         self.action_next_page.setText(QtGui.QApplication.translate("MainWindow", "&Next page", None, QtGui.QApplication.UnicodeUTF8))
         self.action_next_page.setShortcut(QtGui.QApplication.translate("MainWindow", "Right", None, QtGui.QApplication.UnicodeUTF8))
         self.action_previous_page.setText(QtGui.QApplication.translate("MainWindow", "&Previous page", None, QtGui.QApplication.UnicodeUTF8))

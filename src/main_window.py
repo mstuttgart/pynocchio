@@ -49,11 +49,17 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self.action_about_qt.setIcon(QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
-        self.recentFileManager = RecentFileManager(self.menu_recent_files)
+        actions = [self.recent_file_1, self.recent_file_2, self.recent_file_3]
 
-        self.recentFileManager.add_action(self.recent_file_1)
-        self.recentFileManager.add_action(self.recent_file_2)
-        self.recentFileManager.add_action(self.recent_file_3)
+        # actions.append(self.recent_file_1)
+        # actions.append(self.recent_file_2)
+        # actions.append(self.recent_file_3)
+
+        self.recentFileManager = RecentFileManager(actions)
+
+        # self.recentFileManager.add_action(self.recent_file_1)
+        # self.recentFileManager.add_action(self.recent_file_2)
+        # self.recentFileManager.add_action(self.recent_file_3)
         # self.recentFileManager.add_action(self.recent_file_4)
         # self.recentFileManager.add_action(self.recent_file_5)
 
@@ -203,6 +209,11 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
     def _on_action_about_qt__triggered(self):
         QMessageBox.aboutQt(self, self.tr(u'About Qt'))
+
+    def _on_action_exit__triggered(self):
+        self.recentFileManager.save_settings()
+        super(MainWindow, self).close()
+
 
     def _update_status_bar(self):
 
