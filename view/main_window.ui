@@ -114,9 +114,6 @@
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <widget class="QLabel" name="label">
-            <property name="cursor">
-             <cursorShape>ArrowCursor</cursorShape>
-            </property>
             <property name="autoFillBackground">
              <bool>false</bool>
             </property>

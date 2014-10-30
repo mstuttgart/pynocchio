@@ -34,6 +34,12 @@ class RecentFileManager(QObject):
 
             self.recent_files_action_queue.put((text, path))
 
+    def _load_settings(self):
+
+        from PySide.QtCore import QSettings
+
+
+
 
     # def adjust_for_current_file(self, file_path):
     #     print 'teste'

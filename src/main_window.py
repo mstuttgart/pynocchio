@@ -78,7 +78,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         if len(fname) == 0:
             return
 
-        self.setCursor(Qt.WaitCursor)
+        # self.setCursor(Qt.WaitCursor)
 
         if self.model.load_comic(fname):
 
@@ -102,7 +102,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         else:
             QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + fname)
 
-        self.setCursor(Qt.ArrowCursor)
+        # self.setCursor(Qt.ArrowCursor)
 
     def _on_action_open_folder__triggered(self):
 
