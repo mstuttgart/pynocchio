@@ -3,7 +3,7 @@
 from PySide.QtCore import QObject
 from PySide.QtCore import QSettings, QFileInfo
 from Queue import Queue
-
+from collections import deque
 
 class RecentFileManager(QObject):
 
@@ -13,7 +13,7 @@ class RecentFileManager(QObject):
         super(RecentFileManager, self).__init__(parent)
 
         self.MAX_RECENT_FILES = len(actions)
-        self.recent_files_action_queue = Queue(len(actions))
+        self.recent_files_action_deque = deque()
         self.recent_files_action_list = []
 
         for i in actions:
@@ -23,21 +23,26 @@ class RecentFileManager(QObject):
 
     def load_file(self, file_path, comic_name):
 
-        if self.recent_files_action_queue.qsize() >= self.MAX_RECENT_FILES:
-            self.recent_files_action_queue.get()
+        if len(self.recent_files_action_deque) >= self.MAX_RECENT_FILES:
+            self.recent_files_action_deque.pop()
 
-        self.recent_files_action_queue.put((comic_name, file_path))
+        try:
+            self.recent_files_action_deque.remove((comic_name, file_path))
+        except ValueError, err:
+            print err
 
-        for i in range(0, self.recent_files_action_queue.qsize()):
+        self.recent_files_action_deque.appendleft((comic_name, file_path))
 
-            text, path = self.recent_files_action_queue.get()
+        for i in range(0, len(self.recent_files_action_deque)):
+
+            text, path = self.recent_files_action_deque.pop()
             idx = self.MAX_RECENT_FILES - 1 - i
 
             self.recent_files_action_list[idx]['action'].setText(text)
             self.recent_files_action_list[idx]['action'].setVisible(True)
             self.recent_files_action_list[idx]['path'] = path
 
-            self.recent_files_action_queue.put((text, path))
+            self.recent_files_action_deque.appendleft((text, path))
 
     def get_action_path(self, object_name):
 
