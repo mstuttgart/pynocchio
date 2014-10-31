@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Thu Oct 30 12:39:14 2014
+# Created: Thu Oct 30 22:13:01 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -254,26 +254,6 @@ class Ui_MainWindow(object):
         self.action_open_folder.setMenuRole(QtGui.QAction.TextHeuristicRole)
         self.action_open_folder.setIconVisibleInMenu(True)
         self.action_open_folder.setObjectName("action_open_folder")
-        self.recent_file_1 = QtGui.QAction(MainWindow)
-        self.recent_file_1.setVisible(False)
-        self.recent_file_1.setObjectName("recent_file_1")
-        self.recent_file_2 = QtGui.QAction(MainWindow)
-        self.recent_file_2.setVisible(False)
-        self.recent_file_2.setObjectName("recent_file_2")
-        self.recent_file_3 = QtGui.QAction(MainWindow)
-        self.recent_file_3.setVisible(False)
-        self.recent_file_3.setObjectName("recent_file_3")
-        self.recent_file_4 = QtGui.QAction(MainWindow)
-        self.recent_file_4.setVisible(False)
-        self.recent_file_4.setObjectName("recent_file_4")
-        self.recent_file_5 = QtGui.QAction(MainWindow)
-        self.recent_file_5.setVisible(False)
-        self.recent_file_5.setObjectName("recent_file_5")
-        self.menu_recent_files.addAction(self.recent_file_1)
-        self.menu_recent_files.addAction(self.recent_file_2)
-        self.menu_recent_files.addAction(self.recent_file_3)
-        self.menu_recent_files.addAction(self.recent_file_4)
-        self.menu_recent_files.addAction(self.recent_file_5)
         self.menu_file.addAction(self.action_open)
         self.menu_file.addAction(self.action_open_folder)
         self.menu_file.addAction(self.menu_recent_files.menuAction())
@@ -373,11 +353,6 @@ class Ui_MainWindow(object):
         self.action_remove_bookmark.setText(QtGui.QApplication.translate("MainWindow", "&Remove bookmark", None, QtGui.QApplication.UnicodeUTF8))
         self.action_bookmark_manager.setText(QtGui.QApplication.translate("MainWindow", "Bookmark &manager", None, QtGui.QApplication.UnicodeUTF8))
         self.action_open_folder.setText(QtGui.QApplication.translate("MainWindow", "Open &Folder", None, QtGui.QApplication.UnicodeUTF8))
-        self.recent_file_1.setText(QtGui.QApplication.translate("MainWindow", "file1", None, QtGui.QApplication.UnicodeUTF8))
-        self.recent_file_2.setText(QtGui.QApplication.translate("MainWindow", "file2", None, QtGui.QApplication.UnicodeUTF8))
-        self.recent_file_3.setText(QtGui.QApplication.translate("MainWindow", "file3", None, QtGui.QApplication.UnicodeUTF8))
-        self.recent_file_4.setText(QtGui.QApplication.translate("MainWindow", "file4", None, QtGui.QApplication.UnicodeUTF8))
-        self.recent_file_5.setText(QtGui.QApplication.translate("MainWindow", "file5", None, QtGui.QApplication.UnicodeUTF8))
 
 from viewer import Viewer
 import main_window_rc

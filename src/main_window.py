@@ -49,13 +49,15 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self.action_about_qt.setIcon(QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
-        actions = [
-            self.recent_file_1,
-            self.recent_file_2,
-            self.recent_file_3,
-            self.recent_file_4,
-            self.recent_file_5
-        ]
+        actions = []
+
+        for i in range(5):
+            act = QtGui.QAction(
+                self, visible=False, triggered=self._on_action_recent_files)
+
+            act.setObjectName(str(i))
+            actions.append(act)
+            self.menu_recent_files.addAction(act)
 
         self.recentFileManager = RecentFileManager(actions)
 
@@ -67,20 +69,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         y_center = (screen.height() - size.height()) / 2
         self.move(x_center, y_center)
 
-    def _on_action_open__triggered(self):
+    def load(self, path):
 
-        fname, filt = QtGui.QFileDialog.getOpenFileName(
-            self.parent(), self.tr('Open comic file'), QtCore.QDir.currentPath(),
-            self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt)\
-            ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
-            ;;Tar Files (*.tar *.cbt);;All files (*)'))
-
-        if len(fname) == 0:
-            return
-
-        # self.setCursor(Qt.WaitCursor)
-
-        if self.model.load_comic(fname):
+        if self.model.load_comic(path):
 
             pix_map = self.model.get_current_page()
 
@@ -94,13 +85,28 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self._update_status_bar()
                 self._enable_actions()
 
-                self.recentFileManager.load_file(fname, self.model.comic.name)
+                self.recentFileManager.load_file(path, self.model.comic.name)
 
             else:
                 QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
 
         else:
-            QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + fname)
+            QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
+
+    def _on_action_open__triggered(self):
+
+        fname, filt = QtGui.QFileDialog.getOpenFileName(
+            self.parent(), self.tr('Open comic file'), QtCore.QDir.currentPath(),
+            self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt)\
+            ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
+            ;;Tar Files (*.tar *.cbt);;All files (*)'))
+
+        if len(fname) == 0:
+            return
+
+        self.load(fname)
+
+        # self.setCursor(Qt.WaitCursor)
 
         # self.setCursor(Qt.ArrowCursor)
 
@@ -130,8 +136,13 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         else:
             QMessageBox.information(self, self.tr('Error'), self.tr("Error to load folder!!") + path)
 
-    # def _on_action_preferences__triggered(self):
-        # self.preference_dialog.show()
+    def _on_action_recent_files(self):
+
+        action = self.sender()
+
+        if action:
+            path = self.recentFileManager.get_action_path(action.objectName())
+            self.load(path)
 
     def _on_action_next_page__triggered(self):
         self.scroll_area_viewer.next_page()

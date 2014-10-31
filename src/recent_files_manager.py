@@ -21,9 +21,6 @@ class RecentFileManager(QObject):
 
         self._load_settings()
 
-    # def add_action(self, action):
-    #     self.recent_files_action_list.append({'action': action, 'path': ''})
-
     def load_file(self, file_path, comic_name):
 
         if self.recent_files_action_queue.qsize() >= self.MAX_RECENT_FILES:
@@ -34,12 +31,22 @@ class RecentFileManager(QObject):
         for i in range(0, self.recent_files_action_queue.qsize()):
 
             text, path = self.recent_files_action_queue.get()
+            idx = self.MAX_RECENT_FILES - 1 - i
 
-            self.recent_files_action_list[self.MAX_RECENT_FILES - 1 - i]['action'].setText(text)
-            self.recent_files_action_list[self.MAX_RECENT_FILES - 1 - i]['action'].setVisible(True)
-            self.recent_files_action_list[self.MAX_RECENT_FILES - 1 - i]['path'] = path
+            self.recent_files_action_list[idx]['action'].setText(text)
+            self.recent_files_action_list[idx]['action'].setVisible(True)
+            self.recent_files_action_list[idx]['path'] = path
 
             self.recent_files_action_queue.put((text, path))
+
+    def get_action_path(self, object_name):
+
+        for i in range(0, self.MAX_RECENT_FILES):
+
+            if object_name == self.recent_files_action_list[i]['action'].objectName():
+                return self.recent_files_action_list[i]['path']
+
+        return None
 
     def _load_settings(self):
 
@@ -61,7 +68,6 @@ class RecentFileManager(QObject):
         import ConfigParser
 
         config = ConfigParser.ConfigParser()
-
         file_settings = open("recent_files.ini", "w")
 
         for i in range(0, len(self.recent_files_action_list)):

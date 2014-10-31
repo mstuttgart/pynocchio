@@ -168,11 +168,6 @@
      <property name="title">
       <string>&amp;Recent files</string>
      </property>
-     <addaction name="recent_file_1"/>
-     <addaction name="recent_file_2"/>
-     <addaction name="recent_file_3"/>
-     <addaction name="recent_file_4"/>
-     <addaction name="recent_file_5"/>
     </widget>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>
@@ -634,46 +629,6 @@
    </property>
    <property name="iconVisibleInMenu">
     <bool>true</bool>
-   </property>
-  </action>
-  <action name="recent_file_1">
-   <property name="text">
-    <string>file1</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="recent_file_2">
-   <property name="text">
-    <string>file2</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="recent_file_3">
-   <property name="text">
-    <string>file3</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="recent_file_4">
-   <property name="text">
-    <string>file4</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="recent_file_5">
-   <property name="text">
-    <string>file5</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
    </property>
   </action>
  </widget>
