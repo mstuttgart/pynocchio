@@ -28,6 +28,38 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self.scroll_area_viewer.model = self.model
         self.scroll_area_viewer.label = self.label
 
+        self._adjust_main_window()
+
+        self._on_action_show_statusbar__triggered()
+        self._on_action_show_toolbar__triggered()
+
+        self._create_action_group_view()
+
+        self.action_about_qt.setIcon(QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
+
+        actions = []
+
+        for i in range(5):
+            act = QtGui.QAction(self, visible=False, triggered=self._on_action_recent_files)
+
+            act.setObjectName(str(i))
+            actions.append(act)
+            self.menu_recent_files.addAction(act)
+
+        self.recentFileManager = RecentFileManager(actions)
+
+    def _adjust_main_window(self):
+
+        screen = QtGui.QDesktopWidget().screenGeometry()
+        size = self.geometry()
+        x_center = (screen.width() - size.width()) / 2
+        y_center = (screen.height() - size.height()) / 2
+        self.move(x_center, y_center)
+
+        self.setMinimumSize(QApplication.desktop().screenGeometry().size() * 0.8)
+
+    def _create_action_group_view(self):
+
         self.actionGroupView = QtGui.QActionGroup(self)
 
         self.actionGroupView.addAction(self.action_original_fit)
@@ -40,34 +72,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self.actionGroupView.triggered.connect(
             self._on_action_group_view_adjust)
-
-        self._centralize_window()
-        self.setMinimumSize(QApplication.desktop().screenGeometry().size() * 0.8)
-
-        self._on_action_show_statusbar__triggered()
-        self._on_action_show_toolbar__triggered()
-
-        self.action_about_qt.setIcon(QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
-
-        actions = []
-
-        for i in range(5):
-            act = QtGui.QAction(
-                self, visible=False, triggered=self._on_action_recent_files)
-
-            act.setObjectName(str(i))
-            actions.append(act)
-            self.menu_recent_files.addAction(act)
-
-        self.recentFileManager = RecentFileManager(actions)
-
-    def _centralize_window(self):
-
-        screen = QtGui.QDesktopWidget().screenGeometry()
-        size = self.geometry()
-        x_center = (screen.width() - size.width()) / 2
-        y_center = (screen.height() - size.height()) / 2
-        self.move(x_center, y_center)
 
     def load(self, path):
 
@@ -92,6 +96,8 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         else:
             QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
+
+            self._update_view_actions()
 
     def _on_action_open__triggered(self):
 
@@ -147,21 +153,26 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _on_action_next_page__triggered(self):
         self.scroll_area_viewer.next_page()
         self._update_status_bar()
+        self._update_view_actions()
 
     def _on_action_previous_page__triggered(self):
         self.scroll_area_viewer.previous_page()
         self._update_status_bar()
+        self._update_view_actions()
 
     def _on_action_first_page__triggered(self):
         self.scroll_area_viewer.first_page()
         self._update_status_bar()
+        self._update_view_actions()
 
     def _on_action_last_page__triggered(self):
         self.scroll_area_viewer.last_page()
         self._update_status_bar()
+        self._update_view_actions()
 
     def _on_action_go_to_page__triggered(self):
         self.goToDialog.show()
+        self._update_view_actions()
 
     def _on_action_rotate_left__triggered(self):
         self.scroll_area_viewer.rotate_left()
@@ -219,6 +230,22 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self.recentFileManager.save_settings()
         super(MainWindow, self).close()
 
+    def _update_view_actions(self):
+
+        if self.model.is_last_page():
+            self.action_next_page.setEnabled(False)
+            self.action_last_page.setEnabled(False)
+
+        elif self.model.is_first_page():
+            self.action_previous_page.setEnabled(False)
+            self.action_first_page.setEnabled(False)
+
+        else:
+            self.action_next_page.setEnabled(True)
+            self.action_last_page.setEnabled(True)
+            self.action_previous_page.setEnabled(True)
+            self.action_first_page.setEnabled(True)
+
 
     def _update_status_bar(self):
 
@@ -250,9 +277,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self.action_rotate_right.setEnabled(True)
 
         self.action_next_page.setEnabled(True)
-        self.action_first_page.setEnabled(True)
-        self.action_previous_page.setEnabled(True)
         self.action_last_page.setEnabled(True)
+        # self.action_first_page.setEnabled(True)
+        # self.action_previous_page.setEnabled(True)
         self.action_go_to_page.setEnabled(True)
 
         self.action_add_bookmark.setEnabled(True)
@@ -279,4 +306,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self._on_action_fullscreen__triggered()
         else:
             super(MainWindow, self).mousePressEvent(*args, **kwargs)
+
+    def repaint(self, *args, **kwargs):
+        self._update_status_bar()
+        super(MainWindow, self).repaint(*args, **kwargs)
+
 

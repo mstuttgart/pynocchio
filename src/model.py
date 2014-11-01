@@ -126,6 +126,20 @@ class Model(QtCore.QObject):
 
         return -1
 
+    def is_last_page(self):
+
+        if self.comic.current_page_index + 1 == self.comic.get_number_of_pages():
+            return True
+
+        return False
+
+    def is_first_page(self):
+
+        if self.comic.current_page_index == 0:
+            return True
+
+        return False
+
     def _load_pixmap_from_data(self):
 
         page = None
