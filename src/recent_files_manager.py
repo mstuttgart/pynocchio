@@ -69,10 +69,10 @@ class RecentFileManager(object):
 
         ret = settings_manager.SettingsManager.load_settings("recent_files_2.ini")
 
-        section_list = ret.keys()
-        section_list.reverse()
+        # section_list = ret.keys()
+        # section_list.reverse()
 
-        for section in section_list:
+        for section in ret:
             comic_name = ret[section]['name']
             comic_path = ret[section]['path']
             self.load_file(comic_path, comic_name)
@@ -104,22 +104,23 @@ class RecentFileManager(object):
         import settings_manager
 
         rf_dict = {}
-        aux_list = {}
+        aux_list = deque()
 
         for i in range(0, len(self.recent_files_action_list)):
 
             # Sections was added first because to preserve order of recent files
             if self.recent_files_action_list[i]['action'].isVisible():
 
-                section = "RECENT_FILE_" + str(i)
-                aux_list[section] = self.recent_files_action_list[i]
-                rf_dict[section] = {}
+                aux_list.append(self.recent_files_action_list[i])
+                rf_dict["RECENT_FILE_" + str(i)] = {}
 
         for sec in rf_dict:
 
-            # comic name and comic path
-            rf_dict[sec]['name'] = aux_list[sec]['action'].text()
-            rf_dict[sec]['path'] = aux_list[sec]['path']
+            elem = aux_list.pop()
+            comic_name = elem['action'].text()
+            comic_path = elem['path']
+            rf_dict[sec]['name'] = comic_name
+            rf_dict[sec]['path'] = comic_path
 
         settings_manager.SettingsManager.save_settings(rf_dict, "recent_files_2.ini")
 
