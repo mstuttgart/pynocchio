@@ -21,17 +21,29 @@ class RecentFileManager(object):
 
     def load_file(self, file_path, comic_name):
 
-        if len(self.recent_files_action_deque) >= self.MAX_RECENT_FILES:
-            self.recent_files_action_deque.pop()
+        # if len(self.recent_files_action_deque) >= self.MAX_RECENT_FILES:
+        #     self.recent_files_action_deque.pop()
 
-        try:
-            self.recent_files_action_deque.remove((comic_name, file_path))
-        except ValueError, err:
-            print err
+        deque_size = len(self.recent_files_action_deque)
+
+        for i in range(0, deque_size):
+
+            elem = self.recent_files_action_deque.pop()
+
+            if elem[0] != comic_name and elem[1] != file_path:
+                self.recent_files_action_deque.appendleft(elem)
+
+        # if self.recent_files_action_deque.count((comic_name, file_path)) != 0:
+        #     try:
+        #         self.recent_files_action_deque.remove((comic_name, file_path))
+        #     except ValueError, err:
+        #         print err
 
         self.recent_files_action_deque.appendleft((comic_name, file_path))
 
-        for i in range(0, len(self.recent_files_action_deque)):
+        deque_size = len(self.recent_files_action_deque)
+
+        for i in range(0, deque_size):
 
             text, path = self.recent_files_action_deque.pop()
             idx = self.MAX_RECENT_FILES - 1 - i
@@ -44,9 +56,9 @@ class RecentFileManager(object):
 
     def get_action_path(self, object_name):
 
-        for i in range(0, self.MAX_RECENT_FILES):
-            if object_name == self.recent_files_action_list[i]['action'].objectName():
-                return self.recent_files_action_list[i]['path']
+        for act in self.recent_files_action_list:
+            if object_name == act['action'].objectName():
+                return act['path']
 
         return None
 
@@ -69,8 +81,13 @@ class RecentFileManager(object):
 
         ret = settings_manager.SettingsManager.load_settings("recent_files_2.ini")
 
-        # section_list = ret.keys()
-        # section_list.reverse()
+# <<<<<<< HEAD
+#         # section_list = ret.keys()
+#         # section_list.reverse()
+# =======
+        section_list = ret.keys()
+        section_list.sort(reverse=True)
+# >>>>>>> feature/setting_loader
 
         for section in ret:
             comic_name = ret[section]['name']
@@ -104,23 +121,40 @@ class RecentFileManager(object):
         import settings_manager
 
         rf_dict = {}
-        aux_list = deque()
+# <<<<<<< HEAD
+#         aux_list = deque()
+# =======
+#         # aux_list = {}
+# >>>>>>> feature/setting_loader
 
-        for i in range(0, len(self.recent_files_action_list)):
+        for act_dict in self.recent_files_action_list:
 
             # Sections was added first because to preserve order of recent files
-            if self.recent_files_action_list[i]['action'].isVisible():
+            if act_dict['action'].isVisible():
 
-                aux_list.append(self.recent_files_action_list[i])
-                rf_dict["RECENT_FILE_" + str(i)] = {}
+                section = "RECENT_FILE_" + act_dict['action'].objectName()
 
-        for sec in rf_dict:
+# <<<<<<< HEAD
+#                 aux_list.append(self.recent_files_action_list[i])
+#                 rf_dict["RECENT_FILE_" + str(i)] = {}
+# =======
+                # aux_list[section] = self.recent_files_action_list[i]
+                rf_dict[section] = {}
+# >>>>>>> feature/setting_loader
 
-            elem = aux_list.pop()
-            comic_name = elem['action'].text()
-            comic_path = elem['path']
-            rf_dict[sec]['name'] = comic_name
-            rf_dict[sec]['path'] = comic_path
+                # comic name and comic path
+                rf_dict[section]['name'] = act_dict['action'].text()
+                rf_dict[section]['path'] = act_dict['path']
+
+# <<<<<<< HEAD
+#             elem = aux_list.pop()
+#             comic_name = elem['action'].text()
+#             comic_path = elem['path']
+#             rf_dict[sec]['name'] = comic_name
+#             rf_dict[sec]['path'] = comic_path
+# =======
+#         # for sec in rf_dict:
+# >>>>>>> feature/setting_loader
 
         settings_manager.SettingsManager.save_settings(rf_dict, "recent_files_2.ini")
 
