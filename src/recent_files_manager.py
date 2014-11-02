@@ -21,17 +21,29 @@ class RecentFileManager(object):
 
     def load_file(self, file_path, comic_name):
 
-        if len(self.recent_files_action_deque) >= self.MAX_RECENT_FILES:
-            self.recent_files_action_deque.pop()
+        # if len(self.recent_files_action_deque) >= self.MAX_RECENT_FILES:
+        #     self.recent_files_action_deque.pop()
 
-        try:
-            self.recent_files_action_deque.remove((comic_name, file_path))
-        except ValueError, err:
-            print err
+        deque_size = len(self.recent_files_action_deque)
+
+        for i in range(0, deque_size):
+
+            elem = self.recent_files_action_deque.pop()
+
+            if elem[0] != comic_name and elem[1] != file_path:
+                self.recent_files_action_deque.appendleft(elem)
+
+        # if self.recent_files_action_deque.count((comic_name, file_path)) != 0:
+        #     try:
+        #         self.recent_files_action_deque.remove((comic_name, file_path))
+        #     except ValueError, err:
+        #         print err
 
         self.recent_files_action_deque.appendleft((comic_name, file_path))
 
-        for i in range(0, len(self.recent_files_action_deque)):
+        deque_size = len(self.recent_files_action_deque)
+
+        for i in range(0, deque_size):
 
             text, path = self.recent_files_action_deque.pop()
             idx = self.MAX_RECENT_FILES - 1 - i
@@ -44,9 +56,9 @@ class RecentFileManager(object):
 
     def get_action_path(self, object_name):
 
-        for i in range(0, self.MAX_RECENT_FILES):
-            if object_name == self.recent_files_action_list[i]['action'].objectName():
-                return self.recent_files_action_list[i]['path']
+        for act in self.recent_files_action_list:
+            if object_name == act['action'].objectName():
+                return act['path']
 
         return None
 
@@ -106,19 +118,19 @@ class RecentFileManager(object):
         rf_dict = {}
         # aux_list = {}
 
-        for i in range(0, len(self.recent_files_action_list)):
+        for act_dict in self.recent_files_action_list:
 
             # Sections was added first because to preserve order of recent files
-            if self.recent_files_action_list[i]['action'].isVisible():
+            if act_dict['action'].isVisible():
 
-                section = "RECENT_FILE_" + str(i)
+                section = "RECENT_FILE_" + act_dict['action'].objectName()
 
                 # aux_list[section] = self.recent_files_action_list[i]
                 rf_dict[section] = {}
 
                 # comic name and comic path
-                rf_dict[section]['name'] = self.recent_files_action_list[i]['action'].text()
-                rf_dict[section]['path'] = self.recent_files_action_list[i]['path']
+                rf_dict[section]['name'] = act_dict['action'].text()
+                rf_dict[section]['path'] = act_dict['path']
 
         # for sec in rf_dict:
 
