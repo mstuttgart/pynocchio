@@ -89,7 +89,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self._update_status_bar()
                 self._enable_actions()
 
-                self.recentFileManager.load_file(path)
+                self.recentFileManager.update_recente_file_list(path)
 
             else:
                 QMessageBox.information(self.tr('Error'), self.tr("Comic file is not loaded!!"))
