@@ -19,7 +19,7 @@ class RecentFileManager(object):
 
         self._load_settings()
 
-    def update_recente_file_list(self, file_path):
+    def update_recent_file_list(self, file_path):
 
         self._format_deque(file_path)
 
@@ -63,7 +63,7 @@ class RecentFileManager(object):
 
         for section in section_list:
             comic_path = ret[section]['path']
-            self.update_recente_file_list(comic_path)
+            self.update_recent_file_list(comic_path)
 
     def save_settings(self):
 
