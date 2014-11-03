@@ -19,16 +19,11 @@ class RecentFileManager(object):
 
         self._load_settings()
 
-    def load_file(self, file_path):
+    def update_recente_file_list(self, file_path):
 
-        if self.recent_files_action_deque.count(file_path) != 0:
-            self.recent_files_action_deque.remove(file_path)
+        self._format_deque(file_path)
 
         self.recent_files_action_deque.appendleft(file_path)
-
-        if len(self.recent_files_action_deque) > self.MAX_RECENT_FILES:
-            self.recent_files_action_deque.pop()
-
         deque_range = range(0, len(self.recent_files_action_deque))
 
         for i in deque_range:
@@ -41,6 +36,14 @@ class RecentFileManager(object):
             self.recent_files_action_list[idx]['path'] = path
 
             self.recent_files_action_deque.appendleft(path)
+
+    def _format_deque(self, path):
+
+        if self.recent_files_action_deque.count(path) != 0:
+            self.recent_files_action_deque.remove(path)
+
+        if len(self.recent_files_action_deque) >= self.MAX_RECENT_FILES:
+            self.recent_files_action_deque.pop()
 
     def get_action_path(self, object_name):
 
@@ -60,7 +63,7 @@ class RecentFileManager(object):
 
         for section in section_list:
             comic_path = ret[section]['path']
-            self.load_file(comic_path)
+            self.update_recente_file_list(comic_path)
 
     def save_settings(self):
 
@@ -71,7 +74,6 @@ class RecentFileManager(object):
 
             # Sections was added first because to preserve order of recent files
             if act_dict['action'].isVisible():
-
                 section = "RECENT_FILE_" + act_dict['action'].objectName()
                 rf_dict[section] = {}
                 rf_dict[section]['path'] = act_dict['path']
