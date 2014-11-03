@@ -5,7 +5,7 @@ from collections import deque
 
 class RecentFileManager(object):
 
-    MAX_RECENT_FILES = 3
+    SETTING_FILE_NAME = "recent_files.ini"
 
     def __init__(self, actions):
         super(RecentFileManager, self).__init__()
@@ -19,40 +19,28 @@ class RecentFileManager(object):
 
         self._load_settings()
 
-    def load_file(self, file_path, comic_name):
+    def load_file(self, file_path):
 
-        # if len(self.recent_files_action_deque) >= self.MAX_RECENT_FILES:
-        #     self.recent_files_action_deque.pop()
+        if self.recent_files_action_deque.count(file_path) != 0:
+            self.recent_files_action_deque.remove(file_path)
 
-        deque_size = len(self.recent_files_action_deque)
+        self.recent_files_action_deque.appendleft(file_path)
 
-        for i in range(0, deque_size):
+        if len(self.recent_files_action_deque) > self.MAX_RECENT_FILES:
+            self.recent_files_action_deque.pop()
 
-            elem = self.recent_files_action_deque.pop()
+        deque_range = range(0, len(self.recent_files_action_deque))
 
-            if elem[0] != comic_name and elem[1] != file_path:
-                self.recent_files_action_deque.appendleft(elem)
+        for i in deque_range:
 
-        # if self.recent_files_action_deque.count((comic_name, file_path)) != 0:
-        #     try:
-        #         self.recent_files_action_deque.remove((comic_name, file_path))
-        #     except ValueError, err:
-        #         print err
-
-        self.recent_files_action_deque.appendleft((comic_name, file_path))
-
-        deque_size = len(self.recent_files_action_deque)
-
-        for i in range(0, deque_size):
-
-            text, path = self.recent_files_action_deque.pop()
+            path = self.recent_files_action_deque.pop()
             idx = self.MAX_RECENT_FILES - 1 - i
 
-            self.recent_files_action_list[idx]['action'].setText(text)
+            self.recent_files_action_list[idx]['action'].setText(self._stripped_name(path))
             self.recent_files_action_list[idx]['action'].setVisible(True)
             self.recent_files_action_list[idx]['path'] = path
 
-            self.recent_files_action_deque.appendleft((text, path))
+            self.recent_files_action_deque.appendleft(path)
 
     def get_action_path(self, object_name):
 
@@ -64,59 +52,20 @@ class RecentFileManager(object):
 
     def _load_settings(self):
 
-        # import ConfigParser
-        #
-        # config = ConfigParser.ConfigParser()
-        # config.read("recent_files.ini")
-        #
-        # section_list = config.sections()
-        # section_list.reverse()
-        #
-        # for sec in section_list:
-        #     comic_name = config.get(sec, 'name')
-        #     comic_path = config.get(sec, 'path')
-        #     self.load_file(comic_path, comic_name)
+        from settings_manager import SettingsManager
 
-        import settings_manager
-
-        ret = settings_manager.SettingsManager.load_settings("recent_files_2.ini")
-
+        ret = SettingsManager.load_settings(self.SETTING_FILE_NAME)
         section_list = ret.keys()
         section_list.sort(reverse=True)
 
         for section in section_list:
-            comic_name = ret[section]['name']
             comic_path = ret[section]['path']
-            self.load_file(comic_path, comic_name)
+            self.load_file(comic_path)
 
     def save_settings(self):
 
-        # import ConfigParser
-        #
-        # config = ConfigParser.ConfigParser()
-        # file_settings = open("recent_files.ini", "w")
-        #
-        # for i in range(0, len(self.recent_files_action_list)):
-        #
-        #     if self.recent_files_action_list[i]['action'].isVisible():
-        #
-        #         section = "RECENT_FILE_" + str(i)
-        #
-        #         config.add_section(section)
-        #
-        #         comic_name = self.recent_files_action_list[i]['action'].text()
-        #         comic_path = self.recent_files_action_list[i]['path']
-        #
-        #         config.set(section, "name", comic_name)
-        #         config.set(section, "path", comic_path)
-        #
-        # config.write(file_settings)
-        # file_settings.close()
-
-        import settings_manager
-
+        from settings_manager import SettingsManager
         rf_dict = {}
-        # aux_list = {}
 
         for act_dict in self.recent_files_action_list:
 
@@ -124,17 +73,15 @@ class RecentFileManager(object):
             if act_dict['action'].isVisible():
 
                 section = "RECENT_FILE_" + act_dict['action'].objectName()
-
-                # aux_list[section] = self.recent_files_action_list[i]
                 rf_dict[section] = {}
-
-                # comic name and comic path
-                rf_dict[section]['name'] = act_dict['action'].text()
                 rf_dict[section]['path'] = act_dict['path']
 
-        # for sec in rf_dict:
+        SettingsManager.save_settings(rf_dict, self.SETTING_FILE_NAME)
 
-        settings_manager.SettingsManager.save_settings(rf_dict, "recent_files_2.ini")
+    @staticmethod
+    def _stripped_name(full_file_name):
+        from PySide.QtCore import QFileInfo
+        return QFileInfo(full_file_name).fileName()
 
 
 
