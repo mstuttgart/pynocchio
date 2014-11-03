@@ -234,17 +234,20 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         if self.model.is_last_page():
             self.action_next_page.setEnabled(False)
             self.action_last_page.setEnabled(False)
+            self.action_previous_page.setEnabled(True)
+            self.action_first_page.setEnabled(True)
 
         elif self.model.is_first_page():
             self.action_previous_page.setEnabled(False)
             self.action_first_page.setEnabled(False)
+            self.action_next_page.setEnabled(True)
+            self.action_last_page.setEnabled(True)
 
         else:
             self.action_next_page.setEnabled(True)
             self.action_last_page.setEnabled(True)
             self.action_previous_page.setEnabled(True)
             self.action_first_page.setEnabled(True)
-
 
     def _update_status_bar(self):
 
@@ -260,10 +263,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 + page_width + ' px' + '\t\t\t\t\t' + self.tr('Height: ') + page_height + ' px'
 
             self.statusbar.showMessage(label)
-
-    def _update_recent_files_list(self):
-
-        self.menu_recent_files.get
 
     def _enable_actions(self):
 
@@ -306,8 +305,6 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         else:
             super(MainWindow, self).mousePressEvent(*args, **kwargs)
 
-    def repaint(self, *args, **kwargs):
-        self._update_status_bar()
-        super(MainWindow, self).repaint(*args, **kwargs)
+
 
 
