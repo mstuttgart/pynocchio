@@ -7,4 +7,3 @@
 #TODO: Implementar mecanismo de cache para pre-carregar um dado numero de paginas
 #TODO: Adicionar a informação dos tipos de arquivos suportados na aboutDialog
 #TODO: Controle de zoom para o usurio
-#TODO: Salvar configurações de gui do usuário
