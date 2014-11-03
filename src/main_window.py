@@ -89,13 +89,12 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self._update_status_bar()
                 self._enable_actions()
 
-                self.recentFileManager.load_file(path, self.model.comic.name)
+                self.recentFileManager.load_file(path)
 
             else:
-                QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
-
+                QMessageBox.information(self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
-            QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
+            QMessageBox.information(self.tr('Error'), self.tr("Error to load file ") + path)
 
             self._update_view_actions()
 
@@ -138,9 +137,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self._enable_actions()
 
             else:
-                QMessageBox.information(self, self.tr('Error'), self.tr("Folder don't have image files!!"))
+                QMessageBox.information(self.tr('Error'), self.tr("Folder don't have image files!!"))
         else:
-            QMessageBox.information(self, self.tr('Error'), self.tr("Error to load folder!!") + path)
+            QMessageBox.information(self.tr('Error'), self.tr("Error to load folder!!") + path)
 
     def _on_action_recent_files(self):
 
