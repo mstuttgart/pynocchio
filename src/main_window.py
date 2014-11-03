@@ -47,6 +47,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self.menu_recent_files.addAction(act)
 
         self.recentFileManager = RecentFileManager(actions)
+        self._load_settings()
 
     def _adjust_main_window(self):
 
@@ -76,19 +77,15 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def load(self, path):
 
         if self.model.load_comic(path):
-
             pix_map = self.model.get_current_page()
 
             if pix_map is not None:
 
                 self.goToDialog = GoToDialog(self.model, self.scroll_area_viewer)
-
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
-
                 self._update_status_bar()
                 self._enable_actions()
-
                 self.recentFileManager.update_recent_file_list(path)
 
             else:
@@ -194,21 +191,18 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             self.statusbar.hide()
 
     def _on_action_group_view_adjust(self):
-
         checked_action = self.actionGroupView.checkedAction()
         self.model.adjustType = checked_action.text()
         self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
         self._update_status_bar()
 
     def _on_action_show_toolbar__triggered(self):
-
         if self.action_show_toolbar.isChecked():
             self.toolbar.show()
         else:
             self.toolbar.hide()
 
     def _on_action_show_statusbar__triggered(self):
-
         if self.action_show_statusbar.isChecked():
             self.statusbar.show()
             self._update_status_bar()
@@ -226,6 +220,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         QMessageBox.aboutQt(self, self.tr(u'About Qt'))
 
     def _on_action_exit__triggered(self):
+        self._save_settings()
         self.recentFileManager.save_settings()
         super(MainWindow, self).close()
 
@@ -282,6 +277,42 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         self.action_add_bookmark.setEnabled(True)
         self.action_remove_bookmark.setEnabled(True)
+
+    def _save_settings(self):
+
+        from settings_manager import SettingsManager
+
+        sett = {'view': {}, 'settings': {}}
+
+        sett['view']['view_adjust'] = self.actionGroupView.checkedAction().text()
+        sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
+        sett['settings']['show_statusbar'] = self.action_show_statusbar.isChecked()
+
+        SettingsManager.save_settings(sett, 'settings.ini')
+
+    def _load_settings(self):
+
+        from settings_manager import SettingsManager
+        from distutils import util
+
+        sett = SettingsManager.load_settings('settings.ini')
+
+        try:
+            checked = util.strtobool(sett['settings']['show_toolbar'])
+            self.action_show_toolbar.setChecked(checked)
+
+            checked = util.strtobool(sett['settings']['show_statusbar'])
+            self.action_show_statusbar.setChecked(checked)
+
+            for act in self.actionGroupView.actions():
+                if act.text() == sett['view']['view_adjust']:
+                    act.setChecked(True)
+
+        except KeyError, err:
+            print err
+
+        self._on_action_show_toolbar__triggered()
+        self._on_action_show_statusbar__triggered()
 
     def keyPressEvent(self, event):
 
