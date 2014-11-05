@@ -1,17 +1,18 @@
 # -*- coding: UTF-8 -*-
 from PySide import QtGui
+from PySide import QtCore
 
-from comic import Comic
-from rar_loader import *
-from zip_loader import *
-from tar_loader import *
-from folder_loader import *
+import comic
+import rar_loader
+import zip_loader
+import tar_loader
+import folder_loader
 
 
-class Model(QtCore.QObject):
-    def __init__(self, parent=None):
+class Model(object):
+    def __init__(self):
 
-        super(Model, self).__init__(parent)
+        super(Model, self).__init__()
 
         self.comic = None
         self.original_pixmap = QtGui.QPixmap()
@@ -24,14 +25,14 @@ class Model(QtCore.QObject):
 
         try:
 
-            if ZipLoader.is_zip_file(file_name):
-                return self._load_content(ZipLoader(), file_name)
+            if zip_loader.ZipLoader.is_zip_file(file_name):
+                return self._load_content(zip_loader.ZipLoader(), file_name)
 
-            elif RarLoader.is_rar_file(file_name):
-                return self._load_content(RarLoader(), file_name)
+            elif rar_loader.RarLoader.is_rar_file(file_name):
+                return self._load_content(rar_loader.RarLoader(), file_name)
 
-            elif TarLoader.is_tar_file(file_name):
-                return self._load_content(TarLoader(), file_name)
+            elif tar_loader.TarLoader.is_tar_file(file_name):
+                return self._load_content(tar_loader.TarLoader(), file_name)
 
         except IOError, err:
             print '%20s  %s' % (file_name, err)
@@ -41,8 +42,8 @@ class Model(QtCore.QObject):
 
     def load_folder(self, folder_name):
 
-        if FolderLoader.is_folder(folder_name):
-            return self._load_content(FolderLoader(), folder_name)
+        if folder_loader.FolderLoader.is_folder(folder_name):
+            return self._load_content(folder_loader.FolderLoader(), folder_name)
 
         print 'Not is folder'
         return False
@@ -50,11 +51,10 @@ class Model(QtCore.QObject):
     def _load_content(self, loader, file_name):
 
         pages, titles, path, name = loader.load_file(file_name)
-
         if len(pages) == 0:
             return False
 
-        self.comic = Comic(name, path, pages, titles)
+        self.comic = comic.Comic(name, path, pages, titles)
         self.current_page_index = 0
 
         return True
@@ -116,8 +116,6 @@ class Model(QtCore.QObject):
         if self.comic is not None:
             self.comic.set_current_page_index(idx)
 
-            # return None
-
     def get_current_page_index(self):
 
         if self.comic is not None:
@@ -154,7 +152,6 @@ class Model(QtCore.QObject):
     def update_content(self):
 
         pix_map = self.original_pixmap
-
         pix_map = self._rotate_page(pix_map)
         pix_map = self._resize_page(pix_map)
 

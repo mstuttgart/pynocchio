@@ -21,7 +21,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self.setupUi(self)
         self.auto_connect()
 
-        self.model = model.Model(self)
+        self.model = model.Model()
         self.goToDialog = None
         # self.preference_dialog = PreferenceDialog(self)
         self.aboutDialog = None

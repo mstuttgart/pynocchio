@@ -4,6 +4,7 @@ import collections
 
 
 class Comic(object):
+
     Pages = collections.namedtuple('Page', 'data title')
 
     def __init__(self, name, path, pages, titles):
@@ -32,7 +33,6 @@ class Comic(object):
     def go_next_page(self):
 
         range_list = range(0, self.get_number_of_pages() - 1)
-
         if self.current_page_index in range_list:
             self.current_page_index += 1
 

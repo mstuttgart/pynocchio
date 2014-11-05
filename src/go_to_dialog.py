@@ -1,16 +1,15 @@
 # -*- coding: UTF-8 -*-
 from PySide import QtCore
+from PySide import QtGui
 
-from PySide.QtGui import QDialog
-
-from ui_go_to_page_dialog import Ui_GoPageDialog
+import ui_go_to_page_dialog
 
 
-class GoToDialog(QDialog):
+class GoToDialog(QtGui.QDialog):
     def __init__(self, model, viewer, parent=None):
         super(GoToDialog, self).__init__(parent)
 
-        self.uiGoPageDialog = Ui_GoPageDialog()
+        self.uiGoPageDialog = ui_go_to_page_dialog.Ui_GoPageDialog()
 
         self.uiGoPageDialog.setupUi(self)
 
