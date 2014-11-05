@@ -3,10 +3,10 @@
 import os.path
 import rarfile
 
-from loader import Loader
+import loader
 
 
-class RarLoader(Loader):
+class RarLoader(loader.Loader):
     def __init__(self):
         super(RarLoader, self).__init__()
 

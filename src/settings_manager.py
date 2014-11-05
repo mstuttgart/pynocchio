@@ -9,7 +9,6 @@ class SettingsManager(object):
     def load_settings(file_name):
 
         import ConfigParser
-
         config = ConfigParser.ConfigParser()
 
         try:
@@ -33,8 +32,8 @@ class SettingsManager(object):
     def save_settings(content, file_name):
 
         import ConfigParser
-
         config = ConfigParser.ConfigParser()
+
         file_settings = open(file_name, "w")
 
         for section, keys in content.items():

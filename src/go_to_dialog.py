@@ -10,7 +10,6 @@ class GoToDialog(QtGui.QDialog):
         super(GoToDialog, self).__init__(parent)
 
         self.uiGoPageDialog = ui_go_to_page_dialog.Ui_GoPageDialog()
-
         self.uiGoPageDialog.setupUi(self)
 
         self.model = model

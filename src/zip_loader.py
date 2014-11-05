@@ -3,11 +3,10 @@ __author__ = 'michell'
 
 import zipfile
 import os.path
+import loader
 
-from loader import Loader
 
-
-class ZipLoader(Loader):
+class ZipLoader(loader.Loader):
     def __init__(self):
         super(ZipLoader, self).__init__()
 

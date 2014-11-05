@@ -53,9 +53,9 @@ class RecentFileManager(object):
 
     def _load_settings(self):
 
-        from settings_manager import SettingsManager
+        import settings_manager
 
-        ret = SettingsManager.load_settings(self.SETTING_FILE_NAME)
+        ret = settings_manager.SettingsManager.load_settings(self.SETTING_FILE_NAME)
         section_list = ret.keys()
         section_list.sort(reverse=True)
 
@@ -65,7 +65,7 @@ class RecentFileManager(object):
 
     def save_settings(self):
 
-        from settings_manager import SettingsManager
+        import settings_manager
 
         rf_dict = {}
 
@@ -77,13 +77,12 @@ class RecentFileManager(object):
                 rf_dict[section] = {}
                 rf_dict[section]['path'] = act_dict['path']
 
-        SettingsManager.save_settings(rf_dict, self.SETTING_FILE_NAME)
+        settings_manager.SettingsManager.save_settings(rf_dict, self.SETTING_FILE_NAME)
 
     @staticmethod
     def _stripped_name(full_file_name):
-        from PySide.QtCore import QFileInfo
-
-        return QFileInfo(full_file_name).fileName()
+        from PySide import QtCore
+        return QtCore.QFileInfo(full_file_name).fileName()
 
 
 

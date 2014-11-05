@@ -1,9 +1,9 @@
 # -*- coding: UTF-8 -*-
-from PySide.QtCore import *
-from PySide.QtGui import *
+from PySide import QtCore
+from PySide import QtGui
 
 
-class Viewer(QScrollArea):
+class Viewer(QtGui.QScrollArea):
     def __init__(self, parent=None):
 
         super(Viewer, self).__init__(parent)
@@ -51,9 +51,9 @@ class Viewer(QScrollArea):
     def change_cursor(self):
 
         if self.dragMouse:
-            self.setCursor(Qt.ClosedHandCursor)
+            self.setCursor(QtCore.Qt.ClosedHandCursor)
         else:
-            self.setCursor(Qt.OpenHandCursor)
+            self.setCursor(QtCore.Qt.OpenHandCursor)
 
     def keyPressEvent(self, *args, **kwargs):
 
@@ -63,26 +63,26 @@ class Viewer(QScrollArea):
         if self.model.comic is None:
             return None
 
-        if key == Qt.Key_Right:
+        if key == QtCore.Qt.Key_Right:
 
-            if modifiers == Qt.ControlModifier:
+            if modifiers == QtCore.Qt.ControlModifier:
                 self.last_page()
             else:
                 self.next_page()
 
-        elif key == Qt.Key_Left:
+        elif key == QtCore.Qt.Key_Left:
 
-            if modifiers == Qt.ControlModifier:
+            if modifiers == QtCore.Qt.ControlModifier:
                 self.first_page()
             else:
                 self.previous_page()
 
-        elif key == Qt.Key_R:
+        elif key == QtCore.Qt.Key_R:
 
-            if modifiers == (Qt.ControlModifier | Qt.ShiftModifier):
+            if modifiers == (QtCore.Qt.ControlModifier | QtCore.Qt.ShiftModifier):
                 self.rotate_left()
 
-            elif modifiers == Qt.ControlModifier:
+            elif modifiers == QtCore.Qt.ControlModifier:
                 self.rotate_right()
 
         else:
@@ -112,6 +112,7 @@ class Viewer(QScrollArea):
         event = args[0]
 
         if self.dragMouse:
+
             scroll_position = {
                 'x': self.horizontalScrollBar().sliderPosition(),
                 'y': self.verticalScrollBar().sliderPosition()
@@ -131,7 +132,6 @@ class Viewer(QScrollArea):
     def resizeEvent(self, *args, **kwargs):
 
         new_size = args[0].size()
-
         self.model.set_size(new_size)
 
         if self.model.comic is not None:
