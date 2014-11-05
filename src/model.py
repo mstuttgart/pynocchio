@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
-from PySide import QtCore, QtGui
-from comic import Comic
+from PySide import QtGui
 
+from comic import Comic
 from rar_loader import *
 from zip_loader import *
 from tar_loader import *
@@ -9,7 +9,6 @@ from folder_loader import *
 
 
 class Model(QtCore.QObject):
-
     def __init__(self, parent=None):
 
         super(Model, self).__init__(parent)
@@ -117,7 +116,7 @@ class Model(QtCore.QObject):
         if self.comic is not None:
             self.comic.set_current_page_index(idx)
 
-        # return None
+            # return None
 
     def get_current_page_index(self):
 
@@ -164,7 +163,6 @@ class Model(QtCore.QObject):
     def _rotate_page(self, pix_map):
 
         if self.rotateAngle != 0:
-
             trans = QtGui.QTransform().rotate(self.rotateAngle)
             pix_map = QtGui.QPixmap(pix_map.transformed(trans))
 

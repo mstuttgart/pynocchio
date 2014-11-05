@@ -4,7 +4,6 @@ from collections import deque
 
 
 class RecentFileManager(object):
-
     SETTING_FILE_NAME = "recent_files.ini"
 
     def __init__(self, actions):
@@ -27,7 +26,6 @@ class RecentFileManager(object):
         deque_range = range(0, len(self.recent_files_action_deque))
 
         for i in deque_range:
-
             path = self.recent_files_action_deque.pop()
             idx = self.MAX_RECENT_FILES - 1 - i
 
@@ -68,6 +66,7 @@ class RecentFileManager(object):
     def save_settings(self):
 
         from settings_manager import SettingsManager
+
         rf_dict = {}
 
         for act_dict in self.recent_files_action_list:
@@ -83,6 +82,7 @@ class RecentFileManager(object):
     @staticmethod
     def _stripped_name(full_file_name):
         from PySide.QtCore import QFileInfo
+
         return QFileInfo(full_file_name).fileName()
 
 

@@ -1,12 +1,12 @@
 # -*- coding: UTF-8 -*-
 
-import rarfile
-from loader import *
 import os.path
+import rarfile
+
+from loader import Loader
 
 
 class RarLoader(Loader):
-
     def __init__(self):
         super(RarLoader, self).__init__()
 
@@ -16,6 +16,7 @@ class RarLoader(Loader):
             rar = rarfile.RarFile(file_name, 'r')
         except rarfile.RarOpenError, err:
             print '%20s  %s' % (file_name, err)
+            return
 
         name_list = rar.namelist()
         name_list.sort()
@@ -25,7 +26,6 @@ class RarLoader(Loader):
             _, file_extension = os.path.splitext(filename)
 
             if not rar.getinfo(filename).isdir() and file_extension in self.extension:
-
                 data = rar.read(filename)
                 page_data.append(data)
                 page_title.append(filename)

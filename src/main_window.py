@@ -1,17 +1,18 @@
 # -*- coding:utf-8 -*-
 
-from PySide.QtCore import *
-from PySide.QtGui import *
-from ui_main_window import *
-from smartside import SmartSide
-from model import Model
-from go_to_dialog import *
-# from preference_dialog import *
-from about_dialog import *
-from recent_files_manager import RecentFileManager
+from PySide import QtGui
+from PySide import QtCore
+
+import smartside
+
+import ui_main_window
+import model
+import go_to_dialog
+import about_dialog
+import recent_files_manager
 
 
-class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
+class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):
 
     def __init__(self, parent=None):
 
@@ -20,7 +21,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         self.setupUi(self)
         self.auto_connect()
 
-        self.model = Model(self)
+        self.model = model.Model(self)
         self.goToDialog = None
         # self.preference_dialog = PreferenceDialog(self)
         self.aboutDialog = None
@@ -46,7 +47,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             actions.append(act)
             self.menu_recent_files.addAction(act)
 
-        self.recentFileManager = RecentFileManager(actions)
+        self.recentFileManager = recent_files_manager.RecentFileManager(actions)
         self._load_settings()
 
     def _adjust_main_window(self):
@@ -57,7 +58,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         y_center = (screen.height() - size.height()) / 2
         self.move(x_center, y_center)
 
-        self.setMinimumSize(QApplication.desktop().screenGeometry().size() * 0.8)
+        self.setMinimumSize(QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
 
     def _create_action_group_view(self):
 
@@ -81,7 +82,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
             if pix_map is not None:
 
-                self.goToDialog = GoToDialog(self.model, self.scroll_area_viewer)
+                self.goToDialog = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
                 self._update_status_bar()
@@ -89,9 +90,9 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
                 self.recentFileManager.update_recent_file_list(path)
 
             else:
-                QMessageBox.information(self.tr('Error'), self.tr("Comic file is not loaded!!"))
+                QtGui.QMessageBox.information(self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
-            QMessageBox.information(self.tr('Error'), self.tr("Error to load file ") + path)
+            QtGui.QMessageBox.information(self.tr('Error'), self.tr("Error to load file ") + path)
 
             self._update_view_actions()
 
@@ -128,15 +129,15 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
             if pix_map is not None:
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
-                self.goToDialog = GoToDialog(self.model, self.scroll_area_viewer)
+                self.goToDialog = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
 
                 self._update_status_bar()
                 self._enable_actions()
 
             else:
-                QMessageBox.information(self.tr('Error'), self.tr("Folder don't have image files!!"))
+                QtGui.QMessageBox.information(self.tr('Error'), self.tr("Folder don't have image files!!"))
         else:
-            QMessageBox.information(self.tr('Error'), self.tr("Error to load folder!!") + path)
+            QtGui.QMessageBox.information(self.tr('Error'), self.tr("Error to load folder!!") + path)
 
     def _on_action_recent_files(self):
 
@@ -212,12 +213,12 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _on_action_about__triggered(self):
 
         if self.aboutDialog is None:
-            self.aboutDialog = AboutDialog(self)
+            self.aboutDialog = about_dialog.AboutDialog(self)
 
         self.aboutDialog.show()
 
     def _on_action_about_qt__triggered(self):
-        QMessageBox.aboutQt(self, self.tr(u'About Qt'))
+        QtGui.QMessageBox.aboutQt(self, self.tr(u'About Qt'))
 
     def _on_action_exit__triggered(self):
         self._save_settings()
@@ -247,15 +248,14 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
     def _update_status_bar(self):
 
         if self.statusbar.isVisible() and self.model.comic is not None:
-
             n_page = str(self.model.get_current_page_index() + 1)
             page_width = str(self.model.get_current_page().width())
             page_height = str(self.model.get_current_page().height())
             page_title = self.model.get_current_page_title()
 
             label = self.tr('Page: ') + n_page + '\t\t\t\t\t' + self.tr('Title: ') \
-                + page_title + '\t\t\t\t\t' + self.tr('Width: ') \
-                + page_width + ' px' + '\t\t\t\t\t' + self.tr('Height: ') + page_height + ' px'
+                    + page_title + '\t\t\t\t\t' + self.tr('Width: ') \
+                    + page_width + ' px' + '\t\t\t\t\t' + self.tr('Height: ') + page_height + ' px'
 
             self.statusbar.showMessage(label)
 
@@ -280,7 +280,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
     def _save_settings(self):
 
-        from settings_manager import SettingsManager
+        import settings_manager
 
         sett = {'view': {}, 'settings': {}}
 
@@ -288,14 +288,14 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
         sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
         sett['settings']['show_statusbar'] = self.action_show_statusbar.isChecked()
 
-        SettingsManager.save_settings(sett, 'settings.ini')
+        settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
 
     def _load_settings(self):
 
-        from settings_manager import SettingsManager
+        import settings_manager
         from distutils import util
 
-        sett = SettingsManager.load_settings('settings.ini')
+        sett = settings_manager.SettingsManager.load_settings('settings.ini')
 
         try:
             checked = util.strtobool(sett['settings']['show_toolbar'])
@@ -318,10 +318,10 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         key = event.key()
 
-        if key == Qt.Key_F:
+        if key == QtCore.Qt.Key_F:
             self._on_action_fullscreen__triggered()
 
-        elif key == Qt.Key_Escape and self.isFullScreen():
+        elif key == QtCore.Qt.Key_Escape and self.isFullScreen():
             self._on_action_fullscreen__triggered()
 
         else:
@@ -331,7 +331,7 @@ class MainWindow(QMainWindow, Ui_MainWindow, SmartSide):
 
         event = args[0]
 
-        if event.button() == Qt.LeftButton:
+        if event.button() == QtCore.Qt.LeftButton:
             self._on_action_fullscreen__triggered()
         else:
             super(MainWindow, self).mousePressEvent(*args, **kwargs)

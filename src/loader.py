@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-import os
-from PySide.QtGui import QMessageBox
+from os import path
 
 
 class Loader(object):
@@ -12,11 +11,10 @@ class Loader(object):
         self.extension = ['.png', '.jpg', '.jpeg', '.gif']
 
     def load_file(self, file_name):
-
         data_pages = []
         page_titles = []
 
-        path_head, path_tail = os.path.split(file_name)
+        path_head, path_tail = path.split(file_name)
         self._load_core(data_pages, page_titles, file_name)
 
         if len(data_pages) == 0:

@@ -1,16 +1,14 @@
 # -*- coding: UTF-8 -*-
 
 import collections
-from PySide.QtCore import QObject
 
 
-class Comic(QObject):
-
+class Comic(object):
     Pages = collections.namedtuple('Page', 'data title')
 
-    def __init__(self, name, path, pages, titles, parent=None):
+    def __init__(self, name, path, pages, titles):
 
-        super(Comic, self).__init__(parent)
+        super(Comic, self).__init__()
 
         self.name = name
         self.path = path

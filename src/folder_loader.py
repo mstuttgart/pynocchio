@@ -2,7 +2,9 @@
 
 import fnmatch
 from PySide import QtCore
-from loader import *
+import os.path
+
+from loader import Loader
 
 
 class FolderLoader(Loader):
@@ -19,7 +21,6 @@ class FolderLoader(Loader):
                     files_list.append(os.path.join(dir_path, f))
 
         for f in files_list:
-
             qfile = QtCore.QFile(f)
 
             qfile.open(QtCore.QIODevice.ReadOnly)

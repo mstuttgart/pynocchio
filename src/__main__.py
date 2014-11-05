@@ -6,7 +6,6 @@ from main_window import MainWindow
 
 
 def main():
-
     import sys
 
     app = QApplication(sys.argv)
@@ -17,6 +16,7 @@ def main():
     main_window.show()
 
     sys.exit(app.exec_())
+
 
 if __name__ == "__main__":
     main()

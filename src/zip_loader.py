@@ -1,17 +1,19 @@
 # -*- coding: UTF-8 -*-
 __author__ = 'michell'
 
-from loader import *
 import zipfile
 import os.path
 
+from loader import Loader
+
 
 class ZipLoader(Loader):
-
     def __init__(self):
         super(ZipLoader, self).__init__()
 
     def _load_core(self, page_data, page_title, file_name):
+
+        zf = None
 
         try:
             zf = zipfile.ZipFile(file_name, 'r')

@@ -1,12 +1,12 @@
 # -*- coding: UTF-8 -*-
 
-from loader import *
 import tarfile
 import os.path
 
+from loader import Loader
+
 
 class TarLoader(Loader):
-
     def __init__(self):
         super(TarLoader, self).__init__()
 
