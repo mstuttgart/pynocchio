@@ -1,6 +1,5 @@
 
 #TODO: Ajustar QDialog de configuração, adicionado as actions de cor de brackground e default path
-#TODO: Implementar rotina para salvar configuração do leitor
 #TODO: Cria arquivo de tradução inglês (prioridade) e português
 #TODO: Menu Exibir adicionar: two pages, manga mode
 #TODO: Adicionar menu Bookmarks com as opções: add bookmark, remove bookmark, manage bookmarks
