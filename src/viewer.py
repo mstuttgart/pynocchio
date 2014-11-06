@@ -10,10 +10,8 @@ class Viewer(QtGui.QScrollArea):
 
         self.model = None
         self.label = None
-
         self.dragMouse = False
         self.dragPosition = {'x': 0, 'y': 0}
-
         self.lastScrollPosition = 0
 
         self.change_cursor()
@@ -24,7 +22,7 @@ class Viewer(QtGui.QScrollArea):
 
         if not self.model.is_last_page():
             self.verticalScrollBar().setValue(0)
-            
+
     def previous_page(self):
         self.update_view(self.model.previous_page())
         self.verticalScrollBar().setValue(self.lastScrollPosition)
