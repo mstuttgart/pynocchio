@@ -99,7 +99,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
     def _on_action_open__triggered(self):
 
         fname, filt = QtGui.QFileDialog.getOpenFileName(
-            self.parent(), self.tr('Open comic file'), QtCore.QDir.currentPath(),
+            self.parent(), self.tr('Open comic file'), self.model.last_comic_path,
             self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt)\
             ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
             ;;Tar Files (*.tar *.cbt);;All files (*)'))
@@ -287,6 +287,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         sett['view']['view_adjust'] = self.actionGroupView.checkedAction().text()
         sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
         sett['settings']['show_statusbar'] = self.action_show_statusbar.isChecked()
+        sett['settings']['last_comic_path'] = self.model.last_comic_path
 
         settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
 
@@ -308,6 +309,8 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 if act.text() == sett['view']['view_adjust']:
                     act.setChecked(True)
                     self.model.adjustType = act.text()
+
+            self.model.last_comic_path = sett['settings']['last_comic_path']
 
         except KeyError, err:
             print err

@@ -20,6 +20,7 @@ class Model(object):
         self.adjustType = '&Horizontal Adjust'
         self.screenSize = 0
         self.rotateAngle = 0
+        self.last_comic_path = ''
 
     def load_comic(self, file_name):
 
@@ -56,6 +57,7 @@ class Model(object):
 
         self.comic = comic.Comic(name, path, pages, titles)
         self.current_page_index = 0
+        self.last_comic_path = path
 
         return True
 
