@@ -307,6 +307,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             for act in self.actionGroupView.actions():
                 if act.text() == sett['view']['view_adjust']:
                     act.setChecked(True)
+                    self.model.adjustType = act.text()
 
         except KeyError, err:
             print err
