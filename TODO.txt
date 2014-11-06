@@ -7,7 +7,6 @@
 #TODO: Implementar mecanismo de cache para pre-carregar um dado numero de paginas
 #TODO: Adicionar a informação dos tipos de arquivos suportados na aboutDialog
 #TODO: Controle de zoom para o usurio
-#TODO: Impedir o scrollbar de voltar a posicao inical quando estivermos na primeria e ultima pagina.
 #TODO: Botão para carregar a proxima comic no diretorio da comic atual ou a comic anterior.
 #TODO: AboutDialog sem textBrowse. Melhorar a aparência
 #TODO: Botão closecomic para voltar a tela inicial do programa.
