@@ -38,7 +38,7 @@ class Model(object):
         except IOError, err:
             print '%20s  %s' % (file_name, err)
 
-        print self.tr('A error ocurred in open comic file!')
+        print 'A error ocurred in open comic file!'
         return False
 
     def load_folder(self, folder_name):
