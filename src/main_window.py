@@ -42,7 +42,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
         for i in range(5):
             act = QtGui.QAction(self, visible=False, triggered=self._on_action_recent_files)
-
             act.setObjectName(str(i))
             actions.append(act)
             self.menu_recent_files.addAction(act)
@@ -81,7 +80,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             pix_map = self.model.get_current_page()
 
             if pix_map is not None:
-
                 self.goToDialog = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
@@ -90,15 +88,15 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 self.recentFileManager.update_recent_file_list(path)
 
             else:
-                QtGui.QMessageBox.information(self.tr('Error'), self.tr("Comic file is not loaded!!"))
+                QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
-            QtGui.QMessageBox.information(self.tr('Error'), self.tr("Error to load file ") + path)
+            QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
             self._update_view_actions()
 
     def _on_action_open__triggered(self):
 
-        fname, filt = QtGui.QFileDialog.getOpenFileName(
+        fname, _ = QtGui.QFileDialog.getOpenFileName(
             self.parent(), self.tr('Open comic file'), self.model.last_comic_path,
             self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt)\
             ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
@@ -108,10 +106,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             return
 
         self.load(fname)
-
-        # self.setCursor(Qt.WaitCursor)
-
-        # self.setCursor(Qt.ArrowCursor)
 
     def _on_action_open_folder__triggered(self):
 
@@ -140,7 +134,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             QtGui.QMessageBox.information(self.tr('Error'), self.tr("Error to load folder!!") + path)
 
     def _on_action_recent_files(self):
-
         action = self.sender()
 
         if action:
@@ -217,17 +210,16 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         #
         # self.aboutDialog.show()
 
-        msg = "<p align=\"left\"> The <b>Pynocchio Comic Reader</b> </p>" \
-              "<p align=\"left\"> is an image viewer specifically designed to handle comic books.</p>" + \
+        msg = "<p align=\"left\"> The <b>Pynocchio Comic Reader</b> " \
+              "is an image viewer specifically designed to handle comic books.</p>" + \
               "<p align=\"left\">It reads ZIP, RAR and tar archives, as well as plain image files." +\
               "implemented with Qt4 framework.</p>" + \
               "<p align=\"left\">Pynocchio Comic Reader is licensed under the GNU General Public License." + \
-              "<p align=\"left\">Copyright © 2014 Michell Stuttgart Faria</p>" + \
+              "<p align=\"left\">Copyright 2014 Michell Stuttgart Faria</p>" + \
               "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set." + \
               "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
 
         QtGui.QMessageBox.about(self, self.tr("About Pynocchio Comic Reader"), msg)
-
 
     def _on_action_about_qt__triggered(self):
         QtGui.QMessageBox.aboutQt(self, self.tr(u'About Qt'))

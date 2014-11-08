@@ -72,6 +72,7 @@ class Model(object):
 
         if self.comic is not None:
             self.comic.go_previous_page()
+
         return self.get_current_page()
 
     def first_page(self):
