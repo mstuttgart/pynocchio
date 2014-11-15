@@ -216,9 +216,19 @@
     <addaction name="action_show_statusbar"/>
     <addaction name="separator"/>
    </widget>
+   <widget class="QMenu" name="menu_Bookmarks">
+    <property name="title">
+     <string>&amp;Bookmarks</string>
+    </property>
+    <addaction name="action_add_bookmark"/>
+    <addaction name="action_remove_bookmark"/>
+    <addaction name="separator"/>
+    <addaction name="action_bookmark_manager"/>
+   </widget>
    <addaction name="menu_file"/>
    <addaction name="menu_view"/>
    <addaction name="menu_navegation"/>
+   <addaction name="menu_Bookmarks"/>
    <addaction name="menu_Settings"/>
    <addaction name="menu_Help"/>
   </widget>
@@ -263,6 +273,7 @@
    <addaction name="action_next_page"/>
    <addaction name="action_last_page"/>
    <addaction name="action_go_to_page"/>
+   <addaction name="action_add_bookmark"/>
    <addaction name="separator"/>
    <addaction name="action_rotate_left"/>
    <addaction name="action_rotate_right"/>
@@ -585,8 +596,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>:/image/bookmark-new.svg</normaloff>:/image/bookmark-new.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/icons/freeiconmaker_0 2.png</normaloff>:/icons/icons/freeiconmaker_0 2.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Add bookmark</string>
@@ -600,8 +611,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>:/image/edit-delete.svg</normaloff>:/image/edit-delete.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/icons/freeiconmaker_1 2.png</normaloff>:/icons/icons/freeiconmaker_1 2.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Remove bookmark</string>
@@ -609,8 +620,8 @@
   </action>
   <action name="action_bookmark_manager">
    <property name="icon">
-    <iconset>
-     <normaloff>:/image/document-properties.svg</normaloff>:/image/document-properties.svg</iconset>
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/icons/freeiconmaker_16.png</normaloff>:/icons/icons/freeiconmaker_16.png</iconset>
    </property>
    <property name="text">
     <string>Bookmark &amp;manager</string>

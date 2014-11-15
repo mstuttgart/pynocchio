@@ -1,5 +1,11 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/freeiconmaker_1 2.png</file>
+    <file>icons/freeiconmaker_2 2.png</file>
+    <file>icons/freeiconmaker_6 1.png</file>
+    <file>icons/freeiconmaker_7 1.png</file>
+    <file>icons/freeiconmaker_27.png</file>
+    <file>icons/freeiconmaker_0 2.png</file>
     <file>icons/freeiconmaker_0 1.png</file>
     <file>icons/freeiconmaker_0.png</file>
     <file>icons/freeiconmaker_1 1.png</file>
