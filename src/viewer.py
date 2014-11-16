@@ -4,7 +4,6 @@ from PySide import QtGui
 
 
 class Viewer(QtGui.QScrollArea):
-
     def __init__(self, parent=None):
 
         super(Viewer, self).__init__(parent)
@@ -124,7 +123,6 @@ class Viewer(QtGui.QScrollArea):
         self.hideCursorTimer.start(2500)
 
         if self.dragMouse:
-
             scroll_position = {
                 'x': self.horizontalScrollBar().sliderPosition(),
                 'y': self.verticalScrollBar().sliderPosition()

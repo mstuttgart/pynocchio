@@ -88,9 +88,9 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 self._enable_actions()
                 self.recentFileManager.update_recent_file_list(path)
             else:
-                QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
+                QtGui.QMessageBox.information(QtGui.QMessageBox.QMessageBox, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
-            QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
+            QtGui.QMessageBox.information(QtGui.QMessageBox.QMessageBox, self.tr('Error'), self.tr("Error to load file ") + path)
 
             self._update_view_actions()
             self.scroll_area_viewer.load_comic_cursor(False)
@@ -112,7 +112,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
     def _on_action_open_folder__triggered(self):
 
         path = QtGui.QFileDialog.getExistingDirectory(
-            None, self.tr("Open Directory"), QtCore.QDir.currentPath(),
+            self.parent(), self.tr("Open Directory"), QtCore.QDir.currentPath(),
             QtGui.QFileDialog.ShowDirsOnly)
 
         if len(path) == 0:
@@ -131,9 +131,9 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 self._enable_actions()
 
             else:
-                QtGui.QMessageBox.information(self.tr('Error'), self.tr("Folder don't have image files!!"))
+                QtGui.QMessageBox.information(QtGui.QMessageBox.QMessageBox, self.tr('Error'), self.tr("Folder don't have image files!!"))
         else:
-            QtGui.QMessageBox.information(self.tr('Error'), self.tr("Error to load folder!!") + path)
+            QtGui.QMessageBox.information(QtGui.QMessageBox.QMessageBox, self.tr('Error'), self.tr("Error to load folder!!") + path)
 
     def _on_action_recent_files(self):
         action = self.sender()
@@ -221,10 +221,10 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
               "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set." + \
               "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
 
-        QtGui.QMessageBox.about(self, self.tr("About Pynocchio Comic Reader"), msg)
+        QtGui.QMessageBox.about(QtGui.QMessageBox.QMessageBox, self.tr("About Pynocchio Comic Reader"), msg)
 
     def _on_action_about_qt__triggered(self):
-        QtGui.QMessageBox.aboutQt(self, self.tr(u'About Qt'))
+        QtGui.QMessageBox.aboutQt(QtGui.QMessageBox.QMessageBox, self.tr(u'About Qt'))
 
     def _on_action_exit__triggered(self):
         self._save_settings()
