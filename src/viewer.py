@@ -4,6 +4,7 @@ from PySide import QtGui
 
 
 class Viewer(QtGui.QScrollArea):
+
     def __init__(self, parent=None):
 
         super(Viewer, self).__init__(parent)
@@ -13,9 +14,9 @@ class Viewer(QtGui.QScrollArea):
         self.dragMouse = False
         self.dragPosition = {'x': 0, 'y': 0}
         self.lastScrollPosition = 0
+
         self.hideCursorTimer = QtCore.QTimer()
         self.hideCursorTimer.setSingleShot(True)
-
         self.hideCursorTimer.timeout.connect(self.hide_cursor)
         self.hideCursorTimer.start(2500)
 
@@ -49,12 +50,10 @@ class Viewer(QtGui.QScrollArea):
         self.verticalScrollBar().setValue(0)
 
     def update_view(self, pix_map):
-
         if pix_map is not None:
             self.label.setPixmap(pix_map)
 
     def change_cursor(self):
-
         if self.dragMouse:
             self.setCursor(QtCore.Qt.ClosedHandCursor)
         else:
@@ -89,10 +88,8 @@ class Viewer(QtGui.QScrollArea):
 
             if modifiers == (QtCore.Qt.ControlModifier | QtCore.Qt.ShiftModifier):
                 self.rotate_left()
-
             elif modifiers == QtCore.Qt.ControlModifier:
                 self.rotate_right()
-
         else:
             super(Viewer, self).keyPressEvent(*args, **kwargs)
 
@@ -103,7 +100,6 @@ class Viewer(QtGui.QScrollArea):
         self.dragMouse = True
         self.dragPosition['x'] = event.x()
         self.dragPosition['y'] = event.y()
-
         self.change_cursor()
 
         super(Viewer, self).mousePressEvent(*args, **kwargs)
