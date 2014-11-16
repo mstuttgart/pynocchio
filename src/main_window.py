@@ -70,8 +70,12 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         checked_action = self.actionGroupView.checkedAction()
         self.model.adjustType = checked_action.text()
 
-        self.actionGroupView.triggered.connect(
-            self._on_action_group_view_adjust)
+        self.action_original_fit.triggered.connect(self._on_action_group_view_adjust)
+        self.action_vertical_adjust.triggered.connect(self._on_action_group_view_adjust)
+        self.action_horizontal_adjust.triggered.connect(self._on_action_group_view_adjust)
+        self.action_best_fit.triggered.connect(self._on_action_group_view_adjust)
+
+        # self.actionGroupView.triggered().connect(self._on_action_group_view_adjust)
 
     def load(self, path):
 
@@ -88,9 +92,9 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 self._enable_actions()
                 self.recentFileManager.update_recent_file_list(path)
             else:
-                QtGui.QMessageBox.information(QtGui.QMessageBox.QMessageBox, self.tr('Error'), self.tr("Comic file is not loaded!!"))
+                QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
-            QtGui.QMessageBox.information(QtGui.QMessageBox.QMessageBox, self.tr('Error'), self.tr("Error to load file ") + path)
+            QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
             self._update_view_actions()
             self.scroll_area_viewer.load_comic_cursor(False)
@@ -131,9 +135,9 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 self._enable_actions()
 
             else:
-                QtGui.QMessageBox.information(QtGui.QMessageBox.QMessageBox, self.tr('Error'), self.tr("Folder don't have image files!!"))
+                QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Folder don't have image files!!"))
         else:
-            QtGui.QMessageBox.information(QtGui.QMessageBox.QMessageBox, self.tr('Error'), self.tr("Error to load folder!!") + path)
+            QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load folder!!") + path)
 
     def _on_action_recent_files(self):
         action = self.sender()
@@ -187,10 +191,14 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             self.statusbar.hide()
 
     def _on_action_group_view_adjust(self):
-        checked_action = self.actionGroupView.checkedAction()
-        self.model.adjustType = checked_action.text()
-        self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
-        self._update_status_bar()
+        action = self.sender()
+
+        if action:
+            checked_action = action
+            # checked_action = self.actionGroupView.checkedAction()
+            self.model.adjustType = checked_action.text()
+            self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
+            self._update_status_bar()
 
     def _on_action_show_toolbar__triggered(self):
         if self.action_show_toolbar.isChecked():
@@ -221,10 +229,10 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
               "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set." + \
               "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
 
-        QtGui.QMessageBox.about(QtGui.QMessageBox.QMessageBox, self.tr("About Pynocchio Comic Reader"), msg)
+        QtGui.QMessageBox.about(self, self.tr("About Pynocchio Comic Reader"), msg)
 
     def _on_action_about_qt__triggered(self):
-        QtGui.QMessageBox.aboutQt(QtGui.QMessageBox.QMessageBox, self.tr(u'About Qt'))
+        QtGui.QMessageBox.aboutQt(self, self.tr(u'About Qt'))
 
     def _on_action_exit__triggered(self):
         self._save_settings()
