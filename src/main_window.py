@@ -23,7 +23,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
         self.model = model.Model()
         self.goToDialog = None
-        # self.preference_dialog = PreferenceDialog(self)
         self.aboutDialog = None
 
         self.scroll_area_viewer.model = self.model
