@@ -11,5 +11,6 @@
 #TODO: Botão closecomic para voltar a tela inicial do programa.
 #TODO: Opção no menu file para visualizarmos informações da comic, como numero de paginas, tipo de arquivo (codificação),
 #TODO: Progressbar ao carregar comics.
-#TODO: Opção de marcador para os livros. Quando vc abre uma comic, ele começa a leitura na página onde o usuário parou 
-de ler.
+#TODO: Opção de marcador para os livros. Quando vc abre uma comic, ele começa a leitura na página onde o usuário parou de ler.
+#TODO: Opção para imprimir a página atual
+#TODO: Opção para salvar a página atual como imagem.
