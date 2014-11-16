@@ -13,6 +13,11 @@ class Viewer(QtGui.QScrollArea):
         self.dragMouse = False
         self.dragPosition = {'x': 0, 'y': 0}
         self.lastScrollPosition = 0
+        self.hideCursorTimer = QtCore.QTimer()
+        self.hideCursorTimer.setSingleShot(True)
+
+        self.hideCursorTimer.timeout.connect(self.hide_cursor)
+        self.hideCursorTimer.start(2500)
 
         self.change_cursor()
 
@@ -54,6 +59,9 @@ class Viewer(QtGui.QScrollArea):
             self.setCursor(QtCore.Qt.ClosedHandCursor)
         else:
             self.setCursor(QtCore.Qt.OpenHandCursor)
+
+    def hide_cursor(self):
+        self.setCursor(QtCore.Qt.BlankCursor)
 
     def keyPressEvent(self, *args, **kwargs):
 
@@ -110,6 +118,7 @@ class Viewer(QtGui.QScrollArea):
     def mouseMoveEvent(self, *args, **kwargs):
 
         event = args[0]
+        self.hideCursorTimer.start(2500)
 
         if self.dragMouse:
 
