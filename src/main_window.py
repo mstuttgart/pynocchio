@@ -76,6 +76,8 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def load(self, path):
 
+        self.scroll_area_viewer.load_comic_cursor(True)
+
         if self.model.load_comic(path):
             pix_map = self.model.get_current_page()
 
@@ -86,13 +88,14 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 self._update_status_bar()
                 self._enable_actions()
                 self.recentFileManager.update_recent_file_list(path)
-
             else:
                 QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
             QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
             self._update_view_actions()
+            self.scroll_area_viewer.load_comic_cursor(False)
+            self.scroll_area_viewer.setFocus()
 
     def _on_action_open__triggered(self):
 

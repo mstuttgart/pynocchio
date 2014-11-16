@@ -17,10 +17,10 @@ class Viewer(QtGui.QScrollArea):
 
         self.hideCursorTimer = QtCore.QTimer()
         self.hideCursorTimer.setSingleShot(True)
-        self.hideCursorTimer.timeout.connect(self.hide_cursor)
+        self.hideCursorTimer.timeout.connect(self._hide_cursor)
         self.hideCursorTimer.start(2500)
 
-        self.change_cursor()
+        self._change_cursor()
 
     def next_page(self):
         self.update_view(self.model.next_page())
@@ -53,14 +53,21 @@ class Viewer(QtGui.QScrollArea):
         if pix_map is not None:
             self.label.setPixmap(pix_map)
 
-    def change_cursor(self):
+    def _change_cursor(self):
         if self.dragMouse:
             self.setCursor(QtCore.Qt.ClosedHandCursor)
         else:
             self.setCursor(QtCore.Qt.OpenHandCursor)
 
-    def hide_cursor(self):
+    def _hide_cursor(self):
         self.setCursor(QtCore.Qt.BlankCursor)
+
+    def load_comic_cursor(self, loading):
+
+        if loading is True:
+            self.setCursor(QtCore.Qt.WaitCursor)
+        else:
+            self._change_cursor()
 
     def keyPressEvent(self, *args, **kwargs):
 
@@ -100,14 +107,14 @@ class Viewer(QtGui.QScrollArea):
         self.dragMouse = True
         self.dragPosition['x'] = event.x()
         self.dragPosition['y'] = event.y()
-        self.change_cursor()
+        self._change_cursor()
 
         super(Viewer, self).mousePressEvent(*args, **kwargs)
 
     def mouseReleaseEvent(self, *args, **kwargs):
 
         self.dragMouse = False
-        self.change_cursor()
+        self._change_cursor()
 
         super(Viewer, self).mouseReleaseEvent(*args, **kwargs)
 
