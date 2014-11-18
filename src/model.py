@@ -128,14 +128,14 @@ class Model(object):
 
     def is_last_page(self):
 
-        if self.comic.current_page_index + 1 == self.comic.get_number_of_pages():
+        if self.comic and self.comic.current_page_index + 1 == self.comic.get_number_of_pages():
             return True
 
         return False
 
     def is_first_page(self):
 
-        if self.comic.current_page_index == 0:
+        if self.comic and self.comic.current_page_index == 0:
             return True
 
         return False
