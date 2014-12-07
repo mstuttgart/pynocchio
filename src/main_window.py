@@ -10,6 +10,7 @@ import model
 import go_to_dialog
 import about_dialog
 import recent_files_manager
+import sqlite_bookmarks
 
 
 class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):
@@ -199,6 +200,13 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             self.model.adjustType = checked_action.text()
             self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
             self._update_status_bar()
+
+    def _on_action_add_bookmark__triggered(self):
+
+        comic_name = self.model.comic.name
+        comic_path = self.model.last_comic_path
+        comic_page = self.model.get_current_page_index()
+        sqlite_bookmarks.SQLiteBookmarks().add_bookmark(comic_name, comic_path, comic_page)
 
     def _on_action_show_toolbar__triggered(self):
         if self.action_show_toolbar.isChecked():
