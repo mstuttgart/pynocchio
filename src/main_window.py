@@ -50,7 +50,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self._load_settings()
 
     def _adjust_main_window(self):
-
         screen = QtGui.QDesktopWidget().screenGeometry()
         size = self.geometry()
         x_center = (screen.width() - size.width()) / 2
@@ -60,7 +59,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self.setMinimumSize(QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
 
     def _create_action_group_view(self):
-
         self.actionGroupView = QtGui.QActionGroup(self)
 
         self.actionGroupView.addAction(self.action_original_fit)
@@ -80,7 +78,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def load(self, path):
 
-        self.scroll_area_viewer.load_comic_cursor(True)
+        # self.scroll_area_viewer.load_comic_cursor(True)
 
         if self.model.load_comic(path):
             pix_map = self.model.get_current_page()
@@ -98,21 +96,21 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
             self._update_view_actions()
-            self.scroll_area_viewer.load_comic_cursor(False)
+            # self.scroll_area_viewer.load_comic_cursor(False)
             self.scroll_area_viewer.setFocus()
 
     def _on_action_open__triggered(self):
 
-        fname, _ = QtGui.QFileDialog.getOpenFileName(
+        f_name, _ = QtGui.QFileDialog.getOpenFileName(
             self.parent(), self.tr('Open comic file'), self.model.last_comic_path,
             self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt)\
             ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
             ;;Tar Files (*.tar *.cbt);;All files (*)'))
 
-        if len(fname) == 0:
+        if len(f_name) == 0:
             return
 
-        self.load(fname)
+        self.load(f_name)
 
     def _on_action_open_folder__triggered(self):
 
@@ -134,7 +132,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
                 self._update_status_bar()
                 self._enable_actions()
-
             else:
                 QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Folder don't have image files!!"))
         else:
