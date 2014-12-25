@@ -205,6 +205,13 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         comic_page = self.model.get_current_page_index()
         sqlite_bookmarks.SQLiteBookmarks.add_bookmark(comic_name, comic_path, comic_page)
 
+    def _on_action_remove_bookmark__triggered(self):
+
+        # comic_name = self.model.get_comic_name()
+        comic_path = self.model.last_comic_path
+        # comic_page = self.model.get_current_page_index()
+        sqlite_bookmarks.SQLiteBookmarks.delete_bookmark(comic_path)
+
     def _on_action_show_toolbar__triggered(self):
         if self.action_show_toolbar.isChecked():
             self.toolbar.show()

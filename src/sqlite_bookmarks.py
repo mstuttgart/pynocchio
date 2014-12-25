@@ -23,18 +23,35 @@ class SQLiteBookmarks(object):
         print "Records created successfully"
         conn.close()
 
+    # @staticmethod
+    # def load_bookmark(path):
+    #
+    #     conn = sqlite3.connect('bookmarks.db')
+    #
+    #     sql = "CREATE TABLE IF NOT EXISTS BOOKMARK (PATH TEXT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL, PAGE INTEGER);"
+    #     conn.execute(sql)
+    #
+    #     sql = "SELECT * FROM BOOKMARK WHERE PATH='%s'" % path
+    #     conn.execute(sql)
+    #
+    #     print "Records loaded successfully"
+    #     conn.close()
+    #
+    #     return
+
     @staticmethod
-    def delete_bookmark(path, page):
+    def delete_bookmark(path):
 
         conn = sqlite3.connect('bookmarks.db')
 
         sql = "CREATE TABLE IF NOT EXISTS BOOKMARK (PATH TEXT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL, PAGE INTEGER);"
         conn.execute(sql)
 
-        conn.execute("DELETE FROM BOOKMARK WHERE PATH='%s'" % path)
+        sql = "DELETE FROM BOOKMARK WHERE PATH='%s'" % path
+        conn.execute(sql)
 
         conn.commit()
-        print "Records created successfully"
+        print "Records removed successfully"
         conn.close()
 
 
