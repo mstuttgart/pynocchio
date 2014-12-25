@@ -8,15 +8,6 @@ class SQLiteBookmarks(object):
     def __init__(self):
         super(SQLiteBookmarks, self).__init__()
 
-    # @staticmethod
-    # def _verify_table_exist(conn):
-    #     cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='BOOKMARK'")
-    #
-    #     if cursor is None:
-    #         return True
-    #
-    #     return False
-
     @staticmethod
     def add_bookmark(filename, path, page):
 
@@ -24,7 +15,9 @@ class SQLiteBookmarks(object):
 
         sql = "CREATE TABLE IF NOT EXISTS BOOKMARK (PATH TEXT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL, PAGE INTEGER);"
         conn.execute(sql)
-        conn.execute("INSERT INTO BOOKMARK VALUES ('%s', '%s', %d)" % (path, filename, page))
+
+        sql = "INSERT OR IGNORE INTO BOOKMARK VALUES ('%s', '%s', %d)" % (path, filename, page)
+        conn.execute(sql)
 
         conn.commit()
         print "Records created successfully"
