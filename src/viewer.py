@@ -20,7 +20,7 @@ class Viewer(QtGui.QScrollArea):
         self.hideCursorTimer = QtCore.QTimer()
         self.hideCursorTimer.setSingleShot(True)
         self.hideCursorTimer.timeout.connect(self._hide_cursor)
-        self.hideCursorTimer.start(2500)
+        # self.hideCursorTimer.start(2500)
 
         # self._change_cursor()
 
