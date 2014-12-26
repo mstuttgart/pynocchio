@@ -5,49 +5,33 @@ import sqlite3
 
 class SQLiteBookmarks(object):
 
+    BOOKMARK_FILE_NAME = "bookmarks.db"
+
     def __init__(self):
         super(SQLiteBookmarks, self).__init__()
 
-    @staticmethod
-    def add_bookmark(filename, path, page):
+    def add_bookmark(self, filename, path, page):
 
-        conn = sqlite3.connect('bookmarks.db')
+        conn = sqlite3.connect(self.BOOKMARK_FILE_NAME)
 
-        sql = "CREATE TABLE IF NOT EXISTS BOOKMARK (PATH TEXT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL, PAGE INTEGER);"
+        sql = "CREATE TABLE IF NOT EXISTS bookmarks (path TEXT PRIMARY KEY NOT NULL, name TEXT NOT NULL, page INTEGER);"
         conn.execute(sql)
 
-        sql = "INSERT OR IGNORE INTO BOOKMARK VALUES ('%s', '%s', %d)" % (path, filename, page)
+        sql = "INSERT OR IGNORE INTO bookmarks VALUES ('%s', '%s', %d)" % (path, filename, page)
         conn.execute(sql)
 
         conn.commit()
         print "Records created successfully"
         conn.close()
 
-    # @staticmethod
-    # def load_bookmark(path):
-    #
-    #     conn = sqlite3.connect('bookmarks.db')
-    #
-    #     sql = "CREATE TABLE IF NOT EXISTS BOOKMARK (PATH TEXT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL, PAGE INTEGER);"
-    #     conn.execute(sql)
-    #
-    #     sql = "SELECT * FROM BOOKMARK WHERE PATH='%s'" % path
-    #     conn.execute(sql)
-    #
-    #     print "Records loaded successfully"
-    #     conn.close()
-    #
-    #     return
+    def delete_bookmark(self, path):
 
-    @staticmethod
-    def delete_bookmark(path):
+        conn = sqlite3.connect(self.BOOKMARK_FILE_NAME)
 
-        conn = sqlite3.connect('bookmarks.db')
-
-        sql = "CREATE TABLE IF NOT EXISTS BOOKMARK (PATH TEXT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL, PAGE INTEGER);"
+        sql = "CREATE TABLE IF NOT EXISTS bookmarks (path TEXT PRIMARY KEY NOT NULL, name TEXT NOT NULL, page INTEGER);"
         conn.execute(sql)
 
-        sql = "DELETE FROM BOOKMARK WHERE PATH='%s'" % path
+        sql = "DELETE FROM bookmarks WHERE path='%s'" % path
         conn.execute(sql)
 
         conn.commit()
