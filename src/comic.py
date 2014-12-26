@@ -8,7 +8,6 @@ class Comic(object):
     Pages = collections.namedtuple('Page', 'data title')
 
     def __init__(self, name, path, pages, titles):
-
         super(Comic, self).__init__()
 
         self.name = name

@@ -197,22 +197,24 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _on_action_add_bookmark__triggered(self):
         comic_name = self.model.get_comic_name()
-        comic_path = self.model.last_comic_path
+        comic_path = self.model.last_comic_path + '/' + comic_name
         comic_page = self.model.get_current_page_index()
 
-        sqlite_bookmarks.SQLiteBookmarks().add_bookmark(comic_name, comic_path, comic_page)
+        sqlite_bookmarks.SQLiteBookmarks().add_bookmark(comic_path, comic_name, comic_page)
 
         # Adicionamos uma action com o nome da comic
-        act = QtGui.QAction(self, visible=False, triggered=self._load_bookmark)
-        act.setObjectName(comic_name + " " + comic_path)
-        act.setVisible(True)
-        self.menu_Bookmarks.addAction(act)
+        # act = QtGui.QAction(self, visible=False, triggered=self._load_bookmark)
+        # act.setObjectName(comic_name + " " + comic_path)
+        # act.setVisible(True)
+        # self.menu_Bookmarks.addAction(act)
 
     def _on_action_remove_bookmark__triggered(self):
-        comic_path = self.model.last_comic_path
         comic_name = self.model.get_comic_name()
+        comic_path = self.model.last_comic_path + '/' + comic_name
+
+        # comic_name = self.model.get_comic_name()
         sqlite_bookmarks.SQLiteBookmarks().delete_bookmark(comic_path)
-        self.menu_Bookmarks.removeAction(comic_name + " " + comic_path)
+        # self.menu_Bookmarks.removeAction(comic_name + " " + comic_path)
 
     def _load_bookmark(self):
         action = self.sender()

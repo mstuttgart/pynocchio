@@ -9,34 +9,28 @@ class SQLiteBookmarks(object):
 
     def __init__(self):
         super(SQLiteBookmarks, self).__init__()
+        self.con = sqlite3.connect(self.BOOKMARK_FILE_NAME)
 
-    def add_bookmark(self, filename, path, page):
+        sql = "CREATE TABLE IF NOT EXISTS Bookmarks (Path TEXT PRIMARY KEY NOT NULL, Name TEXT, Page INTEGER);"
+        self.con.execute(sql)
 
-        conn = sqlite3.connect(self.BOOKMARK_FILE_NAME)
+    def add_bookmark(self, path, name, page):
 
-        sql = "CREATE TABLE IF NOT EXISTS bookmarks (path TEXT PRIMARY KEY NOT NULL, name TEXT NOT NULL, page INTEGER);"
-        conn.execute(sql)
+        sql = "INSERT OR IGNORE INTO Bookmarks(Path, Name, Page) VALUES ('%s', '%s', %d);" % (path, name, page)
+        self.con.execute(sql)
 
-        sql = "INSERT OR IGNORE INTO bookmarks VALUES ('%s', '%s', %d)" % (path, filename, page)
-        conn.execute(sql)
-
-        conn.commit()
+        self.con.commit()
         print "Records created successfully"
-        conn.close()
+        self.con.close()
 
     def delete_bookmark(self, path):
 
-        conn = sqlite3.connect(self.BOOKMARK_FILE_NAME)
+        sql = "DELETE FROM Bookmarks WHERE Path='%s';" % path
+        self.con.execute(sql)
 
-        sql = "CREATE TABLE IF NOT EXISTS bookmarks (path TEXT PRIMARY KEY NOT NULL, name TEXT NOT NULL, page INTEGER);"
-        conn.execute(sql)
-
-        sql = "DELETE FROM bookmarks WHERE path='%s'" % path
-        conn.execute(sql)
-
-        conn.commit()
+        self.con.commit()
         print "Records removed successfully"
-        conn.close()
+        self.con.close()
 
 
 
