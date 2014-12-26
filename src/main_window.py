@@ -35,7 +35,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self._on_action_show_toolbar__triggered()
 
         self._create_action_group_view()
-
         self.action_about_qt.setIcon(QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
         actions = []
@@ -76,7 +75,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
         # self.actionGroupView.triggered().connect(self._on_action_group_view_adjust)
 
-    def load(self, path):
+    def load(self, path, initial_page=0):
 
         # self.scroll_area_viewer.load_comic_cursor(True)
 
@@ -90,6 +89,8 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 self._update_status_bar()
                 self._enable_actions()
                 self.recentFileManager.update_recent_file_list(path)
+
+                self.model.set_current_page_index(initial_page)
             else:
                 QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
@@ -101,16 +102,14 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _on_action_open__triggered(self):
 
-        f_name, _ = QtGui.QFileDialog.getOpenFileName(
+        file_path, _ = QtGui.QFileDialog.getOpenFileName(
             self.parent(), self.tr('Open comic file'), self.model.last_comic_path,
             self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt)\
             ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
             ;;Tar Files (*.tar *.cbt);;All files (*)'))
 
-        if len(f_name) == 0:
-            return
-
-        self.load(f_name)
+        if len(file_path) != 0:
+            self.load(file_path)
 
     def _on_action_open_folder__triggered(self):
 
@@ -122,7 +121,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             return
 
         if self.model.load_folder(path):
-
             pix_map = self.model.get_current_page()
 
             if pix_map is not None:
@@ -181,7 +179,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             self.showMaximized()
             self._on_action_show_toolbar__triggered()
             self._on_action_show_statusbar__triggered()
-
         else:
             self.showFullScreen()
             self.toolbar.hide()
@@ -199,18 +196,30 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             self._update_status_bar()
 
     def _on_action_add_bookmark__triggered(self):
-
         comic_name = self.model.get_comic_name()
         comic_path = self.model.last_comic_path
         comic_page = self.model.get_current_page_index()
-        sqlite_bookmarks.SQLiteBookmarks.add_bookmark(comic_name, comic_path, comic_page)
+
+        sqlite_bookmarks.SQLiteBookmarks().add_bookmark(comic_name, comic_path, comic_page)
+
+        # Adicionamos uma action com o nome da comic
+        act = QtGui.QAction(self, visible=False, triggered=self._load_bookmark)
+        act.setObjectName(comic_name + " " + comic_path)
+        act.setVisible(True)
+        self.menu_Bookmarks.addAction(act)
 
     def _on_action_remove_bookmark__triggered(self):
-
-        # comic_name = self.model.get_comic_name()
         comic_path = self.model.last_comic_path
-        # comic_page = self.model.get_current_page_index()
-        sqlite_bookmarks.SQLiteBookmarks.delete_bookmark(comic_path)
+        comic_name = self.model.get_comic_name()
+        sqlite_bookmarks.SQLiteBookmarks().delete_bookmark(comic_path)
+        self.menu_Bookmarks.removeAction(comic_name + " " + comic_path)
+
+    def _load_bookmark(self):
+        action = self.sender()
+
+        if action:
+            path = self.recentFileManager.get_action_path(action.objectName())
+            self.load(path)
 
     def _on_action_show_toolbar__triggered(self):
         if self.action_show_toolbar.isChecked():
