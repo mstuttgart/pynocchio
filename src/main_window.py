@@ -195,6 +195,18 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
             self._update_status_bar()
 
+    def _init_bookmark_menu(self):
+
+        actions = []
+
+        for i in range(5):
+            act = QtGui.QAction(self, visible=False, triggered=self._on_action_recent_files)
+            act.setObjectName(str(i))
+            actions.append(act)
+            self.menu_recent_files.addAction(act)
+
+
+
     def _on_action_add_bookmark__triggered(self):
         comic_name = self.model.get_comic_name()
         comic_path = self.model.last_comic_path + '/' + comic_name

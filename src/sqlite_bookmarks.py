@@ -16,22 +16,31 @@ class SQLiteBookmarks(object):
 
     def add_bookmark(self, path, name, page):
 
-        sql = "INSERT OR IGNORE INTO Bookmarks(Path, Name, Page) VALUES ('%s', '%s', %d);" % (path, name, page)
-        self.con.execute(sql)
+        ret = self._find_bookmark(path)
 
+        if ret:
+            sql = "UPDATE Bookmarks SET Page=%d WHERE Path='%s';" % (page, path)
+        else:
+            sql = "INSERT OR IGNORE INTO Bookmarks(Path, Name, Page) VALUES ('%s', '%s', %d);" % (path, name, page)
+
+        self.con.execute(sql)
         self.con.commit()
-        print "Records created successfully"
         self.con.close()
 
     def delete_bookmark(self, path):
 
         sql = "DELETE FROM Bookmarks WHERE Path='%s';" % path
-        self.con.execute(sql)
 
+        self.con.execute(sql)
         self.con.commit()
-        print "Records removed successfully"
         self.con.close()
 
+    def _find_bookmark(self, path):
+        r = self.con.execute('SELECT * FROM Bookmarks WHERE Path = ?', (path,))
+        return r.fetchone()
+
+    def get_rows(self):
+        return self.con.cursor().fetchall()
 
 
 
