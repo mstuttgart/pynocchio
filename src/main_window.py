@@ -198,13 +198,13 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
     def _init_bookmark_menu(self):
 
         actions = []
+        num_actions = self.menu_Bookmarks.actions() + 3
 
-        for i in range(5):
+        for i in range(num_actions):
             act = QtGui.QAction(self, visible=False, triggered=self._on_action_recent_files)
             act.setObjectName(str(i))
             actions.append(act)
             self.menu_recent_files.addAction(act)
-
 
 
     def _on_action_add_bookmark__triggered(self):
