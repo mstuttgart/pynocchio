@@ -10,7 +10,7 @@ import model
 import go_to_dialog
 import about_dialog
 import recent_files_manager
-import sqlite_bookmarks
+import bookmarks
 
 
 class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):
@@ -212,7 +212,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         comic_path = self.model.last_comic_path + '/' + comic_name
         comic_page = self.model.get_current_page_index()
 
-        sqlite_bookmarks.SQLiteBookmarks().add_bookmark(comic_path, comic_name, comic_page)
+        bookmarks.Bookmarks().add_bookmark(comic_path, comic_name, comic_page)
 
         # Adicionamos uma action com o nome da comic
         # act = QtGui.QAction(self, visible=False, triggered=self._load_bookmark)
@@ -225,7 +225,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         comic_path = self.model.last_comic_path + '/' + comic_name
 
         # comic_name = self.model.get_comic_name()
-        sqlite_bookmarks.SQLiteBookmarks().delete_bookmark(comic_path)
+        bookmarks.Bookmarks().delete_bookmark(comic_path)
         # self.menu_Bookmarks.removeAction(comic_name + " " + comic_path)
 
     def _load_bookmark(self):
