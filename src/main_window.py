@@ -206,13 +206,14 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             actions.append(act)
             self.menu_recent_files.addAction(act)
 
-
     def _on_action_add_bookmark__triggered(self):
         comic_name = self.model.get_comic_name()
         comic_path = self.model.last_comic_path + '/' + comic_name
         comic_page = self.model.get_current_page_index()
 
-        bookmarks.Bookmarks().add_bookmark(comic_path, comic_name, comic_page)
+        bk = bookmarks.Bookmarks()
+        bk.add_bookmark(comic_path, comic_name, comic_page)
+        bk.close()
 
         # Adicionamos uma action com o nome da comic
         # act = QtGui.QAction(self, visible=False, triggered=self._load_bookmark)
@@ -225,7 +226,9 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         comic_path = self.model.last_comic_path + '/' + comic_name
 
         # comic_name = self.model.get_comic_name()
-        bookmarks.Bookmarks().delete_bookmark(comic_path)
+        bk = bookmarks.Bookmarks()
+        bk.delete_bookmark(comic_path)
+        bk.close()
         # self.menu_Bookmarks.removeAction(comic_name + " " + comic_path)
 
     def _load_bookmark(self):

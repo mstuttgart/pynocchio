@@ -9,28 +9,26 @@ class Bookmarks(object):
 
     def __init__(self):
         self.db = data_base_manager.DataBaseManager(self.BOOKMARK_FILE_NAME)
+        self.db.create_table('Bookmarks', '(Path TEXT PRIMARY KEY NOT NULL, Name TEXT, Page INTEGER)')
 
     def add_bookmark(self, path, name, page):
 
-        if self._find_bookmark(path):
+        ret = self.db.find('Bookmarks', 'Path', path)
+
+        if ret:
             sql = "UPDATE Bookmarks SET Page=%d WHERE Path='%s';" % (page, path)
         else:
             sql = "INSERT OR IGNORE INTO Bookmarks(Path, Name, Page) VALUES ('%s', '%s', %d);" % (path, name, page)
 
-        self.conn.execute(sql)
-        self.conn.commit()
-        self.conn.close()
+        self.db.execute(sql)
 
     def delete_bookmark(self, path):
-
         sql = "DELETE FROM Bookmarks WHERE Path='%s';" % path
-
-        self.conn.execute(sql)
-        self.conn.commit()
-        self.conn.close()
+        self.db.execute(sql)
 
     def _find_bookmark(self, path):
-        r = self.conn.execute('SELECT * FROM Bookmarks WHERE Path = ?', (path,))
+        sql = "SELECT * FROM Bookmarks WHERE Path = '%s';" % path
+        r = self.db.execute(sql)
         return r.fetchone()
 
     def close(self):

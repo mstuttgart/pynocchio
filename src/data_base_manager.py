@@ -15,24 +15,26 @@ class DataBaseManager(object):
             self.data = self.cursor.fetchone()
             print("SQLite version: %s" % self.data)
 
-        except sqlite3.Error:
-            print("Error to open %s!" % db_name)
+        except sqlite3.Error, err:
+            print("Error: %s to open %s!" % err, db_name)
 
-    def commit_db(self):
+    def create_table(self, name, tuple_columns):
+        sql = "CREATE TABLE IF NOT EXISTS %s %s;" % (name, tuple_columns)
+        self.conn.execute(sql)
+
+    def execute(self, sql):
         if self.conn:
+            self.conn.execute(sql)
             self.conn.commit()
 
-    def insert(self, sql_command):
-        self.conn.execute(sql_command)
-        self.conn.commit()
+    def find(self, table_name, column, value):
 
-    def delete(self, sql_command):
-        self.conn.execute(sql_command)
-        self.conn.commit()
+        if self.conn:
+            sql = "SELECT * FROM %s WHERE %s = '%s';" % (table_name, column, value)
+            r = self.conn.execute(sql)
+            return r.fetchone()
 
-    def find(self, sql_command):
-        r = self.conn.execute(sql_command)
-        return r.fetchone()
+        return False
 
     def close_db(self):
         if self.conn:
