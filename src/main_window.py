@@ -231,7 +231,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         bk.add_bookmark(comic_path, comic_name, comic_page)
         book_list = bk.get_last_bookmarks()
         bk.close()
-        
+
         self._update_bookmarks_menu(book_list)
 
     def _on_action_remove_bookmark__triggered(self):
