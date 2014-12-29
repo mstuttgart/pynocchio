@@ -6,7 +6,6 @@ import data_base_manager
 class Bookmarks(object):
 
     BOOKMARK_FILE_NAME = "bookmarks.db"
-    NUM_BOOKMARK = 5
 
     def __init__(self):
         self.db = data_base_manager.DataBaseManager(self.BOOKMARK_FILE_NAME)
@@ -32,9 +31,9 @@ class Bookmarks(object):
         r = self.db.execute(sql)
         return r.fetchone()
 
-    def get_last_bookmarks(self):
+    def get_last_bookmarks(self, num):
         sql = "SELECT Path, Name FROM BOOKMARKS ORDER BY Id DESC LIMIT 5;"
-        return self.db.execute(sql).fetchmany(self.NUM_BOOKMARK)
+        return self.db.execute(sql).fetchmany(num)
 
     def close(self):
         self.db.close_db()

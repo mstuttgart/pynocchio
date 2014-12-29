@@ -11,6 +11,9 @@ import bookmarks
 
 
 class Model(object):
+
+    NUM_BOOKMARK = 5
+
     def __init__(self):
 
         super(Model, self).__init__()
@@ -170,55 +173,31 @@ class Model(object):
     def set_adjust_type(self, adjust_type):
         self.adjustType = adjust_type
 
-    def get_bookmark(self):
+    def get_bookmark_list(self):
         bk = bookmarks.Bookmarks()
-        book_list = bk.get_last_bookmarks()
+        book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
         bk.close()
-
         return book_list
 
-    # def _update_bookmarks_menu(self, bookmark_list):
-    #
-    #     acts = self.menu_Bookmarks.actions()
-    #
-    #     # Added 4 because the 3 actions in bookmark menu is add, remove and manage bookmark
-    #     for i in range(0, len(bookmark_list)):
-    #         acts[i+4].setObjectName(bookmark_list[i][0])
-    #         acts[i+4].setText(bookmark_list[i][0])
-    #         acts[i+4].setVisible(True)
-    #
-    #     # make the others bookmarks items invisibles
-    #     for i in range(len(bookmark_list), 5):
-    #         acts[i+4].setVisible(False)
-
-    def add_bookmark__triggered(self):
+    def add_bookmark(self):
         comic_name = self.get_comic_name()
         comic_path = self.last_comic_path + '/' + comic_name
         comic_page = self.get_current_page_index()
 
         bk = bookmarks.Bookmarks()
         bk.add_bookmark(comic_path, comic_name, comic_page)
-        book_list = bk.get_last_bookmarks()
+        book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
         bk.close()
 
         return book_list
 
-        # self._update_bookmarks_menu(book_list)
-
-    def remove_bookmark__triggered(self):
+    def remove_bookmark(self):
         comic_name = self.get_comic_name()
         comic_path = self.last_comic_path + '/' + comic_name
 
         bk = bookmarks.Bookmarks()
         bk.delete_bookmark(comic_path)
-        book_list = bk.get_last_bookmarks()
+        book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
         bk.close()
-        # self._update_bookmarks_menu(book_list)
         return book_list
 
-    # def _load_bookmark(self):
-    #     action = self.sender()
-    #
-    #     if action:
-    #         path = self.recentFileManager.get_action_path(action.objectName())
-    #         self.load(path)
