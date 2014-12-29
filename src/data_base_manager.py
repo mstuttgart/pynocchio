@@ -20,12 +20,16 @@ class DataBaseManager(object):
 
     def create_table(self, name, tuple_columns):
         sql = "CREATE TABLE IF NOT EXISTS %s %s;" % (name, tuple_columns)
-        self.conn.execute(sql)
+
+        if self.conn:
+            self.conn.execute(sql)
 
     def execute(self, sql):
         if self.conn:
-            self.conn.execute(sql)
+            r = self.conn.execute(sql)
             self.conn.commit()
+
+            return r
 
     def find(self, table_name, column, value):
 
