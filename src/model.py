@@ -173,30 +173,58 @@ class Model(object):
     def set_adjust_type(self, adjust_type):
         self.adjustType = adjust_type
 
-    def get_bookmark_list(self):
+    def get_bookmark_list(self, n=0):
         bk = bookmarks.Bookmarks()
-        book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
+
+        if n == 0:
+            book_list = bk.get_all_records()
+        else:
+            book_list = bk.get_last_bookmarks(n)
+
         bk.close()
         return book_list
 
-    def add_bookmark(self):
-        comic_name = self.get_comic_name()
-        comic_path = self.last_comic_path + '/' + comic_name
-        comic_page = self.get_current_page_index()
+    def add_bookmark(self, comic_name=None, comic_path=None, comic_page=None):
+
+        if comic_name is None:
+            comic_name = self.get_comic_name()
+
+        if comic_path is None:
+            comic_path = self.last_comic_path + '/' + comic_name
+
+        if comic_page is None:
+            comic_page = self.get_current_page_index()
 
         bk = bookmarks.Bookmarks()
         bk.add_bookmark(comic_path, comic_name, comic_page)
         book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
         bk.close()
-
         return book_list
 
-    def remove_bookmark(self):
-        comic_name = self.get_comic_name()
-        comic_path = self.last_comic_path + '/' + comic_name
+    def remove_bookmark(self, comic_path=None, comic_name=None):
+
+        if comic_name is None:
+            comic_name = self.get_comic_name()
+
+        if comic_path is None:
+            comic_path = self.last_comic_path + '/' + comic_name
 
         bk = bookmarks.Bookmarks()
         bk.delete_bookmark(comic_path)
+        book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
+        bk.close()
+        return book_list
+
+    def remove_bookmarks(self, comic_paths=None):
+
+        if type(comic_paths) != "List":
+            return
+
+        bk = bookmarks.Bookmarks()
+
+        for path in comic_paths:
+            bk.delete_bookmark(path)
+
         book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
         bk.close()
         return book_list

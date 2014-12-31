@@ -12,7 +12,6 @@ class Bookmarks(object):
         self.db.create_table('Bookmarks', '(Id INTEGER PRIMARY KEY NOT NULL, Path TEXT SECUNDARY KEY NOT NULL, Name TEXT, Page INTEGER)')
 
     def add_bookmark(self, path, name, page):
-
         ret = self.db.find('Bookmarks', 'Path', path)
 
         if ret:
@@ -34,6 +33,10 @@ class Bookmarks(object):
     def get_last_bookmarks(self, num):
         sql = "SELECT Path, Name FROM BOOKMARKS ORDER BY Id DESC LIMIT 5;"
         return self.db.execute(sql).fetchmany(num)
+
+    def get_all_records(self):
+        sql = "SELECT Name, Path, Page FROM BOOKMARKS;"
+        return self.db.execute(sql).fetchall()
 
     def close(self):
         self.db.close_db()

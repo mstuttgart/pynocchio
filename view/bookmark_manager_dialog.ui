@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>276</height>
+    <width>761</width>
+    <height>329</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,10 @@
       </sizepolicy>
      </property>
      <property name="autoFillBackground">
-      <bool>true</bool>
+      <bool>false</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
      <property name="autoScroll">
       <bool>true</bool>
@@ -31,8 +34,32 @@
      <property name="autoScrollMargin">
       <number>9</number>
      </property>
+     <property name="tabKeyNavigation">
+      <bool>true</bool>
+     </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="dragDropOverwriteMode">
+      <bool>false</bool>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="showGrid">
+      <bool>true</bool>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
      <property name="wordWrap">
       <bool>true</bool>
+     </property>
+     <property name="rowCount">
+      <number>5</number>
      </property>
      <property name="columnCount">
       <number>3</number>
@@ -41,11 +68,13 @@
       <bool>true</bool>
      </attribute>
      <attribute name="horizontalHeaderCascadingSectionResizes">
-      <bool>false</bool>
+      <bool>true</bool>
      </attribute>
-     <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>112</number>
-     </attribute>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
      <column>
       <property name="text">
        <string>Name</string>
@@ -61,17 +90,20 @@
        <string>Page</string>
       </property>
      </column>
+     <item row="0" column="0">
+      <property name="font">
+       <font>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="flags">
+       <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+      </property>
+     </item>
     </widget>
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="1" column="0">
-      <widget class="QPushButton" name="button_selection">
-       <property name="text">
-        <string>Selecionar tudo</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="1">
       <widget class="QPushButton" name="button_remove">
        <property name="text">
@@ -86,6 +118,13 @@
        </property>
       </widget>
      </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="button_selection">
+       <property name="text">
+        <string>Selecionar tudo</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
@@ -93,5 +132,22 @@
  <resources>
   <include location="../resource/main_window.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>button_exit</sender>
+   <signal>clicked()</signal>
+   <receiver>Bookmark_Dialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>629</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>380</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

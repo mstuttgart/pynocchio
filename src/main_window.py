@@ -10,7 +10,7 @@ import model
 import go_to_dialog
 import about_dialog
 import recent_files_manager
-import bookmarks
+import bookmark_manager_dialog
 
 
 class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):
@@ -113,7 +113,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             self.load(file_path)
 
     def _on_action_open_folder__triggered(self):
-
         path = QtGui.QFileDialog.getExistingDirectory(
             self.parent(), self.tr("Open Directory"), QtCore.QDir.currentPath(),
             QtGui.QFileDialog.ShowDirsOnly)
@@ -137,7 +136,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _on_action_recent_files(self):
         action = self.sender()
-
         if action:
             path = self.recentFileManager.get_action_path(action.objectName())
             self.load(path)
@@ -199,7 +197,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         for i in range(0, self.model.NUM_BOOKMARK):
             self.menu_Bookmarks.addAction(QtGui.QAction(self, visible=False, triggered=self._load_bookmark))
 
-        self._update_bookmarks_menu(self.model.get_bookmark_list())
+        self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _update_bookmarks_menu(self, bookmark_list):
         acts = self.menu_Bookmarks.actions()
@@ -212,7 +210,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             acts[i+4].setVisible(True)
 
         # make the others bookmarks items invisibles
-        for i in range(bookmark_list_len, 5):
+        for i in range(bookmark_list_len, self.model.NUM_BOOKMARK):
             acts[i+4].setVisible(False)
 
     def _on_action_add_bookmark__triggered(self):
@@ -220,6 +218,12 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _on_action_remove_bookmark__triggered(self):
         self._update_bookmarks_menu(self.model.remove_bookmark())
+
+    def _on_action_bookmark_manager__triggered(self):
+
+        # if self.aboutDialog is None:
+        self.bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
+        self.bookmark_dialog.show()
 
     def _load_bookmark(self):
         action = self.sender()
