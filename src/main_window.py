@@ -47,6 +47,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
         self.recentFileManager = recent_files_manager.RecentFileManager(actions)
         self._load_settings()
+        self._init_bookmark_menu()
 
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -127,7 +128,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
                 self.goToDialog = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
-
                 self._update_status_bar()
                 self._enable_actions()
             else:
@@ -196,47 +196,35 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             self._update_status_bar()
 
     def _init_bookmark_menu(self):
+        for i in range(0, self.model.NUM_BOOKMARK):
+            self.menu_Bookmarks.addAction(QtGui.QAction(self, visible=False, triggered=self._load_bookmark))
 
-        actions = []
-        num_actions = self.menu_Bookmarks.actions() + 3
+        self._update_bookmarks_menu(self.model.get_bookmark_list())
 
-        for i in range(num_actions):
-            act = QtGui.QAction(self, visible=False, triggered=self._on_action_recent_files)
-            act.setObjectName(str(i))
-            actions.append(act)
-            self.menu_recent_files.addAction(act)
+    def _update_bookmarks_menu(self, bookmark_list):
+        acts = self.menu_Bookmarks.actions()
+        bookmark_list_len = len(bookmark_list)
+
+        # Added 4 because the 3 actions in bookmark menu is add, remove and manage bookmark
+        for i in range(0, bookmark_list_len):
+            acts[i+4].setObjectName(bookmark_list[i][0])
+            acts[i+4].setText(bookmark_list[i][0])
+            acts[i+4].setVisible(True)
+
+        # make the others bookmarks items invisibles
+        for i in range(bookmark_list_len, 5):
+            acts[i+4].setVisible(False)
 
     def _on_action_add_bookmark__triggered(self):
-        comic_name = self.model.get_comic_name()
-        comic_path = self.model.last_comic_path + '/' + comic_name
-        comic_page = self.model.get_current_page_index()
-
-        bk = bookmarks.Bookmarks()
-        bk.add_bookmark(comic_path, comic_name, comic_page)
-        bk.close()
-
-        # Adicionamos uma action com o nome da comic
-        # act = QtGui.QAction(self, visible=False, triggered=self._load_bookmark)
-        # act.setObjectName(comic_name + " " + comic_path)
-        # act.setVisible(True)
-        # self.menu_Bookmarks.addAction(act)
+        self._update_bookmarks_menu(self.model.add_bookmark())
 
     def _on_action_remove_bookmark__triggered(self):
-        comic_name = self.model.get_comic_name()
-        comic_path = self.model.last_comic_path + '/' + comic_name
-
-        # comic_name = self.model.get_comic_name()
-        bk = bookmarks.Bookmarks()
-        bk.delete_bookmark(comic_path)
-        bk.close()
-        # self.menu_Bookmarks.removeAction(comic_name + " " + comic_path)
+        self._update_bookmarks_menu(self.model.remove_bookmark())
 
     def _load_bookmark(self):
         action = self.sender()
-
         if action:
-            path = self.recentFileManager.get_action_path(action.objectName())
-            self.load(path)
+            self.load(action.text())
 
     def _on_action_show_toolbar__triggered(self):
         if self.action_show_toolbar.isChecked():
