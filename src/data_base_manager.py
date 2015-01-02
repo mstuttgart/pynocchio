@@ -28,11 +28,11 @@ class DataBaseManager(object):
         if self.conn:
             r = self.conn.execute(sql)
             self.conn.commit()
-
             return r
 
-    def find(self, table_name, column, value):
+        return None
 
+    def find(self, table_name, column, value):
         if self.conn:
             sql = "SELECT * FROM %s WHERE %s = '%s';" % (table_name, column, value)
             r = self.conn.execute(sql)

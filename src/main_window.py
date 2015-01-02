@@ -10,7 +10,7 @@ import model
 import go_to_dialog
 import about_dialog
 import recent_files_manager
-import bookmarks
+import bookmark_manager_dialog
 
 
 class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):
@@ -105,15 +105,14 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
         file_path, _ = QtGui.QFileDialog.getOpenFileName(
             self.parent(), self.tr('Open comic file'), self.model.last_comic_path,
-            self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt)\
-            ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
-            ;;Tar Files (*.tar *.cbt);;All files (*)'))
+            self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
+                    'Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr) '
+                    ';; Tar Files (*.tar *.cbt);; All files (*)'))
 
         if len(file_path) != 0:
             self.load(file_path)
 
     def _on_action_open_folder__triggered(self):
-
         path = QtGui.QFileDialog.getExistingDirectory(
             self.parent(), self.tr("Open Directory"), QtCore.QDir.currentPath(),
             QtGui.QFileDialog.ShowDirsOnly)
@@ -137,7 +136,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _on_action_recent_files(self):
         action = self.sender()
-
         if action:
             path = self.recentFileManager.get_action_path(action.objectName())
             self.load(path)
@@ -199,10 +197,14 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         for i in range(0, self.model.NUM_BOOKMARK):
             self.menu_Bookmarks.addAction(QtGui.QAction(self, visible=False, triggered=self._load_bookmark))
 
-        self._update_bookmarks_menu(self.model.get_bookmark_list())
+        self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
-    def _update_bookmarks_menu(self, bookmark_list):
+    def _update_bookmarks_menu(self, bookmark_list=None):
         acts = self.menu_Bookmarks.actions()
+
+        if bookmark_list is None:
+            bookmark_list = self.model.get_bookmark_list()
+
         bookmark_list_len = len(bookmark_list)
 
         # Added 4 because the 3 actions in bookmark menu is add, remove and manage bookmark
@@ -212,7 +214,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             acts[i+4].setVisible(True)
 
         # make the others bookmarks items invisibles
-        for i in range(bookmark_list_len, 5):
+        for i in range(bookmark_list_len, self.model.NUM_BOOKMARK):
             acts[i+4].setVisible(False)
 
     def _on_action_add_bookmark__triggered(self):
@@ -220,6 +222,16 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _on_action_remove_bookmark__triggered(self):
         self._update_bookmarks_menu(self.model.remove_bookmark())
+
+    def _on_action_bookmark_manager__triggered(self):
+
+        if self.aboutDialog is None:
+            self.bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
+
+        # Wait the dialog close
+        self.bookmark_dialog.show()
+        self.bookmark_dialog.exec_()
+        self._update_bookmarks_menu(self.model.get_bookmark_list())
 
     def _load_bookmark(self):
         action = self.sender()
@@ -319,7 +331,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self.action_remove_bookmark.setEnabled(True)
 
     def _save_settings(self):
-
         import settings_manager
 
         sett = {'view': {}, 'settings': {}}
@@ -332,7 +343,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
 
     def _load_settings(self):
-
         import settings_manager
         from distutils import util
 
@@ -359,27 +369,17 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self._on_action_show_statusbar__triggered()
 
     def keyPressEvent(self, event):
-
         key = event.key()
 
         if key == QtCore.Qt.Key_F:
             self._on_action_fullscreen__triggered()
-
         elif key == QtCore.Qt.Key_Escape and self.isFullScreen():
             self._on_action_fullscreen__triggered()
-
         else:
             super(MainWindow, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
-
-        event = args[0]
-
-        if event.button() == QtCore.Qt.LeftButton:
+        if args[0].button() == QtCore.Qt.LeftButton:
             self._on_action_fullscreen__triggered()
         else:
             super(MainWindow, self).mousePressEvent(*args, **kwargs)
-
-
-
-
