@@ -2,15 +2,11 @@
 #TODO: Ajustar QDialog de configuração, adicionado as actions de cor de brackground e default path
 #TODO: Cria arquivo de tradução inglês (prioridade) e português
 #TODO: Menu Exibir adicionar: two pages, manga mode
-#TODO: Adicionar menu Bookmarks com as opções: add bookmark, remove bookmark, manage bookmarks
 #TODO: Implementar mecanismo de cache para pre-carregar um dado numero de paginas
-#TODO: Adicionar a informação dos tipos de arquivos suportados na aboutDialog
 #TODO: Controle de zoom para o usurio
 #TODO: Botão para carregar a proxima comic no diretorio da comic atual ou a comic anterior.
 #TODO: AboutDialog sem textBrowse. Melhorar a aparência
 #TODO: Botão closecomic para voltar a tela inicial do programa.
 #TODO: Opção no menu file para visualizarmos informações da comic, como numero de paginas, tipo de arquivo (codificação),
-#TODO: Progressbar ao carregar comics.
-#TODO: Opção de marcador para os livros. Quando vc abre uma comic, ele começa a leitura na página onde o usuário parou de ler.
 #TODO: Opção para imprimir a página atual
 #TODO: Opção para salvar a página atual como imagem.
