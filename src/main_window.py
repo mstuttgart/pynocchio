@@ -11,6 +11,7 @@ import go_to_dialog
 import about_dialog
 import recent_files_manager
 import bookmark_manager_dialog
+import status_bar
 
 
 class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):
@@ -28,6 +29,9 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
         self.scroll_area_viewer.model = self.model
         self.scroll_area_viewer.label = self.label
+
+        self.statusbar = status_bar.StatusBar(self)
+        self.setStatusBar(self.statusbar)
 
         self._adjust_main_window()
 
@@ -246,10 +250,12 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _on_action_show_statusbar__triggered(self):
         if self.action_show_statusbar.isChecked():
-            self.statusbar.show()
+            # self.statusbar.show()
             self._update_status_bar()
+            self.statusbar.show()
         else:
             self.statusbar.hide()
+            # self.statusbar.hide()
 
     def _on_action_about__triggered(self):
 
@@ -298,17 +304,17 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _update_status_bar(self):
 
-        if self.statusbar.isVisible() and self.model.comic is not None:
-            n_page = str(self.model.get_current_page_index() + 1)
-            page_width = str(self.model.get_current_page().width())
-            page_height = str(self.model.get_current_page().height())
-            page_title = self.model.get_current_page_title()
+        if self.statusbar.isVisible() and self.model.comic:
 
-            label = self.tr('Page: ') + n_page + '\t\t\t\t\t' + self.tr('Title: ') \
-                    + page_title + '\t\t\t\t\t' + self.tr('Width: ') \
-                    + page_width + ' px' + '\t\t\t\t\t' + self.tr('Height: ') + page_height + ' px'
+            n_page = self.model.get_current_page_index() + 1
+            pages_size = self.model.comic.get_number_of_pages()
+            page_width = self.model.get_current_page().width()
+            page_height = self.model.get_current_page().height()
+            page_title = self.model.last_comic_path + self.model.get_current_page_title()
 
-            self.statusbar.showMessage(label)
+            self.statusbar.set_comic_page(n_page, pages_size)
+            self.statusbar.set_page_resolution(page_width, page_height)
+            self.statusbar.set_comic_path(page_title)
 
     def _enable_actions(self):
 

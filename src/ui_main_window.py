@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Wed Dec 31 02:39:30 2014
+# Created: Fri Jan  2 17:38:58 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.scroll_area_viewer.setAlignment(QtCore.Qt.AlignCenter)
         self.scroll_area_viewer.setObjectName("scroll_area_viewer")
         self.scroll_area_widget_contents = QtGui.QWidget()
-        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 626, 344))
+        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 626, 347))
         self.scroll_area_widget_contents.setObjectName("scroll_area_widget_contents")
         self.verticalLayout_3 = QtGui.QVBoxLayout(self.scroll_area_widget_contents)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -72,7 +72,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.verticalLayout_2)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 629, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 629, 27))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -109,10 +109,6 @@ class Ui_MainWindow(object):
         self.toolbar.setFloatable(False)
         self.toolbar.setObjectName("toolbar")
         MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolbar)
-        self.statusbar = QtGui.QStatusBar(MainWindow)
-        self.statusbar.setFocusPolicy(QtCore.Qt.ClickFocus)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
         self.action_open = QtGui.QAction(MainWindow)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_18.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)

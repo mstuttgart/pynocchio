@@ -108,7 +108,7 @@
            <x>0</x>
            <y>0</y>
            <width>626</width>
-           <height>344</height>
+           <height>347</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -148,7 +148,7 @@
      <x>0</x>
      <y>0</y>
      <width>629</width>
-     <height>21</height>
+     <height>27</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -285,11 +285,6 @@
    <addaction name="action_fullscreen"/>
    <addaction name="separator"/>
    <addaction name="action_exit"/>
-  </widget>
-  <widget class="QStatusBar" name="statusbar">
-   <property name="focusPolicy">
-    <enum>Qt::ClickFocus</enum>
-   </property>
   </widget>
   <action name="action_open">
    <property name="icon">
