@@ -253,21 +253,20 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _on_action_about__triggered(self):
 
-        # if self.aboutDialog is None:
-        #     self.aboutDialog = about_dialog.AboutDialog(self)
+        if self.aboutDialog is None:
+            self.aboutDialog = about_dialog.AboutDialog(self)
+
+        self.aboutDialog.show()
+
+        # msg = "<p align=\"left\"> The <b>Pynocchio Comic Reader</b> " \
+        #       "is an image viewer specifically designed to handle comic books.</p>" + \
+        #       "<p align=\"left\">It reads ZIP, RAR and tar archives, as well as plain image files." +\
+        #       "<p align=\"left\">Pynocchio Comic Reader is licensed under the GNU General Public License." + \
+        #       "<p align=\"left\">Copyright 2014 Michell Stuttgart Faria</p>" + \
+        #       "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set. " + \
+        #       "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
         #
-        # self.aboutDialog.show()
-
-        msg = "<p align=\"left\"> The <b>Pynocchio Comic Reader</b> " \
-              "is an image viewer specifically designed to handle comic books.</p>" + \
-              "<p align=\"left\">It reads ZIP, RAR and tar archives, as well as plain image files." +\
-              "implemented with Qt4 framework.</p>" + \
-              "<p align=\"left\">Pynocchio Comic Reader is licensed under the GNU General Public License." + \
-              "<p align=\"left\">Copyright 2014 Michell Stuttgart Faria</p>" + \
-              "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set." + \
-              "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
-
-        QtGui.QMessageBox.about(self, self.tr("About Pynocchio Comic Reader"), msg)
+        # QtGui.QMessageBox.about(self, self.tr("About Pynocchio Comic Reader"), msg)
 
     def _on_action_about_qt__triggered(self):
         QtGui.QMessageBox.aboutQt(self, self.tr(u'About Qt'))
