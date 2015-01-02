@@ -105,9 +105,9 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
         file_path, _ = QtGui.QFileDialog.getOpenFileName(
             self.parent(), self.tr('Open comic file'), self.model.last_comic_path,
-            self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt)\
-            ;;Zip Files (*.zip *.cbz);;Rar Files (*.rar *.cbr)\
-            ;;Tar Files (*.tar *.cbt);;All files (*)'))
+            self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
+                    'Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr) '
+                    ';; Tar Files (*.tar *.cbt);; All files (*)'))
 
         if len(file_path) != 0:
             self.load(file_path)
@@ -199,8 +199,12 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
         self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
-    def _update_bookmarks_menu(self, bookmark_list):
+    def _update_bookmarks_menu(self, bookmark_list=None):
         acts = self.menu_Bookmarks.actions()
+
+        if bookmark_list is None:
+            bookmark_list = self.model.get_bookmark_list()
+
         bookmark_list_len = len(bookmark_list)
 
         # Added 4 because the 3 actions in bookmark menu is add, remove and manage bookmark
@@ -221,9 +225,13 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _on_action_bookmark_manager__triggered(self):
 
-        # if self.aboutDialog is None:
-        self.bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
+        if self.aboutDialog is None:
+            self.bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
+
+        # Wait the dialog close
         self.bookmark_dialog.show()
+        self.bookmark_dialog.exec_()
+        self._update_bookmarks_menu(self.model.get_bookmark_list())
 
     def _load_bookmark(self):
         action = self.sender()
@@ -383,7 +391,3 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             self._on_action_fullscreen__triggered()
         else:
             super(MainWindow, self).mousePressEvent(*args, **kwargs)
-
-
-
-

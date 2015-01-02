@@ -217,8 +217,8 @@ class Model(object):
 
     def remove_bookmarks(self, comic_paths=None):
 
-        if type(comic_paths) != "List":
-            return
+        # if type(comic_paths) != "List":
+        #     return
 
         bk = bookmarks.Bookmarks()
 
@@ -227,5 +227,6 @@ class Model(object):
 
         book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
         bk.close()
+
         return book_list
 
