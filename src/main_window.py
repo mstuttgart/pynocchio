@@ -203,7 +203,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         acts = self.menu_Bookmarks.actions()
 
         if bookmark_list is None:
-            bookmark_list = self.model.get_bookmark_list()
+            bookmark_list = self.model.get_bookmark_list(self.model.NUM_BOOKMARK)
 
         bookmark_list_len = len(bookmark_list)
 
@@ -231,7 +231,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         # Wait the dialog close
         self.bookmark_dialog.show()
         self.bookmark_dialog.exec_()
-        self._update_bookmarks_menu(self.model.get_bookmark_list())
+        self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _load_bookmark(self):
         action = self.sender()
