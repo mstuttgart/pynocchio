@@ -331,7 +331,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self.action_remove_bookmark.setEnabled(True)
 
     def _save_settings(self):
-
         import settings_manager
 
         sett = {'view': {}, 'settings': {}}
@@ -344,7 +343,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
 
     def _load_settings(self):
-
         import settings_manager
         from distutils import util
 
@@ -371,23 +369,17 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self._on_action_show_statusbar__triggered()
 
     def keyPressEvent(self, event):
-
         key = event.key()
 
         if key == QtCore.Qt.Key_F:
             self._on_action_fullscreen__triggered()
-
         elif key == QtCore.Qt.Key_Escape and self.isFullScreen():
             self._on_action_fullscreen__triggered()
-
         else:
             super(MainWindow, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
-
-        event = args[0]
-
-        if event.button() == QtCore.Qt.LeftButton:
+        if args[0].button() == QtCore.Qt.LeftButton:
             self._on_action_fullscreen__triggered()
         else:
             super(MainWindow, self).mousePressEvent(*args, **kwargs)

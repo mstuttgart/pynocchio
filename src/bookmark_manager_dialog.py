@@ -8,13 +8,12 @@ import model
 
 class BookmarkManagerDialog(QtGui.QDialog):
 
-    def __init__(self, model, parent=None):
+    def __init__(self, mdl, parent=None):
         super(BookmarkManagerDialog, self).__init__(parent)
         self.uiBookmarkManagerDialog = ui_bookmark_manager_dialog.Ui_Bookmark_Dialog()
         self.uiBookmarkManagerDialog.setupUi(self)
 
-        self.model = model
-
+        self.model = mdl
         self.table = self.uiBookmarkManagerDialog.bookmark_table
         self._update_table_content()
 
@@ -22,11 +21,6 @@ class BookmarkManagerDialog(QtGui.QDialog):
         self.uiBookmarkManagerDialog.button_remove.clicked.connect(self._remove_table_item)
 
     def _update_table_content(self):
-
-        # bk = bookmarks.Bookmarks()
-        # record_list = bk.get_all_records()
-        # bk.close()
-
         record_list = self.model.get_bookmark_list()
         record_list_len = len(record_list)
         self.table.setRowCount(record_list_len)
@@ -46,22 +40,16 @@ class BookmarkManagerDialog(QtGui.QDialog):
         selected_items_i = selected_items_len/3
         selected_items_f = selected_items_len - selected_items_i
 
-        # bk = bookmarks.Bookmarks()
         paths = []
 
         for i in range(selected_items_i, selected_items_f):
             path = selected_items[i].text()
             paths.append(path)
-            # bk.delete_bookmark(path)
             self.table.removeRow(selected_items[i].row())
 
         self.model.remove_bookmarks(paths)
 
-        # bk.close()
-
     def _select_all_table_items(self):
         self.table.setRangeSelected(QtGui.QTableWidgetSelectionRange(0, 0, self.table.rowCount()-1, 2), True)
 
-    # def show(self):
-    #     super(BookmarkManagerDialog, self).show()
 

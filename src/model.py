@@ -175,12 +175,7 @@ class Model(object):
 
     def get_bookmark_list(self, n=0):
         bk = bookmarks.Bookmarks()
-
-        if n == 0:
-            book_list = bk.get_all_records()
-        else:
-            book_list = bk.get_last_bookmarks(n)
-
+        book_list = bk.get_records(n)
         bk.close()
         return book_list
 
@@ -197,7 +192,7 @@ class Model(object):
 
         bk = bookmarks.Bookmarks()
         bk.add_bookmark(comic_path, comic_name, comic_page)
-        book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
+        book_list = bk.get_records(self.NUM_BOOKMARK)
         bk.close()
         return book_list
 
@@ -211,7 +206,7 @@ class Model(object):
 
         bk = bookmarks.Bookmarks()
         bk.delete_bookmark(comic_path)
-        book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
+        book_list = bk.get_records(self.NUM_BOOKMARK)
         bk.close()
         return book_list
 
@@ -225,7 +220,7 @@ class Model(object):
         for path in comic_paths:
             bk.delete_bookmark(path)
 
-        book_list = bk.get_last_bookmarks(self.NUM_BOOKMARK)
+        book_list = bk.get_records(self.NUM_BOOKMARK)
         bk.close()
 
         return book_list
