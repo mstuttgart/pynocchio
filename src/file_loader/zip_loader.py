@@ -1,9 +1,10 @@
 # -*- coding: UTF-8 -*-
+from src.file_loader import loader
+
 __author__ = 'michell'
 
 import zipfile
 import os.path
-import loader
 
 
 class ZipLoader(loader.Loader):

@@ -1,2 +1,2 @@
 #-*- coding: utf-8 -*-
-from central_window import CentralWindow
+import central_window

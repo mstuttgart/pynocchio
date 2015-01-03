@@ -4,6 +4,11 @@ from PySide import QtCore
 
 import comic
 import bookmarks
+from file_loader import rar_loader, tar_loader, zip_loader
+# import zip_loader
+# import rar_loader
+# import tar_loader
+# import zip_loader, rar_loader, tar_loader
 
 
 class Model(QtCore.QObject):
@@ -25,9 +30,6 @@ class Model(QtCore.QObject):
     def load_comic(self, file_name, initial_page=0):
 
         try:
-            import rar_loader
-            import zip_loader
-            import tar_loader
 
             if zip_loader.ZipLoader.is_zip_file(file_name):
                 return self._load_content(zip_loader.ZipLoader(self), file_name, initial_page)
