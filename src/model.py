@@ -5,10 +5,12 @@ from PySide import QtCore
 import comic
 import bookmarks
 from file_loader import rar_loader, tar_loader, zip_loader
+
 # import zip_loader
 # import rar_loader
 # import tar_loader
 # import zip_loader, rar_loader, tar_loader
+from src.file_loader import folder_loader
 
 
 class Model(QtCore.QObject):
@@ -47,7 +49,6 @@ class Model(QtCore.QObject):
         return False
 
     def load_folder(self, folder_name, initial_page=0):
-        import folder_loader
 
         if folder_loader.FolderLoader.is_folder(folder_name):
             return self._load_content(folder_loader.FolderLoader(), folder_name, initial_page)

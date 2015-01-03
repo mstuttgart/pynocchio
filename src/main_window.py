@@ -7,9 +7,10 @@ import smartside
 
 import model
 import recent_files_manager
+from dialogs import about_dialog, bookmark_manager_dialog, go_to_dialog
+from dialogs.ui_python_files import ui_main_window
 import status_bar
 from central_main_window import central_window
-from ui_python_files import ui_main_window
 
 
 class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):
@@ -144,7 +145,6 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         self._update_view_actions()
 
     def _on_action_go_to_page__triggered(self):
-        import go_to_dialog
         go_to_dlg = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
         go_to_dlg.show()
         go_to_dlg.exec_()
@@ -210,7 +210,6 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         self._update_bookmarks_menu(self.model.remove_bookmark())
 
     def _on_action_bookmark_manager__triggered(self):
-        import bookmark_manager_dialog
         bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
@@ -236,7 +235,6 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
             self.statusbar.hide()
 
     def _on_action_about__triggered(self):
-        import about_dialog
         about_dlg = about_dialog.AboutDialog(self)
         about_dlg.show()
         about_dlg.exec_()

@@ -4,7 +4,6 @@ from PySide import QtGui
 
 from ui_python_files import ui_about_dialog
 
-
 class AboutDialog(QtGui.QDialog):
 
     def __init__(self, parent=None):
