@@ -33,7 +33,7 @@ class Bookmarks(object):
         return r.fetchone()
 
     def _get_last_bookmarks(self, num):
-        sql = "SELECT Path, Name FROM BOOKMARKS ORDER BY Id DESC LIMIT 5;"
+        sql = "SELECT Path, Name, Page FROM BOOKMARKS ORDER BY Id DESC LIMIT 5;"
         return self.db.execute(sql).fetchmany(num)
 
     def _get_all_records(self):

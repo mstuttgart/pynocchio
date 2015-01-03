@@ -23,7 +23,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self.setupUi(self)
         self.auto_connect()
 
-        self.model = model.Model()
+        self.model = model.Model(self)
         self.goToDialog = None
         self.aboutDialog = None
 
@@ -82,7 +82,9 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def load(self, path, initial_page=0):
 
-        # self.scroll_area_viewer.load_comic_cursor(True)
+        self.scroll_area_viewer.load_comic_cursor(True)
+
+        # self.connect(self.model._load_content, SIGNAL(progress(int, int)), statusbar, SLOT(setProgress(int, int)));
 
         if self.model.load_comic(path):
             pix_map = self.model.get_current_page()
@@ -94,16 +96,15 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 self._update_status_bar()
                 self._enable_actions()
                 self.recentFileManager.update_recent_file_list(path)
-
                 self.model.set_current_page_index(initial_page)
             else:
                 QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
             QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
-            self._update_view_actions()
-            # self.scroll_area_viewer.load_comic_cursor(False)
-            self.scroll_area_viewer.setFocus()
+        self._update_view_actions()
+        self.scroll_area_viewer.load_comic_cursor(False)
+        # self.scroll_area_viewer.setFocus()
 
     def _on_action_open__triggered(self):
 
@@ -213,8 +214,9 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
         # Added 4 because the 3 actions in bookmark menu is add, remove and manage bookmark
         for i in range(0, bookmark_list_len):
+            page = ' [%d]' % bookmark_list[i][2]
             acts[i+4].setObjectName(bookmark_list[i][0])
-            acts[i+4].setText(bookmark_list[i][0])
+            acts[i+4].setText(bookmark_list[i][0] + page)
             acts[i+4].setVisible(True)
 
         # make the others bookmarks items invisibles
@@ -228,7 +230,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self._update_bookmarks_menu(self.model.remove_bookmark())
 
     def _on_action_bookmark_manager__triggered(self):
-
         if self.aboutDialog is None:
             self.bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
 
@@ -240,7 +241,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
     def _load_bookmark(self):
         action = self.sender()
         if action:
-            self.load(action.text())
+            self.load(action.objectName())
 
     def _on_action_show_toolbar__triggered(self):
         if self.action_show_toolbar.isChecked():
@@ -250,12 +251,10 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
     def _on_action_show_statusbar__triggered(self):
         if self.action_show_statusbar.isChecked():
-            # self.statusbar.show()
             self._update_status_bar()
             self.statusbar.show()
         else:
             self.statusbar.hide()
-            # self.statusbar.hide()
 
     def _on_action_about__triggered(self):
 

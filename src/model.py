@@ -3,20 +3,16 @@ from PySide import QtGui
 from PySide import QtCore
 
 import comic
-import rar_loader
-import zip_loader
-import tar_loader
-import folder_loader
 import bookmarks
 
 
-class Model(object):
+class Model(QtCore.QObject):
 
     NUM_BOOKMARK = 5
 
-    def __init__(self):
+    def __init__(self, parent=None):
 
-        super(Model, self).__init__()
+        super(Model, self).__init__(parent)
 
         self.comic = None
         self.original_pixmap = QtGui.QPixmap()
@@ -29,14 +25,20 @@ class Model(object):
     def load_comic(self, file_name):
 
         try:
+            import rar_loader
+            import zip_loader
+            import tar_loader
+
             if zip_loader.ZipLoader.is_zip_file(file_name):
-                return self._load_content(zip_loader.ZipLoader(), file_name)
+                # zf = zip_loader.ZipLoader(self)
+                # self.connect(zf, QtCore.SIGNAL('update_progress_bar(int)'), statusbar.set_progress_bar)
+                return self._load_content(zip_loader.ZipLoader(self), file_name)
 
             elif rar_loader.RarLoader.is_rar_file(file_name):
-                return self._load_content(rar_loader.RarLoader(), file_name)
+                return self._load_content(rar_loader.RarLoader(self), file_name)
 
             elif tar_loader.TarLoader.is_tar_file(file_name):
-                return self._load_content(tar_loader.TarLoader(), file_name)
+                return self._load_content(tar_loader.TarLoader(self), file_name)
 
         except IOError, err:
             print '%20s  %s' % (file_name, err)
@@ -45,9 +47,10 @@ class Model(object):
         return False
 
     def load_folder(self, folder_name):
+        import folder_loader
+
         if folder_loader.FolderLoader.is_folder(folder_name):
             return self._load_content(folder_loader.FolderLoader(), folder_name)
-
         print 'Not is folder'
         return False
 
@@ -91,7 +94,7 @@ class Model(object):
         return self.get_current_page()
 
     def get_comic_name(self):
-        if self.comic is not None:
+        if self.comic:
             return self.comic.name
         return None
 
@@ -99,16 +102,16 @@ class Model(object):
         return self._load_pixmap_from_data()
 
     def get_current_page_title(self):
-        if self.comic is not None:
+        if self.comic:
             return self.comic.get_current_page_title()
         return None
 
     def set_current_page_index(self, idx):
-        if self.comic is not None:
+        if self.comic:
             self.comic.set_current_page_index(idx)
 
     def get_current_page_index(self):
-        if self.comic is not None:
+        if self.comic:
             return self.comic.current_page_index
         return -1
 
@@ -125,10 +128,10 @@ class Model(object):
     def _load_pixmap_from_data(self):
         page = None
 
-        if self.comic is not None:
+        if self.comic:
             page = self.comic.get_current_page()
 
-        if page is not None:
+        if page:
             self.original_pixmap.loadFromData(page)
 
         return self.update_content()
@@ -137,7 +140,6 @@ class Model(object):
         pix_map = self.original_pixmap
         pix_map = self._rotate_page(pix_map)
         pix_map = self._resize_page(pix_map)
-
         return pix_map
 
     def _rotate_page(self, pix_map):
@@ -149,7 +151,7 @@ class Model(object):
 
     def _resize_page(self, pix_map):
 
-        if self.comic is not None:
+        if self.comic:
 
             if self.adjustType == '&Vertical adjust':
                 pix_map = pix_map.scaledToHeight(
@@ -211,10 +213,6 @@ class Model(object):
         return book_list
 
     def remove_bookmarks(self, comic_paths=None):
-
-        # if type(comic_paths) != "List":
-        #     return
-
         bk = bookmarks.Bookmarks()
 
         for path in comic_paths:
@@ -222,6 +220,5 @@ class Model(object):
 
         book_list = bk.get_records(self.NUM_BOOKMARK)
         bk.close()
-
         return book_list
 
