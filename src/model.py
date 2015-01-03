@@ -22,7 +22,7 @@ class Model(QtCore.QObject):
         self.rotateAngle = 0
         self.last_comic_path = ''
 
-    def load_comic(self, file_name):
+    def load_comic(self, file_name, initial_page=0):
 
         try:
             import rar_loader
@@ -30,15 +30,13 @@ class Model(QtCore.QObject):
             import tar_loader
 
             if zip_loader.ZipLoader.is_zip_file(file_name):
-                # zf = zip_loader.ZipLoader(self)
-                # self.connect(zf, QtCore.SIGNAL('update_progress_bar(int)'), statusbar.set_progress_bar)
-                return self._load_content(zip_loader.ZipLoader(self), file_name)
+                return self._load_content(zip_loader.ZipLoader(self), file_name, initial_page)
 
             elif rar_loader.RarLoader.is_rar_file(file_name):
-                return self._load_content(rar_loader.RarLoader(self), file_name)
+                return self._load_content(rar_loader.RarLoader(self), file_name, initial_page)
 
             elif tar_loader.TarLoader.is_tar_file(file_name):
-                return self._load_content(tar_loader.TarLoader(self), file_name)
+                return self._load_content(tar_loader.TarLoader(self), file_name, initial_page)
 
         except IOError, err:
             print '%20s  %s' % (file_name, err)
@@ -46,20 +44,20 @@ class Model(QtCore.QObject):
         print 'A error ocurred in open comic file!'
         return False
 
-    def load_folder(self, folder_name):
+    def load_folder(self, folder_name, initial_page=0):
         import folder_loader
 
         if folder_loader.FolderLoader.is_folder(folder_name):
-            return self._load_content(folder_loader.FolderLoader(), folder_name)
+            return self._load_content(folder_loader.FolderLoader(), folder_name, initial_page)
         print 'Not is folder'
         return False
 
-    def _load_content(self, loader, file_name):
+    def _load_content(self, loader, file_name, initial_page=0):
         pages, titles, path, name = loader.load_file(file_name)
 
         if len(pages) != 0:
             self.comic = comic.Comic(name, path, pages, titles)
-            self.current_page_index = 0
+            self.set_current_page_index(initial_page)
             self.last_comic_path = path
             return True
 
@@ -180,6 +178,12 @@ class Model(QtCore.QObject):
         book_list = bk.get_records(n)
         bk.close()
         return book_list
+
+    def find_bookmark(self, path):
+        bk = bookmarks.Bookmarks()
+        bookmark = bk.find_bookmark(path)
+        bk.close()
+        return bookmark
 
     def add_bookmark(self, comic_name=None, comic_path=None, comic_page=None):
 

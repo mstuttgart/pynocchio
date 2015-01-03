@@ -27,8 +27,8 @@ class Bookmarks(object):
         sql = "DELETE FROM Bookmarks WHERE Path='%s';" % path
         self.db.execute(sql)
 
-    def _find_bookmark(self, path):
-        sql = "SELECT * FROM Bookmarks WHERE Path = '%s';" % path
+    def find_bookmark(self, path):
+        sql = "SELECT Path, Name, Page FROM Bookmarks WHERE Path = '%s';" % path
         r = self.db.execute(sql)
         return r.fetchone()
 

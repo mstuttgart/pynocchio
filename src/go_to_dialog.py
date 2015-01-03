@@ -16,6 +16,8 @@ class GoToDialog(QtGui.QDialog):
         self.viewer = viewer
 
         self.dialogHeight = self.height()
+        self.spinBox_go_page = self.uiGoPageDialog.spinBox_go_page
+        self.spinBox_go_page.setValue(self.model.get_current_page_index() - 1)
         self.change_label_image()
 
     def accept(self, *args, **kwargs):
@@ -31,8 +33,7 @@ class GoToDialog(QtGui.QDialog):
             int(self.uiGoPageDialog.lineEdit_current_page.text()))
 
     def change_label_image(self):
-        i = self.uiGoPageDialog.spinBox_go_page.value() - 1
-        self.model.set_current_page_index(i)
+        self.model.set_current_page_index(self.spinBox_go_page.value() - 1)
 
         image_page = self.model.get_current_page()
         image_page = image_page.scaledToHeight(

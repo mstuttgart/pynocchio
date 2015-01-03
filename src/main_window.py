@@ -78,15 +78,12 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self.action_horizontal_adjust.triggered.connect(self._on_action_group_view_adjust)
         self.action_best_fit.triggered.connect(self._on_action_group_view_adjust)
 
-        # self.actionGroupView.triggered().connect(self._on_action_group_view_adjust)
-
     def load(self, path, initial_page=0):
 
         self.scroll_area_viewer.load_comic_cursor(True)
 
-        # self.connect(self.model._load_content, SIGNAL(progress(int, int)), statusbar, SLOT(setProgress(int, int)));
-
-        if self.model.load_comic(path):
+        if self.model.load_comic(path, initial_page):
+            # self.model.set_current_page_index(initial_page)
             pix_map = self.model.get_current_page()
 
             if pix_map is not None:
@@ -96,7 +93,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
                 self._update_status_bar()
                 self._enable_actions()
                 self.recentFileManager.update_recent_file_list(path)
-                self.model.set_current_page_index(initial_page)
             else:
                 QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
@@ -214,7 +210,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
 
         # Added 4 because the 3 actions in bookmark menu is add, remove and manage bookmark
         for i in range(0, bookmark_list_len):
-            page = ' [%d]' % bookmark_list[i][2]
+            page = ' [%d]' % (bookmark_list[i][2] -1)
             acts[i+4].setObjectName(bookmark_list[i][0])
             acts[i+4].setText(bookmark_list[i][0] + page)
             acts[i+4].setVisible(True)
@@ -241,7 +237,8 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
     def _load_bookmark(self):
         action = self.sender()
         if action:
-            self.load(action.objectName())
+            bk = self.model.find_bookmark(action.objectName())
+            self.load(action.objectName(), bk[2])
 
     def _on_action_show_toolbar__triggered(self):
         if self.action_show_toolbar.isChecked():
