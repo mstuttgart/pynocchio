@@ -7,10 +7,7 @@ import smartside
 
 import ui_main_window
 import model
-import go_to_dialog
-import about_dialog
 import recent_files_manager
-import bookmark_manager_dialog
 import status_bar
 
 
@@ -24,9 +21,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self.auto_connect()
 
         self.model = model.Model(self)
-        self.goToDialog = None
-        self.aboutDialog = None
-
         self.scroll_area_viewer.model = self.model
         self.scroll_area_viewer.label = self.label
 
@@ -87,7 +81,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             pix_map = self.model.get_current_page()
 
             if pix_map is not None:
-                self.goToDialog = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
+                # self.goToDialog = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
                 self._update_status_bar()
@@ -127,7 +121,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             if pix_map is not None:
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
-                self.goToDialog = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
+                # self.goToDialog = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
                 self._update_status_bar()
                 self._enable_actions()
             else:
@@ -162,7 +156,10 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self._update_view_actions()
 
     def _on_action_go_to_page__triggered(self):
-        self.goToDialog.show()
+        import go_to_dialog
+        go_to_dlg = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
+        go_to_dlg.show()
+        go_to_dlg.exec_()
         self._update_view_actions()
 
     def _on_action_rotate_left__triggered(self):
@@ -197,7 +194,6 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
     def _init_bookmark_menu(self):
         for i in range(0, self.model.NUM_BOOKMARK):
             self.menu_Bookmarks.addAction(QtGui.QAction(self, visible=False, triggered=self._load_bookmark))
-
         self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _update_bookmarks_menu(self, bookmark_list=None):
@@ -226,12 +222,10 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self._update_bookmarks_menu(self.model.remove_bookmark())
 
     def _on_action_bookmark_manager__triggered(self):
-        if self.aboutDialog is None:
-            self.bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
-
-        # Wait the dialog close
-        self.bookmark_dialog.show()
-        self.bookmark_dialog.exec_()
+        import bookmark_manager_dialog
+        bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
+        bookmark_dialog.show()
+        bookmark_dialog.exec_()
         self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _load_bookmark(self):
@@ -254,11 +248,10 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
             self.statusbar.hide()
 
     def _on_action_about__triggered(self):
-
-        if self.aboutDialog is None:
-            self.aboutDialog = about_dialog.AboutDialog(self)
-
-        self.aboutDialog.show()
+        import about_dialog
+        about_dlg = about_dialog.AboutDialog(self)
+        about_dlg.show()
+        about_dlg.exec_()
 
         # msg = "<p align=\"left\"> The <b>Pynocchio Comic Reader</b> " \
         #       "is an image viewer specifically designed to handle comic books.</p>" + \

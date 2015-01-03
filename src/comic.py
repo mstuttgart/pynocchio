@@ -9,30 +9,23 @@ class Comic(object):
 
     def __init__(self, name, path, pages, titles):
         super(Comic, self).__init__()
-
         self.name = name
         self.path = path
         self.current_page_index = 0
         self.page_data = self.Pages(pages, titles)
 
     def get_current_page(self):
-        if self.page_data is not None:
-            return self.page_data.data[self.current_page_index]
-        return None
+        return self.page_data.data[self.current_page_index]
 
     def get_current_page_title(self):
-        if self.page_data is not None:
-            return self.page_data.title[self.current_page_index]
-        return None
+        return self.page_data.title[self.current_page_index]
 
     def go_next_page(self):
-        range_list = range(0, self.get_number_of_pages() - 1)
-        if self.current_page_index in range_list:
+        if self.current_page_index in range(0, self.get_number_of_pages() - 1):
             self.current_page_index += 1
 
     def go_previous_page(self):
-        range_list = range(1, self.get_number_of_pages())
-        if self.current_page_index in range_list:
+        if self.current_page_index in range(1, self.get_number_of_pages()):
             self.current_page_index -= 1
 
     def go_first_page(self):
