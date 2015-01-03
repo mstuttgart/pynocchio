@@ -6,7 +6,6 @@ developed on PySide API.
 ## Features
 The current version is in development. However, we intend to improve it even more, so it is defined as an beta version.
 
-* Support the animated sprites
 * Support several view adjust modes using anti-aliasing.
 * Support the several image formates provide by Qt: JPG, PNG, GIF.
 * Support a several comic formats like .ZIP, .RAR, .TAR, .CBR, .CBZ and etc
@@ -41,4 +40,4 @@ and Icons pack Streamline icon set free pack.
 http://www.webalys.com/
 
 ## Credits
-Copyright (C) 2014 by Michell Stuttgart Faria
+Copyright (C) 2014-2015 by Michell Stuttgart Faria

@@ -17,7 +17,6 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
 
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
-
         self.setupUi(self)
         self.auto_connect()
 
