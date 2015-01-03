@@ -2,7 +2,7 @@
 
 from PySide.QtGui import QDialog
 
-from ui_preference_dialog import *
+from ui_python_files.ui_preference_dialog import *
 
 
 class PreferenceDialog(QDialog):

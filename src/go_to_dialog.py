@@ -2,7 +2,7 @@
 from PySide import QtCore
 from PySide import QtGui
 
-import ui_go_to_page_dialog
+from ui_python_files import ui_go_to_page_dialog
 
 
 class GoToDialog(QtGui.QDialog):

@@ -5,12 +5,11 @@ from PySide import QtCore
 
 import smartside
 
-import ui_main_window
 import model
 import recent_files_manager
 import status_bar
-
 from central_main_window import central_window
+from ui_python_files import ui_main_window
 
 
 class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):

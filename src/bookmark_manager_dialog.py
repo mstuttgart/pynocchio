@@ -2,8 +2,7 @@
 
 from PySide import QtGui
 
-import ui_bookmark_manager_dialog
-import model
+from ui_python_files import ui_bookmark_manager_dialog
 
 
 class BookmarkManagerDialog(QtGui.QDialog):

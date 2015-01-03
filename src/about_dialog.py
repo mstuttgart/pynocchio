@@ -2,7 +2,7 @@
 
 from PySide import QtGui
 
-import ui_about_dialog
+from ui_python_files import ui_about_dialog
 
 
 class AboutDialog(QtGui.QDialog):
