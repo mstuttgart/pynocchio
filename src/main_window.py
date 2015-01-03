@@ -9,12 +9,12 @@ import ui_main_window
 import model
 import recent_files_manager
 import status_bar
+import central_main_window
 
 
-class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):
+class MainWindow(central_main_window.CentralWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):
 
     def __init__(self, parent=None):
-
         super(MainWindow, self).__init__(parent)
 
         self.setupUi(self)
@@ -27,7 +27,7 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self.statusbar = status_bar.StatusBar(self)
         self.setStatusBar(self.statusbar)
 
-        self._adjust_main_window()
+        # self._adjust_main_window()
 
         self._on_action_show_statusbar__triggered()
         self._on_action_show_toolbar__triggered()
@@ -47,14 +47,14 @@ class MainWindow(QtGui.QMainWindow, ui_main_window.Ui_MainWindow, smartside.Smar
         self._load_settings()
         self._init_bookmark_menu()
 
-    def _adjust_main_window(self):
-        screen = QtGui.QDesktopWidget().screenGeometry()
-        size = self.geometry()
-        x_center = (screen.width() - size.width()) / 2
-        y_center = (screen.height() - size.height()) / 2
-        self.move(x_center, y_center)
-
-        self.setMinimumSize(QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
+    # def _adjust_main_window(self):
+    #     screen = QtGui.QDesktopWidget().screenGeometry()
+    #     size = self.geometry()
+    #     x_center = (screen.width() - size.width()) / 2
+    #     y_center = (screen.height() - size.height()) / 2
+    #     self.move(x_center, y_center)
+    #
+    #     self.setMinimumSize(QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
 
     def _create_action_group_view(self):
         self.actionGroupView = QtGui.QActionGroup(self)
