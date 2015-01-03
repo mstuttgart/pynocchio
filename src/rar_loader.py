@@ -7,8 +7,8 @@ import loader
 
 
 class RarLoader(loader.Loader):
-    def __init__(self):
-        super(RarLoader, self).__init__()
+    def __init__(self, parent=None):
+        super(RarLoader, self).__init__(parent)
 
     def _load_core(self, page_data, page_title, file_name):
 

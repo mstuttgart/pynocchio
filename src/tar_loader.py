@@ -7,8 +7,8 @@ from loader import Loader
 
 
 class TarLoader(Loader):
-    def __init__(self):
-        super(TarLoader, self).__init__()
+    def __init__(self, parent=None):
+        super(TarLoader, self).__init__(parent)
 
     def _load_core(self, page_data, page_title, file_name):
 

@@ -1,13 +1,13 @@
 # -*- coding: UTF-8 -*-
 
 from os import path
+from PySide import QtCore
 
 
-class Loader(object):
+class Loader(QtCore.QObject):
 
-    def __init__(self):
-        super(Loader, self).__init__()
-
+    def __init__(self, parent=None):
+        super(Loader, self).__init__(parent)
         self.extension = ['.png', '.jpg', '.jpeg', '.gif']
 
     def load_file(self, file_name):
@@ -25,3 +25,6 @@ class Loader(object):
 
     def _load_core(self, page_data, page_title, file_name):
         pass
+
+    def update_progress_bar(self, vl, total):
+        return vl, total
