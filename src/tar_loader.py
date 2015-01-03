@@ -24,7 +24,7 @@ class TarLoader(Loader):
 
             _, file_extension = os.path.splitext(filename)
 
-            if not tar.getmember(filename).isdir() and file_extension in self.extension:
+            if not tar.getmember(filename).isdir() and file_extension.lower() in self.extension:
 
                 try:
                     data = tar.extractfile(filename).read()

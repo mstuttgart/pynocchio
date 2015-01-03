@@ -25,7 +25,7 @@ class RarLoader(loader.Loader):
 
             _, file_extension = os.path.splitext(filename)
 
-            if not rar.getinfo(filename).isdir() and file_extension in self.extension:
+            if not rar.getinfo(filename).isdir() and file_extension.lower() in self.extension:
                 data = rar.read(filename)
                 page_data.append(data)
                 page_title.append(filename)

@@ -29,7 +29,7 @@ class ZipLoader(loader.Loader):
 
             _, file_extension = os.path.splitext(info)
 
-            if file_extension in self.extension:
+            if file_extension.lower() in self.extension:
                 data = zf.read(info)
                 page_data.append(data)
                 page_title.append(info)
