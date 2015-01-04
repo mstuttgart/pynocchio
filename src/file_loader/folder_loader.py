@@ -4,7 +4,7 @@ import fnmatch
 from PySide import QtCore
 import os.path
 
-from src.file_loader.loader import Loader
+from file_loader.loader import Loader
 
 
 class FolderLoader(Loader):

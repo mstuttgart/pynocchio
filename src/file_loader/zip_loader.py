@@ -1,8 +1,5 @@
 # -*- coding: UTF-8 -*-
-from src.file_loader import loader
-
-__author__ = 'michell'
-
+from file_loader import loader
 import zipfile
 import os.path
 

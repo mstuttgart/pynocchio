@@ -10,7 +10,7 @@ from file_loader import rar_loader, tar_loader, zip_loader
 # import rar_loader
 # import tar_loader
 # import zip_loader, rar_loader, tar_loader
-from src.file_loader import folder_loader
+from file_loader import folder_loader
 
 
 class Model(QtCore.QObject):

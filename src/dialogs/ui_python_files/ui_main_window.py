@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Fri Jan  2 17:38:58 2015
+# Created: Sun Jan  4 01:03:51 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
         self.action_about_qt.setObjectName("action_about_qt")
         self.action_exit = QtGui.QAction(MainWindow)
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(":/icons/icons/exit_red_3.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_exit.setIcon(icon3)
         self.action_exit.setObjectName("action_exit")
         self.action_next_page = QtGui.QAction(MainWindow)
@@ -239,12 +239,12 @@ class Ui_MainWindow(object):
         self.action_remove_bookmark = QtGui.QAction(MainWindow)
         self.action_remove_bookmark.setEnabled(False)
         icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_1 2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon18.addPixmap(QtGui.QPixmap(":/icons/icons/book_red.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_remove_bookmark.setIcon(icon18)
         self.action_remove_bookmark.setObjectName("action_remove_bookmark")
         self.action_bookmark_manager = QtGui.QAction(MainWindow)
         icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_16.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon19.addPixmap(QtGui.QPixmap(":/icons/icons/freeiconmaker_7 1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_bookmark_manager.setIcon(icon19)
         self.action_bookmark_manager.setObjectName("action_bookmark_manager")
         self.action_open_folder = QtGui.QAction(MainWindow)
@@ -254,6 +254,17 @@ class Ui_MainWindow(object):
         self.action_open_folder.setMenuRole(QtGui.QAction.TextHeuristicRole)
         self.action_open_folder.setIconVisibleInMenu(True)
         self.action_open_folder.setObjectName("action_open_folder")
+        self.actionNext_Comic = QtGui.QAction(MainWindow)
+        self.actionNext_Comic.setEnabled(True)
+        icon21 = QtGui.QIcon()
+        icon21.addPixmap(QtGui.QPixmap(":/icons/icons/next_comic_1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionNext_Comic.setIcon(icon21)
+        self.actionNext_Comic.setObjectName("actionNext_Comic")
+        self.actionPrecious_Comic = QtGui.QAction(MainWindow)
+        icon22 = QtGui.QIcon()
+        icon22.addPixmap(QtGui.QPixmap(":/icons/icons/next_comic_0.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionPrecious_Comic.setIcon(icon22)
+        self.actionPrecious_Comic.setObjectName("actionPrecious_Comic")
         self.menu_file.addAction(self.action_open)
         self.menu_file.addAction(self.action_open_folder)
         self.menu_file.addAction(self.menu_recent_files.menuAction())
@@ -275,6 +286,9 @@ class Ui_MainWindow(object):
         self.menu_navegation.addAction(self.action_last_page)
         self.menu_navegation.addSeparator()
         self.menu_navegation.addAction(self.action_go_to_page)
+        self.menu_navegation.addSeparator()
+        self.menu_navegation.addAction(self.actionNext_Comic)
+        self.menu_navegation.addAction(self.actionPrecious_Comic)
         self.menu_Help.addAction(self.action_about)
         self.menu_Help.addAction(self.action_about_qt)
         self.menu_Settings.addAction(self.action_show_toolbar)
@@ -292,10 +306,13 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menu_Help.menuAction())
         self.toolbar.addAction(self.action_open)
         self.toolbar.addSeparator()
+        self.toolbar.addAction(self.actionPrecious_Comic)
         self.toolbar.addAction(self.action_first_page)
         self.toolbar.addAction(self.action_previous_page)
         self.toolbar.addAction(self.action_next_page)
         self.toolbar.addAction(self.action_last_page)
+        self.toolbar.addAction(self.actionNext_Comic)
+        self.toolbar.addSeparator()
         self.toolbar.addAction(self.action_go_to_page)
         self.toolbar.addAction(self.action_add_bookmark)
         self.toolbar.addSeparator()
@@ -360,6 +377,8 @@ class Ui_MainWindow(object):
         self.action_remove_bookmark.setText(QtGui.QApplication.translate("MainWindow", "&Remove bookmark", None, QtGui.QApplication.UnicodeUTF8))
         self.action_bookmark_manager.setText(QtGui.QApplication.translate("MainWindow", "Bookmark &manager", None, QtGui.QApplication.UnicodeUTF8))
         self.action_open_folder.setText(QtGui.QApplication.translate("MainWindow", "Open &Folder", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionNext_Comic.setText(QtGui.QApplication.translate("MainWindow", "Next Comic", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionPrecious_Comic.setText(QtGui.QApplication.translate("MainWindow", "Previous Comic", None, QtGui.QApplication.UnicodeUTF8))
 
 from viewer import Viewer
 import main_window_rc

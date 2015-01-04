@@ -1,10 +1,9 @@
 # -*- coding: UTF-8 -*-
 
 import os.path
-
 import rarfile
 
-from src.file_loader import loader
+from file_loader import loader
 
 
 class RarLoader(loader.Loader):
