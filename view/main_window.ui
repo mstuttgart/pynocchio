@@ -200,6 +200,9 @@
     <addaction name="action_last_page"/>
     <addaction name="separator"/>
     <addaction name="action_go_to_page"/>
+    <addaction name="separator"/>
+    <addaction name="actionNext_Comic"/>
+    <addaction name="actionPrecious_Comic"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
     <property name="title">
@@ -268,10 +271,13 @@
    </attribute>
    <addaction name="action_open"/>
    <addaction name="separator"/>
+   <addaction name="actionPrecious_Comic"/>
    <addaction name="action_first_page"/>
    <addaction name="action_previous_page"/>
    <addaction name="action_next_page"/>
    <addaction name="action_last_page"/>
+   <addaction name="actionNext_Comic"/>
+   <addaction name="separator"/>
    <addaction name="action_go_to_page"/>
    <addaction name="action_add_bookmark"/>
    <addaction name="separator"/>
@@ -321,7 +327,7 @@
   <action name="action_exit">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_8.png</normaloff>:/icons/icons/freeiconmaker_8.png</iconset>
+     <normaloff>:/icons/icons/exit_red_3.png</normaloff>:/icons/icons/exit_red_3.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
@@ -607,7 +613,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_1 2.png</normaloff>:/icons/icons/freeiconmaker_1 2.png</iconset>
+     <normaloff>:/icons/icons/book_red.png</normaloff>:/icons/icons/book_red.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Remove bookmark</string>
@@ -616,7 +622,7 @@
   <action name="action_bookmark_manager">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_16.png</normaloff>:/icons/icons/freeiconmaker_16.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_7 1.png</normaloff>:/icons/icons/freeiconmaker_7 1.png</iconset>
    </property>
    <property name="text">
     <string>Bookmark &amp;manager</string>
@@ -635,6 +641,27 @@
    </property>
    <property name="iconVisibleInMenu">
     <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionNext_Comic">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/icons/next_comic_1.png</normaloff>:/icons/icons/next_comic_1.png</iconset>
+   </property>
+   <property name="text">
+    <string>Next Comic</string>
+   </property>
+  </action>
+  <action name="actionPrecious_Comic">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/icons/next_comic_0.png</normaloff>:/icons/icons/next_comic_0.png</iconset>
+   </property>
+   <property name="text">
+    <string>Previous Comic</string>
    </property>
   </action>
  </widget>

@@ -1,5 +1,15 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/next_comic_0.png</file>
+    <file>icons/next_comic_1.png</file>
+    <file>icons/next_comic.png</file>
+    <file>icons/previous_comic.png</file>
+    <file>icons/book.png</file>
+    <file>icons/exit_red_1.png</file>
+    <file>icons/exit_red_2.png</file>
+    <file>icons/exit_red_3.png</file>
+    <file>icons/exit_red.png</file>
+    <file>icons/book_red.png</file>
     <file>icons/freeiconmaker_1 2.png</file>
     <file>icons/freeiconmaker_2 2.png</file>
     <file>icons/freeiconmaker_6 1.png</file>
