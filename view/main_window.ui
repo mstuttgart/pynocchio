@@ -201,8 +201,8 @@
     <addaction name="separator"/>
     <addaction name="action_go_to_page"/>
     <addaction name="separator"/>
-    <addaction name="actionNext_Comic"/>
-    <addaction name="actionPrecious_Comic"/>
+    <addaction name="action_next_comic"/>
+    <addaction name="action_previous_comic"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
     <property name="title">
@@ -236,6 +236,9 @@
    <addaction name="menu_Help"/>
   </widget>
   <widget class="QToolBar" name="toolbar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="sizePolicy">
     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
      <horstretch>0</horstretch>
@@ -271,12 +274,12 @@
    </attribute>
    <addaction name="action_open"/>
    <addaction name="separator"/>
-   <addaction name="actionPrecious_Comic"/>
+   <addaction name="action_previous_comic"/>
    <addaction name="action_first_page"/>
    <addaction name="action_previous_page"/>
    <addaction name="action_next_page"/>
    <addaction name="action_last_page"/>
-   <addaction name="actionNext_Comic"/>
+   <addaction name="action_next_comic"/>
    <addaction name="separator"/>
    <addaction name="action_go_to_page"/>
    <addaction name="action_add_bookmark"/>
@@ -643,9 +646,9 @@
     <bool>true</bool>
    </property>
   </action>
-  <action name="actionNext_Comic">
+  <action name="action_next_comic">
    <property name="enabled">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
@@ -655,7 +658,10 @@
     <string>Next Comic</string>
    </property>
   </action>
-  <action name="actionPrecious_Comic">
+  <action name="action_previous_comic">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
      <normaloff>:/icons/icons/next_comic_0.png</normaloff>:/icons/icons/next_comic_0.png</iconset>

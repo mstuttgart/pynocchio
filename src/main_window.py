@@ -150,6 +150,12 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         go_to_dlg.exec_()
         self._update_view_actions()
 
+    def _on_action_next_comic__triggered(self):
+        print 'next comic'
+
+    def _on_action_previous_comic__triggered(self):
+        print 'previous comic'
+
     def _on_action_rotate_left__triggered(self):
         self.scroll_area_viewer.rotate_left()
 
@@ -306,6 +312,8 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         # self.action_first_page.setEnabled(True)
         # self.action_previous_page.setEnabled(True)
         self.action_go_to_page.setEnabled(True)
+        self.action_next_comic.setEnabled(True)
+        self.action_previous_comic.setEnabled(True)
 
         self.action_add_bookmark.setEnabled(True)
         self.action_remove_bookmark.setEnabled(True)

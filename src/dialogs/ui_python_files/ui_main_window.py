@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/main_window.ui'
 #
-# Created: Sun Jan  4 01:03:51 2015
+# Created: Sun Jan  4 14:07:42 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -96,6 +96,7 @@ class Ui_MainWindow(object):
         self.menu_Bookmarks.setObjectName("menu_Bookmarks")
         MainWindow.setMenuBar(self.menubar)
         self.toolbar = QtGui.QToolBar(MainWindow)
+        self.toolbar.setEnabled(True)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -254,17 +255,18 @@ class Ui_MainWindow(object):
         self.action_open_folder.setMenuRole(QtGui.QAction.TextHeuristicRole)
         self.action_open_folder.setIconVisibleInMenu(True)
         self.action_open_folder.setObjectName("action_open_folder")
-        self.actionNext_Comic = QtGui.QAction(MainWindow)
-        self.actionNext_Comic.setEnabled(True)
+        self.action_next_comic = QtGui.QAction(MainWindow)
+        self.action_next_comic.setEnabled(False)
         icon21 = QtGui.QIcon()
         icon21.addPixmap(QtGui.QPixmap(":/icons/icons/next_comic_1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.actionNext_Comic.setIcon(icon21)
-        self.actionNext_Comic.setObjectName("actionNext_Comic")
-        self.actionPrecious_Comic = QtGui.QAction(MainWindow)
+        self.action_next_comic.setIcon(icon21)
+        self.action_next_comic.setObjectName("action_next_comic")
+        self.action_previous_comic = QtGui.QAction(MainWindow)
+        self.action_previous_comic.setEnabled(False)
         icon22 = QtGui.QIcon()
         icon22.addPixmap(QtGui.QPixmap(":/icons/icons/next_comic_0.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.actionPrecious_Comic.setIcon(icon22)
-        self.actionPrecious_Comic.setObjectName("actionPrecious_Comic")
+        self.action_previous_comic.setIcon(icon22)
+        self.action_previous_comic.setObjectName("action_previous_comic")
         self.menu_file.addAction(self.action_open)
         self.menu_file.addAction(self.action_open_folder)
         self.menu_file.addAction(self.menu_recent_files.menuAction())
@@ -287,8 +289,8 @@ class Ui_MainWindow(object):
         self.menu_navegation.addSeparator()
         self.menu_navegation.addAction(self.action_go_to_page)
         self.menu_navegation.addSeparator()
-        self.menu_navegation.addAction(self.actionNext_Comic)
-        self.menu_navegation.addAction(self.actionPrecious_Comic)
+        self.menu_navegation.addAction(self.action_next_comic)
+        self.menu_navegation.addAction(self.action_previous_comic)
         self.menu_Help.addAction(self.action_about)
         self.menu_Help.addAction(self.action_about_qt)
         self.menu_Settings.addAction(self.action_show_toolbar)
@@ -306,12 +308,12 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menu_Help.menuAction())
         self.toolbar.addAction(self.action_open)
         self.toolbar.addSeparator()
-        self.toolbar.addAction(self.actionPrecious_Comic)
+        self.toolbar.addAction(self.action_previous_comic)
         self.toolbar.addAction(self.action_first_page)
         self.toolbar.addAction(self.action_previous_page)
         self.toolbar.addAction(self.action_next_page)
         self.toolbar.addAction(self.action_last_page)
-        self.toolbar.addAction(self.actionNext_Comic)
+        self.toolbar.addAction(self.action_next_comic)
         self.toolbar.addSeparator()
         self.toolbar.addAction(self.action_go_to_page)
         self.toolbar.addAction(self.action_add_bookmark)
@@ -377,8 +379,8 @@ class Ui_MainWindow(object):
         self.action_remove_bookmark.setText(QtGui.QApplication.translate("MainWindow", "&Remove bookmark", None, QtGui.QApplication.UnicodeUTF8))
         self.action_bookmark_manager.setText(QtGui.QApplication.translate("MainWindow", "Bookmark &manager", None, QtGui.QApplication.UnicodeUTF8))
         self.action_open_folder.setText(QtGui.QApplication.translate("MainWindow", "Open &Folder", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionNext_Comic.setText(QtGui.QApplication.translate("MainWindow", "Next Comic", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionPrecious_Comic.setText(QtGui.QApplication.translate("MainWindow", "Previous Comic", None, QtGui.QApplication.UnicodeUTF8))
+        self.action_next_comic.setText(QtGui.QApplication.translate("MainWindow", "Next Comic", None, QtGui.QApplication.UnicodeUTF8))
+        self.action_previous_comic.setText(QtGui.QApplication.translate("MainWindow", "Previous Comic", None, QtGui.QApplication.UnicodeUTF8))
 
 from viewer import Viewer
 import main_window_rc
