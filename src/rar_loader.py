@@ -2,8 +2,7 @@
 
 import os.path
 import rarfile
-
-from file_loader import loader
+import loader
 
 
 class RarLoader(loader.Loader):

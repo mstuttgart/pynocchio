@@ -21,7 +21,6 @@ class StatusBar(QtGui.QStatusBar):
         self.page_number.show()
 
     def add_page_resolution_label(self):
-
         if self.page_resolution is None:
             self.page_resolution = QtGui.QLabel(self)
             self.page_resolution.setMinimumWidth(140)
@@ -30,7 +29,6 @@ class StatusBar(QtGui.QStatusBar):
         self.page_resolution.show()
 
     def add_comic_path_label(self):
-
         if self.comic_path is None:
             self.comic_path = QtGui.QLabel(self)
             self.addWidget(self.comic_path, 2)

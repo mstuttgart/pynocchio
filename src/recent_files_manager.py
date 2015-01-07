@@ -19,9 +19,7 @@ class RecentFileManager(object):
         self._load_settings()
 
     def update_recent_file_list(self, file_path):
-
         self._format_deque(file_path)
-
         self.recent_files_action_deque.appendleft(file_path)
         deque_range = range(0, len(self.recent_files_action_deque))
 
@@ -32,7 +30,6 @@ class RecentFileManager(object):
             self.recent_files_action_list[idx]['action'].setText(self._stripped_name(path))
             self.recent_files_action_list[idx]['action'].setVisible(True)
             self.recent_files_action_list[idx]['path'] = path
-
             self.recent_files_action_deque.appendleft(path)
 
     def _format_deque(self, path):
@@ -44,7 +41,6 @@ class RecentFileManager(object):
             self.recent_files_action_deque.pop()
 
     def get_action_path(self, object_name):
-
         for act in self.recent_files_action_list:
             if object_name == act['action'].objectName():
                 return act['path']
@@ -52,7 +48,6 @@ class RecentFileManager(object):
         return None
 
     def _load_settings(self):
-
         import settings_manager
 
         ret = settings_manager.SettingsManager.load_settings(self.SETTING_FILE_NAME)
@@ -64,7 +59,6 @@ class RecentFileManager(object):
             self.update_recent_file_list(comic_path)
 
     def save_settings(self):
-
         import settings_manager
 
         rf_dict = {}

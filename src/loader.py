@@ -27,5 +27,3 @@ class Loader(QtCore.QObject):
     def _load_core(self, page_data, page_title, file_name):
         pass
 
-    # def update_progress_bar(self, vl, total):
-    #     return vl, total

@@ -7,7 +7,6 @@ class SettingsManager(object):
 
     @staticmethod
     def load_settings(file_name):
-
         import ConfigParser
         config = ConfigParser.ConfigParser()
 
@@ -30,7 +29,6 @@ class SettingsManager(object):
 
     @staticmethod
     def save_settings(content, file_name):
-
         import ConfigParser
         config = ConfigParser.ConfigParser()
 

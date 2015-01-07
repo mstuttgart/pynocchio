@@ -1,28 +1,24 @@
 # -*- coding: UTF-8 -*-
 
-import fnmatch
 from PySide import QtCore
+import fnmatch
 import os.path
+import loader
 
-from file_loader.loader import Loader
 
-
-class FolderLoader(Loader):
+class FolderLoader(loader.Loader):
 
     def _load_core(self, page_data, page_title, file_name):
 
         files_list = []
 
         for dir_path, dir_names, files in os.walk(file_name):
-
             for extension in ('*.jpg', '*.jpeg', '*.gif', '*.png'):
-
                 for f in fnmatch.filter(files, extension):
                     files_list.append(os.path.join(dir_path, f))
 
         for f in files_list:
             qfile = QtCore.QFile(f)
-
             qfile.open(QtCore.QIODevice.ReadOnly)
             page_data.append(qfile.readAll())
             page_title.append(f)

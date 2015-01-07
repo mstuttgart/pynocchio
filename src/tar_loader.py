@@ -2,11 +2,10 @@
 
 import tarfile
 import os.path
+import loader
 
-from file_loader.loader import Loader
 
-
-class TarLoader(Loader):
+class TarLoader(loader.Loader):
     def __init__(self, parent=None):
         super(TarLoader, self).__init__(parent)
 
@@ -21,7 +20,6 @@ class TarLoader(Loader):
         name_list.sort()
 
         for filename in name_list:
-
             _, file_extension = os.path.splitext(filename)
 
             if not tar.getmember(filename).isdir() and file_extension.lower() in self.extension:

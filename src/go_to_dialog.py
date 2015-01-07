@@ -2,13 +2,12 @@
 from PySide import QtCore
 from PySide import QtGui
 
-from ui_python_files import ui_go_to_page_dialog
-
 
 class GoToDialog(QtGui.QDialog):
     def __init__(self, model, viewer, parent=None):
         super(GoToDialog, self).__init__(parent)
 
+        import ui_go_to_page_dialog
         self.uiGoPageDialog = ui_go_to_page_dialog.Ui_GoPageDialog()
         self.uiGoPageDialog.setupUi(self)
 

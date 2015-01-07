@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from PySide import QtGui
-
-from ui_python_files import ui_bookmark_manager_dialog
+import ui_bookmark_manager_dialog
 
 
 class BookmarkManagerDialog(QtGui.QDialog):

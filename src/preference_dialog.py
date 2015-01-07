@@ -2,12 +2,10 @@
 
 from PySide.QtGui import QDialog
 
-from ui_python_files.ui_preference_dialog import *
-
 
 class PreferenceDialog(QDialog):
     def __init__(self, parent=None):
         super(PreferenceDialog, self).__init__(parent)
-
-        self.preference_dialog = Ui_PreferenceDialog()
+        import ui_preference_dialog
+        self.preference_dialog = ui_preference_dialog.Ui_PreferenceDialog()
         self.preference_dialog.setupUi(self)

@@ -7,8 +7,10 @@ import smartside
 
 import model
 import recent_files_manager
-from dialogs import about_dialog, bookmark_manager_dialog, go_to_dialog
-from dialogs.ui_python_files import ui_main_window
+import bookmark_manager_dialog
+import go_to_dialog
+import about_dialog
+import ui_main_window
 import status_bar
 from central_main_window import central_window
 

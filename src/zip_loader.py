@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
-from file_loader import loader
 import zipfile
 import os.path
+import loader
 
 
 class ZipLoader(loader.Loader):
@@ -22,7 +22,6 @@ class ZipLoader(loader.Loader):
         name_list = zf.namelist()
         name_list.sort()
 
-        # i = 0
         for info in name_list:
 
             _, file_extension = os.path.splitext(info)
@@ -31,8 +30,6 @@ class ZipLoader(loader.Loader):
                 data = zf.read(info)
                 page_data.append(data)
                 page_title.append(info)
-                # self.update_progress_bar(i, len(name_list))
-                # i += 1
 
         zf.close()
 
