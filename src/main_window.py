@@ -92,8 +92,8 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         file_path, _ = QtGui.QFileDialog.getOpenFileName(
             self.parent(), self.tr('Open comic file'), self.model.last_comic_path,
             self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
-                    'Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr) '
-                    ';; Tar Files (*.tar *.cbt);; All files (*)'))
+                    'Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr);; '
+                    'Tar Files (*.tar *.cbt);; All files (*)'))
 
         if len(file_path) != 0:
             self.load(file_path)
@@ -153,10 +153,14 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         self._update_view_actions()
 
     def _on_action_next_comic__triggered(self):
-        print 'next comic'
+        file_name = self.model.next_comic()
+        if file_name:
+            self.load(file_name)
 
     def _on_action_previous_comic__triggered(self):
-        print 'previous comic'
+        file_name = self.model.previous_comic()
+        if file_name:
+            self.load(file_name)
 
     def _on_action_rotate_left__triggered(self):
         self.scroll_area_viewer.rotate_left()

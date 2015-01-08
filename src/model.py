@@ -16,11 +16,11 @@ class Model(QtCore.QObject):
 
         self.comic = None
         self.original_pixmap = QtGui.QPixmap()
-
         self.adjustType = '&Horizontal Adjust'
         self.screenSize = 0
         self.rotateAngle = 0
         self.last_comic_path = ''
+        self.comics_list = None
 
     def load_comic(self, file_name, initial_page=0):
 
@@ -45,6 +45,7 @@ class Model(QtCore.QObject):
         return False
 
     def load_folder(self, folder_name, initial_page=0):
+        import folder_loader
 
         if folder_loader.FolderLoader.is_folder(folder_name):
             return self._load_content(folder_loader.FolderLoader(), folder_name, initial_page)
@@ -81,6 +82,48 @@ class Model(QtCore.QObject):
         if self.comic is not None:
             self.comic.go_last_page()
         return self.get_current_page()
+
+    def next_comic(self):
+
+        import os
+
+        self.comics_list = os.listdir(self.last_comic_path)
+
+        for file in self.comics_list:
+
+            if file.endswith('.zip'):
+                print 'teste'
+
+
+
+        # import glob
+        #
+        # self.comics_list = glob.glob1(self.last_comic_path, '*.zip')
+        # self.comics_list += glob.glob1(self.last_comic_path, '*.cbr')
+        # self.comics_list += glob.glob1(self.last_comic_path, '*.rar')
+        # self.comics_list += glob.glob1(self.last_comic_path, '*.cbz')
+        # self.comics_list += glob.glob1(self.last_comic_path, '*.tar')
+        #
+        # for i in range(0, len(self.comics_list)):
+        #     if (self.comics_list[i] == self.get_comic_name()) and (i < len(self.comics_list) - 1):
+        #         return self.last_comic_path + '/' + self.comics_list[i+1]
+        #
+        # return False
+
+    def previous_comic(self):
+        import glob
+
+        self.comics_list = glob.glob1(self.last_comic_path, '*.zip')
+        self.comics_list += glob.glob1(self.last_comic_path, '*.cbr')
+        self.comics_list += glob.glob1(self.last_comic_path, '*.rar')
+        self.comics_list += glob.glob1(self.last_comic_path, '*.cbz')
+        self.comics_list += glob.glob1(self.last_comic_path, '*.tar')
+
+        for i in range(0, len(self.comics_list)):
+            if (self.comics_list[i] == self.get_comic_name()) and (i > 0):
+                return self.last_comic_path + '/' + self.comics_list[i+1]
+
+        return False
 
     def rotate_left(self):
         self.rotateAngle = (self.rotateAngle - 90) % 360
