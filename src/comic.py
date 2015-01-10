@@ -1,31 +1,43 @@
 # -*- coding: UTF-8 -*-
 
-import collections
+# import collections
+import page
 
 
 class Comic(object):
 
-    Pages = collections.namedtuple('Page', 'data title')
+    # Pages = collections.namedtuple('Page', 'data title')
 
-    def __init__(self, name, path, pages, titles):
+    def __init__(self, name, path, initial_page=0):
         super(Comic, self).__init__()
         self.name = name
         self.path = path
-        self.current_page_index = 0
-        self.page_data = self.Pages(pages, titles)
+        self.current_page_index = initial_page
+        self.pages = []
+
+    def add_page(self, obj_page):
+        if isinstance(obj_page, page.Page):
+            self.pages.append(obj_page)
+
+    def remove_page(self, obj_page):
+        if isinstance(obj_page, page.Page):
+            self.pages.remove(obj_page)
 
     def get_current_page(self):
-        return self.page_data.data[self.current_page_index]
+        return self.pages[self.current_page_index].data
 
     def get_current_page_title(self):
-        return self.page_data.title[self.current_page_index]
+        return self.pages[self.current_page_index].title
+
+    def get_current_page_number(self):
+        return self.pages[self.current_page_index].number
 
     def go_next_page(self):
-        if self.current_page_index in range(0, self.get_number_of_pages() - 1):
+        if self.current_page_index < self.get_number_of_pages() - 1:
             self.current_page_index += 1
 
     def go_previous_page(self):
-        if self.current_page_index in range(1, self.get_number_of_pages()):
+        if self.current_page_index > 0:
             self.current_page_index -= 1
 
     def go_first_page(self):
@@ -39,4 +51,4 @@ class Comic(object):
             self.current_page_index = idx
 
     def get_number_of_pages(self):
-        return len(self.page_data.data)
+        return len(self.pages)

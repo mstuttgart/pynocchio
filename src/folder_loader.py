@@ -4,11 +4,11 @@ from PySide import QtCore
 import fnmatch
 import os.path
 import loader
-
+from page import Page
 
 class FolderLoader(loader.Loader):
 
-    def _load_core(self, page_data, page_title, file_name):
+    def _load_core(self, pages, file_name):
 
         files_list = []
 
@@ -20,8 +20,9 @@ class FolderLoader(loader.Loader):
         for f in files_list:
             qfile = QtCore.QFile(f)
             qfile.open(QtCore.QIODevice.ReadOnly)
-            page_data.append(qfile.readAll())
-            page_title.append(f)
+            pages.append(Page(qfile.readAll(), f, files_list.index(f) + 1))
+            # pages.append(qfile.readAll())
+            # page_title.append(f)
 
     @staticmethod
     def is_folder(file_name):

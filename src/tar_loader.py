@@ -3,13 +3,14 @@
 import tarfile
 import os.path
 import loader
+from page import Page
 
 
 class TarLoader(loader.Loader):
     def __init__(self, parent=None):
         super(TarLoader, self).__init__(parent)
 
-    def _load_core(self, page_data, page_title, file_name):
+    def _load_core(self, pages, file_name):
 
         try:
             tar = tarfile.open(file_name, 'r')
@@ -19,20 +20,21 @@ class TarLoader(loader.Loader):
         name_list = tar.getnames()
         name_list.sort()
 
-        for filename in name_list:
-            _, file_extension = os.path.splitext(filename)
+        for name in name_list:
+            _, file_extension = os.path.splitext(name)
 
-            if not tar.getmember(filename).isdir() and file_extension.lower() in self.extension:
+            if not tar.getmember(name).isdir() and file_extension.lower() in self.extension:
 
                 try:
-                    data = tar.extractfile(filename).read()
+                    data = tar.extractfile(name).read()
                 except tarfile.ExtractError, err:
-                    print '%20s  %s' % (filename, err)
+                    print '%20s  %s' % (name, err)
                 except tarfile.ReadError, err:
-                    print '%20s  %s' % (filename, err)
+                    print '%20s  %s' % (name, err)
 
-                page_data.append(data)
-                page_title.append(filename)
+                pages.append(Page(data, name, name_list.index(name) + 1))
+                # pages.append(data)
+                # page_title.append(name)
 
         tar.close()
 

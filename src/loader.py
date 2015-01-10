@@ -12,18 +12,17 @@ class Loader(QtCore.QObject):
         self.extension = ['.png', '.jpg', '.jpeg', '.gif']
 
     def load_file(self, file_name):
-        data_pages = []
-        page_titles = []
+        pages = []
 
         path_head, path_tail = path.split(file_name)
-        self._load_core(data_pages, page_titles, file_name)
+        self._load_core(pages, file_name)
 
-        if len(data_pages) == 0:
+        if len(pages) == 0:
             # QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Load Comic failed!"))
             print "Load Comic failed!"
 
-        return data_pages, page_titles, path_head, path_tail
+        return pages, path_head, path_tail
 
-    def _load_core(self, page_data, page_title, file_name):
+    def _load_core(self, pages, file_name):
         pass
 

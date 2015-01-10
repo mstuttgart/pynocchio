@@ -3,13 +3,14 @@
 import os.path
 import rarfile
 import loader
+from page import Page
 
 
 class RarLoader(loader.Loader):
     def __init__(self, parent=None):
         super(RarLoader, self).__init__(parent)
 
-    def _load_core(self, page_data, page_title, file_name):
+    def _load_core(self, pages, file_name):
 
         try:
             rar = rarfile.RarFile(file_name, 'r')
@@ -20,14 +21,14 @@ class RarLoader(loader.Loader):
         name_list = rar.namelist()
         name_list.sort()
 
-        for filename in name_list:
+        for name in name_list:
+            _, file_extension = os.path.splitext(name)
 
-            _, file_extension = os.path.splitext(filename)
-
-            if not rar.getinfo(filename).isdir() and file_extension.lower() in self.extension:
-                data = rar.read(filename)
-                page_data.append(data)
-                page_title.append(filename)
+            if not rar.getinfo(name).isdir() and file_extension.lower() in self.extension:
+                pages.append(Page(rar.read(name), name, name_list.index(name) + 1))
+                # data = rar.read(name)
+                # pages.append(data)
+                # page_title.append(name)
 
         rar.close()
 

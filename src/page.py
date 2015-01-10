@@ -3,8 +3,8 @@
 
 class Page(object):
 
-    def __init__(self, data, path, number):
+    def __init__(self, data, title, number):
         super(Page, self).__init__()
         self.data = data
-        self.path = path
+        self.title = title
         self.number = number
