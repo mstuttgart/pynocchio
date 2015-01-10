@@ -98,7 +98,8 @@ class Model(QtCore.QObject):
         from PySide.QtCore import QDir
         d = QDir(self.last_comic_path)
         d.setFilter(QDir.Files | QDir.NoDotAndDotDot)
-        d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.7z", "*.cb7", "*.arj", "*.cbt"])
+        # d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.7z", "*.cb7", "*.arj", "*.cbt"])
+        d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"])
         d.setSorting(QDir.Name | QDir.IgnoreCase | QDir.LocaleAware)
 
         str_list = d.entryList()
@@ -164,7 +165,6 @@ class Model(QtCore.QObject):
 
     def _load_pixmap_from_data(self):
         page = None
-
         if self.comic:
             page = self.comic.get_current_page()
 
@@ -257,7 +257,6 @@ class Model(QtCore.QObject):
 
     def remove_bookmarks(self, comic_paths=None):
         bk = bookmarks.Bookmarks()
-
         for path in comic_paths:
             bk.delete_bookmark(path)
 

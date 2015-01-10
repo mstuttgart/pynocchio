@@ -47,8 +47,6 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         self._load_settings()
         self._init_bookmark_menu()
 
-        # self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
-
     def _create_action_group_view(self):
         self.actionGroupView = QtGui.QActionGroup(self)
 
@@ -73,14 +71,12 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
             pix_map = self.model.get_current_page()
 
             if pix_map is not None:
-                # self.goToDialog = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
                 self._update_status_bar()
                 self._enable_actions()
                 self.recentFileManager.update_recent_file_list(path)
                 self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
-
             else:
                 QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
@@ -88,7 +84,6 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
 
         self._update_view_actions()
         self.scroll_area_viewer.load_comic_cursor(False)
-        # self.scroll_area_viewer.setFocus()
 
     def _on_action_open__triggered(self):
 
@@ -115,7 +110,6 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
             if pix_map is not None:
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
-                # self.goToDialog = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
                 self._update_status_bar()
                 self._enable_actions()
             else:
@@ -189,7 +183,6 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
 
         if action:
             checked_action = action
-            # checked_action = self.actionGroupView.checkedAction()
             self.model.adjustType = checked_action.text()
             self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
             self._update_status_bar()
@@ -318,8 +311,6 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
 
         self.action_next_page.setEnabled(True)
         self.action_last_page.setEnabled(True)
-        # self.action_first_page.setEnabled(True)
-        # self.action_previous_page.setEnabled(True)
         self.action_go_to_page.setEnabled(True)
         self.action_next_comic.setEnabled(True)
         self.action_previous_comic.setEnabled(True)
