@@ -191,7 +191,7 @@ class MainWindow(central_window.CentralWindow, main_window_ui.Ui_MainWindow, sma
     def _update_bookmarks_menu(self, bookmark_list=None):
         acts = self.menu_Bookmarks.actions()
 
-        if bookmark_list is None:
+        if not bookmark_list:
             bookmark_list = self.model.get_bookmark_list(self.model.NUM_BOOKMARK)
 
         bookmark_list_len = len(bookmark_list)
@@ -223,7 +223,7 @@ class MainWindow(central_window.CentralWindow, main_window_ui.Ui_MainWindow, sma
         action = self.sender()
         if action:
             bk = self.model.find_bookmark(action.objectName())
-            self.load(action.objectName(), bk[2] - 1)
+            self.load(action.objectName(), bk[2])
 
     def _on_action_show_toolbar__triggered(self):
         if self.action_show_toolbar.isChecked():
