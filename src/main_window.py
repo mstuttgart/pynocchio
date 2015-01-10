@@ -10,12 +10,12 @@ import recent_files_manager
 import bookmark_manager_dialog
 import go_to_dialog
 import about_dialog
-import ui_main_window
+import main_window_ui
 import status_bar
 from central_main_window import central_window
 
 
-class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, smartside.SmartSide):
+class MainWindow(central_window.CentralWindow, main_window_ui.Ui_MainWindow, smartside.SmartSide):
 
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
@@ -70,16 +70,22 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         if self.model.load_comic(path, initial_page):
             pix_map = self.model.get_current_page()
 
-            if pix_map is not None:
-                self.scroll_area_viewer.label.setPixmap(pix_map)
-                self.setWindowTitle(self.model.comic.name)
-                self._update_status_bar()
-                self._enable_actions()
-                self.recentFileManager.update_recent_file_list(path)
-                self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
-            else:
-                QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
+            if pix_map is None:
+                pix_map = QtGui.QPixmap(":/icons/icons/exit_red_1.png")
+
+            # if pix_map is not None:
+            self.scroll_area_viewer.label.setPixmap(pix_map)
+            self.setWindowTitle(self.model.comic.name)
+            self._update_status_bar()
+            self._enable_actions()
+            self.recentFileManager.update_recent_file_list(path)
+            self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
+            # else:
+            #     QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
+            self.scroll_area_viewer.label.setPixmap(QtGui.QPixmap(":/icons/icons/exit_red_1.png"))
+            self.setWindowTitle("Error")
+            self._update_status_bar()
             QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
         self._update_view_actions()
@@ -202,7 +208,7 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
 
         # Added 4 because the 3 actions in bookmark menu is add, remove and manage bookmark
         for i in range(0, bookmark_list_len):
-            page = ' [%d]' % (bookmark_list[i][2] -1)
+            page = ' [%d]' % (bookmark_list[i][2] + 1)
             acts[i+4].setObjectName(bookmark_list[i][0])
             acts[i+4].setText(bookmark_list[i][0] + page)
             acts[i+4].setVisible(True)
@@ -227,7 +233,7 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         action = self.sender()
         if action:
             bk = self.model.find_bookmark(action.objectName())
-            self.load(action.objectName(), bk[2])
+            self.load(action.objectName(), bk[2] - 1)
 
     def _on_action_show_toolbar__triggered(self):
         if self.action_show_toolbar.isChecked():
@@ -272,13 +278,11 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
             self.action_last_page.setEnabled(False)
             self.action_previous_page.setEnabled(True)
             self.action_first_page.setEnabled(True)
-
         elif self.model.is_first_page():
             self.action_previous_page.setEnabled(False)
             self.action_first_page.setEnabled(False)
             self.action_next_page.setEnabled(True)
             self.action_last_page.setEnabled(True)
-
         else:
             self.action_next_page.setEnabled(True)
             self.action_last_page.setEnabled(True)
@@ -337,11 +341,8 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         sett = settings_manager.SettingsManager.load_settings('settings.ini')
 
         try:
-            checked = util.strtobool(sett['settings']['show_toolbar'])
-            self.action_show_toolbar.setChecked(checked)
-
-            checked = util.strtobool(sett['settings']['show_statusbar'])
-            self.action_show_statusbar.setChecked(checked)
+            self.action_show_toolbar.setChecked(util.strtobool(sett['settings']['show_toolbar']))
+            self.action_show_statusbar.setChecked(util.strtobool(sett['settings']['show_statusbar']))
 
             for act in self.actionGroupView.actions():
                 if act.text() == sett['view']['view_adjust']:
@@ -357,11 +358,9 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         self._on_action_show_statusbar__triggered()
 
     def keyPressEvent(self, event):
-        key = event.key()
-
-        if key == QtCore.Qt.Key_F:
+        if event.key() == QtCore.Qt.Key_F:
             self._on_action_fullscreen__triggered()
-        elif key == QtCore.Qt.Key_Escape and self.isFullScreen():
+        elif event.key() == QtCore.Qt.Key_Escape and self.isFullScreen():
             self._on_action_fullscreen__triggered()
         else:
             super(MainWindow, self).keyPressEvent(event)

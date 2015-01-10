@@ -64,8 +64,10 @@ class Model(QtCore.QObject):
             self.set_current_page_index(initial_page)
             self.last_comic_path = path
             return True
-
-        return False
+        else:
+            # self.comic = None
+            # self.set_current_page_index(0)
+            return False
 
     def next_page(self):
         if self.comic is not None:
@@ -167,7 +169,6 @@ class Model(QtCore.QObject):
         page = None
         if self.comic:
             page = self.comic.get_current_page()
-
         if page:
             self.original_pixmap.loadFromData(page)
 

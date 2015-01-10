@@ -1,14 +1,14 @@
 # -*- coding:utf-8 -*-
 
 from PySide import QtGui
-import ui_bookmark_manager_dialog
+import bookmark_manager_dialog_ui
 
 
 class BookmarkManagerDialog(QtGui.QDialog):
 
     def __init__(self, mdl, parent=None):
         super(BookmarkManagerDialog, self).__init__(parent)
-        self.uiBookmarkManagerDialog = ui_bookmark_manager_dialog.Ui_Bookmark_Dialog()
+        self.uiBookmarkManagerDialog = bookmark_manager_dialog_ui.Ui_Bookmark_Dialog()
         self.uiBookmarkManagerDialog.setupUi(self)
 
         self.model = mdl

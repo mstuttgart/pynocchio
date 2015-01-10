@@ -7,8 +7,8 @@ class GoToDialog(QtGui.QDialog):
     def __init__(self, model, viewer, parent=None):
         super(GoToDialog, self).__init__(parent)
 
-        import ui_go_to_page_dialog
-        self.uiGoPageDialog = ui_go_to_page_dialog.Ui_GoPageDialog()
+        import go_to_page_dialog_ui
+        self.uiGoPageDialog = go_to_page_dialog_ui.Ui_GoPageDialog()
         self.uiGoPageDialog.setupUi(self)
 
         self.model = model

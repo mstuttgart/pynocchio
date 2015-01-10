@@ -7,6 +7,6 @@ class AboutDialog(QtGui.QDialog):
 
     def __init__(self, parent=None):
         super(AboutDialog, self).__init__(parent)
-        import ui_about_dialog
-        self.uiAboutDialog = ui_about_dialog.Ui_AboutDialog()
+        import about_dialog_ui
+        self.uiAboutDialog = about_dialog_ui.Ui_AboutDialog()
         self.uiAboutDialog.setupUi(self)
