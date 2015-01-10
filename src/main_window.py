@@ -47,6 +47,8 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         self._load_settings()
         self._init_bookmark_menu()
 
+        # self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
+
     def _create_action_group_view(self):
         self.actionGroupView = QtGui.QActionGroup(self)
 
@@ -68,7 +70,6 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
         self.scroll_area_viewer.load_comic_cursor(True)
 
         if self.model.load_comic(path, initial_page):
-            # self.model.set_current_page_index(initial_page)
             pix_map = self.model.get_current_page()
 
             if pix_map is not None:
@@ -78,6 +79,8 @@ class MainWindow(central_window.CentralWindow, ui_main_window.Ui_MainWindow, sma
                 self._update_status_bar()
                 self._enable_actions()
                 self.recentFileManager.update_recent_file_list(path)
+                self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
+
             else:
                 QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:

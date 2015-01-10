@@ -20,9 +20,13 @@ class Model(QtCore.QObject):
         self.screenSize = 0
         self.rotateAngle = 0
         self.last_comic_path = ''
-        self.comics_list = None
+        self.next_comic_path = ''
+        self.previous_comic_path = ''
 
     def load_comic(self, file_name, initial_page=0):
+
+        if file_name == '':
+            return
 
         try:
             import rar_loader
@@ -84,46 +88,39 @@ class Model(QtCore.QObject):
         return self.get_current_page()
 
     def next_comic(self):
-
-        import os
-
-        self.comics_list = os.listdir(self.last_comic_path)
-
-        for file in self.comics_list:
-
-            if file.endswith('.zip'):
-                print 'teste'
-
-
-
-        # import glob
-        #
-        # self.comics_list = glob.glob1(self.last_comic_path, '*.zip')
-        # self.comics_list += glob.glob1(self.last_comic_path, '*.cbr')
-        # self.comics_list += glob.glob1(self.last_comic_path, '*.rar')
-        # self.comics_list += glob.glob1(self.last_comic_path, '*.cbz')
-        # self.comics_list += glob.glob1(self.last_comic_path, '*.tar')
-        #
-        # for i in range(0, len(self.comics_list)):
-        #     if (self.comics_list[i] == self.get_comic_name()) and (i < len(self.comics_list) - 1):
-        #         return self.last_comic_path + '/' + self.comics_list[i+1]
-        #
-        # return False
+        return self.next_comic_path
 
     def previous_comic(self):
-        import glob
+        return self.previous_comic_path
 
-        self.comics_list = glob.glob1(self.last_comic_path, '*.zip')
-        self.comics_list += glob.glob1(self.last_comic_path, '*.cbr')
-        self.comics_list += glob.glob1(self.last_comic_path, '*.rar')
-        self.comics_list += glob.glob1(self.last_comic_path, '*.cbz')
-        self.comics_list += glob.glob1(self.last_comic_path, '*.tar')
+    def verify_comics_in_path(self, action_next_comic, action_previous_comic):
 
-        for i in range(0, len(self.comics_list)):
-            if (self.comics_list[i] == self.get_comic_name()) and (i > 0):
-                return self.last_comic_path + '/' + self.comics_list[i+1]
+        from PySide.QtCore import QDir
+        d = QDir(self.last_comic_path)
+        d.setFilter(QDir.Files | QDir.NoDotAndDotDot)
+        d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.7z", "*.cb7", "*.arj", "*.cbt"])
+        d.setSorting(QDir.Name | QDir.IgnoreCase | QDir.LocaleAware)
 
-        return False
+        str_list = d.entryList()
+        str_list.sort()
+        index = str_list.index(self.comic.name)
+
+        if index == -1:
+            return
+
+        if index > 0:
+            self.previous_comic_path = self.last_comic_path + "/" + str_list[index-1]
+            action_previous_comic.setEnabled(True)
+        else:
+            self.previous_comic_path = ''
+            action_previous_comic.setEnabled(False)
+
+        if len(str_list) >= (index + 1):
+            self.next_comic_path = self.last_comic_path + "/" + str_list[index+1]
+            action_next_comic.setEnabled(True)
+        else:
+            self.next_comic_path = ''
+            action_next_comic.setEnabled(False)
 
     def rotate_left(self):
         self.rotateAngle = (self.rotateAngle - 90) % 360
