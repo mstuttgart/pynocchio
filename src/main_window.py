@@ -79,13 +79,10 @@ class MainWindow(central_window.CentralWindow, main_window_ui.Ui_MainWindow, sma
             self._update_status_bar()
             self._enable_actions()
             self.recentFileManager.update_recent_file_list(path)
-            # self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
+            self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
             # else:
             #     QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
-            self.scroll_area_viewer.label.setPixmap(QtGui.QPixmap(":/icons/icons/exit_red_1.png"))
-            self.setWindowTitle("Error")
-            self._update_status_bar()
             QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
         self._update_view_actions()

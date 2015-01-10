@@ -66,12 +66,10 @@ class Model(QtCore.QObject):
             q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
             pages.append(page.Page(q_file.readAll(), 'exit_red_1.png', 1))
-            res = False
+            res = True
 
         for p in pages:
             self.comic.add_page(p)
-
-        self.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
 
         return res
 
@@ -104,7 +102,7 @@ class Model(QtCore.QObject):
     def verify_comics_in_path(self, action_next_comic, action_previous_comic):
 
         from PySide.QtCore import QDir
-        d = QDir(self.comic.path + '/' + self.comic.name)
+        d = QDir(self.comic.directory)
         d.setFilter(QDir.Files | QDir.NoDotAndDotDot)
         # d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.7z", "*.cb7", "*.arj", "*.cbt"])
         d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"])
@@ -124,7 +122,7 @@ class Model(QtCore.QObject):
             self.previous_comic_path = ''
             action_previous_comic.setEnabled(False)
 
-        if len(str_list) >= (index + 1):
+        if (index + 1) < len(str_list):
             self.next_comic_path = self.last_comic_path + "/" + str_list[index+1]
             action_next_comic.setEnabled(True)
         else:

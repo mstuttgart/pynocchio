@@ -8,10 +8,10 @@ class Comic(object):
 
     # Pages = collections.namedtuple('Page', 'data title')
 
-    def __init__(self, name, path, initial_page=0):
+    def __init__(self, name, directory, initial_page=0):
         super(Comic, self).__init__()
         self.name = name
-        self.path = path
+        self.directory = directory
         self.current_page_index = initial_page
         self.pages = []
 
@@ -52,3 +52,6 @@ class Comic(object):
 
     def get_number_of_pages(self):
         return len(self.pages)
+
+    def get_path(self):
+        return self.directory + '/' + self.name
