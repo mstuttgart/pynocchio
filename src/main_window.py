@@ -69,19 +69,12 @@ class MainWindow(central_window.CentralWindow, main_window_ui.Ui_MainWindow, sma
 
         if self.model.load_comic(path, initial_page):
             pix_map = self.model.get_current_page()
-
-            # if pix_map is None:
-            #     pix_map = QtGui.QPixmap(":/icons/icons/exit_red_1.png")
-
-            # if pix_map is not None:
             self.scroll_area_viewer.label.setPixmap(pix_map)
             self.setWindowTitle(self.model.comic.name)
             self._update_status_bar()
             self._enable_actions()
             self.recentFileManager.update_recent_file_list(path)
             self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
-            # else:
-            #     QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Comic file is not loaded!!"))
         else:
             QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
@@ -321,13 +314,12 @@ class MainWindow(central_window.CentralWindow, main_window_ui.Ui_MainWindow, sma
 
     def _save_settings(self):
         import settings_manager
-
         sett = {'view': {}, 'settings': {}}
 
         sett['view']['view_adjust'] = self.actionGroupView.checkedAction().text()
         sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
         sett['settings']['show_statusbar'] = self.action_show_statusbar.isChecked()
-        sett['settings']['last_comic_path'] = self.model.last_comic_path
+        # sett['settings']['last_comic_path'] = self.model.last_comic_path
 
         settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
 
@@ -346,7 +338,7 @@ class MainWindow(central_window.CentralWindow, main_window_ui.Ui_MainWindow, sma
                     act.setChecked(True)
                     self.model.adjustType = act.text()
 
-            self.model.last_comic_path = sett['settings']['last_comic_path']
+            # self.model.last_comic_path = sett['settings']['last_comic_path']
 
         except KeyError, err:
             print err

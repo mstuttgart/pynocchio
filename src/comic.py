@@ -1,12 +1,9 @@
 # -*- coding: UTF-8 -*-
 
-# import collections
 import page
 
 
 class Comic(object):
-
-    # Pages = collections.namedtuple('Page', 'data title')
 
     def __init__(self, name, directory, initial_page=0):
         super(Comic, self).__init__()

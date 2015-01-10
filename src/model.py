@@ -116,14 +116,14 @@ class Model(QtCore.QObject):
             return
 
         if index > 0:
-            self.previous_comic_path = self.last_comic_path + "/" + str_list[index-1]
+            self.previous_comic_path = self.comic.directory + "/" + str_list[index-1]
             action_previous_comic.setEnabled(True)
         else:
             self.previous_comic_path = ''
             action_previous_comic.setEnabled(False)
 
         if (index + 1) < len(str_list):
-            self.next_comic_path = self.last_comic_path + "/" + str_list[index+1]
+            self.next_comic_path = self.comic.directory + "/" + str_list[index+1]
             action_next_comic.setEnabled(True)
         else:
             self.next_comic_path = ''
