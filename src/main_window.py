@@ -6,11 +6,7 @@ from PyQt4 import uic
 
 import model
 import recent_files_manager
-import bookmark_manager_dialog
-import go_to_dialog
-import about_dialog
 import status_bar
-import viewer
 
 MainWindowForm, MainWindowBase = uic.loadUiType('../view/main_window.ui')
 
@@ -157,6 +153,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
+        import go_to_dialog
         go_to_dlg = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
         go_to_dlg.show()
         go_to_dlg.exec_()
@@ -242,6 +239,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_bookmark_manager_triggered(self):
+        import bookmark_manager_dialog
         bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
@@ -270,6 +268,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
+        import about_dialog
         about_dlg = about_dialog.AboutDialog(self)
         about_dlg.show()
         about_dlg.exec_()
