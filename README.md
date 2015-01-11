@@ -1,7 +1,7 @@
 Pynocchio Comic Reader
 ==================
 Pynocchio is a image viewer specialized in manga/comic reading
-developed on PySide API.
+developed on PyQt4 API.
 
 ## Features
 The current version is in development. However, we intend to improve it even more, so it is defined as an beta version.
