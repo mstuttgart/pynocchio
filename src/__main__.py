@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 from main_window import MainWindow
-from PyQt4 import QtCore, QtGui
-import ui_file_loader
+from PyQt4 import QtGui
 
 
 def main():
@@ -9,10 +8,6 @@ def main():
 
     app = QtGui.QApplication(sys.argv)
     app.setApplicationName('Pynocchio')
-    # QCoreApplication.setApplicationName('Pynocchio')
-
-    # ui_file_loader.ui
-    # main_window = ui_file_loader.loadUi("../view/main_window.ui")
     main_window = MainWindow()
     main_window.show()
 

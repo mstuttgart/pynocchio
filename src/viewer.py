@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 from PyQt4 import QtCore
 from PyQt4 import QtGui
-import ui_file_loader
 
 
 class Viewer(QtGui.QScrollArea):

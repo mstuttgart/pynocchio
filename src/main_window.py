@@ -12,11 +12,8 @@ import recent_files_manager
 import bookmark_manager_dialog
 import go_to_dialog
 import about_dialog
-import main_window_ui
 import status_bar
-from central_main_window import central_window
 import viewer
-# import ui_file_loader
 
 MainWindowForm, MainWindowBase = uic.loadUiType('../view/main_window.ui')
 
