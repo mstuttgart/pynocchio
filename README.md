@@ -21,8 +21,7 @@ comic reader available.
 Ludic Game Library makes use of other libraries to perform some of their routines:
 
 * Python 2.7
-* PySide: sudo easy_install PySide
-* SmartSide: sudo easy_install SmartSide
+* PyQT4: sudo easy_install pyqt4-dev-tools
 * rarfile: sudo easy_install rarfile
 
 You need of Qt Designer to open and edit .ui view files.
