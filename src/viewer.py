@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
-from PySide import QtCore
-from PySide import QtGui
+from PyQt4 import QtCore
+from PyQt4 import QtGui
+import ui_file_loader
 
 
 class Viewer(QtGui.QScrollArea):
@@ -75,25 +76,22 @@ class Viewer(QtGui.QScrollArea):
         key = args[0].key()
         modifiers = args[0].modifiers()
 
-        if self._model.comic is None:
+        if not self._model.comic:
             return None
 
         if key == QtCore.Qt.Key_Right:
-
             if modifiers == QtCore.Qt.ControlModifier:
                 self.last_page()
             else:
                 self.next_page()
 
         elif key == QtCore.Qt.Key_Left:
-
             if modifiers == QtCore.Qt.ControlModifier:
                 self.first_page()
             else:
                 self.previous_page()
 
         elif key == QtCore.Qt.Key_R:
-
             if modifiers == (QtCore.Qt.ControlModifier | QtCore.Qt.ShiftModifier):
                 self.rotate_left()
             elif modifiers == QtCore.Qt.ControlModifier:

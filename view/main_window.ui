@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>629</width>
-    <height>417</height>
+    <width>842</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -114,6 +114,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <widget class="QLabel" name="label">
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
             <property name="autoFillBackground">
              <bool>false</bool>
             </property>
@@ -147,7 +150,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>629</width>
+     <width>842</width>
      <height>27</height>
     </rect>
    </property>

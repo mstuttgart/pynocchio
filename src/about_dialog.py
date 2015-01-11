@@ -1,12 +1,11 @@
 # -*- coding:utf-8 -*-
+from PyQt4 import uic
 
-from PySide import QtGui
+AboutDialogForm, AboutDialogBase = uic.loadUiType('../view/about_dialog.ui')
 
 
-class AboutDialog(QtGui.QDialog):
+class AboutDialog(AboutDialogForm, AboutDialogBase):
 
     def __init__(self, parent=None):
         super(AboutDialog, self).__init__(parent)
-        import about_dialog_ui
-        self.uiAboutDialog = about_dialog_ui.Ui_AboutDialog()
-        self.uiAboutDialog.setupUi(self)
+        self.setupUi(self)

@@ -1,11 +1,10 @@
 # -*- coding: UTF-8 -*-
+from PyQt4 import uic
 
-from PySide.QtGui import QDialog
+PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType('../view/preference_dialog.ui')
 
 
-class PreferenceDialog(QDialog):
+class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
     def __init__(self, parent=None):
         super(PreferenceDialog, self).__init__(parent)
-        import preference_dialog_ui
-        self.preference_dialog = preference_dialog_ui.Ui_PreferenceDialog()
-        self.preference_dialog.setupUi(self)
+        self.setupUi(self)

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from collections import deque
 
 
@@ -75,8 +74,8 @@ class RecentFileManager(object):
 
     @staticmethod
     def _stripped_name(full_file_name):
-        from PySide import QtCore
-        return QtCore.QFileInfo(full_file_name).fileName()
+        from PyQt4.QtCore import QFileInfo
+        return QFileInfo(full_file_name).fileName()
 
 
 

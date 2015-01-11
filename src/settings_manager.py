@@ -29,16 +29,17 @@ class SettingsManager(object):
 
     @staticmethod
     def save_settings(content, file_name):
+        file_name = str(file_name)
+
         import ConfigParser
         config = ConfigParser.ConfigParser()
-
         file_settings = open(file_name, "w")
 
         for section, keys in content.items():
-            config.add_section(section)
+            config.add_section(str(section))
 
             for option, value in keys.items():
-                config.set(section, option, value)
+                config.set(str(section), option, value)
 
         config.write(file_settings)
         file_settings.close()

@@ -12,6 +12,7 @@ class RarLoader(loader.Loader):
 
     def _load_core(self, pages, file_name):
 
+        file_name = str(file_name)
         try:
             rar = rarfile.RarFile(file_name, 'r')
         except rarfile.RarOpenError, err:
@@ -34,4 +35,4 @@ class RarLoader(loader.Loader):
 
     @staticmethod
     def is_rar_file(file_name):
-        return rarfile.is_rarfile(file_name)
+        return rarfile.is_rarfile(str(file_name))

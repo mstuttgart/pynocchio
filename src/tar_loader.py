@@ -12,6 +12,8 @@ class TarLoader(loader.Loader):
 
     def _load_core(self, pages, file_name):
 
+        file_name = str(file_name)
+
         try:
             tar = tarfile.open(file_name, 'r')
         except:
@@ -40,4 +42,4 @@ class TarLoader(loader.Loader):
 
     @staticmethod
     def is_tar_file(file_name):
-        return tarfile.is_tarfile(file_name)
+        return tarfile.is_tarfile(str(file_name))

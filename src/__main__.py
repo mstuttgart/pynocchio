@@ -1,15 +1,7 @@
 # -*- coding: UTF-8 -*-
 from main_window import MainWindow
-from PySide import QtCore, QtGui, QtUiTools
-
-
-def loadUiWidget(uifilename, parent=None):
-    loader = QtUiTools.QUiLoader()
-    uifile = QtCore.QFile(uifilename)
-    uifile.open(QtCore.QFile.ReadOnly)
-    ui = loader.load(uifile, parent)
-    uifile.close()
-    return ui
+from PyQt4 import QtCore, QtGui
+import ui_file_loader
 
 
 def main():
@@ -19,12 +11,12 @@ def main():
     app.setApplicationName('Pynocchio')
     # QCoreApplication.setApplicationName('Pynocchio')
 
-    # main_window =loadUiWidget("../view/main_window.ui")
+    # ui_file_loader.ui
+    # main_window = ui_file_loader.loadUi("../view/main_window.ui")
     main_window = MainWindow()
     main_window.show()
 
     sys.exit(app.exec_())
-
 
 if __name__ == "__main__":
     main()
