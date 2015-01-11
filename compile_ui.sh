@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pyrcc4 resource/main_window.qrc -o src/main_window_rc.py
+pyrcc4 -o src/main_window_rc.py resource/main_window.qrc 
 
 #pyside-uic view/main_window.ui -o src/main_window_ui.py
 #pyside-uic view/go_to_page_dialog.ui -o src/go_to_page_dialog_ui.py
