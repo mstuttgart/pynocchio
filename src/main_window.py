@@ -320,7 +320,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             pages_size = self.model.comic.get_number_of_pages()
             page_width = self.model.get_current_page().width()
             page_height = self.model.get_current_page().height()
-            page_title = self.model.current_directory + self.model.get_current_page_title()
+            page_title = self.model.comic.get_current_page_title()
 
             self.statusbar.set_comic_page(n_page, pages_size)
             self.statusbar.set_page_resolution(page_width, page_height)
