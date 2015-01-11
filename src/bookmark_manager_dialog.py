@@ -1,22 +1,21 @@
 # -*- coding:utf-8 -*-
+from PyQt4 import QtGui, uic
 
-from PySide import QtGui
-import bookmark_manager_dialog_ui
+BookmarkManagerDialogForm, BookmarkManagerDialogBase = uic.loadUiType('../view/bookmark_manager_dialog.ui')
 
 
-class BookmarkManagerDialog(QtGui.QDialog):
+class BookmarkManagerDialog(BookmarkManagerDialogForm, BookmarkManagerDialogBase):
 
     def __init__(self, mdl, parent=None):
         super(BookmarkManagerDialog, self).__init__(parent)
-        self.uiBookmarkManagerDialog = bookmark_manager_dialog_ui.Ui_Bookmark_Dialog()
-        self.uiBookmarkManagerDialog.setupUi(self)
+        self.setupUi(self)
 
         self.model = mdl
-        self.table = self.uiBookmarkManagerDialog.bookmark_table
+        self.table = self.bookmark_table
         self._update_table_content()
 
-        self.uiBookmarkManagerDialog.button_selection.clicked.connect(self._select_all_table_items)
-        self.uiBookmarkManagerDialog.button_remove.clicked.connect(self._remove_table_item)
+        self.button_selection.clicked.connect(self._select_all_table_items)
+        self.button_remove.clicked.connect(self._remove_table_item)
 
     def _update_table_content(self):
         record_list = self.model.get_bookmark_list()

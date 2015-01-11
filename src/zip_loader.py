@@ -6,12 +6,14 @@ from page import Page
 
 
 class ZipLoader(loader.Loader):
+
     def __init__(self, parent=None):
         super(ZipLoader, self).__init__(parent)
 
     def _load_core(self, pages, file_name):
 
         zf = None
+        file_name = str(file_name)
 
         try:
             zf = zipfile.ZipFile(file_name, 'r')
@@ -36,4 +38,4 @@ class ZipLoader(loader.Loader):
 
     @staticmethod
     def is_zip_file(file_name):
-        return zipfile.is_zipfile(file_name)
+        return zipfile.is_zipfile(str(file_name))

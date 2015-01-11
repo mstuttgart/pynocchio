@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
-from PySide import QtGui
-from PySide import QtCore
+from PyQt4 import QtGui
+from PyQt4 import QtCore
 
 import comic
 import bookmarks
@@ -17,9 +17,9 @@ class Model(QtCore.QObject):
         self.comic = None
         self.original_pixmap = QtGui.QPixmap()
         self.adjustType = '&Horizontal Adjust'
-        self.screenSize = 0
+        self.screenSize = QtCore.QSize(0, 0)
         self.rotateAngle = 0
-        self.last_comic_path = ''
+        self.current_directory = ''
         self.next_comic_path = ''
         self.previous_comic_path = ''
 
@@ -237,10 +237,10 @@ class Model(QtCore.QObject):
             comic_name = self.get_comic_name()
 
         if not comic_path:
-            comic_path = self.last_comic_path + '/' + comic_name
+            comic_path = self.comic.directory + '/' + comic_name
 
         if not comic_page:
-            comic_page = self.get_current_page_index()
+            comic_page = self.comic.get_current_page_number()
 
         bk = bookmarks.Bookmarks()
         bk.add_bookmark(comic_path, comic_name, comic_page)
@@ -254,7 +254,7 @@ class Model(QtCore.QObject):
             comic_name = self.get_comic_name()
 
         if not comic_path:
-            comic_path = self.last_comic_path + '/' + comic_name
+            comic_path = self.current_directory + '/' + comic_name
 
         bk = bookmarks.Bookmarks()
         bk.delete_bookmark(comic_path)

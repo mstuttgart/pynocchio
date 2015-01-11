@@ -1,8 +1,8 @@
 # -*- coding: UTF-8 -*-
 
 from os import path
-from PySide import QtCore
-from PySide import QtGui
+from PyQt4 import QtGui
+from PyQt4 import QtCore
 
 
 class Loader(QtCore.QObject):
@@ -14,7 +14,7 @@ class Loader(QtCore.QObject):
     def load_file(self, file_name):
         pages = []
 
-        path_head, path_tail = path.split(file_name)
+        path_head, path_tail = path.split(str(file_name))
         self._load_core(pages, file_name)
 
         if len(pages) == 0:

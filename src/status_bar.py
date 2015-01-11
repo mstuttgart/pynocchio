@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
-from PySide import QtGui
+from PyQt4 import QtGui
+from PyQt4 import QtCore
 
 
 class StatusBar(QtGui.QStatusBar):
