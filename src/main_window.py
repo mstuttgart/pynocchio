@@ -40,7 +40,9 @@ class MainWindow(MainWindowBase, MainWindowForm):
         actions = []
 
         for i in range(5):
-            act = QtGui.QAction(self, visible=False, triggered=self._on_action_recent_files)
+            act = QtGui.QAction(self)
+            act.setVisible(False)
+            act.triggered.connect(self._on_action_recent_files)
             act.setObjectName(str(i))
             actions.append(act)
             self.menu_recent_files.addAction(act)
@@ -102,8 +104,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
                     'Tar Files (*.tar *.cbt);; All files (*)'))
 
         if file_path:
-            a = str(file_path)
-            self.load(a)
+            self.load(file_path)
 
     @QtCore.pyqtSlot()
     def on_action_open_folder_triggered(self):
@@ -190,8 +191,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
         if self.isFullScreen():
             self.menubar.show()
             self.showMaximized()
-            self._on_action_show_toolbar__triggered()
-            self._on_action_show_statusbar__triggered()
+            self.on_action_show_toolbar_triggered()
+            self.on_action_show_statusbar_triggered()
         else:
             self.showFullScreen()
             self.toolbar.hide()
@@ -380,14 +381,14 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:
-            self._on_action_fullscreen__triggered()
+            self.on_action_fullscreen_triggered()
         elif event.key() == QtCore.Qt.Key_Escape and self.isFullScreen():
-            self._on_action_fullscreen__triggered()
+            self.on_action_fullscreen_triggered()
         else:
             super(MainWindow, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
         if args[0].button() == QtCore.Qt.LeftButton:
-            self._on_action_fullscreen__triggered()
+            self.on_action_fullscreen_triggered()
         else:
             super(MainWindow, self).mousePressEvent(*args, **kwargs)
