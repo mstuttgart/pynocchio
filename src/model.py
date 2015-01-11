@@ -237,10 +237,10 @@ class Model(QtCore.QObject):
             comic_name = self.get_comic_name()
 
         if not comic_path:
-            comic_path = self.current_directory + '/' + comic_name
+            comic_path = self.comic.directory + '/' + comic_name
 
         if not comic_page:
-            comic_page = self.get_current_page_index()
+            comic_page = self.comic.get_current_page_number()
 
         bk = bookmarks.Bookmarks()
         bk.add_bookmark(comic_path, comic_name, comic_page)

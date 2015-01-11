@@ -3,9 +3,6 @@
 from PyQt4 import QtGui
 from PyQt4 import QtCore
 from PyQt4 import uic
-# from PyQt4.QtCore import Slot, QMetaObject
-
-import smartside
 
 import model
 import recent_files_manager
@@ -210,7 +207,10 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     def _init_bookmark_menu(self):
         for i in range(0, self.model.NUM_BOOKMARK):
-            self.menu_Bookmarks.addAction(QtGui.QAction(self, visible=False, triggered=self._load_bookmark))
+            act = QtGui.QAction(self)
+            act.setVisible(False)
+            act.triggered.connect(self._load_bookmark)
+            self.menu_Bookmarks.addAction(act)
         self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _update_bookmarks_menu(self, bookmark_list=None):
@@ -223,7 +223,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         # Added 4 because the 3 actions in bookmark menu is add, remove and manage bookmark
         for i in range(0, bookmark_list_len):
-            page = ' [%d]' % (bookmark_list[i][2] + 1)
+            page = ' [%d]' % (bookmark_list[i][2])
             acts[i+4].setObjectName(bookmark_list[i][0])
             acts[i+4].setText(bookmark_list[i][0] + page)
             acts[i+4].setVisible(True)
@@ -251,7 +251,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         action = self.sender()
         if action:
             bk = self.model.find_bookmark(action.objectName())
-            self.load(action.objectName(), bk[2])
+            self.load(action.objectName(), bk[2] - 1)
 
     @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):
@@ -316,7 +316,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         if self.statusbar.isVisible() and self.model.comic:
 
-            n_page = self.model.get_current_page_index() + 1
+            n_page = self.model.comic.get_current_page_number()
             pages_size = self.model.comic.get_number_of_pages()
             page_width = self.model.get_current_page().width()
             page_height = self.model.get_current_page().height()
