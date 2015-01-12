@@ -75,8 +75,7 @@ class StatusBar(QtGui.QStatusBar):
             # self.remove_progress_bar()
             self.add_page_resolution_label()
 
-        text = self.tr('Width: ') + str(width) + " "
-        text += self.tr('Height: ') + str(height)
+        text = self.tr('Resolution: ') + str(width) + 'x' + str(height) + ' px'
         self.page_resolution.setText(text)
 
     def set_comic_path(self, path):
@@ -85,7 +84,7 @@ class StatusBar(QtGui.QStatusBar):
             # self.remove_progress_bar()
             self.add_comic_path_label()
 
-        self.comic_path.setText(path)
+        self.comic_path.setText('Title: ' + path)
 
     # def set_progress_bar(self, n, total):
     #
