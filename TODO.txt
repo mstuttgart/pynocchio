@@ -9,3 +9,5 @@
 #TODO: Opção no menu file para visualizarmos informações da comic, como numero de paginas, tipo de arquivo (codificação),
 #TODO: Opção para imprimir a página atual
 #TODO: Opção para salvar a página atual como imagem.
+#TODO: Adicionar imagem da página no dialog Bookmark Manager
+#TODO: Remover o campo current_page do dialog GoToPage
