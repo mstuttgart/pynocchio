@@ -101,7 +101,7 @@ class Model(QtCore.QObject):
 
     def verify_comics_in_path(self, action_next_comic, action_previous_comic):
 
-        from PySide.QtCore import QDir
+        from PyQt4.QtCore import QDir
         d = QDir(self.comic.directory)
         d.setFilter(QDir.Files | QDir.NoDotAndDotDot)
         # d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.7z", "*.cb7", "*.arj", "*.cbt"])
