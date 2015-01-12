@@ -71,7 +71,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     def load(self, path, initial_page=0):
 
-        # self.scroll_area_viewer.load_comic_cursor(True)
+        self.scroll_area_viewer.load_comic_cursor(True)
 
         if self.model.load_comic(path, initial_page):
             pix_map = self.model.get_current_page()
@@ -85,7 +85,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
         self._update_view_actions()
-        # self.scroll_area_viewer.load_comic_cursor(False)
+        self.scroll_area_viewer.load_comic_cursor(False)
 
     @QtCore.pyqtSlot()
     def on_action_open_triggered(self):

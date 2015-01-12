@@ -109,8 +109,9 @@ class Model(QtCore.QObject):
         d.setSorting(QDir.Name | QDir.IgnoreCase | QDir.LocaleAware)
 
         str_list = d.entryList()
+        # qSort(str_list.begin(), str_list.end(), naturalSortLessThanCI)
         str_list.sort()
-        index = str_list.index(self.comic.name)
+        index = str_list.indexOf(self.comic.name)
 
         if index == -1:
             return
