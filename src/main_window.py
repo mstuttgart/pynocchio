@@ -249,7 +249,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         action = self.sender()
         if action:
             bk = self.model.find_bookmark(action.objectName())
-            self.load(action.objectName(), bk[2])
+            self.load(action.objectName(), bk[2] - 1)
 
     @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):
