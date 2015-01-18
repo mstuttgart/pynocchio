@@ -9,7 +9,6 @@ The current version is in development. However, we intend to improve it even mor
 * Support several view adjust modes using anti-aliasing.
 * Support the several image formates provide by Qt: JPG, PNG, GIF.
 * Support a several comic formats like .ZIP, .RAR, .TAR, .CBR, .CBZ and etc
-* Manage and control memory while allocating image resources, and audio sources.
 * Elegant visual, free and easy to use.
 
 ## Contributing
