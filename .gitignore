@@ -58,6 +58,9 @@ target/
 
 # Diretory files
 .directory
+quadrinhos/
+yacreader/
+resource/freeiconmaker_blue/
 
 # Config files
 *.ini
