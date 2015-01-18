@@ -31,6 +31,7 @@ class ZipLoader(loader.Loader):
         dlg.setWindowTitle('Loading Comic File')
         dlg.show()
 
+        count_page = 1
         for info in name_list:
             _, file_extension = os.path.splitext(info)
 
@@ -40,7 +41,8 @@ class ZipLoader(loader.Loader):
             dlg.setValue(name_list.index(info))
 
             if file_extension.lower() in self.extension:
-                pages.append(Page(zf.read(info), info, name_list.index(info) + 1))
+                pages.append(Page(zf.read(info), info, count_page))
+                count_page += 1
 
         zf.close()
 

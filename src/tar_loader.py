@@ -28,6 +28,7 @@ class TarLoader(loader.Loader):
         dlg.setWindowTitle('Loading Comic File')
         dlg.show()
 
+        count_page = 1
         for name in name_list:
             _, file_extension = os.path.splitext(name)
 
@@ -47,7 +48,8 @@ class TarLoader(loader.Loader):
                     print '%20s  %s' % (name, err)
 
                 if data:
-                    pages.append(Page(data, name, name_list.index(name) + 1))
+                    pages.append(Page(data, name, count_page))
+                    count_page += 1
 
         tar.close()
 

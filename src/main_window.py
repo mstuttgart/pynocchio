@@ -183,6 +183,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.showMaximized()
             self.on_action_show_toolbar_triggered()
             self.on_action_show_statusbar_triggered()
+            self._update_status_bar()
         else:
             self.showFullScreen()
             self.toolbar.hide()

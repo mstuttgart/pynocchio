@@ -28,6 +28,7 @@ class RarLoader(loader.Loader):
         dlg.setWindowTitle('Loading Comic File')
         dlg.show()
 
+        count_page = 1
         for name in name_list:
             _, file_extension = os.path.splitext(name)
 
@@ -37,7 +38,8 @@ class RarLoader(loader.Loader):
                 raise GeneratorExit
 
             if not rar.getinfo(name).isdir() and file_extension.lower() in self.extension:
-                pages.append(Page(rar.read(name), name, name_list.index(name) + 1))
+                pages.append(Page(rar.read(name), name, count_page))
+                count_page += 1
 
         rar.close()
 
