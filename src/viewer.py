@@ -68,33 +68,35 @@ class Viewer(QtGui.QScrollArea):
         else:
             self._change_cursor()
 
-    def keyPressEvent(self, *args, **kwargs):
-
-        key = args[0].key()
-        modifiers = args[0].modifiers()
-
-        if not self._model.comic:
-            return None
-
-        if key == QtCore.Qt.Key_Right:
-            if modifiers == QtCore.Qt.ControlModifier:
-                self.last_page()
-            else:
-                self.next_page()
-
-        elif key == QtCore.Qt.Key_Left:
-            if modifiers == QtCore.Qt.ControlModifier:
-                self.first_page()
-            else:
-                self.previous_page()
-
-        elif key == QtCore.Qt.Key_R:
-            if modifiers == (QtCore.Qt.ControlModifier | QtCore.Qt.ShiftModifier):
-                self.rotate_left()
-            elif modifiers == QtCore.Qt.ControlModifier:
-                self.rotate_right()
-        else:
-            super(Viewer, self).keyPressEvent(*args, **kwargs)
+    # def keyPressEvent(self, *args, **kwargs):
+    #
+    #     key = args[0].key()
+    #     modifiers = args[0].modifiers()
+    #
+    #     if not self._model.comic:
+    #         return None
+    #
+    #     if key == QtCore.Qt.Key_Right:
+    #         if modifiers == QtCore.Qt.ControlModifier:
+    #
+    #             if modifiers == QtCore.Qt.ShiftModifier:
+    #             self.last_page()
+    #         else:
+    #             self.next_page()
+    #
+    #     elif key == QtCore.Qt.Key_Left:
+    #         if modifiers == QtCore.Qt.ControlModifier:
+    #             self.first_page()
+    #         else:
+    #             self.previous_page()
+    #
+    #     if key == QtCore.Qt.Key_R:
+    #         if modifiers == (QtCore.Qt.ControlModifier | QtCore.Qt.ShiftModifier):
+    #             self.rotate_left()
+    #         elif modifiers == QtCore.Qt.ControlModifier:
+    #             self.rotate_right()
+    #     else:
+    #         super(Viewer, self).keyPressEvent(*args, **kwargs)
 
     def mousePressEvent(self, *args, **kwargs):
         event = args[0]

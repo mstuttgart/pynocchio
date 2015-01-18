@@ -357,7 +357,7 @@
     <string>Right</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::WindowShortcut</enum>
+    <enum>Qt::WidgetWithChildrenShortcut</enum>
    </property>
    <property name="visible">
     <bool>true</bool>
@@ -379,6 +379,9 @@
    </property>
    <property name="shortcut">
     <string>Left</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
    </property>
   </action>
   <action name="action_first_page">
@@ -412,6 +415,9 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Right</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
    </property>
   </action>
   <action name="action_rotate_left">
@@ -575,6 +581,12 @@
    <property name="text">
     <string>&amp;Original fit</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
   </action>
   <action name="action_show_toolbar">
    <property name="checkable">
@@ -663,6 +675,12 @@
    <property name="text">
     <string>Next Comic</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Right</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
   </action>
   <action name="action_previous_comic">
    <property name="enabled">
@@ -674,6 +692,12 @@
    </property>
    <property name="text">
     <string>Previous Comic</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Left</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
    </property>
   </action>
  </widget>

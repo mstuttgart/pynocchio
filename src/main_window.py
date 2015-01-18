@@ -44,6 +44,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self._load_settings()
         self._init_bookmark_menu()
         self._adjust_main_window()
+        self._define_global_shortcuts()
 
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -52,6 +53,18 @@ class MainWindow(MainWindowBase, MainWindowForm):
         y_center = (screen.height() - size.height()) / 2
         self.move(x_center, y_center)
         self.setMinimumSize(QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
+
+    def _define_global_shortcuts(self):
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"), self, self.on_action_previous_comic_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"), self, self.on_action_first_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Left"), self, self.on_action_previous_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Right"), self, self.on_action_next_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"), self, self.on_action_last_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"), self, self.on_action_next_comic_triggered)
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"), self, self.on_action_rotate_right_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"), self, self.on_action_rotate_left_triggered)
 
     def _create_action_group_view(self):
         self.actionGroupView = QtGui.QActionGroup(self)
