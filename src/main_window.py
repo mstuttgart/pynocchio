@@ -180,6 +180,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         if self.isFullScreen():
             self.menubar.show()
+            self._update_view_actions()
             self.showMaximized()
             self.on_action_show_toolbar_triggered()
             self.on_action_show_statusbar_triggered()
