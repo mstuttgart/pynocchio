@@ -2,7 +2,9 @@
 import zipfile
 import os.path
 import loader
+import progress_dialog
 from page import Page
+from PyQt4 import QtCore
 
 
 class ZipLoader(loader.Loader):
@@ -25,14 +27,20 @@ class ZipLoader(loader.Loader):
         name_list = zf.namelist()
         name_list.sort()
 
+        dlg = progress_dialog.ProgressDialog("Please Wait", "Cancel", 0, len(name_list))
+        dlg.setWindowTitle('Loading Comic File')
+        dlg.show()
+
         for info in name_list:
             _, file_extension = os.path.splitext(info)
 
+            QtCore.QCoreApplication.instance().processEvents()
+            if dlg.wasCanceled():
+                raise GeneratorExit
+            dlg.setValue(name_list.index(info))
+
             if file_extension.lower() in self.extension:
                 pages.append(Page(zf.read(info), info, name_list.index(info) + 1))
-                # pages.
-                # page_data.append(zf.read(info))
-                # page_title.append(info)
 
         zf.close()
 

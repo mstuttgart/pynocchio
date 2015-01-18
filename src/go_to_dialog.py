@@ -29,7 +29,6 @@ class GoToDialog(GoToDialogDialogForm, GoToDialogBase):
 
     def change_label_image(self):
         self.model.set_current_page_index(self.spinBox_go_page.value() - 1)
-
         image_page = self.model.get_current_page()
         image_page = image_page.scaledToHeight(
             self.height() * 0.6, QtCore.Qt.SmoothTransformation)

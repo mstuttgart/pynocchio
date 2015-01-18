@@ -14,14 +14,12 @@ class Viewer(QtGui.QScrollArea):
         self.dragPosition = {'x': 0, 'y': 0}
         self.lastScrollPosition = 0
 
-        # self._label.setMouseTracking(True)
         self.setMouseTracking(True)
 
         self.hideCursorTimer = QtCore.QTimer()
         self.hideCursorTimer.setSingleShot(True)
         self.hideCursorTimer.timeout.connect(self._hide_cursor)
         # self.hideCursorTimer.start(2500)
-
         # self._change_cursor()
 
     def next_page(self):
@@ -52,7 +50,7 @@ class Viewer(QtGui.QScrollArea):
         self.verticalScrollBar().setValue(0)
 
     def update_view(self, pix_map):
-        if pix_map is not None:
+        if pix_map:
             self._label.setPixmap(pix_map)
 
     def _change_cursor(self):
@@ -65,7 +63,7 @@ class Viewer(QtGui.QScrollArea):
         self.setCursor(QtCore.Qt.BlankCursor)
 
     def load_comic_cursor(self, loading):
-        if loading is True:
+        if loading:
             self.setCursor(QtCore.Qt.WaitCursor)
         else:
             self._change_cursor()
@@ -117,7 +115,6 @@ class Viewer(QtGui.QScrollArea):
     def mouseMoveEvent(self, *args, **kwargs):
         event = args[0]
         self._change_cursor()
-        self.hideCursorTimer.start(2500)
 
         if self.dragMouse:
             scroll_position = {
@@ -153,7 +150,7 @@ class Viewer(QtGui.QScrollArea):
 
     def set_label(self, label):
         self._label = label
-        self._label.setMouseTracking(True)
+        # self.setMouseTracking(True)
 
     def get_label(self):
         return self._label

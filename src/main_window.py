@@ -105,13 +105,13 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.parent(), self.tr("Open Directory"), QtCore.QDir.currentPath(),
             QtGui.QFileDialog.ShowDirsOnly)
 
-        if len(path) == 0:
+        if not path:
             return
 
         if self.model.load_folder(path):
             pix_map = self.model.get_current_page()
 
-            if pix_map is not None:
+            if pix_map:
                 self.scroll_area_viewer.label.setPixmap(pix_map)
                 self.setWindowTitle(self.model.comic.name)
                 self._update_status_bar()
