@@ -642,6 +642,9 @@
    <property name="text">
     <string>Open &amp;Folder</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
    <property name="menuRole">
     <enum>QAction::TextHeuristicRole</enum>
    </property>

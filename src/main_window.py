@@ -95,27 +95,27 @@ class MainWindow(MainWindowBase, MainWindowForm):
         if file_path:
             self.load(file_path)
 
-    @QtCore.pyqtSlot()
-    def on_action_open_folder_triggered(self):
-        path = QtGui.QFileDialog.getExistingDirectory(
-            self.parent(), self.tr("Open Directory"), QtCore.QDir.currentPath(),
-            QtGui.QFileDialog.ShowDirsOnly)
-
-        if not path:
-            return
-
-        if self.model.load_folder(path):
-            pix_map = self.model.get_current_page()
-
-            if pix_map:
-                self.scroll_area_viewer.label.setPixmap(pix_map)
-                self.setWindowTitle(self.model.comic.name)
-                self._update_status_bar()
-                self._enable_actions()
-            else:
-                QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Folder don't have image files!!"))
-        else:
-            QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load folder!!") + path)
+    # @QtCore.pyqtSlot()
+    # def on_action_open_folder_triggered(self):
+    #     path = QtGui.QFileDialog.getExistingDirectory(
+    #         self.parent(), self.tr("Open Directory"), QtCore.QDir.currentPath(),
+    #         QtGui.QFileDialog.ShowDirsOnly)
+    #
+    #     if not path:
+    #         return
+    #
+    #     if self.model.load_folder(path):
+    #         pix_map = self.model.get_current_page()
+    #
+    #         if pix_map:
+    #             self.scroll_area_viewer.label.setPixmap(pix_map)
+    #             self.setWindowTitle(self.model.comic.name)
+    #             self._update_status_bar()
+    #             self._enable_actions()
+    #         else:
+    #             QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Folder don't have image files!!"))
+    #     else:
+    #         QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load folder!!") + path)
 
     def _on_action_recent_files(self):
         action = self.sender()
