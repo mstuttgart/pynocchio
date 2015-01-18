@@ -47,13 +47,13 @@ class Model(QtCore.QObject):
 
         return False
 
-    def load_folder(self, folder_name, initial_page=0):
-        import folder_loader
-
-        if folder_loader.FolderLoader.is_folder(folder_name):
-            return self._load_content(folder_loader.FolderLoader(), folder_name, initial_page)
-        print 'Not is folder'
-        return False
+    # def load_folder(self, folder_name, initial_page=0):
+    #     import folder_loader
+    #
+    #     if folder_loader.FolderLoader.is_folder(folder_name):
+    #         return self._load_content(folder_loader.FolderLoader(), folder_name, initial_page)
+    #     print 'Not is folder'
+    #     return False
 
     def _load_content(self, loader, file_name, initial_page=0):
         pages, path, name = loader.load_file(file_name)
