@@ -17,7 +17,7 @@ class Loader(QtCore.QObject):
         path_head, path_tail = path.split(str(file_name))
         self._load_core(pages, file_name)
 
-        if len(pages) == 0:
+        if not pages:
             # QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Load Comic failed!"))
             print "Load Comic failed!"
 

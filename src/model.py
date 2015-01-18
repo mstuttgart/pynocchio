@@ -236,10 +236,8 @@ class Model(QtCore.QObject):
 
         if not comic_name:
             comic_name = self.get_comic_name()
-
         if not comic_path:
             comic_path = self.comic.directory + '/' + comic_name
-
         if not comic_page:
             comic_page = self.comic.get_current_page_number()
 
@@ -253,7 +251,6 @@ class Model(QtCore.QObject):
 
         if not comic_name:
             comic_name = self.get_comic_name()
-
         if not comic_path:
             comic_path = self.current_directory + '/' + comic_name
 

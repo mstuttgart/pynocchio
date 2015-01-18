@@ -13,9 +13,11 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm, BookmarkManagerDialogBase
         self.model = mdl
         self.table = self.bookmark_table
         self._update_table_content()
+        self.item_to_open = False
 
         self.button_selection.clicked.connect(self._select_all_table_items)
         self.button_remove.clicked.connect(self._remove_table_item)
+        self.button_open.clicked.connect(self._get_selected_item)
 
     def _update_table_content(self):
         record_list = self.model.get_bookmark_list()
@@ -48,5 +50,13 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm, BookmarkManagerDialogBase
 
     def _select_all_table_items(self):
         self.table.setRangeSelected(QtGui.QTableWidgetSelectionRange(0, 0, self.table.rowCount()-1, 2), True)
+
+    def _get_selected_item(self):
+        items = self.table.selectedItems()
+        if items:
+            self.item_to_open = items[1].text()
+
+        self.close()
+
 
 

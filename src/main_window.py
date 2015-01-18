@@ -71,11 +71,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     def load(self, path, initial_page=0):
 
-        self.scroll_area_viewer.load_comic_cursor(True)
-
         if self.model.load_comic(path, initial_page):
-            pix_map = self.model.get_current_page()
-            self.scroll_area_viewer.label.setPixmap(pix_map)
+            self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
             self.setWindowTitle(self.model.comic.name)
             self._update_status_bar()
             self._enable_actions()
@@ -85,7 +82,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
             QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
         self._update_view_actions()
-        self.scroll_area_viewer.load_comic_cursor(False)
 
     @QtCore.pyqtSlot()
     def on_action_open_triggered(self):
@@ -243,6 +239,11 @@ class MainWindow(MainWindowBase, MainWindowForm):
         bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
+
+        item_to_open = bookmark_dialog.item_to_open
+        if item_to_open:
+            self.load(item_to_open)
+
         self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _load_bookmark(self):
