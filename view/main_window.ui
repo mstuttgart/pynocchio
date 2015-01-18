@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>842</width>
-    <height>580</height>
+    <width>639</width>
+    <height>569</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -64,7 +64,7 @@
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout">
     <property name="sizeConstraint">
      <enum>QLayout::SetMaximumSize</enum>
     </property>
@@ -75,6 +75,12 @@
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="Viewer" name="scroll_area_viewer">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
@@ -111,7 +117,7 @@
            <height>347</height>
           </rect>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <widget class="QLabel" name="label">
             <property name="layoutDirection">
@@ -150,7 +156,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>842</width>
+     <width>639</width>
      <height>27</height>
     </rect>
    </property>
@@ -357,7 +363,7 @@
     <string>Right</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::WidgetWithChildrenShortcut</enum>
+    <enum>Qt::WidgetShortcut</enum>
    </property>
    <property name="visible">
     <bool>true</bool>
@@ -381,7 +387,7 @@
     <string>Left</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::ApplicationShortcut</enum>
+    <enum>Qt::WidgetShortcut</enum>
    </property>
   </action>
   <action name="action_first_page">
@@ -399,7 +405,7 @@
     <string>Ctrl+Left</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::ApplicationShortcut</enum>
+    <enum>Qt::WidgetShortcut</enum>
    </property>
   </action>
   <action name="action_last_page">
@@ -417,7 +423,7 @@
     <string>Ctrl+Right</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::ApplicationShortcut</enum>
+    <enum>Qt::WidgetShortcut</enum>
    </property>
   </action>
   <action name="action_rotate_left">
@@ -437,6 +443,9 @@
    <property name="shortcut">
     <string>Ctrl+Shift+R</string>
    </property>
+   <property name="shortcutContext">
+    <enum>Qt::WidgetShortcut</enum>
+   </property>
   </action>
   <action name="action_rotate_right">
    <property name="enabled">
@@ -451,6 +460,9 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WidgetShortcut</enum>
    </property>
   </action>
   <action name="action_vertical_adjust">
@@ -679,7 +691,7 @@
     <string>Ctrl+Shift+Right</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::ApplicationShortcut</enum>
+    <enum>Qt::WidgetShortcut</enum>
    </property>
   </action>
   <action name="action_previous_comic">
@@ -697,7 +709,7 @@
     <string>Ctrl+Shift+Left</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::ApplicationShortcut</enum>
+    <enum>Qt::WidgetShortcut</enum>
    </property>
   </action>
  </widget>

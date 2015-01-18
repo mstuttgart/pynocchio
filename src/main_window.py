@@ -311,6 +311,9 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     def _update_view_actions(self):
 
+        if not self.model.comic:
+            return
+
         if self.model.is_last_page():
             self.action_next_page.setEnabled(False)
             self.action_last_page.setEnabled(False)
