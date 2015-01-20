@@ -16,7 +16,7 @@ class Model(QtCore.QObject):
 
         self.comic = None
         self.original_pixmap = QtGui.QPixmap()
-        self.adjustType = '&Horizontal Adjust'
+        self.adjustType = 'action_original_fit'
         self.screenSize = QtCore.QSize(0, 0)
         self.rotateAngle = 0
         self.current_directory = ''
@@ -197,15 +197,15 @@ class Model(QtCore.QObject):
 
         if self.comic:
 
-            if self.adjustType == '&Vertical adjust':
+            if self.adjustType == 'action_vertical_adjust':
                 pix_map = pix_map.scaledToHeight(
                     self.screenSize.height(), QtCore.Qt.SmoothTransformation)
 
-            elif self.adjustType == '&Horizontal adjust':
+            elif self.adjustType == 'action_horizontal_adjust':
                 pix_map = pix_map.scaledToWidth(
                     self.screenSize.width() * 0.8, QtCore.Qt.SmoothTransformation)
 
-            elif self.adjustType == '&Whole page':
+            elif self.adjustType == 'action_best_fit':
                 pix_map = pix_map.scaledToWidth(
                     self.screenSize.width(), QtCore.Qt.SmoothTransformation)
 

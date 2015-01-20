@@ -16,7 +16,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
-        self.retranslateUi(self)
 
         self.model = model.Model(self)
         self.scroll_area_viewer.model = self.model
@@ -211,7 +210,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         if action:
             checked_action = action
-            self.model.adjustType = checked_action.text()
+            self.model.adjustType = checked_action.objectName()
             self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
             self._update_status_bar()
 
@@ -287,20 +286,20 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
-        import about_dialog
-        about_dlg = about_dialog.AboutDialog(self)
-        about_dlg.show()
-        about_dlg.exec_()
+        # import about_dialog
+        # about_dlg = about_dialog.AboutDialog(self)
+        # about_dlg.show()
+        # about_dlg.exec_()
 
-        # msg = "<p align=\"left\"> The <b>Pynocchio Comic Reader</b> " \
-        #       "is an image viewer specifically designed to handle comic books.</p>" + \
-        #       "<p align=\"left\">It reads ZIP, RAR and tar archives, as well as plain image files." +\
-        #       "<p align=\"left\">Pynocchio Comic Reader is licensed under the GNU General Public License." + \
-        #       "<p align=\"left\">Copyright 2014 Michell Stuttgart Faria</p>" + \
-        #       "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set. " + \
-        #       "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
-        #
-        # QtGui.QMessageBox.about(self, self.tr("About Pynocchio Comic Reader"), msg)
+        msg = "<p align=\"left\"> The <b>Pynocchio Comic Reader</b> " \
+              "is an image viewer specifically designed to handle comic books.</p>" + \
+              "<p align=\"left\">It reads ZIP, RAR and tar archives, as well as plain image files." +\
+              "<p align=\"left\">Pynocchio Comic Reader is licensed under the GNU General Public License." + \
+              "<p align=\"left\">Copyright 2014 Michell Stuttgart Faria</p>" + \
+              "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set. " + \
+              "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
+
+        QtGui.QMessageBox().about(self, self.tr("About Pynocchio Comic Reader"), msg)
 
     @QtCore.pyqtSlot()
     def on_action_about_qt_triggered(self):
@@ -370,7 +369,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         import settings_manager
         sett = {'view': {}, 'settings': {}}
 
-        sett['view']['view_adjust'] = self.actionGroupView.checkedAction().text()
+        sett['view']['view_adjust'] = self.actionGroupView.checkedAction().objectName()
         sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
         sett['settings']['show_statusbar'] = self.action_show_statusbar.isChecked()
         sett['settings']['directory'] = self.model.current_directory
@@ -388,7 +387,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.action_show_statusbar.setChecked(util.strtobool(sett['settings']['show_statusbar']))
 
             for act in self.actionGroupView.actions():
-                if act.text() == sett['view']['view_adjust']:
+                if act.objectName() == sett['view']['view_adjust']:
                     act.setChecked(True)
                     self.model.adjustType = act.text()
 
