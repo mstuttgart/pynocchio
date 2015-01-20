@@ -188,7 +188,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="view/main_window.ui" line="363"/>
         <source>Right</source>
-        <translation>Direita</translation>
+        <translation>Direita </translation>
     </message>
     <message>
         <location filename="view/main_window.ui" line="384"/>
@@ -198,7 +198,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="view/main_window.ui" line="387"/>
         <source>Left</source>
-        <translation>Esquerda</translation>
+        <translation>Esquerda </translation>
     </message>
     <message>
         <location filename="view/main_window.ui" line="402"/>
@@ -208,7 +208,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="view/main_window.ui" line="405"/>
         <source>Ctrl+Left</source>
-        <translation>Ctrl+Esquerda</translation>
+        <translation>Ctrl + Esquerda</translation>
     </message>
     <message>
         <location filename="view/main_window.ui" line="420"/>
@@ -218,7 +218,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="view/main_window.ui" line="423"/>
         <source>Ctrl+Right</source>
-        <translation>Ctrl+Direita</translation>
+        <translation>Ctrl + Direita</translation>
     </message>
     <message>
         <location filename="view/main_window.ui" line="441"/>
@@ -298,7 +298,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="view/main_window.ui" line="691"/>
         <source>Ctrl+Shift+Right</source>
-        <translation>Ctrl+Shift+Direita</translation>
+        <translation>Ctrl + Shift + Direita</translation>
     </message>
     <message>
         <location filename="view/main_window.ui" line="706"/>
@@ -308,7 +308,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="view/main_window.ui" line="709"/>
         <source>Ctrl+Shift+Left</source>
-        <translation>Ctrl+Shift+Esquerda</translation>
+        <translation>Ctrl + Shift + Esquerda</translation>
     </message>
     <message>
         <location filename="view/main_window.ui" line="21"/>
