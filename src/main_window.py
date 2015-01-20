@@ -16,6 +16,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
+        self.retranslateUi(self)
 
         self.model = model.Model(self)
         self.scroll_area_viewer.model = self.model
@@ -90,16 +91,17 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self._update_status_bar()
             self._enable_actions()
             self.recentFileManager.update_recent_file_list(path)
+            self.model.current_directory = path
             self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
         else:
-            QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load file ") + path)
+            QtGui.QMessageBox().information(self, self.tr('Error'), self.tr("Error to load file ") + path)
 
         self._update_view_actions()
 
     @QtCore.pyqtSlot()
     def on_action_open_triggered(self):
 
-        file_path = QtGui.QFileDialog.getOpenFileName(
+        file_path = QtGui.QFileDialog().getOpenFileName(
             self, self.tr('Open comic file'), self.model.current_directory,
             self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
                     'Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr);; '
@@ -219,6 +221,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             act.setVisible(False)
             act.triggered.connect(self._load_bookmark)
             self.menu_Bookmarks.addAction(act)
+
         self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _update_bookmarks_menu(self, bookmark_list=None):

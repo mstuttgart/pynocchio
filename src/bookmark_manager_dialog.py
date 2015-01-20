@@ -17,7 +17,7 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm, BookmarkManagerDialogBase
 
         self.button_selection.clicked.connect(self._select_all_table_items)
         self.button_remove.clicked.connect(self._remove_table_item)
-        self.button_open.clicked.connect(self._get_comic_to_open)
+        self.button_load.clicked.connect(self._get_comic_to_open)
 
     def _update_table_content(self):
         record_list = self.model.get_bookmark_list()

@@ -84,7 +84,7 @@ class StatusBar(QtGui.QStatusBar):
             # self.remove_progress_bar()
             self.add_comic_path_label()
 
-        self.comic_path.setText('Title: ' + path)
+        self.comic_path.setText(self.tr('Title: ') + path)
 
     # def set_progress_bar(self, n, total):
     #

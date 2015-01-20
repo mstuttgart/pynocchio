@@ -67,6 +67,7 @@ class Model(QtCore.QObject):
             q_file.open(QtCore.QIODevice.ReadOnly)
             pages.append(page.Page(q_file.readAll(), 'exit_red_1.png', 1))
             res = True
+            self.current_directory = path
 
         for p in pages:
             self.comic.add_page(p)
