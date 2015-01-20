@@ -1,6 +1,5 @@
 
 #TODO: Ajustar QDialog de configuração, adicionado as actions de cor de brackground e default path
-#TODO: Cria arquivo de tradução inglês (prioridade) e português
 #TODO: Menu Exibir adicionar: two pages, manga mode
 #TODO: Implementar mecanismo de cache para pre-carregar um dado numero de paginas
 #TODO: Controle de zoom para o usurio
