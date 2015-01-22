@@ -11,7 +11,6 @@ class StatusBar(QtGui.QStatusBar):
         self.page_number = None
         self.page_resolution = None
         self.comic_path = None
-        # self.progress_bar = None
 
     def add_page_number_label(self):
         if self.page_number is None:
@@ -50,55 +49,21 @@ class StatusBar(QtGui.QStatusBar):
             self.removeWidget(self.comic_path)
             self.comic_path = None
 
-    # def add_progress_bar(self):
-    #     if self.progress_bar is None:
-    #         self.progress_bar = QtGui.QProgressBar(self)
-    #         self.progress_bar.setFixedHeight(12)
-    #         self.addWidget(self.progress_bar, 1)
-    #         self.progress_bar.show()
-
-    # def remove_progress_bar(self):
-    #     if self.progress_bar:
-    #         self.removeWidget(self.progress_bar)
-    #         self.progress_bar = None
-
     def set_comic_page(self, current_page, total_pages):
-        if self.page_number is None:
-            # self.remove_progress_bar()
+        if not self.page_number:
             self.add_page_number_label()
 
         self.page_number.setText(self.tr('Page: ') + str(current_page) + '/' + str(total_pages))
 
     def set_page_resolution(self, width, height):
-
-        if self.page_resolution is None:
-            # self.remove_progress_bar()
+        if not self.page_resolution:
             self.add_page_resolution_label()
 
         text = self.tr('Resolution: ') + str(width) + 'x' + str(height) + ' px'
         self.page_resolution.setText(text)
 
     def set_comic_path(self, path):
-
-        if self.comic_path is None:
-            # self.remove_progress_bar()
+        if not self.comic_path:
             self.add_comic_path_label()
 
         self.comic_path.setText(self.tr('Title: ') + path)
-
-    # def set_progress_bar(self, n, total):
-    #
-    #     if n > total:
-    #
-    #         if self.progress_bar:
-    #             self.remove_progress_bar()
-    #             self.add_labels()
-    #
-    #     else:
-    #
-    #         if self.progress_bar is None:
-    #             self.remove_labels()
-    #             self.add_progress_bar()
-    #
-    #         self.progress_bar.setMaximun(total)
-    #         self.progress_bar.setValue(n)
