@@ -61,6 +61,9 @@ target/
 quadrinhos/
 yacreader/
 resource/freeiconmaker_blue/
+TODO.txt~
+resource/freeiconmaker_amarelo.zip
+resource/freeiconmaker_amarelo/
 
 # Config files
 *.ini
