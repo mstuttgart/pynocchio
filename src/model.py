@@ -22,6 +22,7 @@ class Model(QtCore.QObject):
         self.current_directory = ''
         self.next_comic_path = ''
         self.previous_comic_path = ''
+        self.current_language = ''
 
     def load_comic(self, file_name, initial_page=0):
 

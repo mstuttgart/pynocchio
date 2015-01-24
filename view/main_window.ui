@@ -224,9 +224,16 @@
     <property name="title">
      <string>&amp;Settings</string>
     </property>
+    <widget class="QMenu" name="menu_languages">
+     <property name="title">
+      <string>Languages</string>
+     </property>
+    </widget>
     <addaction name="action_show_toolbar"/>
     <addaction name="action_show_statusbar"/>
     <addaction name="separator"/>
+    <addaction name="action_preference_dialog"/>
+    <addaction name="menu_languages"/>
    </widget>
    <widget class="QMenu" name="menu_Bookmarks">
     <property name="title">
@@ -339,7 +346,7 @@
   <action name="action_exit">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/exit_red_3.png</normaloff>:/icons/icons/exit_red_3.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_8.png</normaloff>:/icons/icons/freeiconmaker_8.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
@@ -643,7 +650,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/book_red.png</normaloff>:/icons/icons/book_red.png</iconset>
+     <normaloff>:/icons/icons/freeiconmaker_1 2.png</normaloff>:/icons/icons/freeiconmaker_1 2.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Remove bookmark</string>
@@ -710,6 +717,20 @@
    </property>
    <property name="shortcutContext">
     <enum>Qt::WidgetShortcut</enum>
+   </property>
+  </action>
+  <action name="action_preference_dialog">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/icons/freeiconmaker_14.png</normaloff>:/icons/icons/freeiconmaker_14.png</iconset>
+   </property>
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string> </string>
    </property>
   </action>
  </widget>

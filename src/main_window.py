@@ -74,8 +74,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.actionGroupView.addAction(self.action_horizontal_adjust)
         self.actionGroupView.addAction(self.action_best_fit)
 
-        checked_action = self.actionGroupView.checkedAction()
-        self.model.adjustType = checked_action.text()
+        self.model.adjustType = self.actionGroupView.checkedAction().text()
 
         self.action_original_fit.triggered.connect(self._on_action_group_view_adjust)
         self.action_vertical_adjust.triggered.connect(self._on_action_group_view_adjust)
@@ -283,6 +282,14 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.statusbar.show()
         else:
             self.statusbar.hide()
+
+    # @QtCore.pyqtSlot()
+    # def on_action_preference_dialog_triggered(self):
+    #     import preference_dialog
+    #
+    #     dlg = preference_dialog.PreferenceDialog(self)
+    #     dlg.show()
+    #     dlg.exec_()
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
