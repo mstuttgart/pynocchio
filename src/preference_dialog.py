@@ -3,25 +3,32 @@ from PyQt4 import QtGui
 from PyQt4 import QtCore
 from PyQt4 import uic
 
-PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType('../view/preference_dialog.ui')
+PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType('../view/config_dialog.ui')
 
 
 class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
 
-    def __init__(self, model, parent=None):
+    def __init__(self, model, viewer, parent=None):
         super(PreferenceDialog, self).__init__(parent)
         self.setupUi(self)
 
-        self.comic_path = ''
         self.model = model
+        self.viewer = viewer
+        self.background_color_button.background_color = self.model.background_color
+        self.background_color_button.clicked.connect(self._open_color_dialog)
 
-        self.comic_path_button.clicked.connect(self._comic_path_select)
+    def _open_color_dialog(self):
+        col = QtGui.QColorDialog.getColor()
 
-    def _comic_path_select(self):
+        if col.isValid():
+            self.background_color_button.background_color = col
 
-        path = QtGui.QFileDialog.getExistingDirectory(
-            self.parent(), self.tr("Open Directory"), self.model.current_directory,
-            QtGui.QFileDialog.ShowDirsOnly)
+    def accept(self, *args, **kwargs):
+        self.model.background_color = self.background_color_button.background_color
+        self.viewer.setStyleSheet("QWidget { background-color: %s }" %
+                                              self.model.background_color.name())
+        super(PreferenceDialog, self).accept(*args, **kwargs)
 
-        if not path:
-            return
+    def rejected(self, *args, **kwargs):
+        self.background_color_button.reset_background_color()
+        super(PreferenceDialog, self).rejected(*args, **kwargs)

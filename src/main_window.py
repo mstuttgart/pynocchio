@@ -46,6 +46,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self._adjust_main_window()
         self._define_global_shortcuts()
 
+        self.scroll_area_viewer.setStyleSheet("QWidget { background-color: %s }" % self.model.background_color.name())
+
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
         size = self.geometry()
@@ -283,30 +285,29 @@ class MainWindow(MainWindowBase, MainWindowForm):
         else:
             self.statusbar.hide()
 
-    # @QtCore.pyqtSlot()
-    # def on_action_preference_dialog_triggered(self):
-    #     import preference_dialog
-    #
-    #     dlg = preference_dialog.PreferenceDialog(self)
-    #     dlg.show()
-    #     dlg.exec_()
+    @QtCore.pyqtSlot()
+    def on_action_preference_dialog_triggered(self):
+        import preference_dialog
+        dlg = preference_dialog.PreferenceDialog(self.model, self.scroll_area_viewer, parent=self)
+        dlg.show()
+        dlg.exec_()
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
-        # import about_dialog
-        # about_dlg = about_dialog.AboutDialog(self)
-        # about_dlg.show()
-        # about_dlg.exec_()
+        import about_dialog
+        about_dlg = about_dialog.AboutDialog(self)
+        about_dlg.show()
+        about_dlg.exec_()
 
-        msg = "<p align=\"left\"> The <b>Pynocchio Comic Reader</b> " \
-              "is an image viewer specifically designed to handle comic books.</p>" + \
-              "<p align=\"left\">It reads ZIP, RAR and tar archives, as well as plain image files." +\
-              "<p align=\"left\">Pynocchio Comic Reader is licensed under the GNU General Public License." + \
-              "<p align=\"left\">Copyright 2014 Michell Stuttgart Faria</p>" + \
-              "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set. " + \
-              "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
-
-        QtGui.QMessageBox().about(self, self.tr("About Pynocchio Comic Reader"), msg)
+        # msg = "<p align=\"left\"> The <b>Pynocchio Comic Reader</b> " \
+        #       "is an image viewer specifically designed to handle comic books.</p>" + \
+        #       "<p align=\"left\">It reads ZIP, RAR and tar archives, as well as plain image files." +\
+        #       "<p align=\"left\">Pynocchio Comic Reader is licensed under the GNU General Public License." + \
+        #       "<p align=\"left\">Copyright 2014 Michell Stuttgart Faria</p>" + \
+        #       "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set. " + \
+        #       "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
+        #
+        # QtGui.QMessageBox().about(self, self.tr("About Pynocchio Comic Reader"), msg)
 
     @QtCore.pyqtSlot()
     def on_action_about_qt_triggered(self):
@@ -380,6 +381,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
         sett['settings']['show_statusbar'] = self.action_show_statusbar.isChecked()
         sett['settings']['directory'] = self.model.current_directory
+        sett['settings']['background_color'] = self.model.background_color.name()
 
         settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
 
@@ -399,6 +401,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
                     self.model.adjustType = act.text()
 
             self.model.current_directory = sett['settings']['directory']
+            self.model.background_color = QtGui.QColor(sett['settings']['background_color'])
 
         except KeyError, err:
             print err

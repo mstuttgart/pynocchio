@@ -23,6 +23,7 @@ class Model(QtCore.QObject):
         self.next_comic_path = ''
         self.previous_comic_path = ''
         self.current_language = ''
+        self.background_color = QtGui.QColor(255, 255, 200)
 
     def load_comic(self, file_name, initial_page=0):
 

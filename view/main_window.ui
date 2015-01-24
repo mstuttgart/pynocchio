@@ -224,16 +224,10 @@
     <property name="title">
      <string>&amp;Settings</string>
     </property>
-    <widget class="QMenu" name="menu_languages">
-     <property name="title">
-      <string>Languages</string>
-     </property>
-    </widget>
     <addaction name="action_show_toolbar"/>
     <addaction name="action_show_statusbar"/>
     <addaction name="separator"/>
     <addaction name="action_preference_dialog"/>
-    <addaction name="menu_languages"/>
    </widget>
    <widget class="QMenu" name="menu_Bookmarks">
     <property name="title">
@@ -730,7 +724,7 @@
   </action>
   <action name="action">
    <property name="text">
-    <string> </string>
+    <string/>
    </property>
   </action>
  </widget>
