@@ -83,7 +83,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="bclose">
+      <widget class="QPushButton" name="button_close">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -118,5 +118,22 @@
  <resources>
   <include location="../resource/main_window.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>button_close</sender>
+   <signal>clicked()</signal>
+   <receiver>AboutDialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>271</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>271</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
