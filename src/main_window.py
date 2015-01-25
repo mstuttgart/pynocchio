@@ -399,7 +399,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             for act in self.actionGroupView.actions():
                 if act.objectName() == sett['view']['view_adjust']:
                     act.setChecked(True)
-                    self.model.adjustType = act.text()
+                    self.model.adjustType = act.objectName()
 
             self.model.current_directory = sett['settings']['directory']
             self.model.background_color = QtGui.QColor(sett['settings']['background_color'])
