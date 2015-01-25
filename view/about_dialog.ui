@@ -60,7 +60,13 @@
       <string notr="true"/>
      </property>
      <property name="text">
-      <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The &lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader &lt;/span&gt;&lt;/a&gt; is an image viewer specifically designed to handle comic books. &lt;/p&gt;&lt;p&gt;It reads ZIP, RAR and TAR archives well as plain image files. &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; is licensed under the GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set.  &lt;/p&gt;&lt;p&gt;Icons pack by Icon Sweets 2 and Streamline icon set free pack.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The &lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader &lt;/span&gt;&lt;/a&gt;is an image viewer specifically designed to handle comic books. &lt;/p&gt;&lt;p&gt;It reads CBR, ZIP, CBZ, RAR and TAR comic files. &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; is licensed under the GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set. &lt;/p&gt;&lt;p&gt;Icons pack by Icon Sweets 2 and Streamline icon set free pack.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::AutoText</enum>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

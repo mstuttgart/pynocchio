@@ -128,9 +128,9 @@ class MainWindow(MainWindowBase, MainWindowForm):
     #             self._update_status_bar()
     #             self._enable_actions()
     #         else:
-    #             QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Folder don't have image files!!"))
+    #             QtGui.QMessageBox().information(self, self.tr('Error'), self.tr("Folder don't have image files!!"))
     #     else:
-    #         QtGui.QMessageBox.information(self, self.tr('Error'), self.tr("Error to load folder!!") + path)
+    #         QtGui.QMessageBox().information(self, self.tr('Error'), self.tr("Error to load folder!!") + path)
 
     def _on_action_recent_files(self):
         action = self.sender()
@@ -306,12 +306,13 @@ class MainWindow(MainWindowBase, MainWindowForm):
         #       "<p align=\"left\">Copyright 2014 Michell Stuttgart Faria</p>" + \
         #       "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set. " + \
         #       "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
+
         #
-        # QtGui.QMessageBox().about(self, self.tr("About Pynocchio Comic Reader"), msg)
+        # QtGui.QMessageBox().about(self, self.tr("About Pynocchio Comic Reader"), self.tr(msg))
 
     @QtCore.pyqtSlot()
     def on_action_about_qt_triggered(self):
-        QtGui.QMessageBox.aboutQt(self, self.tr(u'About Qt'))
+        QtGui.QMessageBox().aboutQt(self, self.tr(u'About Qt'))
 
     @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):

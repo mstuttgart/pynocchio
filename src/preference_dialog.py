@@ -19,7 +19,6 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
 
     def _open_color_dialog(self):
         col = QtGui.QColorDialog.getColor()
-
         if col.isValid():
             self.background_color_button.background_color = col
 
