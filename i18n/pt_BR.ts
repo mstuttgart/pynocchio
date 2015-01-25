@@ -6,30 +6,30 @@
     <message>
         <location filename="view/about_dialog.ui" line="14"/>
         <source>About Pynocchio Comic Reader</source>
-        <translation>Sobre Pynocchio Comic Reader</translation>
+        <translation type="obsolete">Sobre Pynocchio Comic Reader</translation>
     </message>
     <message>
-        <location filename="view/about_dialog.ui" line="37"/>
+        <location filename="view/about_dialog.ui" line="23"/>
         <source>About</source>
         <translation>Sobre</translation>
     </message>
-    <message utf8="true">
-        <location filename="view/about_dialog.ui" line="55"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/icons/icons/freeiconmaker_2 1.png&quot; /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:12pt; font-weight:600; color:#c05800;&quot;&gt;Pynocchio&lt;/span&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:12pt; font-weight:600;&quot;&gt; Comic Reader - Beta&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:11pt; font-weight:600; color:#c05800;&quot;&gt;Pynocchio&lt;/span&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt;&quot;&gt; is an image viewer specifically designed to handle comic books.  &lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:10pt;&quot;&gt;It reads ZIP, RAR and TAR archives, as well as plain image files.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;;&quot;&gt;Pynocchio Comic Reader is licensed under the GNU General Public License.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;;&quot;&gt;Copyright © 2014 &lt;/span&gt;&lt;a href=&quot;michellstut@gmail.com&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; text-decoration: underline; color:#539fa3;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;;&quot;&gt;Pynocchio use &lt;/span&gt;&lt;a href=&quot;http://freeiconmaker.com/&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;FREE Icon Maker&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;;&quot;&gt; to build icon set.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;;&quot;&gt;Icons pack by &lt;/span&gt;&lt;a href=&quot;https://www.iconfinder.com/iconsets/streamline-icon-set-free-pack&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; text-decoration: underline; color:#0057ae;&quot;&gt;Streamline icon set free pack.&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://github.com/MStuttgart&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; text-decoration: underline; color:#539fa3;&quot;&gt;Github&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+    <message>
+        <location filename="view/about_dialog.ui" line="100"/>
+        <source>Close</source>
+        <translation>Fechar</translation>
+    </message>
+    <message>
+        <location filename="view/about_dialog.ui" line="63"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The &lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader &lt;/span&gt;&lt;/a&gt; is an image viewer specifically designed to handle comic books. &lt;/p&gt;&lt;p&gt;It reads ZIP, RAR and TAR archives well as plain image files. &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; is licensed under the GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set.  &lt;/p&gt;&lt;p&gt;Icons pack by Icon Sweets 2 and Streamline icon set free pack.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="obsolete">O Leitor de quadrinhos Pynocchio é um visualizador de imagens desenhado 
+exclusivamente para leitura de arquivos .zip , cbr , rar
+</translation>
+    </message>
+    <message>
+        <location filename="view/about_dialog.ui" line="63"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The &lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader &lt;/span&gt;&lt;/a&gt;is an image viewer specifically designed to handle comic books. &lt;/p&gt;&lt;p&gt;It reads CBR, ZIP, CBZ, RAR and TAR comic files. &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; is licensed under the GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set. &lt;/p&gt;&lt;p&gt;Icons pack by Icon Sweets 2 and Streamline icon set free pack.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished">&lt;p id=&quot;result&quot;&gt; &lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; é um visualizador de imagens especificamente &lt;p&gt;
+projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos nos formatos CBR, ZIP, CBZ, RAR e TAR.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; é licenciado sob a GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;file:///home/michell/Projetos/pynocchio-comic-reader/yacreader/files/Free%20Icon%20Maker&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; para construir o conjunto de ícones.&lt;/p&gt;&lt;p&gt;Pacote de ícones por Icons Sweets 2 e o pacote gratuito Streamline Icone Set .&lt;/p&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -156,157 +156,157 @@ p, li { white-space: pre-wrap; }
         <translation>&amp;Configuração</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="233"/>
+        <location filename="view/main_window.ui" line="234"/>
         <source>&amp;Bookmarks</source>
         <translation>&amp;Favoritos</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="313"/>
+        <location filename="view/main_window.ui" line="314"/>
         <source>&amp;Open</source>
         <translation>&amp;Abrir</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="331"/>
+        <location filename="view/main_window.ui" line="332"/>
         <source>&amp;About Pynocchio</source>
         <translation>&amp;Sobre o Pynocchio</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="336"/>
+        <location filename="view/main_window.ui" line="337"/>
         <source>&amp;About Qt</source>
         <translation>&amp;Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="345"/>
+        <location filename="view/main_window.ui" line="346"/>
         <source>&amp;Exit</source>
         <translation>&amp;Sair</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="360"/>
+        <location filename="view/main_window.ui" line="361"/>
         <source>&amp;Next page</source>
         <translation>&amp;Próxima página</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="363"/>
+        <location filename="view/main_window.ui" line="364"/>
         <source>Right</source>
         <translation>Direita </translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="384"/>
+        <location filename="view/main_window.ui" line="385"/>
         <source>&amp;Previous page</source>
         <translation>&amp;Página anterior</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="387"/>
+        <location filename="view/main_window.ui" line="388"/>
         <source>Left</source>
         <translation>Esquerda </translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="402"/>
+        <location filename="view/main_window.ui" line="403"/>
         <source>&amp;First page</source>
         <translation>&amp;Primeira página</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="405"/>
+        <location filename="view/main_window.ui" line="406"/>
         <source>Ctrl+Left</source>
         <translation>Ctrl + Esquerda</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="420"/>
+        <location filename="view/main_window.ui" line="421"/>
         <source>&amp;Last page</source>
         <translation>&amp;Última página</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="423"/>
+        <location filename="view/main_window.ui" line="424"/>
         <source>Ctrl+Right</source>
         <translation>Ctrl + Direita</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="441"/>
+        <location filename="view/main_window.ui" line="442"/>
         <source>&amp;Rotate left</source>
         <translation>Rotacionar para esquerda</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="459"/>
+        <location filename="view/main_window.ui" line="460"/>
         <source>&amp;Rotate right</source>
         <translation>Rotacionar para direita</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="483"/>
+        <location filename="view/main_window.ui" line="484"/>
         <source>&amp;Vertical adjust</source>
         <translation>Ajuste vertical</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="507"/>
+        <location filename="view/main_window.ui" line="508"/>
         <source>&amp;Horizontal adjust</source>
         <translation>Ajuste horizontal</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="525"/>
+        <location filename="view/main_window.ui" line="526"/>
         <source>&amp;Fullscreen</source>
         <translation>Tela cheia</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="543"/>
+        <location filename="view/main_window.ui" line="544"/>
         <source>&amp;Go to page...</source>
         <translation>Ir para página...</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="564"/>
+        <location filename="view/main_window.ui" line="565"/>
         <source>&amp;Whole page</source>
         <translation>Página inteira</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="576"/>
+        <location filename="view/main_window.ui" line="577"/>
         <source>&amp;Preferences</source>
-        <translation>Preferência</translation>
+        <translation>Preferências...</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="594"/>
+        <location filename="view/main_window.ui" line="595"/>
         <source>&amp;Original fit</source>
         <translation>Tamanho original</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="611"/>
+        <location filename="view/main_window.ui" line="612"/>
         <source>&amp;Show Toolbar</source>
         <translation>Exibir barra de ferramentas</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="622"/>
+        <location filename="view/main_window.ui" line="623"/>
         <source>S&amp;how Statusbar</source>
         <translation>Exibir barra de status</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="634"/>
+        <location filename="view/main_window.ui" line="635"/>
         <source>&amp;Add bookmark</source>
         <translation>Adicionar aos favoritos</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="649"/>
+        <location filename="view/main_window.ui" line="650"/>
         <source>&amp;Remove bookmark</source>
         <translation>Remover dos favoritos</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="658"/>
+        <location filename="view/main_window.ui" line="659"/>
         <source>Bookmark &amp;manager</source>
         <translation>Gerenciar favoritos</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="688"/>
+        <location filename="view/main_window.ui" line="689"/>
         <source>Next Comic</source>
         <translation>Próximo quadrinho</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="691"/>
+        <location filename="view/main_window.ui" line="692"/>
         <source>Ctrl+Shift+Right</source>
         <translation>Ctrl + Shift + Direita</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="706"/>
+        <location filename="view/main_window.ui" line="707"/>
         <source>Previous Comic</source>
         <translation>Quadrinho anterior</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="709"/>
+        <location filename="view/main_window.ui" line="710"/>
         <source>Ctrl+Shift+Left</source>
         <translation>Ctrl + Shift + Esquerda</translation>
     </message>
@@ -321,62 +321,62 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="264"/>
+        <location filename="view/main_window.ui" line="265"/>
         <source>toolBar</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="316"/>
+        <location filename="view/main_window.ui" line="317"/>
         <source>Ctrl+O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="348"/>
+        <location filename="view/main_window.ui" line="349"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="444"/>
+        <location filename="view/main_window.ui" line="445"/>
         <source>Ctrl+Shift+R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="462"/>
+        <location filename="view/main_window.ui" line="463"/>
         <source>Ctrl+R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="486"/>
+        <location filename="view/main_window.ui" line="487"/>
         <source>Ctrl+J</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="510"/>
+        <location filename="view/main_window.ui" line="511"/>
         <source>Ctrl+K</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="528"/>
+        <location filename="view/main_window.ui" line="529"/>
         <source>F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="546"/>
+        <location filename="view/main_window.ui" line="547"/>
         <source>Ctrl+G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="567"/>
+        <location filename="view/main_window.ui" line="568"/>
         <source>Ctrl+L</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="597"/>
+        <location filename="view/main_window.ui" line="598"/>
         <source>Ctrl+H</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="667"/>
+        <location filename="view/main_window.ui" line="668"/>
         <source>Open &amp;Folder</source>
         <translation></translation>
     </message>
@@ -401,27 +401,65 @@ p, li { white-space: pre-wrap; }
         <translation>Todos os formatos suportados (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Arquivos Zip (*.zip *.cbz);; Arquivos Rar (*.rar *.cbr);; Arquivos Tar (*.tar *.cbt);; Todos os arquivos (*)</translation>
     </message>
     <message>
-        <location filename="src/main_window.py" line="307"/>
+        <location filename="src/main_window.py" line="328"/>
         <source>About Qt</source>
         <translation>Sobre o Qt</translation>
+    </message>
+    <message>
+        <location filename="view/main_window.ui" line="722"/>
+        <source>Preferences</source>
+        <translation>Preferências</translation>
+    </message>
+    <message>
+        <location filename="src/main_window.py" line="324"/>
+        <source>About Pynocchio Comic Reader</source>
+        <translation type="unfinished">Sobre Pynocchio Comic Reader</translation>
     </message>
 </context>
 <context>
     <name>StatusBar</name>
     <message>
-        <location filename="src/status_bar.py" line="70"/>
+        <location filename="src/status_bar.py" line="56"/>
         <source>Page: </source>
         <translation>Página:</translation>
     </message>
     <message>
-        <location filename="src/status_bar.py" line="78"/>
+        <location filename="src/status_bar.py" line="62"/>
         <source>Resolution: </source>
         <translation>Resolução:</translation>
     </message>
     <message>
-        <location filename="src/status_bar.py" line="87"/>
+        <location filename="src/status_bar.py" line="69"/>
         <source>Title: </source>
         <translation>Título:</translation>
+    </message>
+</context>
+<context>
+    <name>config_dialog</name>
+    <message>
+        <location filename="view/config_dialog.ui" line="17"/>
+        <source>Pynocchio Config</source>
+        <translation>Preferências</translation>
+    </message>
+    <message>
+        <location filename="view/config_dialog.ui" line="37"/>
+        <source>General</source>
+        <translation>Geral</translation>
+    </message>
+    <message>
+        <location filename="view/config_dialog.ui" line="45"/>
+        <source>Background color: </source>
+        <translation>Cor de fundo:</translation>
+    </message>
+    <message>
+        <location filename="view/config_dialog.ui" line="77"/>
+        <source>Language</source>
+        <translation>Idioma</translation>
+    </message>
+    <message>
+        <location filename="view/config_dialog.ui" line="85"/>
+        <source>Select language: </source>
+        <translation>Selecione o idioma:</translation>
     </message>
 </context>
 </TS>
