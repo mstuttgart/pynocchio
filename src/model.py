@@ -112,7 +112,6 @@ class Model(QtCore.QObject):
         d.setSorting(QDir.Name | QDir.IgnoreCase | QDir.LocaleAware)
 
         str_list = d.entryList()
-        # qSort(str_list.begin(), str_list.end(), naturalSortLessThanCI)
         str_list.sort()
         index = str_list.indexOf(self.comic.name)
 
@@ -205,11 +204,11 @@ class Model(QtCore.QObject):
 
             elif self.adjustType == 'action_horizontal_adjust':
                 pix_map = pix_map.scaledToWidth(
-                    self.screenSize.width() * 0.8, QtCore.Qt.SmoothTransformation)
+                    self.screenSize.width(), QtCore.Qt.SmoothTransformation)
 
             elif self.adjustType == 'action_best_fit':
                 pix_map = pix_map.scaledToWidth(
-                    self.screenSize.width(), QtCore.Qt.SmoothTransformation)
+                    self.screenSize.width() * 0.8, QtCore.Qt.SmoothTransformation)
 
             return pix_map
 

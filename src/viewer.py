@@ -22,6 +22,8 @@ class Viewer(QtGui.QScrollArea):
         # self.hideCursorTimer.start(2500)
         # self._change_cursor()
 
+        self.setWidgetResizable(True)
+
     def next_page(self):
         self.update_view(self._model.next_page())
         self.lastScrollPosition = self.verticalScrollBar().value()
@@ -107,9 +109,13 @@ class Viewer(QtGui.QScrollArea):
 
     def resizeEvent(self, *args, **kwargs):
         new_size = args[0].size()
-        self._model.set_size(new_size)
 
-        if self._model.comic is not None:
+        # new_size = self.size()
+                   # + QtCore.QSize(self.horizontalScrollBar().height(), self.verticalScrollBar().width())
+        if self._model:
+            self._model.set_size(new_size)
+
+        if self._model.comic:
             self._label.setPixmap(self._model.get_current_page())
 
         super(Viewer, self).resizeEvent(*args, **kwargs)
