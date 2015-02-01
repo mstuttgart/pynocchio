@@ -107,18 +107,18 @@ class Viewer(QtGui.QScrollArea):
 
         super(Viewer, self).mouseMoveEvent(*args, **kwargs)
 
-    def resizeEvent(self, *args, **kwargs):
-        new_size = args[0].size()
-
-        # new_size = self.size()
-                   # + QtCore.QSize(self.horizontalScrollBar().height(), self.verticalScrollBar().width())
-        if self._model:
-            self._model.set_size(new_size)
-
-        if self._model.comic:
-            self._label.setPixmap(self._model.get_current_page())
-
-        super(Viewer, self).resizeEvent(*args, **kwargs)
+    # def resizeEvent(self, *args, **kwargs):
+    #     new_size = args[0].size()
+    #
+    #     # new_size = self.size()
+    #                # + QtCore.QSize(self.horizontalScrollBar().height(), self.verticalScrollBar().width())
+    #     if self._model:
+    #         self._model.set_size(new_size)
+    #
+    #     if self._model.comic:
+    #         self._label.setPixmap(self._model.get_current_page())
+    #
+    #     super(Viewer, self).resizeEvent(*args, **kwargs)
 
     def set_model(self, model):
         self._model = model
