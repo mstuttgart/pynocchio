@@ -3,12 +3,12 @@
 from PyQt4 import QtCore
 import fnmatch
 import os.path
+
 import loader
 from page import Page
 
 
 class FolderLoader(loader.Loader):
-
     def _load_core(self, pages, file_name):
 
         files_list = []

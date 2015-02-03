@@ -1,13 +1,12 @@
 # -*- coding: UTF-8 -*-
 from PyQt4 import QtGui
-from PyQt4 import QtCore
 from PyQt4 import uic
 
-PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType('../view/config_dialog.ui')
+PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType(
+    '../view/config_dialog.ui')
 
 
 class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
-
     def __init__(self, model, viewer, parent=None):
         super(PreferenceDialog, self).__init__(parent)
         self.setupUi(self)
@@ -25,7 +24,7 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
     def accept(self, *args, **kwargs):
         self.model.background_color = self.background_color_button.background_color
         self.viewer.setStyleSheet("QWidget { background-color: %s }" %
-                                              self.model.background_color.name())
+                                  self.model.background_color.name())
         super(PreferenceDialog, self).accept(*args, **kwargs)
 
     def rejected(self, *args, **kwargs):

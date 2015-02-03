@@ -1,12 +1,10 @@
 # -*- coding: UTF-8 -*-
 
 from os import path
-from PyQt4 import QtGui
 from PyQt4 import QtCore
 
 
 class Loader(QtCore.QObject):
-
     def __init__(self, parent=None):
         super(Loader, self).__init__(parent)
         self.extension = ['.png', '.jpg', '.jpeg', '.gif']

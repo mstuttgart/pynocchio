@@ -1,7 +1,8 @@
 # -*- coding: UTF-8 -*-
 from PyQt4 import QtCore, uic
 
-GoToDialogDialogForm, GoToDialogBase = uic.loadUiType('../view/go_to_page_dialog.ui')
+GoToDialogDialogForm, GoToDialogBase = uic.loadUiType(
+    '../view/go_to_page_dialog.ui')
 
 
 class GoToDialog(GoToDialogDialogForm, GoToDialogBase):
@@ -14,7 +15,8 @@ class GoToDialog(GoToDialogDialogForm, GoToDialogBase):
 
         # self.height = self.height()
         # self.spinBox_go_page = self.spinBox_go_page
-        self.spinBox_go_page.setValue(self.model.comic.get_current_page_number())
+        self.spinBox_go_page.setValue(
+            self.model.comic.get_current_page_number())
         self.change_label_image()
 
     def accept(self, *args, **kwargs):
@@ -24,7 +26,8 @@ class GoToDialog(GoToDialogDialogForm, GoToDialogBase):
         super(GoToDialog, self).accept(*args, **kwargs)
 
     def rejected(self, *args, **kwargs):
-        self.model.set_current_page_index(int(self.lineEdit_current_page.text()))
+        self.model.set_current_page_index(
+            int(self.lineEdit_current_page.text()))
         super(GoToDialog, self).rejected(*args, **kwargs)
 
     def change_label_image(self):

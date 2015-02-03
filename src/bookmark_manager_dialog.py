@@ -1,11 +1,12 @@
 # -*- coding:utf-8 -*-
 from PyQt4 import QtGui, uic
 
-BookmarkManagerDialogForm, BookmarkManagerDialogBase = uic.loadUiType('../view/bookmark_manager_dialog.ui')
+BookmarkManagerDialogForm, BookmarkManagerDialogBase = uic.loadUiType(
+    '../view/bookmark_manager_dialog.ui')
 
 
-class BookmarkManagerDialog(BookmarkManagerDialogForm, BookmarkManagerDialogBase):
-
+class BookmarkManagerDialog(BookmarkManagerDialogForm,
+                            BookmarkManagerDialogBase):
     def __init__(self, mdl, parent=None):
         super(BookmarkManagerDialog, self).__init__(parent)
         self.setupUi(self)
@@ -27,16 +28,20 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm, BookmarkManagerDialogBase
         for i in range(0, record_list_len):
             self.table.setItem(i, 0, QtGui.QTableWidgetItem(record_list[i][0]))
             self.table.setItem(i, 1, QtGui.QTableWidgetItem(record_list[i][1]))
-            self.table.setItem(i, 2, QtGui.QTableWidgetItem(str(record_list[i][2])))
+            self.table.setItem(i, 2,
+                               QtGui.QTableWidgetItem(str(record_list[i][2])))
 
-        self.table.horizontalHeader().setResizeMode(0, QtGui.QHeaderView.ResizeToContents)
-        self.table.horizontalHeader().setResizeMode(1, QtGui.QHeaderView.Stretch)
-        self.table.horizontalHeader().setResizeMode(2, QtGui.QHeaderView.ResizeToContents)
+        self.table.horizontalHeader().setResizeMode(0,
+                                                    QtGui.QHeaderView.ResizeToContents)
+        self.table.horizontalHeader().setResizeMode(1,
+                                                    QtGui.QHeaderView.Stretch)
+        self.table.horizontalHeader().setResizeMode(2,
+                                                    QtGui.QHeaderView.ResizeToContents)
 
     def _remove_table_item(self):
         selected_items = self.table.selectedItems()
         selected_items_len = len(selected_items)
-        selected_items_i = selected_items_len/3
+        selected_items_i = selected_items_len / 3
         selected_items_f = selected_items_len - selected_items_i
 
         paths = []
@@ -49,7 +54,9 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm, BookmarkManagerDialogBase
         self.model.remove_bookmarks(paths)
 
     def _select_all_table_items(self):
-        self.table.setRangeSelected(QtGui.QTableWidgetSelectionRange(0, 0, self.table.rowCount()-1, 2), True)
+        self.table.setRangeSelected(
+            QtGui.QTableWidgetSelectionRange(0, 0, self.table.rowCount() - 1,
+                                             2), True)
 
     def _get_comic_to_open(self):
         items = self.table.selectedItems()

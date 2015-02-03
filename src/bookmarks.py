@@ -3,7 +3,6 @@ import data_base_manager
 
 
 class Bookmarks(object):
-
     BOOKMARK_FILE_NAME = "bookmarks.db"
 
     def __init__(self):
@@ -18,7 +17,8 @@ class Bookmarks(object):
         if ret:
             sql = "UPDATE Bookmarks SET Page=%d WHERE Path='%s';" % (page, path)
         else:
-            sql = "INSERT OR IGNORE INTO Bookmarks (Path, Name, Page) VALUES ('%s', '%s', %d);" % (path, name, page)
+            sql = "INSERT OR IGNORE INTO Bookmarks (Path, Name, Page) " \
+                  "VALUES ('%s', '%s', %d);" % (path, name, page)
 
         self.db.execute(sql)
 

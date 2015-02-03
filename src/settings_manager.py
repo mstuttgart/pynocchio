@@ -8,6 +8,7 @@ class SettingsManager(object):
     @staticmethod
     def load_settings(file_name):
         import ConfigParser
+
         config = ConfigParser.ConfigParser()
 
         try:
@@ -32,6 +33,7 @@ class SettingsManager(object):
         file_name = str(file_name)
 
         import ConfigParser
+
         config = ConfigParser.ConfigParser()
         file_settings = open(file_name, "w")
 

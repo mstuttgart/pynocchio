@@ -3,7 +3,6 @@ import sqlite3
 
 
 class DataBaseManager(object):
-
     def __init__(self, db_name):
 
         try:
@@ -35,7 +34,8 @@ class DataBaseManager(object):
 
     def find(self, table_name, column, value):
         if self.conn:
-            sql = "SELECT * FROM %s WHERE %s = '%s';" % (table_name, column, value)
+            sql = "SELECT * FROM %s WHERE %s = '%s';" % (
+            table_name, column, value)
             r = self.conn.execute(sql)
             return r.fetchone()
 

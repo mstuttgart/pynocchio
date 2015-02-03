@@ -7,7 +7,6 @@ import bookmarks
 
 
 class Model(QtCore.QObject):
-
     NUM_BOOKMARK = 5
 
     def __init__(self, parent=None):
@@ -36,13 +35,16 @@ class Model(QtCore.QObject):
             import zip_loader
 
             if zip_loader.ZipLoader.is_zip_file(file_name):
-                return self._load_content(zip_loader.ZipLoader(self), file_name, initial_page)
+                return self._load_content(zip_loader.ZipLoader(self), file_name,
+                                          initial_page)
 
             elif rar_loader.RarLoader.is_rar_file(file_name):
-                return self._load_content(rar_loader.RarLoader(self), file_name, initial_page)
+                return self._load_content(rar_loader.RarLoader(self), file_name,
+                                          initial_page)
 
             elif tar_loader.TarLoader.is_tar_file(file_name):
-                return self._load_content(tar_loader.TarLoader(self), file_name, initial_page)
+                return self._load_content(tar_loader.TarLoader(self), file_name,
+                                          initial_page)
 
         except IOError, err:
             print '%20s  %s' % (file_name, err)
@@ -50,7 +52,7 @@ class Model(QtCore.QObject):
         return False
 
     # def load_folder(self, folder_name, initial_page=0):
-    #     import folder_loader
+    # import folder_loader
     #
     #     if folder_loader.FolderLoader.is_folder(folder_name):
     #         return self._load_content(folder_loader.FolderLoader(), folder_name, initial_page)
@@ -65,6 +67,7 @@ class Model(QtCore.QObject):
 
         if not pages:
             import page
+
             q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
             pages.append(page.Page(q_file.readAll(), 'exit_red_1.png', 1))
@@ -105,6 +108,7 @@ class Model(QtCore.QObject):
     def verify_comics_in_path(self, action_next_comic, action_previous_comic):
 
         from PyQt4.QtCore import QDir
+
         d = QDir(self.comic.directory)
         d.setFilter(QDir.Files | QDir.NoDotAndDotDot)
         # d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.7z", "*.cb7", "*.arj", "*.cbt"])
@@ -119,14 +123,16 @@ class Model(QtCore.QObject):
             return
 
         if index > 0:
-            self.previous_comic_path = self.comic.directory + "/" + str_list[index-1]
+            self.previous_comic_path = self.comic.directory + "/" + str_list[
+                index - 1]
             action_previous_comic.setEnabled(True)
         else:
             self.previous_comic_path = ''
             action_previous_comic.setEnabled(False)
 
         if (index + 1) < len(str_list):
-            self.next_comic_path = self.comic.directory + "/" + str_list[index+1]
+            self.next_comic_path = self.comic.directory + "/" + str_list[
+                index + 1]
             action_next_comic.setEnabled(True)
         else:
             self.next_comic_path = ''
@@ -208,7 +214,8 @@ class Model(QtCore.QObject):
 
             elif self.adjustType == 'action_best_fit':
                 pix_map = pix_map.scaledToWidth(
-                    self.screenSize.width() * 0.8, QtCore.Qt.SmoothTransformation)
+                    self.screenSize.width() * 0.8,
+                    QtCore.Qt.SmoothTransformation)
 
             return pix_map
 

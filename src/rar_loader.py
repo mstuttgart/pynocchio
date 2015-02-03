@@ -1,11 +1,13 @@
 # -*- coding: UTF-8 -*-
 
 import os.path
+
 import rarfile
+from PyQt4.QtCore import QCoreApplication
+
 import loader
 import progress_dialog
 from page import Page
-from PyQt4.QtCore import QCoreApplication
 
 
 class RarLoader(loader.Loader):
@@ -24,7 +26,8 @@ class RarLoader(loader.Loader):
         name_list = rar.namelist()
         name_list.sort()
 
-        dlg = progress_dialog.ProgressDialog("Please Wait", "Cancel", 0, len(name_list))
+        dlg = progress_dialog.ProgressDialog("Please Wait", "Cancel", 0,
+                                             len(name_list))
         dlg.setWindowTitle('Loading Comic File')
         dlg.show()
 
@@ -37,7 +40,8 @@ class RarLoader(loader.Loader):
             if dlg.wasCanceled():
                 raise GeneratorExit
 
-            if not rar.getinfo(name).isdir() and file_extension.lower() in self.extension:
+            if not rar.getinfo(
+                    name).isdir() and file_extension.lower() in self.extension:
                 pages.append(Page(rar.read(name), name, count_page))
                 count_page += 1
 

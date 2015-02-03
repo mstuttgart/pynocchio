@@ -108,7 +108,7 @@ class Viewer(QtGui.QScrollArea):
         super(Viewer, self).mouseMoveEvent(*args, **kwargs)
 
     # def resizeEvent(self, *args, **kwargs):
-    #     new_size = args[0].size()
+    # new_size = args[0].size()
     #
     #     # new_size = self.size()
     #                # + QtCore.QSize(self.horizontalScrollBar().height(), self.verticalScrollBar().width())

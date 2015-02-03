@@ -8,11 +8,11 @@ import model
 import recent_files_manager
 import status_bar
 
+
 MainWindowForm, MainWindowBase = uic.loadUiType('../view/main_window.ui')
 
 
 class MainWindow(MainWindowBase, MainWindowForm):
-
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
@@ -28,7 +28,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.on_action_show_toolbar_triggered()
 
         self._create_action_group_view()
-        self.action_about_qt.setIcon(QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
+        self.action_about_qt.setIcon(
+            QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
         actions = []
 
@@ -46,7 +47,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self._adjust_main_window()
         self._define_global_shortcuts()
 
-        self.scroll_area_viewer.setStyleSheet("QWidget { background-color: %s }" % self.model.background_color.name())
+        self.scroll_area_viewer.setStyleSheet(
+            "QWidget { background-color: %s }" % self.model.background_color.name())
 
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -54,19 +56,28 @@ class MainWindow(MainWindowBase, MainWindowForm):
         x_center = (screen.width() - size.width()) / 2
         y_center = (screen.height() - size.height()) / 2
         self.move(x_center, y_center)
-        self.setMinimumSize(QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
+        self.setMinimumSize(
+            QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
 
     def _define_global_shortcuts(self):
 
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"), self, self.on_action_previous_comic_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"), self, self.on_action_first_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Left"), self, self.on_action_previous_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Right"), self, self.on_action_next_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"), self, self.on_action_last_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"), self, self.on_action_next_comic_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"), self,
+                        self.on_action_previous_comic_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"), self,
+                        self.on_action_first_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Left"), self,
+                        self.on_action_previous_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Right"), self,
+                        self.on_action_next_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"), self,
+                        self.on_action_last_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"), self,
+                        self.on_action_next_comic_triggered)
 
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"), self, self.on_action_rotate_right_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"), self, self.on_action_rotate_left_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"), self,
+                        self.on_action_rotate_right_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"), self,
+                        self.on_action_rotate_left_triggered)
 
     def _create_action_group_view(self):
         self.actionGroupView = QtGui.QActionGroup(self)
@@ -78,23 +89,30 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         self.model.adjustType = self.actionGroupView.checkedAction().text()
 
-        self.action_original_fit.triggered.connect(self._on_action_group_view_adjust)
-        self.action_vertical_adjust.triggered.connect(self._on_action_group_view_adjust)
-        self.action_horizontal_adjust.triggered.connect(self._on_action_group_view_adjust)
-        self.action_best_fit.triggered.connect(self._on_action_group_view_adjust)
+        self.action_original_fit.triggered.connect(
+            self._on_action_group_view_adjust)
+        self.action_vertical_adjust.triggered.connect(
+            self._on_action_group_view_adjust)
+        self.action_horizontal_adjust.triggered.connect(
+            self._on_action_group_view_adjust)
+        self.action_best_fit.triggered.connect(
+            self._on_action_group_view_adjust)
 
     def load(self, path, initial_page=0):
 
         if self.model.load_comic(path, initial_page):
-            self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
+            self.scroll_area_viewer.label.setPixmap(
+                self.model.get_current_page())
             self.setWindowTitle(self.model.comic.name)
             self._update_status_bar()
             self._enable_actions()
             self.recentFileManager.update_recent_file_list(path)
             self.model.current_directory = path
-            self.model.verify_comics_in_path(self.action_next_comic, self.action_previous_comic)
+            self.model.verify_comics_in_path(self.action_next_comic,
+                                             self.action_previous_comic)
         else:
-            QtGui.QMessageBox().information(self, self.tr('Error'), self.tr("Error to load file ") + path)
+            QtGui.QMessageBox().information(self, self.tr('Error'), self.tr(
+                "Error to load file ") + path)
 
         self._update_view_actions()
 
@@ -103,16 +121,17 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         file_path = QtGui.QFileDialog().getOpenFileName(
             self, self.tr('Open comic file'), self.model.current_directory,
-            self.tr('All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
-                    'Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr);; '
-                    'Tar Files (*.tar *.cbt);; All files (*)'))
+            self.tr(
+                'All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
+                'Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr);; '
+                'Tar Files (*.tar *.cbt);; All files (*)'))
 
         if file_path:
             self.load(file_path)
 
     # @QtCore.pyqtSlot()
     # def on_action_open_folder_triggered(self):
-    #     path = QtGui.QFileDialog.getExistingDirectory(
+    # path = QtGui.QFileDialog.getExistingDirectory(
     #         self.parent(), self.tr("Open Directory"), QtCore.QDir.currentPath(),
     #         QtGui.QFileDialog.ShowDirsOnly)
     #
@@ -165,6 +184,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
     @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
         import go_to_dialog
+
         go_to_dlg = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
         go_to_dlg.show()
         go_to_dlg.exec_()
@@ -212,7 +232,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
         if action:
             checked_action = action
             self.model.adjustType = checked_action.objectName()
-            self.scroll_area_viewer.label.setPixmap(self.model.get_current_page())
+            self.scroll_area_viewer.label.setPixmap(
+                self.model.get_current_page())
             self._update_status_bar()
 
     def _init_bookmark_menu(self):
@@ -222,26 +243,29 @@ class MainWindow(MainWindowBase, MainWindowForm):
             act.triggered.connect(self._load_bookmark)
             self.menu_Bookmarks.addAction(act)
 
-        self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
+        self._update_bookmarks_menu(
+            self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _update_bookmarks_menu(self, bookmark_list=None):
         acts = self.menu_Bookmarks.actions()
 
         if not bookmark_list:
-            bookmark_list = self.model.get_bookmark_list(self.model.NUM_BOOKMARK)
+            bookmark_list = self.model.get_bookmark_list(
+                self.model.NUM_BOOKMARK)
 
         bookmark_list_len = len(bookmark_list)
 
-        # Added 4 because the 3 actions in bookmark menu is add, remove and manage bookmark
+        # Added 4 because the 3 actions in bookmark
+        # menu is add, remove and manage bookmark
         for i in range(0, bookmark_list_len):
             page = ' [%d]' % (bookmark_list[i][2])
-            acts[i+4].setObjectName(bookmark_list[i][0])
-            acts[i+4].setText(bookmark_list[i][0] + page)
-            acts[i+4].setVisible(True)
+            acts[i + 4].setObjectName(bookmark_list[i][0])
+            acts[i + 4].setText(bookmark_list[i][0] + page)
+            acts[i + 4].setVisible(True)
 
         # make the others bookmarks items invisibles
         for i in range(bookmark_list_len, self.model.NUM_BOOKMARK):
-            acts[i+4].setVisible(False)
+            acts[i + 4].setVisible(False)
 
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
@@ -254,7 +278,9 @@ class MainWindow(MainWindowBase, MainWindowForm):
     @QtCore.pyqtSlot()
     def on_action_bookmark_manager_triggered(self):
         import bookmark_manager_dialog
-        bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
+
+        bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(
+            self.model, self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
 
@@ -262,7 +288,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
         if item_to_open:
             self.load(item_to_open)
 
-        self._update_bookmarks_menu(self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
+        self._update_bookmarks_menu(
+            self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _load_bookmark(self):
         action = self.sender()
@@ -288,27 +315,20 @@ class MainWindow(MainWindowBase, MainWindowForm):
     @QtCore.pyqtSlot()
     def on_action_preference_dialog_triggered(self):
         import preference_dialog
-        dlg = preference_dialog.PreferenceDialog(self.model, self.scroll_area_viewer, parent=self)
+
+        dlg = preference_dialog.PreferenceDialog(self.model,
+                                                 self.scroll_area_viewer,
+                                                 parent=self)
         dlg.show()
         dlg.exec_()
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
         import about_dialog
+
         about_dlg = about_dialog.AboutDialog(self)
         about_dlg.show()
         about_dlg.exec_()
-
-        # msg = "<p align=\"left\"> The <b>Pynocchio Comic Reader</b> " \
-        #       "is an image viewer specifically designed to handle comic books.</p>" + \
-        #       "<p align=\"left\">It reads ZIP, RAR and tar archives, as well as plain image files." +\
-        #       "<p align=\"left\">Pynocchio Comic Reader is licensed under the GNU General Public License." + \
-        #       "<p align=\"left\">Copyright 2014 Michell Stuttgart Faria</p>" + \
-        #       "<p align=\"left\">Pynocchio use http://freeiconmaker.com to build icon set. " + \
-        #       "Icons pack by Icon Sweets 2 and Streamline icon set free pack.</p>"
-
-        #
-        # QtGui.QMessageBox().about(self, self.tr("About Pynocchio Comic Reader"), self.tr(msg))
 
     @QtCore.pyqtSlot()
     def on_action_about_qt_triggered(self):
@@ -344,7 +364,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
     def _update_status_bar(self):
 
         if self.statusbar.isVisible() and self.model.comic:
-
             n_page = self.model.comic.get_current_page_number()
             pages_size = self.model.comic.get_number_of_pages()
             page_width = self.model.get_current_page().width()
@@ -376,13 +395,17 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     def _save_settings(self):
         import settings_manager
+
         sett = {'view': {}, 'settings': {}}
 
-        sett['view']['view_adjust'] = self.actionGroupView.checkedAction().objectName()
+        sett['view'][
+            'view_adjust'] = self.actionGroupView.checkedAction().objectName()
         sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
-        sett['settings']['show_statusbar'] = self.action_show_statusbar.isChecked()
+        sett['settings'][
+            'show_statusbar'] = self.action_show_statusbar.isChecked()
         sett['settings']['directory'] = self.model.current_directory
-        sett['settings']['background_color'] = self.model.background_color.name()
+        sett['settings'][
+            'background_color'] = self.model.background_color.name()
 
         settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
 
@@ -393,8 +416,10 @@ class MainWindow(MainWindowBase, MainWindowForm):
         sett = settings_manager.SettingsManager.load_settings('settings.ini')
 
         try:
-            self.action_show_toolbar.setChecked(util.strtobool(sett['settings']['show_toolbar']))
-            self.action_show_statusbar.setChecked(util.strtobool(sett['settings']['show_statusbar']))
+            self.action_show_toolbar.setChecked(
+                util.strtobool(sett['settings']['show_toolbar']))
+            self.action_show_statusbar.setChecked(
+                util.strtobool(sett['settings']['show_statusbar']))
 
             for act in self.actionGroupView.actions():
                 if act.objectName() == sett['view']['view_adjust']:
@@ -402,7 +427,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
                     self.model.adjustType = act.objectName()
 
             self.model.current_directory = sett['settings']['directory']
-            self.model.background_color = QtGui.QColor(sett['settings']['background_color'])
+            self.model.background_color = QtGui.QColor(
+                sett['settings']['background_color'])
 
         except KeyError, err:
             print err
@@ -429,7 +455,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         # new_size = self.scroll_area_viewer.size()
         # new_size = self.size()
-                   # + QtCore.QSize(self.horizontalScrollBar().height(), self.verticalScrollBar().width())
+        # + QtCore.QSize(self.horizontalScrollBar().height(), self.verticalScrollBar().width())
         if self.model:
             self.model.set_size(new_size)
 

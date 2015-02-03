@@ -3,7 +3,6 @@ import page
 
 
 class Comic(object):
-
     def __init__(self, name, directory, initial_page=0):
         super(Comic, self).__init__()
         self.name = name

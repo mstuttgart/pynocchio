@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
-from main_window import MainWindow
 from PyQt4 import QtGui, QtCore
+
+from main_window import MainWindow
 
 
 def main():
@@ -17,6 +18,7 @@ def main():
     main_window.show()
 
     sys.exit(app.exec_())
+
 
 if __name__ == "__main__":
     main()

@@ -26,7 +26,8 @@ class RecentFileManager(object):
             path = self.recent_files_action_deque.pop()
             idx = self.MAX_RECENT_FILES - 1 - i
 
-            self.recent_files_action_list[idx]['action'].setText(self._stripped_name(path))
+            self.recent_files_action_list[idx]['action'].setText(
+                self._stripped_name(path))
             self.recent_files_action_list[idx]['action'].setVisible(True)
             self.recent_files_action_list[idx]['path'] = path
             self.recent_files_action_deque.appendleft(path)
@@ -49,7 +50,8 @@ class RecentFileManager(object):
     def _load_settings(self):
         import settings_manager
 
-        ret = settings_manager.SettingsManager.load_settings(self.SETTING_FILE_NAME)
+        ret = settings_manager.SettingsManager.load_settings(
+            self.SETTING_FILE_NAME)
         section_list = ret.keys()
         section_list.sort(reverse=True)
 
@@ -70,11 +72,13 @@ class RecentFileManager(object):
                 rf_dict[section] = {}
                 rf_dict[section]['path'] = act_dict['path']
 
-        settings_manager.SettingsManager.save_settings(rf_dict, self.SETTING_FILE_NAME)
+        settings_manager.SettingsManager.save_settings(rf_dict,
+                                                       self.SETTING_FILE_NAME)
 
     @staticmethod
     def _stripped_name(full_file_name):
         from PyQt4.QtCore import QFileInfo
+
         return QFileInfo(full_file_name).fileName()
 
 

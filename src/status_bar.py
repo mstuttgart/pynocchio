@@ -1,10 +1,8 @@
 # -*- coding: UTF-8 -*-
 from PyQt4 import QtGui
-from PyQt4 import QtCore
 
 
 class StatusBar(QtGui.QStatusBar):
-
     def __init__(self, parent=None):
         super(StatusBar, self).__init__(parent)
 
@@ -53,7 +51,8 @@ class StatusBar(QtGui.QStatusBar):
         if not self.page_number:
             self.add_page_number_label()
 
-        self.page_number.setText(self.tr('Page: ') + str(current_page) + '/' + str(total_pages))
+        self.page_number.setText(
+            self.tr('Page: ') + str(current_page) + '/' + str(total_pages))
 
     def set_page_resolution(self, width, height):
         if not self.page_resolution:
