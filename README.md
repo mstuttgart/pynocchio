@@ -22,11 +22,10 @@ Ludic Game Library makes use of other libraries to perform some of their routine
 * To develop:
 * Python 2.7
 * PyQT4: sudo apt-get install pyqt4-dev-tools
-* Ferrametas Qt (QtDesigner e QLinguist): sudo apt-get install qt4-designer qt4-linguist-tools qt4-dev-tools
+* Tools Qt (QtDesigner e QLinguist): sudo apt-get install qt4-designer qt4-linguist-tools qt4-dev-tools
 * rarfile: sudo pip install rarfile
 
 * To use Pynocchio, you must only install rarfile module.
-
 
 You need of Qt Designer to open and edit .ui view files.
 Use de "compile_ui.sh" file to compile views of project.
