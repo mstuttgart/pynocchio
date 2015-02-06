@@ -15,50 +15,19 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from os import path
-from PyQt4 import QtCore
+import loader
 
 
-class Loader(object):
+class LoaderFactory(object):
 
-    def __init__(self, domain):
-        super(Loader, self).__init__()
-        self.extension = ['.png', '.jpg', '.jpeg', '.gif']
-        self.data = []
-        self.domain = domain
+    def __init__(self):
+        super(LoaderFactory, self).__init__()
 
     @staticmethod
     def get_loader(label):
-        for cls in Loader.__subclasses__():
+        for cls in loader.Loader.__subclasses__():
             if cls.get_label(label):
                 return cls
         raise ValueError
-
-
-    @classmethod
-    def get_label(cls, domain):
-        pass
-
-    def load(self, file_name):
-        # pages = []
-        #
-        # path_head, path_tail = path.split(str(file_name))
-        # self._load_core(pages, file_name)
-        #
-        # if not pages:
-        #     print "Load Comic failed!"
-        #
-        # return pages, path_head, path_tail
-        pass
-
-    def length_data(self):
-        return len(self.data)
-
-    def _clear_data(self):
-        self.data = []
-
-    # def _load_core(self, pages, file_name):
-    #     pass
-
 
 

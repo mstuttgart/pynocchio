@@ -19,6 +19,8 @@ from PyQt4 import QtCore
 
 import comic
 import bookmarks
+import loader_factory
+import page
 
 
 class Model(QtCore.QObject):
@@ -44,35 +46,58 @@ class Model(QtCore.QObject):
         if file_name == '':
             return
 
-        try:
-            import rar_loader
-            import tar_loader
-            import zip_loader
+        # import os.path
+        from os import path
 
-            if zip_loader.ZipLoader.is_zip_file(file_name):
-                return self._load_content(zip_loader.ZipLoader(self), file_name,
-                                          initial_page)
+        _, file_extension = path.splitext(file_name)
+        path, name = path.split(str(file_name))
 
-            elif rar_loader.RarLoader.is_rar_file(file_name):
-                return self._load_content(rar_loader.RarLoader(self), file_name,
-                                          initial_page)
+        import loader
+        # ld = loader_factory.LoaderFactory.get_loader(file_extension)
+        ld = loader.Loader.get_loader(file_extension)
+        ld.load(file_name)
 
-            elif tar_loader.TarLoader.is_tar_file(file_name):
-                return self._load_content(tar_loader.TarLoader(self), file_name,
-                                          initial_page)
+        pages = ld.data['data']
 
-        except IOError, err:
-            print '%20s  %s' % (file_name, err)
+        res = True
+        self.comic = comic.Comic(name, path, initial_page)
 
-        return False
+        # if not pages:
+        #     import page
+        #
+        #     q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
+        #     q_file.open(QtCore.QIODevice.ReadOnly)
+        #     pages.append(page.Page(q_file.readAll(), 'exit_red_1.png', 1))
+        #     res = True
+        #     self.current_directory = path
 
-    # def load_folder(self, folder_name, initial_page=0):
-    # import folder_loader
-    #
-    #     if folder_loader.FolderLoader.is_folder(folder_name):
-    #         return self._load_content(folder_loader.FolderLoader(), folder_name, initial_page)
-    #     print 'Not is folder'
-    #     return False
+        for p in pages:
+            self.comic.add_page(page.Page(p['data'], p['name'], pages.index(
+                p)+1))
+
+        return res
+
+        # try:
+        #     import rar_loader
+        #     import tar_loader
+        #     import zip_loader
+        #
+        #     if zip_loader.ZipLoader.is_zip_file(file_name):
+        #         return self._load_content(zip_loader.ZipLoader(self), file_name,
+        #                                   initial_page)
+        #
+        #     elif rar_loader.RarLoader.is_rar_file(file_name):
+        #         return self._load_content(rar_loader.RarLoader(self), file_name,
+        #                                   initial_page)
+        #
+        #     elif tar_loader.TarLoader.is_tar_file(file_name):
+        #         return self._load_content(tar_loader.TarLoader(self), file_name,
+        #                                   initial_page)
+
+        # except IOError, err:
+        #     print '%20s  %s' % (file_name, err)
+        #
+        # return False
 
     def _load_content(self, loader, file_name, initial_page=0):
         pages, path, name = loader.load_file(file_name)
