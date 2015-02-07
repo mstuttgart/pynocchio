@@ -22,8 +22,8 @@ class Utility(object):
     @staticmethod
     def get_file_extension(file_name):
 
-        if not isinstance(file_name, str):
-            file_name = str(file_name)
+        # if not isinstance(file_name, str):
+        file_name = str(file_name)
 
         t = os.path.splitext(file_name)
         return t[1]
