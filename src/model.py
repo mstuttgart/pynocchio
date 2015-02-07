@@ -65,7 +65,8 @@ class Model(QtCore.QObject):
                 # erro
                 q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
                 q_file.open(QtCore.QIODevice.ReadOnly)
-                pages.append(page.Page(q_file.readAll(), 'exit_red_1.png', 1))
+                ld.data.append(
+                    {'data': q_file.readAll(), 'name': 'exit_red_1.png'})
                 self.current_directory = Utility.get_dir_name(file_name)
 
             for p in ld.data:

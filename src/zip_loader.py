@@ -49,62 +49,16 @@ class ZipLoader(Loader):
         name_list = zf.namelist()
         name_list.sort()
 
-        # dlg = progress_dialog.ProgressDialog("Please Wait", "Cancel", 0,
-        #                                      len(name_list))
-        # dlg.setWindowTitle('Loading Comic File')
-        # dlg.show()
-        #
-        # count_page = 1
-
         for info in name_list:
             file_extension = Utility.get_file_extension(info.encode('utf-8'))
 
-            # QtCore.QCoreApplication.instance().processEvents()
-            # if dlg.wasCanceled():
-            #     raise GeneratorExit
-            # dlg.setValue(name_list.index(info))
-            if not Utility.is_dir(info) and file_extension.lower() in self.extension:
+            if not Utility.is_dir(info) and file_extension.lower() in  \
+                    self.extension:
                 self.data.append({'data': zf.read(info), 'name': info})
-                # count_page += 1
 
         zf.close()
 
         return True
-
-    # def _load_core(self, pages, file_name):
-    #
-    #     zf = None
-    #     file_name = str(file_name)
-    #
-    #     try:
-    #         zf = zipfile.ZipFile(file_name, 'r')
-    #     except zipfile.BadZipfile, err:
-    #         print '%20s  %s' % (file_name, err)
-    #     except zipfile.LargeZipFile, err:
-    #         print '%20s  %s' % (file_name, err)
-    #
-    #     name_list = zf.namelist()
-    #     name_list.sort()
-    #
-    #     # dlg = progress_dialog.ProgressDialog("Please Wait", "Cancel", 0,
-    #     #                                      len(name_list))
-    #     # dlg.setWindowTitle('Loading Comic File')
-    #     # dlg.show()
-    #     #
-    #     count_page = 1
-    #     for info in name_list:
-    #         _, file_extension = os.path.splitext(info)
-    #
-    #         # QtCore.QCoreApplication.instance().processEvents()
-    #         # if dlg.wasCanceled():
-    #         #     raise GeneratorExit
-    #         # dlg.setValue(name_list.index(info))
-    #
-    #         if file_extension.lower() in self.extension:
-    #             pages.append(Page(zf.read(info), info, count_page))
-    #             count_page += 1
-    #
-    #     zf.close()
 
     @staticmethod
     def is_zip_file(file_name):

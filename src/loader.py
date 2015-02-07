@@ -27,15 +27,6 @@ class Loader(object):
         self.data = []
 
     def load(self, file_name):
-        # pages = []
-        #
-        # path_head, path_tail = path.split(str(file_name))
-        # self._load_core(pages, file_name)
-        #
-        # if not pages:
-        #     print "Load Comic failed!"
-        #
-        # return pages, path_head, path_tail
         pass
 
     def length_data(self):
@@ -43,9 +34,6 @@ class Loader(object):
 
     def _clear_data(self):
         self.data = []
-
-    # def _load_core(self, pages, file_name):
-    #     pass
 
 
 
