@@ -21,25 +21,31 @@ Ludic Game Library makes use of other libraries to perform some of their routine
 
 * To develop:
 * Python 2.7
-* PyQT4: sudo apt-get install pyqt4-dev-tools
-* Tools Qt (QtDesigner e QLinguist): sudo apt-get install qt4-designer qt4-linguist-tools qt4-dev-tools
-* rarfile: sudo pip install rarfile
+* PyQT4: 
+```
+* sudo apt-get install pyqt4-dev-tools
+```
+* Tools Qt (QtDesigner e QLinguist): 
+```
+sudo apt-get install qt4-designer qt4-linguist-tools qt4-dev-tools
+```
+* rarfile: 
+```
+sudo pip install rarfile
+```
 
-* To use Pynocchio, you must only install rarfile module.
+* To use Pynocchio, you must only install *rarfile* module.
 
 You need of Qt Designer to open and edit .ui view files.
-Use de "compile_ui.sh" file to compile views of project.
+Use de **compile_ui.sh** file to compile views of project.
 
 ### I found a bug!
 Please report any and all bugs using the project issue
 tracker. Be as precise as possible so that the bug can be found easier. Thanks!
 
 ### Third party resources
-Pynocchio use FREE Icon Maker to build icon set.
-http://freeiconmaker.com/account/create
-
-and Icons pack Streamline icon set free pack.
-http://www.webalys.com/
+Pynocchio use [FREE Icon Maker](http://freeiconmaker.com/account/create) to build icon set 
+and [Icons pack Streamline](http://www.webalys.com/) icon set free pack.
 
 ## Credits
 Copyright (C) 2014-2015 by Michell Stuttgart Faria
