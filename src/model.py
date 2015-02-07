@@ -19,7 +19,6 @@ from PyQt4 import QtCore
 
 import comic
 import bookmarks
-import loader_factory
 import page
 
 
@@ -47,35 +46,43 @@ class Model(QtCore.QObject):
             return
 
         # import os.path
-        from os import path
-
-        _, file_extension = path.splitext(file_name)
-        path, name = path.split(str(file_name))
-
-        import loader
-        # ld = loader_factory.LoaderFactory.get_loader(file_extension)
-        ld = loader.Loader.get_loader(file_extension)
-        ld.load(file_name)
-
-        pages = ld.data['data']
-
-        res = True
-        self.comic = comic.Comic(name, path, initial_page)
-
-        # if not pages:
-        #     import page
+        # from os import path
         #
-        #     q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
-        #     q_file.open(QtCore.QIODevice.ReadOnly)
-        #     pages.append(page.Page(q_file.readAll(), 'exit_red_1.png', 1))
-        #     res = True
-        #     self.current_directory = path
+        # _, file_extension = path.splitext(file_name)
+        # path, name = path.split(str(file_name))
 
-        for p in pages:
-            self.comic.add_page(page.Page(p['data'], p['name'], pages.index(
-                p)+1))
+        # import loader
+        # lf = loader_factory.LoaderFactory()
+        # # ld = loader_factory.LoaderFactory.get_loader(file_extension)
+        # ld = loader.Loader.get_loader(file_extension)
+        # ld.load(file_name)
 
-        return res
+        from loader_factory import LoaderFactory
+        from utility import Utility
+
+        ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
+
+        if ld.load(file_name):
+            res = True
+            self.comic = comic.Comic(Utility.get_dir_name(file_name),
+                                     Utility.get_base_name(file_name),
+                                     initial_page)
+            if not ld.data:
+                # Caso nao exista nenhuma imagem, carregamos a imagem indicando
+                # erro
+                q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
+                q_file.open(QtCore.QIODevice.ReadOnly)
+                pages.append(page.Page(q_file.readAll(), 'exit_red_1.png', 1))
+                res = True
+                self.current_directory = path
+
+            for p in ld.data:
+                page_data = p['data']
+                page_name = p['name']
+                page_index = ld.data.index(p)+1
+                self.comic.add_page(page.Page(page_data, page_name, page_index))
+
+            return res
 
         # try:
         #     import rar_loader

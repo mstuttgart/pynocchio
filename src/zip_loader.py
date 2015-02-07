@@ -16,41 +16,36 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import zipfile
-import os.path
 from PyQt4 import QtCore
 
-import loader
-import progress_dialog
+from loader import Loader
+from progress_dialog import ProgressDialog
+from utility import Utility
 from page import Page
 
 
-class ZipLoader(loader.Loader):
-    _entity_ = 'zip'
+class ZipLoader(Loader):
 
     def __init__(self):
         super(ZipLoader, self).__init__()
 
-    @classmethod
-    def get_label(cls, domain):
-        return domain == '.zip'
-
     def load(self, file_name):
 
         if not self.is_zip_file(file_name):
-            return
+            return False
 
-        zf = None
         file_name = str(file_name)
 
         try:
             zf = zipfile.ZipFile(file_name, 'r')
         except zipfile.BadZipfile, err:
             print '%20s  %s' % (file_name, err)
+            return False
         except zipfile.LargeZipFile, err:
             print '%20s  %s' % (file_name, err)
+            return False
 
         self._clear_data()
-
         name_list = zf.namelist()
         name_list.sort()
 
@@ -60,19 +55,22 @@ class ZipLoader(loader.Loader):
         # dlg.show()
         #
         # count_page = 1
+
         for info in name_list:
-            _, file_extension = os.path.splitext(info)
+            # file_extension = Utility.get_file_extension(info)
 
             # QtCore.QCoreApplication.instance().processEvents()
             # if dlg.wasCanceled():
             #     raise GeneratorExit
             # dlg.setValue(name_list.index(info))
 
-            if file_extension.lower() in self.extension:
+            if Utility.get_file_extension(info).lower() in self.extension:
                 self.data.append({'data': zf.read(info), 'name': info})
                 # count_page += 1
 
         zf.close()
+
+        return True
 
     # def _load_core(self, pages, file_name):
     #

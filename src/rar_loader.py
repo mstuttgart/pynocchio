@@ -15,35 +15,33 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import os.path
-
 import rarfile
 from PyQt4.QtCore import QCoreApplication
 
-import loader
+from loader import Loader
 import progress_dialog
 from page import Page
+from utility import Utility
 
 
-class RarLoader(loader.Loader):
+class RarLoader(Loader):
     _entity_ = 'rar'
 
-    def __init__(self, parent=None):
-        super(RarLoader, self).__init__(parent)
-
-    @classmethod
-    def get_label(cls, domain):
-        return domain == '.rar'
+    def __init__(self):
+        super(RarLoader, self).__init__()
 
     def load(self, file_name):
 
         file_name = str(file_name)
 
+        if not self.is_rar_file(file_name):
+            return False
+
         try:
             rar = rarfile.RarFile(file_name, 'r')
         except rarfile.RarOpenError, err:
             print '%20s  %s' % (file_name, err)
-            return
+            return False
 
         name_list = rar.namelist()
         name_list.sort()
@@ -53,21 +51,23 @@ class RarLoader(loader.Loader):
         # dlg.setWindowTitle('Loading Comic File')
         # dlg.show()
 
-        count_page = 1
+        # count_page = 1
         for name in name_list:
-            _, file_extension = os.path.splitext(name)
+            # file_extension = Utility.get_file_extension(name)
 
             # dlg.setValue(name_list.index(name))
             # QCoreApplication.instance().processEvents()
             # if dlg.wasCanceled():
             #     raise GeneratorExit
 
-            if not rar.getinfo(
-                    name).isdir() and file_extension.lower() in self.extension:
-                self.data.append(Page(rar.read(name), name, count_page))
-                count_page += 1
+            if not rar.getinfo(name).isdir():
+
+                if Utility.get_file_extension(name).lower() in self.extension:
+                    self.data.append({'data': rar.read(name), 'name': name})
+                    # count_page += 1
 
         rar.close()
+        return True
 
     # def _load_core(self, pages, file_name):
     #

@@ -15,8 +15,6 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import loader
-
 
 class LoaderFactory(object):
 
@@ -24,10 +22,14 @@ class LoaderFactory(object):
         super(LoaderFactory, self).__init__()
 
     @staticmethod
-    def get_loader(label):
-        for cls in loader.Loader.__subclasses__():
-            if cls.get_label(label):
-                return cls
-        raise ValueError
+    def create_loader(extension):
 
-
+        if extension == '.zip' or extension == '.cbz':
+            import zip_loader
+            return zip_loader.ZipLoader()
+        elif extension == '.rar' or extension == '.cbr':
+            import rar_loader
+            return rar_loader.RarLoader()
+        elif extension == '.tar' or extension == '.cbt':
+            import tar_loader
+            return tar_loader.TarLoader()

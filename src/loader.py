@@ -21,23 +21,10 @@ from PyQt4 import QtCore
 
 class Loader(object):
 
-    def __init__(self, domain):
+    def __init__(self):
         super(Loader, self).__init__()
         self.extension = ['.png', '.jpg', '.jpeg', '.gif']
         self.data = []
-        self.domain = domain
-
-    @staticmethod
-    def get_loader(label):
-        for cls in Loader.__subclasses__():
-            if cls.get_label(label):
-                return cls
-        raise ValueError
-
-
-    @classmethod
-    def get_label(cls, domain):
-        pass
 
     def load(self, file_name):
         # pages = []
