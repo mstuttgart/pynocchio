@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# coding=UTF-8
 #
 # Copyright (C) 2015  Michell Stuttgart
 
@@ -21,7 +21,12 @@ class Utility(object):
 
     @staticmethod
     def get_file_extension(file_name):
-        return os.path.splitext(str(file_name))[1]
+
+        if not isinstance(file_name, str):
+            file_name = str(file_name)
+
+        t = os.path.splitext(file_name)
+        return t[1]
 
     @staticmethod
     def get_dir_name(file_path):

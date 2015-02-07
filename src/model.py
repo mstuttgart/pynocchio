@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# coding=UTF-8
 #
 # Copyright (C) 2015  Michell Stuttgart
 
@@ -43,7 +43,7 @@ class Model(QtCore.QObject):
     def load_comic(self, file_name, initial_page=0):
 
         if file_name == '':
-            return
+            return False
 
         # import os.path
         # from os import path
@@ -51,21 +51,14 @@ class Model(QtCore.QObject):
         # _, file_extension = path.splitext(file_name)
         # path, name = path.split(str(file_name))
 
-        # import loader
-        # lf = loader_factory.LoaderFactory()
-        # # ld = loader_factory.LoaderFactory.get_loader(file_extension)
-        # ld = loader.Loader.get_loader(file_extension)
-        # ld.load(file_name)
-
         from loader_factory import LoaderFactory
         from utility import Utility
 
         ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
 
         if ld.load(file_name):
-            res = True
-            self.comic = comic.Comic(Utility.get_dir_name(file_name),
-                                     Utility.get_base_name(file_name),
+            self.comic = comic.Comic(Utility.get_base_name(file_name),
+                                     Utility.get_dir_name(file_name),
                                      initial_page)
             if not ld.data:
                 # Caso nao exista nenhuma imagem, carregamos a imagem indicando
@@ -73,8 +66,7 @@ class Model(QtCore.QObject):
                 q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
                 q_file.open(QtCore.QIODevice.ReadOnly)
                 pages.append(page.Page(q_file.readAll(), 'exit_red_1.png', 1))
-                res = True
-                self.current_directory = path
+                self.current_directory = Utility.get_dir_name(file_name)
 
             for p in ld.data:
                 page_data = p['data']
@@ -82,7 +74,9 @@ class Model(QtCore.QObject):
                 page_index = ld.data.index(p)+1
                 self.comic.add_page(page.Page(page_data, page_name, page_index))
 
-            return res
+            return True
+
+        return False
 
         # try:
         #     import rar_loader

@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# coding=UTF-8
 #
 # Copyright (C) 2015  Michell Stuttgart
 
@@ -54,15 +54,15 @@ class TarLoader(Loader):
         #
         # count_page = 1
         for name in name_list:
-            # file_extension = Utility.get_file_extension(name)
+            file_extension = Utility.get_file_extension(name.encode('utf-8'))
 
             # dlg.setValue(name_list.index(name))
             # QCoreApplication.instance().processEvents()
             # if dlg.wasCanceled():
             #     raise GeneratorExit
 
-            if not tar.getmember(name).isdir():
-                if Utility.get_file_extension(name).lower() in self.extension:
+            if not tar.getmember(name).isdir() and file_extension.lower() in \
+                    self.extension:
 
                     data = None
                     try:

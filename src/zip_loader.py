@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# coding=UTF-8
 #
 # Copyright (C) 2015  Michell Stuttgart
 
@@ -57,14 +57,13 @@ class ZipLoader(Loader):
         # count_page = 1
 
         for info in name_list:
-            # file_extension = Utility.get_file_extension(info)
+            file_extension = Utility.get_file_extension(info.encode('utf-8'))
 
             # QtCore.QCoreApplication.instance().processEvents()
             # if dlg.wasCanceled():
             #     raise GeneratorExit
             # dlg.setValue(name_list.index(info))
-
-            if Utility.get_file_extension(info).lower() in self.extension:
+            if not Utility.is_dir(info) and file_extension.lower() in self.extension:
                 self.data.append({'data': zf.read(info), 'name': info})
                 # count_page += 1
 
