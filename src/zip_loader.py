@@ -31,10 +31,8 @@ class ZipLoader(Loader):
 
     def load(self, file_name):
 
-        if not self.is_zip_file(file_name):
+        if not zipfile.is_zipfile(file_name) or not isinstance(file_name, str):
             return False
-
-        file_name = str(file_name)
 
         try:
             zf = zipfile.ZipFile(file_name, 'r')
@@ -50,16 +48,11 @@ class ZipLoader(Loader):
         name_list.sort()
 
         for info in name_list:
-            file_extension = Utility.get_file_extension(info.encode('utf-8'))
+            file_extension = Utility.get_file_extension(info)
 
             if not Utility.is_dir(info) and file_extension.lower() in  \
                     self.extension:
                 self.data.append({'data': zf.read(info), 'name': info})
 
         zf.close()
-
         return True
-
-    @staticmethod
-    def is_zip_file(file_name):
-        return zipfile.is_zipfile(str(file_name))

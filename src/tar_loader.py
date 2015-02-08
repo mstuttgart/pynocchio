@@ -33,9 +33,7 @@ class TarLoader(Loader):
 
     def load(self, file_name):
 
-        file_name = str(file_name)
-
-        if not self.is_tar_file(file_name):
+        if not tarfile.is_tarfile(file_name) or not isinstance(file_name, str):
             return False
 
         try:
@@ -65,9 +63,5 @@ class TarLoader(Loader):
                         self.data.append({'data': data, 'name': name})
 
         tar.close()
-
         return True
 
-    @staticmethod
-    def is_tar_file(file_name):
-        return tarfile.is_tarfile(str(file_name))

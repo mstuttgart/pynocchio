@@ -31,9 +31,7 @@ class RarLoader(Loader):
 
     def load(self, file_name):
 
-        file_name = str(file_name)
-
-        if not self.is_rar_file(file_name):
+        if not rarfile.is_rarfile(file_name) or not isinstance(file_name, str):
             return False
 
         try:
@@ -46,7 +44,7 @@ class RarLoader(Loader):
         name_list.sort()
 
         for name in name_list:
-            file_extension = Utility.get_file_extension(name.encode('utf-8'))
+            file_extension = Utility.get_file_extension(name)
 
             if not rar.getinfo(name).isdir() and file_extension.lower() in\
                     self.extension:
@@ -55,6 +53,3 @@ class RarLoader(Loader):
         rar.close()
         return True
 
-    @staticmethod
-    def is_rar_file(file_name):
-        return rarfile.is_rarfile(str(file_name))
