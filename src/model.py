@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# coding=UTF-8
 #
 # Copyright (C) 2015  Michell Stuttgart
 
@@ -19,6 +19,7 @@ from PyQt4 import QtCore
 
 import comic
 import bookmarks
+import page
 
 
 class Model(QtCore.QObject):
@@ -42,57 +43,34 @@ class Model(QtCore.QObject):
     def load_comic(self, file_name, initial_page=0):
 
         if file_name == '':
-            return
+            return False
 
-        try:
-            import rar_loader
-            import tar_loader
-            import zip_loader
+        from loader_factory import LoaderFactory
+        from utility import Utility
 
-            if zip_loader.ZipLoader.is_zip_file(file_name):
-                return self._load_content(zip_loader.ZipLoader(self), file_name,
-                                          initial_page)
+        ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
 
-            elif rar_loader.RarLoader.is_rar_file(file_name):
-                return self._load_content(rar_loader.RarLoader(self), file_name,
-                                          initial_page)
+        if ld.load(file_name):
+            self.comic = comic.Comic(Utility.get_base_name(file_name),
+                                     Utility.get_dir_name(file_name),
+                                     initial_page)
+            if not ld.data:
+                # Caso nao exista nenhuma imagem, carregamos a imagem indicando
+                # erro
+                q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
+                q_file.open(QtCore.QIODevice.ReadOnly)
+                ld.data.append(
+                    {'data': q_file.readAll(), 'name': 'exit_red_1.png'})
+                self.current_directory = Utility.get_dir_name(file_name)
 
-            elif tar_loader.TarLoader.is_tar_file(file_name):
-                return self._load_content(tar_loader.TarLoader(self), file_name,
-                                          initial_page)
+            for p in ld.data:
+                page_data = p['data']
+                page_name = p['name']
+                page_index = ld.data.index(p)+1
+                self.comic.add_page(page.Page(page_data, page_name, page_index))
 
-        except IOError, err:
-            print '%20s  %s' % (file_name, err)
-
+            return True
         return False
-
-    # def load_folder(self, folder_name, initial_page=0):
-    # import folder_loader
-    #
-    #     if folder_loader.FolderLoader.is_folder(folder_name):
-    #         return self._load_content(folder_loader.FolderLoader(), folder_name, initial_page)
-    #     print 'Not is folder'
-    #     return False
-
-    def _load_content(self, loader, file_name, initial_page=0):
-        pages, path, name = loader.load_file(file_name)
-
-        res = True
-        self.comic = comic.Comic(name, path, initial_page)
-
-        if not pages:
-            import page
-
-            q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
-            q_file.open(QtCore.QIODevice.ReadOnly)
-            pages.append(page.Page(q_file.readAll(), 'exit_red_1.png', 1))
-            res = True
-            self.current_directory = path
-
-        for p in pages:
-            self.comic.add_page(p)
-
-        return res
 
     def next_page(self):
         if self.comic:
