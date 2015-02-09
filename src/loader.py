@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# coding=UTF-8
 #
 # Copyright (C) 2015  Michell Stuttgart
 
@@ -19,22 +19,21 @@ from os import path
 from PyQt4 import QtCore
 
 
-class Loader(QtCore.QObject):
-    def __init__(self, parent=None):
-        super(Loader, self).__init__(parent)
+class Loader(object):
+
+    def __init__(self):
+        super(Loader, self).__init__()
         self.extension = ['.png', '.jpg', '.jpeg', '.gif']
+        self.data = []
 
-    def load_file(self, file_name):
-        pages = []
-
-        path_head, path_tail = path.split(str(file_name))
-        self._load_core(pages, file_name)
-
-        if not pages:
-            print "Load Comic failed!"
-
-        return pages, path_head, path_tail
-
-    def _load_core(self, pages, file_name):
+    def load(self, file_name):
         pass
+
+    def length_data(self):
+        return len(self.data)
+
+    def _clear_data(self):
+        self.data = []
+
+
 

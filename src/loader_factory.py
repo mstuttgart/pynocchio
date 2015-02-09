@@ -14,26 +14,22 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-from PyQt4 import QtGui, QtCore
-from main_window import MainWindow
 
 
-def main():
-    import sys
+class LoaderFactory(object):
 
-    app = QtGui.QApplication(sys.argv)
-    app.setApplicationName('Pynocchio')
+    def __init__(self):
+        super(LoaderFactory, self).__init__()
 
-    translator = QtCore.QTranslator()
-    translator.load("../i18n/pt_BR.qm")
-    app.installTranslator(translator)
+    @staticmethod
+    def create_loader(extension):
 
-    main_window = MainWindow()
-    main_window.show()
-
-    sys.exit(app.exec_())
-
-
-if __name__ == "__main__":
-    main()
+        if extension == '.zip' or extension == '.cbz':
+            import zip_loader
+            return zip_loader.ZipLoader()
+        elif extension == '.rar' or extension == '.cbr':
+            import rar_loader
+            return rar_loader.RarLoader()
+        elif extension == '.tar' or extension == '.cbt':
+            import tar_loader
+            return tar_loader.TarLoader()

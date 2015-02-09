@@ -14,26 +14,34 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-from PyQt4 import QtGui, QtCore
-from main_window import MainWindow
+import os
+from PyQt4.QtCore import QString
 
 
-def main():
-    import sys
+class Utility(object):
 
-    app = QtGui.QApplication(sys.argv)
-    app.setApplicationName('Pynocchio')
+    @staticmethod
+    def get_file_extension(file_name):
+        return os.path.splitext(file_name)[1]
 
-    translator = QtCore.QTranslator()
-    translator.load("../i18n/pt_BR.qm")
-    app.installTranslator(translator)
+    @staticmethod
+    def get_dir_name(file_path):
+        return os.path.dirname(file_path)
 
-    main_window = MainWindow()
-    main_window.show()
+    @staticmethod
+    def get_base_name(file_path):
+        return os.path.basename(file_path)
 
-    sys.exit(app.exec_())
+    @staticmethod
+    def path_exist(file_path):
+        return os.path.lexists(file_path)
 
+    @staticmethod
+    def is_dir(file_path):
+        return os.path.isdir(file_path)
 
-if __name__ == "__main__":
-    main()
+    @staticmethod
+    def convert_qstring_to_str(qstring):
+        if isinstance(qstring, QString):
+            return str(qstring.toUtf8())
+
