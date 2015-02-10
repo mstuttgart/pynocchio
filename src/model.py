@@ -102,7 +102,7 @@ class Model(object):
     def previous_comic(self):
         return self.previous_comic_path
 
-    def verify_comics_in_path(self, action_next_comic, action_previous_comic):
+    def verify_comics_in_path(self):
 
         from PyQt4.QtCore import QDir
 
@@ -122,18 +122,18 @@ class Model(object):
         if index > 0:
             self.previous_comic_path = self.comic.directory + "/" + str_list[
                 index - 1]
-            action_previous_comic.setEnabled(True)
+            self.main_window.action_previous_comic.setEnabled(True)
         else:
             self.previous_comic_path = ''
-            action_previous_comic.setEnabled(False)
+            self.main_window.action_previous_comic.setEnabled(False)
 
         if (index + 1) < len(str_list):
             self.next_comic_path = self.comic.directory + "/" + str_list[
                 index + 1]
-            action_next_comic.setEnabled(True)
+            self.main_window.action_next_comic.setEnabled(True)
         else:
             self.next_comic_path = ''
-            action_next_comic.setEnabled(False)
+            self.main_window.action_next_comic.setEnabled(False)
 
     def rotate_left(self):
         self.rotateAngle = (self.rotateAngle - 90) % 360
