@@ -54,13 +54,13 @@ class StatusBar(QtGui.QStatusBar):
 
         self.comic_path.show()
 
-    def add_progress_bar(self):
+    def add_progress_bar(self, maximum_value=100):
 
         if self.progress_bar is None:
             self.remove_labels()
             self.progress_bar = QtGui.QProgressBar()
-            self.progress_bar.setMaximum(100)
             self.progress_bar.setFixedHeight(15)
+            self.progress_bar.setMaximum(maximum_value)
             self.addWidget(self.progress_bar, 1)
             self.progress_bar.show()
 
@@ -104,7 +104,7 @@ class StatusBar(QtGui.QStatusBar):
 
         self.comic_path.setText(self.tr('Title: ') + path)
 
-    @pyqtSlot(int)
+    @pyqtSlot(int, int)
     def set_progressbar_value(self, n):
         self.add_progress_bar()
         self.progress_bar.setValue(n)

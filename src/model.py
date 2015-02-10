@@ -52,7 +52,7 @@ class Model(object):
         ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
         ld.progress.connect(self.main_window.statusbar.set_progressbar_value)
         ld.done.connect(self.main_window.statusbar.close_progress_bar)
-        self.main_window.statusbar.add_progress_bar()
+        # self.main_window.statusbar.add_progress_bar()
 
         if ld.load(file_name):
             self.comic = comic.Comic(Utility.get_base_name(file_name),
