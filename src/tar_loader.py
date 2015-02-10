@@ -45,22 +45,28 @@ class TarLoader(Loader):
         name_list = tar.getnames()
         name_list.sort()
 
+        list_size = len(name_list)
+        count = 1
+
         for name in name_list:
-            file_extension = Utility.get_file_extension(name.encode('utf-8'))
+            file_extension = Utility.get_file_extension(name)
 
             if not tar.getmember(name).isdir() and file_extension.lower() in \
                     self.extension:
+                data = None
+                try:
+                    data = tar.extractfile(name).read()
+                except tarfile.ExtractError, err:
+                    print '%20s  %s' % (name, err)
+                except tarfile.ReadError, err:
+                    print '%20s  %s' % (name, err)
 
-                    data = None
-                    try:
-                        data = tar.extractfile(name).read()
-                    except tarfile.ExtractError, err:
-                        print '%20s  %s' % (name, err)
-                    except tarfile.ReadError, err:
-                        print '%20s  %s' % (name, err)
+                if data:
+                    self.data.append({'data': data, 'name': name})
+                    self._load_file_progress(100 * count/list_size)
+            count += 1
 
-                    if data:
-                        self.data.append({'data': data, 'name': name})
+        self._load_done()
 
         tar.close()
         return True

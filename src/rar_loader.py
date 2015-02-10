@@ -43,13 +43,19 @@ class RarLoader(Loader):
         name_list = rar.namelist()
         name_list.sort()
 
+        list_size = len(name_list)
+        count = 1
+
         for name in name_list:
             file_extension = Utility.get_file_extension(name)
 
             if not rar.getinfo(name).isdir() and file_extension.lower() in\
                     self.extension:
                 self.data.append({'data': rar.read(name), 'name': name})
+                self._load_file_progress(100 * count/list_size)
+            count += 1
 
+        self._load_done()
         rar.close()
         return True
 

@@ -176,11 +176,11 @@ class Model(object):
         return False
 
     def _load_pixmap_from_data(self):
-        page = None
+        # pg = None
         if self.comic:
-            page = self.comic.get_current_page()
-        if page:
-            self.original_pixmap.loadFromData(page)
+            pg = self.comic.get_current_page()
+            if pg:
+                self.original_pixmap.loadFromData(pg)
 
         return self.update_content()
 

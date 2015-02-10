@@ -60,7 +60,7 @@ class StatusBar(QtGui.QStatusBar):
             self.remove_labels()
             self.progress_bar = QtGui.QProgressBar()
             self.progress_bar.setMaximum(100)
-            self.progress_bar.setFixedHeight(12)
+            self.progress_bar.setFixedHeight(15)
             self.addWidget(self.progress_bar, 1)
             self.progress_bar.show()
 
