@@ -22,13 +22,14 @@ import bookmarks
 import page
 
 
-class Model(QtCore.QObject):
+class Model(object):
     NUM_BOOKMARK = 5
 
-    def __init__(self, parent=None):
+    def __init__(self, main_window):
 
-        super(Model, self).__init__(parent)
+        super(Model, self).__init__()
 
+        self.main_window = main_window
         self.comic = None
         self.original_pixmap = QtGui.QPixmap()
         self.adjustType = 'action_original_fit'
@@ -49,6 +50,9 @@ class Model(QtCore.QObject):
         from utility import Utility
 
         ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
+        ld.progress.connect(self.main_window.statusbar.set_progressbar_value)
+        ld.done.connect(self.main_window.statusbar.close_progress_bar)
+        self.main_window.statusbar.add_progress_bar()
 
         if ld.load(file_name):
             self.comic = comic.Comic(Utility.get_base_name(file_name),
