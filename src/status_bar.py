@@ -16,6 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import QtGui
+from PyQt4.QtCore import pyqtSlot
 
 
 class StatusBar(QtGui.QStatusBar):
@@ -25,9 +26,11 @@ class StatusBar(QtGui.QStatusBar):
         self.page_number = None
         self.page_resolution = None
         self.comic_path = None
+        self.progress_bar = None
 
     def add_page_number_label(self):
         if self.page_number is None:
+            self.remove_progress_bar()
             self.page_number = QtGui.QLabel(self)
             self.page_number.setMinimumWidth(120)
             self.addWidget(self.page_number, 0)
@@ -36,6 +39,7 @@ class StatusBar(QtGui.QStatusBar):
 
     def add_page_resolution_label(self):
         if self.page_resolution is None:
+            self.remove_progress_bar()
             self.page_resolution = QtGui.QLabel(self)
             self.page_resolution.setMinimumWidth(140)
             self.addWidget(self.page_resolution, 1)
@@ -44,10 +48,27 @@ class StatusBar(QtGui.QStatusBar):
 
     def add_comic_path_label(self):
         if self.comic_path is None:
+            self.remove_progress_bar()
             self.comic_path = QtGui.QLabel(self)
             self.addWidget(self.comic_path, 2)
 
         self.comic_path.show()
+
+    def add_progress_bar(self):
+
+        if self.progress_bar is None:
+            self.remove_labels()
+            self.progress_bar = QtGui.QProgressBar()
+            self.progress_bar.setMaximum(100)
+            self.progress_bar.setFixedHeight(15)
+            self.addWidget(self.progress_bar, 1)
+            self.progress_bar.show()
+
+    def remove_progress_bar(self):
+
+        if self.progress_bar:
+            self.removeWidget(self.progress_bar)
+            self.progress_bar = None
 
     def remove_labels(self):
 
@@ -82,3 +103,16 @@ class StatusBar(QtGui.QStatusBar):
             self.add_comic_path_label()
 
         self.comic_path.setText(self.tr('Title: ') + path)
+
+    @pyqtSlot(int)
+    def set_progressbar_value(self, n):
+        self.add_progress_bar()
+        self.progress_bar.setValue(n)
+
+    @pyqtSlot()
+    def close_progress_bar(self):
+        self.remove_progress_bar()
+        self.add_page_number_label()
+        self.add_page_resolution_label()
+        self.add_comic_path_label()
+

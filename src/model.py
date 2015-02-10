@@ -22,13 +22,14 @@ import bookmarks
 import page
 
 
-class Model(QtCore.QObject):
+class Model(object):
     NUM_BOOKMARK = 5
 
-    def __init__(self, parent=None):
+    def __init__(self, main_window):
 
-        super(Model, self).__init__(parent)
+        super(Model, self).__init__()
 
+        self.main_window = main_window
         self.comic = None
         self.original_pixmap = QtGui.QPixmap()
         self.adjustType = 'action_original_fit'
@@ -49,6 +50,9 @@ class Model(QtCore.QObject):
         from utility import Utility
 
         ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
+        ld.progress.connect(self.main_window.statusbar.set_progressbar_value)
+        ld.done.connect(self.main_window.statusbar.close_progress_bar)
+        self.main_window.statusbar.add_progress_bar()
 
         if ld.load(file_name):
             self.comic = comic.Comic(Utility.get_base_name(file_name),
@@ -98,7 +102,7 @@ class Model(QtCore.QObject):
     def previous_comic(self):
         return self.previous_comic_path
 
-    def verify_comics_in_path(self, action_next_comic, action_previous_comic):
+    def verify_comics_in_path(self):
 
         from PyQt4.QtCore import QDir
 
@@ -118,18 +122,18 @@ class Model(QtCore.QObject):
         if index > 0:
             self.previous_comic_path = self.comic.directory + "/" + str_list[
                 index - 1]
-            action_previous_comic.setEnabled(True)
+            self.main_window.action_previous_comic.setEnabled(True)
         else:
             self.previous_comic_path = ''
-            action_previous_comic.setEnabled(False)
+            self.main_window.action_previous_comic.setEnabled(False)
 
         if (index + 1) < len(str_list):
             self.next_comic_path = self.comic.directory + "/" + str_list[
                 index + 1]
-            action_next_comic.setEnabled(True)
+            self.main_window.action_next_comic.setEnabled(True)
         else:
             self.next_comic_path = ''
-            action_next_comic.setEnabled(False)
+            self.main_window.action_next_comic.setEnabled(False)
 
     def rotate_left(self):
         self.rotateAngle = (self.rotateAngle - 90) % 360
@@ -172,11 +176,11 @@ class Model(QtCore.QObject):
         return False
 
     def _load_pixmap_from_data(self):
-        page = None
+        # pg = None
         if self.comic:
-            page = self.comic.get_current_page()
-        if page:
-            self.original_pixmap.loadFromData(page)
+            pg = self.comic.get_current_page()
+            if pg:
+                self.original_pixmap.loadFromData(pg)
 
         return self.update_content()
 
