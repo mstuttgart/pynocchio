@@ -52,10 +52,11 @@ class RarLoader(Loader):
             if not rar.getinfo(name).isdir() and file_extension.lower() in\
                     self.extension:
                 self.data.append({'data': rar.read(name), 'name': name})
-                self._load_file_progress(100 * count/list_size)
+                self.progress.emit(count * 100/list_size)
+
             count += 1
 
-        self._load_done()
+        self.done.emit()
         rar.close()
         return True
 

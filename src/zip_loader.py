@@ -56,9 +56,10 @@ class ZipLoader(Loader):
             if not Utility.is_dir(info) and file_extension.lower() in  \
                     self.extension:
                 self.data.append({'data': zf.read(info), 'name': info})
-                self._load_file_progress(100 * count/list_size)
+                self.progress.emit(count * 100/list_size)
+
             count += 1
 
-        self._load_done()
+        self.done.emit()
         zf.close()
         return True

@@ -63,11 +63,10 @@ class TarLoader(Loader):
 
                 if data:
                     self.data.append({'data': data, 'name': name})
-                    self._load_file_progress(100 * count/list_size)
+                    self.progress.emit(count * 100/list_size)
             count += 1
 
-        self._load_done()
-
+        self.done.emit()
         tar.close()
         return True
 
