@@ -43,16 +43,17 @@ class Model(object):
 
     def load_comic(self, file_name, initial_page=0):
 
-        if file_name == '':
-            return False
-
         from loader_factory import LoaderFactory
         from utility import Utility
 
-        ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
+        try:
+            ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
+        except IOError:
+            print self.main_window.tr('File not exist')
+            return False
+
         ld.progress.connect(self.main_window.statusbar.set_progressbar_value)
         ld.done.connect(self.main_window.statusbar.close_progress_bar)
-        # self.main_window.statusbar.add_progress_bar()
 
         if ld.load(file_name):
             self.comic = comic.Comic(Utility.get_base_name(file_name),
