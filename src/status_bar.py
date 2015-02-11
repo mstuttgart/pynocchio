@@ -61,7 +61,8 @@ class StatusBar(QStatusBar):
             self.progress_bar = QProgressBar()
             self.progress_bar.setFixedHeight(15)
             self.progress_bar.setMaximum(maximum_value)
-            self.addWidget(self.progress_bar, 1)
+            self.progress_bar.setMaximumWidth(self.width())
+            self.addWidget(self.progress_bar, 3)
             self.progress_bar.show()
 
     def remove_progress_bar(self):

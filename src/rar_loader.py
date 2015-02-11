@@ -16,11 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import rarfile
-from PyQt4.QtCore import QCoreApplication
 
 from loader import Loader
-import progress_dialog
-from page import Page
 from utility import Utility
 
 

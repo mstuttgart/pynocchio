@@ -16,12 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import zipfile
-from PyQt4 import QtCore
-
 from loader import Loader
-from progress_dialog import ProgressDialog
 from utility import Utility
-from page import Page
 
 
 class ZipLoader(Loader):

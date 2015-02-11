@@ -17,12 +17,7 @@
 
 import tarfile
 
-
-from PyQt4.QtCore import QCoreApplication
-
 from loader import Loader
-import progress_dialog
-from page import Page
 from utility import Utility
 
 
