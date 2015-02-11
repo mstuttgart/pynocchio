@@ -15,25 +15,28 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-from PyQt4 import QtGui, QtCore
+from PyQt4.QtGui import QApplication
+from PyQt4.QtCore import QLocale, QTranslator
 from main_window import MainWindow
 
 
 def main():
     import sys
 
-    app = QtGui.QApplication(sys.argv)
-    app.setApplicationName('Pynocchio')
+    app = QApplication(sys.argv)
+    app.setApplicationName('Pynocchio Comic Reader')
 
-    translator = QtCore.QTranslator()
-    translator.load("../i18n/pt_BR.qm")
-    app.installTranslator(translator)
+    qm = QLocale().name()
+
+    if qm != 'en_US':
+        translator = QTranslator()
+        translator.load("../i18n/qt_%s.qm" % qm)
+        app.installTranslator(translator)
 
     main_window = MainWindow()
     main_window.show()
 
     sys.exit(app.exec_())
-
 
 if __name__ == "__main__":
     main()
