@@ -444,17 +444,3 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.on_action_fullscreen_triggered()
         else:
             super(MainWindow, self).mousePressEvent(*args, **kwargs)
-
-    def resizeEvent(self, *args, **kwargs):
-        new_size = args[0].size()
-
-        # new_size = self.scroll_area_viewer.size()
-        # new_size = self.size()
-        # + QtCore.QSize(self.horizontalScrollBar().height(), self.verticalScrollBar().width())
-        if self.model:
-            self.model.set_size(new_size)
-
-        if self.model.comic:
-            self.label.setPixmap(self.model.get_current_page())
-
-        super(MainWindow, self).resizeEvent(*args, **kwargs)
