@@ -15,7 +15,15 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import rarfile
+try:
+    import rarfile
+except ImportError, err:
+    print 'rarfile module not installed.\n' \
+          'Please install it using: sudo pip install rarfile\n'
+    exit(-1)
+
+
+
 
 from loader import Loader
 from utility import Utility

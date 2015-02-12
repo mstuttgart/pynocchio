@@ -15,23 +15,35 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+import sys
+
+try:
+    import PyQt4
+except Exception:
+    sys.exit("Error: Could not import PyQt4, you may try in linux:"
+             "'sudo apt-get install python-qt4' or catch de installer for "
+             "Windows")
+
 from PyQt4.QtGui import QApplication
 from PyQt4.QtCore import QLocale, QTranslator
 from main_window import MainWindow
 
 
 def main():
-    import sys
 
     app = QApplication(sys.argv)
     app.setApplicationName('Pynocchio Comic Reader')
 
-    qm = QLocale().name()
+    qm = QLocale.system().name()
 
     if qm != 'en_US':
         translator = QTranslator()
-        translator.load("../i18n/qt_%s.qm" % qm)
-        app.installTranslator(translator)
+
+        try:
+            translator.load("../i18n/qt_%s.qm" % qm)
+            app.installTranslator(translator)
+        except Exception, err:
+            print err
 
     main_window = MainWindow()
     main_window.show()
