@@ -19,9 +19,9 @@ import sys
 
 try:
     import PyQt4
-except Exception:
+except ImportError:
     sys.exit("Error: Could not import PyQt4, you may try in linux:"
-             "'sudo apt-get install python-qt4' or catch de installer for "
+             "'sudo apt-get install python-qt4' or get de installer for "
              "Windows")
 
 from PyQt4.QtGui import QApplication
@@ -42,7 +42,7 @@ def main():
         try:
             translator.load("../i18n/qt_%s.qm" % qm)
             app.installTranslator(translator)
-        except Exception, err:
+        except IOError, err:
             print err
 
     main_window = MainWindow()
