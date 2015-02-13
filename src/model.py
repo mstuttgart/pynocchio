@@ -14,8 +14,8 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-from PyQt4 import QtGui
-from PyQt4 import QtCore
+from PyQt4.QtGui import QPixmap, QColor, QTransform
+from PyQt4.QtCore import QSize, QFile, QIODevice, Qt
 
 import comic
 import bookmarks
@@ -31,28 +31,29 @@ class Model(object):
 
         self.main_window = main_window
         self.comic = None
-        self.original_pixmap = QtGui.QPixmap()
+        self.original_pixmap = QPixmap()
         self.adjustType = 'action_original_fit'
-        self.screenSize = QtCore.QSize(0, 0)
+        self.screenSize = QSize(0, 0)
         self.rotateAngle = 0
         self.current_directory = ''
         self.next_comic_path = ''
         self.previous_comic_path = ''
         self.current_language = ''
-        self.background_color = QtGui.QColor(255, 255, 200)
+        self.background_color = QColor(255, 255, 200)
 
     def load_comic(self, file_name, initial_page=0):
-
-        if file_name == '':
-            return False
 
         from loader_factory import LoaderFactory
         from utility import Utility
 
-        ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
+        try:
+            ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
+        except IOError:
+            print self.main_window.tr('File not exist')
+            return False
+
         ld.progress.connect(self.main_window.statusbar.set_progressbar_value)
         ld.done.connect(self.main_window.statusbar.close_progress_bar)
-        self.main_window.statusbar.add_progress_bar()
 
         if ld.load(file_name):
             self.comic = comic.Comic(Utility.get_base_name(file_name),
@@ -61,8 +62,8 @@ class Model(object):
             if not ld.data:
                 # Caso nao exista nenhuma imagem, carregamos a imagem indicando
                 # erro
-                q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
-                q_file.open(QtCore.QIODevice.ReadOnly)
+                q_file = QFile(":/icons/icons/exit_red_1.png")
+                q_file.open(QIODevice.ReadOnly)
                 ld.data.append(
                     {'data': q_file.readAll(), 'name': 'exit_red_1.png'})
                 self.current_directory = Utility.get_dir_name(file_name)
@@ -74,6 +75,7 @@ class Model(object):
                 self.comic.add_page(page.Page(page_data, page_name, page_index))
 
             return True
+
         return False
 
     def next_page(self):
@@ -166,7 +168,8 @@ class Model(object):
         return -1
 
     def is_last_page(self):
-        if self.comic and self.comic.current_page_index + 1 == self.comic.get_number_of_pages():
+        if self.comic and self.comic.current_page_index + 1 ==  \
+                self.comic.get_number_of_pages():
             return True
         return False
 
@@ -192,8 +195,8 @@ class Model(object):
 
     def _rotate_page(self, pix_map):
         if self.rotateAngle != 0:
-            trans = QtGui.QTransform().rotate(self.rotateAngle)
-            pix_map = QtGui.QPixmap(pix_map.transformed(trans))
+            trans = QTransform().rotate(self.rotateAngle)
+            pix_map = QPixmap(pix_map.transformed(trans))
 
         return pix_map
 
@@ -203,16 +206,15 @@ class Model(object):
 
             if self.adjustType == 'action_vertical_adjust':
                 pix_map = pix_map.scaledToHeight(
-                    self.screenSize.height(), QtCore.Qt.SmoothTransformation)
+                    self.screenSize.height(), Qt.SmoothTransformation)
 
             elif self.adjustType == 'action_horizontal_adjust':
                 pix_map = pix_map.scaledToWidth(
-                    self.screenSize.width(), QtCore.Qt.SmoothTransformation)
+                    self.screenSize.width(), Qt.SmoothTransformation)
 
             elif self.adjustType == 'action_best_fit':
                 pix_map = pix_map.scaledToWidth(
-                    self.screenSize.width() * 0.8,
-                    QtCore.Qt.SmoothTransformation)
+                    self.screenSize.width() * 0.8, Qt.SmoothTransformation)
 
             return pix_map
 

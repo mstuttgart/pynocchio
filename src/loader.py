@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4.QtCore import QObject, pyqtSignal, pyqtSlot
+from PyQt4.QtCore import QObject, pyqtSignal
 
 
 class Loader(QObject):
@@ -30,12 +30,6 @@ class Loader(QObject):
 
     def load(self, file_name):
         pass
-
-    def _load_file_progress(self, percentage):
-        self.progress.emit(percentage)
-
-    def _load_done(self):
-        self.done.emit()
 
     def length_data(self):
         return len(self.data)

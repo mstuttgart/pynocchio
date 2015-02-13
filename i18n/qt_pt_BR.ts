@@ -413,7 +413,7 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
     <message>
         <location filename="src/main_window.py" line="324"/>
         <source>About Pynocchio Comic Reader</source>
-        <translation type="unfinished">Sobre Pynocchio Comic Reader</translation>
+        <translation>Sobre Pynocchio Comic Reader</translation>
     </message>
 </context>
 <context>

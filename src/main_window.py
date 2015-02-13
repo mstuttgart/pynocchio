@@ -15,13 +15,11 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import QtGui
-from PyQt4 import QtCore
-from PyQt4 import uic
+from PyQt4 import QtGui, QtCore, uic
 
-import model
-import recent_files_manager
-import status_bar
+from model import Model
+from recent_files_manager import RecentFileManager
+from status_bar import StatusBar
 
 
 MainWindowForm, MainWindowBase = uic.loadUiType('../view/main_window.ui')
@@ -32,11 +30,11 @@ class MainWindow(MainWindowBase, MainWindowForm):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
 
-        self.model = model.Model(self)
+        self.model = Model(self)
         self.scroll_area_viewer.model = self.model
         self.scroll_area_viewer.label = self.label
 
-        self.statusbar = status_bar.StatusBar(self)
+        self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)
 
         self.on_action_show_statusbar_triggered()
@@ -56,7 +54,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             actions.append(act)
             self.menu_recent_files.addAction(act)
 
-        self.recentFileManager = recent_files_manager.RecentFileManager(actions)
+        self.recentFileManager = RecentFileManager(actions)
         self._load_settings()
         self._init_bookmark_menu()
         self._adjust_main_window()
@@ -446,17 +444,3 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.on_action_fullscreen_triggered()
         else:
             super(MainWindow, self).mousePressEvent(*args, **kwargs)
-
-    def resizeEvent(self, *args, **kwargs):
-        new_size = args[0].size()
-
-        # new_size = self.scroll_area_viewer.size()
-        # new_size = self.size()
-        # + QtCore.QSize(self.horizontalScrollBar().height(), self.verticalScrollBar().width())
-        if self.model:
-            self.model.set_size(new_size)
-
-        if self.model.comic:
-            self.label.setPixmap(self.model.get_current_page())
-
-        super(MainWindow, self).resizeEvent(*args, **kwargs)

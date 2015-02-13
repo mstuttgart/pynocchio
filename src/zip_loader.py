@@ -16,12 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import zipfile
-from PyQt4 import QtCore
-
 from loader import Loader
-from progress_dialog import ProgressDialog
 from utility import Utility
-from page import Page
 
 
 class ZipLoader(Loader):
@@ -56,9 +52,10 @@ class ZipLoader(Loader):
             if not Utility.is_dir(info) and file_extension.lower() in  \
                     self.extension:
                 self.data.append({'data': zf.read(info), 'name': info})
-                self._load_file_progress(100 * count/list_size)
+                self.progress.emit(count * 100/list_size)
+
             count += 1
 
-        self._load_done()
+        self.done.emit()
         zf.close()
         return True

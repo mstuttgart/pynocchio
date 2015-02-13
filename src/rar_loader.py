@@ -15,12 +15,17 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import rarfile
-from PyQt4.QtCore import QCoreApplication
+try:
+    import rarfile
+except ImportError, err:
+    print 'rarfile module not installed.\n' \
+          'Please install it using: sudo pip install rarfile\n'
+    exit(-1)
+
+
+
 
 from loader import Loader
-import progress_dialog
-from page import Page
 from utility import Utility
 
 
@@ -52,10 +57,11 @@ class RarLoader(Loader):
             if not rar.getinfo(name).isdir() and file_extension.lower() in\
                     self.extension:
                 self.data.append({'data': rar.read(name), 'name': name})
-                self._load_file_progress(100 * count/list_size)
+                self.progress.emit(count * 100/list_size)
+
             count += 1
 
-        self._load_done()
+        self.done.emit()
         rar.close()
         return True
 
