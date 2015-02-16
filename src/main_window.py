@@ -20,6 +20,7 @@ from PyQt4 import QtGui, QtCore, uic
 from model import Model
 from recent_files_manager import RecentFileManager
 from status_bar import StatusBar
+from preference import Preference
 
 
 MainWindowForm, MainWindowBase = uic.loadUiType('../view/main_window.ui')
@@ -60,8 +61,11 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self._adjust_main_window()
         self._define_global_shortcuts()
 
+        self.preferences = Preference()
+
         self.scroll_area_viewer.setStyleSheet(
-            "QWidget { background-color: %s }" % self.model.background_color.name())
+            "QWidget { background-color: %s }" %
+            self.preferences.background_color.name())
 
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -216,10 +220,12 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.on_action_show_statusbar_triggered()
             self._update_status_bar()
         else:
-            self.showFullScreen()
-            self.toolbar.hide()
             self.menubar.hide()
-            self.statusbar.hide()
+            if not self.preferences.show_toolbar_in_fullscreen:
+                self.toolbar.hide()
+            if not self.preferences.show_statusbar_in_fullscreen:
+                self.statusbar.hide()
+            self.showFullScreen()
 
     def _on_action_group_view_adjust(self):
         action = self.sender()
@@ -309,18 +315,12 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_preference_dialog_triggered(self):
-        import preference_dialog
-
-        dlg = preference_dialog.PreferenceDialog(self.model,
-                                                 self.scroll_area_viewer,
-                                                 parent=self)
-        dlg.show()
-        dlg.exec_()
+        self.preferences.show_preference_dialog()
+        self.scroll_area_viewer.change_background_color(self.preferences.background_color)
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
         import about_dialog
-
         about_dlg = about_dialog.AboutDialog(self)
         about_dlg.show()
         about_dlg.exec_()
@@ -393,14 +393,11 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         sett = {'view': {}, 'settings': {}}
 
-        sett['view'][
-            'view_adjust'] = self.actionGroupView.checkedAction().objectName()
+        sett['view']['view_adjust'] = self.actionGroupView.checkedAction().objectName()
         sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
-        sett['settings'][
-            'show_statusbar'] = self.action_show_statusbar.isChecked()
+        sett['settings']['show_statusbar'] = self.action_show_statusbar.isChecked()
         sett['settings']['directory'] = self.model.current_directory
-        sett['settings'][
-            'background_color'] = self.model.background_color.name()
+        sett['settings']['background_color'] = self.preferences.background_color.name()
 
         settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
 
@@ -422,7 +419,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
                     self.model.adjustType = act.objectName()
 
             self.model.current_directory = sett['settings']['directory']
-            self.model.background_color = QtGui.QColor(
+            self.preferences.background_color = QtGui.QColor(
                 sett['settings']['background_color'])
 
         except KeyError, err:

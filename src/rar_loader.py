@@ -22,9 +22,6 @@ except ImportError, err:
           'Please install it using: sudo pip install rarfile\n'
     exit(-1)
 
-
-
-
 from loader import Loader
 from utility import Utility
 
