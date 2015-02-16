@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="pt_BR" sourcelanguage="en_US">
+<!DOCTYPE TS>
+<TS version="2.0" language="pt_BR" sourcelanguage="en_US">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -252,12 +253,12 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
     <message>
         <location filename="view/main_window.ui" line="571"/>
         <source>&amp;Whole page</source>
-        <translation>Página inteira</translation>
+        <translation type="unfinished">Página inteira</translation>
     </message>
     <message>
         <location filename="view/main_window.ui" line="583"/>
         <source>&amp;Preferences</source>
-        <translation>Preferências...</translation>
+        <translation type="unfinished">Preferências</translation>
     </message>
     <message>
         <location filename="view/main_window.ui" line="601"/>
@@ -463,22 +464,22 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
     <message>
         <location filename="view/config_dialog.ui" line="77"/>
         <source>Others</source>
-        <translation type="unfinished"></translation>
+        <translation>Outros</translation>
     </message>
     <message>
         <location filename="view/config_dialog.ui" line="83"/>
         <source>Show toolbar in fullscreen mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir barra de ferramentas no modo tela cheia</translation>
     </message>
     <message>
         <location filename="view/config_dialog.ui" line="90"/>
         <source>Show statusbar in fullscreen mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir barra de status no modo tela cheia</translation>
     </message>
     <message>
         <location filename="view/config_dialog.ui" line="132"/>
         <source>Close</source>
-        <translation type="unfinished">Fechar</translation>
+        <translation>Fechar</translation>
     </message>
 </context>
 </TS>
