@@ -667,7 +667,7 @@
   </action>
   <action name="action_open_folder">
    <property name="icon">
-    <iconset resource="../resource/main_window.qrc">
+    <iconset>
      <normaloff>:/icons/icons/freeiconmaker_21.png</normaloff>:/icons/icons/freeiconmaker_21.png</iconset>
    </property>
    <property name="text">
