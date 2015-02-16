@@ -24,8 +24,8 @@ PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType(
 
 class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
 
-    def __init__(self, preference):
-        super(PreferenceDialog, self).__init__()
+    def __init__(self, preference, parent=None):
+        super(PreferenceDialog, self).__init__(parent)
         self.setupUi(self)
 
         self.preference = preference
@@ -52,8 +52,5 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
 
         self.preference.background_color = \
             self.background_color_button.background_color
-
-        print self.preference.show_toolbar_in_fullscreen
-        print self.preference.show_statusbar_in_fullscreen
 
         super(PreferenceDialog, self).close()

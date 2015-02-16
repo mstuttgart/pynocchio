@@ -310,7 +310,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_preference_dialog_triggered(self):
-        self.preferences.show_preference_dialog()
+        self.preferences.show_preference_dialog(self)
         self.viewer.change_background_color(self.preferences.background_color)
 
     @QtCore.pyqtSlot()

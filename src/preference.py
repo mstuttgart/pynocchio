@@ -25,10 +25,9 @@ class Preference(object):
         self.background_color = QColor()
         self.show_statusbar_in_fullscreen = False
         self.show_toolbar_in_fullscreen = False
-        self.preference_dialog = None
         
-    def show_preference_dialog(self):
-        preference_dialog = PreferenceDialog(preference=self)
+    def show_preference_dialog(self, main_window):
+        preference_dialog = PreferenceDialog(preference=self, parent=main_window)
         preference_dialog.show()
         preference_dialog.exec_()
 
