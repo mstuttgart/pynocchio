@@ -19,10 +19,8 @@ import sys
 
 try:
     import PyQt4
-except ImportError:
-    sys.exit("Error: Could not import PyQt4, you may try in linux:"
-             "'sudo apt-get install python-qt4' or get de installer for "
-             "Windows")
+except ImportError, err:
+    sys.exit(err)
 
 from PyQt4.QtGui import QApplication
 from PyQt4.QtCore import QLocale, QTranslator

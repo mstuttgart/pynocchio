@@ -36,6 +36,3 @@ class Loader(QObject):
 
     def _clear_data(self):
         self.data = []
-
-
-
