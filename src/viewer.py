@@ -35,8 +35,6 @@ class Viewer(QScrollArea):
         self.hide_cursor_timer = QTimer()
         self.hide_cursor_timer.setSingleShot(True)
         self.hide_cursor_timer.timeout.connect(self._hide_cursor)
-        # self.hide_cursor_timer.start(2500)
-        # self._change_cursor()
 
         self.setWidgetResizable(True)
 
