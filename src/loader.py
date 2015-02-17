@@ -15,27 +15,24 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4.QtCore import QObject, pyqtSignal
+from PyQt4 import QtCore
 
 
-class Loader(QObject):
-
-    progress = pyqtSignal(int)
-    done = pyqtSignal()
+class Loader(QtCore.QObject):
+    progress = QtCore.pyqtSignal(int)
+    done = QtCore.pyqtSignal()
 
     def __init__(self):
         super(Loader, self).__init__()
-        self.extension = ['.png', '.jpg', '.jpeg', '.gif']
+        self.extension = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
+                          '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
         self.data = []
 
     def load(self, file_name):
-        pass
+        raise NotImplementedError("Must subclass me")
 
     def length_data(self):
         return len(self.data)
 
     def _clear_data(self):
         self.data = []
-
-
-

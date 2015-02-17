@@ -15,34 +15,45 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import QtGui
 from PyQt4 import uic
+from PyQt4 import QtGui
+
 
 PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType(
     '../view/config_dialog.ui')
 
 
 class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
-    def __init__(self, model, viewer, parent=None):
+    def __init__(self, preference, parent=None):
         super(PreferenceDialog, self).__init__(parent)
         self.setupUi(self)
 
-        self.model = model
-        self.viewer = viewer
-        self.background_color_button.background_color = self.model.background_color
+        self.preference = preference
+
+        self.show_toolbar_in_fullscreen.setChecked(
+            preference.show_toolbar_in_fullscreen)
+        self.show_statusbar_in_fullscreen.setChecked(
+            preference.show_statusbar_in_fullscreen)
+
+        self.background_color_button.background_color = \
+            self.preference.background_color
+
         self.background_color_button.clicked.connect(self._open_color_dialog)
 
     def _open_color_dialog(self):
-        col = QtGui.QColorDialog.getColor()
+        col = QtGui.QColorDialog().getColor()
         if col.isValid():
+            self.preference.background_color = col
             self.background_color_button.background_color = col
 
-    def accept(self, *args, **kwargs):
-        self.model.background_color = self.background_color_button.background_color
-        self.viewer.setStyleSheet("QWidget { background-color: %s }" %
-                                  self.model.background_color.name())
-        super(PreferenceDialog, self).accept(*args, **kwargs)
+    def close(self):
+        self.preference.show_statusbar_in_fullscreen = \
+            self.show_statusbar_in_fullscreen.isChecked()
 
-    def rejected(self, *args, **kwargs):
-        self.background_color_button.reset_background_color()
-        super(PreferenceDialog, self).rejected(*args, **kwargs)
+        self.preference.show_toolbar_in_fullscreen = \
+            self.show_toolbar_in_fullscreen.isChecked()
+
+        self.preference.background_color = \
+            self.background_color_button.background_color
+
+        super(PreferenceDialog, self).close()

@@ -14,33 +14,19 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-import os
+from PyQt4 import QtGui
 
-from PyQt4 import QtCore
+from preference_dialog import PreferenceDialog
 
 
-class Utility(object):
-    @staticmethod
-    def get_file_extension(file_name):
-        return os.path.splitext(file_name)[1]
+class Preference(object):
+    def __init__(self):
+        self.background_color = QtGui.QColor()
+        self.show_statusbar_in_fullscreen = False
+        self.show_toolbar_in_fullscreen = False
 
-    @staticmethod
-    def get_dir_name(file_path):
-        return os.path.dirname(file_path)
-
-    @staticmethod
-    def get_base_name(file_path):
-        return os.path.basename(file_path)
-
-    @staticmethod
-    def path_exist(file_path):
-        return os.path.lexists(file_path)
-
-    @staticmethod
-    def is_dir(file_path):
-        return os.path.isdir(file_path)
-
-    @staticmethod
-    def convert_qstring_to_str(qstring):
-        if isinstance(qstring, QtCore.QString):
-            return str(qstring.toUtf8())
+    def show_preference_dialog(self, main_window):
+        preference_dialog = PreferenceDialog(
+            preference=self, parent=main_window)
+        preference_dialog.show()
+        preference_dialog.exec_()

@@ -17,7 +17,6 @@
 
 
 class LoaderFactory(object):
-
     def __init__(self):
         super(LoaderFactory, self).__init__()
 
@@ -26,10 +25,13 @@ class LoaderFactory(object):
 
         if extension == '.zip' or extension == '.cbz':
             import zip_loader
+
             return zip_loader.ZipLoader()
         elif extension == '.rar' or extension == '.cbr':
             import rar_loader
+
             return rar_loader.RarLoader()
         elif extension == '.tar' or extension == '.cbt':
             import tar_loader
+
             return tar_loader.TarLoader()

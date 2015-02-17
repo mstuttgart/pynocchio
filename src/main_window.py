@@ -20,6 +20,7 @@ from PyQt4 import QtGui, QtCore, uic
 from model import Model
 from recent_files_manager import RecentFileManager
 from status_bar import StatusBar
+from preference import Preference
 
 
 MainWindowForm, MainWindowBase = uic.loadUiType('../view/main_window.ui')
@@ -31,8 +32,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.setupUi(self)
 
         self.model = Model(self)
-        self.scroll_area_viewer.model = self.model
-        self.scroll_area_viewer.label = self.label
+        self.viewer.model = self.model
+        self.viewer.label = self.label
 
         self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)
@@ -55,13 +56,11 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.menu_recent_files.addAction(act)
 
         self.recentFileManager = RecentFileManager(actions)
+        self.preferences = Preference()
         self._load_settings()
         self._init_bookmark_menu()
         self._adjust_main_window()
         self._define_global_shortcuts()
-
-        self.scroll_area_viewer.setStyleSheet(
-            "QWidget { background-color: %s }" % self.model.background_color.name())
 
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -114,12 +113,13 @@ class MainWindow(MainWindowBase, MainWindowForm):
     def load(self, path, initial_page=0):
 
         import utility
+
         ph = utility.Utility.convert_qstring_to_str(path)
         if ph:
             path = ph
 
         if self.model.load_comic(path, initial_page):
-            self.scroll_area_viewer.label.setPixmap(
+            self.viewer.label.setPixmap(
                 self.model.get_current_page())
             self.setWindowTitle(self.model.comic.name)
             self._update_status_bar()
@@ -154,25 +154,25 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_next_page_triggered(self):
-        self.scroll_area_viewer.next_page()
+        self.viewer.next_page()
         self._update_status_bar()
         self._update_view_actions()
 
     @QtCore.pyqtSlot()
     def on_action_previous_page_triggered(self):
-        self.scroll_area_viewer.previous_page()
+        self.viewer.previous_page()
         self._update_status_bar()
         self._update_view_actions()
 
     @QtCore.pyqtSlot()
     def on_action_first_page_triggered(self):
-        self.scroll_area_viewer.first_page()
+        self.viewer.first_page()
         self._update_status_bar()
         self._update_view_actions()
 
     @QtCore.pyqtSlot()
     def on_action_last_page_triggered(self):
-        self.scroll_area_viewer.last_page()
+        self.viewer.last_page()
         self._update_status_bar()
         self._update_view_actions()
 
@@ -180,7 +180,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
     def on_action_go_to_page_triggered(self):
         import go_to_dialog
 
-        go_to_dlg = go_to_dialog.GoToDialog(self.model, self.scroll_area_viewer)
+        go_to_dlg = go_to_dialog.GoToDialog(self.model, self.viewer)
         go_to_dlg.show()
         go_to_dlg.exec_()
         self._update_view_actions()
@@ -199,11 +199,11 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_rotate_left_triggered(self):
-        self.scroll_area_viewer.rotate_left()
+        self.viewer.rotate_left()
 
     @QtCore.pyqtSlot()
     def on_action_rotate_right_triggered(self):
-        self.scroll_area_viewer.rotate_right()
+        self.viewer.rotate_right()
 
     @QtCore.pyqtSlot()
     def on_action_fullscreen_triggered(self):
@@ -216,10 +216,12 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.on_action_show_statusbar_triggered()
             self._update_status_bar()
         else:
-            self.showFullScreen()
-            self.toolbar.hide()
             self.menubar.hide()
-            self.statusbar.hide()
+            if not self.preferences.show_toolbar_in_fullscreen:
+                self.toolbar.hide()
+            if not self.preferences.show_statusbar_in_fullscreen:
+                self.statusbar.hide()
+            self.showFullScreen()
 
     def _on_action_group_view_adjust(self):
         action = self.sender()
@@ -227,7 +229,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         if action:
             checked_action = action
             self.model.adjustType = checked_action.objectName()
-            self.scroll_area_viewer.label.setPixmap(
+            self.viewer.label.setPixmap(
                 self.model.get_current_page())
             self._update_status_bar()
 
@@ -309,13 +311,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_preference_dialog_triggered(self):
-        import preference_dialog
-
-        dlg = preference_dialog.PreferenceDialog(self.model,
-                                                 self.scroll_area_viewer,
-                                                 parent=self)
-        dlg.show()
-        dlg.exec_()
+        self.preferences.show_preference_dialog(self)
+        self.viewer.change_background_color(self.preferences.background_color)
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
@@ -400,7 +397,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             'show_statusbar'] = self.action_show_statusbar.isChecked()
         sett['settings']['directory'] = self.model.current_directory
         sett['settings'][
-            'background_color'] = self.model.background_color.name()
+            'background_color'] = self.preferences.background_color.name()
 
         settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
 
@@ -422,12 +419,13 @@ class MainWindow(MainWindowBase, MainWindowForm):
                     self.model.adjustType = act.objectName()
 
             self.model.current_directory = sett['settings']['directory']
-            self.model.background_color = QtGui.QColor(
+            self.preferences.background_color = QtGui.QColor(
                 sett['settings']['background_color'])
 
         except KeyError, err:
             print err
 
+        self.viewer.change_background_color(self.preferences.background_color)
         self.on_action_show_toolbar_triggered()
         self.on_action_show_statusbar_triggered()
 

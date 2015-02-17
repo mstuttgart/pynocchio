@@ -60,7 +60,6 @@ class RecentFileManager(object):
         for act in self.recent_files_action_list:
             if object_name == act['action'].objectName():
                 return act['path']
-
         return None
 
     def _load_settings(self):
@@ -82,7 +81,8 @@ class RecentFileManager(object):
 
         for act_dict in self.recent_files_action_list:
 
-            # Sections was added first because to preserve order of recent files
+            # Sections was added first because to
+            # preserve order of recent files
             if act_dict['action'].isVisible():
                 section = "RECENT_FILE_" + act_dict['action'].objectName()
                 rf_dict[section] = {}
@@ -96,8 +96,3 @@ class RecentFileManager(object):
         from PyQt4.QtCore import QFileInfo
 
         return QFileInfo(full_file_name).fileName()
-
-
-
-
-

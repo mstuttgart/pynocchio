@@ -44,15 +44,15 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
         for i in range(0, record_list_len):
             self.table.setItem(i, 0, QtGui.QTableWidgetItem(record_list[i][0]))
             self.table.setItem(i, 1, QtGui.QTableWidgetItem(record_list[i][1]))
-            self.table.setItem(i, 2,
-                               QtGui.QTableWidgetItem(str(record_list[i][2])))
+            self.table.setItem(i, 2, QtGui.QTableWidgetItem(str(
+                record_list[i][2])))
 
-        self.table.horizontalHeader().setResizeMode(0,
-                                                    QtGui.QHeaderView.ResizeToContents)
-        self.table.horizontalHeader().setResizeMode(1,
-                                                    QtGui.QHeaderView.Stretch)
-        self.table.horizontalHeader().setResizeMode(2,
-                                                    QtGui.QHeaderView.ResizeToContents)
+        self.table.horizontalHeader().setResizeMode(
+            0, QtGui.QHeaderView.ResizeToContents)
+        self.table.horizontalHeader().setResizeMode(
+            1, QtGui.QHeaderView.Stretch)
+        self.table.horizontalHeader().setResizeMode(
+            2, QtGui.QHeaderView.ResizeToContents)
 
     def _remove_table_item(self):
         selected_items = self.table.selectedItems()
@@ -79,6 +79,3 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
         if items:
             self.item_to_open = items[1].text()
         self.close()
-
-
-

@@ -15,14 +15,14 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import data_base_manager
+from data_base_manager import DataBaseManager
 
 
 class Bookmarks(object):
     BOOKMARK_FILE_NAME = "bookmarks.db"
 
     def __init__(self):
-        self.db = data_base_manager.DataBaseManager(self.BOOKMARK_FILE_NAME)
+        self.db = DataBaseManager(self.BOOKMARK_FILE_NAME)
         self.db.create_table('Bookmarks', '(Id INTEGER PRIMARY KEY NOT NULL, '
                                           'Path TEXT SECUNDARY KEY NOT NULL, '
                                           'Name TEXT, Page INTEGER)')
@@ -31,7 +31,8 @@ class Bookmarks(object):
         ret = self.db.find('Bookmarks', 'Path', path)
 
         if ret:
-            sql = "UPDATE Bookmarks SET Page=%d WHERE Path='%s';" % (page, path)
+            sql = "UPDATE Bookmarks SET Page=%d WHERE Path='%s';" % (page,
+                                                                     path)
         else:
             sql = "INSERT OR IGNORE INTO Bookmarks (Path, Name, Page) " \
                   "VALUES ('%s', '%s', %d);" % (path, name, page)
@@ -43,12 +44,14 @@ class Bookmarks(object):
         self.db.execute(sql)
 
     def find_bookmark(self, path):
-        sql = "SELECT Path, Name, Page FROM Bookmarks WHERE Path = '%s';" % path
+        sql = "SELECT Path, Name, Page " \
+              "FROM Bookmarks WHERE Path = '%s';" % path
         r = self.db.execute(sql)
         return r.fetchone()
 
     def _get_last_bookmarks(self, num):
-        sql = "SELECT Path, Name, Page FROM BOOKMARKS ORDER BY Id DESC LIMIT 5;"
+        sql = "SELECT Path, Name, Page FROM " \
+              "BOOKMARKS ORDER BY Id DESC LIMIT 5;"
         return self.db.execute(sql).fetchmany(num)
 
     def _get_all_records(self):
@@ -64,6 +67,3 @@ class Bookmarks(object):
 
     def close(self):
         self.db.close_db()
-
-
-
