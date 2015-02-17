@@ -16,14 +16,15 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import uic
+
 from PyQt4.QtGui import QColorDialog
+
 
 PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType(
     '../view/config_dialog.ui')
 
 
 class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
-
     def __init__(self, preference, parent=None):
         super(PreferenceDialog, self).__init__(parent)
         self.setupUi(self)
@@ -35,7 +36,7 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
         self.show_statusbar_in_fullscreen.setChecked(
             preference.show_statusbar_in_fullscreen)
 
-        self.background_color_button.background_color =  \
+        self.background_color_button.background_color = \
             self.preference.background_color
 
         self.background_color_button.clicked.connect(self._open_color_dialog)
@@ -47,10 +48,10 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
             self.background_color_button.background_color = col
 
     def close(self):
-        self.preference.show_statusbar_in_fullscreen =  \
+        self.preference.show_statusbar_in_fullscreen = \
             self.show_statusbar_in_fullscreen.isChecked()
 
-        self.preference.show_toolbar_in_fullscreen =  \
+        self.preference.show_toolbar_in_fullscreen = \
             self.show_toolbar_in_fullscreen.isChecked()
 
         self.preference.background_color = \

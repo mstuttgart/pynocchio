@@ -116,4 +116,3 @@ class StatusBar(QStatusBar):
         self.add_page_number_label()
         self.add_page_resolution_label()
         self.add_comic_path_label()
-

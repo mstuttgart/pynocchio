@@ -16,12 +16,12 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import zipfile
+
 from loader import Loader
 from utility import Utility
 
 
 class ZipLoader(Loader):
-
     def __init__(self):
         super(ZipLoader, self).__init__()
 
@@ -49,10 +49,10 @@ class ZipLoader(Loader):
         for info in name_list:
             file_extension = Utility.get_file_extension(info)
 
-            if not Utility.is_dir(info) and file_extension.lower() in  \
+            if not Utility.is_dir(info) and file_extension.lower() in \
                     self.extension:
                 self.data.append({'data': zf.read(info), 'name': info})
-                self.progress.emit(count * 100/list_size)
+                self.progress.emit(count * 100 / list_size)
 
             count += 1
 

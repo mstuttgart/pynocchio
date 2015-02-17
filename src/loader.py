@@ -19,7 +19,6 @@ from PyQt4.QtCore import QObject, pyqtSignal
 
 
 class Loader(QObject):
-
     progress = pyqtSignal(int)
     done = pyqtSignal()
 

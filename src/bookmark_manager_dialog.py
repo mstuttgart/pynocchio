@@ -44,7 +44,7 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
         for i in range(0, record_list_len):
             self.table.setItem(i, 0, QtGui.QTableWidgetItem(record_list[i][0]))
             self.table.setItem(i, 1, QtGui.QTableWidgetItem(record_list[i][1]))
-            self.table.setItem(i, 2,  QtGui.QTableWidgetItem(str(
+            self.table.setItem(i, 2, QtGui.QTableWidgetItem(str(
                 record_list[i][2])))
 
         self.table.horizontalHeader().setResizeMode(

@@ -27,7 +27,6 @@ from utility import Utility
 
 
 class RarLoader(Loader):
-
     def __init__(self):
         super(RarLoader, self).__init__()
 
@@ -51,14 +50,13 @@ class RarLoader(Loader):
         for name in name_list:
             file_extension = Utility.get_file_extension(name)
 
-            if not rar.getinfo(name).isdir() and file_extension.lower() in\
+            if not rar.getinfo(name).isdir() and file_extension.lower() in \
                     self.extension:
                 self.data.append({'data': rar.read(name), 'name': name})
-                self.progress.emit(count * 100/list_size)
+                self.progress.emit(count * 100 / list_size)
 
             count += 1
 
         self.done.emit()
         rar.close()
         return True
-

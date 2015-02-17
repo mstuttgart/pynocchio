@@ -69,7 +69,7 @@ class Model(object):
             for p in ld.data:
                 page_data = p['data']
                 page_name = p['name']
-                page_index = ld.data.index(p)+1
+                page_index = ld.data.index(p) + 1
                 self.comic.add_page(Page(page_data, page_name, page_index))
 
             return True
@@ -166,7 +166,7 @@ class Model(object):
         return -1
 
     def is_last_page(self):
-        if self.comic and self.comic.current_page_index + 1 ==  \
+        if self.comic and self.comic.current_page_index + 1 == \
                 self.comic.get_number_of_pages():
             return True
         return False

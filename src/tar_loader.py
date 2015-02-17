@@ -22,7 +22,6 @@ from utility import Utility
 
 
 class TarLoader(Loader):
-
     def __init__(self):
         super(TarLoader, self).__init__()
 
@@ -58,10 +57,9 @@ class TarLoader(Loader):
 
                 if data:
                     self.data.append({'data': data, 'name': name})
-                    self.progress.emit(count * 100/list_size)
+                    self.progress.emit(count * 100 / list_size)
             count += 1
 
         self.done.emit()
         tar.close()
         return True
-
