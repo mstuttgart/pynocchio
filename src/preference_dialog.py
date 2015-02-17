@@ -29,8 +29,11 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
         self.setupUi(self)
 
         self.preference = preference
-        self.show_toolbar_in_fullscreen.setChecked(preference.show_toolbar_in_fullscreen)
-        self.show_statusbar_in_fullscreen.setChecked(preference.show_statusbar_in_fullscreen)
+
+        self.show_toolbar_in_fullscreen.setChecked(
+            preference.show_toolbar_in_fullscreen)
+        self.show_statusbar_in_fullscreen.setChecked(
+            preference.show_statusbar_in_fullscreen)
 
         self.background_color_button.background_color =  \
             self.preference.background_color
