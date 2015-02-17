@@ -14,8 +14,7 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-from PyQt4.QtGui import QPixmap, QTransform
-from PyQt4.QtCore import QSize, QFile, QIODevice, Qt
+from PyQt4 import QtCore, QtGui
 
 from comic import Comic
 from bookmarks import Bookmarks
@@ -31,9 +30,9 @@ class Model(object):
 
         self.main_window = main_window
         self.comic = None
-        self.original_pixmap = QPixmap()
+        self.original_pixmap = QtGui.QPixmap()
         self.adjustType = 'action_original_fit'
-        self.screenSize = QSize(0, 0)
+        self.screenSize = QtCore.QSize(0, 0)
         self.rotateAngle = 0
         self.current_directory = ''
         self.next_comic_path = ''
@@ -60,8 +59,8 @@ class Model(object):
             if not ld.data:
                 # Caso nao exista nenhuma imagem, carregamos a imagem indicando
                 # erro
-                q_file = QFile(":/icons/icons/exit_red_1.png")
-                q_file.open(QIODevice.ReadOnly)
+                q_file = QtCore.QFile(":/icons/icons/exit_red_1.png")
+                q_file.open(QtCore.QIODevice.ReadOnly)
                 ld.data.append(
                     {'data': q_file.readAll(), 'name': 'exit_red_1.png'})
                 self.current_directory = Utility.get_dir_name(file_name)
@@ -193,8 +192,8 @@ class Model(object):
 
     def _rotate_page(self, pix_map):
         if self.rotateAngle != 0:
-            trans = QTransform().rotate(self.rotateAngle)
-            pix_map = QPixmap(pix_map.transformed(trans))
+            trans = QtGui.QTransform().rotate(self.rotateAngle)
+            pix_map = QtGui.QPixmap(pix_map.transformed(trans))
 
         return pix_map
 
@@ -204,15 +203,16 @@ class Model(object):
 
             if self.adjustType == 'action_vertical_adjust':
                 pix_map = pix_map.scaledToHeight(
-                    self.screenSize.height(), Qt.SmoothTransformation)
+                    self.screenSize.height(), QtCore.Qt.SmoothTransformation)
 
             elif self.adjustType == 'action_horizontal_adjust':
                 pix_map = pix_map.scaledToWidth(
-                    self.screenSize.width(), Qt.SmoothTransformation)
+                    self.screenSize.width(), QtCore.Qt.SmoothTransformation)
 
             elif self.adjustType == 'action_best_fit':
                 pix_map = pix_map.scaledToWidth(
-                    self.screenSize.width() * 0.8, Qt.SmoothTransformation)
+                    self.screenSize.width() * 0.8,
+                    QtCore.Qt.SmoothTransformation)
 
             return pix_map
 

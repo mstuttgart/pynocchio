@@ -16,7 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 import os
 
-from PyQt4.QtCore import QString
+from PyQt4 import QtCore
 
 
 class Utility(object):
@@ -42,5 +42,5 @@ class Utility(object):
 
     @staticmethod
     def convert_qstring_to_str(qstring):
-        if isinstance(qstring, QString):
+        if isinstance(qstring, QtCore.QString):
             return str(qstring.toUtf8())

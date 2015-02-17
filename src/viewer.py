@@ -14,12 +14,10 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-from PyQt4.QtGui import QScrollArea
-from PyQt4.QtCore import Qt, QTimer
+from PyQt4 import QtCore, QtGui
 
 
-class Viewer(QScrollArea):
+class Viewer(QtGui.QScrollArea):
     def __init__(self, parent=None):
 
         super(Viewer, self).__init__(parent)
@@ -32,7 +30,7 @@ class Viewer(QScrollArea):
 
         self.setMouseTracking(True)
 
-        self.hide_cursor_timer = QTimer()
+        self.hide_cursor_timer = QtCore.QTimer()
         self.hide_cursor_timer.setSingleShot(True)
         self.hide_cursor_timer.timeout.connect(self._hide_cursor)
 
@@ -71,16 +69,16 @@ class Viewer(QScrollArea):
 
     def _change_cursor(self):
         if self.drag_mouse:
-            self.setCursor(Qt.ClosedHandCursor)
+            self.setCursor(QtCore.Qt.ClosedHandCursor)
         else:
-            self.setCursor(Qt.OpenHandCursor)
+            self.setCursor(QtCore.Qt.OpenHandCursor)
 
     def _hide_cursor(self):
-        self.setCursor(Qt.BlankCursor)
+        self.setCursor(QtCore.Qt.BlankCursor)
 
     def load_comic_cursor(self, loading):
         if loading:
-            self.setCursor(Qt.WaitCursor)
+            self.setCursor(QtCore.Qt.WaitCursor)
         else:
             self._change_cursor()
 

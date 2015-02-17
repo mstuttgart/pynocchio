@@ -15,12 +15,12 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4.QtCore import QObject, pyqtSignal
+from PyQt4 import QtCore
 
 
-class Loader(QObject):
-    progress = pyqtSignal(int)
-    done = pyqtSignal()
+class Loader(QtCore.QObject):
+    progress = QtCore.pyqtSignal(int)
+    done = QtCore.pyqtSignal()
 
     def __init__(self):
         super(Loader, self).__init__()
