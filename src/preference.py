@@ -14,7 +14,6 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 from preference_dialog import PreferenceDialog
 from PyQt4.QtGui import QColor
 
@@ -25,11 +24,9 @@ class Preference(object):
         self.background_color = QColor()
         self.show_statusbar_in_fullscreen = False
         self.show_toolbar_in_fullscreen = False
-        
+
     def show_preference_dialog(self, main_window):
-        preference_dialog = PreferenceDialog(preference=self, parent=main_window)
+        preference_dialog = PreferenceDialog(
+            preference=self, parent=main_window)
         preference_dialog.show()
         preference_dialog.exec_()
-
-
-
