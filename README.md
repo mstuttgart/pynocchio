@@ -4,7 +4,7 @@ Pynocchio is a image viewer specialized in manga/comic reading
 developed on PyQt4 API.
 
 ## Features
-The current version is in development. However, we intend to improve it even more, so it is defined as an beta version.
+The current version is stable and we intend to improve it even more.
 
 * Support several view adjust modes using anti-aliasing.
 * Support the several image formates provide by Qt: JPG, PNG, GIF.
