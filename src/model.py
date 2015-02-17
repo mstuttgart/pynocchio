@@ -14,12 +14,12 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-from PyQt4.QtGui import QPixmap, QColor, QTransform
+from PyQt4.QtGui import QPixmap, QTransform
 from PyQt4.QtCore import QSize, QFile, QIODevice, Qt
 
-import comic
-import bookmarks
-import page
+from comic import Comic
+from bookmarks import Bookmarks
+from page import Page
 
 
 class Model(object):
@@ -45,18 +45,18 @@ class Model(object):
         from utility import Utility
 
         try:
-            ld = LoaderFactory.create_loader(Utility.get_file_extension(file_name))
+            ld = LoaderFactory.create_loader(
+                Utility.get_file_extension(file_name))
         except IOError:
-            print self.main_window.tr('File not exist')
+            print self.main_window.tr('File not exist!')
             return False
 
         ld.progress.connect(self.main_window.statusbar.set_progressbar_value)
         ld.done.connect(self.main_window.statusbar.close_progress_bar)
 
         if ld.load(file_name):
-            self.comic = comic.Comic(Utility.get_base_name(file_name),
-                                     Utility.get_dir_name(file_name),
-                                     initial_page)
+            self.comic = Comic(Utility.get_base_name(file_name),
+                               Utility.get_dir_name(file_name), initial_page)
             if not ld.data:
                 # Caso nao exista nenhuma imagem, carregamos a imagem indicando
                 # erro
@@ -70,7 +70,7 @@ class Model(object):
                 page_data = p['data']
                 page_name = p['name']
                 page_index = ld.data.index(p)+1
-                self.comic.add_page(page.Page(page_data, page_name, page_index))
+                self.comic.add_page(Page(page_data, page_name, page_index))
 
             return True
 
@@ -108,8 +108,8 @@ class Model(object):
 
         d = QDir(self.comic.directory)
         d.setFilter(QDir.Files | QDir.NoDotAndDotDot)
-        # d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.7z", "*.cb7", "*.arj", "*.cbt"])
-        d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"])
+        d.setNameFilters(
+            ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"])
         d.setSorting(QDir.Name | QDir.IgnoreCase | QDir.LocaleAware)
 
         str_list = d.entryList()
@@ -226,14 +226,14 @@ class Model(object):
 
     @staticmethod
     def get_bookmark_list(n=0):
-        bk = bookmarks.Bookmarks()
+        bk = Bookmarks()
         book_list = bk.get_records(n)
         bk.close()
         return book_list
 
     @staticmethod
     def find_bookmark(path):
-        bk = bookmarks.Bookmarks()
+        bk = Bookmarks()
         bookmark = bk.find_bookmark(path)
         bk.close()
         return bookmark
@@ -247,7 +247,7 @@ class Model(object):
         if not comic_page:
             comic_page = self.comic.get_current_page_number()
 
-        bk = bookmarks.Bookmarks()
+        bk = Bookmarks()
         bk.add_bookmark(comic_path, comic_name, comic_page)
         book_list = bk.get_records(self.NUM_BOOKMARK)
         bk.close()
@@ -260,18 +260,17 @@ class Model(object):
         if not comic_path:
             comic_path = self.current_directory + '/' + comic_name
 
-        bk = bookmarks.Bookmarks()
+        bk = Bookmarks()
         bk.delete_bookmark(comic_path)
         book_list = bk.get_records(self.NUM_BOOKMARK)
         bk.close()
         return book_list
 
     def remove_bookmarks(self, comic_paths=None):
-        bk = bookmarks.Bookmarks()
+        bk = Bookmarks()
         for path in comic_paths:
             bk.delete_bookmark(path)
 
         book_list = bk.get_records(self.NUM_BOOKMARK)
         bk.close()
         return book_list
-
