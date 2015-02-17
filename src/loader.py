@@ -25,11 +25,12 @@ class Loader(QObject):
 
     def __init__(self):
         super(Loader, self).__init__()
-        self.extension = ['.png', '.jpg', '.jpeg', '.gif']
+        self.extension = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
+                          '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
         self.data = []
 
     def load(self, file_name):
-        pass
+        raise NotImplementedError("Must subclass me")
 
     def length_data(self):
         return len(self.data)
