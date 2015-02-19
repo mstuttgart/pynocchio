@@ -29,17 +29,17 @@ from main_window import MainWindow
 def main():
     app = QtGui.QApplication(sys.argv)
     app.setApplicationName('Pynocchio Comic Reader')
+    app.setApplicationVersion('1.0.0')
 
     qm = QtCore.QLocale.system().name()
 
     if qm != 'en_US':
         translator = QtCore.QTranslator()
-
         try:
             translator.load("../i18n/qt_%s.qm" % qm)
             app.installTranslator(translator)
-        except IOError, err:
-            print err
+        except IOError:
+            print 'Translation file qt_%s.qm not find' % qm
 
     main_window = MainWindow()
     main_window.show()
