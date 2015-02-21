@@ -307,10 +307,6 @@
    <addaction name="action_rotate_left"/>
    <addaction name="action_rotate_right"/>
    <addaction name="separator"/>
-   <addaction name="action_original_fit"/>
-   <addaction name="action_vertical_adjust"/>
-   <addaction name="action_horizontal_adjust"/>
-   <addaction name="action_best_fit"/>
    <addaction name="action_fullscreen"/>
    <addaction name="separator"/>
    <addaction name="action_exit"/>
@@ -400,6 +396,9 @@
    <property name="shortcutContext">
     <enum>Qt::WidgetShortcut</enum>
    </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
   </action>
   <action name="action_first_page">
    <property name="enabled">
@@ -476,30 +475,6 @@
     <enum>Qt::WidgetShortcut</enum>
    </property>
   </action>
-  <action name="action_vertical_adjust">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/apps/128/display-capplet.svg</normaloff>:/icons/elementary3-icon-theme/apps/128/display-capplet.svg</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Vertical adjust</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+J</string>
-   </property>
-   <property name="autoRepeat">
-    <bool>true</bool>
-   </property>
-  </action>
   <action name="action_horizontal_adjust">
    <property name="checkable">
     <bool>true</bool>
@@ -560,27 +535,6 @@
     <string>Ctrl+G</string>
    </property>
   </action>
-  <action name="action_best_fit">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-more.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-more.svg</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Whole page</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+L</string>
-   </property>
-  </action>
   <action name="action_original_fit">
    <property name="checkable">
     <bool>true</bool>
@@ -603,6 +557,9 @@
    </property>
    <property name="shortcutContext">
     <enum>Qt::ApplicationShortcut</enum>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
   <action name="action_show_toolbar">
@@ -724,6 +681,57 @@
    </property>
    <property name="text">
     <string>Preferences</string>
+   </property>
+  </action>
+  <action name="action_vertical_adjust">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/apps/128/display-capplet.svg</normaloff>:/icons/elementary3-icon-theme/apps/128/display-capplet.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Vertical adjust</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+J</string>
+   </property>
+   <property name="autoRepeat">
+    <bool>true</bool>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_best_fit">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-more.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-more.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Whole page</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
  </widget>
