@@ -22,7 +22,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../resource/main_window.qrc">
-    <normaloff>:/icons/icons/freeiconmaker_2 1.png</normaloff>:/icons/icons/freeiconmaker_2 1.png</iconset>
+    <normaloff>:/icons/hand made/1424554308_comment.png</normaloff>:/icons/hand made/1424554308_comment.png</iconset>
   </property>
   <property name="accessibleName">
    <string>Pyellow</string>
@@ -249,8 +249,8 @@
     <addaction name="action_bookmark_manager"/>
    </widget>
    <addaction name="menu_file"/>
-   <addaction name="menu_view"/>
    <addaction name="menu_navegation"/>
+   <addaction name="menu_view"/>
    <addaction name="menu_Bookmarks"/>
    <addaction name="menu_Settings"/>
    <addaction name="menu_Help"/>
@@ -407,7 +407,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/start.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/start.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/gtk-goto-first-ltr.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/gtk-goto-first-ltr.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;First page</string>
@@ -425,7 +425,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/stock_last.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/stock_last.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/finish.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/finish.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Last page</string>
@@ -488,7 +488,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/apps/128/beryl-settings.svg</normaloff>:/icons/elementary3-icon-theme/apps/128/beryl-settings.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/apps/128/display-capplet.svg</normaloff>:/icons/elementary3-icon-theme/apps/128/display-capplet.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Vertical adjust</string>
@@ -512,13 +512,16 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/apps/128/gnome-session-properties.svg</normaloff>:/icons/elementary3-icon-theme/apps/128/gnome-session-properties.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/calibrate (copy).svg</normaloff>:/icons/elementary3-icon-theme/actions/48/calibrate (copy).svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Horizontal adjust</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+K</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
   <action name="action_fullscreen">
@@ -530,7 +533,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/apps/128/wallpaper.svg</normaloff>:/icons/elementary3-icon-theme/apps/128/wallpaper.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/devices/64/display.svg</normaloff>:/icons/elementary3-icon-theme/devices/64/display.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Fullscreen</string>
@@ -569,22 +572,13 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/apps/128/gnome-display-properties.svg</normaloff>:/icons/elementary3-icon-theme/apps/128/gnome-display-properties.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-more.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-more.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Whole page</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+L</string>
-   </property>
-  </action>
-  <action name="action_preferences">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/image/document-properties.svg</normaloff>:/image/document-properties.svg</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Preferences</string>
    </property>
   </action>
   <action name="action_original_fit">
@@ -599,7 +593,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_6.png</normaloff>:/icons/icons/freeiconmaker_6.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-restore.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-restore.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Original fit</string>
@@ -730,11 +724,6 @@
    </property>
    <property name="text">
     <string>Preferences</string>
-   </property>
-  </action>
-  <action name="action">
-   <property name="text">
-    <string/>
    </property>
   </action>
  </widget>

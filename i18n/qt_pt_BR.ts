@@ -240,72 +240,72 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation>Ajuste horizontal</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="536"/>
+        <location filename="view/main_window.ui" line="539"/>
         <source>&amp;Fullscreen</source>
         <translation>Tela cheia</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="554"/>
+        <location filename="view/main_window.ui" line="557"/>
         <source>&amp;Go to page...</source>
         <translation>Ir para página...</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="575"/>
+        <location filename="view/main_window.ui" line="578"/>
         <source>&amp;Whole page</source>
         <translation type="unfinished">Página inteira</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="587"/>
+        <location filename="view/main_window.ui" line="590"/>
         <source>&amp;Preferences</source>
         <translation type="unfinished">Preferências</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="605"/>
+        <location filename="view/main_window.ui" line="608"/>
         <source>&amp;Original fit</source>
         <translation>Tamanho original</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="622"/>
+        <location filename="view/main_window.ui" line="625"/>
         <source>&amp;Show Toolbar</source>
         <translation>Exibir barra de ferramentas</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="633"/>
+        <location filename="view/main_window.ui" line="636"/>
         <source>S&amp;how Statusbar</source>
         <translation>Exibir barra de status</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="645"/>
+        <location filename="view/main_window.ui" line="648"/>
         <source>&amp;Add bookmark</source>
         <translation>Adicionar aos favoritos</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="660"/>
+        <location filename="view/main_window.ui" line="663"/>
         <source>&amp;Remove bookmark</source>
         <translation>Remover dos favoritos</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="669"/>
+        <location filename="view/main_window.ui" line="672"/>
         <source>Bookmark &amp;manager</source>
         <translation>Gerenciar favoritos</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="699"/>
+        <location filename="view/main_window.ui" line="702"/>
         <source>Next Comic</source>
         <translation>Próximo quadrinho</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="702"/>
+        <location filename="view/main_window.ui" line="705"/>
         <source>Ctrl+Shift+Right</source>
         <translation>Ctrl + Shift + Direita</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="717"/>
+        <location filename="view/main_window.ui" line="720"/>
         <source>Previous Comic</source>
         <translation>Quadrinho anterior</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="720"/>
+        <location filename="view/main_window.ui" line="723"/>
         <source>Ctrl+Shift+Left</source>
         <translation>Ctrl + Shift + Esquerda</translation>
     </message>
@@ -355,27 +355,27 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="539"/>
+        <location filename="view/main_window.ui" line="542"/>
         <source>F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="557"/>
+        <location filename="view/main_window.ui" line="560"/>
         <source>Ctrl+G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="578"/>
+        <location filename="view/main_window.ui" line="581"/>
         <source>Ctrl+L</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="608"/>
+        <location filename="view/main_window.ui" line="611"/>
         <source>Ctrl+H</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="678"/>
+        <location filename="view/main_window.ui" line="681"/>
         <source>Open &amp;Folder</source>
         <translation></translation>
     </message>
@@ -405,7 +405,7 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation>Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="view/main_window.ui" line="732"/>
+        <location filename="view/main_window.ui" line="735"/>
         <source>Preferences</source>
         <translation>Preferências</translation>
     </message>

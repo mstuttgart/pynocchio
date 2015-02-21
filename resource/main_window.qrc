@@ -1,5 +1,43 @@
 <RCC>
   <qresource prefix="/icons">
+    <file>elementary3-icon-theme/places/48/folder-recent.svg</file>
+    <file>elementary3-icon-theme/actions/48/exit.svg</file>
+    <file>elementary3-icon-theme/devices/64/display.svg</file>
+    <file>elementary3-icon-theme/actions/48/zoom-restore.svg</file>
+    <file>elementary3-icon-theme/actions/48/zoom-more.svg</file>
+    <file>elementary3-icon-theme/actions/48/calibrate_3.svg</file>
+    <file>elementary3-icon-theme/actions/48/calibrate.svg</file>
+    <file>elementary3-icon-theme/actions/48/calibrate (copy).svg</file>
+    <file>images/bookmark.png</file>
+    <file>images/comicFolder.png</file>
+    <file>images/icon.png</file>
+    <file>images/help.png</file>
+    <file>images/next.png</file>
+    <file>images/nextComic.png</file>
+    <file>images/previousComic.png</file>
+    <file>images/prev.png</file>
+    <file>images/open.png</file>
+    <file>images/rotateL.png</file>
+    <file>images/rotateR.png</file>
+    <file>images/setBookmark.png</file>
+    <file>images/zoom.png</file>
+    <file>hand made/1424503206_arrow_right.png</file>
+    <file>hand made/1424503213_bullet_deny.png</file>
+    <file>hand made/1424503216_star_full.png</file>
+    <file>hand made/1424503222_zoom.png</file>
+    <file>hand made/1424503224_arrow_left.png</file>
+    <file>hand made/1424503241_folder_full.png</file>
+    <file>hand made/1424554229_arrow_undo.png</file>
+    <file>hand made/1424554251_arrow_undo.png</file>
+    <file>hand made/1424554256_settings.png</file>
+    <file>hand made/1424554280_arrow_redo.png</file>
+    <file>hand made/1424554308_comment.png</file>
+    <file>hand made/1424503206_arrow_right.png</file>
+    <file>hand made/1424503213_bullet_deny.png</file>
+    <file>hand made/1424503216_star_full.png</file>
+    <file>hand made/1424503222_zoom.png</file>
+    <file>hand made/1424503224_arrow_left.png</file>
+    <file>hand made/1424503241_folder_full.png</file>
     <file>elementary3-icon-theme/apps/128/beryl-settings.svg</file>
     <file>elementary3-icon-theme/apps/128/checkbox.svg</file>
     <file>elementary3-icon-theme/apps/128/desktop-effects.svg</file>
