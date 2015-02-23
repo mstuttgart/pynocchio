@@ -1,406 +1,78 @@
 <RCC>
   <qresource prefix="/icons">
-    <file>400 Hand-Drawn/abacus.svg</file>
-    <file>400 Hand-Drawn/add.svg</file>
-    <file>400 Hand-Drawn/add folder.svg</file>
-    <file>400 Hand-Drawn/add list.svg</file>
-    <file>400 Hand-Drawn/add suitcase.svg</file>
-    <file>400 Hand-Drawn/add text.svg</file>
-    <file>400 Hand-Drawn/add user.svg</file>
-    <file>400 Hand-Drawn/adress book.svg</file>
-    <file>400 Hand-Drawn/agenda.svg</file>
-    <file>400 Hand-Drawn/airplane.svg</file>
-    <file>400 Hand-Drawn/alert.svg</file>
-    <file>400 Hand-Drawn/alert2.svg</file>
-    <file>400 Hand-Drawn/alien.svg</file>
-    <file>400 Hand-Drawn/analytics.svg</file>
-    <file>400 Hand-Drawn/anchor.svg</file>
-    <file>400 Hand-Drawn/android.svg</file>
-    <file>400 Hand-Drawn/apple.svg</file>
-    <file>400 Hand-Drawn/apple brand.svg</file>
-    <file>400 Hand-Drawn/archive.svg</file>
-    <file>400 Hand-Drawn/arroba.svg</file>
-    <file>400 Hand-Drawn/arrow.svg</file>
-    <file>400 Hand-Drawn/arrow up.svg</file>
-    <file>400 Hand-Drawn/atom.svg</file>
-    <file>400 Hand-Drawn/attention.svg</file>
-    <file>400 Hand-Drawn/back.svg</file>
-    <file>400 Hand-Drawn/back2.svg</file>
-    <file>400 Hand-Drawn/back3.svg</file>
-    <file>400 Hand-Drawn/back4.svg</file>
-    <file>400 Hand-Drawn/badge.svg</file>
-    <file>400 Hand-Drawn/balance.svg</file>
-    <file>400 Hand-Drawn/battery med.svg</file>
-    <file>400 Hand-Drawn/beer.svg</file>
-    <file>400 Hand-Drawn/Behance.svg</file>
-    <file>400 Hand-Drawn/bell.svg</file>
-    <file>400 Hand-Drawn/bike.svg</file>
-    <file>400 Hand-Drawn/bomb.svg</file>
-    <file>400 Hand-Drawn/book.svg</file>
-    <file>400 Hand-Drawn/bookmark.svg</file>
-    <file>400 Hand-Drawn/bookmark1.svg</file>
-    <file>400 Hand-Drawn/box down.svg</file>
-    <file>400 Hand-Drawn/box up.svg</file>
-    <file>400 Hand-Drawn/bright.svg</file>
-    <file>400 Hand-Drawn/bright 2.svg</file>
-    <file>400 Hand-Drawn/brush.svg</file>
-    <file>400 Hand-Drawn/bug.svg</file>
-    <file>400 Hand-Drawn/bulb.svg</file>
-    <file>400 Hand-Drawn/business man.svg</file>
-    <file>400 Hand-Drawn/button up.svg</file>
-    <file>400 Hand-Drawn/calculator.svg</file>
-    <file>400 Hand-Drawn/calendar.svg</file>
-    <file>400 Hand-Drawn/camera.svg</file>
-    <file>400 Hand-Drawn/camera2.svg</file>
-    <file>400 Hand-Drawn/cancel.svg</file>
-    <file>400 Hand-Drawn/cancel2.svg</file>
-    <file>400 Hand-Drawn/cancel suitcase.svg</file>
-    <file>400 Hand-Drawn/cancer.svg</file>
-    <file>400 Hand-Drawn/chat.svg</file>
-    <file>400 Hand-Drawn/chat2.svg</file>
-    <file>400 Hand-Drawn/checkmark.svg</file>
-    <file>400 Hand-Drawn/chemical.svg</file>
-    <file>400 Hand-Drawn/chicken.svg</file>
-    <file>400 Hand-Drawn/cicle.svg</file>
-    <file>400 Hand-Drawn/circle.svg</file>
-    <file>400 Hand-Drawn/clip.svg</file>
-    <file>400 Hand-Drawn/clipboard.svg</file>
-    <file>400 Hand-Drawn/clipboard check.svg</file>
-    <file>400 Hand-Drawn/clock.svg</file>
-    <file>400 Hand-Drawn/closed tag.svg</file>
-    <file>400 Hand-Drawn/cloud.svg</file>
-    <file>400 Hand-Drawn/cloud2.svg</file>
-    <file>400 Hand-Drawn/codebar.svg</file>
-    <file>400 Hand-Drawn/coffee.svg</file>
-    <file>400 Hand-Drawn/coffee mug.svg</file>
-    <file>400 Hand-Drawn/cog.svg</file>
-    <file>400 Hand-Drawn/coins1.svg</file>
-    <file>400 Hand-Drawn/compass.svg</file>
-    <file>400 Hand-Drawn/cone.svg</file>
-    <file>400 Hand-Drawn/configuration.svg</file>
-    <file>400 Hand-Drawn/connection .svg</file>
-    <file>400 Hand-Drawn/connection2.svg</file>
-    <file>400 Hand-Drawn/contact book.svg</file>
-    <file>400 Hand-Drawn/corone.svg</file>
-    <file>400 Hand-Drawn/coute.svg</file>
-    <file>400 Hand-Drawn/crane.svg</file>
-    <file>400 Hand-Drawn/css file.svg</file>
-    <file>400 Hand-Drawn/cupcake.svg</file>
-    <file>400 Hand-Drawn/cutlery.svg</file>
-    <file>400 Hand-Drawn/dashboard.svg</file>
-    <file>400 Hand-Drawn/database.svg</file>
-    <file>400 Hand-Drawn/day.svg</file>
-    <file>400 Hand-Drawn/delete.svg</file>
-    <file>400 Hand-Drawn/delete cloud file.svg</file>
-    <file>400 Hand-Drawn/delete folder.svg</file>
-    <file>400 Hand-Drawn/delete folder 1.svg</file>
-    <file>400 Hand-Drawn/delete page.svg</file>
-    <file>400 Hand-Drawn/delete user.svg</file>
-    <file>400 Hand-Drawn/delicious.svg</file>
-    <file>400 Hand-Drawn/diamond.svg</file>
-    <file>400 Hand-Drawn/direction.svg</file>
-    <file>400 Hand-Drawn/DNA.svg</file>
-    <file>400 Hand-Drawn/document.svg</file>
-    <file>400 Hand-Drawn/document1.svg</file>
-    <file>400 Hand-Drawn/document2.svg</file>
-    <file>400 Hand-Drawn/don't like.svg</file>
-    <file>400 Hand-Drawn/down 2.svg</file>
-    <file>400 Hand-Drawn/down arrow.svg</file>
-    <file>400 Hand-Drawn/down arrow 1.svg</file>
-    <file>400 Hand-Drawn/down button.svg</file>
-    <file>400 Hand-Drawn/download.svg</file>
-    <file>400 Hand-Drawn/down page.svg</file>
-    <file>400 Hand-Drawn/drawer.svg</file>
-    <file>400 Hand-Drawn/dribbble.svg</file>
-    <file>400 Hand-Drawn/dropper.svg</file>
-    <file>400 Hand-Drawn/edit.svg</file>
-    <file>400 Hand-Drawn/edit note.svg</file>
-    <file>400 Hand-Drawn/eject.svg</file>
-    <file>400 Hand-Drawn/euro.svg</file>
-    <file>400 Hand-Drawn/excel file.svg</file>
-    <file>400 Hand-Drawn/exit.svg</file>
-    <file>400 Hand-Drawn/exit2.svg</file>
-    <file>400 Hand-Drawn/expand.svg</file>
-    <file>400 Hand-Drawn/expand2.svg</file>
-    <file>400 Hand-Drawn/export.svg</file>
-    <file>400 Hand-Drawn/eye.svg</file>
-    <file>400 Hand-Drawn/Facebook.svg</file>
-    <file>400 Hand-Drawn/factory.svg</file>
-    <file>400 Hand-Drawn/favorite user.svg</file>
-    <file>400 Hand-Drawn/feather.svg</file>
-    <file>400 Hand-Drawn/female.svg</file>
-    <file>400 Hand-Drawn/fire.svg</file>
-    <file>400 Hand-Drawn/flag.svg</file>
-    <file>400 Hand-Drawn/flower.svg</file>
-    <file>400 Hand-Drawn/fonts.svg</file>
-    <file>400 Hand-Drawn/food.svg</file>
-    <file>400 Hand-Drawn/forward.svg</file>
-    <file>400 Hand-Drawn/forward2.svg</file>
-    <file>400 Hand-Drawn/foursquare.svg</file>
-    <file>400 Hand-Drawn/frame.svg</file>
-    <file>400 Hand-Drawn/free tag.svg</file>
-    <file>400 Hand-Drawn/full battery.svg</file>
-    <file>400 Hand-Drawn/funnel.svg</file>
-    <file>400 Hand-Drawn/futball.svg</file>
-    <file>400 Hand-Drawn/gallery.svg</file>
-    <file>400 Hand-Drawn/game controller.svg</file>
-    <file>400 Hand-Drawn/GIF file.svg</file>
-    <file>400 Hand-Drawn/gift box.svg</file>
-    <file>400 Hand-Drawn/globe.svg</file>
-    <file>400 Hand-Drawn/Google+.svg</file>
-    <file>400 Hand-Drawn/go to the top.svg</file>
-    <file>400 Hand-Drawn/graduate.svg</file>
-    <file>400 Hand-Drawn/graph1.svg</file>
-    <file>400 Hand-Drawn/graph2.svg</file>
-    <file>400 Hand-Drawn/graph4.svg</file>
-    <file>400 Hand-Drawn/graph down.svg</file>
-    <file>400 Hand-Drawn/graph up.svg</file>
-    <file>400 Hand-Drawn/gym.svg</file>
-    <file>400 Hand-Drawn/hdd.svg</file>
-    <file>400 Hand-Drawn/headphones.svg</file>
-    <file>400 Hand-Drawn/heart.svg</file>
-    <file>400 Hand-Drawn/heart2.svg</file>
-    <file>400 Hand-Drawn/horseshoe.svg</file>
-    <file>400 Hand-Drawn/hot dog.svg</file>
-    <file>400 Hand-Drawn/house.svg</file>
-    <file>400 Hand-Drawn/html file.svg</file>
-    <file>400 Hand-Drawn/icecream.svg</file>
-    <file>400 Hand-Drawn/id.svg</file>
-    <file>400 Hand-Drawn/idea.svg</file>
-    <file>400 Hand-Drawn/illustrator file.svg</file>
-    <file>400 Hand-Drawn/inbox.svg</file>
-    <file>400 Hand-Drawn/inbox 2.svg</file>
-    <file>400 Hand-Drawn/incomplete.svg</file>
-    <file>400 Hand-Drawn/infinite.svg</file>
-    <file>400 Hand-Drawn/information.svg</file>
-    <file>400 Hand-Drawn/information2.svg</file>
-    <file>400 Hand-Drawn/instagram.svg</file>
-    <file>400 Hand-Drawn/java script.svg</file>
-    <file>400 Hand-Drawn/join.svg</file>
-    <file>400 Hand-Drawn/jpg file.svg</file>
-    <file>400 Hand-Drawn/jump.svg</file>
-    <file>400 Hand-Drawn/key.svg</file>
-    <file>400 Hand-Drawn/keyboard.svg</file>
-    <file>400 Hand-Drawn/kilometer.svg</file>
-    <file>400 Hand-Drawn/lamp.svg</file>
-    <file>400 Hand-Drawn/leaf.svg</file>
-    <file>400 Hand-Drawn/left arrow.svg</file>
-    <file>400 Hand-Drawn/left arrow1.svg</file>
-    <file>400 Hand-Drawn/left arrow 2.svg</file>
-    <file>400 Hand-Drawn/left arrow2.svg</file>
-    <file>400 Hand-Drawn/left button.svg</file>
-    <file>400 Hand-Drawn/less zoom.svg</file>
-    <file>400 Hand-Drawn/libra.svg</file>
-    <file>400 Hand-Drawn/life guard.svg</file>
-    <file>400 Hand-Drawn/like.svg</file>
-    <file>400 Hand-Drawn/link.svg</file>
-    <file>400 Hand-Drawn/link2.svg</file>
-    <file>400 Hand-Drawn/linkedIN.svg</file>
-    <file>400 Hand-Drawn/list.svg</file>
-    <file>400 Hand-Drawn/list menu.svg</file>
-    <file>400 Hand-Drawn/location pin.svg</file>
-    <file>400 Hand-Drawn/lock.svg</file>
-    <file>400 Hand-Drawn/love.svg</file>
-    <file>400 Hand-Drawn/love2.svg</file>
-    <file>400 Hand-Drawn/low battery.svg</file>
-    <file>400 Hand-Drawn/low battery1.svg</file>
-    <file>400 Hand-Drawn/magic wand.svg</file>
-    <file>400 Hand-Drawn/magnet.svg</file>
-    <file>400 Hand-Drawn/magnifying glass.svg</file>
-    <file>400 Hand-Drawn/mail.svg</file>
-    <file>400 Hand-Drawn/male.svg</file>
-    <file>400 Hand-Drawn/maletin.svg</file>
-    <file>400 Hand-Drawn/man.svg</file>
-    <file>400 Hand-Drawn/map.svg</file>
-    <file>400 Hand-Drawn/map location.svg</file>
-    <file>400 Hand-Drawn/megaphone.svg</file>
-    <file>400 Hand-Drawn/menu.svg</file>
-    <file>400 Hand-Drawn/menu1.svg</file>
-    <file>400 Hand-Drawn/mic.svg</file>
-    <file>400 Hand-Drawn/microscope.svg</file>
-    <file>400 Hand-Drawn/minus.svg</file>
-    <file>400 Hand-Drawn/minus2.svg</file>
-    <file>400 Hand-Drawn/money.svg</file>
-    <file>400 Hand-Drawn/money1.svg</file>
-    <file>400 Hand-Drawn/money bag.svg</file>
-    <file>400 Hand-Drawn/money symbol.svg</file>
-    <file>400 Hand-Drawn/monitoring.svg</file>
-    <file>400 Hand-Drawn/more zoom.svg</file>
-    <file>400 Hand-Drawn/mosaic.svg</file>
-    <file>400 Hand-Drawn/mosaic2.svg</file>
-    <file>400 Hand-Drawn/mouse.svg</file>
-    <file>400 Hand-Drawn/mug.svg</file>
-    <file>400 Hand-Drawn/music.svg</file>
-    <file>400 Hand-Drawn/music2.svg</file>
-    <file>400 Hand-Drawn/mustache glasses.svg</file>
-    <file>400 Hand-Drawn/new tag.svg</file>
-    <file>400 Hand-Drawn/next.svg</file>
-    <file>400 Hand-Drawn/next page.svg</file>
-    <file>400 Hand-Drawn/next user.svg</file>
-    <file>400 Hand-Drawn/night.svg</file>
-    <file>400 Hand-Drawn/no.svg</file>
-    <file>400 Hand-Drawn/no sound.svg</file>
-    <file>400 Hand-Drawn/octocat.svg</file>
-    <file>400 Hand-Drawn/old man.svg</file>
-    <file>400 Hand-Drawn/open sign.svg</file>
-    <file>400 Hand-Drawn/outbox.svg</file>
-    <file>400 Hand-Drawn/pages.svg</file>
-    <file>400 Hand-Drawn/paint.svg</file>
-    <file>400 Hand-Drawn/palm.svg</file>
-    <file>400 Hand-Drawn/paper.svg</file>
-    <file>400 Hand-Drawn/paper1.svg</file>
-    <file>400 Hand-Drawn/paper file.svg</file>
-    <file>400 Hand-Drawn/paper list.svg</file>
-    <file>400 Hand-Drawn/paper plane.svg</file>
-    <file>400 Hand-Drawn/paper tray.svg</file>
-    <file>400 Hand-Drawn/pause.svg</file>
-    <file>400 Hand-Drawn/PDF file.svg</file>
-    <file>400 Hand-Drawn/pen.svg</file>
-    <file>400 Hand-Drawn/pencil.svg</file>
-    <file>400 Hand-Drawn/phone.svg</file>
-    <file>400 Hand-Drawn/photoshop file.svg</file>
-    <file>400 Hand-Drawn/php file.svg</file>
-    <file>400 Hand-Drawn/pi.svg</file>
-    <file>400 Hand-Drawn/picture.svg</file>
-    <file>400 Hand-Drawn/pin.svg</file>
-    <file>400 Hand-Drawn/pine.svg</file>
-    <file>400 Hand-Drawn/Pinterest.svg</file>
-    <file>400 Hand-Drawn/pipe.svg</file>
-    <file>400 Hand-Drawn/plug.svg</file>
-    <file>400 Hand-Drawn/plus.svg</file>
-    <file>400 Hand-Drawn/plus2.svg</file>
-    <file>400 Hand-Drawn/png file.svg</file>
-    <file>400 Hand-Drawn/podium.svg</file>
-    <file>400 Hand-Drawn/port.svg</file>
-    <file>400 Hand-Drawn/portapapeles.svg</file>
-    <file>400 Hand-Drawn/power.svg</file>
-    <file>400 Hand-Drawn/prev.svg</file>
-    <file>400 Hand-Drawn/price tag.svg</file>
-    <file>400 Hand-Drawn/printer.svg</file>
-    <file>400 Hand-Drawn/private folder.svg</file>
-    <file>400 Hand-Drawn/question.svg</file>
-    <file>400 Hand-Drawn/question1.svg</file>
-    <file>400 Hand-Drawn/question2.svg</file>
-    <file>400 Hand-Drawn/radiation.svg</file>
-    <file>400 Hand-Drawn/radio.svg</file>
-    <file>400 Hand-Drawn/rain.svg</file>
-    <file>400 Hand-Drawn/record.svg</file>
-    <file>400 Hand-Drawn/refresh.svg</file>
-    <file>400 Hand-Drawn/reload.svg</file>
-    <file>400 Hand-Drawn/repeat.svg</file>
-    <file>400 Hand-Drawn/report graph.svg</file>
-    <file>400 Hand-Drawn/rest.svg</file>
-    <file>400 Hand-Drawn/revert.svg</file>
-    <file>400 Hand-Drawn/right arrow 1.svg</file>
-    <file>400 Hand-Drawn/right arrow 2.svg</file>
-    <file>400 Hand-Drawn/right arrow2.svg</file>
-    <file>400 Hand-Drawn/right button.svg</file>
-    <file>400 Hand-Drawn/robot.svg</file>
-    <file>400 Hand-Drawn/Rocket.svg</file>
-    <file>400 Hand-Drawn/rss.svg</file>
-    <file>400 Hand-Drawn/sad.svg</file>
-    <file>400 Hand-Drawn/sale tag.svg</file>
-    <file>400 Hand-Drawn/sand clock.svg</file>
-    <file>400 Hand-Drawn/save.svg</file>
-    <file>400 Hand-Drawn/screen.svg</file>
-    <file>400 Hand-Drawn/settings.svg</file>
-    <file>400 Hand-Drawn/settings 2.svg</file>
-    <file>400 Hand-Drawn/share.svg</file>
-    <file>400 Hand-Drawn/shopping bag.svg</file>
-    <file>400 Hand-Drawn/shopping cart.svg</file>
-    <file>400 Hand-Drawn/shuffle.svg</file>
-    <file>400 Hand-Drawn/sicssors.svg</file>
-    <file>400 Hand-Drawn/signal.svg</file>
-    <file>400 Hand-Drawn/sign way.svg</file>
-    <file>400 Hand-Drawn/skype.svg</file>
-    <file>400 Hand-Drawn/small.svg</file>
-    <file>400 Hand-Drawn/smile.svg</file>
-    <file>400 Hand-Drawn/snowflake.svg</file>
-    <file>400 Hand-Drawn/soccer.svg</file>
-    <file>400 Hand-Drawn/Soda.svg</file>
-    <file>400 Hand-Drawn/sound.svg</file>
-    <file>400 Hand-Drawn/sound1.svg</file>
-    <file>400 Hand-Drawn/sound2.svg</file>
-    <file>400 Hand-Drawn/sound4.svg</file>
-    <file>400 Hand-Drawn/speedometer.svg</file>
-    <file>400 Hand-Drawn/squad.svg</file>
-    <file>400 Hand-Drawn/square.svg</file>
-    <file>400 Hand-Drawn/star.svg</file>
-    <file>400 Hand-Drawn/star2.svg</file>
-    <file>400 Hand-Drawn/star badge.svg</file>
-    <file>400 Hand-Drawn/status.svg</file>
-    <file>400 Hand-Drawn/stereo.svg</file>
-    <file>400 Hand-Drawn/strategy.svg</file>
-    <file>400 Hand-Drawn/suitcase.svg</file>
-    <file>400 Hand-Drawn/sun.svg</file>
-    <file>400 Hand-Drawn/sync cloud.svg</file>
-    <file>400 Hand-Drawn/syringe.svg</file>
-    <file>400 Hand-Drawn/tablet.svg</file>
-    <file>400 Hand-Drawn/tag.svg</file>
-    <file>400 Hand-Drawn/tag2.svg</file>
-    <file>400 Hand-Drawn/target.svg</file>
-    <file>400 Hand-Drawn/task completed.svg</file>
-    <file>400 Hand-Drawn/tel.svg</file>
-    <file>400 Hand-Drawn/tenis shoe.svg</file>
-    <file>400 Hand-Drawn/terminal.svg</file>
-    <file>400 Hand-Drawn/termometer.svg</file>
-    <file>400 Hand-Drawn/thunder.svg</file>
-    <file>400 Hand-Drawn/thunder2.svg</file>
-    <file>400 Hand-Drawn/thunderstorm.svg</file>
-    <file>400 Hand-Drawn/ticket.svg</file>
-    <file>400 Hand-Drawn/time.svg</file>
-    <file>400 Hand-Drawn/todolist.svg</file>
-    <file>400 Hand-Drawn/tool.svg</file>
-    <file>400 Hand-Drawn/tool2.svg</file>
-    <file>400 Hand-Drawn/tool3.svg</file>
-    <file>400 Hand-Drawn/tools1.svg</file>
-    <file>400 Hand-Drawn/trashcan.svg</file>
-    <file>400 Hand-Drawn/tray.svg</file>
-    <file>400 Hand-Drawn/tray2.svg</file>
-    <file>400 Hand-Drawn/tree.svg</file>
-    <file>400 Hand-Drawn/triangle.svg</file>
-    <file>400 Hand-Drawn/trophy.svg</file>
-    <file>400 Hand-Drawn/truck.svg</file>
-    <file>400 Hand-Drawn/trumpet.svg</file>
-    <file>400 Hand-Drawn/tv.svg</file>
-    <file>400 Hand-Drawn/Twitter.svg</file>
-    <file>400 Hand-Drawn/umbrella.svg</file>
-    <file>400 Hand-Drawn/undo.svg</file>
-    <file>400 Hand-Drawn/union.svg</file>
-    <file>400 Hand-Drawn/unlock.svg</file>
-    <file>400 Hand-Drawn/up-down.svg</file>
-    <file>400 Hand-Drawn/up2.svg</file>
-    <file>400 Hand-Drawn/up arrow.svg</file>
-    <file>400 Hand-Drawn/up arrow1.svg</file>
-    <file>400 Hand-Drawn/up down.svg</file>
-    <file>400 Hand-Drawn/upload.svg</file>
-    <file>400 Hand-Drawn/upload file.svg</file>
-    <file>400 Hand-Drawn/up page.svg</file>
-    <file>400 Hand-Drawn/USB.svg</file>
-    <file>400 Hand-Drawn/User.svg</file>
-    <file>400 Hand-Drawn/user1.svg</file>
-    <file>400 Hand-Drawn/user book.svg</file>
-    <file>400 Hand-Drawn/user list.svg</file>
-    <file>400 Hand-Drawn/users.svg</file>
-    <file>400 Hand-Drawn/vector.svg</file>
-    <file>400 Hand-Drawn/vector file eps.svg</file>
-    <file>400 Hand-Drawn/video.svg</file>
-    <file>400 Hand-Drawn/video filmd.svg</file>
-    <file>400 Hand-Drawn/vimeo.svg</file>
-    <file>400 Hand-Drawn/water1.svg</file>
-    <file>400 Hand-Drawn/water drops.svg</file>
-    <file>400 Hand-Drawn/wifi.svg</file>
-    <file>400 Hand-Drawn/wifi2.svg</file>
-    <file>400 Hand-Drawn/window.svg</file>
-    <file>400 Hand-Drawn/window2.svg</file>
-    <file>400 Hand-Drawn/windows.svg</file>
-    <file>400 Hand-Drawn/wine.svg</file>
-    <file>400 Hand-Drawn/woman.svg</file>
-    <file>400 Hand-Drawn/world.svg</file>
-    <file>400 Hand-Drawn/yen.svg</file>
-    <file>400 Hand-Drawn/yinyan.svg</file>
-    <file>400 Hand-Drawn/zip file.svg</file>
-    <file>elementary3-icon-theme/places/48/folder-recent.svg</file>
+    <file>hand made/1424503206_arrow_right.png</file>
+    <file>hand made/1424503213_bullet_deny.png</file>
+    <file>hand made/1424503216_star_full.png</file>
+    <file>hand made/1424503222_zoom.png</file>
+    <file>hand made/1424503224_arrow_left.png</file>
+    <file>hand made/1424503224_arrow_left (copy).png</file>
+    <file>hand made/1424503241_folder_full.png</file>
+    <file>hand made/1424554229_arrow_undo.png</file>
+    <file>hand made/1424554251_arrow_undo.png</file>
+    <file>hand made/1424554256_settings.png</file>
+    <file>hand made/1424554280_arrow_redo.png</file>
+    <file>hand made/1424554308_comment.png</file>
+    <file>hand made/1424732856_arrow_right.png</file>
+    <file>hand made/1424732859_folder_download.png</file>
+    <file>hand made/1424732860_arrow_refresh.png</file>
+    <file>hand made/1424732861_star_full.png</file>
+    <file>hand made/1424732862_bullet_accept.png</file>
+    <file>hand made/1424732864_bullet_deny.png</file>
+    <file>hand made/1424732865_note_edit.png</file>
+    <file>hand made/1424732866_arrow_down.png</file>
+    <file>hand made/1424732867_arrow_up.png</file>
+    <file>hand made/1424732869_bullet_info.png</file>
+    <file>hand made/1424732871_arrow_undo.png</file>
+    <file>hand made/1424732872_arrow_left.png</file>
+    <file>hand made/1424732874_bullet_add.png</file>
+    <file>hand made/1424732876_zoom.png</file>
+    <file>hand made/1424732879_edit.png</file>
+    <file>hand made/1424732880_trash_full.png</file>
+    <file>hand made/1424732881_settings.png</file>
+    <file>hand made/1424732884_folder_empty.png</file>
+    <file>hand made/1424732887_bullet_error.png</file>
+    <file>hand made/1424732891_folder_search.png</file>
+    <file>hand made/1424732894_arrow_redo.png</file>
+    <file>hand made/1424732896_user_add.png</file>
+    <file>hand made/1424732899_bullet_delete.png</file>
+    <file>hand made/1424732901_photo_download.png</file>
+    <file>hand made/1424732905_note_download.png</file>
+    <file>hand made/1424732910_file_download.png</file>
+    <file>hand made/1424732911_photo.png</file>
+    <file>hand made/1424732913_note_search.png</file>
+    <file>hand made/1424732916_basket_empty.png</file>
+    <file>hand made/1424732923_comment.png</file>
+    <file>hand made/1424732928_note.png</file>
+    <file>hand made/1424732930_basket_full.png</file>
+    <file>hand made/1424732943_note_accept.png</file>
+    <file>hand made/1424732945_zoom_in.png</file>
+    <file>hand made/1424732949_zoom_out.png</file>
+    <file>hand made/1424732950_comment_settings.png</file>
+    <file>hand made/1424732951_photo_accept.png</file>
+    <file>hand made/1424732952_tag_refresh.png</file>
+    <file>hand made/1424732957_star_add.png</file>
+    <file>hand made/1424732962_tag_search.png</file>
+    <file>hand made/1424732973_comment_search.png</file>
+    <file>hand made/1424732975_file_zoom_in.png</file>
+    <file>hand made/1424732976_file_search.png</file>
+    <file>hand made/1424732994_photo_zoom_out.png</file>
+    <file>hand made/1424733005_mouse_on.png</file>
+    <file>hand made/1424733010_note_refresh.png</file>
+    <file>hand made/1424733013_photos.png</file>
+    <file>hand made/1424733022_photo_add.png</file>
+    <file>hand made/1424733024_photo_delete.png</file>
+    <file>hand made/1424733028_comment_add.png</file>
+    <file>hand made/1424733033_basket_accept.png</file>
+    <file>hand made/1424733039_tag_delete.png</file>
+    <file>hand made/1424733041_tag_accept.png</file>
+    <file>hand made/1424733045_file_photo.png</file>
+    <file>hand made/1424733088_photo_add.png</file>
+    <file>hand made/1424733089_photo_delete.png</file>
+    <file>hand made/1424733095_photo_error.png</file>
+    <file>hand made/1424733113_photo_info.png</file>
+    <file>hand made/1424735907_arrow_right.png</file>
+    <file>hand made/1424735941_66714.ico</file>
+    <file>hand made/1424735944_comment.png</file>
     <file>elementary3-icon-theme/actions/48/exit.svg</file>
     <file>elementary3-icon-theme/devices/64/display.svg</file>
     <file>elementary3-icon-theme/actions/48/zoom-restore.svg</file>
@@ -408,36 +80,6 @@
     <file>elementary3-icon-theme/actions/48/calibrate_3.svg</file>
     <file>elementary3-icon-theme/actions/48/calibrate.svg</file>
     <file>elementary3-icon-theme/actions/48/calibrate (copy).svg</file>
-    <file>images/bookmark.png</file>
-    <file>images/comicFolder.png</file>
-    <file>images/icon.png</file>
-    <file>images/help.png</file>
-    <file>images/next.png</file>
-    <file>images/nextComic.png</file>
-    <file>images/previousComic.png</file>
-    <file>images/prev.png</file>
-    <file>images/open.png</file>
-    <file>images/rotateL.png</file>
-    <file>images/rotateR.png</file>
-    <file>images/setBookmark.png</file>
-    <file>images/zoom.png</file>
-    <file>hand made/1424503206_arrow_right.png</file>
-    <file>hand made/1424503213_bullet_deny.png</file>
-    <file>hand made/1424503216_star_full.png</file>
-    <file>hand made/1424503222_zoom.png</file>
-    <file>hand made/1424503224_arrow_left.png</file>
-    <file>hand made/1424503241_folder_full.png</file>
-    <file>hand made/1424554229_arrow_undo.png</file>
-    <file>hand made/1424554251_arrow_undo.png</file>
-    <file>hand made/1424554256_settings.png</file>
-    <file>hand made/1424554280_arrow_redo.png</file>
-    <file>hand made/1424554308_comment.png</file>
-    <file>hand made/1424503206_arrow_right.png</file>
-    <file>hand made/1424503213_bullet_deny.png</file>
-    <file>hand made/1424503216_star_full.png</file>
-    <file>hand made/1424503222_zoom.png</file>
-    <file>hand made/1424503224_arrow_left.png</file>
-    <file>hand made/1424503241_folder_full.png</file>
     <file>elementary3-icon-theme/apps/128/beryl-settings.svg</file>
     <file>elementary3-icon-theme/apps/128/checkbox.svg</file>
     <file>elementary3-icon-theme/apps/128/desktop-effects.svg</file>

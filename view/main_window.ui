@@ -142,7 +142,7 @@
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="../resource/main_window.qrc">:/icons/icons/freeiconmaker_2 1.png</pixmap>
+             <pixmap resource="../resource/main_window.qrc">:/icons/hand made/1424554308_comment.png</pixmap>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
