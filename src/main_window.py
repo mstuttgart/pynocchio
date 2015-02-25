@@ -23,7 +23,7 @@ from status_bar import StatusBar
 from preference import Preference
 
 
-MainWindowForm, MainWindowBase = uic.loadUiType('../view/main_window.ui')
+MainWindowForm, MainWindowBase = uic.loadUiType('main_window.ui')
 
 
 class MainWindow(MainWindowBase, MainWindowForm):
@@ -178,9 +178,9 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
-        import go_to_dialog
+        import go_to_page_dialog
 
-        go_to_dlg = go_to_dialog.GoToDialog(self.model, self.viewer)
+        go_to_dlg = go_to_page_dialog.GoToDialog(self.model, self.viewer)
         go_to_dlg.show()
         go_to_dlg.exec_()
         self._update_view_actions()

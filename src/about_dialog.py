@@ -17,7 +17,7 @@
 
 from PyQt4 import uic
 
-AboutDialogForm, AboutDialogBase = uic.loadUiType('../view/about_dialog.ui')
+AboutDialogForm, AboutDialogBase = uic.loadUiType('about_dialog.ui')
 
 
 class AboutDialog(AboutDialogForm, AboutDialogBase):
