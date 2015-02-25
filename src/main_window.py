@@ -386,45 +386,69 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.action_remove_bookmark.setEnabled(True)
 
     def _save_settings(self):
-        import settings_manager
 
-        sett = {'view': {}, 'settings': {}}
+        settings = QtCore.QSettings("Pynocchio", "Pynocchio Comic Reader")
 
-        sett['view'][
-            'view_adjust'] = self.actionGroupView.checkedAction().objectName()
-        sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
-        sett['settings'][
-            'show_statusbar'] = self.action_show_statusbar.isChecked()
-        sett['settings']['directory'] = self.model.current_directory
-        sett['settings'][
-            'background_color'] = self.preferences.background_color.name()
+        settings.setValue(
+            "view_adjust", self.actionGroupView.checkedAction().objectName())
+        settings.setValue(
+            "show_toolbar", self.action_show_toolbar.isChecked())
+        settings.setValue(
+            "show_statusbar", self.action_show_statusbar.isChecked())
+        settings.setValue(
+            "directory", self.model.current_directory)
+        settings.setValue(
+            "background_color", self.preferences.background_color)
 
-        settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
+
+        # import settings_manager
+        #
+        # sett = {'view': {}, 'settings': {}}
+        #
+        # sett['view'][
+        #     'view_adjust'] = self.actionGroupView.checkedAction().objectName()
+        # sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
+        # sett['settings'][
+        #     'show_statusbar'] = self.action_show_statusbar.isChecked()
+        # sett['settings']['directory'] = self.model.current_directory
+        # sett['settings'][
+        #     'background_color'] = self.preferences.background_color.name()
+        #
+        # settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
 
     def _load_settings(self):
-        import settings_manager
-        from distutils import util
 
-        sett = settings_manager.SettingsManager.load_settings('settings.ini')
+        settings = QtCore.QSettings("Pynocchio", "Pynocchio Comic Reader")
 
-        try:
-            self.action_show_toolbar.setChecked(
-                util.strtobool(sett['settings']['show_toolbar']))
-            self.action_show_statusbar.setChecked(
-                util.strtobool(sett['settings']['show_statusbar']))
+        view_adjust = settings.value(
+            'view_adjust', self.actionGroupView.checkedAction().objectName(),
+            type=str)
 
-            for act in self.actionGroupView.actions():
-                if act.objectName() == sett['view']['view_adjust']:
-                    act.setChecked(True)
-                    self.model.adjustType = act.objectName()
+        for act in self.actionGroupView.actions():
+            if act.objectName() == view_adjust:
+                act.setChecked(True)
+                self.model.adjustType = act.objectName()
 
-            self.model.current_directory = sett['settings']['directory']
-            self.preferences.background_color = QtGui.QColor(
-                sett['settings']['background_color'])
+        show_toolbar = settings.value('show_toolbar',
+                                      self.action_show_toolbar.isChecked(),
+                                      type=bool)
 
-        except KeyError, err:
-            print err
+        self.action_show_toolbar.setChecked(show_toolbar)
 
+        show_status_bar = settings.value('show_statusbar',
+                                         self.action_show_statusbar.isChecked(),
+                                         type=bool)
+
+        self.action_show_statusbar.setChecked(show_status_bar)
+
+        self.model.current_directory = settings.value(
+            'directory', self.model.current_directory, type=str)
+
+        color_name = settings.value('background_color',
+                                    self.preferences.background_color,
+                                    type=QtGui.QColor)
+
+        self.preferences.background_color = QtGui.QColor(color_name)
         self.viewer.change_background_color(self.preferences.background_color)
         self.on_action_show_toolbar_triggered()
         self.on_action_show_statusbar_triggered()
