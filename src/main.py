@@ -18,11 +18,10 @@
 import sys
 
 try:
-    import PyQt4
+    from PyQt4 import QtCore, QtGui
 except ImportError, err:
     sys.exit(err)
 
-from PyQt4 import QtCore, QtGui
 from main_window import MainWindow
 
 
