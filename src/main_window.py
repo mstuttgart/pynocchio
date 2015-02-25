@@ -400,22 +400,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
         settings.setValue(
             "background_color", self.preferences.background_color)
 
-
-        # import settings_manager
-        #
-        # sett = {'view': {}, 'settings': {}}
-        #
-        # sett['view'][
-        #     'view_adjust'] = self.actionGroupView.checkedAction().objectName()
-        # sett['settings']['show_toolbar'] = self.action_show_toolbar.isChecked()
-        # sett['settings'][
-        #     'show_statusbar'] = self.action_show_statusbar.isChecked()
-        # sett['settings']['directory'] = self.model.current_directory
-        # sett['settings'][
-        #     'background_color'] = self.preferences.background_color.name()
-        #
-        # settings_manager.SettingsManager.save_settings(sett, 'settings.ini')
-
     def _load_settings(self):
 
         settings = QtCore.QSettings("Pynocchio", "Pynocchio Comic Reader")
