@@ -94,5 +94,4 @@ class RecentFileManager(object):
     @staticmethod
     def _stripped_name(full_file_name):
         from PyQt4.QtCore import QFileInfo
-
         return QFileInfo(full_file_name).fileName()
