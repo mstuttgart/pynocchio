@@ -240,9 +240,9 @@ class MainWindow(MainWindowBase, MainWindowForm):
             act.triggered.connect(self._load_bookmark)
             self.menu_bookmarks.addAction(act)
 
-        self.menu_bookmarks.triggered.connect(self._update_bookmarks_menu)
-        # self._update_bookmarks_menu(
-        #     self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
+        # self.menu_bookmarks.triggered.connect(self._update_bookmarks_menu)
+        self._update_bookmarks_menu(
+            self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _update_bookmarks_menu(self, bookmark_list=None):
         acts = self.menu_bookmarks.actions()
@@ -259,7 +259,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         # menu is add, remove and manage bookmark
         for i in range(0, bookmark_list_len):
             page = ' [%d]' % (bookmark_list[i][2])
-            acts[i + 4].setObjectName(bookmark_list[i][0])
+            acts[i + 4].setObjectName(bookmark_list[i][1])
             acts[i + 4].setText(bookmark_list[i][1] + page)
             acts[i + 4].setVisible(True)
 
@@ -295,7 +295,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
         action = self.sender()
         if action:
             bk = self.model.find_bookmark(action.objectName())
-            self.load(action.objectName(), bk[2] - 1)
+            if bk:
+                self.load(action.objectName(), bk[2] - 1)
 
     @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):
