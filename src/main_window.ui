@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>662</width>
-    <height>569</height>
+    <width>1048</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -16,6 +16,12 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>0</width>
+    <height>3</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Pynocchio Comic Reader</string>
@@ -55,19 +61,10 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <property name="maximumSize">
-    <size>
-     <width>628</width>
-     <height>349</height>
-    </size>
-   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="sizeConstraint">
-     <enum>QLayout::SetMaximumSize</enum>
-    </property>
     <property name="margin">
      <number>0</number>
     </property>
@@ -76,13 +73,16 @@
       <item>
        <widget class="Viewer" name="viewer">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
         </property>
         <property name="autoFillBackground">
          <bool>true</bool>
@@ -91,7 +91,7 @@
          <string notr="true">background-color: rgb(5, 5, 5);</string>
         </property>
         <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
+         <enum>QFrame::HLine</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Plain</enum>
@@ -116,13 +116,28 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>626</width>
-           <height>347</height>
+           <width>1046</width>
+           <height>542</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
           <item>
            <widget class="QLabel" name="label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>20</horstretch>
+              <verstretch>20</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
             <property name="focusPolicy">
              <enum>Qt::NoFocus</enum>
             </property>
@@ -130,7 +145,7 @@
              <enum>Qt::LeftToRight</enum>
             </property>
             <property name="autoFillBackground">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
@@ -141,14 +156,26 @@
             <property name="lineWidth">
              <number>0</number>
             </property>
+            <property name="midLineWidth">
+             <number>0</number>
+            </property>
             <property name="text">
              <string/>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::PlainText</enum>
             </property>
             <property name="pixmap">
              <pixmap resource="../resource/main_window.qrc">:/icons/hand made/1424554308_comment.png</pixmap>
             </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
+            </property>
+            <property name="margin">
+             <number>0</number>
             </property>
            </widget>
           </item>
@@ -165,7 +192,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>662</width>
+     <width>1048</width>
      <height>27</height>
     </rect>
    </property>
@@ -747,6 +774,7 @@
   </customwidget>
  </customwidgets>
  <resources>
+  <include location="../resource/main_window.qrc"/>
   <include location="../resource/main_window.qrc"/>
  </resources>
  <connections/>

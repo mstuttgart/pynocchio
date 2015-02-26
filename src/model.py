@@ -203,7 +203,7 @@ class Model(object):
 
             if self.adjustType == 'action_vertical_adjust':
                 pix_map = pix_map.scaledToHeight(
-                    self.main_window.label.height(),
+                    self.screenSize.height(),
                     QtCore.Qt.SmoothTransformation)
 
             elif self.adjustType == 'action_horizontal_adjust':
