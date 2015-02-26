@@ -79,7 +79,7 @@
          </sizepolicy>
         </property>
         <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
+         <enum>Qt::ClickFocus</enum>
         </property>
         <property name="layoutDirection">
          <enum>Qt::LeftToRight</enum>
@@ -136,16 +136,16 @@
              </sizepolicy>
             </property>
             <property name="mouseTracking">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::ClickFocus</enum>
             </property>
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
             </property>
             <property name="autoFillBackground">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
