@@ -16,6 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from collections import deque
+from PyQt4 import QtCore
 
 
 class RecentFileManager(object):
@@ -63,33 +64,59 @@ class RecentFileManager(object):
         return None
 
     def _load_settings(self):
-        import settings_manager
 
-        ret = settings_manager.SettingsManager.load_settings(
-            self.SETTING_FILE_NAME)
-        section_list = ret.keys()
-        section_list.sort(reverse=True)
+        settings = QtCore.QSettings("Pynocchio", "Pynocchio Comic Reader")
 
-        for section in section_list:
-            comic_path = ret[section]['path']
-            self.update_recent_file_list(comic_path)
+        settings.beginGroup("recent_file")
+        section_list = settings.allKeys()
+
+        if not section_list.isEmpty():
+            python_list = list(section_list)
+            python_list.sort(reverse=True)
+
+            for section in python_list:
+                comic_path = settings.value(section, None, type=str)
+                if comic_path:
+                    self.update_recent_file_list(comic_path)
+
+        # import settings_manager
+        #
+        # ret = settings_manager.SettingsManager.load_settings(
+        #     self.SETTING_FILE_NAME)
+        # section_list = ret.keys()
+        # section_list.sort(reverse=True)
+        #
+        # for section in section_list:
+        #     comic_path = ret[section]['path']
+        #     self.update_recent_file_list(comic_path)
 
     def save_settings(self):
-        import settings_manager
 
-        rf_dict = {}
+        settings = QtCore.QSettings("Pynocchio", "Pynocchio Comic Reader")
 
         for act_dict in self.recent_files_action_list:
 
             # Sections was added first because to
             # preserve order of recent files
             if act_dict['action'].isVisible():
-                section = "RECENT_FILE_" + act_dict['action'].objectName()
-                rf_dict[section] = {}
-                rf_dict[section]['path'] = act_dict['path']
+                section = "recent_file/" + act_dict['action'].objectName()
+                settings.setValue(section, act_dict['path'])
 
-        settings_manager.SettingsManager.save_settings(rf_dict,
-                                                       self.SETTING_FILE_NAME)
+        # import settings_manager
+        #
+        # rf_dict = {}
+        #
+        # for act_dict in self.recent_files_action_list:
+        #
+        #     # Sections was added first because to
+        #     # preserve order of recent files
+        #     if act_dict['action'].isVisible():
+        #         section = "RECENT_FILE_" + act_dict['action'].objectName()
+        #         rf_dict[section] = {}
+        #         rf_dict[section]['path'] = act_dict['path']
+        #
+        # settings_manager.SettingsManager.save_settings(rf_dict,
+        #                                                self.SETTING_FILE_NAME)
 
     @staticmethod
     def _stripped_name(full_file_name):

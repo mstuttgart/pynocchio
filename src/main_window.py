@@ -238,13 +238,16 @@ class MainWindow(MainWindowBase, MainWindowForm):
             act = QtGui.QAction(self)
             act.setVisible(False)
             act.triggered.connect(self._load_bookmark)
-            self.menu_Bookmarks.addAction(act)
+            self.menu_bookmarks.addAction(act)
 
-        self._update_bookmarks_menu(
-            self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
+        self.menu_bookmarks.triggered.connect(self._update_bookmarks_menu)
+        # self._update_bookmarks_menu(
+        #     self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _update_bookmarks_menu(self, bookmark_list=None):
-        acts = self.menu_Bookmarks.actions()
+        acts = self.menu_bookmarks.actions()
+
+        print 'arroz'
 
         if not bookmark_list:
             bookmark_list = self.model.get_bookmark_list(
@@ -257,10 +260,10 @@ class MainWindow(MainWindowBase, MainWindowForm):
         for i in range(0, bookmark_list_len):
             page = ' [%d]' % (bookmark_list[i][2])
             acts[i + 4].setObjectName(bookmark_list[i][0])
-            acts[i + 4].setText(bookmark_list[i][0] + page)
+            acts[i + 4].setText(bookmark_list[i][1] + page)
             acts[i + 4].setVisible(True)
 
-        # make the others bookmarks items invisibles
+        # make the others bookmarks items invisible
         for i in range(bookmark_list_len, self.model.NUM_BOOKMARK):
             acts[i + 4].setVisible(False)
 
@@ -389,16 +392,14 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         settings = QtCore.QSettings("Pynocchio", "Pynocchio Comic Reader")
 
-        settings.setValue(
-            "view_adjust", self.actionGroupView.checkedAction().objectName())
-        settings.setValue(
-            "show_toolbar", self.action_show_toolbar.isChecked())
-        settings.setValue(
-            "show_statusbar", self.action_show_statusbar.isChecked())
-        settings.setValue(
-            "directory", self.model.current_directory)
-        settings.setValue(
-            "background_color", self.preferences.background_color)
+        settings.setValue("view_adjust",
+                          self.actionGroupView.checkedAction().objectName())
+        settings.setValue("show_toolbar",
+                          self.action_show_toolbar.isChecked())
+        settings.setValue("show_statusbar",
+                          self.action_show_statusbar.isChecked())
+        settings.setValue("directory", self.model.current_directory)
+        settings.setValue("background_color", self.preferences.background_color)
 
     def _load_settings(self):
 
