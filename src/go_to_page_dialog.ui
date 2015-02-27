@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../resource/main_window.qrc">
-    <normaloff>:/icons/icons/freeiconmaker_30.png</normaloff>:/icons/icons/freeiconmaker_30.png</iconset>
+    <normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</iconset>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -57,8 +57,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>253</width>
-             <height>350</height>
+             <width>237</width>
+             <height>323</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
@@ -185,6 +185,9 @@
      </property>
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+     <property name="centerButtons">
+      <bool>false</bool>
      </property>
     </widget>
    </item>

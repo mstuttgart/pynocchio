@@ -1,36 +1,35 @@
 <RCC>
-    <qresource prefix="/icons">
-        <file>icons/next_comic_0.png</file>
-        <file>icons/next_comic_1.png</file>
-        <file>icons/freeiconmaker_1 2.png</file>
-        <file>icons/freeiconmaker_7 1.png</file>
-        <file>icons/freeiconmaker_0 2.png</file>
-        <file>icons/freeiconmaker_0 1.png</file>
-        <file>icons/freeiconmaker_0.png</file>
-        <file>icons/freeiconmaker_1 1.png</file>
-        <file>icons/freeiconmaker_1.png</file>
-        <file>icons/freeiconmaker_2 1.png</file>
-        <file>icons/freeiconmaker_2.png</file>
-        <file>icons/freeiconmaker_3.png</file>
-        <file>icons/freeiconmaker_4.png</file>
-        <file>icons/freeiconmaker_7.png</file>
-        <file>icons/freeiconmaker_8.png</file>
-        <file>icons/freeiconmaker_9.png</file>
-        <file>icons/freeiconmaker_10.png</file>
-        <file>icons/freeiconmaker_5.png</file>
-        <file>icons/freeiconmaker_6.png</file>
-        <file>icons/freeiconmaker_11.png</file>
-        <file>icons/freeiconmaker_12.png</file>
-        <file>icons/freeiconmaker_13.png</file>
-        <file>icons/freeiconmaker_14.png</file>
-        <file>icons/freeiconmaker_15.png</file>
-        <file>icons/freeiconmaker_16.png</file>
-        <file>icons/freeiconmaker_17.png</file>
-        <file>icons/freeiconmaker_18.png</file>
-        <file>icons/freeiconmaker_25.png</file>
-        <file>icons/freeiconmaker_26.png</file>
-        <file>icons/freeiconmaker_28.png</file>
-        <file>icons/freeiconmaker_30.png</file>
-        <file>icons/freeiconmaker_31.png</file>
-    </qresource>
+  <qresource prefix="/icons">
+    <file>elementary3-icon-theme/apps/48/AdobeReader9.svg</file>
+    <file>elementary3-icon-theme/categories/48/applications-painting.svg</file>
+    <file>pynocchio_icon.png</file>
+    <file>freeiconmaker-icons/best-fit.svg</file>
+    <file>freeiconmaker-icons/fullscreen.svg</file>
+    <file>freeiconmaker-icons/horizontal-fit.svg</file>
+    <file>freeiconmaker-icons/original-fit.svg</file>
+    <file>freeiconmaker-icons/vertical-fit.svg</file>
+    <file>elementary3-icon-theme/actions/48/object-rotate-left.svg</file>
+    <file>elementary3-icon-theme/actions/48/object-rotate-right.svg</file>
+    <file>elementary3-icon-theme/actions/64/address-book-new.svg</file>
+    <file>elementary3-icon-theme/actions/64/bookmark_add.svg</file>
+    <file>elementary3-icon-theme/actions/64/help-contents.svg</file>
+    <file>elementary3-icon-theme/actions/64/help-info.svg</file>
+    <file>elementary3-icon-theme/actions/64/stock_delete.svg</file>
+    <file>elementary3-icon-theme/actions/48/archive-extract.svg</file>
+    <file>elementary3-icon-theme/actions/48/application-exit.svg</file>
+    <file>elementary3-icon-theme/actions/48/document-open.svg</file>
+    <file>elementary3-icon-theme/actions/48/document-properties.svg</file>
+    <file>elementary3-icon-theme/actions/48/filesaveas.svg</file>
+    <file>elementary3-icon-theme/actions/48/go-next.svg</file>
+    <file>elementary3-icon-theme/actions/48/go-previous.svg</file>
+    <file>elementary3-icon-theme/actions/48/go-first.svg</file>
+    <file>elementary3-icon-theme/actions/48/go-last.svg</file>
+    <file>elementary3-icon-theme/actions/48/media-skip-backward.svg</file>
+    <file>elementary3-icon-theme/actions/48/media-skip-forward.svg</file>
+    <file>elementary3-icon-theme/actions/48/search.svg</file>
+    <file>elementary3-icon-theme/actions/64/add.svg</file>
+    <file>elementary3-icon-theme/actions/64/list-remove.svg</file>
+    <file>elementary3-icon-theme/actions/48/dialog-apply.svg</file>
+    <file>elementary3-icon-theme/actions/48/dialog-cancel.svg</file>
+  </qresource>
 </RCC>

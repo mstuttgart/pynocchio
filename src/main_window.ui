@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>662</width>
-    <height>569</height>
+    <width>1048</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -17,12 +17,18 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="baseSize">
+   <size>
+    <width>0</width>
+    <height>3</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Pynocchio Comic Reader</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resource/main_window.qrc">
-    <normaloff>:/icons/icons/freeiconmaker_2 1.png</normaloff>:/icons/icons/freeiconmaker_2 1.png</iconset>
+    <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
   </property>
   <property name="accessibleName">
    <string>Pyellow</string>
@@ -55,19 +61,10 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <property name="maximumSize">
-    <size>
-     <width>628</width>
-     <height>349</height>
-    </size>
-   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="sizeConstraint">
-     <enum>QLayout::SetMaximumSize</enum>
-    </property>
     <property name="margin">
      <number>0</number>
     </property>
@@ -76,10 +73,16 @@
       <item>
        <widget class="Viewer" name="viewer">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
         </property>
         <property name="autoFillBackground">
          <bool>true</bool>
@@ -88,7 +91,7 @@
          <string notr="true">background-color: rgb(5, 5, 5);</string>
         </property>
         <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
+         <enum>QFrame::HLine</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Plain</enum>
@@ -113,15 +116,30 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>626</width>
-           <height>347</height>
+           <width>1046</width>
+           <height>542</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
           <item>
            <widget class="QLabel" name="label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>20</horstretch>
+              <verstretch>20</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::ClickFocus</enum>
             </property>
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
@@ -138,14 +156,26 @@
             <property name="lineWidth">
              <number>0</number>
             </property>
+            <property name="midLineWidth">
+             <number>0</number>
+            </property>
             <property name="text">
              <string/>
             </property>
+            <property name="textFormat">
+             <enum>Qt::PlainText</enum>
+            </property>
             <property name="pixmap">
-             <pixmap resource="../resource/main_window.qrc">:/icons/icons/freeiconmaker_2 1.png</pixmap>
+             <pixmap resource="../resource/main_window.qrc">:/icons/pynocchio_icon.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
+            </property>
+            <property name="margin">
+             <number>0</number>
             </property>
            </widget>
           </item>
@@ -162,7 +192,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>662</width>
+     <width>1048</width>
      <height>27</height>
     </rect>
    </property>
@@ -182,6 +212,10 @@
     <widget class="QMenu" name="menu_recent_files">
      <property name="title">
       <string>&amp;Recent files</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>:/icons/elementary3-icon-theme/places/48/folder-recent.svg</normaloff>:/icons/elementary3-icon-theme/places/48/folder-recent.svg</iconset>
      </property>
     </widget>
     <addaction name="action_open"/>
@@ -235,7 +269,7 @@
     <addaction name="separator"/>
     <addaction name="action_preference_dialog"/>
    </widget>
-   <widget class="QMenu" name="menu_Bookmarks">
+   <widget class="QMenu" name="menu_bookmarks">
     <property name="title">
      <string>&amp;Bookmarks</string>
     </property>
@@ -247,7 +281,7 @@
    <addaction name="menu_file"/>
    <addaction name="menu_view"/>
    <addaction name="menu_navegation"/>
-   <addaction name="menu_Bookmarks"/>
+   <addaction name="menu_bookmarks"/>
    <addaction name="menu_Settings"/>
    <addaction name="menu_Help"/>
   </widget>
@@ -314,7 +348,7 @@
   <action name="action_open">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_18.png</normaloff>:/icons/icons/freeiconmaker_18.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -332,7 +366,7 @@
   <action name="action_about">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_31.png</normaloff>:/icons/icons/freeiconmaker_31.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;About Pynocchio</string>
@@ -346,7 +380,7 @@
   <action name="action_exit">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_8.png</normaloff>:/icons/icons/freeiconmaker_8.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
@@ -361,7 +395,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_0.png</normaloff>:/icons/icons/freeiconmaker_0.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Next page</string>
@@ -385,7 +419,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_1.png</normaloff>:/icons/icons/freeiconmaker_1.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Previous page</string>
@@ -396,6 +430,9 @@
    <property name="shortcutContext">
     <enum>Qt::WidgetShortcut</enum>
    </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
   </action>
   <action name="action_first_page">
    <property name="enabled">
@@ -403,7 +440,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_2.png</normaloff>:/icons/icons/freeiconmaker_2.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;First page</string>
@@ -421,7 +458,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_3.png</normaloff>:/icons/icons/freeiconmaker_3.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Last page</string>
@@ -442,7 +479,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_10.png</normaloff>:/icons/icons/freeiconmaker_10.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-left.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-left.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Rotate left</string>
@@ -460,7 +497,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_9.png</normaloff>:/icons/icons/freeiconmaker_9.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-right.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-right.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Rotate right</string>
@@ -470,30 +507,6 @@
    </property>
    <property name="shortcutContext">
     <enum>Qt::WidgetShortcut</enum>
-   </property>
-  </action>
-  <action name="action_vertical_adjust">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_7.png</normaloff>:/icons/icons/freeiconmaker_7.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Vertical adjust</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+J</string>
-   </property>
-   <property name="autoRepeat">
-    <bool>true</bool>
    </property>
   </action>
   <action name="action_horizontal_adjust">
@@ -508,13 +521,16 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_5.png</normaloff>:/icons/icons/freeiconmaker_5.png</iconset>
+     <normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Horizontal adjust</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+K</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
   <action name="action_fullscreen">
@@ -526,7 +542,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_25.png</normaloff>:/icons/icons/freeiconmaker_25.png</iconset>
+     <normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Fullscreen</string>
@@ -544,43 +560,13 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_30.png</normaloff>:/icons/icons/freeiconmaker_30.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Go to page...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+G</string>
-   </property>
-  </action>
-  <action name="action_best_fit">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_4.png</normaloff>:/icons/icons/freeiconmaker_4.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Whole page</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+L</string>
-   </property>
-  </action>
-  <action name="action_preferences">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/image/document-properties.svg</normaloff>:/image/document-properties.svg</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Preferences</string>
    </property>
   </action>
   <action name="action_original_fit">
@@ -595,7 +581,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_6.png</normaloff>:/icons/icons/freeiconmaker_6.png</iconset>
+     <normaloff>:/icons/freeiconmaker-icons/original-fit.svg</normaloff>:/icons/freeiconmaker-icons/original-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Original fit</string>
@@ -605,6 +591,9 @@
    </property>
    <property name="shortcutContext">
     <enum>Qt::ApplicationShortcut</enum>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
   <action name="action_show_toolbar">
@@ -635,7 +624,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_0 2.png</normaloff>:/icons/icons/freeiconmaker_0 2.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/bookmark_add.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/bookmark_add.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Add bookmark</string>
@@ -650,7 +639,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_1 2.png</normaloff>:/icons/icons/freeiconmaker_1 2.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/stock_delete.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/stock_delete.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Remove bookmark</string>
@@ -659,17 +648,13 @@
   <action name="action_bookmark_manager">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_7 1.png</normaloff>:/icons/icons/freeiconmaker_7 1.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/filesaveas.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/filesaveas.svg</iconset>
    </property>
    <property name="text">
     <string>Bookmark &amp;manager</string>
    </property>
   </action>
   <action name="action_open_folder">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/icons/icons/freeiconmaker_21.png</normaloff>:/icons/icons/freeiconmaker_21.png</iconset>
-   </property>
    <property name="text">
     <string>Open &amp;Folder</string>
    </property>
@@ -689,7 +674,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/next_comic_1.png</normaloff>:/icons/icons/next_comic_1.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-forward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-forward.svg</iconset>
    </property>
    <property name="text">
     <string>Next Comic</string>
@@ -707,7 +692,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/next_comic_0.png</normaloff>:/icons/icons/next_comic_0.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-backward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-backward.svg</iconset>
    </property>
    <property name="text">
     <string>Previous Comic</string>
@@ -722,15 +707,61 @@
   <action name="action_preference_dialog">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icons/freeiconmaker_14.png</normaloff>:/icons/icons/freeiconmaker_14.png</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/document-properties.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-properties.svg</iconset>
    </property>
    <property name="text">
     <string>Preferences</string>
    </property>
   </action>
-  <action name="action">
+  <action name="action_vertical_adjust">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</iconset>
+   </property>
    <property name="text">
-    <string/>
+    <string>&amp;Vertical adjust</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+J</string>
+   </property>
+   <property name="autoRepeat">
+    <bool>true</bool>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_best_fit">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/freeiconmaker-icons/best-fit.svg</normaloff>:/icons/freeiconmaker-icons/best-fit.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Whole page</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
  </widget>

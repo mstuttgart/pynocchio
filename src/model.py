@@ -203,7 +203,8 @@ class Model(object):
 
             if self.adjustType == 'action_vertical_adjust':
                 pix_map = pix_map.scaledToHeight(
-                    self.screenSize.height(), QtCore.Qt.SmoothTransformation)
+                    self.screenSize.height(),
+                    QtCore.Qt.SmoothTransformation)
 
             elif self.adjustType == 'action_horizontal_adjust':
                 pix_map = pix_map.scaledToWidth(
@@ -227,9 +228,15 @@ class Model(object):
     @staticmethod
     def get_bookmark_list(n=0):
         bk = Bookmarks()
-        book_list = bk.get_records(n)
+        bookmark_list = bk.get_records(n)
+
+        from utility import Utility
+        for bookmark in bookmark_list:
+            if not Utility.file_exist(bookmark[1]):
+                bk.delete_bookmark(bookmark[1])
+
         bk.close()
-        return book_list
+        return bookmark_list
 
     @staticmethod
     def find_bookmark(path):

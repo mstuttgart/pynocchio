@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>543</width>
-    <height>361</height>
+    <height>368</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,7 +20,11 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>About</string>
+   <string>About Pynocchio Reader</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resource/main_window.qrc">
+    <normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</iconset>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -28,6 +32,12 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="about_text">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="frameShape">
       <enum>QFrame::Panel</enum>
      </property>
@@ -41,10 +51,10 @@
       <enum>Qt::RichText</enum>
      </property>
      <property name="pixmap">
-      <pixmap resource="../resource/main_window.qrc">:/icons/icons/freeiconmaker_2 1.png</pixmap>
+      <pixmap resource="../resource/main_window.qrc">:/icons/pynocchio_icon.png</pixmap>
      </property>
      <property name="alignment">
-      <set>Qt::AlignHCenter|Qt::AlignTop</set>
+      <set>Qt::AlignCenter</set>
      </property>
      <property name="margin">
       <number>5</number>
@@ -98,6 +108,10 @@
        </property>
        <property name="text">
         <string>Close</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resource/main_window.qrc">
+         <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</iconset>
        </property>
        <property name="default">
         <bool>true</bool>

@@ -37,6 +37,10 @@ class Utility(object):
         return os.path.lexists(file_path)
 
     @staticmethod
+    def file_exist(file_path):
+        return os.path.exists(file_path)
+
+    @staticmethod
     def is_dir(file_path):
         return os.path.isdir(file_path)
 

@@ -14,15 +14,14 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
+
 import sys
 
 try:
-    import PyQt4
+    from PyQt4 import QtCore, QtGui
 except ImportError, err:
     sys.exit(err)
 
-from PyQt4 import QtCore, QtGui
 from main_window import MainWindow
 
 
@@ -36,7 +35,7 @@ def main():
     if qm != 'en_US':
         translator = QtCore.QTranslator()
         try:
-            translator.load("../i18n/qt_%s.qm" % qm)
+            translator.load('../i18n/qt_%s.qm' % qm)
             app.installTranslator(translator)
         except IOError:
             print 'Translation file qt_%s.qm not find' % qm
