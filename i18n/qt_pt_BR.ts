@@ -230,7 +230,7 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="unfinished">Rotacionar para direita</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="735"/>
+        <location filename="src/main_window.ui" line="731"/>
         <source>&amp;Vertical adjust</source>
         <translation type="unfinished">Ajuste vertical</translation>
     </message>
@@ -250,7 +250,7 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="unfinished">Ir para página...</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="762"/>
+        <location filename="src/main_window.ui" line="758"/>
         <source>&amp;Whole page</source>
         <translation type="unfinished">Página inteira</translation>
     </message>
@@ -290,22 +290,22 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="unfinished">Gerenciar favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="684"/>
+        <location filename="src/main_window.ui" line="680"/>
         <source>Next Comic</source>
         <translation type="unfinished">Próximo quadrinho</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="687"/>
+        <location filename="src/main_window.ui" line="683"/>
         <source>Ctrl+Shift+Right</source>
         <translation type="unfinished">Ctrl + Shift + Direita</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="702"/>
+        <location filename="src/main_window.ui" line="698"/>
         <source>Previous Comic</source>
         <translation type="unfinished">Quadrinho anterior</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="705"/>
+        <location filename="src/main_window.ui" line="701"/>
         <source>Ctrl+Shift+Left</source>
         <translation type="unfinished">Ctrl + Shift + Esquerda</translation>
     </message>
@@ -335,7 +335,7 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation>Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="717"/>
+        <location filename="src/main_window.ui" line="713"/>
         <source>Preferences</source>
         <translation type="unfinished">Preferências</translation>
     </message>
@@ -400,17 +400,17 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="663"/>
+        <location filename="src/main_window.ui" line="659"/>
         <source>Open &amp;Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="738"/>
+        <location filename="src/main_window.ui" line="734"/>
         <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="765"/>
+        <location filename="src/main_window.ui" line="761"/>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>

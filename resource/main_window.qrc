@@ -1,263 +1,33 @@
 <RCC>
   <qresource prefix="/icons">
-    <file>icone maior/freeiconmaker_0.png</file>
-    <file>icone maior/freeiconmaker_2.png</file>
-    <file>icone maior/freeiconmaker_1.png</file>
-    <file>editado/freeiconmaker_0.png</file>
-    <file>editado/freeiconmaker_1.png</file>
-    <file>editado/freeiconmaker_2.png</file>
-    <file>editado/freeiconmaker_3.png</file>
-    <file>editado/freeiconmaker_4.png</file>
-    <file>icone maior/freeiconmaker_2.png</file>
-    <file>icone maior/freeiconmaker_3.png</file>
-    <file>icone maior/freeiconmaker_4.png</file>
-    <file>icone maior/freeiconmaker_5.png</file>
-    <file>freeiconmaker_8.png</file>
-    <file>arrows/freeiconmaker_0.png</file>
-    <file>arrows/freeiconmaker_1.png</file>
-    <file>arrows/freeiconmaker_2.png</file>
-    <file>arrows/freeiconmaker_3.png</file>
-    <file>arrows/freeiconmaker_4.png</file>
-    <file>arrows/freeiconmaker_5.png</file>
-    <file>arrows/freeiconmaker_6.png</file>
-    <file>arrows/freeiconmaker_7.png</file>
-    <file>freeiconmaker_7.png</file>
-    <file>freeiconmaker_3.png</file>
-    <file>freeiconmaker_2.png</file>
-    <file>freeiconmaker_0.png</file>
-    <file>icon_3.png</file>
-    <file>hand made/1424503206_arrow_right.png</file>
-    <file>elementary3-icon-theme/categories/48/applications-chat.svg</file>
-    <file>elementary3-icon-theme/categories/48/applications-chat (copy).svg</file>
-    <file>hand made/1424503213_bullet_deny.png</file>
-    <file>hand made/1424503216_star_full.png</file>
-    <file>hand made/1424503222_zoom.png</file>
-    <file>hand made/1424503224_arrow_left.png</file>
-    <file>hand made/1424503224_arrow_left (copy).png</file>
-    <file>hand made/1424503241_folder_full.png</file>
-    <file>hand made/1424554229_arrow_undo.png</file>
-    <file>hand made/1424554251_arrow_undo.png</file>
-    <file>hand made/1424554256_settings.png</file>
-    <file>hand made/1424554280_arrow_redo.png</file>
-    <file>hand made/1424554308_comment.png</file>
-    <file>hand made/1424732856_arrow_right.png</file>
-    <file>hand made/1424732859_folder_download.png</file>
-    <file>hand made/1424732860_arrow_refresh.png</file>
-    <file>hand made/1424732861_star_full.png</file>
-    <file>hand made/1424732862_bullet_accept.png</file>
-    <file>hand made/1424732864_bullet_deny.png</file>
-    <file>hand made/1424732865_note_edit.png</file>
-    <file>hand made/1424732866_arrow_down.png</file>
-    <file>hand made/1424732867_arrow_up.png</file>
-    <file>hand made/1424732869_bullet_info.png</file>
-    <file>hand made/1424732871_arrow_undo.png</file>
-    <file>hand made/1424732872_arrow_left.png</file>
-    <file>hand made/1424732874_bullet_add.png</file>
-    <file>hand made/1424732876_zoom.png</file>
-    <file>hand made/1424732879_edit.png</file>
-    <file>hand made/1424732880_trash_full.png</file>
-    <file>hand made/1424732881_settings.png</file>
-    <file>hand made/1424732884_folder_empty.png</file>
-    <file>hand made/1424732887_bullet_error.png</file>
-    <file>hand made/1424732891_folder_search.png</file>
-    <file>hand made/1424732894_arrow_redo.png</file>
-    <file>hand made/1424732896_user_add.png</file>
-    <file>hand made/1424732899_bullet_delete.png</file>
-    <file>hand made/1424732901_photo_download.png</file>
-    <file>hand made/1424732905_note_download.png</file>
-    <file>hand made/1424732910_file_download.png</file>
-    <file>hand made/1424732911_photo.png</file>
-    <file>hand made/1424732913_note_search.png</file>
-    <file>freeiconmaker/freeiconmaker_0.png</file>
-    <file>freeiconmaker/freeiconmaker_1.png</file>
-    <file>freeiconmaker/freeiconmaker_2.png</file>
-    <file>freeiconmaker/freeiconmaker_3.png</file>
-    <file>freeiconmaker/freeiconmaker_4.png</file>
-    <file>freeiconmaker/freeiconmaker_5.png</file>
-    <file>freeiconmaker/freeiconmaker_6.png</file>
-    <file>freeiconmaker/freeiconmaker_7.png</file>
-    <file>freeiconmaker/freeiconmaker_8.png</file>
-    <file>freeiconmaker/freeiconmaker_9.png</file>
-    <file>freeiconmaker/freeiconmaker_10.png</file>
-    <file>freeiconmaker/freeiconmaker_11.png</file>
-    <file>freeiconmaker/freeiconmaker_12.png</file>
-    <file>freeiconmaker/freeiconmaker_13.png</file>
-    <file>freeiconmaker/freeiconmaker_14.png</file>
-    <file>freeiconmaker/freeiconmaker_15.png</file>
-    <file>freeiconmaker/freeiconmaker_16.png</file>
-    <file>freeiconmaker/freeiconmaker_17.png</file>
-    <file>freeiconmaker/freeiconmaker_18.png</file>
-    <file>freeiconmaker/freeiconmaker_19.png</file>
-    <file>freeiconmaker/freeiconmaker_20.png</file>
-    <file>freeiconmaker/freeiconmaker_21.png</file>
-    <file>freeiconmaker/freeiconmaker_22.png</file>
-    <file>freeiconmaker/freeiconmaker_23.png</file>
-    <file>freeiconmaker/freeiconmaker_24.png</file>
-    <file>freeiconmaker/freeiconmaker_25.png</file>
-    <file>freeiconmaker/freeiconmaker_26.png</file>
-    <file>freeiconmaker/freeiconmaker_27.png</file>
-    <file>freeiconmaker/freeiconmaker_28.png</file>
-    <file>freeiconmaker/freeiconmaker_29.png</file>
-    <file>freeiconmaker/freeiconmaker_30.png</file>
-    <file>freeiconmaker/freeiconmaker_31.png</file>
-    <file>freeiconmaker/freeiconmaker_32.png</file>
-    <file>freeiconmaker/freeiconmaker_33.png</file>
-    <file>freeiconmaker/freeiconmaker_34.png</file>
-    <file>freeiconmaker/freeiconmaker_35.png</file>
-    <file>freeiconmaker/freeiconmaker_36.png</file>
-    <file>freeiconmaker/freeiconmaker_37.png</file>
-    <file>freeiconmaker/freeiconmaker_38.png</file>
-    <file>freeiconmaker/freeiconmaker_39.png</file>
-    <file>freeiconmaker/freeiconmaker_40.png</file>
-    <file>freeiconmaker/freeiconmaker_41.png</file>
-    <file>freeiconmaker/freeiconmaker_42.png</file>
-    <file>freeiconmaker/freeiconmaker_43.png</file>
-    <file>freeiconmaker/freeiconmaker_44.png</file>
-    <file>freeiconmaker/freeiconmaker_45.png</file>
-    <file>freeiconmaker/freeiconmaker_46.png</file>
-    <file>freeiconmaker/freeiconmaker_47.png</file>
-    <file>freeiconmaker/freeiconmaker_48.png</file>
-    <file>freeiconmaker/freeiconmaker_49.png</file>
-    <file>freeiconmaker/freeiconmaker_50.png</file>
-    <file>freeiconmaker/freeiconmaker_51.png</file>
-    <file>hand made/1424732916_basket_empty.png</file>
-    <file>hand made/1424732923_comment.png</file>
-    <file>hand made/1424732928_note.png</file>
-    <file>hand made/1424732930_basket_full.png</file>
-    <file>hand made/1424732943_note_accept.png</file>
-    <file>hand made/1424732945_zoom_in.png</file>
-    <file>hand made/1424732949_zoom_out.png</file>
-    <file>hand made/1424732950_comment_settings.png</file>
-    <file>hand made/1424732951_photo_accept.png</file>
-    <file>hand made/1424732952_tag_refresh.png</file>
-    <file>hand made/1424732957_star_add.png</file>
-    <file>hand made/1424732962_tag_search.png</file>
-    <file>hand made/1424732973_comment_search.png</file>
-    <file>hand made/1424732975_file_zoom_in.png</file>
-    <file>hand made/1424732976_file_search.png</file>
-    <file>hand made/1424732994_photo_zoom_out.png</file>
-    <file>hand made/1424733005_mouse_on.png</file>
-    <file>hand made/1424733010_note_refresh.png</file>
-    <file>hand made/1424733013_photos.png</file>
-    <file>hand made/1424733022_photo_add.png</file>
-    <file>hand made/1424733024_photo_delete.png</file>
-    <file>hand made/1424733028_comment_add.png</file>
-    <file>hand made/1424733033_basket_accept.png</file>
-    <file>hand made/1424733039_tag_delete.png</file>
-    <file>hand made/1424733041_tag_accept.png</file>
-    <file>hand made/1424733045_file_photo.png</file>
-    <file>hand made/1424733088_photo_add.png</file>
-    <file>hand made/1424733089_photo_delete.png</file>
-    <file>hand made/1424733095_photo_error.png</file>
-    <file>hand made/1424733113_photo_info.png</file>
-    <file>hand made/1424735907_arrow_right.png</file>
-    <file>hand made/1424735941_66714.ico</file>
-    <file>hand made/1424735944_comment.png</file>
-    <file>elementary3-icon-theme/actions/48/exit.svg</file>
-    <file>elementary3-icon-theme/devices/64/display.svg</file>
-    <file>elementary3-icon-theme/actions/48/zoom-restore.svg</file>
-    <file>elementary3-icon-theme/actions/48/zoom-more.svg</file>
-    <file>elementary3-icon-theme/actions/48/calibrate_3.svg</file>
-    <file>elementary3-icon-theme/actions/48/calibrate.svg</file>
-    <file>elementary3-icon-theme/actions/48/calibrate (copy).svg</file>
-    <file>elementary3-icon-theme/apps/128/beryl-settings.svg</file>
-    <file>elementary3-icon-theme/apps/128/checkbox.svg</file>
-    <file>elementary3-icon-theme/apps/128/desktop-effects.svg</file>
-    <file>elementary3-icon-theme/apps/128/display-capplet.svg</file>
-    <file>elementary3-icon-theme/apps/128/gnome-display-properties.svg</file>
-    <file>elementary3-icon-theme/apps/128/gnome-session-properties.svg</file>
-    <file>elementary3-icon-theme/apps/128/grandr.svg</file>
-    <file>elementary3-icon-theme/apps/128/wallpaper.svg</file>
-    <file>elementary3-icon-theme/panel/48/connect_creating.svg</file>
-    <file>elementary3-icon-theme/places/48/folder-documents.svg</file>
-    <file>elementary3-icon-theme/places/48/folder-recent.svg</file>
-    <file>elementary3-icon-theme/actions/48/exit.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-goto-first-ltr.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-goto-first-rtl.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-media-rewind-ltr.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-media-next-ltr.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-media-rewind-rtl.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-media-next-rtl.svg</file>
-    <file>elementary3-icon-theme/actions/64/mail-forward.svg</file>
-    <file>elementary3-icon-theme/actions/64/mail-reply-sender.svg</file>
-    <file>elementary3-icon-theme/actions/48/document-export.svg</file>
-    <file>elementary3-icon-theme/actions/48/document-import.svg</file>
-    <file>elementary3-icon-theme/actions/48/document-properties.svg</file>
-    <file>elementary3-icon-theme/actions/48/edit-delete.svg</file>
-    <file>elementary3-icon-theme/actions/48/filefind.svg</file>
-    <file>elementary3-icon-theme/mimes/48/application-vnd.oasis.opendocument.drawing.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-refresh.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-redo-ltr.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-undo-ltr.svg</file>
     <file>elementary3-icon-theme/actions/48/object-rotate-left.svg</file>
     <file>elementary3-icon-theme/actions/48/object-rotate-right.svg</file>
-    <file>elementary3-icon-theme/actions/48/stock_media-next.svg</file>
-    <file>elementary3-icon-theme/actions/48/stock_media-prev.svg</file>
-    <file>elementary3-icon-theme/actions/48/stock_last.svg</file>
-    <file>elementary3-icon-theme/actions/48/start.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-redo-ltr.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-undo-ltr.svg</file>
-    <file>../i18n/qt_pt_BR.qm</file>
-    <file>elementaryicons3.1/actions/128/bookmark-new.svg</file>
-    <file>elementaryicons3.1/actions/128/document-open-recent.svg</file>
-    <file>elementaryicons3.1/actions/128/document-open.svg</file>
-    <file>elementaryicons3.1/actions/128/help-contents.svg</file>
-    <file>elementaryicons3.1/actions/128/address-book-new.svg</file>
-    <file>elementaryicons3.1/actions/128/remove.svg</file>
-    <file>elementary3-icon-theme/actions/16/back.svg</file>
-    <file>elementary3-icon-theme/actions/16/bookmark_add.svg</file>
-    <file>elementary3-icon-theme/actions/16/fileopen.svg</file>
-    <file>elementary3-icon-theme/actions/16/exit.svg</file>
-    <file>elementary3-icon-theme/actions/16/forward.svg</file>
-    <file>elementary3-icon-theme/actions/16/go-last.svg</file>
-    <file>elementary3-icon-theme/actions/16/go-first.svg</file>
-    <file>elementary3-icon-theme/actions/16/gtk-media-rewind-ltr.svg</file>
-    <file>elementary3-icon-theme/actions/16/gtk-media-rewind-rtl.svg</file>
-    <file>elementary3-icon-theme/actions/32/bonobo-component-browser.svg</file>
-    <file>elementary3-icon-theme/actions/32/application-exit.svg</file>
-    <file>elementary3-icon-theme/actions/32/edit-delete.svg</file>
-    <file>elementary3-icon-theme/actions/32/exit.svg</file>
-    <file>elementary3-icon-theme/actions/48/back.svg</file>
-    <file>elementary3-icon-theme/actions/48/document-export.svg</file>
-    <file>elementary3-icon-theme/actions/48/document-import.svg</file>
-    <file>elementary3-icon-theme/actions/48/forward.svg</file>
-    <file>elementary3-icon-theme/actions/48/extract-archive.svg</file>
-    <file>elementary3-icon-theme/actions/48/finish.svg</file>
-    <file>elementary3-icon-theme/actions/48/edit-redo.svg</file>
-    <file>elementary3-icon-theme/actions/48/edit-undo.svg</file>
-    <file>elementary3-icon-theme/actions/48/cab_extract.svg</file>
+    <file>icone maior/fullscreen.svg</file>
+    <file>freeiconmaker_8.png</file>
+    <file>elementary3-icon-theme/actions/64/address-book-new.svg</file>
+    <file>elementary3-icon-theme/actions/64/bookmark_add.svg</file>
+    <file>elementary3-icon-theme/actions/64/help-contents.svg</file>
+    <file>elementary3-icon-theme/actions/64/help-info.svg</file>
+    <file>elementary3-icon-theme/actions/64/stock_delete.svg</file>
+    <file>elementary3-icon-theme/actions/48/archive-extract.svg</file>
+    <file>elementary3-icon-theme/actions/48/application-exit.svg</file>
+    <file>elementary3-icon-theme/actions/48/document-open.svg</file>
     <file>elementary3-icon-theme/actions/48/document-properties.svg</file>
-    <file>icons/next_comic_0.png</file>
-    <file>icons/next_comic_1.png</file>
-    <file>icons/freeiconmaker_1 2.png</file>
-    <file>icons/freeiconmaker_7 1.png</file>
-    <file>icons/freeiconmaker_0 2.png</file>
-    <file>icons/freeiconmaker_0 1.png</file>
-    <file>icons/freeiconmaker_0.png</file>
-    <file>icons/freeiconmaker_1 1.png</file>
-    <file>icons/freeiconmaker_1.png</file>
-    <file>icons/freeiconmaker_2 1.png</file>
-    <file>icons/freeiconmaker_2.png</file>
-    <file>icons/freeiconmaker_3.png</file>
-    <file>icons/freeiconmaker_4.png</file>
-    <file>icons/freeiconmaker_7.png</file>
-    <file>icons/freeiconmaker_8.png</file>
-    <file>icons/freeiconmaker_9.png</file>
-    <file>icons/freeiconmaker_10.png</file>
-    <file>icons/freeiconmaker_5.png</file>
-    <file>icons/freeiconmaker_6.png</file>
-    <file>icons/freeiconmaker_11.png</file>
-    <file>icons/freeiconmaker_12.png</file>
-    <file>icons/freeiconmaker_13.png</file>
-    <file>icons/freeiconmaker_14.png</file>
-    <file>icons/freeiconmaker_15.png</file>
-    <file>icons/freeiconmaker_16.png</file>
-    <file>icons/freeiconmaker_17.png</file>
-    <file>icons/freeiconmaker_18.png</file>
-    <file>icons/freeiconmaker_25.png</file>
-    <file>icons/freeiconmaker_26.png</file>
-    <file>icons/freeiconmaker_28.png</file>
-    <file>icons/freeiconmaker_30.png</file>
-    <file>icons/freeiconmaker_31.png</file>
+    <file>elementary3-icon-theme/actions/48/filesaveas.svg</file>
+    <file>elementary3-icon-theme/actions/48/go-next.svg</file>
+    <file>elementary3-icon-theme/actions/48/go-previous.svg</file>
+    <file>elementary3-icon-theme/actions/48/go-first.svg</file>
+    <file>elementary3-icon-theme/actions/48/go-last.svg</file>
+    <file>elementary3-icon-theme/actions/48/media-skip-backward.svg</file>
+    <file>elementary3-icon-theme/actions/48/media-skip-forward.svg</file>
+    <file>elementary3-icon-theme/actions/48/search.svg</file>
+    <file>elementary3-icon-theme/actions/64/add.svg</file>
+    <file>elementary3-icon-theme/actions/64/list-remove.svg</file>
+    <file>elementary3-icon-theme/actions/48/dialog-apply.svg</file>
+    <file>elementary3-icon-theme/actions/48/dialog-cancel.svg</file>
+    <file>icone maior/horizontal-fit.svg</file>
+    <file>icone maior/original-fit.svg</file>
+    <file>icone maior/vertical-fit.svg</file>
+    <file>icone maior/best-fit.svg</file>
   </qresource>
 </RCC>

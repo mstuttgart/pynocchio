@@ -47,7 +47,7 @@
       <enum>Qt::RichText</enum>
      </property>
      <property name="pixmap">
-      <pixmap resource="../resource/main_window.qrc">:/icons/freeiconmaker_0.png</pixmap>
+      <pixmap resource="../resource/main_window.qrc">:/icons/freeiconmaker_8.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignHCenter|Qt::AlignTop</set>

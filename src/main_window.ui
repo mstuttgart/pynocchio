@@ -214,7 +214,7 @@
       <string>&amp;Recent files</string>
      </property>
      <property name="icon">
-      <iconset resource="../resource/main_window.qrc">
+      <iconset>
        <normaloff>:/icons/elementary3-icon-theme/places/48/folder-recent.svg</normaloff>:/icons/elementary3-icon-theme/places/48/folder-recent.svg</iconset>
      </property>
     </widget>
@@ -348,7 +348,7 @@
   <action name="action_open">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementaryicons3.1/actions/128/address-book-new.svg</normaloff>:/icons/elementaryicons3.1/actions/128/address-book-new.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -366,7 +366,7 @@
   <action name="action_about">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementaryicons3.1/actions/128/help-contents.svg</normaloff>:/icons/elementaryicons3.1/actions/128/help-contents.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;About Pynocchio</string>
@@ -380,7 +380,7 @@
   <action name="action_exit">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/exit.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/exit.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
@@ -395,7 +395,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/forward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/forward.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Next page</string>
@@ -419,7 +419,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/back.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/back.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Previous page</string>
@@ -440,7 +440,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/gtk-goto-first-ltr.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/gtk-goto-first-ltr.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;First page</string>
@@ -458,7 +458,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/finish.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/finish.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Last page</string>
@@ -521,7 +521,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icone maior/freeiconmaker_1.png</normaloff>:/icons/icone maior/freeiconmaker_1.png</iconset>
+     <normaloff>:/icons/icone maior/horizontal-fit.svg</normaloff>:/icons/icone maior/horizontal-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Horizontal adjust</string>
@@ -542,7 +542,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icone maior/freeiconmaker_4.png</normaloff>:/icons/icone maior/freeiconmaker_4.png</iconset>
+     <normaloff>:/icons/icone maior/fullscreen.svg</normaloff>:/icons/icone maior/fullscreen.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Fullscreen</string>
@@ -560,7 +560,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/filefind.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/filefind.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Go to page...</string>
@@ -581,7 +581,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icone maior/freeiconmaker_2.png</normaloff>:/icons/icone maior/freeiconmaker_2.png</iconset>
+     <normaloff>:/icons/icone maior/original-fit.svg</normaloff>:/icons/icone maior/original-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Original fit</string>
@@ -624,7 +624,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementaryicons3.1/actions/128/bookmark-new.svg</normaloff>:/icons/elementaryicons3.1/actions/128/bookmark-new.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/bookmark_add.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/bookmark_add.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Add bookmark</string>
@@ -639,7 +639,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementaryicons3.1/actions/128/remove.svg</normaloff>:/icons/elementaryicons3.1/actions/128/remove.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/stock_delete.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/stock_delete.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Remove bookmark</string>
@@ -648,17 +648,13 @@
   <action name="action_bookmark_manager">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/document-properties.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-properties.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/filesaveas.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/filesaveas.svg</iconset>
    </property>
    <property name="text">
     <string>Bookmark &amp;manager</string>
    </property>
   </action>
   <action name="action_open_folder">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/icons/icons/freeiconmaker_21.png</normaloff>:/icons/icons/freeiconmaker_21.png</iconset>
-   </property>
    <property name="text">
     <string>Open &amp;Folder</string>
    </property>
@@ -678,7 +674,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/stock_media-next.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/stock_media-next.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-forward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-forward.svg</iconset>
    </property>
    <property name="text">
     <string>Next Comic</string>
@@ -696,7 +692,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/stock_media-prev.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/stock_media-prev.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-backward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-backward.svg</iconset>
    </property>
    <property name="text">
     <string>Previous Comic</string>
@@ -729,7 +725,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icone maior/freeiconmaker_3.png</normaloff>:/icons/icone maior/freeiconmaker_3.png</iconset>
+     <normaloff>:/icons/icone maior/vertical-fit.svg</normaloff>:/icons/icone maior/vertical-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Vertical adjust</string>
@@ -756,7 +752,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icone maior/freeiconmaker_0.png</normaloff>:/icons/icone maior/freeiconmaker_0.png</iconset>
+     <normaloff>:/icons/icone maior/best-fit.svg</normaloff>:/icons/icone maior/best-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Whole page</string>
