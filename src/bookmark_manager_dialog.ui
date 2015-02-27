@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Bookmark manager</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resource/main_window.qrc">
+    <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -104,17 +108,25 @@
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout_2">
+     <item row="1" column="3">
+      <widget class="QPushButton" name="button_load">
+       <property name="text">
+        <string>Load</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resource/main_window.qrc">
+         <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="1">
       <widget class="QPushButton" name="button_remove">
        <property name="text">
         <string>Remove</string>
        </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="button_selection">
-       <property name="text">
-        <string>Select All</string>
+       <property name="icon">
+        <iconset resource="../resource/main_window.qrc">
+         <normaloff>:/icons/elementary3-icon-theme/actions/64/list-remove.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/list-remove.svg</iconset>
        </property>
       </widget>
      </item>
@@ -123,12 +135,20 @@
        <property name="text">
         <string>Close</string>
        </property>
+       <property name="icon">
+        <iconset resource="../resource/main_window.qrc">
+         <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</iconset>
+       </property>
       </widget>
      </item>
-     <item row="1" column="3">
-      <widget class="QPushButton" name="button_load">
+     <item row="1" column="0">
+      <widget class="QPushButton" name="button_selection">
        <property name="text">
-        <string>Load</string>
+        <string>Select All</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resource/main_window.qrc">
+         <normaloff>:/icons/elementary3-icon-theme/actions/64/add.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/add.svg</iconset>
        </property>
       </widget>
      </item>

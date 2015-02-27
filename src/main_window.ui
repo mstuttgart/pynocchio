@@ -28,7 +28,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../resource/main_window.qrc">
-    <normaloff>:/icons/freeiconmaker_8.png</normaloff>:/icons/freeiconmaker_8.png</iconset>
+    <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
   </property>
   <property name="accessibleName">
    <string>Pyellow</string>
@@ -166,7 +166,7 @@
              <enum>Qt::PlainText</enum>
             </property>
             <property name="pixmap">
-             <pixmap resource="../resource/main_window.qrc">:/icons/freeiconmaker_8.png</pixmap>
+             <pixmap resource="../resource/main_window.qrc">:/icons/pynocchio_icon.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -521,7 +521,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icone maior/horizontal-fit.svg</normaloff>:/icons/icone maior/horizontal-fit.svg</iconset>
+     <normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Horizontal adjust</string>
@@ -542,7 +542,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icone maior/fullscreen.svg</normaloff>:/icons/icone maior/fullscreen.svg</iconset>
+     <normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Fullscreen</string>
@@ -581,7 +581,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icone maior/original-fit.svg</normaloff>:/icons/icone maior/original-fit.svg</iconset>
+     <normaloff>:/icons/freeiconmaker-icons/original-fit.svg</normaloff>:/icons/freeiconmaker-icons/original-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Original fit</string>
@@ -725,7 +725,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icone maior/vertical-fit.svg</normaloff>:/icons/icone maior/vertical-fit.svg</iconset>
+     <normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Vertical adjust</string>
@@ -752,7 +752,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/icone maior/best-fit.svg</normaloff>:/icons/icone maior/best-fit.svg</iconset>
+     <normaloff>:/icons/freeiconmaker-icons/best-fit.svg</normaloff>:/icons/freeiconmaker-icons/best-fit.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Whole page</string>

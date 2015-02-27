@@ -1,9 +1,15 @@
 <RCC>
   <qresource prefix="/icons">
+    <file>elementary3-icon-theme/apps/48/AdobeReader9.svg</file>
+    <file>elementary3-icon-theme/categories/48/applications-painting.svg</file>
+    <file>pynocchio_icon.png</file>
+    <file>freeiconmaker-icons/best-fit.svg</file>
+    <file>freeiconmaker-icons/fullscreen.svg</file>
+    <file>freeiconmaker-icons/horizontal-fit.svg</file>
+    <file>freeiconmaker-icons/original-fit.svg</file>
+    <file>freeiconmaker-icons/vertical-fit.svg</file>
     <file>elementary3-icon-theme/actions/48/object-rotate-left.svg</file>
     <file>elementary3-icon-theme/actions/48/object-rotate-right.svg</file>
-    <file>icone maior/fullscreen.svg</file>
-    <file>freeiconmaker_8.png</file>
     <file>elementary3-icon-theme/actions/64/address-book-new.svg</file>
     <file>elementary3-icon-theme/actions/64/bookmark_add.svg</file>
     <file>elementary3-icon-theme/actions/64/help-contents.svg</file>
@@ -25,9 +31,5 @@
     <file>elementary3-icon-theme/actions/64/list-remove.svg</file>
     <file>elementary3-icon-theme/actions/48/dialog-apply.svg</file>
     <file>elementary3-icon-theme/actions/48/dialog-cancel.svg</file>
-    <file>icone maior/horizontal-fit.svg</file>
-    <file>icone maior/original-fit.svg</file>
-    <file>icone maior/vertical-fit.svg</file>
-    <file>icone maior/best-fit.svg</file>
   </qresource>
 </RCC>

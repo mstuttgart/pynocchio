@@ -10,10 +10,10 @@
     <message>
         <location filename="src/about_dialog.ui" line="23"/>
         <source>About</source>
-        <translation type="unfinished">Sobre</translation>
+        <translation type="obsolete">Sobre</translation>
     </message>
     <message>
-        <location filename="src/about_dialog.ui" line="106"/>
+        <location filename="src/about_dialog.ui" line="110"/>
         <source>Close</source>
         <translation type="unfinished">Fechar</translation>
     </message>
@@ -25,26 +25,31 @@ exclusivamente para leitura de arquivos .zip , cbr , rar
 </translation>
     </message>
     <message>
-        <location filename="src/about_dialog.ui" line="69"/>
+        <location filename="src/about_dialog.ui" line="73"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The &lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader &lt;/span&gt;&lt;/a&gt;is an image viewer specifically designed to handle comic books. &lt;/p&gt;&lt;p&gt;It reads CBR, ZIP, CBZ, RAR and TAR comic files. &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; is licensed under the GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set. &lt;/p&gt;&lt;p&gt;Icons pack by Icon Sweets 2 and Streamline icon set free pack.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished">&lt;p id=&quot;result&quot;&gt; &lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; é um visualizador de imagens especificamente &lt;p&gt;
 projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos nos formatos CBR, ZIP, CBZ, RAR e TAR.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; é licenciado sob a GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;file:///home/michell/Projetos/pynocchio-comic-reader/yacreader/files/Free%20Icon%20Maker&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; para construir o conjunto de ícones.&lt;/p&gt;&lt;p&gt;Pacote de ícones por Icons Sweets 2 e o pacote gratuito Streamline Icone Set .&lt;/p&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="src/about_dialog.ui" line="23"/>
+        <source>About Pynocchio Reader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Bookmark_Dialog</name>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="80"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="84"/>
         <source>Name</source>
         <translation type="unfinished">Nome</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="85"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="89"/>
         <source>Path</source>
         <translation type="unfinished">Diretório</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="90"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="94"/>
         <source>Page</source>
         <translation type="unfinished">Página</translation>
     </message>
@@ -69,28 +74,28 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="obsolete">Abrir</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="110"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="114"/>
         <source>Remove</source>
         <translation type="unfinished">Remover</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="117"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="125"/>
         <source>Select All</source>
         <translation type="unfinished">Selecionar tudo</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="124"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="132"/>
         <source>Close</source>
         <translation type="unfinished">Fechar</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="131"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="143"/>
         <source>Load</source>
         <translation type="unfinished">Carregar</translation>
     </message>
     <message>
         <location filename="src/bookmark_manager_dialog.ui" line="14"/>
-        <source>Dialog</source>
+        <source>Bookmark manager</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -438,15 +443,15 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
     <message>
         <location filename="src/preference_dialog.ui" line="17"/>
         <source>Pynocchio Config</source>
-        <translation type="unfinished">Preferências</translation>
+        <translation type="obsolete">Preferências</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="37"/>
+        <location filename="src/preference_dialog.ui" line="43"/>
         <source>General</source>
         <translation type="unfinished">Geral</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="45"/>
+        <location filename="src/preference_dialog.ui" line="51"/>
         <source>Background color: </source>
         <translation type="unfinished">Cor de fundo:</translation>
     </message>
@@ -461,24 +466,29 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="obsolete">Selecione o idioma:</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="77"/>
+        <location filename="src/preference_dialog.ui" line="87"/>
         <source>Others</source>
         <translation type="unfinished">Outros</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="83"/>
+        <location filename="src/preference_dialog.ui" line="93"/>
         <source>Show toolbar in fullscreen mode</source>
         <translation type="unfinished">Exibir barra de ferramentas no modo tela cheia</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="90"/>
+        <location filename="src/preference_dialog.ui" line="100"/>
         <source>Show statusbar in fullscreen mode</source>
         <translation type="unfinished">Exibir barra de status no modo tela cheia</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="132"/>
+        <location filename="src/preference_dialog.ui" line="142"/>
         <source>Close</source>
         <translation type="unfinished">Fechar</translation>
+    </message>
+    <message>
+        <location filename="src/preference_dialog.ui" line="17"/>
+        <source>Pynocchio Preferences</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
