@@ -28,7 +28,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../resource/main_window.qrc">
-    <normaloff>:/icons/hand made/1424554308_comment.png</normaloff>:/icons/hand made/1424554308_comment.png</iconset>
+    <normaloff>:/icons/freeiconmaker_8.png</normaloff>:/icons/freeiconmaker_8.png</iconset>
   </property>
   <property name="accessibleName">
    <string>Pyellow</string>
@@ -166,7 +166,7 @@
              <enum>Qt::PlainText</enum>
             </property>
             <property name="pixmap">
-             <pixmap resource="../resource/main_window.qrc">:/icons/hand made/1424554308_comment.png</pixmap>
+             <pixmap resource="../resource/main_window.qrc">:/icons/freeiconmaker_8.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -279,8 +279,8 @@
     <addaction name="action_bookmark_manager"/>
    </widget>
    <addaction name="menu_file"/>
-   <addaction name="menu_navegation"/>
    <addaction name="menu_view"/>
+   <addaction name="menu_navegation"/>
    <addaction name="menu_bookmarks"/>
    <addaction name="menu_Settings"/>
    <addaction name="menu_Help"/>
@@ -337,6 +337,10 @@
    <addaction name="action_rotate_left"/>
    <addaction name="action_rotate_right"/>
    <addaction name="separator"/>
+   <addaction name="action_original_fit"/>
+   <addaction name="action_vertical_adjust"/>
+   <addaction name="action_horizontal_adjust"/>
+   <addaction name="action_best_fit"/>
    <addaction name="action_fullscreen"/>
    <addaction name="separator"/>
    <addaction name="action_exit"/>
@@ -517,7 +521,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/calibrate (copy).svg</normaloff>:/icons/elementary3-icon-theme/actions/48/calibrate (copy).svg</iconset>
+     <normaloff>:/icons/icone maior/freeiconmaker_1.png</normaloff>:/icons/icone maior/freeiconmaker_1.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Horizontal adjust</string>
@@ -538,7 +542,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/devices/64/display.svg</normaloff>:/icons/elementary3-icon-theme/devices/64/display.svg</iconset>
+     <normaloff>:/icons/icone maior/freeiconmaker_4.png</normaloff>:/icons/icone maior/freeiconmaker_4.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Fullscreen</string>
@@ -577,7 +581,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-restore.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-restore.svg</iconset>
+     <normaloff>:/icons/icone maior/freeiconmaker_2.png</normaloff>:/icons/icone maior/freeiconmaker_2.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Original fit</string>
@@ -725,7 +729,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/apps/128/display-capplet.svg</normaloff>:/icons/elementary3-icon-theme/apps/128/display-capplet.svg</iconset>
+     <normaloff>:/icons/icone maior/freeiconmaker_3.png</normaloff>:/icons/icone maior/freeiconmaker_3.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Vertical adjust</string>
@@ -752,7 +756,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-more.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/zoom-more.svg</iconset>
+     <normaloff>:/icons/icone maior/freeiconmaker_0.png</normaloff>:/icons/icone maior/freeiconmaker_0.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Whole page</string>
@@ -774,7 +778,6 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../resource/main_window.qrc"/>
   <include location="../resource/main_window.qrc"/>
  </resources>
  <connections/>

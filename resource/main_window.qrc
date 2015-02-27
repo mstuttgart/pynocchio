@@ -1,6 +1,34 @@
 <RCC>
   <qresource prefix="/icons">
+    <file>icone maior/freeiconmaker_0.png</file>
+    <file>icone maior/freeiconmaker_2.png</file>
+    <file>icone maior/freeiconmaker_1.png</file>
+    <file>editado/freeiconmaker_0.png</file>
+    <file>editado/freeiconmaker_1.png</file>
+    <file>editado/freeiconmaker_2.png</file>
+    <file>editado/freeiconmaker_3.png</file>
+    <file>editado/freeiconmaker_4.png</file>
+    <file>icone maior/freeiconmaker_2.png</file>
+    <file>icone maior/freeiconmaker_3.png</file>
+    <file>icone maior/freeiconmaker_4.png</file>
+    <file>icone maior/freeiconmaker_5.png</file>
+    <file>freeiconmaker_8.png</file>
+    <file>arrows/freeiconmaker_0.png</file>
+    <file>arrows/freeiconmaker_1.png</file>
+    <file>arrows/freeiconmaker_2.png</file>
+    <file>arrows/freeiconmaker_3.png</file>
+    <file>arrows/freeiconmaker_4.png</file>
+    <file>arrows/freeiconmaker_5.png</file>
+    <file>arrows/freeiconmaker_6.png</file>
+    <file>arrows/freeiconmaker_7.png</file>
+    <file>freeiconmaker_7.png</file>
+    <file>freeiconmaker_3.png</file>
+    <file>freeiconmaker_2.png</file>
+    <file>freeiconmaker_0.png</file>
+    <file>icon_3.png</file>
     <file>hand made/1424503206_arrow_right.png</file>
+    <file>elementary3-icon-theme/categories/48/applications-chat.svg</file>
+    <file>elementary3-icon-theme/categories/48/applications-chat (copy).svg</file>
     <file>hand made/1424503213_bullet_deny.png</file>
     <file>hand made/1424503216_star_full.png</file>
     <file>hand made/1424503222_zoom.png</file>
@@ -40,6 +68,58 @@
     <file>hand made/1424732910_file_download.png</file>
     <file>hand made/1424732911_photo.png</file>
     <file>hand made/1424732913_note_search.png</file>
+    <file>freeiconmaker/freeiconmaker_0.png</file>
+    <file>freeiconmaker/freeiconmaker_1.png</file>
+    <file>freeiconmaker/freeiconmaker_2.png</file>
+    <file>freeiconmaker/freeiconmaker_3.png</file>
+    <file>freeiconmaker/freeiconmaker_4.png</file>
+    <file>freeiconmaker/freeiconmaker_5.png</file>
+    <file>freeiconmaker/freeiconmaker_6.png</file>
+    <file>freeiconmaker/freeiconmaker_7.png</file>
+    <file>freeiconmaker/freeiconmaker_8.png</file>
+    <file>freeiconmaker/freeiconmaker_9.png</file>
+    <file>freeiconmaker/freeiconmaker_10.png</file>
+    <file>freeiconmaker/freeiconmaker_11.png</file>
+    <file>freeiconmaker/freeiconmaker_12.png</file>
+    <file>freeiconmaker/freeiconmaker_13.png</file>
+    <file>freeiconmaker/freeiconmaker_14.png</file>
+    <file>freeiconmaker/freeiconmaker_15.png</file>
+    <file>freeiconmaker/freeiconmaker_16.png</file>
+    <file>freeiconmaker/freeiconmaker_17.png</file>
+    <file>freeiconmaker/freeiconmaker_18.png</file>
+    <file>freeiconmaker/freeiconmaker_19.png</file>
+    <file>freeiconmaker/freeiconmaker_20.png</file>
+    <file>freeiconmaker/freeiconmaker_21.png</file>
+    <file>freeiconmaker/freeiconmaker_22.png</file>
+    <file>freeiconmaker/freeiconmaker_23.png</file>
+    <file>freeiconmaker/freeiconmaker_24.png</file>
+    <file>freeiconmaker/freeiconmaker_25.png</file>
+    <file>freeiconmaker/freeiconmaker_26.png</file>
+    <file>freeiconmaker/freeiconmaker_27.png</file>
+    <file>freeiconmaker/freeiconmaker_28.png</file>
+    <file>freeiconmaker/freeiconmaker_29.png</file>
+    <file>freeiconmaker/freeiconmaker_30.png</file>
+    <file>freeiconmaker/freeiconmaker_31.png</file>
+    <file>freeiconmaker/freeiconmaker_32.png</file>
+    <file>freeiconmaker/freeiconmaker_33.png</file>
+    <file>freeiconmaker/freeiconmaker_34.png</file>
+    <file>freeiconmaker/freeiconmaker_35.png</file>
+    <file>freeiconmaker/freeiconmaker_36.png</file>
+    <file>freeiconmaker/freeiconmaker_37.png</file>
+    <file>freeiconmaker/freeiconmaker_38.png</file>
+    <file>freeiconmaker/freeiconmaker_39.png</file>
+    <file>freeiconmaker/freeiconmaker_40.png</file>
+    <file>freeiconmaker/freeiconmaker_41.png</file>
+    <file>freeiconmaker/freeiconmaker_42.png</file>
+    <file>freeiconmaker/freeiconmaker_43.png</file>
+    <file>freeiconmaker/freeiconmaker_44.png</file>
+    <file>freeiconmaker/freeiconmaker_45.png</file>
+    <file>freeiconmaker/freeiconmaker_46.png</file>
+    <file>freeiconmaker/freeiconmaker_47.png</file>
+    <file>freeiconmaker/freeiconmaker_48.png</file>
+    <file>freeiconmaker/freeiconmaker_49.png</file>
+    <file>freeiconmaker/freeiconmaker_50.png</file>
+    <file>freeiconmaker/freeiconmaker_51.png</file>
     <file>hand made/1424732916_basket_empty.png</file>
     <file>hand made/1424732923_comment.png</file>
     <file>hand made/1424732928_note.png</file>

@@ -14,7 +14,7 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
+
 import sys
 
 try:
@@ -35,7 +35,7 @@ def main():
     if qm != 'en_US':
         translator = QtCore.QTranslator()
         try:
-            translator.load("../i18n/qt_%s.qm" % qm)
+            translator.load('../i18n/qt_%s.qm' % qm)
             app.installTranslator(translator)
         except IOError:
             print 'Translation file qt_%s.qm not find' % qm
