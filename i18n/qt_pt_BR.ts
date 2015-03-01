@@ -335,7 +335,7 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation>Todos os formatos suportados (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Arquivos Zip (*.zip *.cbz);; Arquivos Rar (*.rar *.cbr);; Arquivos Tar (*.tar *.cbt);; Todos os arquivos (*)</translation>
     </message>
     <message>
-        <location filename="src/main_window.py" line="331"/>
+        <location filename="src/main_window.py" line="347"/>
         <source>About Qt</source>
         <translation>Sobre o Qt</translation>
     </message>
@@ -420,18 +420,28 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="774"/>
+        <location filename="src/main_window.ui" line="777"/>
         <source>&amp;Save image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="777"/>
+        <location filename="src/main_window.ui" line="780"/>
         <source>Save current image in disk.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="780"/>
+        <location filename="src/main_window.ui" line="783"/>
         <source>Ctrl+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/main_window.py" line="159"/>
+        <source>Save current page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/main_window.py" line="159"/>
+        <source>Images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

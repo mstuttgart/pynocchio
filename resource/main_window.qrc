@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/icons">
+    <file>elementary3-icon-theme/actions/64/go-down.svg</file>
     <file>elementary3-icon-theme/apps/64/addressbook.svg</file>
     <file>elementary3-icon-theme/apps/64/office-database.svg</file>
     <file>elementary3-icon-theme/actions/48/document-open-recent.svg</file>

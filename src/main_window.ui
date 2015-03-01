@@ -771,7 +771,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/document-save.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-save.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/go-down.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/go-down.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Save image</string>

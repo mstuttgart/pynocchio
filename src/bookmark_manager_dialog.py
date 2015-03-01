@@ -55,19 +55,32 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
             2, QtGui.QHeaderView.ResizeToContents)
 
     def _remove_table_item(self):
+
         selected_items = self.table.selectedItems()
-        selected_items_len = len(selected_items)
-        selected_items_i = selected_items_len / 3
-        selected_items_f = selected_items_len - selected_items_i
 
-        paths = []
+        if not selected_items:
+            return
 
-        for i in range(selected_items_i, selected_items_f):
-            path = selected_items[i].text()
-            paths.append(path)
-            self.table.removeRow(selected_items[i].row())
+        option = QtGui.QMessageBox().warning(
+            self, self.tr('Delete bookmarks'),
+            self.tr('This action will go delete you bookmarks! Preceed?'),
+            QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel,
+            QtGui.QMessageBox.Ok)
 
-        self.model.remove_bookmarks(paths)
+        if option == QtGui.QMessageBox.Ok:
+
+            selected_items_len = len(selected_items)
+            selected_items_i = selected_items_len / 3
+            selected_items_f = selected_items_len - selected_items_i
+
+            paths = []
+
+            for i in range(selected_items_i, selected_items_f):
+                path = selected_items[i].text()
+                paths.append(path)
+                self.table.removeRow(selected_items[i].row())
+
+            self.model.remove_bookmarks(paths)
 
     def _select_all_table_items(self):
         self.table.setRangeSelected(

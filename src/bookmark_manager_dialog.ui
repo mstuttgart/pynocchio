@@ -41,6 +41,9 @@
      <property name="autoScrollMargin">
       <number>9</number>
      </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+     </property>
      <property name="tabKeyNavigation">
       <bool>true</bool>
      </property>
@@ -66,7 +69,7 @@
       <bool>true</bool>
      </property>
      <property name="rowCount">
-      <number>5</number>
+      <number>8</number>
      </property>
      <property name="columnCount">
       <number>3</number>
@@ -77,6 +80,9 @@
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>true</bool>
      </attribute>
+     <row/>
+     <row/>
+     <row/>
      <row/>
      <row/>
      <row/>
@@ -176,6 +182,22 @@
     <hint type="destinationlabel">
      <x>380</x>
      <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bookmark_table</sender>
+   <signal>viewportEntered()</signal>
+   <receiver>button_remove</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>380</x>
+     <y>143</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>287</x>
+     <y>301</y>
     </hint>
    </hints>
   </connection>
