@@ -35,6 +35,7 @@ class Viewer(QtGui.QScrollArea):
         self.hide_cursor_timer.timeout.connect(self._hide_cursor)
 
         self.setWidgetResizable(True)
+        self._change_cursor()
 
     def next_page(self):
         self.update_view(self.model.next_page())

@@ -18,7 +18,7 @@
 from PyQt4 import QtGui
 
 
-class ColorButton(QtGui.QPushButton):
+class ColorButton(QtGui.QToolButton):
     def __init__(self, parent=None):
         super(ColorButton, self).__init__(parent)
         self.background_color = QtGui.QColor()

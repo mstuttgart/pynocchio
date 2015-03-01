@@ -18,7 +18,7 @@
 from PyQt4 import QtGui, uic
 
 BookmarkManagerDialogForm, BookmarkManagerDialogBase = uic.loadUiType(
-    '../view/bookmark_manager_dialog.ui')
+    'bookmark_manager_dialog.ui')
 
 
 class BookmarkManagerDialog(BookmarkManagerDialogForm,

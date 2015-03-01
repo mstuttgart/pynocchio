@@ -20,7 +20,7 @@ from PyQt4 import QtGui
 
 
 PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType(
-    '../view/config_dialog.ui')
+    'preference_dialog.ui')
 
 
 class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
@@ -41,7 +41,8 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
         self.background_color_button.clicked.connect(self._open_color_dialog)
 
     def _open_color_dialog(self):
-        col = QtGui.QColorDialog().getColor()
+        col_dialog = QtGui.QColorDialog(self)
+        col = col_dialog.getColor(self.background_color_button.background_color)
         if col.isValid():
             self.preference.background_color = col
             self.background_color_button.background_color = col
