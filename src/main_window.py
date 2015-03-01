@@ -146,6 +146,22 @@ class MainWindow(MainWindowBase, MainWindowForm):
         if file_path:
             self.load(file_path)
 
+    @QtCore.pyqtSlot()
+    def on_action_save_image_triggered(self):
+
+        if not self.model.comic:
+            return
+
+        import utility
+        path = utility.Utility.get_home_dir() +  \
+               self.model.comic.get_current_page_title()
+
+        file_path = QtGui.QFileDialog().getSaveFileName(
+            self, self.tr('Save current page'), path,
+            self.tr("Images (*.png *.xpm *.jpeg *.jpg *.gif)"))
+
+        self.model.get_current_page().save(file_path)
+
     def _on_action_recent_files(self):
         action = self.sender()
         if action:
@@ -371,6 +387,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.statusbar.set_comic_path(page_title)
 
     def _enable_actions(self):
+
+        self.action_save_image.setEnabled(True)
 
         self.action_fullscreen.setEnabled(True)
         self.action_original_fit.setEnabled(True)

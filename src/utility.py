@@ -45,6 +45,10 @@ class Utility(object):
         return os.path.isdir(file_path)
 
     @staticmethod
+    def get_home_dir():
+        return os.path.expanduser('~')
+
+    @staticmethod
     def convert_qstring_to_str(qstring):
         if isinstance(qstring, QtCore.QString):
             return str(qstring.toUtf8())

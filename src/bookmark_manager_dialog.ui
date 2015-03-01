@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Bookmark_Dialog</class>
  <widget class="QDialog" name="Bookmark_Dialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -15,7 +18,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../resource/main_window.qrc">
-    <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
+    <normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

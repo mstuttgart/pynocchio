@@ -214,12 +214,13 @@
       <string>&amp;Recent files</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>:/icons/elementary3-icon-theme/places/48/folder-recent.svg</normaloff>:/icons/elementary3-icon-theme/places/48/folder-recent.svg</iconset>
+      <iconset resource="../resource/main_window.qrc">
+       <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
      </property>
     </widget>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>
+    <addaction name="action_save_image"/>
     <addaction name="menu_recent_files"/>
     <addaction name="separator"/>
     <addaction name="action_exit"/>
@@ -348,7 +349,7 @@
   <action name="action_open">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -648,7 +649,7 @@
   <action name="action_bookmark_manager">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/filesaveas.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/filesaveas.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</iconset>
    </property>
    <property name="text">
     <string>Bookmark &amp;manager</string>
@@ -762,6 +763,24 @@
    </property>
    <property name="visible">
     <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_save_image">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/document-save.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-save.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save image</string>
+   </property>
+   <property name="whatsThis">
+    <string>Save current image in disk.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
  </widget>

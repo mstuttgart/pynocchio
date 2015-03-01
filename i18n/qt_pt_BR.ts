@@ -39,17 +39,17 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
 <context>
     <name>Bookmark_Dialog</name>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="84"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="87"/>
         <source>Name</source>
         <translation type="unfinished">Nome</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="89"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="92"/>
         <source>Path</source>
         <translation type="unfinished">Diretório</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="94"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="97"/>
         <source>Page</source>
         <translation type="unfinished">Página</translation>
     </message>
@@ -74,27 +74,27 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="obsolete">Abrir</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="114"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="128"/>
         <source>Remove</source>
         <translation type="unfinished">Remover</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="125"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="150"/>
         <source>Select All</source>
         <translation type="unfinished">Selecionar tudo</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="132"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="139"/>
         <source>Close</source>
         <translation type="unfinished">Fechar</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="143"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="117"/>
         <source>Load</source>
         <translation type="unfinished">Carregar</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="14"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="17"/>
         <source>Bookmark manager</source>
         <translation type="unfinished"></translation>
     </message>
@@ -140,122 +140,122 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="unfinished">A&amp;rquivos recentes</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="229"/>
+        <location filename="src/main_window.ui" line="230"/>
         <source>&amp;View</source>
         <translation type="unfinished">&amp;Visualizar</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="243"/>
+        <location filename="src/main_window.ui" line="244"/>
         <source>&amp;Navegation</source>
         <translation type="unfinished">&amp;Navegação</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="258"/>
+        <location filename="src/main_window.ui" line="259"/>
         <source>&amp;Help</source>
         <translation type="unfinished">A&amp;juda</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="265"/>
+        <location filename="src/main_window.ui" line="266"/>
         <source>&amp;Settings</source>
         <translation type="unfinished">&amp;Configuração</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="274"/>
+        <location filename="src/main_window.ui" line="275"/>
         <source>&amp;Bookmarks</source>
         <translation type="unfinished">&amp;Favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="354"/>
+        <location filename="src/main_window.ui" line="355"/>
         <source>&amp;Open</source>
         <translation type="unfinished">&amp;Abrir</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="372"/>
+        <location filename="src/main_window.ui" line="373"/>
         <source>&amp;About Pynocchio</source>
         <translation type="unfinished">&amp;Sobre o Pynocchio</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="377"/>
+        <location filename="src/main_window.ui" line="378"/>
         <source>&amp;About Qt</source>
         <translation type="unfinished">&amp;Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="386"/>
+        <location filename="src/main_window.ui" line="387"/>
         <source>&amp;Exit</source>
         <translation type="unfinished">&amp;Sair</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="401"/>
+        <location filename="src/main_window.ui" line="402"/>
         <source>&amp;Next page</source>
         <translation type="unfinished">&amp;Próxima página</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="404"/>
+        <location filename="src/main_window.ui" line="405"/>
         <source>Right</source>
         <translation type="unfinished">Direita </translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="425"/>
+        <location filename="src/main_window.ui" line="426"/>
         <source>&amp;Previous page</source>
         <translation type="unfinished">&amp;Página anterior</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="428"/>
+        <location filename="src/main_window.ui" line="429"/>
         <source>Left</source>
         <translation type="unfinished">Esquerda </translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="446"/>
+        <location filename="src/main_window.ui" line="447"/>
         <source>&amp;First page</source>
         <translation type="unfinished">&amp;Primeira página</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="449"/>
+        <location filename="src/main_window.ui" line="450"/>
         <source>Ctrl+Left</source>
         <translation type="unfinished">Ctrl + Esquerda</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="464"/>
+        <location filename="src/main_window.ui" line="465"/>
         <source>&amp;Last page</source>
         <translation type="unfinished">&amp;Última página</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="467"/>
+        <location filename="src/main_window.ui" line="468"/>
         <source>Ctrl+Right</source>
         <translation type="unfinished">Ctrl + Direita</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="485"/>
+        <location filename="src/main_window.ui" line="486"/>
         <source>&amp;Rotate left</source>
         <translation type="unfinished">Rotacionar para esquerda</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="503"/>
+        <location filename="src/main_window.ui" line="504"/>
         <source>&amp;Rotate right</source>
         <translation type="unfinished">Rotacionar para direita</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="731"/>
+        <location filename="src/main_window.ui" line="732"/>
         <source>&amp;Vertical adjust</source>
         <translation type="unfinished">Ajuste vertical</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="527"/>
+        <location filename="src/main_window.ui" line="528"/>
         <source>&amp;Horizontal adjust</source>
         <translation type="unfinished">Ajuste horizontal</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="548"/>
+        <location filename="src/main_window.ui" line="549"/>
         <source>&amp;Fullscreen</source>
         <translation type="unfinished">Tela cheia</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="566"/>
+        <location filename="src/main_window.ui" line="567"/>
         <source>&amp;Go to page...</source>
         <translation type="unfinished">Ir para página...</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="758"/>
+        <location filename="src/main_window.ui" line="759"/>
         <source>&amp;Whole page</source>
         <translation type="unfinished">Página inteira</translation>
     </message>
@@ -265,52 +265,52 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="obsolete">Preferências</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="587"/>
+        <location filename="src/main_window.ui" line="588"/>
         <source>&amp;Original fit</source>
         <translation type="unfinished">Tamanho original</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="607"/>
+        <location filename="src/main_window.ui" line="608"/>
         <source>&amp;Show Toolbar</source>
         <translation type="unfinished">Exibir barra de ferramentas</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="618"/>
+        <location filename="src/main_window.ui" line="619"/>
         <source>S&amp;how Statusbar</source>
         <translation type="unfinished">Exibir barra de status</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="630"/>
+        <location filename="src/main_window.ui" line="631"/>
         <source>&amp;Add bookmark</source>
         <translation type="unfinished">Adicionar aos favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="645"/>
+        <location filename="src/main_window.ui" line="646"/>
         <source>&amp;Remove bookmark</source>
         <translation type="unfinished">Remover dos favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="654"/>
+        <location filename="src/main_window.ui" line="655"/>
         <source>Bookmark &amp;manager</source>
         <translation type="unfinished">Gerenciar favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="680"/>
+        <location filename="src/main_window.ui" line="681"/>
         <source>Next Comic</source>
         <translation type="unfinished">Próximo quadrinho</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="683"/>
+        <location filename="src/main_window.ui" line="684"/>
         <source>Ctrl+Shift+Right</source>
         <translation type="unfinished">Ctrl + Shift + Direita</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="698"/>
+        <location filename="src/main_window.ui" line="699"/>
         <source>Previous Comic</source>
         <translation type="unfinished">Quadrinho anterior</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="701"/>
+        <location filename="src/main_window.ui" line="702"/>
         <source>Ctrl+Shift+Left</source>
         <translation type="unfinished">Ctrl + Shift + Esquerda</translation>
     </message>
@@ -340,7 +340,7 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation>Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="713"/>
+        <location filename="src/main_window.ui" line="714"/>
         <source>Preferences</source>
         <translation type="unfinished">Preferências</translation>
     </message>
@@ -360,63 +360,78 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="305"/>
+        <location filename="src/main_window.ui" line="306"/>
         <source>toolBar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="357"/>
+        <location filename="src/main_window.ui" line="358"/>
         <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="389"/>
+        <location filename="src/main_window.ui" line="390"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="488"/>
+        <location filename="src/main_window.ui" line="489"/>
         <source>Ctrl+Shift+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="506"/>
+        <location filename="src/main_window.ui" line="507"/>
         <source>Ctrl+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="530"/>
+        <location filename="src/main_window.ui" line="531"/>
         <source>Ctrl+K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="551"/>
+        <location filename="src/main_window.ui" line="552"/>
         <source>F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="569"/>
+        <location filename="src/main_window.ui" line="570"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="590"/>
+        <location filename="src/main_window.ui" line="591"/>
         <source>Ctrl+H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="659"/>
+        <location filename="src/main_window.ui" line="660"/>
         <source>Open &amp;Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="734"/>
+        <location filename="src/main_window.ui" line="735"/>
         <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="761"/>
+        <location filename="src/main_window.ui" line="762"/>
         <source>Ctrl+L</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/main_window.ui" line="774"/>
+        <source>&amp;Save image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/main_window.ui" line="777"/>
+        <source>Save current image in disk.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/main_window.ui" line="780"/>
+        <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -453,7 +468,7 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
     <message>
         <location filename="src/preference_dialog.ui" line="51"/>
         <source>Background color: </source>
-        <translation type="unfinished">Cor de fundo:</translation>
+        <translation type="obsolete">Cor de fundo:</translation>
     </message>
     <message>
         <location filename="view/config_dialog.ui" line="77"/>
@@ -466,28 +481,33 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
         <translation type="obsolete">Selecione o idioma:</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="87"/>
+        <location filename="src/preference_dialog.ui" line="93"/>
         <source>Others</source>
         <translation type="unfinished">Outros</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="93"/>
+        <location filename="src/preference_dialog.ui" line="99"/>
         <source>Show toolbar in fullscreen mode</source>
         <translation type="unfinished">Exibir barra de ferramentas no modo tela cheia</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="100"/>
+        <location filename="src/preference_dialog.ui" line="106"/>
         <source>Show statusbar in fullscreen mode</source>
         <translation type="unfinished">Exibir barra de status no modo tela cheia</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="142"/>
+        <location filename="src/preference_dialog.ui" line="148"/>
         <source>Close</source>
         <translation type="unfinished">Fechar</translation>
     </message>
     <message>
         <location filename="src/preference_dialog.ui" line="17"/>
         <source>Pynocchio Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/preference_dialog.ui" line="51"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Background color: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
