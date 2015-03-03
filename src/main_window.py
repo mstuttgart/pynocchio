@@ -250,7 +250,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self._update_status_bar()
 
     def _init_bookmark_menu(self):
-        for i in range(0, self.model.NUM_BOOKMARK):
+        for i in range(self.model.NUM_BOOKMARK):
             act = QtGui.QAction(self)
             act.setVisible(False)
             act.triggered.connect(self._load_bookmark)
@@ -273,7 +273,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         # Added 4 because the 3 actions in bookmark
         # menu is add, remove and manage bookmark
-        for i in range(0, bookmark_list_len):
+        for i in range(bookmark_list_len):
             page = ' [%d]' % (bookmark_list[i][2])
             acts[i + 4].setObjectName(bookmark_list[i][1])
             acts[i + 4].setText(bookmark_list[i][1] + page)
