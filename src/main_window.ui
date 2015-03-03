@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>1048</width>
-    <height>609</height>
+    <height>560</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -117,7 +117,7 @@
            <x>0</x>
            <y>0</y>
            <width>1046</width>
-           <height>542</height>
+           <height>493</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
@@ -186,6 +186,9 @@
      </layout>
     </item>
    </layout>
+   <zorder>tabWidget</zorder>
+   <zorder>label</zorder>
+   <zorder>viewer</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
