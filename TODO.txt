@@ -1,6 +1,5 @@
 #TODO: Menu Exibir adicionar: two pages, manga mode
 #TODO: Controle de zoom para o usuario
-#TODO: Botão closecomic para voltar a tela inicial do programa.
 #TODO: Opção no menu file para visualizarmos informações da comic,
 # como numero de paginas, tipo de arquivo (codificação),
 #TODO: Opção para imprimir a página atual
@@ -8,6 +7,6 @@
 #TODO: Remover o campo current_page do dialog GoToPage
 #TODO: magnifying glass para ver detalhes da página
 #TODO: sistema para leitura online
-#TODO: Sistema de gerenciamento de coloecoes
+#TODO: Sistema de gerenciamento de colecoes
 #TODO: Tradução espanhol
 #TODO: Arquivos de testes
