@@ -38,10 +38,11 @@ class BookmarkManager(BookmarkBaseModel):
     @staticmethod
     def before_request():
         db.connect()
-        # try:
-        db.create_tables([Bookmark], safe=True)
-        # except peewee.OperationalError:
-        #     print "Artist table already exists!"
+        try:
+            db.create_tables([Bookmark], safe=True)
+            print "[INFO] Table 'Bookmark' create/updates sucessfully!"
+        except peewee.OperationalError:
+            print "[ERROR] Error to create table 'Bookmark'!"
 
     @staticmethod
     def after_request():
@@ -54,11 +55,11 @@ class BookmarkManager(BookmarkBaseModel):
             q = Bookmark.insert(comic_name=name, comic_path=path,
                                 comic_page=page, page_data=None)
             q.execute()
-            print '[INFO] Bookmark inserted'
+            print '[INFO] Bookmark inserted.'
         except peewee.IntegrityError:
             q = Bookmark.update(comic_page=page).where(Bookmark.comic_path == path)
             q.execute()
-            print '[INFO] Bookmark updated'
+            print '[INFO] Bookmark updated.'
 
     @staticmethod
     def remove_bookmark(path):
@@ -66,6 +67,6 @@ class BookmarkManager(BookmarkBaseModel):
         try:
             q = Bookmark.delete().where(Bookmark.comic_path == path)
             q.execute()
-            print '[INFO] Bookmark deleted'
+            print '[INFO] Bookmark deleted.'
         except peewee.IntegrityError:
-            print '[ERROR] Bookmark not find'
+            print '[ERROR] Bookmark not find.'

@@ -65,7 +65,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         bookmark.BookmarkManager.before_request()
         bookmark.BookmarkManager.add_bookmark('Teste', 'path_test', 20)
-        bookmark.BookmarkManager.remove_bookmark('path_test')
+        # bookmark.BookmarkManager.remove_bookmark('path_test')
         bookmark.BookmarkManager.after_request()
 
 
