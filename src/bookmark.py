@@ -15,22 +15,29 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import peewee
+try:
+    from peewee import IntegerField, CharField, Model, OperationalError, \
+        PrimaryKeyField, BlobField, SqliteDatabase, IntegrityError
+except ImportError, err:
+    print 'rarfile module not installed.\n' \
+          'Please install it using: sudo pip install peewee\n'
+    import sys
+    sys.exit(err)
 
-db = peewee.SqliteDatabase('bookmark.db', threadlocals=True)
+db = SqliteDatabase('bookmark.db', threadlocals=True)
 
 
-class BookmarkBaseModel(peewee.Model):
+class BookmarkBaseModel(Model):
     class Meta:
         database = db
 
 
 class Bookmark(BookmarkBaseModel):
-    comic_id = peewee.PrimaryKeyField(unique=True, index=True)
-    comic_path = peewee.CharField(unique=True)
-    comic_name = peewee.CharField(default='')
-    comic_page = peewee.IntegerField(default=0)
-    page_data = peewee.BlobField(null=True, default=None)
+    comic_id = PrimaryKeyField(unique=True, index=True)
+    comic_path = CharField(unique=True)
+    comic_name = CharField(default='')
+    comic_page = IntegerField(default=0)
+    page_data = BlobField(null=True, default=None)
 
 
 class BookmarkManager(BookmarkBaseModel):
@@ -41,12 +48,13 @@ class BookmarkManager(BookmarkBaseModel):
         try:
             db.create_tables([Bookmark], safe=True)
             print "[INFO] Table 'Bookmark' create/updates sucessfully!"
-        except peewee.OperationalError:
+        except OperationalError:
             print "[ERROR] Error to create table 'Bookmark'!"
 
     @staticmethod
     def after_request():
         db.close()
+        print '[INFO] Bookmark database closed.'
 
     @staticmethod
     def add_bookmark(name, path, page):
@@ -56,8 +64,9 @@ class BookmarkManager(BookmarkBaseModel):
                                 comic_page=page, page_data=None)
             q.execute()
             print '[INFO] Bookmark inserted.'
-        except peewee.IntegrityError:
-            q = Bookmark.update(comic_page=page).where(Bookmark.comic_path == path)
+        except IntegrityError:
+            q = Bookmark.update(comic_page=page).where(
+                Bookmark.comic_path == path)
             q.execute()
             print '[INFO] Bookmark updated.'
 
@@ -68,5 +77,5 @@ class BookmarkManager(BookmarkBaseModel):
             q = Bookmark.delete().where(Bookmark.comic_path == path)
             q.execute()
             print '[INFO] Bookmark deleted.'
-        except peewee.IntegrityError:
+        except IntegrityError:
             print '[ERROR] Bookmark not find.'

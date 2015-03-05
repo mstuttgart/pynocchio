@@ -8,5 +8,5 @@ setup(
     license='GPLv3',
     author='Michell Stuttgart',
     author_email='michellstut@gmail.com',
-    description='Comic Reader'
+    description='Comic Reader', requires=['peewee', 'python-PyQt4', 'rarfile']
 )
