@@ -255,7 +255,8 @@ class Model(object):
             comic_page = self.comic.get_current_page_number()
 
         bk = Bookmarks()
-        bk.add_bookmark(comic_path, comic_name, comic_page)
+        bk.add_bookmark(comic_path, comic_name, comic_page,
+                        self.comic.get_current_page())
         book_list = bk.get_records(self.NUM_BOOKMARK)
         bk.close()
         return book_list

@@ -54,6 +54,11 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
         self.table.horizontalHeader().setResizeMode(
             2, QtGui.QHeaderView.ResizeToContents)
 
+        if record_list:
+            pix = QtGui.QPixmap()
+            pix.loadFromData(record_list[3])
+            self.label_page.setPixmpa(pix)
+
     def _remove_table_item(self):
 
         selected_items = self.table.selectedItems()

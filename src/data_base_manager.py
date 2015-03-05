@@ -40,9 +40,13 @@ class DataBaseManager(object):
         if self.conn:
             self.conn.execute(sql)
 
-    def execute(self, sql):
+    def execute(self, sql, list_par=None):
         if self.conn:
-            r = self.conn.execute(sql)
+            if list_par is not None:
+                r = self.conn.execute(sql, list_par)
+            else:
+                r = self.conn.execute(sql)
+
             self.conn.commit()
             return r
 

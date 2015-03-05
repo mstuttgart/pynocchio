@@ -16,6 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from data_base_manager import DataBaseManager
+import sqlite3
 
 
 class Bookmarks(object):
@@ -25,19 +26,22 @@ class Bookmarks(object):
         self.db = DataBaseManager(self.BOOKMARK_FILE_NAME)
         self.db.create_table('Bookmarks', '(Id INTEGER PRIMARY KEY NOT NULL, '
                                           'Path TEXT SECUNDARY KEY NOT NULL, '
-                                          'Name TEXT, Page INTEGER)')
+                                          'Name TEXT, '
+                                          'Page INTEGER,'
+                                          'Data BLOB)')
 
-    def add_bookmark(self, path, name, page):
+    def add_bookmark(self, path, name, page, data):
         ret = self.db.find('Bookmarks', 'Path', path)
 
         if ret:
-            sql = "UPDATE Bookmarks SET Page=%d WHERE Path='%s';" % (page,
-                                                                     path)
+            sql = "UPDATE Bookmarks SET Page=? Data=? WHERE Path=?;"
+            self.db.execute(sql, [page, sqlite3.Binary(data), path])
         else:
-            sql = "INSERT OR IGNORE INTO Bookmarks (Path, Name, Page) " \
-                  "VALUES ('%s', '%s', %d);" % (path, name, page)
+            sql = "INSERT OR IGNORE INTO Bookmarks (Path, Name, Page, Data) " \
+                  "VALUES (?, ?, ?, ?);"
+            self.db.execute(sql, [path, name, page, sqlite3.Binary(data)])
 
-        self.db.execute(sql)
+        # self.db.execute(sql)
 
     def delete_bookmark(self, path):
         sql = "DELETE FROM Bookmarks WHERE Path='%s';" % path
@@ -55,7 +59,7 @@ class Bookmarks(object):
         return self.db.execute(sql).fetchmany(num)
 
     def _get_all_records(self):
-        sql = "SELECT Name, Path, Page FROM BOOKMARKS;"
+        sql = "SELECT Name, Path, Page, Data FROM BOOKMARKS;"
         return self.db.execute(sql).fetchall()
 
     def get_records(self, num=0):
