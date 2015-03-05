@@ -21,7 +21,6 @@ from model import Model
 from recent_files_manager import RecentFileManager
 from status_bar import StatusBar
 from preference import Preference
-import bookmark
 
 
 MainWindowForm, MainWindowBase = uic.loadUiType('main_window.ui')
@@ -62,12 +61,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
         # self._init_bookmark_menu()
         self._adjust_main_window()
         self._define_global_shortcuts()
-
-        bookmark.BookmarkManager.before_request()
-        bookmark.BookmarkManager.add_bookmark('Teste', 'path_test', 20)
-        # bookmark.BookmarkManager.remove_bookmark('path_test')
-        bookmark.BookmarkManager.after_request()
-
 
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -292,7 +285,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
-        self._update_bookmarks_menu(self.model.add_bookmark())
+        # self._update_bookmarks_menu(self.model.add_bookmark())
+        self.model.add_bookmark()
 
     @QtCore.pyqtSlot()
     def on_action_remove_bookmark_triggered(self):

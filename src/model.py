@@ -19,6 +19,7 @@ from PyQt4 import QtCore, QtGui
 from comic import Comic
 from bookmarks import Bookmarks
 from page import Page
+from bookmark import Bookmark, BookmarkManager
 
 
 class Model(object):
@@ -245,21 +246,29 @@ class Model(object):
         bk.close()
         return bookmark
 
-    def add_bookmark(self, comic_name=None, comic_path=None, comic_page=None):
+    def add_bookmark(self):
 
-        if not comic_name:
-            comic_name = self.get_comic_name()
-        if not comic_path:
-            comic_path = self.comic.directory + '/' + comic_name
-        if not comic_page:
-            comic_page = self.comic.get_current_page_number()
+        if self.comic:
+            BookmarkManager.connect()
+            BookmarkManager.add_bookmark(self.comic.name,
+                                         self.comic.get_path(),
+                                         self.comic.get_current_page_number(),
+                                         self.comic.get_current_page())
+            BookmarkManager.close()
 
-        bk = Bookmarks()
-        bk.add_bookmark(comic_path, comic_name, comic_page,
-                        self.comic.get_current_page())
-        book_list = bk.get_records(self.NUM_BOOKMARK)
-        bk.close()
-        return book_list
+        # if not comic_name:
+        #     comic_name = self.get_comic_name()
+        # if not comic_path:
+        #     comic_path = self.comic.directory + '/' + comic_name
+        # if not comic_page:
+        #     comic_page = self.comic.get_current_page_number()
+        #
+        # bk = Bookmarks()
+        # bk.add_bookmark(comic_path, comic_name, comic_page,
+        #                 self.comic.get_current_page())
+        # book_list = bk.get_records(self.NUM_BOOKMARK)
+        # bk.close()
+        # return book_list
 
     def remove_bookmark(self, comic_path=None, comic_name=None):
 

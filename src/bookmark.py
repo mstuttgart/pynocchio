@@ -43,7 +43,7 @@ class Bookmark(BookmarkBaseModel):
 class BookmarkManager(BookmarkBaseModel):
 
     @staticmethod
-    def before_request():
+    def connect():
         db.connect()
         try:
             db.create_tables([Bookmark], safe=True)
@@ -52,18 +52,18 @@ class BookmarkManager(BookmarkBaseModel):
             print "[ERROR] Error to create table 'Bookmark'!"
 
     @staticmethod
-    def after_request():
+    def close():
         db.close()
         print '[INFO] Bookmark database closed.'
 
     @staticmethod
-    def add_bookmark(name, path, page):
+    def add_bookmark(name, path, page, data):
 
         try:
             q = Bookmark.insert(comic_name=name, comic_path=path,
-                                comic_page=page, page_data=None)
+                                comic_page=page, page_data=data)
             q.execute()
-            print '[INFO] Bookmark inserted.'
+            print '[INFO] Bookmark %s inserted.' % name
         except IntegrityError:
             q = Bookmark.update(comic_page=page).where(
                 Bookmark.comic_path == path)
