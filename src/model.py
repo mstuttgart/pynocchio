@@ -254,7 +254,11 @@ class Model(object):
                                          self.comic.get_path(),
                                          self.comic.get_current_page_number(),
                                          self.comic.get_current_page())
+
+            BookmarkManager.get_bookmarks(2)
             BookmarkManager.close()
+
+
 
         # if not comic_name:
         #     comic_name = self.get_comic_name()
@@ -270,18 +274,23 @@ class Model(object):
         # bk.close()
         # return book_list
 
-    def remove_bookmark(self, comic_path=None, comic_name=None):
+    def remove_bookmark(self):
 
-        if not comic_name:
-            comic_name = self.get_comic_name()
-        if not comic_path:
-            comic_path = self.current_directory + '/' + comic_name
+        if self.comic:
+            BookmarkManager.connect()
+            BookmarkManager.remove_bookmark(self.comic.get_path())
+            BookmarkManager.close()
 
-        bk = Bookmarks()
-        bk.delete_bookmark(comic_path)
-        book_list = bk.get_records(self.NUM_BOOKMARK)
-        bk.close()
-        return book_list
+        # if not comic_name:
+        #     comic_name = self.get_comic_name()
+        # if not comic_path:
+        #     comic_path = self.current_directory + '/' + comic_name
+        #
+        # bk = Bookmarks()
+        # bk.delete_bookmark(comic_path)
+        # book_list = bk.get_records(self.NUM_BOOKMARK)
+        # bk.close()
+        # return book_list
 
     def remove_bookmarks(self, comic_paths=None):
         bk = Bookmarks()

@@ -79,3 +79,15 @@ class BookmarkManager(BookmarkBaseModel):
             print '[INFO] Bookmark deleted.'
         except IntegrityError:
             print '[ERROR] Bookmark not find.'
+
+    @staticmethod
+    def get_bookmarks(rows_number):
+
+        try:
+            for q in Bookmark.select().order_by(Bookmark.comic_id.desc()).limit(rows_number):
+                print q.comic_name
+            print '[INFO] Bookmark deleted.'
+        except IntegrityError:
+            print '[ERROR] Bookmark not find.'
+
+

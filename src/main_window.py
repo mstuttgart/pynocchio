@@ -290,7 +290,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_remove_bookmark_triggered(self):
-        self._update_bookmarks_menu(self.model.remove_bookmark())
+        # self._update_bookmarks_menu(self.model.remove_bookmark())
+        self.model.remove_bookmark()
 
     @QtCore.pyqtSlot()
     def on_action_bookmark_manager_triggered(self):
