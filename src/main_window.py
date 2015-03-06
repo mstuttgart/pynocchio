@@ -285,7 +285,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
             bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
                                    bookmark_list[i].comic_page)
             bk_actions[i].setText(bk_text)
-            bk_actions[i].setToolTip(bookmark_list[i].comic_name)
+            bk_actions[i].setStatusTip(
+                'Bookmark path: %s' % bookmark_list[i].comic_path)
             bk_actions[i].setVisible(True)
 
         # acts = self.menu_bookmarks.actions()
