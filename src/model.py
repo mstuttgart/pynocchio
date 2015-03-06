@@ -228,11 +228,9 @@ class Model(object):
 
     @staticmethod
     def get_bookmark_list(n):
-
         BookmarkManager.connect()
         bookmark_list = BookmarkManager.get_bookmarks(n)
         BookmarkManager.close()
-
         return bookmark_list
         # bk = Bookmarks()
         # bookmark_list = bk.get_records(n)
@@ -244,6 +242,13 @@ class Model(object):
         #
         # bk.close()
         # return bookmark_list
+
+    @staticmethod
+    def get_bookmark_from_path(path):
+        BookmarkManager.connect()
+        bk = BookmarkManager.get_bookmark_by_path(path)
+        BookmarkManager.close()
+        return bk
 
     @staticmethod
     def find_bookmark(path):

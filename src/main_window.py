@@ -59,10 +59,12 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.preferences = Preference()
         self._load_settings()
         # self._init_bookmark_menu()
+        self._init_bookmark_actions()
         self._adjust_main_window()
         self._define_global_shortcuts()
 
-        self.menu_bookmarks.aboutToShow.connect(self._update_bookmarks_menu)
+        self.menu_recent_bookmarks.aboutToShow.connect(
+            self._update_bookmarks_menu)
 
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -111,17 +113,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self._on_action_group_view_adjust)
         self.action_best_fit.triggered.connect(
             self._on_action_group_view_adjust)
-
-    def _create_bookmark_action_group(self):
-
-        self.action_bookmark_group = QtGui.QActionGroup(self)
-
-        self.action_bookmark_group.addAction(self.action_bookmark_1)
-        self.action_bookmark_group.addAction(self.action_bookmark_2)
-        self.action_bookmark_group.addAction(self.action_bookmark_3)
-        self.action_bookmark_group.addAction(self.action_bookmark_4)
-        self.action_bookmark_group.addAction(self.action_bookmark_5)
-
 
     def load(self, path, initial_page=0):
 
@@ -262,6 +253,11 @@ class MainWindow(MainWindowBase, MainWindowForm):
                 self.model.get_current_page())
             self._update_status_bar()
 
+    def _init_bookmark_actions(self):
+        actions = self.menu_recent_bookmarks.actions()
+        for bk in actions:
+            bk.triggered.connect(self._load_bookmark)
+
     def _init_bookmark_menu(self):
         for i in range(self.model.NUM_BOOKMARK):
             act = QtGui.QAction(self)
@@ -285,8 +281,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
                                    bookmark_list[i].comic_page)
             bk_actions[i].setText(bk_text)
-            bk_actions[i].setStatusTip(
-                'Bookmark path: %s' % bookmark_list[i].comic_path)
+            bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
             bk_actions[i].setVisible(True)
 
         # acts = self.menu_bookmarks.actions()
@@ -340,9 +335,14 @@ class MainWindow(MainWindowBase, MainWindowForm):
     def _load_bookmark(self):
         action = self.sender()
         if action:
-            bk = self.model.find_bookmark(action.objectName())
+            bk = self.model.get_bookmark_from_path(action.statusTip())
             if bk:
-                self.load(action.objectName(), bk[2] - 1)
+                self.load(QtCore.QString(bk.comic_path), bk.comic_page - 1)
+        # action = self.sender()
+        # if action:
+        #     bk = self.model.find_bookmark(action.objectName())
+        #     if bk:
+        #         self.load(action.objectName(), bk[2] - 1)
 
     @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):

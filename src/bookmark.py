@@ -82,18 +82,35 @@ class BookmarkManager(BookmarkBaseModel):
 
     @staticmethod
     def get_bookmarks(rows_number):
+        query = Bookmark.select().order_by(Bookmark.comic_id.desc()).limit(
+            rows_number)
+        return list(query)
 
-        bk_list = []
+        # try:
+        #     for q in :
+        #         bk_list.append(q)
+        #     print '[INFO] Bookmark deleted.'
+        # except IntegrityError:
+        #     print '[ERROR] Bookmark not find.'
+        #
+        # return bk_list
 
-        try:
-            for q in Bookmark.select().order_by(
-                    Bookmark.comic_id.desc()).limit(rows_number):
-                print q.comic_name
-                bk_list.append(q)
-            print '[INFO] Bookmark deleted.'
-        except IntegrityError:
-            print '[ERROR] Bookmark not find.'
+    @staticmethod
+    def get_bookmark_by_path(path):
+        bk_list = Bookmark.select().where(Bookmark.comic_path == path)
+        return bk_list[0] if bk_list else None
 
-        return bk_list
+        # bk_list = []
+        #
+        # try:
+        #     for q in Bookmark.select().where(Bookmark.comic_path == path):
+        #         print q.comic_name
+        #         bk_list.append(q)
+        #     print '[INFO] Bookmark deleted.'
+        # except IntegrityError:
+        #     print '[ERROR] Bookmark not find.'
+        #
+        # return bk_list
+
 
 
