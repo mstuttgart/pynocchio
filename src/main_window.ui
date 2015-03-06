@@ -186,9 +186,6 @@
      </layout>
     </item>
    </layout>
-   <zorder>tabWidget</zorder>
-   <zorder>label</zorder>
-   <zorder>viewer</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -274,18 +271,39 @@
     <addaction name="action_preference_dialog"/>
    </widget>
    <widget class="QMenu" name="menu_bookmarks">
+    <property name="tearOffEnabled">
+     <bool>false</bool>
+    </property>
     <property name="title">
      <string>&amp;Bookmarks</string>
     </property>
+    <property name="separatorsCollapsible">
+     <bool>true</bool>
+    </property>
+    <widget class="QMenu" name="menu_recent_bookmarks">
+     <property name="title">
+      <string>&amp;Recente bookmarks</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../resource/main_window.qrc">
+       <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
+     </property>
+     <addaction name="action_bookmark_1"/>
+     <addaction name="action_bookmark_2"/>
+     <addaction name="action_bookmark_3"/>
+     <addaction name="action_bookmark_4"/>
+     <addaction name="action_bookmark_5"/>
+    </widget>
     <addaction name="action_add_bookmark"/>
     <addaction name="action_remove_bookmark"/>
     <addaction name="separator"/>
     <addaction name="action_bookmark_manager"/>
+    <addaction name="menu_recent_bookmarks"/>
    </widget>
    <addaction name="menu_file"/>
    <addaction name="menu_view"/>
-   <addaction name="menu_navegation"/>
    <addaction name="menu_bookmarks"/>
+   <addaction name="menu_navegation"/>
    <addaction name="menu_Settings"/>
    <addaction name="menu_Help"/>
   </widget>
@@ -784,6 +802,77 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_bookmark_1">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">bookmark_1</string>
+   </property>
+   <property name="iconText">
+    <string>bookmark</string>
+   </property>
+   <property name="toolTip">
+    <string>bookmark</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_bookmark_2">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>bookmark_2</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="action_bookmark_3">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>bookmark_3</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="action_bookmark_4">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>bookmark_4</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="action_bookmark_5">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>bookmark_5</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionTete">
+   <property name="text">
+    <string>tete</string>
    </property>
   </action>
  </widget>

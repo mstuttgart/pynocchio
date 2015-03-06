@@ -227,17 +227,23 @@ class Model(object):
         self.adjustType = adjust_type
 
     @staticmethod
-    def get_bookmark_list(n=0):
-        bk = Bookmarks()
-        bookmark_list = bk.get_records(n)
+    def get_bookmark_list(n):
 
-        from utility import Utility
-        for bookmark in bookmark_list:
-            if not Utility.file_exist(bookmark[1]):
-                bk.delete_bookmark(bookmark[1])
+        BookmarkManager.connect()
+        bookmark_list = BookmarkManager.get_bookmarks(n)
+        BookmarkManager.close()
 
-        bk.close()
         return bookmark_list
+        # bk = Bookmarks()
+        # bookmark_list = bk.get_records(n)
+        #
+        # from utility import Utility
+        # for bookmark in bookmark_list:
+        #     if not Utility.file_exist(bookmark[1]):
+        #         bk.delete_bookmark(bookmark[1])
+        #
+        # bk.close()
+        # return bookmark_list
 
     @staticmethod
     def find_bookmark(path):
@@ -254,11 +260,6 @@ class Model(object):
                                          self.comic.get_path(),
                                          self.comic.get_current_page_number(),
                                          self.comic.get_current_page())
-
-            BookmarkManager.get_bookmarks(2)
-            BookmarkManager.close()
-
-
 
         # if not comic_name:
         #     comic_name = self.get_comic_name()

@@ -62,6 +62,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self._adjust_main_window()
         self._define_global_shortcuts()
 
+        self.menu_bookmarks.aboutToShow.connect(self._update_bookmarks_menu)
+
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
         size = self.geometry()
@@ -109,6 +111,17 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self._on_action_group_view_adjust)
         self.action_best_fit.triggered.connect(
             self._on_action_group_view_adjust)
+
+    def _create_bookmark_action_group(self):
+
+        self.action_bookmark_group = QtGui.QActionGroup(self)
+
+        self.action_bookmark_group.addAction(self.action_bookmark_1)
+        self.action_bookmark_group.addAction(self.action_bookmark_2)
+        self.action_bookmark_group.addAction(self.action_bookmark_3)
+        self.action_bookmark_group.addAction(self.action_bookmark_4)
+        self.action_bookmark_group.addAction(self.action_bookmark_5)
+
 
     def load(self, path, initial_page=0):
 
@@ -261,27 +274,41 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _update_bookmarks_menu(self, bookmark_list=None):
-        acts = self.menu_bookmarks.actions()
 
-        print 'arroz'
+        bk_actions = self.menu_recent_bookmarks.actions()
+        bookmark_list = self.model.get_bookmark_list(len(bk_actions))
 
-        if not bookmark_list:
-            bookmark_list = self.model.get_bookmark_list(
-                self.model.NUM_BOOKMARK)
+        for bk in bk_actions:
+            bk.setVisible(False)
 
-        bookmark_list_len = len(bookmark_list)
+        for i in range(len(bookmark_list)):
+            bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
+                                   bookmark_list[i].comic_page)
+            bk_actions[i].setText(bk_text)
+            bk_actions[i].setToolTip(bookmark_list[i].comic_name)
+            bk_actions[i].setVisible(True)
 
-        # Added 4 because the 3 actions in bookmark
-        # menu is add, remove and manage bookmark
-        for i in range(bookmark_list_len):
-            page = ' [%d]' % (bookmark_list[i][2])
-            acts[i + 4].setObjectName(bookmark_list[i][1])
-            acts[i + 4].setText(bookmark_list[i][1] + page)
-            acts[i + 4].setVisible(True)
-
-        # make the others bookmarks items invisible
-        for i in range(bookmark_list_len, self.model.NUM_BOOKMARK):
-            acts[i + 4].setVisible(False)
+        # acts = self.menu_bookmarks.actions()
+        #
+        # print 'arroz'
+        #
+        # if not bookmark_list:
+        #     bookmark_list = self.model.get_bookmark_list(
+        #         self.model.NUM_BOOKMARK)
+        #
+        # bookmark_list_len = len(bookmark_list)
+        #
+        # # Added 4 because the 3 actions in bookmark
+        # # menu is add, remove and manage bookmark
+        # for i in range(bookmark_list_len):
+        #     page = ' [%d]' % (bookmark_list[i][2])
+        #     acts[i + 4].setObjectName(bookmark_list[i][1])
+        #     acts[i + 4].setText(bookmark_list[i][1] + page)
+        #     acts[i + 4].setVisible(True)
+        #
+        # # make the others bookmarks items invisible
+        # for i in range(bookmark_list_len, self.model.NUM_BOOKMARK):
+        #     acts[i + 4].setVisible(False)
 
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
