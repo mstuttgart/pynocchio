@@ -44,7 +44,7 @@
         <number>9</number>
        </property>
        <property name="editTriggers">
-        <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+        <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
        </property>
        <property name="tabKeyNavigation">
         <bool>true</bool>
@@ -79,7 +79,7 @@
       <widget class="QWidget" name="verticalWidget" native="true">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <spacer name="verticalSpacer">
+         <spacer name="vertical_spacer_top">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
@@ -120,7 +120,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="verticalSpacer_2">
+         <spacer name="vertical_spacer_botton">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>

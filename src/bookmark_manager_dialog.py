@@ -61,16 +61,13 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
                 3, QtGui.QHeaderView.ResizeToContents)
 
             self.button_remove.clicked.connect(self._remove_table_item)
-            # self.button_load.clicked.connect(self._get_comic_to_open)
+            self.button_load.clicked.connect(self._get_comic_to_open)
 
             self.bookmark_table.selectionModel().selectionChanged.connect(
                 self.selection_changed)
 
             self.no_cover_label = self.page_image_label.pixmap().scaledToWidth(
                 self.width() * 0.2, QtCore.Qt.SmoothTransformation)
-
-            # pixmap.load(
-            #     ':/icons/elementary3-icon-theme/apps/64/office-database.svg')
 
             self.page_image_label.setPixmap(self.no_cover_label)
 
@@ -204,7 +201,8 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
     #         QtGui.QTableWidgetSelectionRange(
     #             0, 0, self.bookmark_table.rowCount() - 1, 2), True)
 
-    # def _get_comic_to_open(self):
+    def _get_comic_to_open(self):
+        print 'open comic'
     #     items = self.table.selectedItems()
     #     if items:
     #         self.item_to_open = items[1].text()
