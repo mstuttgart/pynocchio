@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>697</width>
-    <height>328</height>
+    <width>698</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
    <iconset resource="../resource/main_window.qrc">
     <normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</iconset>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
@@ -73,25 +73,80 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_page">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap resource="../resource/main_window.qrc">:/icons/elementary3-icon-theme/apps/64/office-database.svg</pixmap>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
+      <widget class="QWidget" name="verticalWidget" native="true">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>82</width>
+             <height>234</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="page_image_label">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="../resource/main_window.qrc">:/icons/elementary3-icon-theme/apps/64/office-database.svg</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="page_preview_label">
+          <property name="font">
+           <font>
+            <italic>true</italic>
+           </font>
+          </property>
+          <property name="text">
+           <string>Page Preview</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="line_edit_path"/>
    </item>
    <item>
     <layout class="QGridLayout" name="grid_layout">
@@ -129,19 +184,29 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="button_selection">
-       <property name="text">
-        <string>Select All</string>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
-       <property name="icon">
-        <iconset resource="../resource/main_window.qrc">
-         <normaloff>:/icons/elementary3-icon-theme/actions/64/add.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/add.svg</iconset>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
        </property>
-      </widget>
+      </spacer>
      </item>
     </layout>
    </item>
   </layout>
+  <zorder></zorder>
+  <zorder>verticalLayoutWidget_2</zorder>
+  <zorder>verticalFrame</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>page_image_label</zorder>
+  <zorder>page_preview_label</zorder>
+  <zorder>line_edit_path</zorder>
  </widget>
  <resources>
   <include location="../resource/main_window.qrc"/>
@@ -154,8 +219,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>629</x>
-     <y>305</y>
+     <x>515</x>
+     <y>317</y>
     </hint>
     <hint type="destinationlabel">
      <x>380</x>

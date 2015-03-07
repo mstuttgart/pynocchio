@@ -49,20 +49,21 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
 
             self.model.setEditStrategy(QSqlTableModel.OnManualSubmit)
             self.model.select()
-            self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Path")
+            # self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Path")
             self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Name")
             self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Page")
 
             self.bookmark_table.setModel(self.model)
             self.bookmark_table.hideColumn(0)
+            self.bookmark_table.hideColumn(1)
             self.bookmark_table.hideColumn(4)
 
+            # self.bookmark_table.horizontalHeader().setResizeMode(
+            #     0, QtGui.QHeaderView.ResizeToContents)
             self.bookmark_table.horizontalHeader().setResizeMode(
-                0, QtGui.QHeaderView.ResizeToContents)
+                2, QtGui.QHeaderView.Stretch)
             self.bookmark_table.horizontalHeader().setResizeMode(
-                1, QtGui.QHeaderView.Stretch)
-            self.bookmark_table.horizontalHeader().setResizeMode(
-                2, QtGui.QHeaderView.ResizeToContents)
+                3, QtGui.QHeaderView.ResizeToContents)
 
             # self.button_selection.clicked.connect(self._select_all_table_items)
             self.button_remove.clicked.connect(self._remove_table_item)
@@ -71,24 +72,56 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
             self.bookmark_table.selectionModel().selectionChanged.connect(
                 self.selection_changed)
 
+            pixmap = QtGui.QPixmap()
+            pixmap.load(
+                ':/icons/elementary3-icon-theme/apps/64/office-database.svg')
+            pixmap = pixmap.scaledToWidth(self.width() * 0.2,
+                                          QtCore.Qt.SmoothTransformation)
+            self.page_image_label.setPixmap(pixmap)
+
         else:
             log.error("Unable to create talkdb file.")
 
-    def selection_changed(self, selected, deselected):
+    def selection_changed(self, current, previous):
         selected_idx = self.bookmark_table.currentIndex().row()
-        # print selected.currentIndex().row()
         selection_model = self.bookmark_table.selectionModel()
-        selection_model.select(selected, QtGui.QItemSelectionModel.Select)
+
+        model_indexes = current.indexes()
+
+        if model_indexes:
+            pixmap = QtGui.QPixmap()
+            pixmap.loadFromData(model_indexes[4].data().toByteArray())
+            pixmap = pixmap.scaledToWidth(self.width() * 0.2,
+                                          QtCore.Qt.SmoothTransformation)
+            self.page_image_label.setPixmap(pixmap)
+
+        else:
+            print 'eita'
+            pixmap = QtGui.QPixmap()
+            pixmap.load(
+                ':/icons/elementary3-icon-theme/apps/64/office-database.svg')
+            self.page_image_label.setPixmap(pixmap)
+
+
+        # print len(current.indexes())
+
+        # for m in current.indexes():
+        # print current.indexes()[1].data().toString()
+
+        # print current
+        # selection_model.select(selected, QtGui.QItemSelectionModel.Select)
 
         # print selected
-        print self.model.data(self.model.index(selected_idx, 1)).toString()
+        # id = self.model.data(self.model.index(selected_idx, 0)).toInt()
 
-        data = self.model.data(self.model.index(selected_idx, 4)).toByteArray()
-        pixmap = QtGui.QPixmap()
-        pixmap.loadFromData(data)
-        pixmap = pixmap.scaledToHeight(self.height() * 0.6,  
-                                       QtCore.Qt.SmoothTransformation)
-        self.label_page.setPixmap(pixmap)
+        # data = self.model.data(self.model.index(selected_idx, 4)).toByteArray()
+        # pixmap = QtGui.QPixmap()
+        # pixmap.loadFromData(data)
+        # pixmap = pixmap.scaledToWidth(self.width() * 0.2,
+        #                               QtCore.Qt.SmoothTransformation)
+        # self.page_image_label.setPixmap(pixmap)
+        #
+        # print selected_idx
 
     # def _update_table_content(self):
     #     record_list = self.model.get_bookmark_list()
@@ -111,7 +144,7 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
     #     if record_list:
     #         pix = QtGui.QPixmap()
     #         pix.loadFromData(record_list[3])
-    #         self.label_page.setPixmpa(pix)
+    #         self.page_image_label.setPixmpa(pix)
     #
     # def _update_table(self):
     #     self.model.setQuery("select comic_name, comic_path, comic_page, "
