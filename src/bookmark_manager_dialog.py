@@ -54,8 +54,18 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
 
             # project_view = self.bookmark_table
             self.bookmark_table.setModel(self.model)
+
+            self.bookmark_table.hideColumn(0)
+            self.bookmark_table.hideColumn(4)
+
+            self.bookmark_table.horizontalHeader().setResizeMode(
+                0, QtGui.QHeaderView.ResizeToContents)
+            self.bookmark_table.horizontalHeader().setResizeMode(
+                1, QtGui.QHeaderView.Stretch)
+            self.bookmark_table.horizontalHeader().setResizeMode(
+                2, QtGui.QHeaderView.ResizeToContents)
             #
-            self._format_table()
+            # self._format_table()
             #
             # # project_view.show()
             #
@@ -63,11 +73,14 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
             self.button_remove.clicked.connect(self._remove_table_item)
             # self.button_load.clicked.connect(self._get_comic_to_open)
 
+            self.bookmark_table.selectionModel().selectionChanged.connect(self.selection_changed)
+
         else:
             log.error("Unable to create talkdb file.")
 
-        # sql = "DELETE FROM Bookmarks WHERE Path='%s';" % path
-        # self.db.execute(sql)
+    def selection_changed(self, selected, deselected):
+        # selected_idx = self.bookmark_table.currentIndex().c
+        print selected
 
     # def _update_table_content(self):
     #     record_list = self.model.get_bookmark_list()
@@ -96,16 +109,16 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
     #     self.model.setQuery("select comic_name, comic_path, comic_page, "
     #                         "page_data from Bookmark", self.db)
 
-    def _format_table(self):
-        self.bookmark_table.hideColumn(0)
-        self.bookmark_table.hideColumn(4)
-
-        self.bookmark_table.horizontalHeader().setResizeMode(
-            0, QtGui.QHeaderView.ResizeToContents)
-        self.bookmark_table.horizontalHeader().setResizeMode(
-            1, QtGui.QHeaderView.Stretch)
-        self.bookmark_table.horizontalHeader().setResizeMode(
-            2, QtGui.QHeaderView.ResizeToContents)
+    # def _format_table(self):
+    #     self.bookmark_table.hideColumn(0)
+    #     self.bookmark_table.hideColumn(4)
+    #
+    #     self.bookmark_table.horizontalHeader().setResizeMode(
+    #         0, QtGui.QHeaderView.ResizeToContents)
+    #     self.bookmark_table.horizontalHeader().setResizeMode(
+    #         1, QtGui.QHeaderView.Stretch)
+    #     self.bookmark_table.horizontalHeader().setResizeMode(
+    #         2, QtGui.QHeaderView.ResizeToContents)
 
     def _remove_table_item(self):
 
