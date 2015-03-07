@@ -9,9 +9,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>670</width>
-    <height>381</height>
+    <width>780</width>
+    <height>400</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Bookmark manager</string>
@@ -77,11 +83,20 @@
      </item>
      <item>
       <widget class="QWidget" name="verticalWidget" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <spacer name="vertical_spacer_top">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Preferred</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -195,12 +210,6 @@
    </item>
   </layout>
   <zorder></zorder>
-  <zorder>verticalLayoutWidget_2</zorder>
-  <zorder>verticalFrame</zorder>
-  <zorder>verticalLayoutWidget</zorder>
-  <zorder>verticalLayoutWidget</zorder>
-  <zorder>page_image_label</zorder>
-  <zorder>page_preview_label</zorder>
   <zorder>line_edit_path</zorder>
  </widget>
  <resources>

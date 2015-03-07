@@ -23,6 +23,9 @@
     <height>3</height>
    </size>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::WheelFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>Pynocchio Comic Reader</string>
   </property>
@@ -78,8 +81,11 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="cursor" stdset="0">
+         <cursorShape>OpenHandCursor</cursorShape>
+        </property>
         <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
+         <enum>Qt::ClickFocus</enum>
         </property>
         <property name="layoutDirection">
          <enum>Qt::LeftToRight</enum>
@@ -203,6 +209,9 @@
     </sizepolicy>
    </property>
    <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="defaultUp">
     <bool>false</bool>
    </property>
    <widget class="QMenu" name="menu_file">
