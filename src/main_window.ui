@@ -28,7 +28,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../resource/main_window.qrc">
-    <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
+    <normaloff>:/icons/pynocchio_icon_2.png</normaloff>:/icons/pynocchio_icon_2.png</iconset>
   </property>
   <property name="accessibleName">
    <string>Pyellow</string>
@@ -166,7 +166,7 @@
              <enum>Qt::PlainText</enum>
             </property>
             <property name="pixmap">
-             <pixmap resource="../resource/main_window.qrc">:/icons/pynocchio_icon.png</pixmap>
+             <pixmap resource="../resource/main_window.qrc">:/icons/pynocchio_icon_2.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>false</bool>

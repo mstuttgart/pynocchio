@@ -44,12 +44,9 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
 
             self.model = QSqlTableModel(self, self.db)
             self.model.setTable('Bookmark')
-            # self.model.setQuery("select comic_name, comic_path, comic_page, "
-            #                     "page_data from Bookmark", self.db)
 
             self.model.setEditStrategy(QSqlTableModel.OnManualSubmit)
             self.model.select()
-            # self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Path")
             self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Name")
             self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Page")
 
@@ -58,33 +55,31 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
             self.bookmark_table.hideColumn(1)
             self.bookmark_table.hideColumn(4)
 
-            # self.bookmark_table.horizontalHeader().setResizeMode(
-            #     0, QtGui.QHeaderView.ResizeToContents)
             self.bookmark_table.horizontalHeader().setResizeMode(
                 2, QtGui.QHeaderView.Stretch)
             self.bookmark_table.horizontalHeader().setResizeMode(
                 3, QtGui.QHeaderView.ResizeToContents)
 
-            # self.button_selection.clicked.connect(self._select_all_table_items)
             self.button_remove.clicked.connect(self._remove_table_item)
             # self.button_load.clicked.connect(self._get_comic_to_open)
 
             self.bookmark_table.selectionModel().selectionChanged.connect(
                 self.selection_changed)
 
-            pixmap = QtGui.QPixmap()
-            pixmap.load(
-                ':/icons/elementary3-icon-theme/apps/64/office-database.svg')
-            pixmap = pixmap.scaledToWidth(self.width() * 0.2,
-                                          QtCore.Qt.SmoothTransformation)
-            self.page_image_label.setPixmap(pixmap)
+            self.no_cover_label = self.page_image_label.pixmap().scaledToWidth(
+                self.width() * 0.2, QtCore.Qt.SmoothTransformation)
+
+            # pixmap.load(
+            #     ':/icons/elementary3-icon-theme/apps/64/office-database.svg')
+
+            self.page_image_label.setPixmap(self.no_cover_label)
 
         else:
             log.error("Unable to create talkdb file.")
 
     def selection_changed(self, current, previous):
-        selected_idx = self.bookmark_table.currentIndex().row()
-        selection_model = self.bookmark_table.selectionModel()
+        # selected_idx = self.bookmark_table.currentIndex().row()
+        # selection_model = self.bookmark_table.selectionModel()
 
         model_indexes = current.indexes()
 
@@ -94,34 +89,11 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
             pixmap = pixmap.scaledToWidth(self.width() * 0.2,
                                           QtCore.Qt.SmoothTransformation)
             self.page_image_label.setPixmap(pixmap)
+            self.line_edit_path.setText(model_indexes[1].data().toString())
 
         else:
-            print 'eita'
-            pixmap = QtGui.QPixmap()
-            pixmap.load(
-                ':/icons/elementary3-icon-theme/apps/64/office-database.svg')
-            self.page_image_label.setPixmap(pixmap)
-
-
-        # print len(current.indexes())
-
-        # for m in current.indexes():
-        # print current.indexes()[1].data().toString()
-
-        # print current
-        # selection_model.select(selected, QtGui.QItemSelectionModel.Select)
-
-        # print selected
-        # id = self.model.data(self.model.index(selected_idx, 0)).toInt()
-
-        # data = self.model.data(self.model.index(selected_idx, 4)).toByteArray()
-        # pixmap = QtGui.QPixmap()
-        # pixmap.loadFromData(data)
-        # pixmap = pixmap.scaledToWidth(self.width() * 0.2,
-        #                               QtCore.Qt.SmoothTransformation)
-        # self.page_image_label.setPixmap(pixmap)
-        #
-        # print selected_idx
+            self.page_image_label.setPixmap(self.no_cover_label)
+            self.line_edit_path.setText('')
 
     # def _update_table_content(self):
     #     record_list = self.model.get_bookmark_list()
