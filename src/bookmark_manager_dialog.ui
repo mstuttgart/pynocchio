@@ -32,7 +32,7 @@
         </sizepolicy>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
@@ -64,18 +64,12 @@
        <property name="showGrid">
         <bool>true</bool>
        </property>
-       <property name="gridStyle">
-        <enum>Qt::SolidLine</enum>
-       </property>
        <property name="sortingEnabled">
         <bool>true</bool>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
        </property>
-       <attribute name="horizontalHeaderVisible">
-        <bool>true</bool>
-       </attribute>
       </widget>
      </item>
      <item>
@@ -101,7 +95,7 @@
    </item>
    <item>
     <layout class="QGridLayout" name="grid_layout">
-     <item row="1" column="2">
+     <item row="1" column="3">
       <widget class="QPushButton" name="button_load">
        <property name="text">
         <string>Load</string>
@@ -112,7 +106,7 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
+     <item row="1" column="1">
       <widget class="QPushButton" name="button_remove">
        <property name="text">
         <string>Remove</string>
@@ -123,7 +117,7 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
+     <item row="1" column="2">
       <widget class="QPushButton" name="button_exit">
        <property name="text">
         <string>Close</string>
@@ -131,6 +125,17 @@
        <property name="icon">
         <iconset resource="../resource/main_window.qrc">
          <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="button_selection">
+       <property name="text">
+        <string>Select All</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resource/main_window.qrc">
+         <normaloff>:/icons/elementary3-icon-theme/actions/64/add.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/add.svg</iconset>
        </property>
       </widget>
      </item>

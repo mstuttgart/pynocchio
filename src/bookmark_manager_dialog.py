@@ -16,7 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 from PyQt4 import QtGui, QtCore, uic
-from PyQt4.QtSql import QSqlQueryModel, QSqlTableModel, QSqlDatabase, QSqlQuery
+from PyQt4.QtSql import QSqlQueryModel, QSqlTableModel, QSqlDatabase, \
+    QSqlQuery
 import logging
 
 BookmarkManagerDialogForm, BookmarkManagerDialogBase = uic.loadUiType(
@@ -52,9 +53,7 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
             self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Name")
             self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Page")
 
-            # project_view = self.bookmark_table
             self.bookmark_table.setModel(self.model)
-
             self.bookmark_table.hideColumn(0)
             self.bookmark_table.hideColumn(4)
 
@@ -64,23 +63,32 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
                 1, QtGui.QHeaderView.Stretch)
             self.bookmark_table.horizontalHeader().setResizeMode(
                 2, QtGui.QHeaderView.ResizeToContents)
-            #
-            # self._format_table()
-            #
-            # # project_view.show()
-            #
+
             # self.button_selection.clicked.connect(self._select_all_table_items)
             self.button_remove.clicked.connect(self._remove_table_item)
             # self.button_load.clicked.connect(self._get_comic_to_open)
 
-            self.bookmark_table.selectionModel().selectionChanged.connect(self.selection_changed)
+            self.bookmark_table.selectionModel().selectionChanged.connect(
+                self.selection_changed)
 
         else:
             log.error("Unable to create talkdb file.")
 
     def selection_changed(self, selected, deselected):
-        # selected_idx = self.bookmark_table.currentIndex().c
-        print selected
+        selected_idx = self.bookmark_table.currentIndex().row()
+        # print selected.currentIndex().row()
+        selection_model = self.bookmark_table.selectionModel()
+        selection_model.select(selected, QtGui.QItemSelectionModel.Select)
+
+        # print selected
+        print self.model.data(self.model.index(selected_idx, 1)).toString()
+
+        data = self.model.data(self.model.index(selected_idx, 4)).toByteArray()
+        pixmap = QtGui.QPixmap()
+        pixmap.loadFromData(data)
+        pixmap = pixmap.scaledToHeight(self.height() * 0.6,  
+                                       QtCore.Qt.SmoothTransformation)
+        self.label_page.setPixmap(pixmap)
 
     # def _update_table_content(self):
     #     record_list = self.model.get_bookmark_list()
