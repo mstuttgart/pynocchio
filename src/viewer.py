@@ -30,9 +30,9 @@ class Viewer(QtGui.QScrollArea):
 
         self.setMouseTracking(True)
 
-        self.hide_cursor_timer = QtCore.QTimer()
-        self.hide_cursor_timer.setSingleShot(True)
-        self.hide_cursor_timer.timeout.connect(self._hide_cursor)
+        # self.hide_cursor_timer = QtCore.QTimer()
+        # self.hide_cursor_timer.setSingleShot(True)
+        # self.hide_cursor_timer.timeout.connect(self._hide_cursor)
 
         self.setWidgetResizable(True)
         self._change_cursor()
@@ -100,7 +100,7 @@ class Viewer(QtGui.QScrollArea):
     def mouseReleaseEvent(self, *args, **kwargs):
         self.drag_mouse = False
         self._change_cursor()
-        self.hide_cursor_timer.start(2500)
+        # self.hide_cursor_timer.start(2500)
         super(Viewer, self).mouseReleaseEvent(*args, **kwargs)
 
     def mouseMoveEvent(self, *args, **kwargs):

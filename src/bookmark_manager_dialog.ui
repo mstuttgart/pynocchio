@@ -24,7 +24,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QTableWidget" name="bookmark_table">
+      <widget class="QTableView" name="bookmark_table">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>0</horstretch>
@@ -32,7 +32,7 @@
         </sizepolicy>
        </property>
        <property name="autoFillBackground">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
@@ -70,51 +70,9 @@
        <property name="wordWrap">
         <bool>true</bool>
        </property>
-       <property name="rowCount">
-        <number>8</number>
-       </property>
-       <property name="columnCount">
-        <number>3</number>
-       </property>
        <attribute name="horizontalHeaderVisible">
         <bool>true</bool>
        </attribute>
-       <attribute name="horizontalHeaderCascadingSectionResizes">
-        <bool>true</bool>
-       </attribute>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <row/>
-       <column>
-        <property name="text">
-         <string>Name</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Path</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Page</string>
-        </property>
-       </column>
-       <item row="0" column="0">
-        <property name="font">
-         <font>
-          <strikeout>false</strikeout>
-         </font>
-        </property>
-        <property name="flags">
-         <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
-        </property>
-       </item>
       </widget>
      </item>
      <item>
@@ -205,22 +163,6 @@
     <hint type="destinationlabel">
      <x>380</x>
      <y>164</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>bookmark_table</sender>
-   <signal>viewportEntered()</signal>
-   <receiver>button_remove</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>380</x>
-     <y>143</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>287</x>
-     <y>301</y>
     </hint>
    </hints>
   </connection>

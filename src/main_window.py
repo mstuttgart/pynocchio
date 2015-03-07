@@ -258,18 +258,18 @@ class MainWindow(MainWindowBase, MainWindowForm):
         for bk in actions:
             bk.triggered.connect(self._load_bookmark)
 
-    def _init_bookmark_menu(self):
-        for i in range(self.model.NUM_BOOKMARK):
-            act = QtGui.QAction(self)
-            act.setVisible(False)
-            act.triggered.connect(self._load_bookmark)
-            self.menu_bookmarks.addAction(act)
+    # def _init_bookmark_menu(self):
+    #     for i in range(self.model.NUM_BOOKMARK):
+    #         act = QtGui.QAction(self)
+    #         act.setVisible(False)
+    #         act.triggered.connect(self._load_bookmark)
+    #         self.menu_bookmarks.addAction(act)
+    #
+    #     # self.menu_bookmarks.triggered.connect(self._update_bookmarks_menu)
+    #     self._update_bookmarks_menu(
+    #         self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
-        # self.menu_bookmarks.triggered.connect(self._update_bookmarks_menu)
-        self._update_bookmarks_menu(
-            self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
-
-    def _update_bookmarks_menu(self, bookmark_list=None):
+    def _update_bookmarks_menu(self):
 
         bk_actions = self.menu_recent_bookmarks.actions()
         bookmark_list = self.model.get_bookmark_list(len(bk_actions))
@@ -320,17 +320,17 @@ class MainWindow(MainWindowBase, MainWindowForm):
     def on_action_bookmark_manager_triggered(self):
         import bookmark_manager_dialog
 
-        bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(
-            self.model, self)
+        bookmark_dialog = \
+            bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
 
-        item_to_open = bookmark_dialog.item_to_open
-        if item_to_open:
-            self.load(item_to_open)
+        # item_to_open = bookmark_dialog.item_to_open
+        # if item_to_open:
+        #     self.load(item_to_open)
 
-        self._update_bookmarks_menu(
-            self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
+        # self._update_bookmarks_menu(
+        #     self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _load_bookmark(self):
         action = self.sender()
