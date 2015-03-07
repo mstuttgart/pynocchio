@@ -59,7 +59,7 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
             #
             # # project_view.show()
             #
-            self.button_selection.clicked.connect(self._select_all_table_items)
+            # self.button_selection.clicked.connect(self._select_all_table_items)
             self.button_remove.clicked.connect(self._remove_table_item)
             # self.button_load.clicked.connect(self._get_comic_to_open)
 
@@ -92,9 +92,9 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
     #         pix.loadFromData(record_list[3])
     #         self.label_page.setPixmpa(pix)
     #
-    def _update_table(self):
-        self.model.setQuery("select comic_name, comic_path, comic_page, "
-                            "page_data from Bookmark", self.db)
+    # def _update_table(self):
+    #     self.model.setQuery("select comic_name, comic_path, comic_page, "
+    #                         "page_data from Bookmark", self.db)
 
     def _format_table(self):
         self.bookmark_table.hideColumn(0)
@@ -118,14 +118,12 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
         if option == QtGui.QMessageBox.Ok:
             selected_idx = self.bookmark_table.selectedIndexes()
 
-            if not selected_idx:
-                return
+            if selected_idx:
+                for i in range(len(selected_idx)):
+                    self.model.removeRow(selected_idx[i].row())
 
-            for i in range(len(selected_idx)):
-                self.model.removeRow(selected_idx[i].row())
+                self.model.submitAll()
 
-            # self.model.removeRows(selected_idx[0].row(), len(selected_idx))
-            self.model.submitAll()
 
         # self.model.select()
 
@@ -175,10 +173,11 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
     #         self.model.remove_bookmarks(paths)
     #
     # def _select_all_table_items(self):
-    #     self.table.setRangeSelected(
-    #         QtGui.QTableWidgetSelectionRange(0, 0, self.table.rowCount() - 1,
-    #                                          2), True)
     #
+    #     self.bookmark_table.setRangeSelected(
+    #         QtGui.QTableWidgetSelectionRange(
+    #             0, 0, self.bookmark_table.rowCount() - 1, 2), True)
+
     # def _get_comic_to_open(self):
     #     items = self.table.selectedItems()
     #     if items:
