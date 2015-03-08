@@ -28,11 +28,14 @@ log = logging.getLogger(__name__)
 
 class BookmarkManagerDialog(BookmarkManagerDialogForm,
                             BookmarkManagerDialogBase):
+
+    SCALE_RATIO = 0.18
+
     def __init__(self, mdl, parent=None):
         super(BookmarkManagerDialog, self).__init__(parent)
         self.setupUi(self)
 
-        # self.model = mdl
+        self.main_window = parent
         # self.table = self.bookmark_table
         # self._update_table_content()
         # self.item_to_open = False
@@ -67,7 +70,7 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
                 self.selection_changed)
 
             self.no_cover_label = self.page_image_label.pixmap().scaledToWidth(
-                self.width() * 0.2, QtCore.Qt.SmoothTransformation)
+                self.width() * self.SCALE_RATIO, QtCore.Qt.SmoothTransformation)
 
             self.page_image_label.setPixmap(self.no_cover_label)
 
@@ -83,7 +86,7 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
         if model_indexes:
             pixmap = QtGui.QPixmap()
             pixmap.loadFromData(model_indexes[4].data().toByteArray())
-            pixmap = pixmap.scaledToWidth(self.width() * 0.2,
+            pixmap = pixmap.scaledToWidth(self.width() * self.SCALE_RATIO,
                                           QtCore.Qt.SmoothTransformation)
             self.page_image_label.setPixmap(pixmap)
             self.line_edit_path.setText(model_indexes[1].data().toString())
@@ -142,8 +145,8 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
             selected_idx = self.bookmark_table.selectedIndexes()
 
             if selected_idx:
-                for i in range(len(selected_idx)):
-                    self.model.removeRow(selected_idx[i].row())
+                for index in selected_idx:
+                    self.model.removeRow(index.row())
 
                 self.model.submitAll()
 
@@ -202,7 +205,13 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
     #             0, 0, self.bookmark_table.rowCount() - 1, 2), True)
 
     def _get_comic_to_open(self):
-        print 'open comic'
+        selection_model = self.bookmark_table.selectionModel()
+        path = selection_model.selectedRows(1)[0].data().toString()
+        page = selection_model.selectedRows(3)[0].data().toInt()[0]
+        self.main_window.load(path, page - 1)
+        self.close()
+
+
     #     items = self.table.selectedItems()
     #     if items:
     #         self.item_to_open = items[1].text()

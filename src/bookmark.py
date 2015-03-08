@@ -24,7 +24,7 @@ except ImportError, err:
     import sys
     sys.exit(err)
 
-db = SqliteDatabase('bookmark.db', threadlocals=True)
+db = SqliteDatabase('bookmark.db')
 
 
 class BookmarkBaseModel(Model):
@@ -38,79 +38,3 @@ class Bookmark(BookmarkBaseModel):
     comic_name = CharField(default='')
     comic_page = IntegerField(default=0)
     page_data = BlobField(null=True, default=None)
-
-
-class BookmarkManager(BookmarkBaseModel):
-
-    @staticmethod
-    def connect():
-        db.connect()
-        try:
-            db.create_tables([Bookmark], safe=True)
-            print "[INFO] Table 'Bookmark' create/updates sucessfully!"
-        except OperationalError:
-            print "[ERROR] Error to create table 'Bookmark'!"
-
-    @staticmethod
-    def close():
-        db.close()
-        print '[INFO] Bookmark database closed.'
-
-    @staticmethod
-    def add_bookmark(name, path, page, data):
-
-        try:
-            q = Bookmark.insert(comic_name=name, comic_path=path,
-                                comic_page=page, page_data=data)
-            q.execute()
-            print '[INFO] Bookmark %s inserted.' % name
-        except IntegrityError:
-            q = Bookmark.update(comic_page=page).where(
-                Bookmark.comic_path == path)
-            q.execute()
-            print '[INFO] Bookmark updated.'
-
-    @staticmethod
-    def remove_bookmark(path):
-
-        try:
-            q = Bookmark.delete().where(Bookmark.comic_path == path)
-            q.execute()
-            print '[INFO] Bookmark deleted.'
-        except IntegrityError:
-            print '[ERROR] Bookmark not find.'
-
-    @staticmethod
-    def get_bookmarks(rows_number):
-        query = Bookmark.select().order_by(Bookmark.comic_id.desc()).limit(
-            rows_number)
-        return list(query)
-
-        # try:
-        #     for q in :
-        #         bk_list.append(q)
-        #     print '[INFO] Bookmark deleted.'
-        # except IntegrityError:
-        #     print '[ERROR] Bookmark not find.'
-        #
-        # return bk_list
-
-    @staticmethod
-    def get_bookmark_by_path(path):
-        bk_list = Bookmark.select().where(Bookmark.comic_path == path)
-        return bk_list[0] if bk_list else None
-
-        # bk_list = []
-        #
-        # try:
-        #     for q in Bookmark.select().where(Bookmark.comic_path == path):
-        #         print q.comic_name
-        #         bk_list.append(q)
-        #     print '[INFO] Bookmark deleted.'
-        # except IntegrityError:
-        #     print '[ERROR] Bookmark not find.'
-        #
-        # return bk_list
-
-
-

@@ -19,7 +19,8 @@ from PyQt4 import QtCore, QtGui
 from comic import Comic
 from bookmarks import Bookmarks
 from page import Page
-from bookmark import Bookmark, BookmarkManager
+from bookmark import Bookmark
+from bookmark_database_manager import BookmarkManager
 
 
 class Model(object):
@@ -177,7 +178,6 @@ class Model(object):
         return False
 
     def _load_pixmap_from_data(self):
-        # pg = None
         if self.comic:
             pg = self.comic.get_current_page()
             if pg:
@@ -250,12 +250,12 @@ class Model(object):
         BookmarkManager.close()
         return bk
 
-    @staticmethod
-    def find_bookmark(path):
-        bk = Bookmarks()
-        bookmark = bk.find_bookmark(path)
-        bk.close()
-        return bookmark
+    # @staticmethod
+    # def find_bookmark(path):
+    #     bk = Bookmarks()
+    #     bookmark = bk.find_bookmark(path)
+    #     bk.close()
+    #     return bookmark
 
     def add_bookmark(self):
 
@@ -265,6 +265,7 @@ class Model(object):
                                          self.comic.get_path(),
                                          self.comic.get_current_page_number(),
                                          self.comic.get_current_page())
+            BookmarkManager.close()
 
         # if not comic_name:
         #     comic_name = self.get_comic_name()
@@ -281,7 +282,6 @@ class Model(object):
         # return book_list
 
     def remove_bookmark(self):
-
         if self.comic:
             BookmarkManager.connect()
             BookmarkManager.remove_bookmark(self.comic.get_path())
@@ -298,11 +298,11 @@ class Model(object):
         # bk.close()
         # return book_list
 
-    def remove_bookmarks(self, comic_paths=None):
-        bk = Bookmarks()
-        for path in comic_paths:
-            bk.delete_bookmark(path)
-
-        book_list = bk.get_records(self.NUM_BOOKMARK)
-        bk.close()
-        return book_list
+    # def remove_bookmarks(self, comic_paths=None):
+    #     bk = Bookmarks()
+    #     for path in comic_paths:
+    #         bk.delete_bookmark(path)
+    #
+    #     book_list = bk.get_records(self.NUM_BOOKMARK)
+    #     bk.close()
+    #     return book_list
