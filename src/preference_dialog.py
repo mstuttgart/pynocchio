@@ -35,16 +35,17 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
         self.show_statusbar_in_fullscreen.setChecked(
             preference.show_statusbar_in_fullscreen)
 
-        self.background_color_button.background_color = \
+        self.line_edit_color.background_color = \
             self.preference.background_color
 
         self.background_color_button.clicked.connect(self._open_color_dialog)
 
     def _open_color_dialog(self):
-        col = QtGui.QColorDialog().getColor()
+        col_dialog = QtGui.QColorDialog(self)
+        col = col_dialog.getColor(self.preference.background_color)
         if col.isValid():
             self.preference.background_color = col
-            self.background_color_button.background_color = col
+            self.line_edit_color.background_color = col
 
     def close(self):
         self.preference.show_statusbar_in_fullscreen = \
@@ -54,6 +55,6 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
             self.show_toolbar_in_fullscreen.isChecked()
 
         self.preference.background_color = \
-            self.background_color_button.background_color
+            self.line_edit_color.background_color
 
         super(PreferenceDialog, self).close()

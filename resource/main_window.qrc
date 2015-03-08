@@ -1,6 +1,13 @@
 <RCC>
   <qresource prefix="/icons">
-    <file>elementary3-icon-theme/apps/48/AdobeReader9.svg</file>
+    <file>pynocchio_icon_2.png</file>
+    <file>notCover.png</file>
+    <file>elementary3-icon-theme/actions/64/go-down.svg</file>
+    <file>elementary3-icon-theme/apps/64/addressbook.svg</file>
+    <file>elementary3-icon-theme/apps/64/office-database.svg</file>
+    <file>elementary3-icon-theme/actions/48/document-open-recent.svg</file>
+    <file>elementary3-icon-theme/actions/48/document-open.svg</file>
+    <file>elementary3-icon-theme/actions/48/document-save.svg</file>
     <file>elementary3-icon-theme/categories/48/applications-painting.svg</file>
     <file>pynocchio_icon.png</file>
     <file>freeiconmaker-icons/best-fit.svg</file>
@@ -19,7 +26,6 @@
     <file>elementary3-icon-theme/actions/48/application-exit.svg</file>
     <file>elementary3-icon-theme/actions/48/document-open.svg</file>
     <file>elementary3-icon-theme/actions/48/document-properties.svg</file>
-    <file>elementary3-icon-theme/actions/48/filesaveas.svg</file>
     <file>elementary3-icon-theme/actions/48/go-next.svg</file>
     <file>elementary3-icon-theme/actions/48/go-previous.svg</file>
     <file>elementary3-icon-theme/actions/48/go-first.svg</file>

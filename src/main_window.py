@@ -146,6 +146,22 @@ class MainWindow(MainWindowBase, MainWindowForm):
         if file_path:
             self.load(file_path)
 
+    @QtCore.pyqtSlot()
+    def on_action_save_image_triggered(self):
+
+        if not self.model.comic:
+            return
+
+        import utility
+        path = utility.Utility.get_home_dir() + \
+               self.model.comic.get_current_page_title()
+
+        file_path = QtGui.QFileDialog().getSaveFileName(
+            self, self.tr('Save current page'), path,
+            self.tr("Images (*.png *.xpm *.jpeg *.jpg *.gif)"))
+
+        self.model.get_current_page().save(file_path)
+
     def _on_action_recent_files(self):
         action = self.sender()
         if action:
@@ -227,76 +243,55 @@ class MainWindow(MainWindowBase, MainWindowForm):
         action = self.sender()
 
         if action:
-            checked_action = action
-            self.model.adjustType = checked_action.objectName()
+            self.model.adjustType = action.objectName()
             self.viewer.label.setPixmap(
                 self.model.get_current_page())
             self._update_status_bar()
 
     def _init_bookmark_menu(self):
-        for i in range(0, self.model.NUM_BOOKMARK):
-            act = QtGui.QAction(self)
-            act.setVisible(False)
-            act.triggered.connect(self._load_bookmark)
-            self.menu_bookmarks.addAction(act)
+        self.menu_recent_bookmarks.aboutToShow.connect(
+            self._update_bookmarks_menu)
 
-        # self.menu_bookmarks.triggered.connect(self._update_bookmarks_menu)
-        self._update_bookmarks_menu(
-            self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
+        actions = self.menu_recent_bookmarks.actions()
+        for bk in actions:
+            bk.triggered.connect(self._load_bookmark)
 
-    def _update_bookmarks_menu(self, bookmark_list=None):
-        acts = self.menu_bookmarks.actions()
+    def _update_bookmarks_menu(self):
 
-        print 'arroz'
+        bk_actions = self.menu_recent_bookmarks.actions()
+        bookmark_list = self.model.get_bookmark_list(len(bk_actions))
 
-        if not bookmark_list:
-            bookmark_list = self.model.get_bookmark_list(
-                self.model.NUM_BOOKMARK)
+        for bk in bk_actions:
+            bk.setVisible(False)
 
-        bookmark_list_len = len(bookmark_list)
-
-        # Added 4 because the 3 actions in bookmark
-        # menu is add, remove and manage bookmark
-        for i in range(0, bookmark_list_len):
-            page = ' [%d]' % (bookmark_list[i][2])
-            acts[i + 4].setObjectName(bookmark_list[i][1])
-            acts[i + 4].setText(bookmark_list[i][1] + page)
-            acts[i + 4].setVisible(True)
-
-        # make the others bookmarks items invisible
-        for i in range(bookmark_list_len, self.model.NUM_BOOKMARK):
-            acts[i + 4].setVisible(False)
+        for i in range(len(bookmark_list)):
+            bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
+                                   bookmark_list[i].comic_page)
+            bk_actions[i].setText(bk_text)
+            bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
+            bk_actions[i].setVisible(True)
 
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
-        self._update_bookmarks_menu(self.model.add_bookmark())
+        self.model.add_bookmark()
 
     @QtCore.pyqtSlot()
     def on_action_remove_bookmark_triggered(self):
-        self._update_bookmarks_menu(self.model.remove_bookmark())
+        self.model.remove_bookmark()
 
     @QtCore.pyqtSlot()
     def on_action_bookmark_manager_triggered(self):
         import bookmark_manager_dialog
-
-        bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(
-            self.model, self)
+        bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
-
-        item_to_open = bookmark_dialog.item_to_open
-        if item_to_open:
-            self.load(item_to_open)
-
-        self._update_bookmarks_menu(
-            self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _load_bookmark(self):
         action = self.sender()
         if action:
-            bk = self.model.find_bookmark(action.objectName())
+            bk = self.model.get_bookmark_from_path(action.statusTip())
             if bk:
-                self.load(action.objectName(), bk[2] - 1)
+                self.load(QtCore.QString(bk.comic_path), bk.comic_page - 1)
 
     @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):
@@ -320,11 +315,29 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
-        import about_dialog
+        # import about_dialog
+        #
+        # about_dlg = about_dialog.AboutDialog(self)
+        # about_dlg.show()
+        # about_dlg.exec_()
 
-        about_dlg = about_dialog.AboutDialog(self)
-        about_dlg.show()
-        about_dlg.exec_()
+        text = '<p><justify>The <a ' \
+               'href=https://github.com/pynocchio>Pynocchio Comic ' \
+               'Reader</a> is an image viewer specifically designed  to ' \
+               'handle comic books.<justify></p>'\
+               '<justify><a href=https://github.com/pynocchio>Pynocchio Comic ' \
+               'Reader</a> is licensed under the GPLv3.'\
+               '<br>Copyright (C) 2014-2015 ' \
+               '<a href=https://github.com/mstuttgart>' \
+               'Michell Stuttgart Faria</a>'\
+               '<br>Pynocchio use <a href=http://freeiconmaker.com>Free Icon ' \
+               'Maker</a> to build icon set and '\
+               '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
+               '>Elementary OS 3.1 icons</a>.</p></justify>'
+
+        QtGui.QMessageBox().about(self, self.tr('About QChip8 Emulator'),
+                                  self.tr(text))
+
 
     @QtCore.pyqtSlot()
     def on_action_about_qt_triggered(self):
@@ -371,6 +384,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.statusbar.set_comic_path(page_title)
 
     def _enable_actions(self):
+
+        self.action_save_image.setEnabled(True)
 
         self.action_fullscreen.setEnabled(True)
         self.action_original_fit.setEnabled(True)

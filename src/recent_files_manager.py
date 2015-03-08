@@ -37,7 +37,7 @@ class RecentFileManager(object):
     def update_recent_file_list(self, file_path):
         self._format_deque(file_path)
         self.recent_files_action_deque.appendleft(file_path)
-        deque_range = range(0, len(self.recent_files_action_deque))
+        deque_range = range(len(self.recent_files_action_deque))
 
         for i in deque_range:
             path = self.recent_files_action_deque.pop()
