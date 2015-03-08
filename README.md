@@ -33,8 +33,12 @@ sudo apt-get install qt4-designer qt4-linguist-tools qt4-dev-tools
 ```
 sudo pip install rarfile
 ```
+* peewee: 
+```
+sudo pip install peewee
+```
 
-* To use Pynocchio, you must only install *rarfile* module.
+* To use Pynocchio, you must only install *rarfile* and *peewee* modules.
 
 You need of Qt Designer to open and edit .ui view files.
 Use de **compile_ui.sh** file to compile views of project.
