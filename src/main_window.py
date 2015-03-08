@@ -58,13 +58,9 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.recentFileManager = RecentFileManager(actions)
         self.preferences = Preference()
         self._load_settings()
-        # self._init_bookmark_menu()
-        self._init_bookmark_actions()
+        self._init_bookmark_menu()
         self._adjust_main_window()
         self._define_global_shortcuts()
-
-        self.menu_recent_bookmarks.aboutToShow.connect(
-            self._update_bookmarks_menu)
 
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -157,7 +153,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             return
 
         import utility
-        path = utility.Utility.get_home_dir() +  \
+        path = utility.Utility.get_home_dir() + \
                self.model.comic.get_current_page_title()
 
         file_path = QtGui.QFileDialog().getSaveFileName(
@@ -247,27 +243,18 @@ class MainWindow(MainWindowBase, MainWindowForm):
         action = self.sender()
 
         if action:
-            checked_action = action
-            self.model.adjustType = checked_action.objectName()
+            self.model.adjustType = action.objectName()
             self.viewer.label.setPixmap(
                 self.model.get_current_page())
             self._update_status_bar()
 
-    def _init_bookmark_actions(self):
+    def _init_bookmark_menu(self):
+        self.menu_recent_bookmarks.aboutToShow.connect(
+            self._update_bookmarks_menu)
+
         actions = self.menu_recent_bookmarks.actions()
         for bk in actions:
             bk.triggered.connect(self._load_bookmark)
-
-    # def _init_bookmark_menu(self):
-    #     for i in range(self.model.NUM_BOOKMARK):
-    #         act = QtGui.QAction(self)
-    #         act.setVisible(False)
-    #         act.triggered.connect(self._load_bookmark)
-    #         self.menu_bookmarks.addAction(act)
-    #
-    #     # self.menu_bookmarks.triggered.connect(self._update_bookmarks_menu)
-    #     self._update_bookmarks_menu(
-    #         self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _update_bookmarks_menu(self):
 
@@ -284,53 +271,20 @@ class MainWindow(MainWindowBase, MainWindowForm):
             bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
             bk_actions[i].setVisible(True)
 
-        # acts = self.menu_bookmarks.actions()
-        #
-        # print 'arroz'
-        #
-        # if not bookmark_list:
-        #     bookmark_list = self.model.get_bookmark_list(
-        #         self.model.NUM_BOOKMARK)
-        #
-        # bookmark_list_len = len(bookmark_list)
-        #
-        # # Added 4 because the 3 actions in bookmark
-        # # menu is add, remove and manage bookmark
-        # for i in range(bookmark_list_len):
-        #     page = ' [%d]' % (bookmark_list[i][2])
-        #     acts[i + 4].setObjectName(bookmark_list[i][1])
-        #     acts[i + 4].setText(bookmark_list[i][1] + page)
-        #     acts[i + 4].setVisible(True)
-        #
-        # # make the others bookmarks items invisible
-        # for i in range(bookmark_list_len, self.model.NUM_BOOKMARK):
-        #     acts[i + 4].setVisible(False)
-
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
-        # self._update_bookmarks_menu(self.model.add_bookmark())
         self.model.add_bookmark()
 
     @QtCore.pyqtSlot()
     def on_action_remove_bookmark_triggered(self):
-        # self._update_bookmarks_menu(self.model.remove_bookmark())
         self.model.remove_bookmark()
 
     @QtCore.pyqtSlot()
     def on_action_bookmark_manager_triggered(self):
         import bookmark_manager_dialog
-
-        bookmark_dialog = \
-            bookmark_manager_dialog.BookmarkManagerDialog(self.model, self)
+        bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
-
-        # item_to_open = bookmark_dialog.item_to_open
-        # if item_to_open:
-        #     self.load(item_to_open)
-
-        # self._update_bookmarks_menu(
-        #     self.model.get_bookmark_list(self.model.NUM_BOOKMARK))
 
     def _load_bookmark(self):
         action = self.sender()
@@ -338,11 +292,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
             bk = self.model.get_bookmark_from_path(action.statusTip())
             if bk:
                 self.load(QtCore.QString(bk.comic_path), bk.comic_page - 1)
-        # action = self.sender()
-        # if action:
-        #     bk = self.model.find_bookmark(action.objectName())
-        #     if bk:
-        #         self.load(action.objectName(), bk[2] - 1)
 
     @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):

@@ -16,25 +16,24 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 try:
-    from peewee import IntegerField, CharField, Model, OperationalError, \
-        PrimaryKeyField, BlobField, SqliteDatabase, IntegrityError
+    import peewee
 except ImportError, err:
     print 'rarfile module not installed.\n' \
           'Please install it using: sudo pip install peewee\n'
     import sys
     sys.exit(err)
 
-db = SqliteDatabase('bookmark.db')
+db = peewee.SqliteDatabase('bookmark.db')
 
 
-class BookmarkBaseModel(Model):
+class BookmarkBaseModel(peewee.Model):
     class Meta:
         database = db
 
 
 class Bookmark(BookmarkBaseModel):
-    comic_id = PrimaryKeyField(unique=True, index=True)
-    comic_path = CharField(unique=True)
-    comic_name = CharField(default='')
-    comic_page = IntegerField(default=0)
-    page_data = BlobField(null=True, default=None)
+    comic_id = peewee.PrimaryKeyField(unique=True, index=True)
+    comic_path = peewee.CharField(unique=True)
+    comic_name = peewee.CharField(default='')
+    comic_page = peewee.IntegerField(default=0)
+    page_data = peewee.BlobField(null=True, default=None)
