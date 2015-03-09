@@ -311,8 +311,8 @@
    </widget>
    <addaction name="menu_file"/>
    <addaction name="menu_view"/>
-   <addaction name="menu_bookmarks"/>
    <addaction name="menu_navegation"/>
+   <addaction name="menu_bookmarks"/>
    <addaction name="menu_Settings"/>
    <addaction name="menu_Help"/>
   </widget>
