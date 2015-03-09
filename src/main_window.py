@@ -73,22 +73,22 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     def _define_global_shortcuts(self):
 
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"), self,
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"), self.viewer,
                         self.on_action_previous_comic_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"), self,
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"), self.viewer,
                         self.on_action_first_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Left"), self,
+        QtGui.QShortcut(QtGui.QKeySequence("Left"), self.viewer,
                         self.on_action_previous_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Right"), self,
+        QtGui.QShortcut(QtGui.QKeySequence("Right"), self.viewer,
                         self.on_action_next_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"), self,
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"), self.viewer,
                         self.on_action_last_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"), self,
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"), self.viewer,
                         self.on_action_next_comic_triggered)
 
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"), self,
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"), self.viewer,
                         self.on_action_rotate_right_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"), self,
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"), self.viewer,
                         self.on_action_rotate_left_triggered)
 
     def _create_action_group_view(self):
