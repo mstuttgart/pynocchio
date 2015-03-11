@@ -15,67 +15,103 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-from PyQt4 import QtGui, uic
+from PyQt4 import QtGui, QtCore, uic
+from PyQt4.QtSql import QSqlTableModel, QSqlDatabase
+import logging
 
 BookmarkManagerDialogForm, BookmarkManagerDialogBase = uic.loadUiType(
     'bookmark_manager_dialog.ui')
 
+log = logging.getLogger(__name__)
+
 
 class BookmarkManagerDialog(BookmarkManagerDialogForm,
                             BookmarkManagerDialogBase):
-    def __init__(self, mdl, parent=None):
+
+    SCALE_RATIO = 0.18
+
+    def __init__(self, parent=None):
         super(BookmarkManagerDialog, self).__init__(parent)
         self.setupUi(self)
 
-        self.model = mdl
-        self.table = self.bookmark_table
-        self._update_table_content()
-        self.item_to_open = False
+        self.main_window = parent
+        self.db = QSqlDatabase().addDatabase("QSQLITE")
+        self.db.setDatabaseName("bookmark.db")
 
-        self.button_selection.clicked.connect(self._select_all_table_items)
-        self.button_remove.clicked.connect(self._remove_table_item)
-        self.button_load.clicked.connect(self._get_comic_to_open)
+        if self.db.open():
 
-    def _update_table_content(self):
-        record_list = self.model.get_bookmark_list()
-        record_list_len = len(record_list)
-        self.table.setRowCount(record_list_len)
+            self.model = QSqlTableModel(self, self.db)
+            self.model.setTable('Bookmark')
 
-        for i in range(0, record_list_len):
-            self.table.setItem(i, 0, QtGui.QTableWidgetItem(record_list[i][0]))
-            self.table.setItem(i, 1, QtGui.QTableWidgetItem(record_list[i][1]))
-            self.table.setItem(i, 2, QtGui.QTableWidgetItem(str(
-                record_list[i][2])))
+            self.model.setEditStrategy(QSqlTableModel.OnManualSubmit)
+            self.model.select()
+            self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Name")
+            self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Page")
 
-        self.table.horizontalHeader().setResizeMode(
-            0, QtGui.QHeaderView.ResizeToContents)
-        self.table.horizontalHeader().setResizeMode(
-            1, QtGui.QHeaderView.Stretch)
-        self.table.horizontalHeader().setResizeMode(
-            2, QtGui.QHeaderView.ResizeToContents)
+            self.bookmark_table.setModel(self.model)
+            self.bookmark_table.hideColumn(0)
+            self.bookmark_table.hideColumn(1)
+            self.bookmark_table.hideColumn(4)
+
+            self.bookmark_table.horizontalHeader().setResizeMode(
+                2, QtGui.QHeaderView.Stretch)
+            self.bookmark_table.horizontalHeader().setResizeMode(
+                3, QtGui.QHeaderView.ResizeToContents)
+
+            self.button_remove.clicked.connect(self._remove_table_item)
+            self.button_load.clicked.connect(self._get_comic_to_open)
+
+            self.bookmark_table.selectionModel().selectionChanged.connect(
+                self.selection_changed)
+
+            self.no_cover_label = self.page_image_label.pixmap().scaledToWidth(
+                self.width() * self.SCALE_RATIO, QtCore.Qt.SmoothTransformation)
+
+            self.page_image_label.setPixmap(self.no_cover_label)
+
+        else:
+            log.error("[ERROR] Unable to create talkdb file.")
+
+    def selection_changed(self, current, previous):
+
+        model_indexes = current.indexes()
+
+        if model_indexes:
+            pixmap = QtGui.QPixmap()
+            pixmap.loadFromData(model_indexes[4].data().toByteArray())
+            pixmap = pixmap.scaledToWidth(self.width() * self.SCALE_RATIO,
+                                          QtCore.Qt.SmoothTransformation)
+            self.page_image_label.setPixmap(pixmap)
+            self.line_edit_path.setText(model_indexes[1].data().toString())
+
+        else:
+            self.page_image_label.setPixmap(self.no_cover_label)
+            self.line_edit_path.setText('')
 
     def _remove_table_item(self):
-        selected_items = self.table.selectedItems()
-        selected_items_len = len(selected_items)
-        selected_items_i = selected_items_len / 3
-        selected_items_f = selected_items_len - selected_items_i
 
-        paths = []
+        option = QtGui.QMessageBox().warning(
+            self, self.tr('Delete bookmarks'),
+            self.tr('This action will go delete you bookmarks! Preceed?'),
+            QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel,
+            QtGui.QMessageBox.Ok)
 
-        for i in range(selected_items_i, selected_items_f):
-            path = selected_items[i].text()
-            paths.append(path)
-            self.table.removeRow(selected_items[i].row())
+        if option == QtGui.QMessageBox.Ok:
+            selected_idx = self.bookmark_table.selectedIndexes()
 
-        self.model.remove_bookmarks(paths)
+            if selected_idx:
+                for index in selected_idx:
+                    self.model.removeRow(index.row())
 
-    def _select_all_table_items(self):
-        self.table.setRangeSelected(
-            QtGui.QTableWidgetSelectionRange(0, 0, self.table.rowCount() - 1,
-                                             2), True)
+                self.model.submitAll()
 
     def _get_comic_to_open(self):
-        items = self.table.selectedItems()
-        if items:
-            self.item_to_open = items[1].text()
+        selection_model = self.bookmark_table.selectionModel()
+        path = selection_model.selectedRows(1)[0].data().toString()
+        page = selection_model.selectedRows(3)[0].data().toInt()[0]
+        self.main_window.load(path, page - 1)
         self.close()
+
+    def close(self):
+        self.db.close()
+        super(BookmarkManagerDialog, self).close()

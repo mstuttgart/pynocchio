@@ -17,8 +17,8 @@
 from PyQt4 import QtCore, QtGui
 
 from comic import Comic
-from bookmarks import Bookmarks
 from page import Page
+from bookmark_database_manager import BookmarkManager
 
 
 class Model(object):
@@ -176,7 +176,6 @@ class Model(object):
         return False
 
     def _load_pixmap_from_data(self):
-        # pg = None
         if self.comic:
             pg = self.comic.get_current_page()
             if pg:
@@ -226,58 +225,30 @@ class Model(object):
         self.adjustType = adjust_type
 
     @staticmethod
-    def get_bookmark_list(n=0):
-        bk = Bookmarks()
-        bookmark_list = bk.get_records(n)
-
-        from utility import Utility
-        for bookmark in bookmark_list:
-            if not Utility.file_exist(bookmark[1]):
-                bk.delete_bookmark(bookmark[1])
-
-        bk.close()
+    def get_bookmark_list(n):
+        BookmarkManager.connect()
+        bookmark_list = BookmarkManager.get_bookmarks(n)
+        BookmarkManager.close()
         return bookmark_list
 
     @staticmethod
-    def find_bookmark(path):
-        bk = Bookmarks()
-        bookmark = bk.find_bookmark(path)
-        bk.close()
-        return bookmark
+    def get_bookmark_from_path(path):
+        BookmarkManager.connect()
+        bk = BookmarkManager.get_bookmark_by_path(path)
+        BookmarkManager.close()
+        return bk
 
-    def add_bookmark(self, comic_name=None, comic_path=None, comic_page=None):
+    def add_bookmark(self):
+        if self.comic:
+            BookmarkManager.connect()
+            BookmarkManager.add_bookmark(self.comic.name,
+                                         self.comic.get_path(),
+                                         self.comic.get_current_page_number(),
+                                         self.comic.get_current_page())
+            BookmarkManager.close()
 
-        if not comic_name:
-            comic_name = self.get_comic_name()
-        if not comic_path:
-            comic_path = self.comic.directory + '/' + comic_name
-        if not comic_page:
-            comic_page = self.comic.get_current_page_number()
-
-        bk = Bookmarks()
-        bk.add_bookmark(comic_path, comic_name, comic_page)
-        book_list = bk.get_records(self.NUM_BOOKMARK)
-        bk.close()
-        return book_list
-
-    def remove_bookmark(self, comic_path=None, comic_name=None):
-
-        if not comic_name:
-            comic_name = self.get_comic_name()
-        if not comic_path:
-            comic_path = self.current_directory + '/' + comic_name
-
-        bk = Bookmarks()
-        bk.delete_bookmark(comic_path)
-        book_list = bk.get_records(self.NUM_BOOKMARK)
-        bk.close()
-        return book_list
-
-    def remove_bookmarks(self, comic_paths=None):
-        bk = Bookmarks()
-        for path in comic_paths:
-            bk.delete_bookmark(path)
-
-        book_list = bk.get_records(self.NUM_BOOKMARK)
-        bk.close()
-        return book_list
+    def remove_bookmark(self):
+        if self.comic:
+            BookmarkManager.connect()
+            BookmarkManager.remove_bookmark(self.comic.get_path())
+            BookmarkManager.close()

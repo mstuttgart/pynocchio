@@ -24,18 +24,40 @@ class Viewer(QtGui.QScrollArea):
 
         self.model = None
         self.label = None
+        self.main_window = None
         self.drag_mouse = False
         self.drag_position = {'x': 0, 'y': 0}
         self.last_scroll_position = 0
 
         self.setMouseTracking(True)
 
-        self.hide_cursor_timer = QtCore.QTimer()
-        self.hide_cursor_timer.setSingleShot(True)
-        self.hide_cursor_timer.timeout.connect(self._hide_cursor)
+        # self.hide_cursor_timer = QtCore.QTimer()
+        # self.hide_cursor_timer.setSingleShot(True)
+        # self.hide_cursor_timer.timeout.connect(self._hide_cursor)
 
         self.setWidgetResizable(True)
         self._change_cursor()
+        # self._define_global_shortcuts()
+
+    def _define_global_shortcuts(self):
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"), self,
+                        self.main_window.on_action_previous_comic_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"), self,
+                        self.main_window.on_action_first_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Left"), self,
+                        self.main_window.on_action_previous_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Right"), self, 
+            self.main_window.on_action_next_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"), self,
+                        self.main_window.on_action_last_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"), self,
+                        self.main_window.on_action_next_comic_triggered)
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"), self,
+                        self.main_window.on_action_rotate_right_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"), self,
+                        self.main_window.on_action_rotate_left_triggered)
 
     def next_page(self):
         self.update_view(self.model.next_page())
@@ -100,7 +122,7 @@ class Viewer(QtGui.QScrollArea):
     def mouseReleaseEvent(self, *args, **kwargs):
         self.drag_mouse = False
         self._change_cursor()
-        self.hide_cursor_timer.start(2500)
+        # self.hide_cursor_timer.start(2500)
         super(Viewer, self).mouseReleaseEvent(*args, **kwargs)
 
     def mouseMoveEvent(self, *args, **kwargs):

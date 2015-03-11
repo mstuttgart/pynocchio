@@ -46,16 +46,6 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
-             <widget class="QLabel" name="label_icon">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="pixmap">
-               <pixmap resource="../resource/main_window.qrc">:/icons/elementary3-icon-theme/categories/48/applications-painting.svg</pixmap>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QLabel" name="label">
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Background color: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -63,22 +53,32 @@
              </widget>
             </item>
             <item>
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+             <widget class="ColorLine" name="line_edit_color">
+              <property name="enabled">
+               <bool>true</bool>
               </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
               </property>
-             </spacer>
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="frame">
+               <bool>false</bool>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item>
-             <widget class="ColorButton" name="background_color_button">
-              <property name="text">
-               <string>...</string>
+             <widget class="QPushButton" name="background_color_button">
+              <property name="icon">
+               <iconset resource="../resource/main_window.qrc">
+                <normaloff>:/icons/elementary3-icon-theme/categories/48/applications-painting.svg</normaloff>:/icons/elementary3-icon-theme/categories/48/applications-painting.svg</iconset>
               </property>
              </widget>
             </item>
@@ -159,9 +159,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>ColorButton</class>
-   <extends>QPushButton</extends>
-   <header location="global">color_button.h</header>
+   <class>ColorLine</class>
+   <extends>QLineEdit</extends>
+   <header location="global">color_line.h</header>
   </customwidget>
  </customwidgets>
  <resources>

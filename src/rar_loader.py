@@ -20,7 +20,8 @@ try:
 except ImportError, err:
     print 'rarfile module not installed.\n' \
           'Please install it using: sudo pip install rarfile\n'
-    exit(-1)
+    import sys
+    sys.exit(err)
 
 from loader import Loader
 from utility import Utility

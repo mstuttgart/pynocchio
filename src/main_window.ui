@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>1048</width>
-    <height>609</height>
+    <height>560</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -23,12 +23,15 @@
     <height>3</height>
    </size>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::WheelFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>Pynocchio Comic Reader</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resource/main_window.qrc">
-    <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
+    <normaloff>:/icons/pynocchio_icon_2.png</normaloff>:/icons/pynocchio_icon_2.png</iconset>
   </property>
   <property name="accessibleName">
    <string>Pyellow</string>
@@ -78,8 +81,11 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="cursor" stdset="0">
+         <cursorShape>OpenHandCursor</cursorShape>
+        </property>
         <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
+         <enum>Qt::ClickFocus</enum>
         </property>
         <property name="layoutDirection">
          <enum>Qt::LeftToRight</enum>
@@ -117,7 +123,7 @@
            <x>0</x>
            <y>0</y>
            <width>1046</width>
-           <height>542</height>
+           <height>493</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
@@ -166,7 +172,7 @@
              <enum>Qt::PlainText</enum>
             </property>
             <property name="pixmap">
-             <pixmap resource="../resource/main_window.qrc">:/icons/pynocchio_icon.png</pixmap>
+             <pixmap resource="../resource/main_window.qrc">:/icons/pynocchio_icon_2.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -205,6 +211,9 @@
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
    <widget class="QMenu" name="menu_file">
     <property name="title">
      <string>&amp;File</string>
@@ -214,12 +223,13 @@
       <string>&amp;Recent files</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>:/icons/elementary3-icon-theme/places/48/folder-recent.svg</normaloff>:/icons/elementary3-icon-theme/places/48/folder-recent.svg</iconset>
+      <iconset resource="../resource/main_window.qrc">
+       <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
      </property>
     </widget>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>
+    <addaction name="action_save_image"/>
     <addaction name="menu_recent_files"/>
     <addaction name="separator"/>
     <addaction name="action_exit"/>
@@ -270,13 +280,34 @@
     <addaction name="action_preference_dialog"/>
    </widget>
    <widget class="QMenu" name="menu_bookmarks">
+    <property name="tearOffEnabled">
+     <bool>false</bool>
+    </property>
     <property name="title">
      <string>&amp;Bookmarks</string>
     </property>
+    <property name="separatorsCollapsible">
+     <bool>true</bool>
+    </property>
+    <widget class="QMenu" name="menu_recent_bookmarks">
+     <property name="title">
+      <string>&amp;Recente bookmarks</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../resource/main_window.qrc">
+       <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
+     </property>
+     <addaction name="action_bookmark_1"/>
+     <addaction name="action_bookmark_2"/>
+     <addaction name="action_bookmark_3"/>
+     <addaction name="action_bookmark_4"/>
+     <addaction name="action_bookmark_5"/>
+    </widget>
     <addaction name="action_add_bookmark"/>
     <addaction name="action_remove_bookmark"/>
     <addaction name="separator"/>
     <addaction name="action_bookmark_manager"/>
+    <addaction name="menu_recent_bookmarks"/>
    </widget>
    <addaction name="menu_file"/>
    <addaction name="menu_view"/>
@@ -348,7 +379,7 @@
   <action name="action_open">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -648,7 +679,7 @@
   <action name="action_bookmark_manager">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/filesaveas.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/filesaveas.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</iconset>
    </property>
    <property name="text">
     <string>Bookmark &amp;manager</string>
@@ -762,6 +793,95 @@
    </property>
    <property name="visible">
     <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_save_image">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/go-down.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/go-down.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save image</string>
+   </property>
+   <property name="whatsThis">
+    <string>Save current image in disk.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_bookmark_1">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">bookmark_1</string>
+   </property>
+   <property name="iconText">
+    <string>bookmark</string>
+   </property>
+   <property name="toolTip">
+    <string>bookmark</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_bookmark_2">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>bookmark_2</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="action_bookmark_3">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>bookmark_3</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="action_bookmark_4">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>bookmark_4</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="action_bookmark_5">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>bookmark_5</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionTete">
+   <property name="text">
+    <string>tete</string>
    </property>
   </action>
  </widget>
