@@ -3,10 +3,11 @@
 #TODO: Opção no menu file para visualizarmos informações da comic,
 # como numero de paginas, tipo de arquivo (codificação),
 #TODO: Opção para imprimir a página atual
-#TODO: Adicionar imagem da página no dialog Bookmark Manager
+#TODO: Adicionar search field na dialog Bookmark Manager
 #TODO: Remover o campo current_page do dialog GoToPage
 #TODO: magnifying glass para ver detalhes da página
 #TODO: sistema para leitura online
-#TODO: Sistema de gerenciamento de colecoes
+#TODO: Sistema de gerenciamento de coleções
 #TODO: Tradução espanhol
 #TODO: Arquivos de testes
+#TODO: Classes de exceções
