@@ -73,6 +73,9 @@ class Model(object):
 
             return True
 
+        import pynocchio_exception
+        raise pynocchio_exception.OpenComicFileException(comic_name=file_name)
+
         return False
 
     def next_page(self):

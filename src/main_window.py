@@ -35,8 +35,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.viewer.model = self.model
         self.viewer.label = self.label
         self.viewer.main_window = self
-
-        self.viewer._define_global_shortcuts()
+        self.viewer.define_global_shortcuts()
         
         self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)
@@ -115,22 +114,23 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     def load(self, path, initial_page=0):
 
-        import utility
+        import utility, pynocchio_exception
 
         ph = utility.Utility.convert_qstring_to_str(path)
         if ph:
             path = ph
 
-        if self.model.load_comic(path, initial_page):
-            self.viewer.label.setPixmap(
-                self.model.get_current_page())
+        try:
+            self.model.load_comic(path, initial_page)
+            self.viewer.label.setPixmap(self.model.get_current_page())
             self.setWindowTitle(self.model.comic.name)
             self._update_status_bar()
             self._enable_actions()
             self.recentFileManager.update_recent_file_list(path)
             self.model.current_directory = path
             self.model.verify_comics_in_path()
-        else:
+        except pynocchio_exception.OpenComicFileException as exc:
+            print exc.msg
             QtGui.QMessageBox().information(self, self.tr('Error'), self.tr(
                 "Error to load file ") + path)
 

@@ -14,6 +14,7 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 from PyQt4 import QtCore, QtGui
 
 
@@ -39,7 +40,7 @@ class Viewer(QtGui.QScrollArea):
         self._change_cursor()
         # self._define_global_shortcuts()
 
-    def _define_global_shortcuts(self):
+    def define_global_shortcuts(self):
 
         QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"), self,
                         self.main_window.on_action_previous_comic_triggered)
@@ -48,7 +49,7 @@ class Viewer(QtGui.QScrollArea):
         QtGui.QShortcut(QtGui.QKeySequence("Left"), self,
                         self.main_window.on_action_previous_page_triggered)
         QtGui.QShortcut(QtGui.QKeySequence("Right"), self, 
-            self.main_window.on_action_next_page_triggered)
+                        self.main_window.on_action_next_page_triggered)
         QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"), self,
                         self.main_window.on_action_last_page_triggered)
         QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"), self,
