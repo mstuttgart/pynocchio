@@ -27,6 +27,7 @@ class StatusBar(QtGui.QStatusBar):
         self.page_resolution = None
         self.comic_path = None
         self.progress_bar = None
+        self.slider = None
 
     def add_page_number_label(self):
         if self.page_number is None:
@@ -58,12 +59,30 @@ class StatusBar(QtGui.QStatusBar):
 
         if self.progress_bar is None:
             self.remove_labels()
+            self.remove_slider()
             self.progress_bar = QtGui.QProgressBar()
             self.progress_bar.setFixedHeight(15)
             self.progress_bar.setMaximum(maximum_value)
             self.progress_bar.setMaximumWidth(self.width())
             self.addWidget(self.progress_bar, 3)
             self.progress_bar.show()
+
+    def add_slider(self):
+
+        if self.slider is None:
+            self.remove_progress_bar()
+            self.slider = QtGui.QSlider(QtCore.Qt.Horizontal, self)
+            self.slider.setFixedWidth(200)
+            self.slider.setValue(50)
+            self.slider.setTickPosition(QtGui.QSlider.TicksBelow)
+            self.slider.setTickInterval(10)
+            self.addWidget(self.slider, 3)
+
+    def remove_slider(self):
+
+        if self.slider is not None:
+            self.removeWidget(self.slider)
+            self.slider = None
 
     def remove_progress_bar(self):
 
@@ -116,3 +135,4 @@ class StatusBar(QtGui.QStatusBar):
         self.add_page_number_label()
         self.add_page_resolution_label()
         self.add_comic_path_label()
+        self.add_slider()

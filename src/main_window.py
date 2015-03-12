@@ -368,6 +368,15 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.statusbar.set_page_resolution(page_width, page_height)
             self.statusbar.set_comic_path(page_title)
 
+            self.statusbar.slider.valueChanged.connect(
+                self._set_zoom_factor)
+
+    @QtCore.pyqtSlot(int)
+    def _set_zoom_factor(self, value):
+        print 2 * value/100.0
+        self.model.zoom_factor = 2 * value/100.0
+        self.viewer.update_view(self.model.get_current_page())
+
     def _enable_actions(self):
 
         self.action_save_image.setEnabled(True)

@@ -37,6 +37,7 @@ class Model(object):
         self.current_directory = ''
         self.next_comic_path = ''
         self.previous_comic_path = ''
+        self.zoom_factor = 1.0
 
     def load_comic(self, file_name, initial_page=0):
 
@@ -217,6 +218,10 @@ class Model(object):
                     self.screenSize.width() * 0.8,
                     QtCore.Qt.SmoothTransformation)
 
+            pix_map = pix_map.scaled(pix_map.size() * self.zoom_factor,
+                                     QtCore.Qt.KeepAspectRatio,
+                                     QtCore.Qt.SmoothTransformation)
+
             return pix_map
 
         return None
@@ -226,6 +231,12 @@ class Model(object):
 
     def set_adjust_type(self, adjust_type):
         self.adjustType = adjust_type
+
+    # @QtCore.pyqtSlot(int)
+    # def set_zoom_factor(self, value):
+    #     print 2 * value/100.0
+    #     self.zoom_factor = 2 * value/100.0
+    #     # self.main_window.repaint()
 
     @staticmethod
     def get_bookmark_list(n):
