@@ -38,7 +38,6 @@ class Viewer(QtGui.QScrollArea):
 
         self.setWidgetResizable(True)
         self._change_cursor()
-        # self._define_global_shortcuts()
 
     def define_global_shortcuts(self):
 
