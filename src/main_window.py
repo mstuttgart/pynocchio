@@ -158,29 +158,32 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.viewer.next_page()
         self._update_status_bar()
         self._update_view_actions()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_previous_page_triggered(self):
         self.viewer.previous_page()
         self._update_status_bar()
         self._update_view_actions()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_first_page_triggered(self):
         self.viewer.first_page()
         self._update_status_bar()
         self._update_view_actions()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_last_page_triggered(self):
         self.viewer.last_page()
         self._update_status_bar()
         self._update_view_actions()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
         import go_to_page_dialog
-
         go_to_dlg = go_to_page_dialog.GoToDialog(self.model, self.viewer)
         go_to_dlg.show()
         go_to_dlg.exec_()
@@ -191,20 +194,24 @@ class MainWindow(MainWindowBase, MainWindowForm):
         file_name = self.model.next_comic()
         if file_name:
             self.load(file_name)
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_previous_comic_triggered(self):
         file_name = self.model.previous_comic()
         if file_name:
             self.load(file_name)
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_rotate_left_triggered(self):
         self.viewer.rotate_left()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_rotate_right_triggered(self):
         self.viewer.rotate_right()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_fullscreen_triggered(self):
@@ -223,15 +230,21 @@ class MainWindow(MainWindowBase, MainWindowForm):
             if not self.preferences.show_statusbar_in_fullscreen:
                 self.statusbar.hide()
             self.showFullScreen()
+            self._set_focus_on_viewer()
 
     def _on_action_group_view_adjust(self):
         action = self.sender()
 
         if action:
             self.model.adjustType = action.objectName()
-            self.viewer.label.setPixmap(
-                self.model.get_current_page())
+            self.viewer.label.setPixmap(self.model.get_current_page())
             self._update_status_bar()
+            self._set_focus_on_viewer()
+
+    def _set_focus_on_viewer(self):
+        self.viewer.activateWindow()
+        self.viewer.setWindowState(QtCore.Qt.WindowActive)
+        self.viewer.setFocus(QtCore.Qt.ActiveWindowFocusReason)
 
     def _init_bookmark_menu(self):
         self.menu_recent_bookmarks.aboutToShow.connect(
@@ -259,6 +272,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
         self.model.add_bookmark()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_remove_bookmark_triggered(self):
@@ -373,9 +387,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot(int)
     def _set_zoom_factor(self, value):
-        print 2 * value/100.0
         self.model.zoom_factor = 2 * value/100.0
-        self.viewer.update_view(self.model.get_current_page())
+        self.viewer.update_view(self.model.update_content())
 
     def _enable_actions(self):
 

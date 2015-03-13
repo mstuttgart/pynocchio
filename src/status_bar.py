@@ -75,7 +75,6 @@ class StatusBar(QtGui.QStatusBar):
             self.slider.setFixedWidth(200)
             self.slider.setValue(50)
             self.slider.setTickPosition(QtGui.QSlider.TicksBelow)
-            self.slider.setTickInterval(10)
             self.addWidget(self.slider, 3)
 
     def remove_slider(self):
