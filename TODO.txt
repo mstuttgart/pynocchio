@@ -1,5 +1,4 @@
 #TODO: Menu Exibir adicionar: two pages, manga mode
-#TODO: Controle de zoom para o usuario
 #TODO: Opção no menu file para visualizarmos informações da comic,
 # como numero de paginas, tipo de arquivo (codificação),
 #TODO: Opção para imprimir a página atual
@@ -10,4 +9,3 @@
 #TODO: Sistema de gerenciamento de coleções
 #TODO: Tradução espanhol
 #TODO: Arquivos de testes
-#TODO: Classes de exceções
