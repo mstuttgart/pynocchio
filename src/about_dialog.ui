@@ -178,11 +178,6 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="support">
-      <attribute name="title">
-       <string>Support</string>
-      </attribute>
-     </widget>
      <widget class="QWidget" name="license">
       <attribute name="title">
        <string>License</string>
