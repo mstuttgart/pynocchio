@@ -31,12 +31,8 @@ product = {
 class LoaderFactory(object):
 
     @staticmethod
-    def create_loader(extension):
-
-        image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
-                            '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
-
-        if extension in product:
-            return product[extension](image_extensions)
+    def create_loader(compact_file_extension, data_extension):
+        if compact_file_extension in product:
+            return product[compact_file_extension](data_extension)
 
         return None

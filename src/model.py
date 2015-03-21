@@ -45,8 +45,12 @@ class Model(object):
         from utility import Utility
 
         try:
-            ld = LoaderFactory.create_loader(
-                Utility.get_file_extension(file_name))
+            image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
+                                '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
+
+            ld = LoaderFactory.create_loader(Utility.get_file_extension(
+                file_name), image_extensions)
+
         except IOError:
             print self.main_window.tr('File not exist!')
             return False
