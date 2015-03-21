@@ -18,7 +18,7 @@
 try:
     import peewee
 except ImportError, err:
-    print 'rarfile module not installed.\n' \
+    print 'peewee module not installed.\n' \
           'Please install it using: sudo pip install peewee\n'
     import sys
     sys.exit(err)

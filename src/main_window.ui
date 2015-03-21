@@ -220,6 +220,11 @@
       <iconset resource="../resource/main_window.qrc">
        <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
      </property>
+     <addaction name="actionAction_recent_file_1"/>
+     <addaction name="actionRecent_file_2"/>
+     <addaction name="actionRecent_file_3"/>
+     <addaction name="actionRecent_file_4"/>
+     <addaction name="actionRecent_file_5"/>
     </widget>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>
@@ -876,6 +881,51 @@
   <action name="actionTete">
    <property name="text">
     <string>tete</string>
+   </property>
+  </action>
+  <action name="actionAction_recent_file_1">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>recent_file_1</string>
+   </property>
+  </action>
+  <action name="actionRecent_file_2">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>recent_file_2</string>
+   </property>
+  </action>
+  <action name="actionRecent_file_3">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>recent_file_3</string>
+   </property>
+  </action>
+  <action name="actionRecent_file_4">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>recent_file_4</string>
+   </property>
+  </action>
+  <action name="actionRecent_file_5">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+   </property>
+   <property name="text">
+    <string>recent_file_5</string>
    </property>
   </action>
  </widget>
