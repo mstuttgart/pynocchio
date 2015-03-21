@@ -22,8 +22,8 @@ from utility import Utility
 
 
 class TarLoader(Loader):
-    def __init__(self):
-        super(TarLoader, self).__init__()
+    def __init__(self, extension):
+        super(TarLoader, self).__init__(extension)
 
     def load(self, file_name):
 

@@ -14,27 +14,4 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-from zip_loader import ZipLoader
-from rar_loader import RarLoader
-from tar_loader import TarLoader
 
-product = {
-    '.zip': ZipLoader,
-    '.cbz': ZipLoader,
-    '.rar': RarLoader,
-    '.cbr': RarLoader,
-    '.tar': TarLoader,
-    '.cbt': TarLoader,
-}
-
-
-class LoaderFactory(object):
-
-    @staticmethod
-    def create_loader(extension):
-
-        image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
-                      '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
-
-        if extension in product:
-            return product[extension](image_extensions)

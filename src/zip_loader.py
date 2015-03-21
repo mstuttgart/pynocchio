@@ -22,8 +22,8 @@ from utility import Utility
 
 
 class ZipLoader(Loader):
-    def __init__(self):
-        super(ZipLoader, self).__init__()
+    def __init__(self, extension):
+        super(ZipLoader, self).__init__(extension)
 
     def load(self, file_name):
 
