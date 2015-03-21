@@ -38,3 +38,5 @@ class LoaderFactory(object):
 
         if extension in product:
             return product[extension](image_extensions)
+
+        return None
