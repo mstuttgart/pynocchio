@@ -152,7 +152,7 @@ class Viewer(QtGui.QScrollArea):
         if self.model:
             self.model.set_size(new_size)
 
-        if self.model.comic:
-            self.label.setPixmap(self.model.get_current_page())
+            if self.model.comic:
+                self.label.setPixmap(self.model.get_current_page())
 
         super(Viewer, self).resizeEvent(*args, **kwargs)
