@@ -34,7 +34,7 @@ class LoaderFactory(object):
     def create_loader(extension):
 
         image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
-                      '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
+                            '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
 
         if extension in product:
             return product[extension](image_extensions)
