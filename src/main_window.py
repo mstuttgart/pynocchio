@@ -47,17 +47,17 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.action_about_qt.setIcon(
             QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
-        actions = []
-
-        for i in range(5):
-            act = QtGui.QAction(self)
-            act.setVisible(False)
-            act.triggered.connect(self._on_action_recent_files)
-            act.setObjectName(str(i))
-            actions.append(act)
-            self.menu_recent_files.addAction(act)
-
-        self.recentFileManager = RecentFileManager(actions)
+        # actions = []
+        #
+        # for i in range(5):
+        #     act = QtGui.QAction(self)
+        #     act.setVisible(False)
+        #     act.triggered.connect(self._on_action_recent_files)
+        #     act.setObjectName(str(i))
+        #     actions.append(act)
+        #     self.menu_recent_files.addAction(act)
+        #
+        # self.recentFileManager = RecentFileManager(actions)
         self.preferences = Preference()
         self._load_settings()
         self._init_bookmark_menu()
@@ -107,7 +107,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
                 self.model.comic.name + ' - Pynocchio Comic Reader')
             self._update_status_bar()
             self._enable_actions()
-            self.recentFileManager.update_recent_file_list(path)
+            # self.recentFileManager.update_recent_file_list(path)
             self.model.current_directory = path
             self.model.verify_comics_in_path()
 
@@ -149,9 +149,9 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     def _on_action_recent_files(self):
         action = self.sender()
-        if action:
-            path = self.recentFileManager.get_action_path(action.objectName())
-            self.load(path)
+        # if action:
+        #     path = self.recentFileManager.get_action_path(action.objectName())
+        #     self.load(path)
 
     @QtCore.pyqtSlot()
     def on_action_next_page_triggered(self):
@@ -345,7 +345,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
     @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):
         self._save_settings()
-        self.recentFileManager.save_settings()
+        # self.recentFileManager.save_settings()
         super(MainWindow, self).close()
 
     def _update_view_actions(self):
