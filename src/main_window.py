@@ -141,12 +141,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         self.model.get_current_page().save(file_path)
 
-    # def _on_action_recent_files(self):
-    #     action = self.sender()
-        # if action:
-        #     path = self.recentFileManager.get_action_path(action.objectName())
-        #     self.load(path)
-
     @QtCore.pyqtSlot()
     def on_action_next_page_triggered(self):
         self.viewer.next_page()
