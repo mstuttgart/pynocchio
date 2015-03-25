@@ -21,4 +21,3 @@ class RecenteFiles(object):
     def __init__(self, comic_name, comic_path):
         self.comic_name = comic_name
         self.comic_path = comic_path
-
