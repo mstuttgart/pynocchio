@@ -48,16 +48,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.action_about_qt.setIcon(
             QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
-        # actions = []
-        #
-        # for i in range(5):
-        #     act = QtGui.QAction(self)
-        #     act.setVisible(False)
-        #     act.triggered.connect(self._on_action_recent_files)
-        #     act.setObjectName(str(i))
-        #     actions.append(act)
-        #     self.menu_recent_files.addAction(act)
-        #
         self.recent_file_manager = RecentFileManager(
             len(self.menu_recent_files.actions()))
         self.preferences = Preference()
@@ -110,9 +100,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
                 self.model.comic.name + ' - Pynocchio Comic Reader')
             self._update_status_bar()
             self._enable_actions()
-            # self.recentFileManager.update_recent_file_list(path)
-            self.recent_file_manager.add(RecenteFiles(self.model.comic.name,
-                                                       path))
+            self.recent_file_manager.append_left(
+                RecenteFiles(self.model.comic.name, path))
             self.model.current_directory = path
             self.model.verify_comics_in_path()
 
@@ -261,14 +250,14 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     def _update_recent_files_menu(self):
         rf_actions = self.menu_recent_files.actions()
-        recent_files_list = self.recent_file_manager.recent_files_deque
 
         for rf in rf_actions:
             rf.setVisible(False)
 
-        for i in range(len(recent_files_list)):
-            rf_actions[i].setText(recent_files_list[i].comic_name)
-            rf_actions[i].setStatusTip(recent_files_list[i].comic_path)
+        for i in range(len(self.recent_file_manager.recent_files_deque)):
+            rf_actions[i].setText(self.recent_file_manager.get(i).comic_name)
+            rf_actions[i].setStatusTip(
+                self.recent_file_manager.get(i).comic_path)
             rf_actions[i].setVisible(True)
 
     def _load_recent_file(self):
@@ -380,7 +369,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
     @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):
         self._save_settings()
-        # self.recentFileManager.save_settings()
         super(MainWindow, self).close()
 
     def _update_view_actions(self):
@@ -463,8 +451,10 @@ class MainWindow(MainWindowBase, MainWindowForm):
                           len(self.recent_file_manager.recent_files_deque))
 
         for i in range(len(self.recent_file_manager.recent_files_deque)):
-            settings.setValue("recent_file_" + str(i),
-                              self.recent_file_manager[i])
+            settings.setValue("recent_file_%d_comic_name" % i,
+                              self.recent_file_manager.get(i).comic_name)
+            settings.setValue("recent_file_%d_comic_path" % i,
+                              self.recent_file_manager.get(i).comic_path)
 
     def _load_settings(self):
 
@@ -501,10 +491,23 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.preferences.background_color = QtGui.QColor(color_name)
         self.viewer.change_background_color(self.preferences.background_color)
 
-        for i in range(self.recent_file_manager.recent_files_deque.maxlen):
-            rf = None
-            self.recent_file_manager.add(
-                settings.value("recent_file_" + str(i), rf, RecenteFiles))
+        num_actions = len(self.menu_recent_files.actions())
+
+        max_len = max(
+            settings.value(
+                'recent_file_list_lenght', num_actions, type=int), num_actions)
+
+        print max_len
+
+        for i in range(max_len):
+            comic_name = settings.value("recent_file_%d_comic_name" % i, None,
+                                        type=str)
+            comic_path = settings.value("recent_file_%d_comic_path" % i, None,
+                                        type=str)
+
+            if comic_path and comic_path:
+                self.recent_file_manager.append_right(
+                    RecenteFiles(comic_name, comic_path))
 
         self.on_action_show_toolbar_triggered()
         self.on_action_show_statusbar_triggered()
