@@ -21,6 +21,7 @@ from model import Model
 from recent_files_manager import RecentFileManager
 from status_bar import StatusBar
 from preference import Preference
+from recent_file import RecenteFiles
 
 
 MainWindowForm, MainWindowBase = uic.loadUiType('main_window.ui')
@@ -57,10 +58,12 @@ class MainWindow(MainWindowBase, MainWindowForm):
         #     actions.append(act)
         #     self.menu_recent_files.addAction(act)
         #
-        # self.recentFileManager = RecentFileManager(actions)
+        self.recent_file_manager = RecentFileManager(
+            len(self.menu_recent_files.actions()))
         self.preferences = Preference()
         self._load_settings()
         self._init_bookmark_menu()
+        self._init_recent_files_menu()
         self._adjust_main_window()
 
     def _adjust_main_window(self):
@@ -108,6 +111,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self._update_status_bar()
             self._enable_actions()
             # self.recentFileManager.update_recent_file_list(path)
+            self.recent_file_manager.add(RecenteFiles(self.model.comic.name,
+                                                       path))
             self.model.current_directory = path
             self.model.verify_comics_in_path()
 
@@ -147,8 +152,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         self.model.get_current_page().save(file_path)
 
-    def _on_action_recent_files(self):
-        action = self.sender()
+    # def _on_action_recent_files(self):
+    #     action = self.sender()
         # if action:
         #     path = self.recentFileManager.get_action_path(action.objectName())
         #     self.load(path)
@@ -246,6 +251,38 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.viewer.setWindowState(QtCore.Qt.WindowActive)
         self.viewer.setFocus(QtCore.Qt.ActiveWindowFocusReason)
 
+    def _init_recent_files_menu(self):
+        self.menu_recent_files.aboutToShow.connect(
+            self._update_recent_files_menu)
+
+        actions = self.menu_recent_files.actions()
+        for rf in actions:
+            rf.triggered.connect(self._load_recent_file)
+
+    def _update_recent_files_menu(self):
+        rf_actions = self.menu_recent_files.actions()
+        recent_files_list = self.recent_file_manager.recent_files_deque
+
+        for rf in rf_actions:
+            rf.setVisible(False)
+
+        for i in range(len(recent_files_list)):
+            rf_actions[i].setText(recent_files_list[i].comic_name)
+            rf_actions[i].setStatusTip(recent_files_list[i].comic_path)
+            rf_actions[i].setVisible(True)
+
+    def _load_recent_file(self):
+        action = self.sender()
+        if action:
+
+            for rf in self.recent_file_manager.recent_files_deque:
+                if rf.comic_path == action.statusTip():
+                    self.recent_file_manager.remove(rf)
+                    # prevent deque to change lenght erro
+                    break
+
+            self.load(QtCore.QString(action.statusTip()))
+
     def _init_bookmark_menu(self):
         self.menu_recent_bookmarks.aboutToShow.connect(
             self._update_bookmarks_menu)
@@ -323,9 +360,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         # text = '<p><justify>The <a ' \
         #        'href=https://github.com/pynocchio>Pynocchio Comic ' \
         #        'Reader</a> is an image viewer specifically designed  to ' \
-        #        'handle comic books.<justify></p>'\
-        #        '<justify><a href=https://github.com/pynocchio>Pynocchio Comic ' \
-        #        'Reader</a> is licensed under the GPLv3.'\
+        #        'handle comic books is licensed under the GPLv3.<justify></p>'\
         #        '<br>Copyright (C) 2014-2015 ' \
         #        '<a href=https://github.com/mstuttgart>' \
         #        'Michell Stuttgart Faria</a>'\
@@ -334,8 +369,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
         #        '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
         #        '>Elementary OS 3.1 icons</a>.</p></justify>'
         #
-        # QtGui.QMessageBox().about(self, self.tr('About QChip8 Emulator'),
-        #                           self.tr(text))
+        # QtGui.QMessageBox().about(self, self.tr('About Pynocchio Comic Reader
+        # Emulator'), self.tr(text))
 
 
     @QtCore.pyqtSlot()
@@ -424,6 +459,13 @@ class MainWindow(MainWindowBase, MainWindowForm):
         settings.setValue("directory", self.model.current_directory)
         settings.setValue("background_color", self.preferences.background_color)
 
+        settings.setValue("recent_file_list_lenght",
+                          len(self.recent_file_manager.recent_files_deque))
+
+        for i in range(len(self.recent_file_manager.recent_files_deque)):
+            settings.setValue("recent_file_" + str(i),
+                              self.recent_file_manager[i])
+
     def _load_settings(self):
 
         settings = QtCore.QSettings("Pynocchio", "Pynocchio Comic Reader")
@@ -458,6 +500,12 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         self.preferences.background_color = QtGui.QColor(color_name)
         self.viewer.change_background_color(self.preferences.background_color)
+
+        for i in range(self.recent_file_manager.recent_files_deque.maxlen):
+            rf = None
+            self.recent_file_manager.add(
+                settings.value("recent_file_" + str(i), rf, RecenteFiles))
+
         self.on_action_show_toolbar_triggered()
         self.on_action_show_statusbar_triggered()
 

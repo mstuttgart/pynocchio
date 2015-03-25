@@ -15,23 +15,10 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-try:
-    import peewee
-except ImportError, err:
-    print 'peewee module not installed.\n' \
-          'Please install it using: sudo pip install peewee\n'
-    import sys
-    sys.exit(err)
 
-db = peewee.SqliteDatabase('recente_files.db')
+class RecenteFiles(object):
 
+    def __init__(self, comic_name, comic_path):
+        self.comic_name = comic_name
+        self.comic_path = comic_path
 
-class RecenteFilesBaseModel(peewee.Model):
-    class Meta:
-        database = db
-
-
-class RecenteFiles(RecenteFilesBaseModel):
-    comic_id = peewee.PrimaryKeyField(unique=True, index=True)
-    comic_path = peewee.CharField(unique=True)
-    comic_name = peewee.CharField(default='')
