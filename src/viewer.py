@@ -14,6 +14,7 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 from PyQt4 import QtCore, QtGui
 
 
@@ -24,6 +25,7 @@ class Viewer(QtGui.QScrollArea):
 
         self.model = None
         self.label = None
+        self.main_window = None
         self.drag_mouse = False
         self.drag_position = {'x': 0, 'y': 0}
         self.last_scroll_position = 0
@@ -36,6 +38,26 @@ class Viewer(QtGui.QScrollArea):
 
         self.setWidgetResizable(True)
         self._change_cursor()
+
+    def define_global_shortcuts(self):
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"), self,
+                        self.main_window.on_action_previous_comic_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"), self,
+                        self.main_window.on_action_first_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Left"), self,
+                        self.main_window.on_action_previous_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Right"), self, 
+                        self.main_window.on_action_next_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"), self,
+                        self.main_window.on_action_last_page_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"), self,
+                        self.main_window.on_action_next_comic_triggered)
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"), self,
+                        self.main_window.on_action_rotate_right_triggered)
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"), self,
+                        self.main_window.on_action_rotate_left_triggered)
 
     def next_page(self):
         self.update_view(self.model.next_page())
@@ -130,7 +152,7 @@ class Viewer(QtGui.QScrollArea):
         if self.model:
             self.model.set_size(new_size)
 
-        if self.model.comic:
-            self.label.setPixmap(self.model.get_current_page())
+            if self.model.comic:
+                self.label.setPixmap(self.model.get_current_page())
 
         super(Viewer, self).resizeEvent(*args, **kwargs)

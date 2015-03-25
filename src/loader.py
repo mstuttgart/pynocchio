@@ -22,10 +22,13 @@ class Loader(QtCore.QObject):
     progress = QtCore.pyqtSignal(int)
     done = QtCore.pyqtSignal()
 
-    def __init__(self):
+    def __init__(self, extension):
         super(Loader, self).__init__()
-        self.extension = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
-                          '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
+
+        if not isinstance(extension, list):
+            raise TypeError
+
+        self.extension = extension
         self.data = []
 
     def load(self, file_name):

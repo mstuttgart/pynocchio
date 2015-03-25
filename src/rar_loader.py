@@ -28,8 +28,8 @@ from utility import Utility
 
 
 class RarLoader(Loader):
-    def __init__(self):
-        super(RarLoader, self).__init__()
+    def __init__(self, extension):
+        super(RarLoader, self).__init__(extension)
 
     def load(self, file_name):
 

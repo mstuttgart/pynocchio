@@ -21,6 +21,7 @@ from model import Model
 from recent_files_manager import RecentFileManager
 from status_bar import StatusBar
 from preference import Preference
+from recent_file import RecenteFiles
 
 
 MainWindowForm, MainWindowBase = uic.loadUiType('main_window.ui')
@@ -34,7 +35,9 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.model = Model(self)
         self.viewer.model = self.model
         self.viewer.label = self.label
-
+        self.viewer.main_window = self
+        self.viewer.define_global_shortcuts()
+        
         self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)
 
@@ -45,22 +48,13 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.action_about_qt.setIcon(
             QtGui.QIcon(':/trolltech/qmessagebox/images/qtlogo-64.png'))
 
-        actions = []
-
-        for i in range(5):
-            act = QtGui.QAction(self)
-            act.setVisible(False)
-            act.triggered.connect(self._on_action_recent_files)
-            act.setObjectName(str(i))
-            actions.append(act)
-            self.menu_recent_files.addAction(act)
-
-        self.recentFileManager = RecentFileManager(actions)
+        self.recent_file_manager = RecentFileManager(
+            len(self.menu_recent_files.actions()))
         self.preferences = Preference()
         self._load_settings()
         self._init_bookmark_menu()
+        self._init_recent_files_menu()
         self._adjust_main_window()
-        self._define_global_shortcuts()
 
     def _adjust_main_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -70,26 +64,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.move(x_center, y_center)
         self.setMinimumSize(
             QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
-
-    def _define_global_shortcuts(self):
-
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"), self,
-                        self.on_action_previous_comic_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"), self,
-                        self.on_action_first_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Left"), self,
-                        self.on_action_previous_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Right"), self,
-                        self.on_action_next_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"), self,
-                        self.on_action_last_page_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"), self,
-                        self.on_action_next_comic_triggered)
-
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"), self,
-                        self.on_action_rotate_right_triggered)
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"), self,
-                        self.on_action_rotate_left_triggered)
 
     def _create_action_group_view(self):
         self.actionGroupView = QtGui.QActionGroup(self)
@@ -113,21 +87,26 @@ class MainWindow(MainWindowBase, MainWindowForm):
     def load(self, path, initial_page=0):
 
         import utility
+        import pynocchio_exception
 
         ph = utility.Utility.convert_qstring_to_str(path)
         if ph:
             path = ph
 
-        if self.model.load_comic(path, initial_page):
-            self.viewer.label.setPixmap(
-                self.model.get_current_page())
-            self.setWindowTitle(self.model.comic.name)
+        try:
+            self.model.load_comic(path, initial_page)
+            self.viewer.label.setPixmap(self.model.get_current_page())
+            self.setWindowTitle(
+                self.model.comic.name + ' - Pynocchio Comic Reader')
             self._update_status_bar()
             self._enable_actions()
-            self.recentFileManager.update_recent_file_list(path)
+            self.recent_file_manager.append_left(
+                RecenteFiles(self.model.comic.name, path))
             self.model.current_directory = path
             self.model.verify_comics_in_path()
-        else:
+
+        except pynocchio_exception.OpenComicFileException as exc:
+            print exc.msg
             QtGui.QMessageBox().information(self, self.tr('Error'), self.tr(
                 "Error to load file ") + path)
 
@@ -162,40 +141,37 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         self.model.get_current_page().save(file_path)
 
-    def _on_action_recent_files(self):
-        action = self.sender()
-        if action:
-            path = self.recentFileManager.get_action_path(action.objectName())
-            self.load(path)
-
     @QtCore.pyqtSlot()
     def on_action_next_page_triggered(self):
         self.viewer.next_page()
         self._update_status_bar()
         self._update_view_actions()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_previous_page_triggered(self):
         self.viewer.previous_page()
         self._update_status_bar()
         self._update_view_actions()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_first_page_triggered(self):
         self.viewer.first_page()
         self._update_status_bar()
         self._update_view_actions()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_last_page_triggered(self):
         self.viewer.last_page()
         self._update_status_bar()
         self._update_view_actions()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
         import go_to_page_dialog
-
         go_to_dlg = go_to_page_dialog.GoToDialog(self.model, self.viewer)
         go_to_dlg.show()
         go_to_dlg.exec_()
@@ -206,20 +182,24 @@ class MainWindow(MainWindowBase, MainWindowForm):
         file_name = self.model.next_comic()
         if file_name:
             self.load(file_name)
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_previous_comic_triggered(self):
         file_name = self.model.previous_comic()
         if file_name:
             self.load(file_name)
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_rotate_left_triggered(self):
         self.viewer.rotate_left()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_rotate_right_triggered(self):
         self.viewer.rotate_right()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_fullscreen_triggered(self):
@@ -238,15 +218,53 @@ class MainWindow(MainWindowBase, MainWindowForm):
             if not self.preferences.show_statusbar_in_fullscreen:
                 self.statusbar.hide()
             self.showFullScreen()
+            self._set_focus_on_viewer()
 
     def _on_action_group_view_adjust(self):
         action = self.sender()
 
         if action:
             self.model.adjustType = action.objectName()
-            self.viewer.label.setPixmap(
-                self.model.get_current_page())
+            self.viewer.label.setPixmap(self.model.get_current_page())
             self._update_status_bar()
+            self._set_focus_on_viewer()
+
+    def _set_focus_on_viewer(self):
+        self.viewer.activateWindow()
+        self.viewer.setWindowState(QtCore.Qt.WindowActive)
+        self.viewer.setFocus(QtCore.Qt.ActiveWindowFocusReason)
+
+    def _init_recent_files_menu(self):
+        self.menu_recent_files.aboutToShow.connect(
+            self._update_recent_files_menu)
+
+        actions = self.menu_recent_files.actions()
+        for rf in actions:
+            rf.triggered.connect(self._load_recent_file)
+
+    def _update_recent_files_menu(self):
+        rf_actions = self.menu_recent_files.actions()
+
+        for rf in rf_actions:
+            rf.setVisible(False)
+
+        for i in range(len(self.recent_file_manager.recent_files_deque)):
+            rf_actions[i].setText(self.recent_file_manager.get(i).comic_name)
+            rf_actions[i].setStatusTip(
+                self.recent_file_manager.get(i).comic_path)
+            rf_actions[i].setVisible(True)
+
+    def _load_recent_file(self):
+        action = self.sender()
+        if action:
+
+            for rf in self.recent_file_manager.recent_files_deque:
+                if rf.comic_path == action.statusTip():
+                    self.recent_file_manager.remove(rf)
+                    # prevent deque to change lenght erro
+                    break
+
+            self.load(QtCore.QString(action.statusTip()))
 
     def _init_bookmark_menu(self):
         self.menu_recent_bookmarks.aboutToShow.connect(
@@ -274,6 +292,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
         self.model.add_bookmark()
+        self._set_focus_on_viewer()
 
     @QtCore.pyqtSlot()
     def on_action_remove_bookmark_triggered(self):
@@ -323,20 +342,20 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         text = '<p><justify>The <a ' \
                'href=https://github.com/pynocchio>Pynocchio Comic ' \
-               'Reader</a> is an image viewer specifically designed  to ' \
-               'handle comic books.<justify></p>'\
-               '<justify><a href=https://github.com/pynocchio>Pynocchio Comic ' \
-               'Reader</a> is licensed under the GPLv3.'\
+               'Reader</a> is an image viewer <br>' \
+               'specifically designed  to ' \
+               'handle comic books is licensed <br>under the ' \
+               'GPLv3.<justify></p>'\
                '<br>Copyright (C) 2014-2015 ' \
                '<a href=https://github.com/mstuttgart>' \
                'Michell Stuttgart Faria</a>'\
                '<br>Pynocchio use <a href=http://freeiconmaker.com>Free Icon ' \
-               'Maker</a> to build icon set and '\
+               'Maker</a> to build icon set and <br>'\
                '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
                '>Elementary OS 3.1 icons</a>.</p></justify>'
 
-        QtGui.QMessageBox().about(self, self.tr('About QChip8 Emulator'),
-                                  self.tr(text))
+        QtGui.QMessageBox().about(self, self.tr('About Pynocchio Comic '
+                                                'Reader'),  self.tr(text))
 
 
     @QtCore.pyqtSlot()
@@ -346,7 +365,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
     @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):
         self._save_settings()
-        self.recentFileManager.save_settings()
         super(MainWindow, self).close()
 
     def _update_view_actions(self):
@@ -383,6 +401,14 @@ class MainWindow(MainWindowBase, MainWindowForm):
             self.statusbar.set_page_resolution(page_width, page_height)
             self.statusbar.set_comic_path(page_title)
 
+            self.statusbar.slider.valueChanged.connect(
+                self._set_zoom_factor)
+
+    @QtCore.pyqtSlot(int)
+    def _set_zoom_factor(self, value):
+        self.model.zoom_factor = 2 * value/100.0
+        self.viewer.update_view(self.model.update_content())
+
     def _enable_actions(self):
 
         self.action_save_image.setEnabled(True)
@@ -416,6 +442,15 @@ class MainWindow(MainWindowBase, MainWindowForm):
                           self.action_show_statusbar.isChecked())
         settings.setValue("directory", self.model.current_directory)
         settings.setValue("background_color", self.preferences.background_color)
+
+        settings.setValue("recent_file_list_lenght",
+                          len(self.recent_file_manager.recent_files_deque))
+
+        for i in range(len(self.recent_file_manager.recent_files_deque)):
+            settings.setValue("recent_file_%d_comic_name" % i,
+                              self.recent_file_manager.get(i).comic_name)
+            settings.setValue("recent_file_%d_comic_path" % i,
+                              self.recent_file_manager.get(i).comic_path)
 
     def _load_settings(self):
 
@@ -451,6 +486,25 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         self.preferences.background_color = QtGui.QColor(color_name)
         self.viewer.change_background_color(self.preferences.background_color)
+
+        num_actions = len(self.menu_recent_files.actions())
+
+        max_len = max(
+            settings.value(
+                'recent_file_list_lenght', num_actions, type=int), num_actions)
+
+        print max_len
+
+        for i in range(max_len):
+            comic_name = settings.value("recent_file_%d_comic_name" % i, None,
+                                        type=str)
+            comic_path = settings.value("recent_file_%d_comic_path" % i, None,
+                                        type=str)
+
+            if comic_path and comic_path:
+                self.recent_file_manager.append_right(
+                    RecenteFiles(comic_name, comic_path))
+
         self.on_action_show_toolbar_triggered()
         self.on_action_show_statusbar_triggered()
 

@@ -14,25 +14,4 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-from zip_loader import ZipLoader
-from rar_loader import RarLoader
-from tar_loader import TarLoader
 
-product = {
-    '.zip': ZipLoader,
-    '.cbz': ZipLoader,
-    '.rar': RarLoader,
-    '.cbr': RarLoader,
-    '.tar': TarLoader,
-    '.cbt': TarLoader,
-}
-
-
-class LoaderFactory(object):
-
-    @staticmethod
-    def create_loader(compact_file_extension, data_extension):
-        if compact_file_extension in product:
-            return product[compact_file_extension](data_extension)
-
-        return None
