@@ -15,10 +15,21 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from PyQt4 import QtGui
+
 
 class Page(object):
+
     def __init__(self, data, title, number):
-        super(Page, self).__init__()
+        self._pixmap = False
         self.data = data
         self.title = title
         self.number = number
+
+    @property
+    def pixmap(self):
+        if not self._pixmap:
+            self._pixmap = QtGui.QPixmap()
+            self._pixmap.loadFromData(self.data)
+        return self._pixmap
+

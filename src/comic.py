@@ -35,7 +35,7 @@ class Comic(object):
             self.pages.remove(obj_page)
 
     def get_current_page(self):
-        return self.pages[self.current_page_index].data
+        return self.pages[self.current_page_index]
 
     def get_current_page_title(self):
         return self.pages[self.current_page_index].title

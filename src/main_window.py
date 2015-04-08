@@ -488,9 +488,8 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
         num_actions = len(self.menu_recent_files.actions())
 
-        max_len = max(
-            settings.value(
-                'recent_file_list_lenght', num_actions, type=int), num_actions)
+        max_len = max(settings.value(
+            'recent_file_list_lenght', num_actions, type=int), num_actions)
 
         for i in range(max_len):
             comic_name = settings.value("recent_file_%d_comic_name" % i, None,
@@ -498,7 +497,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
             comic_path = settings.value("recent_file_%d_comic_path" % i, None,
                                         type=str)
 
-            if comic_path and comic_path:
+            if comic_path and comic_name:
                 self.recent_file_manager.append_right(
                     RecenteFiles(comic_name, comic_path))
 

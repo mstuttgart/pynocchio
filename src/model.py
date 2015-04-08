@@ -22,7 +22,6 @@ from bookmark_database_manager import BookmarkManager
 
 
 class Model(object):
-    NUM_BOOKMARK = 5
 
     def __init__(self, main_window):
 
@@ -30,7 +29,7 @@ class Model(object):
 
         self.main_window = main_window
         self.comic = None
-        self.original_pixmap = QtGui.QPixmap()
+        self.original_pixmap = None
         self.adjustType = 'action_original_fit'
         self.screenSize = QtCore.QSize(0, 0)
         self.rotateAngle = 0
@@ -186,8 +185,7 @@ class Model(object):
     def _load_pixmap_from_data(self):
         if self.comic:
             pg = self.comic.get_current_page()
-            if pg:
-                self.original_pixmap.loadFromData(pg)
+            self.original_pixmap = pg.pixmap.copy()
 
         return self.update_content()
 
@@ -201,7 +199,6 @@ class Model(object):
         if self.rotateAngle != 0:
             trans = QtGui.QTransform().rotate(self.rotateAngle)
             pix_map = QtGui.QPixmap(pix_map.transformed(trans))
-
         return pix_map
 
     def _resize_page(self, pix_map):
@@ -262,7 +259,7 @@ class Model(object):
             BookmarkManager.add_bookmark(self.comic.name,
                                          self.comic.get_path(),
                                          self.comic.get_current_page_number(),
-                                         self.comic.get_current_page())
+                                         self.comic.get_current_page().data)
             BookmarkManager.close()
 
     def remove_bookmark(self):
