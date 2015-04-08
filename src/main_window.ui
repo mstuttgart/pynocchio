@@ -842,7 +842,7 @@
     <string>bookmark</string>
    </property>
    <property name="visible">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </action>
   <action name="action_bookmark_2">

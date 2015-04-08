@@ -455,7 +455,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
     def _load_settings(self):
 
         settings = QtCore.QSettings("Pynocchio", "Pynocchio Comic Reader")
-
         view_adjust = settings.value(
             'view_adjust', self.actionGroupView.checkedAction().objectName(),
             type=str)
@@ -492,8 +491,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
         max_len = max(
             settings.value(
                 'recent_file_list_lenght', num_actions, type=int), num_actions)
-
-        print max_len
 
         for i in range(max_len):
             comic_name = settings.value("recent_file_%d_comic_name" % i, None,
