@@ -33,3 +33,10 @@ class Page(object):
             self._pixmap.loadFromData(self.data)
         return self._pixmap
 
+
+class OnlinePage(object):
+
+    def __init__(self, url, title, number):
+        self.url = url
+        self.title = title
+        self.number = number

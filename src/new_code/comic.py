@@ -15,8 +15,6 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import page
-
 
 class Comic(object):
     def __init__(self, name, directory, initial_page=0):
@@ -27,12 +25,10 @@ class Comic(object):
         self.pages = []
 
     def add_page(self, obj_page):
-        if isinstance(obj_page, page.Page):
-            self.pages.append(obj_page)
+        self.pages.append(obj_page)
 
     def remove_page(self, obj_page):
-        if isinstance(obj_page, page.Page):
-            self.pages.remove(obj_page)
+        self.pages.remove(obj_page)
 
     def get_current_page(self):
         return self.pages[self.current_page_index]
