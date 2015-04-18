@@ -17,11 +17,13 @@
 
 from PyQt4 import QtGui, QtCore, uic
 import main_window_view
+import main_window_model
 
 
 class MainWindowController():
     def __init__(self):
         self.main_window_view = main_window_view.MainWindowView(self)
+        self.main_window_model = main_window_model.MainWindowModel(self)
 
 
     @QtCore.pyqtSlot()

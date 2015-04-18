@@ -22,7 +22,7 @@ try:
 except ImportError, err:
     sys.exit(err)
 
-from main_window_view import MainWindow
+from main_window_controller import MainWindowController
 
 
 def main():
@@ -40,7 +40,7 @@ def main():
     #     except IOError:
     #         print 'Translation file qt_%s.qm not find' % qm
 
-    main_window = MainWindow()
+    main_window = MainWindowController()
     main_window.show()
 
     sys.exit(app.exec_())
