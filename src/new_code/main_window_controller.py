@@ -25,101 +25,86 @@ class MainWindowController():
         self.main_window_view = main_window_view.MainWindowView(self)
         self.main_window_model = main_window_model.MainWindowModel(self)
 
-
     @QtCore.pyqtSlot()
-    def on_action_open_triggered(self):
+    def open(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_save_image_triggered(self):
+    def save_image(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_next_page_triggered(self):
+    def next_page(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_previous_page_triggered(self):
+    def previous_page(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_first_page_triggered(self):
+    def first_page(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_last_page_triggered(self):
+    def last_page(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_go_to_page_triggered(self):
+    def go_to_page(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_next_comic_triggered(self):
+    def next_comic(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_previous_comic_triggered(self):
+    def previous_comic(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_rotate_left_triggered(self):
+    def rotate_left(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_rotate_right_triggered(self):
+    def rotate_right(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_fullscreen_triggered(self):
+    def fullscreen(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_add_bookmark_triggered(self):
+    def add_bookmark(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_remove_bookmark_triggered(self):
+    def remove_bookmark(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_bookmark_manager_triggered(self):
+    def bookmark_manager(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_show_toolbar_triggered(self):
+    def show_toolbar(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_show_statusbar_triggered(self):
+    def show_statusbar(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_preference_dialog_triggered(self):
+    def preference_dialog(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_about_triggered(self):
+    def about(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_about_qt_triggered(self):
+    def about_qt(self):
         print
 
     @QtCore.pyqtSlot()
-    def on_action_exit_triggered(self):
+    def exit(self):
         print
-
-    def keyPressEvent(self, event):
-        if event.key() == QtCore.Qt.Key_F:
-            self.on_action_fullscreen_triggered()
-        elif event.key() == QtCore.Qt.Key_Escape and self.isFullScreen():
-            self.on_action_fullscreen_triggered()
-        else:
-            super(MainWindow, self).keyPressEvent(event)
-
-    def mouseDoubleClickEvent(self, *args, **kwargs):
-        if args[0].button() == QtCore.Qt.LeftButton:
-            self.on_action_fullscreen_triggered()
-        else:
-            super(MainWindow, self).mousePressEvent(*args, **kwargs)

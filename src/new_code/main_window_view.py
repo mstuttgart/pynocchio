@@ -71,6 +71,15 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_best_fit.triggered.connect(
             self.controller.group_view_adjust)
 
+        self._centralize_window()
+
+    def _centralize_window(self):
+        screen = QtGui.QDesktopWidget().screenGeometry()
+        size = self.geometry()
+        x_center = (screen.width() - size.width()) / 2
+        y_center = (screen.height() - size.height()) / 2
+        self.move(x_center, y_center)
+        self.setMinimumSize(QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:
