@@ -16,14 +16,13 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import QtGui, QtCore, uic
+import main_window_view
 
 
-MainWindowForm, MainWindowBase = uic.loadUiType('../main_window.ui')
+class MainWindowController():
+    def __init__(self):
+        self.main_window_view = main_window_view.MainWindowView(self)
 
-
-class MainWindow(MainWindowBase, MainWindowForm):
-    def __init__(self, parent=None):
-        super(MainWindow, self).__init__(parent)
 
     @QtCore.pyqtSlot()
     def on_action_open_triggered(self):

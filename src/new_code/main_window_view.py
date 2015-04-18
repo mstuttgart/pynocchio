@@ -21,9 +21,10 @@ from PyQt4 import QtGui, QtCore, uic
 MainWindowForm, MainWindowBase = uic.loadUiType('../main_window.ui')
 
 
-class MainWindow(MainWindowBase, MainWindowForm):
-    def __init__(self, parent=None):
-        super(MainWindow, self).__init__(parent)
+class MainWindowView(MainWindowBase, MainWindowForm):
+    def __init__(self, controller, parent=None):
+        super(MainWindowView, self).__init__(parent)
+        self.controller = controller
 
     @QtCore.pyqtSlot()
     def on_action_open_triggered(self):
@@ -115,10 +116,10 @@ class MainWindow(MainWindowBase, MainWindowForm):
         elif event.key() == QtCore.Qt.Key_Escape and self.isFullScreen():
             self.on_action_fullscreen_triggered()
         else:
-            super(MainWindow, self).keyPressEvent(event)
+            super(MainWindowView, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
         if args[0].button() == QtCore.Qt.LeftButton:
             self.on_action_fullscreen_triggered()
         else:
-            super(MainWindow, self).mousePressEvent(*args, **kwargs)
+            super(MainWindowView, self).mousePressEvent(*args, **kwargs)

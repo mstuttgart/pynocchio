@@ -22,7 +22,7 @@ try:
 except ImportError, err:
     sys.exit(err)
 
-from main_window import MainWindow
+from main_window_view import MainWindow
 
 
 def main():
