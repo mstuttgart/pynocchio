@@ -18,7 +18,7 @@
 from PyQt4 import QtGui, QtCore, uic
 
 
-MainWindowForm, MainWindowBase = uic.loadUiType('main_window.ui')
+MainWindowForm, MainWindowBase = uic.loadUiType('../main_window.ui')
 
 
 class MainWindow(MainWindowBase, MainWindowForm):
