@@ -17,12 +17,6 @@
 
 from PyQt4 import QtGui, QtCore, uic
 
-from model import Model
-from recent_files_manager import RecentFileManager
-from status_bar import StatusBar
-from preference import Preference
-from recent_file import RecenteFiles
-
 
 MainWindowForm, MainWindowBase = uic.loadUiType('main_window.ui')
 
@@ -30,15 +24,6 @@ MainWindowForm, MainWindowBase = uic.loadUiType('main_window.ui')
 class MainWindow(MainWindowBase, MainWindowForm):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
-
-    def _adjust_main_window(self):
-        pass
-
-    def _create_action_group_view(self):
-        print
-
-    def load(self, path, initial_page=0):
-        pass
 
     @QtCore.pyqtSlot()
     def on_action_open_triggered(self):
@@ -88,27 +73,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
     def on_action_fullscreen_triggered(self):
         print
 
-    def _on_action_group_view_adjust(self):
-        print
-
-    def _set_focus_on_viewer(self):
-        print
-
-    def _init_recent_files_menu(self):
-        print
-
-    def _update_recent_files_menu(self):
-        print
-
-    def _load_recent_file(self):
-        print
-
-    def _init_bookmark_menu(self):
-        print
-
-    def _update_bookmarks_menu(self):
-        print
-
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
         print
@@ -119,9 +83,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_bookmark_manager_triggered(self):
-        print
-
-    def _load_bookmark(self):
         print
 
     @QtCore.pyqtSlot()
@@ -146,25 +107,6 @@ class MainWindow(MainWindowBase, MainWindowForm):
 
     @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):
-        print
-
-    def _update_view_actions(self):
-        print
-
-    def _update_status_bar(self):
-        print
-
-    @QtCore.pyqtSlot(int)
-    def _set_zoom_factor(self, value):
-        print
-
-    def _enable_actions(self):
-        print
-
-    def _save_settings(self):
-        print
-
-    def _load_settings(self):
         print
 
     def keyPressEvent(self, event):
