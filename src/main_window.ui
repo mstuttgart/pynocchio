@@ -46,13 +46,13 @@
    <enum>Qt::ToolButtonIconOnly</enum>
   </property>
   <property name="documentMode">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <property name="tabShape">
    <enum>QTabWidget::Rounded</enum>
   </property>
   <property name="dockNestingEnabled">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>true</bool>
