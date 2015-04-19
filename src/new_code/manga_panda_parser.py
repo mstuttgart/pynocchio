@@ -30,7 +30,7 @@ class MangaPandaParser(object):
         self.pages_urls = []
         self.image_urls = []
 
-    def comic_list(self):
+    def updated_comic_list(self):
         page = requests.get(MangaPandaParser._COMIC_INDEX)
         tree = html.fromstring(page.text)
 
@@ -43,31 +43,39 @@ class MangaPandaParser(object):
 
         return self.comics_urls
 
-    def chapters_list(self, comic_url):
-        page = requests.get(comic_url)
-        tree = html.fromstring(page.text)
+    def update_chapters_list(self, comic_name):
 
         self.chapter_urls = {}
-        for chapter in tree.xpath("//table[@id='listing']/tr/td/a"):
-            self.chapter_urls[chapter.text.encode("utf-8")] = \
-                'http://www.mangapanda.com'.join(chapter.get('href'))
+
+        try:
+            page = requests.get(self.comics_urls[comic_name])
+            tree = html.fromstring(page.text)
+            for chapter in tree.xpath("//table[@id='listing']/tr/td/a"):
+                self.chapter_urls[chapter.text.encode("utf-8")] = \
+                    'http://www.mangapanda.com'.join(chapter.get('href'))
+        except KeyError as excp:
+            print '[ERROR] Invalid comic name. ', excp.message
 
         return self.chapter_urls
 
-    def pages_url(self, chapter_url):
-        page = requests.get(chapter_url)
-        tree = html.fromstring(page.text)
+    def update_pages_url(self, chapter_name):
 
         self.pages_urls = []
 
-        for option in tree.xpath(
-                "//div[@id='selectpage']/select[@id='pageMenu']/option"):
-            self.pages_urls.append('http://www.mangapanda.com'.join(
-                option.get('value')))
+        try:
+            page = requests.get(self.chapter_urls[chapter_name])
+            tree = html.fromstring(page.text)
+            for option in tree.xpath(
+                    "//div[@id='selectpage']/select[@id='pageMenu']/option"):
+                self.pages_urls.append('http://www.mangapanda.com'.join(
+                    option.get('value')))
+
+        except KeyError as excp:
+            print '[ERROR] Invalid chapter name. ', excp.message
 
         return self.pages_urls
 
-    def image_url(self, page_url):
+    def update_image_url(self, page_url):
         page = requests.get(page_url)
         tree = html.fromstring(page.text)
 
