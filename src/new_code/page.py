@@ -16,6 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import QtGui
+from lxml import html
+import requests
 
 
 class Page(object):
@@ -36,7 +38,17 @@ class Page(object):
 
 class OnlinePage(object):
 
-    def __init__(self, url, title, number):
+    def __init__(self, url, title, number, loader):
         self.url = url
         self.title = title
         self.number = number
+        self.loader = loader
+        self._image_url = False
+
+    @property
+    def url(self):
+        if not self._image_url:
+            page = requests.get(self.utl)
+            tree = html.fromstring(page.text)
+
+        return
