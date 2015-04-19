@@ -16,7 +16,7 @@ setup(
     author='Michell Stuttgart',
     author_email='michellstut@gmail.com',
     description='Comic Reader', 
-    requires=['peewee', 'rarfile'],
+    requires=['peewee', 'rarfile', 'requests', 'lxml'],
     platforms = 'UNIX',
     
 )
