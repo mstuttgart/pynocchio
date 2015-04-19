@@ -18,71 +18,24 @@ from lxml import html
 import requests
 
 
-class MangaPandaParser(object):
+class BaseParser(object):
 
-    _HOST = 'http://www.mangapanda.com'
-    _COMIC_INDEX = 'http://www.mangapanda.com/alphabetical'
-
-    def __init__(self, url):
-        self._url = url
+    def __init__(self):
         self.comics_urls = {}
         self.chapter_urls = {}
         self.pages_urls = []
         self.image_urls = []
 
     def updated_comic_list(self):
-        page = requests.get(MangaPandaParser._COMIC_INDEX)
-        tree = html.fromstring(page.text)
-
-        xpath = "//div[@class='series_alpha']/ul[@class='series_alpha']/li/a"
-        self.comics_urls = {}
-
-        for comics in tree.xpath(xpath):
-            self.comics_urls[comics.text.encode("utf-8")] = \
-                'http://www.mangapanda.com'.join(comics.get('href'))
-
-        return self.comics_urls
+        pass
 
     def update_chapters_list(self, comic_name):
-
-        self.chapter_urls = {}
-
-        try:
-            page = requests.get(self.comics_urls[comic_name])
-            tree = html.fromstring(page.text)
-            for chapter in tree.xpath("//table[@id='listing']/tr/td/a"):
-                self.chapter_urls[chapter.text.encode("utf-8")] = \
-                    'http://www.mangapanda.com'.join(chapter.get('href'))
-        except KeyError as excp:
-            print '[ERROR] Invalid comic name. ', excp.message
-
-        return self.chapter_urls
+        pass
 
     def update_pages_url(self, chapter_name):
-
-        self.pages_urls = []
-
-        try:
-            page = requests.get(self.chapter_urls[chapter_name])
-            tree = html.fromstring(page.text)
-            for option in tree.xpath(
-                    "//div[@id='selectpage']/select[@id='pageMenu']/option"):
-                self.pages_urls.append('http://www.mangapanda.com'.join(
-                    option.get('value')))
-
-        except KeyError as excp:
-            print '[ERROR] Invalid chapter name. ', excp.message
-
-        return self.pages_urls
+        pass
 
     def update_image_url(self, page_url):
-        page = requests.get(page_url)
-        tree = html.fromstring(page.text)
-
-        self.image_urls = []
-        for src in tree.xpath("//div[@id='imgholder']/a/img[@id='img']"):
-            self.image_urls .append(src.get('src'))
-
-        return self.image_urls
+        pass
 
 
