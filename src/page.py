@@ -59,7 +59,7 @@ class OnlinePage(object):
 
         return self._image_url
 
-    @property.setter
-    def url(self, value):
+    @image_url.setter
+    def image_url(self, value):
         self.url = value
         self._image_url = False

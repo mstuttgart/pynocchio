@@ -36,7 +36,7 @@ class MainWindow(MainWindowBase, MainWindowForm):
         self.viewer.model = self.model
         self.viewer.label = self.label
         self.viewer.main_window = self
-        self.viewer.define_global_shortcuts()
+        # self.viewer.define_global_shortcuts()
         
         self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)

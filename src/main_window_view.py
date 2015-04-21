@@ -18,42 +18,44 @@
 from PyQt4 import QtGui, QtCore, uic
 
 
-MainWindowForm, MainWindowBase = uic.loadUiType('../main_window.ui')
+MainWindowForm, MainWindowBase = uic.loadUiType('main_window.ui')
 
 
 class MainWindowView(MainWindowBase, MainWindowForm):
-    def __init__(self, controller, parent=None):
-        super(MainWindowView, self).__init__(parent)
+    def __init__(self, controller):
+        super(MainWindowView, self).__init__()
+        self.setupUi(self)
+
         self.controller = controller
 
-        self.action_open.triggered(self.controller.open)
-        self.action_save_image.triggered(self.controller.save_image)
+        self.action_open.triggered.connect(self.controller.open)
+        self.action_save_image.triggered.connect(self.controller.save_image)
 
-        self.action_next_page.triggered(self.controller.next_page)
-        self.action_previous_page.triggered(self.controller.previous_page)
-        self.action_first_page.triggered(self.controller.first_page)
-        self.action_last_page.triggered(self.controller.last_page)
-        self.action_go_to_page.triggered(self.controller.go_to_page)
-        self.action_next_comic.triggered(self.controller.next_comic)
-        self.action_previous_comic.triggered(self.controller.previous_comic)
+        self.action_next_page.triggered.connect(self.controller.next_page)
+        self.action_previous_page.triggered.connect(self.controller.previous_page)
+        self.action_first_page.triggered.connect(self.controller.first_page)
+        self.action_last_page.triggered.connect(self.controller.last_page)
+        self.action_go_to_page.triggered.connect(self.controller.go_to_page)
+        self.action_next_comic.triggered.connect(self.controller.next_comic)
+        self.action_previous_comic.triggered.connect(self.controller.previous_comic)
 
-        self.action_rotate_left.triggered(self.controller.rotate_left)
-        self.action_rotate_right.triggered(self.controller.rotate_right)
-        self.action_fullscreen.triggered(self.controller.fullscreen)
+        self.action_rotate_left.triggered.connect(self.controller.rotate_left)
+        self.action_rotate_right.triggered.connect(self.controller.rotate_right)
+        self.action_fullscreen.triggered.connect(self.controller.fullscreen)
 
-        self.action_add_bookmark.triggered(self.controller.add_bookmark)
-        self.action_remove_bookmark.triggered(self.controller.remove_bookmark)
-        self.action_bookmark_manager.triggered(self.controller.bookmark_manager)
-        self.action_show_toolbar.triggered(self.controller.show_toolbar)
-        self.action_show_statusbar.triggered(self.controller.show_statusbar)
-        self.action_show_toolbar.triggered(self.controller.show_toolbar)
+        self.action_add_bookmark.triggered.connect(self.controller.add_bookmark)
+        self.action_remove_bookmark.triggered.connect(self.controller.remove_bookmark)
+        self.action_bookmark_manager.triggered.connect(self.controller.bookmark_manager)
+        self.action_show_toolbar.triggered.connect(self.controller.show_toolbar)
+        self.action_show_statusbar.triggered.connect(self.controller.show_statusbar)
+        self.action_show_toolbar.triggered.connect(self.controller.show_toolbar)
 
-        self.action_preference_dialog.triggered(
+        self.action_preference_dialog.triggered.connect(
             self.controller.preference_dialog)
 
-        self.action_about.triggered(self.controller.about)
-        self.action_about_qt.triggered(self.controller.about_qt)
-        self.action_exit.triggered(self.controller.exit)
+        self.action_about.triggered.connect(self.controller.about)
+        self.action_about_qt.triggered.connect(self.controller.about_qt)
+        self.action_exit.triggered.connect(self.controller.exit)
 
         self.action_group_view = QtGui.QActionGroup(self)
 
@@ -62,14 +64,14 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_group_view.addAction(self.action_horizontal_adjust)
         self.action_group_view.addAction(self.action_best_fit)
 
-        self.action_original_fit.triggered.connect(
-            self.controller.group_view_adjust)
-        self.action_vertical_adjust.triggered.connect(
-            self.controller.group_view_adjust)
-        self.action_horizontal_adjust.triggered.connect(
-            self.controller.group_view_adjust)
-        self.action_best_fit.triggered.connect(
-            self.controller.group_view_adjust)
+        # self.action_original_fit.triggered.connect(
+        #     self.controller.group_view_adjust)
+        # self.action_vertical_adjust.triggered.connect(
+        #     self.controller.group_view_adjust)
+        # self.action_horizontal_adjust.triggered.connect(
+        #     self.controller.group_view_adjust)
+        # self.action_best_fit.triggered.connect(
+        #     self.controller.group_view_adjust)
 
         self._centralize_window()
 
