@@ -34,6 +34,11 @@ class MainWindowController():
         print
 
     @QtCore.pyqtSlot()
+    def online_comics(self):
+        self.main_window_view.setCentralWidget(self.web_view)
+        print
+
+    @QtCore.pyqtSlot()
     def next_page(self):
         print
 
@@ -99,15 +104,39 @@ class MainWindowController():
 
     @QtCore.pyqtSlot()
     def about(self):
-        print
+        # import about_dialog
+        #
+        # about_dlg = about_dialog.AboutDialog(self)
+        # about_dlg.show()
+        # about_dlg.exec_()
+
+        text = '<p><justify>The <a ' \
+               'href=https://github.com/pynocchio>Pynocchio Comic ' \
+               'Reader</a> is an image viewer <br>' \
+               'specifically designed  to ' \
+               'handle comic books is licensed <br>under the ' \
+               'GPLv3.<justify></p>'\
+               '<br>Copyright (C) 2014-2015 ' \
+               '<a href=https://github.com/mstuttgart>' \
+               'Michell Stuttgart Faria</a>'\
+               '<br>Pynocchio use <a href=http://freeiconmaker.com>Free Icon ' \
+               'Maker</a> to build icon set and <br>'\
+               '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
+               '>Elementary OS 3.1 icons</a>.</p></justify>'
+
+        view = self.main_window_view
+
+        QtGui.QMessageBox().about(view, view.tr('About Pynocchio Comic '
+                                                'Reader'),  view.tr(text))
 
     @QtCore.pyqtSlot()
     def about_qt(self):
-        print
+        QtGui.QMessageBox().aboutQt(self.main_window_view,
+                                    self.main_window_view.tr(u'About Qt'))
 
     @QtCore.pyqtSlot()
     def exit(self):
-        print
+        self.main_window_view.close()
 
     def show(self):
         self.main_window_view.show()
