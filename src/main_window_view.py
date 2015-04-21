@@ -17,6 +17,8 @@
 
 from PyQt4 import QtGui, QtCore, uic
 
+from qwebimage_widget import QWebImageWidget
+from status_bar import StatusBar
 
 MainWindowForm, MainWindowBase = uic.loadUiType('main_window.ui')
 
@@ -28,8 +30,17 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
         self.controller = controller
 
+        self.web_view = QWebImageWidget()
+        self.statusbar = StatusBar(self)
+        self.setStatusBar(self.statusbar)
+
+        # self.setCentralWidget(self.web_view)
+        # self.setCentralWidget(self.viewer)
+
         self.action_open.triggered.connect(self.controller.open)
         self.action_save_image.triggered.connect(self.controller.save_image)
+        self.action_online_comics.triggered.connect(
+            self.controller.online_comics)
 
         self.action_next_page.triggered.connect(self.controller.next_page)
         self.action_previous_page.triggered.connect(self.controller.previous_page)
@@ -53,9 +64,9 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_preference_dialog.triggered.connect(
             self.controller.preference_dialog)
 
-        self.action_about.triggered.connect(self.controller.about)
-        self.action_about_qt.triggered.connect(self.controller.about_qt)
-        self.action_exit.triggered.connect(self.controller.exit)
+        # self.action_about.triggered.connect(self.controller.about)
+        # self.action_about_qt.triggered.connect(self.controller.about_qt)
+        # self.action_exit.triggered.connect(self.controller.exit)
 
         self.action_group_view = QtGui.QActionGroup(self)
 
@@ -81,7 +92,37 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         x_center = (screen.width() - size.width()) / 2
         y_center = (screen.height() - size.height()) / 2
         self.move(x_center, y_center)
-        self.setMinimumSize(QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
+        self.setMinimumSize(
+            QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
+
+    @QtCore.pyqtSlot()
+    def on_action_about_triggered(self):
+
+        text = '<p><justify>The <a ' \
+               'href=https://github.com/pynocchio>Pynocchio Comic ' \
+               'Reader</a> is an image viewer <br>' \
+               'specifically designed  to ' \
+               'handle comic books is licensed <br>under the ' \
+               'GPLv3.<justify></p>'\
+               '<br>Copyright (C) 2014-2015 ' \
+               '<a href=https://github.com/mstuttgart>' \
+               'Michell Stuttgart Faria</a>'\
+               '<br>Pynocchio use <a href=http://freeiconmaker.com>Free Icon ' \
+               'Maker</a> to build icon set and <br>'\
+               '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
+               '>Elementary OS 3.1 icons</a>.</p></justify>'
+
+        QtGui.QMessageBox().about(self, self.tr('About Pynocchio Comic Reader'),
+                                  self.tr(text))
+
+    @QtCore.pyqtSlot()
+    def on_action_about_qt_triggered(self):
+        QtGui.QMessageBox().aboutQt(self, self.tr(u'About Qt'))
+
+    @QtCore.pyqtSlot()
+    def on_action_exit_triggered(self):
+        super(MainWindowView, self).close()
+        self.controller.exit()
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:
