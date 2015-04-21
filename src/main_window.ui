@@ -247,6 +247,7 @@
     <addaction name="menu_recent_files"/>
     <addaction name="separator"/>
     <addaction name="action_exit"/>
+    <addaction name="action_online_comics"/>
    </widget>
    <widget class="QMenu" name="menu_view">
     <property name="title">
@@ -956,6 +957,11 @@
    </property>
    <property name="visible">
     <bool>false</bool>
+   </property>
+  </action>
+  <action name="action_online_comics">
+   <property name="text">
+    <string>online_comics</string>
    </property>
   </action>
  </widget>
