@@ -22,7 +22,7 @@ product = {
 }
 
 
-class LoaderFactory(object):
+class ParserFactory(object):
 
     @staticmethod
     def create_loader(parser_name):
