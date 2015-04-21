@@ -30,7 +30,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
         self.controller = controller
 
-        self.web_view = QWebImageWidget()
+        # self.web_view = QWebImageWidget()
         self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)
 
@@ -94,6 +94,9 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.move(x_center, y_center)
         self.setMinimumSize(
             QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
+
+    def set_viewer_content(self, pixmap):
+        self.viewer.label.setPixmap(pixmap)
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):

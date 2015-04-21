@@ -22,11 +22,32 @@ import main_window_model
 
 class MainWindowController():
     def __init__(self):
-        self.main_window_view = main_window_view.MainWindowView(self)
-        self.main_window_model = main_window_model.MainWindowModel(self)
+        self.view = main_window_view.MainWindowView(self)
+        self.model = main_window_model.MainWindowModel(self)
 
     def open(self):
-        print
+
+        file_path = QtGui.QFileDialog().getOpenFileName(
+            self.view, self.view.tr('Open comic file'), '.',
+            self.view.tr(
+                'All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
+                'Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr);; '
+                'Tar Files (*.tar *.cbt);; All files (*)'))
+
+        if file_path:
+            self.load(file_path)
+
+    def load(self, file_name, initial_page=0):
+
+        if self.model.open(file_name, initial_page):
+
+            self.view.label.setPixmap(self.model.get_current_page())
+            self.view.setWindowTitle(
+                self.model.comic.name + ' - Pynocchio Comic Reader')
+
+        else:
+            print '[ERROR] error load comics'
+
 
     def save_image(self):
         print
@@ -87,7 +108,7 @@ class MainWindowController():
         print 'saindo'
 
     def show(self):
-        self.main_window_view.show()
+        self.view.show()
 
     def key_press_event(self, event):
         if event.key() == QtCore.Qt.Key_F:
