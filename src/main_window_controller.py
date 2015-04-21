@@ -124,10 +124,10 @@ class MainWindowController():
                '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
                '>Elementary OS 3.1 icons</a>.</p></justify>'
 
-        view = self.main_window_view
-
-        QtGui.QMessageBox().about(view, view.tr('About Pynocchio Comic '
-                                                'Reader'),  view.tr(text))
+        QtGui.QMessageBox().about(self.main_window_view,
+                                  self.main_window_view.tr(
+                                      'About Pynocchio Comic Reader'),
+                                  self.main_window_view.tr(text))
 
     @QtCore.pyqtSlot()
     def about_qt(self):
