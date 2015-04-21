@@ -125,15 +125,9 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.controller.exit()
 
     def keyPressEvent(self, event):
-        if event.key() == QtCore.Qt.Key_F:
-            self.controller.fullscreen()
-        elif event.key() == QtCore.Qt.Key_Escape and self.isFullScreen():
-            self.controller.fullscreen()
-        else:
+        if not self.controller.key_press_event(event):
             super(MainWindowView, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
-        if args[0].button() == QtCore.Qt.LeftButton:
-            self.controller.fullscreen()
-        else:
+        if not self.controller.mouse_double_click_event(args[0].button()):
             super(MainWindowView, self).mousePressEvent(*args, **kwargs)

@@ -102,41 +102,22 @@ class MainWindowController():
     def preference_dialog(self):
         print
 
-    @QtCore.pyqtSlot()
-    def about(self):
-        # import about_dialog
-        #
-        # about_dlg = about_dialog.AboutDialog(self)
-        # about_dlg.show()
-        # about_dlg.exec_()
-
-        text = '<p><justify>The <a ' \
-               'href=https://github.com/pynocchio>Pynocchio Comic ' \
-               'Reader</a> is an image viewer <br>' \
-               'specifically designed  to ' \
-               'handle comic books is licensed <br>under the ' \
-               'GPLv3.<justify></p>'\
-               '<br>Copyright (C) 2014-2015 ' \
-               '<a href=https://github.com/mstuttgart>' \
-               'Michell Stuttgart Faria</a>'\
-               '<br>Pynocchio use <a href=http://freeiconmaker.com>Free Icon ' \
-               'Maker</a> to build icon set and <br>'\
-               '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
-               '>Elementary OS 3.1 icons</a>.</p></justify>'
-
-        QtGui.QMessageBox().about(self.main_window_view,
-                                  self.main_window_view.tr(
-                                      'About Pynocchio Comic Reader'),
-                                  self.main_window_view.tr(text))
-
-    @QtCore.pyqtSlot()
-    def about_qt(self):
-        QtGui.QMessageBox().aboutQt(self.main_window_view,
-                                    self.main_window_view.tr(u'About Qt'))
-
-    @QtCore.pyqtSlot()
     def exit(self):
-        self.main_window_view.close()
+        print 'saindo'
 
     def show(self):
         self.main_window_view.show()
+
+    def key_press_event(self, event):
+        if event.key() == QtCore.Qt.Key_F:
+            self.fullscreen()
+            return True
+        else:
+            return False
+
+    def mouse_double_click_event(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.controller.fullscreen()
+            return True
+        else:
+            return False
