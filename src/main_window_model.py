@@ -128,11 +128,11 @@ class MainWindowModel(object):
 
     def rotate_left(self):
         self.rotateAngle = (self.rotateAngle - 90) % 360
-        return self.get_current_page()
+        self.controller.set_view_content(self.get_current_page())
 
     def rotate_right(self):
         self.rotateAngle = (self.rotateAngle + 90) % 360
-        return self.get_current_page()
+        self.controller.set_view_content(self.get_current_page())
 
     def get_comic_name(self):
         if self.comic:

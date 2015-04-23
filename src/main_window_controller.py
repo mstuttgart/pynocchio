@@ -79,10 +79,10 @@ class MainWindowController():
         print
 
     def rotate_left(self):
-        print
+        self.model.rotate_left()
 
     def rotate_right(self):
-        print
+        self.model.rotate_right()
 
     def fullscreen(self):
         print
