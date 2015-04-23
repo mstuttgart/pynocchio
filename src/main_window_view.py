@@ -49,7 +49,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
         self.action_rotate_left.triggered.connect(controller.rotate_left)
         self.action_rotate_right.triggered.connect(controller.rotate_right)
-        self.action_fullscreen.triggered.connect(controller.fullscreen)
+        # self.action_fullscreen.triggered.connect(controller.fullscreen)
 
         self.action_add_bookmark.triggered.connect(controller.add_bookmark)
         self.action_remove_bookmark.triggered.connect(controller.remove_bookmark)
@@ -106,6 +106,19 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_add_bookmark.setEnabled(True)
         self.action_remove_bookmark.setEnabled(True)
 
+    def on_action_fullscreen_triggered(self):
+
+        if self.isFullScreen():
+            self.menubar.show()
+            self.toolbar.show()
+            self.statusbar.show()
+            self.showMaximized()
+        else:
+            self.menubar.hide()
+            self.toolbar.hide()
+            self.statusbar.hide()
+            self.showFullScreen()
+
     def switch_to_web_view(self):
         self.setCentralWidget(self.web_view)
 
@@ -154,9 +167,18 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.controller.exit()
 
     def keyPressEvent(self, event):
-        if not self.controller.key_press_event(event):
+        if event.key() == QtCore.Qt.Key_F:
+            self.on_action_fullscreen_triggered()
+        else:
             super(MainWindowView, self).keyPressEvent(event)
+        # if not self.controller.key_press_event(event):
+        #     super(MainWindowView, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
-        if not self.controller.mouse_double_click_event(args[0].button()):
+        if args[0].button() == QtCore.Qt.LeftButton:
+            self.on_action_fullscreen_triggered()
+            # return True
+        else:
             super(MainWindowView, self).mousePressEvent(*args, **kwargs)
+        # if not self.controller.mouse_double_click_event(args[0]):
+        #     super(MainWindowView, self).mousePressEvent(*args, **kwargs)

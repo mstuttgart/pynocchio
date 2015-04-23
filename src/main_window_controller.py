@@ -85,7 +85,21 @@ class MainWindowController():
         self.model.rotate_right()
 
     def fullscreen(self):
-        print
+        if self.isFullScreen():
+            self.menubar.show()
+            self._update_view_actions()
+            self.showMaximized()
+            self.on_action_show_toolbar_triggered()
+            self.on_action_show_statusbar_triggered()
+            self._update_status_bar()
+        else:
+            self.menubar.hide()
+            if not self.preferences.show_toolbar_in_fullscreen:
+                self.toolbar.hide()
+            if not self.preferences.show_statusbar_in_fullscreen:
+                self.statusbar.hide()
+            self.showFullScreen()
+            self._set_focus_on_viewer()
 
     def add_bookmark(self):
         print
@@ -113,17 +127,4 @@ class MainWindowController():
 
     def set_view_content(self, content):
         self.view.set_viewer_content(content)
-
-    def key_press_event(self, event):
-        if event.key() == QtCore.Qt.Key_F:
-            self.fullscreen()
-            return True
-        else:
-            return False
-
-    def mouse_double_click_event(self, event):
-        if event.button() == QtCore.Qt.LeftButton:
-            self.controller.fullscreen()
-            return True
-        else:
-            return False
+        
