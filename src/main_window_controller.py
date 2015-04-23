@@ -127,4 +127,3 @@ class MainWindowController():
 
     def set_view_content(self, content):
         self.view.set_viewer_content(content)
-        

@@ -49,7 +49,6 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
         self.action_rotate_left.triggered.connect(controller.rotate_left)
         self.action_rotate_right.triggered.connect(controller.rotate_right)
-        # self.action_fullscreen.triggered.connect(controller.fullscreen)
 
         self.action_add_bookmark.triggered.connect(controller.add_bookmark)
         self.action_remove_bookmark.triggered.connect(controller.remove_bookmark)
