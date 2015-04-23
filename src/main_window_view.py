@@ -34,36 +34,36 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)
 
-        self.action_open.triggered.connect(self.controller.open)
-        self.action_save_image.triggered.connect(self.controller.save_image)
+        self.action_open.triggered.connect(controller.open)
+        self.action_save_image.triggered.connect(controller.save_image)
         self.action_online_comics.triggered.connect(
-            self.controller.online_comics)
+            controller.online_comics)
 
-        self.action_next_page.triggered.connect(self.controller.next_page)
-        self.action_previous_page.triggered.connect(self.controller.previous_page)
-        self.action_first_page.triggered.connect(self.controller.first_page)
-        self.action_last_page.triggered.connect(self.controller.last_page)
-        self.action_go_to_page.triggered.connect(self.controller.go_to_page)
-        self.action_next_comic.triggered.connect(self.controller.next_comic)
-        self.action_previous_comic.triggered.connect(self.controller.previous_comic)
+        self.action_next_page.triggered.connect(controller.next_page)
+        self.action_previous_page.triggered.connect(controller.previous_page)
+        self.action_first_page.triggered.connect(controller.first_page)
+        self.action_last_page.triggered.connect(controller.last_page)
+        self.action_go_to_page.triggered.connect(controller.go_to_page)
+        self.action_next_comic.triggered.connect(controller.next_comic)
+        self.action_previous_comic.triggered.connect(controller.previous_comic)
 
-        self.action_rotate_left.triggered.connect(self.controller.rotate_left)
-        self.action_rotate_right.triggered.connect(self.controller.rotate_right)
-        self.action_fullscreen.triggered.connect(self.controller.fullscreen)
+        self.action_rotate_left.triggered.connect(controller.rotate_left)
+        self.action_rotate_right.triggered.connect(controller.rotate_right)
+        self.action_fullscreen.triggered.connect(controller.fullscreen)
 
-        self.action_add_bookmark.triggered.connect(self.controller.add_bookmark)
-        self.action_remove_bookmark.triggered.connect(self.controller.remove_bookmark)
-        self.action_bookmark_manager.triggered.connect(self.controller.bookmark_manager)
-        self.action_show_toolbar.triggered.connect(self.controller.show_toolbar)
-        self.action_show_statusbar.triggered.connect(self.controller.show_statusbar)
-        self.action_show_toolbar.triggered.connect(self.controller.show_toolbar)
+        self.action_add_bookmark.triggered.connect(controller.add_bookmark)
+        self.action_remove_bookmark.triggered.connect(controller.remove_bookmark)
+        self.action_bookmark_manager.triggered.connect(controller.bookmark_manager)
+        self.action_show_toolbar.triggered.connect(controller.show_toolbar)
+        self.action_show_statusbar.triggered.connect(controller.show_statusbar)
+        self.action_show_toolbar.triggered.connect(controller.show_toolbar)
 
         self.action_preference_dialog.triggered.connect(
-            self.controller.preference_dialog)
+            controller.preference_dialog)
 
-        # self.action_about.triggered.connect(self.controller.about)
-        # self.action_about_qt.triggered.connect(self.controller.about_qt)
-        # self.action_exit.triggered.connect(self.controller.exit)
+        # self.action_about.triggered.connect(controller.about)
+        # self.action_about_qt.triggered.connect(controller.about_qt)
+        # self.action_exit.triggered.connect(controller.exit)
 
         self.action_group_view = QtGui.QActionGroup(self)
 
@@ -73,15 +73,38 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_group_view.addAction(self.action_best_fit)
 
         # self.action_original_fit.triggered.connect(
-        #     self.controller.group_view_adjust)
+        #     controller.group_view_adjust)
         # self.action_vertical_adjust.triggered.connect(
-        #     self.controller.group_view_adjust)
+        #     controller.group_view_adjust)
         # self.action_horizontal_adjust.triggered.connect(
-        #     self.controller.group_view_adjust)
+        #     controller.group_view_adjust)
         # self.action_best_fit.triggered.connect(
-        #     self.controller.group_view_adjust)
+        #     controller.group_view_adjust)
 
         self._centralize_window()
+
+    def enable_actions(self):
+
+        self.action_save_image.setEnabled(True)
+
+        self.action_fullscreen.setEnabled(True)
+        self.action_original_fit.setEnabled(True)
+        self.action_best_fit.setEnabled(True)
+        self.action_horizontal_adjust.setEnabled(True)
+        self.action_vertical_adjust.setEnabled(True)
+        self.action_rotate_left.setEnabled(True)
+        self.action_rotate_right.setEnabled(True)
+
+        self.action_next_page.setEnabled(True)
+        self.action_previous_page.setEnabled(True)
+        self.action_first_page.setEnabled(True)
+        self.action_last_page.setEnabled(True)
+        self.action_go_to_page.setEnabled(True)
+        self.action_next_comic.setEnabled(True)
+        self.action_previous_comic.setEnabled(True)
+
+        self.action_add_bookmark.setEnabled(True)
+        self.action_remove_bookmark.setEnabled(True)
 
     def switch_to_web_view(self):
         self.setCentralWidget(self.web_view)
