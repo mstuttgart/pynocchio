@@ -23,7 +23,7 @@ import main_window_model
 class MainWindowController():
     def __init__(self):
         self.view = main_window_view.MainWindowView(self)
-        self.model = main_window_model.MainWindowModel(self, self.view.label)
+        self.model = main_window_model.MainWindowModel(self)
 
     def open(self):
 
@@ -39,11 +39,11 @@ class MainWindowController():
 
     def load(self, file_name, initial_page=0):
 
-        self.model = main_window_model.MainWindowModel(self, self.view.label)
+        self.model = main_window_model.MainWindowModel(self)
         self.view.switch_to_normal_view()
 
         if self.model.open(file_name, initial_page):
-            self.view.label.setPixmap(self.model.get_current_page())
+            self.set_view_content(self.model.get_current_page())
             self.view.setWindowTitle(self.model.comic.name +
                                      ' - Pynocchio Comic Reader')
             self.view.enable_actions()
@@ -110,6 +110,9 @@ class MainWindowController():
 
     def show(self):
         self.view.show()
+
+    def set_view_content(self, content):
+        self.view.set_viewer_content(content)
 
     def key_press_event(self, event):
         if event.key() == QtCore.Qt.Key_F:

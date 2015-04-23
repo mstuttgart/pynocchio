@@ -25,9 +25,8 @@ from page import *
 
 class MainWindowModel(object):
 
-    def __init__(self, controller, label):
+    def __init__(self, controller):
         self.controller = controller
-        self.label = label
         self.comic = None
         self.original_pixmap = None
         self.adjustType = 'action_original_fit'
@@ -72,22 +71,22 @@ class MainWindowModel(object):
     def next_page(self):
         if self.comic:
             self.comic.go_next_page()
-            self.label.setPixmap(self.get_current_page())
+            self.controller.set_view_content(self.get_current_page())
 
     def previous_page(self):
         if self.comic:
             self.comic.go_previous_page()
-            self.label.setPixmap(self.get_current_page())
+            self.controller.set_view_content(self.get_current_page())
 
     def first_page(self):
         if self.comic:
             self.comic.go_first_page()
-            self.label.setPixmap(self.get_current_page())
+            self.controller.set_view_content(self.get_current_page())
 
     def last_page(self):
         if self.comic:
             self.comic.go_last_page()
-            self.label.setPixmap(self.get_current_page())
+            self.controller.set_view_content(self.get_current_page())
 
     def next_comic(self):
         return self.next_comic_path

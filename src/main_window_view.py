@@ -122,7 +122,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
             QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
 
     def set_viewer_content(self, pixmap):
-        self.viewer.label.setPixmap(pixmap)
+        self.label.setPixmap(pixmap)
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
