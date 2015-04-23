@@ -30,12 +30,9 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
         self.controller = controller
 
-        # self.web_view = QWebImageWidget()
+        self.web_view = QWebImageWidget()
         self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)
-
-        # self.setCentralWidget(self.web_view)
-        # self.setCentralWidget(self.viewer)
 
         self.action_open.triggered.connect(self.controller.open)
         self.action_save_image.triggered.connect(self.controller.save_image)
@@ -85,6 +82,12 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         #     self.controller.group_view_adjust)
 
         self._centralize_window()
+
+    def switch_to_web_view(self):
+        self.setCentralWidget(self.web_view)
+
+    def switch_to_normal_view(self):
+        self.setCentralWidget(self.viewer)
 
     def _centralize_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
