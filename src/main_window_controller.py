@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import QtGui, QtCore, uic
+from PyQt4 import QtGui, QtCore
 import main_window_view
 import main_window_model
 
@@ -23,7 +23,7 @@ import main_window_model
 class MainWindowController():
     def __init__(self):
         self.view = main_window_view.MainWindowView(self)
-        self.model = main_window_model.MainWindowModel(self)
+        self.model = main_window_model.MainWindowModel(self, self.view.label)
 
     def open(self):
 
@@ -39,15 +39,16 @@ class MainWindowController():
 
     def load(self, file_name, initial_page=0):
 
+        self.model = main_window_model.MainWindowModel(self, self.view.label)
+        self.view.switch_to_normal_view()
+
         if self.model.open(file_name, initial_page):
-
             self.view.label.setPixmap(self.model.get_current_page())
-            self.view.setWindowTitle(
-                self.model.comic.name + ' - Pynocchio Comic Reader')
-
+            self.view.setWindowTitle(self.model.comic.name +
+                                     ' - Pynocchio Comic Reader')
+            self.view.enable_actions()
         else:
             print '[ERROR] error load comics'
-
 
     def save_image(self):
         print
@@ -57,16 +58,16 @@ class MainWindowController():
         print
 
     def next_page(self):
-        print
+        self.model.next_page()
 
     def previous_page(self):
-        print
+        self.model.previous_page()
 
     def first_page(self):
-        print
+        self.model.first_page()
 
     def last_page(self):
-        print
+        self.model.last_page()
 
     def go_to_page(self):
         print

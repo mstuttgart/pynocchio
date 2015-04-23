@@ -25,8 +25,9 @@ from page import *
 
 class MainWindowModel(object):
 
-    def __init__(self, controller):
+    def __init__(self, controller, label):
         self.controller = controller
+        self.label = label
         self.comic = None
         self.original_pixmap = None
         self.adjustType = 'action_original_fit'
@@ -63,6 +64,7 @@ class MainWindowModel(object):
                 page_index = ld.data.index(p) + 1
                 self.comic.add_page(Page(page_data, page_name, page_index))
 
+            self.current_directory = Utility.get_dir_name(file_name)
             return True
 
         return False
@@ -70,22 +72,22 @@ class MainWindowModel(object):
     def next_page(self):
         if self.comic:
             self.comic.go_next_page()
-        return self.get_current_page()
+            self.label.setPixmap(self.get_current_page())
 
     def previous_page(self):
         if self.comic:
             self.comic.go_previous_page()
-        return self.get_current_page()
+            self.label.setPixmap(self.get_current_page())
 
     def first_page(self):
         if self.comic:
             self.comic.go_first_page()
-        return self.get_current_page()
+            self.label.setPixmap(self.get_current_page())
 
     def last_page(self):
         if self.comic:
             self.comic.go_last_page()
-        return self.get_current_page()
+            self.label.setPixmap(self.get_current_page())
 
     def next_comic(self):
         return self.next_comic_path
@@ -112,18 +114,18 @@ class MainWindowModel(object):
         if index > 0:
             self.previous_comic_path = self.comic.directory + "/" + str_list[
                 index - 1]
-            self.main_window.action_previous_comic.setEnabled(True)
+            self.controller.action_previous_comic.setEnabled(True)
         else:
             self.previous_comic_path = ''
-            self.main_window.action_previous_comic.setEnabled(False)
+            self.controller.action_previous_comic.setEnabled(False)
 
         if (index + 1) < len(str_list):
             self.next_comic_path = self.comic.directory + "/" + str_list[
                 index + 1]
-            self.main_window.action_next_comic.setEnabled(True)
+            self.controller.action_next_comic.setEnabled(True)
         else:
             self.next_comic_path = ''
-            self.main_window.action_next_comic.setEnabled(False)
+            self.controller.action_next_comic.setEnabled(False)
 
     def rotate_left(self):
         self.rotateAngle = (self.rotateAngle - 90) % 360
