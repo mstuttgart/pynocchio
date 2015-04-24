@@ -140,7 +140,13 @@ class MainWindowModel(object):
         return None
 
     def get_current_page(self):
-        return self._load_pixmap_from_data()
+        if self.comic:
+            pg = self.comic.get_current_page()
+            self.original_pixmap = pg.pixmap.copy()
+            return self.update_content()
+
+        return None
+        # return self._load_pixmap_from_data()
 
     def get_current_page_title(self):
         if self.comic:
@@ -167,12 +173,13 @@ class MainWindowModel(object):
             return True
         return False
 
-    def _load_pixmap_from_data(self):
-        if self.comic:
-            pg = self.comic.get_current_page()
-            self.original_pixmap = pg.pixmap.copy()
+    # def _load_pixmap_from_data(self):
+    #     if self.comic:
+    #         pg = self.comic.get_current_page()
+    #         self.original_pixmap = pg.pixmap.copy()
+    #         self.update_content()
 
-        return self.update_content()
+        # return self.update_content()
 
     def update_content(self):
         pix_map = self.original_pixmap
