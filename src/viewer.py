@@ -22,6 +22,9 @@ class Viewer(QtGui.QScrollArea):
     def __init__(self, parent=None):
 
         super(Viewer, self).__init__(parent)
+
+        self.main_window_view = None
+        self.main_window_controller = None
         #
         # self.model = None
         # self.label = None
@@ -38,6 +41,10 @@ class Viewer(QtGui.QScrollArea):
         #
         # self.setWidgetResizable(True)
         # self._change_cursor()
+
+    def set_content(self, content):
+        if content is not None:
+            self.main_window_view.label.setPixmap(content)
 
     # def define_global_shortcuts(self):
     #
@@ -146,13 +153,6 @@ class Viewer(QtGui.QScrollArea):
     #
     #     super(Viewer, self).mouseMoveEvent(*args, **kwargs)
     #
-    # def resizeEvent(self, *args, **kwargs):
-    #     new_size = args[0].size()
-    #
-    #     if self.model:
-    #         self.model.set_size(new_size)
-    #
-    #         if self.model.comic:
-    #             self.label.setPixmap(self.model.get_current_page())
-    #
-    #     super(Viewer, self).resizeEvent(*args, **kwargs)
+    def resizeEvent(self, *args, **kwargs):
+        self.main_window_view.update_current_view_container_size(args[0].size())
+        super(Viewer, self).resizeEvent(*args, **kwargs)

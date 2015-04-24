@@ -101,6 +101,18 @@ class MainWindowController():
             self.showFullScreen()
             self._set_focus_on_viewer()
 
+    def original_fit(self):
+        self.model.original_fit()
+
+    def vertical_fit(self):
+        self.model.vertical_fit()
+
+    def horizontal_fit(self):
+        self.model.horizontal_fit()
+
+    def best_fit(self):
+        self.model.best_fit()
+
     def add_bookmark(self):
         print
 
@@ -127,3 +139,9 @@ class MainWindowController():
 
     def set_view_content(self, content):
         self.view.set_viewer_content(content)
+
+    def update_current_view_container_size(self, new_size):
+        self.model.view_container_size = new_size
+
+    def get_current_view_container_size(self):
+        return self.view.get_current_view_container_size()

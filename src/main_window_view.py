@@ -30,14 +30,22 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
         self.controller = controller
 
-        self.web_view = QWebImageWidget()
+        self.web_view = None
+        self.current_view_container = self.viewer
+        self.current_view_container.main_window_view = self
+        self.current_view_container.main_window_controller = controller
+
         self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)
 
+        self._create_connections(controller)
+        self._centralize_window()
+
+    def _create_connections(self, controller):
+
         self.action_open.triggered.connect(controller.open)
         self.action_save_image.triggered.connect(controller.save_image)
-        self.action_online_comics.triggered.connect(
-            controller.online_comics)
+        self.action_online_comics.triggered.connect(controller.online_comics)
 
         self.action_next_page.triggered.connect(controller.next_page)
         self.action_previous_page.triggered.connect(controller.previous_page)
@@ -60,27 +68,17 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_preference_dialog.triggered.connect(
             controller.preference_dialog)
 
-        # self.action_about.triggered.connect(controller.about)
-        # self.action_about_qt.triggered.connect(controller.about_qt)
-        # self.action_exit.triggered.connect(controller.exit)
-
         self.action_group_view = QtGui.QActionGroup(self)
 
         self.action_group_view.addAction(self.action_original_fit)
-        self.action_group_view.addAction(self.action_vertical_adjust)
-        self.action_group_view.addAction(self.action_horizontal_adjust)
+        self.action_group_view.addAction(self.action_vertical_fit)
+        self.action_group_view.addAction(self.action_horizontal_fit)
         self.action_group_view.addAction(self.action_best_fit)
 
-        # self.action_original_fit.triggered.connect(
-        #     controller.group_view_adjust)
-        # self.action_vertical_adjust.triggered.connect(
-        #     controller.group_view_adjust)
-        # self.action_horizontal_adjust.triggered.connect(
-        #     controller.group_view_adjust)
-        # self.action_best_fit.triggered.connect(
-        #     controller.group_view_adjust)
-
-        self._centralize_window()
+        self.action_original_fit.triggered.connect(controller.original_fit)
+        self.action_vertical_fit.triggered.connect(controller.vertical_fit)
+        self.action_horizontal_fit.triggered.connect(controller.horizontal_fit)
+        self.action_best_fit.triggered.connect(controller.best_fit)
 
     def enable_actions(self):
 
@@ -89,8 +87,8 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_fullscreen.setEnabled(True)
         self.action_original_fit.setEnabled(True)
         self.action_best_fit.setEnabled(True)
-        self.action_horizontal_adjust.setEnabled(True)
-        self.action_vertical_adjust.setEnabled(True)
+        self.action_horizontal_fit.setEnabled(True)
+        self.action_vertical_fit.setEnabled(True)
         self.action_rotate_left.setEnabled(True)
         self.action_rotate_right.setEnabled(True)
 
@@ -119,9 +117,14 @@ class MainWindowView(MainWindowBase, MainWindowForm):
             self.showFullScreen()
 
     def switch_to_web_view(self):
+        if self.web_view is None:
+            self.web_view = QWebImageWidget()
+
+        self.current_view_container = self.web_view
         self.setCentralWidget(self.web_view)
 
     def switch_to_normal_view(self):
+        self.current_view_container = self.viewer
         self.setCentralWidget(self.viewer)
 
     def _centralize_window(self):
@@ -133,8 +136,14 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.setMinimumSize(
             QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
 
-    def set_viewer_content(self, pixmap):
-        self.label.setPixmap(pixmap)
+    def set_viewer_content(self, content):
+        self.current_view_container.set_content(content)
+
+    def update_current_view_container_size(self, new_size):
+        self.controller.update_current_view_container_size(new_size)
+
+    def get_current_view_container_size(self):
+        return self.current_view_container.size()
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
@@ -170,14 +179,9 @@ class MainWindowView(MainWindowBase, MainWindowForm):
             self.on_action_fullscreen_triggered()
         else:
             super(MainWindowView, self).keyPressEvent(event)
-        # if not self.controller.key_press_event(event):
-        #     super(MainWindowView, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
         if args[0].button() == QtCore.Qt.LeftButton:
             self.on_action_fullscreen_triggered()
-            # return True
         else:
             super(MainWindowView, self).mousePressEvent(*args, **kwargs)
-        # if not self.controller.mouse_double_click_event(args[0]):
-        #     super(MainWindowView, self).mousePressEvent(*args, **kwargs)

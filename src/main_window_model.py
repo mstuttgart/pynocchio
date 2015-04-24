@@ -25,12 +25,17 @@ from page import *
 
 class MainWindowModel(object):
 
+    _ORIGINAL_FIT = 0
+    _VERTICAL_FIT = 1
+    _HORIZONTAL_FIT = 2
+    _BEST_FIT = 3
+
     def __init__(self, controller):
         self.controller = controller
         self.comic = None
         self.original_pixmap = None
-        self.adjustType = 'action_original_fit'
-        self.screenSize = QtCore.QSize(0, 0)
+        self.fit_type = MainWindowModel._ORIGINAL_FIT
+        self._view_container_size = controller.get_current_view_container_size()
         self.rotateAngle = 0
         self.current_directory = ''
         self.next_comic_path = ''
@@ -139,26 +144,20 @@ class MainWindowModel(object):
 
     def get_current_page(self):
         if self.comic:
-            pg = self.comic.get_current_page()
-            self.original_pixmap = pg.pixmap.copy()
+            self.original_pixmap = self.comic.get_current_page().pixmap
             return self.update_content()
 
         return None
-        # return self._load_pixmap_from_data()
 
     def get_current_page_title(self):
-        if self.comic:
-            return self.comic.get_current_page_title()
-        return None
+        return self.comic.get_current_page_title() if self.comic else ''
 
     def set_current_page_index(self, idx):
         if self.comic:
             self.comic.set_current_page_index(idx)
 
     def get_current_page_index(self):
-        if self.comic:
-            return self.comic.current_page_index
-        return -1
+        return self.comic.current_page_index if self.comic else -1
 
     def is_last_page(self):
         if self.comic and self.comic.current_page_index + 1 == \
@@ -170,14 +169,6 @@ class MainWindowModel(object):
         if self.comic and self.comic.current_page_index == 0:
             return True
         return False
-
-    # def _load_pixmap_from_data(self):
-    #     if self.comic:
-    #         pg = self.comic.get_current_page()
-    #         self.original_pixmap = pg.pixmap.copy()
-    #         self.update_content()
-
-        # return self.update_content()
 
     def update_content(self):
         pix_map = self.original_pixmap
@@ -193,41 +184,49 @@ class MainWindowModel(object):
 
     def _resize_page(self, pix_map):
 
-        if self.comic:
+        if self.fit_type == MainWindowModel._VERTICAL_FIT:
+            pix_map = pix_map.scaledToHeight(self._view_container_size.height(),
+                                             QtCore.Qt.SmoothTransformation)
 
-            if self.adjustType == 'action_vertical_adjust':
-                pix_map = pix_map.scaledToHeight(
-                    self.screenSize.height(),
-                    QtCore.Qt.SmoothTransformation)
+        elif self.fit_type == MainWindowModel._HORIZONTAL_FIT:
+            pix_map = pix_map.scaledToWidth(self._view_container_size.width(),
+                                            QtCore.Qt.SmoothTransformation)
 
-            elif self.adjustType == 'action_horizontal_adjust':
-                pix_map = pix_map.scaledToWidth(
-                    self.screenSize.width(), QtCore.Qt.SmoothTransformation)
+        elif self.fit_type == MainWindowModel._BEST_FIT:
+            pix_map = pix_map.scaledToWidth(
+                self._view_container_size.width() * 0.8,
+                QtCore.Qt.SmoothTransformation)
 
-            elif self.adjustType == 'action_best_fit':
-                pix_map = pix_map.scaledToWidth(
-                    self.screenSize.width() * 0.8,
-                    QtCore.Qt.SmoothTransformation)
+        pix_map = pix_map.scaled(pix_map.size() * self.zoom_factor,
+                                 QtCore.Qt.KeepAspectRatio,
+                                 QtCore.Qt.SmoothTransformation)
 
-            pix_map = pix_map.scaled(pix_map.size() * self.zoom_factor,
-                                     QtCore.Qt.KeepAspectRatio,
-                                     QtCore.Qt.SmoothTransformation)
+        return pix_map
 
-            return pix_map
+    @property
+    def view_container_size(self):
+        return self._view_container_size
 
-        return None
+    @view_container_size.setter
+    def view_container_size(self, new_size):
+        self._view_container_size = new_size
+        self.controller.set_view_content(self.get_current_page())
 
-    def set_size(self, new_size):
-        self.screenSize = new_size
+    def original_fit(self):
+        self.fit_type = MainWindowModel._ORIGINAL_FIT
+        self.controller.set_view_content(self.get_current_page())
 
-    def set_adjust_type(self, adjust_type):
-        self.adjustType = adjust_type
+    def vertical_fit(self):
+        self.fit_type = MainWindowModel._VERTICAL_FIT
+        self.controller.set_view_content(self.get_current_page())
 
-    # @QtCore.pyqtSlot(int)
-    # def set_zoom_factor(self, value):
-    #     print 2 * value/100.0
-    #     self.zoom_factor = 2 * value/100.0
-    #     # self.main_window.repaint()
+    def horizontal_fit(self):
+        self.fit_type = MainWindowModel._HORIZONTAL_FIT
+        self.controller.set_view_content(self.get_current_page())
+
+    def best_fit(self):
+        self.fit_type = MainWindowModel._BEST_FIT
+        self.controller.set_view_content(self.get_current_page())
 
     @staticmethod
     def get_bookmark_list(n):
