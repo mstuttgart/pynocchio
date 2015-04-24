@@ -256,8 +256,8 @@
     <addaction name="action_fullscreen"/>
     <addaction name="separator"/>
     <addaction name="action_original_fit"/>
-    <addaction name="action_vertical_adjust"/>
-    <addaction name="action_horizontal_adjust"/>
+    <addaction name="action_vertical_fit"/>
+    <addaction name="action_horizontal_fit"/>
     <addaction name="action_best_fit"/>
     <addaction name="separator"/>
     <addaction name="action_rotate_left"/>
@@ -384,8 +384,8 @@
    <addaction name="action_rotate_right"/>
    <addaction name="separator"/>
    <addaction name="action_original_fit"/>
-   <addaction name="action_vertical_adjust"/>
-   <addaction name="action_horizontal_adjust"/>
+   <addaction name="action_vertical_fit"/>
+   <addaction name="action_horizontal_fit"/>
    <addaction name="action_best_fit"/>
    <addaction name="action_fullscreen"/>
    <addaction name="separator"/>
@@ -555,7 +555,7 @@
     <enum>Qt::WidgetShortcut</enum>
    </property>
   </action>
-  <action name="action_horizontal_adjust">
+  <action name="action_horizontal_fit">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -570,7 +570,7 @@
      <normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Horizontal adjust</string>
+    <string>&amp;Horizontal fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+K</string>
@@ -620,7 +620,7 @@
     <bool>true</bool>
    </property>
    <property name="checked">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="enabled">
     <bool>false</bool>
@@ -759,12 +759,12 @@
     <string>Preferences</string>
    </property>
   </action>
-  <action name="action_vertical_adjust">
+  <action name="action_vertical_fit">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="checked">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="enabled">
     <bool>false</bool>
@@ -774,7 +774,7 @@
      <normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Vertical adjust</string>
+    <string>&amp;Vertical fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+J</string>
@@ -801,7 +801,7 @@
      <normaloff>:/icons/freeiconmaker-icons/best-fit.svg</normaloff>:/icons/freeiconmaker-icons/best-fit.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Whole page</string>
+    <string>&amp;Best fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+L</string>
