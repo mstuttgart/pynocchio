@@ -135,9 +135,7 @@ class MainWindowModel(object):
         self.controller.set_view_content(self.get_current_page())
 
     def get_comic_name(self):
-        if self.comic:
-            return self.comic.name
-        return None
+        return self.comic.name if self.comic else ''
 
     def get_current_page(self):
         if self.comic:
