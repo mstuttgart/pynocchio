@@ -31,7 +31,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.controller = controller
 
         self.web_view = None
-        self.current_view_container = self.viewer
+        self.current_view_container = self.qscroll_area_viewer
         self.current_view_container.main_window_view = self
         self.current_view_container.main_window_controller = controller
 
@@ -124,8 +124,8 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.setCentralWidget(self.web_view)
 
     def switch_to_normal_view(self):
-        self.current_view_container = self.viewer
-        self.setCentralWidget(self.viewer)
+        self.current_view_container = self.qscroll_area_viewer
+        self.setCentralWidget(self.qscroll_area_viewer)
 
     def _centralize_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()

@@ -18,10 +18,10 @@
 from PyQt4 import QtCore, QtGui
 
 
-class Viewer(QtGui.QScrollArea):
+class QScrollAreaViewer(QtGui.QScrollArea):
     def __init__(self, parent=None):
 
-        super(Viewer, self).__init__(parent)
+        super(QScrollAreaViewer, self).__init__(parent)
 
         self.main_window_view = None
         self.main_window_controller = None
@@ -155,4 +155,4 @@ class Viewer(QtGui.QScrollArea):
     #
     def resizeEvent(self, *args, **kwargs):
         self.main_window_view.update_current_view_container_size(args[0].size())
-        super(Viewer, self).resizeEvent(*args, **kwargs)
+        super(QScrollAreaViewer, self).resizeEvent(*args, **kwargs)
