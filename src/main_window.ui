@@ -450,7 +450,7 @@
     <string>Right</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::WidgetShortcut</enum>
+    <enum>Qt::WindowShortcut</enum>
    </property>
    <property name="visible">
     <bool>true</bool>
@@ -474,7 +474,7 @@
     <string>Left</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::WidgetShortcut</enum>
+    <enum>Qt::WindowShortcut</enum>
    </property>
    <property name="visible">
     <bool>true</bool>
@@ -495,7 +495,7 @@
     <string>Ctrl+Left</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::WidgetShortcut</enum>
+    <enum>Qt::WindowShortcut</enum>
    </property>
   </action>
   <action name="action_last_page">
@@ -513,7 +513,7 @@
     <string>Ctrl+Right</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::WidgetShortcut</enum>
+    <enum>Qt::WindowShortcut</enum>
    </property>
   </action>
   <action name="action_rotate_left">
@@ -729,7 +729,7 @@
     <string>Ctrl+Shift+Right</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::WidgetShortcut</enum>
+    <enum>Qt::WindowShortcut</enum>
    </property>
   </action>
   <action name="action_previous_comic">
@@ -747,7 +747,7 @@
     <string>Ctrl+Shift+Left</string>
    </property>
    <property name="shortcutContext">
-    <enum>Qt::WidgetShortcut</enum>
+    <enum>Qt::WindowShortcut</enum>
    </property>
   </action>
   <action name="action_preference_dialog">
@@ -975,7 +975,6 @@
  </customwidgets>
  <resources>
   <include location="../resource/main_window.qrc"/>
-  <include location="../../../.designer/resource/main_window.qrc"/>
  </resources>
  <connections/>
  <designerdata>

@@ -36,6 +36,8 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.current_view_container.main_window_view = self
         self.current_view_container.main_window_controller = controller
 
+        self.global_shortcuts = []
+
         self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)
 
@@ -51,6 +53,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
         self.action_next_page.triggered.connect(controller.next_page)
         self.action_previous_page.triggered.connect(controller.previous_page)
+
         self.action_first_page.triggered.connect(controller.first_page)
         self.action_last_page.triggered.connect(controller.last_page)
         self.action_go_to_page.triggered.connect(controller.go_to_page)
@@ -84,37 +87,22 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
     def _define_global_shortcuts(self, controller):
 
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"),
-                        self.current_view_container,
-                        controller.previous_comic).setContext(Qt.WidgetShortcut)
+        sequence = {
+            'Ctrl+Shift+Left': controller.previous_comic,
+            'Ctrl+Left': controller.first_page,
+            'Left': controller.previous_page,
+            'Right': controller.next_page,
+            'Ctrl+Right': controller.last_page,
+            'Ctrl+Shift+Right': controller.next_comic,
+            'Ctrl+R': controller.rotate_right,
+            'Ctrl+Shift+R': controller.rotate_left,
+        }
 
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"),
-                        self.current_view_container,
-                        controller.first_page).setContext(Qt.WidgetShortcut)
-
-        QtGui.QShortcut(QtGui.QKeySequence("Left"),
-                        self.current_view_container,
-                        controller.previous_page).setContext(Qt.WidgetShortcut)
-
-        QtGui.QShortcut(QtGui.QKeySequence("Right"),
-                        self.current_view_container,
-                        controller.next_page).setContext(Qt.WidgetShortcut)
-
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"),
-                        self.current_view_container,
-                        controller.last_page).setContext(Qt.WidgetShortcut)
-
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"),
-                        self.current_view_container,
-                        controller.next_comic).setContext(Qt.WidgetShortcut)
-
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"),
-                        self.current_view_container,
-                        controller.rotate_right).setContext(Qt.WidgetShortcut)
-
-        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"),
-                        self.current_view_container,
-                        controller.rotate_left).setContext(Qt.WidgetShortcut)
+        for key, value in sequence.items():
+            s = QtGui.QShortcut(QtGui.QKeySequence(key),
+                                self.current_view_container, value)
+            s.setEnabled(False)
+            self.global_shortcuts.append(s)
 
     def enable_actions(self):
 
@@ -146,22 +134,29 @@ class MainWindowView(MainWindowBase, MainWindowForm):
             self.toolbar.show()
             self.statusbar.show()
             self.showMaximized()
-            self._set_focus_on_toolbar()
+            self.set_focus_on_toolbar()
+
+            for sc in self.global_shortcuts:
+                sc.setEnabled(False)
         else:
             self.menubar.hide()
             self.toolbar.hide()
             self.statusbar.hide()
             self.showFullScreen()
+            for sc in self.global_shortcuts:
+                sc.setEnabled(True)
 
     def _set_focus_on_viewer(self):
-        self.viewer.activateWindow()
-        self.viewer.setWindowState(QtCore.Qt.WindowActive)
-        self.viewer.setFocus(QtCore.Qt.ActiveWindowFocusReason)
+        # self.current_view_container.activateWindow()
+        # self.current_view_container.setWindowState(QtCore.Qt.WindowActive)
+        # self.current_view_container.setFocus(QtCore.Qt.ActiveWindowFocusReason)
+        print
 
-    def _set_focus_on_toolbar(self):
-        self.toolbar.activateWindow()
-        self.toolbar.setWindowState(QtCore.Qt.WindowActive)
-        self.toolbar.setFocus(QtCore.Qt.ActiveWindowFocusReason)
+    def set_focus_on_toolbar(self):
+        # self.toolbar.activateWindow()
+        # self.toolbar.setWindowState(QtCore.Qt.WindowActive)
+        # self.toolbar.setFocus(QtCore.Qt.ActiveWindowFocusReason)
+        print
 
     def switch_to_web_view(self):
         if self.web_view is None:
@@ -185,7 +180,8 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
     def set_viewer_content(self, content):
         self.current_view_container.set_content(content)
-        self._set_focus_on_toolbar()
+        # self.set_focus_on_toolbar()
+        # self._set_focus_on_viewer()
 
     def update_current_view_container_size(self, new_size):
         self.controller.update_current_view_container_size(new_size)
