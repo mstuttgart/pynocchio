@@ -134,7 +134,6 @@ class MainWindowController():
     def update_statusbar(self):
 
         if self.model.comic:
-
             n_page = self.model.comic.get_current_page_number()
             pages_size = self.model.comic.get_number_of_pages()
             page_width = self.model.get_current_page().width()

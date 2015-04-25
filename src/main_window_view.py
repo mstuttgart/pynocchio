@@ -130,18 +130,9 @@ class MainWindowView(MainWindowBase, MainWindowForm):
                           page_width, page_height):
 
         if self.statusbar.isVisible():
-            # n_page = self.model.comic.get_current_page_number()
-            # pages_size = self.model.comic.get_number_of_pages()
-            # page_width = self.model.get_current_page().width()
-            # page_height = self.model.get_current_page().height()
-            # page_title = self.model.comic.get_current_page_title()
-
             self.statusbar.set_comic_page(page_number, total_pages)
             self.statusbar.set_page_resolution(page_width, page_height)
             self.statusbar.set_comic_path(page_title)
-
-            # self.statusbar.slider.valueChanged.connect(
-            #     self._set_zoom_factor)
 
     def switch_to_web_view(self):
         if self.web_view is None:
