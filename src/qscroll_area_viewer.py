@@ -25,46 +25,21 @@ class QScrollAreaViewer(QtGui.QScrollArea):
 
         self.main_window_view = None
         self.main_window_controller = None
-        #
-        # self.model = None
-        # self.label = None
-        # self.main_window = None
-        # self.drag_mouse = False
-        # self.drag_position = {'x': 0, 'y': 0}
+        self.drag_mouse = False
+        self.drag_position = {'x': 0, 'y': 0}
         # self.last_scroll_position = 0
         #
-        # self.setMouseTracking(True)
+        self.setMouseTracking(True)
         #
         # # self.hide_cursor_timer = QtCore.QTimer()
         # # self.hide_cursor_timer.setSingleShot(True)
         # # self.hide_cursor_timer.timeout.connect(self._hide_cursor)
         #
-        # self.setWidgetResizable(True)
-        # self._change_cursor()
+        self.setCursor(QtCore.Qt.OpenHandCursor)
 
     def set_content(self, content):
         if content is not None:
             self.main_window_view.label.setPixmap(content)
-
-    # def define_global_shortcuts(self):
-    #
-    #     QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"), self,
-    #                     self.main_window.on_action_previous_comic_triggered)
-    #     QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"), self,
-    #                     self.main_window.on_action_first_page_triggered)
-    #     QtGui.QShortcut(QtGui.QKeySequence("Left"), self,
-    #                     self.main_window.on_action_previous_page_triggered)
-    #     QtGui.QShortcut(QtGui.QKeySequence("Right"), self,
-    #                     self.main_window.on_action_next_page_triggered)
-    #     QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"), self,
-    #                     self.main_window.on_action_last_page_triggered)
-    #     QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"), self,
-    #                     self.main_window.on_action_next_comic_triggered)
-    #
-    #     QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"), self,
-    #                     self.main_window.on_action_rotate_right_triggered)
-    #     QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"), self,
-    #                     self.main_window.on_action_rotate_left_triggered)
 
     # def next_page(self):
     #     self.update_view(self.model.next_page())
@@ -93,66 +68,42 @@ class QScrollAreaViewer(QtGui.QScrollArea):
     #     self.update_view(self.model.rotate_right())
     #     self.verticalScrollBar().setValue(0)
     #
-    # def update_view(self, pix_map):
-    #     if pix_map:
-    #         self.label.setPixmap(pix_map)
-    #
-    # def _change_cursor(self):
-    #     if self.drag_mouse:
-    #         self.setCursor(QtCore.Qt.ClosedHandCursor)
-    #     else:
-    #         self.setCursor(QtCore.Qt.OpenHandCursor)
-    #
-    # def _hide_cursor(self):
-    #     self.setCursor(QtCore.Qt.BlankCursor)
-    #
-    # def load_comic_cursor(self, loading):
-    #     if loading:
-    #         self.setCursor(QtCore.Qt.WaitCursor)
-    #     else:
-    #         self._change_cursor()
-    #
-    # def change_background_color(self, color):
-    #     style = "QWidget { background-color: %s }" % color.name()
-    #     self.setStyleSheet(style)
 
-    # def mousePressEvent(self, *args, **kwargs):
-    #     event = args[0]
-    #
-    #     self.drag_mouse = True
-    #     self.drag_position['x'] = event.x()
-    #     self.drag_position['y'] = event.y()
-    #     self._change_cursor()
-    #
-    #     super(Viewer, self).mousePressEvent(*args, **kwargs)
-    #
-    # def mouseReleaseEvent(self, *args, **kwargs):
-    #     self.drag_mouse = False
-    #     self._change_cursor()
-    #     # self.hide_cursor_timer.start(2500)
-    #     super(Viewer, self).mouseReleaseEvent(*args, **kwargs)
-    #
-    # def mouseMoveEvent(self, *args, **kwargs):
-    #     event = args[0]
-    #     self._change_cursor()
-    #
-    #     if self.drag_mouse:
-    #         scroll_position = {
-    #             'x': self.horizontalScrollBar().sliderPosition(),
-    #             'y': self.verticalScrollBar().sliderPosition()
-    #         }
-    #
-    #         new_x = scroll_position['x'] + self.drag_position['x'] - event.x()
-    #         new_y = scroll_position['y'] + self.drag_position['y'] - event.y()
-    #
-    #         self.horizontalScrollBar().setSliderPosition(new_x)
-    #         self.verticalScrollBar().setSliderPosition(new_y)
-    #
-    #         self.drag_position['x'] = event.x()
-    #         self.drag_position['y'] = event.y()
-    #
-    #     super(Viewer, self).mouseMoveEvent(*args, **kwargs)
-    #
+    def change_background_color(self, color):
+        style = "QWidget { background-color: %s }" % color.name()
+        self.setStyleSheet(style)
+
+    def mousePressEvent(self, *args, **kwargs):
+        self.drag_mouse = True
+        self.drag_position['x'] = args[0].x()
+        self.drag_position['y'] = args[0].y()
+        self.setCursor(QtCore.Qt.ClosedHandCursor)
+        super(QScrollAreaViewer, self).mousePressEvent(*args, **kwargs)
+
+    def mouseReleaseEvent(self, *args, **kwargs):
+        self.drag_mouse = False
+        self.setCursor(QtCore.Qt.OpenHandCursor)
+        super(QScrollAreaViewer, self).mouseReleaseEvent(*args, **kwargs)
+
+    def mouseMoveEvent(self, *args, **kwargs):
+
+        if self.drag_mouse:
+            scroll_position = {
+                'x': self.horizontalScrollBar().sliderPosition(),
+                'y': self.verticalScrollBar().sliderPosition()
+            }
+
+            new_x = scroll_position['x'] + self.drag_position['x'] - args[0].x()
+            new_y = scroll_position['y'] + self.drag_position['y'] - args[0].y()
+
+            self.horizontalScrollBar().setSliderPosition(new_x)
+            self.verticalScrollBar().setSliderPosition(new_y)
+
+            self.drag_position['x'] = args[0].x()
+            self.drag_position['y'] = args[0].y()
+
+        super(QScrollAreaViewer, self).mouseMoveEvent(*args, **kwargs)
+
     def resizeEvent(self, *args, **kwargs):
         self.main_window_view.update_current_view_container_size(args[0].size())
         super(QScrollAreaViewer, self).resizeEvent(*args, **kwargs)
