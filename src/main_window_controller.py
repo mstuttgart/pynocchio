@@ -47,6 +47,7 @@ class MainWindowController():
             self.view.setWindowTitle(self.model.comic.name +
                                      ' - Pynocchio Comic Reader')
             self.view.enable_actions()
+            self.update_statusbar()
         else:
             print '[ERROR] error load comics'
 
@@ -122,9 +123,23 @@ class MainWindowController():
 
     def set_view_content(self, content):
         self.view.set_viewer_content(content)
+        self.update_statusbar()
 
     def update_current_view_container_size(self, new_size):
         self.model.view_container_size = new_size
 
     def get_current_view_container_size(self):
         return self.view.get_current_view_container_size()
+
+    def update_statusbar(self):
+
+        if self.model.comic:
+
+            n_page = self.model.comic.get_current_page_number()
+            pages_size = self.model.comic.get_number_of_pages()
+            page_width = self.model.get_current_page().width()
+            page_height = self.model.get_current_page().height()
+            page_title = self.model.comic.get_current_page_title()
+
+            self.view.update_status_bar(n_page, pages_size, page_title,
+                                        page_width, page_height)

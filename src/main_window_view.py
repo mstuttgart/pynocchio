@@ -126,23 +126,22 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_add_bookmark.setEnabled(True)
         self.action_remove_bookmark.setEnabled(True)
 
-    def on_action_fullscreen_triggered(self):
+    def update_status_bar(self, page_number, total_pages, page_title,
+                          page_width, page_height):
 
-        if self.isFullScreen():
-            self.menubar.show()
-            self.toolbar.show()
-            self.statusbar.show()
-            self.showMaximized()
+        if self.statusbar.isVisible():
+            # n_page = self.model.comic.get_current_page_number()
+            # pages_size = self.model.comic.get_number_of_pages()
+            # page_width = self.model.get_current_page().width()
+            # page_height = self.model.get_current_page().height()
+            # page_title = self.model.comic.get_current_page_title()
 
-            for sc in self.global_shortcuts:
-                sc.setEnabled(False)
-        else:
-            self.menubar.hide()
-            self.toolbar.hide()
-            self.statusbar.hide()
-            self.showFullScreen()
-            for sc in self.global_shortcuts:
-                sc.setEnabled(True)
+            self.statusbar.set_comic_page(page_number, total_pages)
+            self.statusbar.set_page_resolution(page_width, page_height)
+            self.statusbar.set_comic_path(page_title)
+
+            # self.statusbar.slider.valueChanged.connect(
+            #     self._set_zoom_factor)
 
     def switch_to_web_view(self):
         if self.web_view is None:
@@ -172,6 +171,39 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
     def get_current_view_container_size(self):
         return self.current_view_container.size()
+
+    @QtCore.pyqtSlot()
+    def on_action_show_toolbar_triggered(self):
+        if self.action_show_toolbar.isChecked():
+            self.toolbar.show()
+        else:
+            self.toolbar.hide()
+
+    @QtCore.pyqtSlot()
+    def on_action_show_statusbar_triggered(self):
+        if self.action_show_statusbar.isChecked():
+            self.statusbar.show()
+        else:
+            self.statusbar.hide()
+
+    @QtCore.pyqtSlot()
+    def on_action_fullscreen_triggered(self):
+
+        if self.isFullScreen():
+            self.menubar.show()
+            self.toolbar.show()
+            self.statusbar.show()
+            self.showMaximized()
+
+            for sc in self.global_shortcuts:
+                sc.setEnabled(False)
+        else:
+            self.menubar.hide()
+            self.toolbar.hide()
+            self.statusbar.hide()
+            self.showFullScreen()
+            for sc in self.global_shortcuts:
+                sc.setEnabled(True)
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
