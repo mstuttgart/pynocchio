@@ -28,7 +28,7 @@ class MainWindowController():
     def open(self):
 
         file_path = QtGui.QFileDialog().getOpenFileName(
-            self.view, self.view.tr('Open comic file'), '.',
+            self.view, self.view.tr('Open comic file'), '../zzz/quadrinhos',
             self.view.tr(
                 'All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
                 'Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr);; '
@@ -83,23 +83,6 @@ class MainWindowController():
 
     def rotate_right(self):
         self.model.rotate_right()
-
-    def fullscreen(self):
-        if self.isFullScreen():
-            self.menubar.show()
-            self._update_view_actions()
-            self.showMaximized()
-            self.on_action_show_toolbar_triggered()
-            self.on_action_show_statusbar_triggered()
-            self._update_status_bar()
-        else:
-            self.menubar.hide()
-            if not self.preferences.show_toolbar_in_fullscreen:
-                self.toolbar.hide()
-            if not self.preferences.show_statusbar_in_fullscreen:
-                self.statusbar.hide()
-            self.showFullScreen()
-            self._set_focus_on_viewer()
 
     def original_fit(self):
         self.model.original_fit()

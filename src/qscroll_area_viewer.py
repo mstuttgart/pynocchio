@@ -27,47 +27,16 @@ class QScrollAreaViewer(QtGui.QScrollArea):
         self.main_window_controller = None
         self.drag_mouse = False
         self.drag_position = {'x': 0, 'y': 0}
-        # self.last_scroll_position = 0
-        #
-        self.setMouseTracking(True)
-        #
-        # # self.hide_cursor_timer = QtCore.QTimer()
-        # # self.hide_cursor_timer.setSingleShot(True)
-        # # self.hide_cursor_timer.timeout.connect(self._hide_cursor)
-        #
+        self.last_scroll_position = 0
         self.setCursor(QtCore.Qt.OpenHandCursor)
 
     def set_content(self, content):
         if content is not None:
             self.main_window_view.label.setPixmap(content)
+            self.verticalScrollBar().setValue(0)
 
-    # def next_page(self):
-    #     self.update_view(self.model.next_page())
-    #     self.last_scroll_position = self.verticalScrollBar().value()
-    #
-    #     if not self.model.is_last_page():
-    #         self.verticalScrollBar().setValue(0)
-    #
-    # def previous_page(self):
-    #     self.update_view(self.model.previous_page())
-    #     self.verticalScrollBar().setValue(self.last_scroll_position)
-    #
-    # def first_page(self):
-    #     self.update_view(self.model.first_page())
-    #     self.verticalScrollBar().setValue(0)
-    #
-    # def last_page(self):
-    #     self.update_view(self.model.last_page())
-    #     self.verticalScrollBar().setValue(0)
-    #
-    # def rotate_left(self):
-    #     self.update_view(self.model.rotate_left())
-    #     self.verticalScrollBar().setValue(0)
-    #
-    # def rotate_right(self):
-    #     self.update_view(self.model.rotate_right())
-    #     self.verticalScrollBar().setValue(0)
-    #
+    def go_last_scroll_position(self):
+        self.verticalScrollBar().setValue(self.last_scroll_position)
 
     def change_background_color(self, color):
         style = "QWidget { background-color: %s }" % color.name()

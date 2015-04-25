@@ -16,7 +16,6 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import QtGui, QtCore, uic
-from PyQt4.QtCore import Qt
 
 from qwebimage_widget import QWebImageWidget
 from status_bar import StatusBar
