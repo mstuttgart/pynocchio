@@ -16,6 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import QtGui, QtCore, uic
+from PyQt4.QtCore import Qt
 
 from qwebimage_widget import QWebImageWidget
 from status_bar import StatusBar
@@ -40,6 +41,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
         self._create_connections(controller)
         self._centralize_window()
+        self._define_global_shortcuts(controller)
 
     def _create_connections(self, controller):
 
@@ -79,6 +81,40 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_vertical_fit.triggered.connect(controller.vertical_fit)
         self.action_horizontal_fit.triggered.connect(controller.horizontal_fit)
         self.action_best_fit.triggered.connect(controller.best_fit)
+
+    def _define_global_shortcuts(self, controller):
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Left"),
+                        self.current_view_container,
+                        controller.previous_comic).setContext(Qt.WidgetShortcut)
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Left"),
+                        self.current_view_container,
+                        controller.first_page).setContext(Qt.WidgetShortcut)
+
+        QtGui.QShortcut(QtGui.QKeySequence("Left"),
+                        self.current_view_container,
+                        controller.previous_page).setContext(Qt.WidgetShortcut)
+
+        QtGui.QShortcut(QtGui.QKeySequence("Right"),
+                        self.current_view_container,
+                        controller.next_page).setContext(Qt.WidgetShortcut)
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Right"),
+                        self.current_view_container,
+                        controller.last_page).setContext(Qt.WidgetShortcut)
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+Right"),
+                        self.current_view_container,
+                        controller.next_comic).setContext(Qt.WidgetShortcut)
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+R"),
+                        self.current_view_container,
+                        controller.rotate_right).setContext(Qt.WidgetShortcut)
+
+        QtGui.QShortcut(QtGui.QKeySequence("Ctrl+Shift+R"),
+                        self.current_view_container,
+                        controller.rotate_left).setContext(Qt.WidgetShortcut)
 
     def enable_actions(self):
 
@@ -135,8 +171,8 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.setCentralWidget(self.web_view)
 
     def switch_to_normal_view(self):
-        self.current_view_container = self.qscroll_area_viewer
         self.setCentralWidget(self.qscroll_area_viewer)
+        self.current_view_container = self.qscroll_area_viewer
 
     def _centralize_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
