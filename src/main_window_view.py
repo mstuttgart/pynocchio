@@ -134,7 +134,6 @@ class MainWindowView(MainWindowBase, MainWindowForm):
             self.toolbar.show()
             self.statusbar.show()
             self.showMaximized()
-            self.set_focus_on_toolbar()
 
             for sc in self.global_shortcuts:
                 sc.setEnabled(False)
@@ -145,18 +144,6 @@ class MainWindowView(MainWindowBase, MainWindowForm):
             self.showFullScreen()
             for sc in self.global_shortcuts:
                 sc.setEnabled(True)
-
-    def _set_focus_on_viewer(self):
-        # self.current_view_container.activateWindow()
-        # self.current_view_container.setWindowState(QtCore.Qt.WindowActive)
-        # self.current_view_container.setFocus(QtCore.Qt.ActiveWindowFocusReason)
-        print
-
-    def set_focus_on_toolbar(self):
-        # self.toolbar.activateWindow()
-        # self.toolbar.setWindowState(QtCore.Qt.WindowActive)
-        # self.toolbar.setFocus(QtCore.Qt.ActiveWindowFocusReason)
-        print
 
     def switch_to_web_view(self):
         if self.web_view is None:
@@ -180,8 +167,6 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
     def set_viewer_content(self, content):
         self.current_view_container.set_content(content)
-        # self.set_focus_on_toolbar()
-        # self._set_focus_on_viewer()
 
     def update_current_view_container_size(self, new_size):
         self.controller.update_current_view_container_size(new_size)
