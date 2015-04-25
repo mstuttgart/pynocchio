@@ -84,9 +84,6 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="cursor" stdset="0">
-         <cursorShape>OpenHandCursor</cursorShape>
-        </property>
         <property name="focusPolicy">
          <enum>Qt::ClickFocus</enum>
         </property>
