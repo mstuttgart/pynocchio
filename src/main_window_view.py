@@ -68,10 +68,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_add_bookmark.triggered.connect(controller.add_bookmark)
         self.action_remove_bookmark.triggered.connect(controller.remove_bookmark)
         self.action_bookmark_manager.triggered.connect(controller.bookmark_manager)
-        self.action_show_toolbar.triggered.connect(controller.show_toolbar)
-        self.action_show_statusbar.triggered.connect(controller.show_statusbar)
-        self.action_show_toolbar.triggered.connect(controller.show_toolbar)
-
+        
         self.action_preference_dialog.triggered.connect(
             controller.preference_dialog)
 
