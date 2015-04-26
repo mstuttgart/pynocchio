@@ -19,24 +19,20 @@ from PyQt4 import QtCore, QtGui
 
 
 class QScrollAreaViewer(QtGui.QScrollArea):
-    def __init__(self, parent=None):
 
+    def __init__(self, parent=None):
         super(QScrollAreaViewer, self).__init__(parent)
 
         self.main_window_view = None
         self.main_window_controller = None
         self.drag_mouse = False
         self.drag_position = {'x': 0, 'y': 0}
-        self.last_scroll_position = 0
         self.setCursor(QtCore.Qt.OpenHandCursor)
 
     def set_content(self, content):
         if content is not None:
             self.main_window_view.label.setPixmap(content)
             self.verticalScrollBar().setValue(0)
-
-    def go_last_scroll_position(self):
-        self.verticalScrollBar().setValue(self.last_scroll_position)
 
     def change_background_color(self, color):
         style = "QWidget { background-color: %s }" % color.name()

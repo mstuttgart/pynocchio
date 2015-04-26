@@ -59,6 +59,9 @@ class MainWindowModel(object):
         except IOError:
             return False
 
+        ld.progress.connect(self.controller.view.statusbar.set_progressbar_value)
+        ld.done.connect(self.controller.view.statusbar.close_progress_bar)
+
         if ld.load(file_name):
             self.comic = Comic(Utility.get_base_name(file_name),
                                Utility.get_dir_name(file_name), initial_page)

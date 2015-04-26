@@ -39,9 +39,6 @@ class MainWindowController():
 
     def load(self, file_name, initial_page=0):
 
-        self.model = main_window_model.MainWindowModel(self)
-        self.view.switch_to_normal_view()
-
         if self.model.open(file_name, initial_page):
             self.set_view_content(self.model.get_current_page())
             self.view.setWindowTitle(self.model.comic.name +
@@ -129,7 +126,7 @@ class MainWindowController():
         self.model.view_container_size = new_size
 
     def get_current_view_container_size(self):
-        return self.view.get_current_view_container_size()
+        self.view.get_current_view_container_size()
 
     def update_statusbar(self):
 
