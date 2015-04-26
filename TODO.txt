@@ -9,3 +9,5 @@
 #TODO: Sistema de gerenciamento de coleções
 #TODO: Tradução espanhol
 #TODO: Arquivos de testes
+#TODO: Action para abrir um widget com a arvore de urls. Isso desvincula as
+views e deixa a view principal limpa
