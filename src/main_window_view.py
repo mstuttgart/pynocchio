@@ -40,9 +40,6 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.statusbar = StatusBar(self)
         self.setStatusBar(self.statusbar)
 
-        self.on_action_show_statusbar_triggered()
-        self.on_action_show_toolbar_triggered()
-
         self._create_connections(controller)
         self._centralize_window()
         self._define_global_shortcuts(controller)

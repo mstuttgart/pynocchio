@@ -16,8 +16,10 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import QtGui, QtCore
+
 import main_window_view
 import main_window_model
+import settings_manager
 
 
 class MainWindowController():
@@ -25,10 +27,13 @@ class MainWindowController():
         self.view = main_window_view.MainWindowView(self)
         self.model = main_window_model.MainWindowModel(self)
 
+        settings_manager.SettingsManager.load(self.view, self)
+
     def open(self):
 
         file_path = QtGui.QFileDialog().getOpenFileName(
-            self.view, self.view.tr('Open comic file'), '../zzz/quadrinhos',
+            self.view, self.view.tr('Open comic file'),
+            self.model.current_directory,
             self.view.tr(
                 'All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
                 'Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr);; '
@@ -45,6 +50,10 @@ class MainWindowController():
                                      ' - Pynocchio Comic Reader')
             self.view.enable_actions()
             self.update_statusbar()
+
+            from utility import Utility
+            self.model.current_directory = Utility.get_dir_name(
+                Utility.convert_qstring_to_str(file_name))
         else:
             print '[ERROR] error load comics'
 
@@ -106,7 +115,8 @@ class MainWindowController():
         print
 
     def exit(self):
-        print 'saindo'
+        print '[INFO] Exiting Pynocchio Comic Reader'
+        settings_manager.SettingsManager.save(self.view, self)
 
     def show(self):
         self.view.show()

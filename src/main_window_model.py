@@ -25,10 +25,10 @@ from page import *
 
 class MainWindowModel(object):
 
-    _ORIGINAL_FIT = 0
-    _VERTICAL_FIT = 1
-    _HORIZONTAL_FIT = 2
-    _BEST_FIT = 3
+    _ORIGINAL_FIT = 'action_original_fit'
+    _VERTICAL_FIT = 'action_vertical_fit'
+    _HORIZONTAL_FIT = 'action_horizontal_fit'
+    _BEST_FIT = 'action_best_fit'
 
     def __init__(self, controller):
         self.controller = controller
@@ -36,7 +36,7 @@ class MainWindowModel(object):
         self.original_pixmap = None
         self.fit_type = MainWindowModel._ORIGINAL_FIT
         self.rotateAngle = 0
-        self.current_directory = ''
+        self.current_directory = '.'
         self.next_comic_path = ''
         self.previous_comic_path = ''
         self.zoom_factor = 1.0

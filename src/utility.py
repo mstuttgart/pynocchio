@@ -52,3 +52,12 @@ class Utility(object):
     def convert_qstring_to_str(qstring):
         if isinstance(qstring, QtCore.QString):
             return str(qstring.toUtf8())
+
+    @staticmethod
+    def convert_string_to_boolean(string):
+        if string == 'True':
+            return True
+        elif string == 'False':
+            return False
+        else:
+            raise ValueError
