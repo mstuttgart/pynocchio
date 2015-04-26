@@ -35,7 +35,6 @@ class MainWindowModel(object):
         self.comic = None
         self.original_pixmap = None
         self.fit_type = MainWindowModel._ORIGINAL_FIT
-        self._view_container_size = controller.get_current_view_container_size()
         self.rotateAngle = 0
         self.current_directory = ''
         self.next_comic_path = ''
@@ -189,32 +188,25 @@ class MainWindowModel(object):
     def _resize_page(self, pix_map):
 
         if self.fit_type == MainWindowModel._VERTICAL_FIT:
-            pix_map = pix_map.scaledToHeight(self._view_container_size.height(),
-                                             QtCore.Qt.SmoothTransformation)
+            pix_map = pix_map.scaledToHeight(
+                self.controller.get_current_view_container_size().height(),
+                QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._HORIZONTAL_FIT:
-            pix_map = pix_map.scaledToWidth(self._view_container_size.width(),
-                                            QtCore.Qt.SmoothTransformation)
+            pix_map = pix_map.scaledToWidth(
+                self.controller.get_current_view_container_size().width(),
+                QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._BEST_FIT:
             pix_map = pix_map.scaledToWidth(
-                self._view_container_size.width() * 0.8,
+                self.controller.get_current_view_container_size().width() * 0.8,
                 QtCore.Qt.SmoothTransformation)
 
-        pix_map = pix_map.scaled(pix_map.size() * self.zoom_factor,
-                                 QtCore.Qt.KeepAspectRatio,
-                                 QtCore.Qt.SmoothTransformation)
+        # pix_map = pix_map.scaled(pix_map.size() * self.zoom_factor,
+        #                          QtCore.Qt.KeepAspectRatio,
+        #                          QtCore.Qt.SmoothTransformation)
 
         return pix_map
-
-    @property
-    def view_container_size(self):
-        return self._view_container_size
-
-    @view_container_size.setter
-    def view_container_size(self, new_size):
-        self._view_container_size = new_size
-        self.controller.set_view_content(self.get_current_page())
 
     def original_fit(self):
         self.fit_type = MainWindowModel._ORIGINAL_FIT

@@ -94,18 +94,12 @@ class MainWindowController():
         self.model.best_fit()
 
     def add_bookmark(self):
-        print
+        self.model.add_bookmark()
 
     def remove_bookmark(self):
-        print
+        self.model.remove_bookmark()
 
     def bookmark_manager(self):
-        print
-
-    def show_toolbar(self):
-        print
-
-    def show_statusbar(self):
         print
 
     def preference_dialog(self):
@@ -121,11 +115,8 @@ class MainWindowController():
         self.view.set_viewer_content(content)
         self.update_statusbar()
 
-    def update_current_view_container_size(self, new_size):
-        self.model.view_container_size = new_size
-
     def get_current_view_container_size(self):
-        self.view.get_current_view_container_size()
+        return self.view.get_current_view_container_size()
 
     def update_statusbar(self):
 

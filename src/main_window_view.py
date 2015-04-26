@@ -68,7 +68,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_add_bookmark.triggered.connect(controller.add_bookmark)
         self.action_remove_bookmark.triggered.connect(controller.remove_bookmark)
         self.action_bookmark_manager.triggered.connect(controller.bookmark_manager)
-        
+
         self.action_preference_dialog.triggered.connect(
             controller.preference_dialog)
 
@@ -157,8 +157,8 @@ class MainWindowView(MainWindowBase, MainWindowForm):
     def set_viewer_content(self, content):
         self.current_view_container.set_content(content)
 
-    def update_current_view_container_size(self, new_size):
-        self.controller.update_current_view_container_size(new_size)
+    def update_current_view_container_size(self):
+        self.set_viewer_content(self.controller.model.get_current_page())
 
     def get_current_view_container_size(self):
         return self.current_view_container.size()

@@ -70,5 +70,5 @@ class QScrollAreaViewer(QtGui.QScrollArea):
         super(QScrollAreaViewer, self).mouseMoveEvent(*args, **kwargs)
 
     def resizeEvent(self, *args, **kwargs):
-        self.main_window_view.update_current_view_container_size(args[0].size())
+        self.main_window_view.update_current_view_container_size()
         super(QScrollAreaViewer, self).resizeEvent(*args, **kwargs)
