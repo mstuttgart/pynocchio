@@ -48,7 +48,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
         self.action_open.triggered.connect(controller.open)
         self.action_save_image.triggered.connect(controller.save_image)
-        self.action_online_comics.triggered.connect(controller.online_comics)
+        self.action_open_online.triggered.connect(controller.open_online)
 
         self.action_next_page.triggered.connect(controller.next_page)
         self.action_previous_page.triggered.connect(controller.previous_page)

@@ -51,9 +51,8 @@ class MainWindowController():
     def save_image(self):
         print
 
-    def online_comics(self):
-        self.main_window_view.setCentralWidget(self.web_view)
-        print
+    def open_online(self):
+        print 'teste'
 
     def next_page(self):
         self.model.next_page()

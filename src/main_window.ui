@@ -240,11 +240,11 @@
     </widget>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>
+    <addaction name="action_open_online"/>
     <addaction name="action_save_image"/>
     <addaction name="menu_recent_files"/>
     <addaction name="separator"/>
     <addaction name="action_exit"/>
-    <addaction name="action_online_comics"/>
    </widget>
    <widget class="QMenu" name="menu_view">
     <property name="title">
@@ -391,7 +391,7 @@
   <action name="action_open">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -956,9 +956,16 @@
     <bool>false</bool>
    </property>
   </action>
-  <action name="action_online_comics">
+  <action name="action_open_online">
+   <property name="icon">
+    <iconset resource="../resource/main_window.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/categories/48/applications-internet.svg</normaloff>:/icons/elementary3-icon-theme/categories/48/applications-internet.svg</iconset>
+   </property>
    <property name="text">
-    <string>online_comics</string>
+    <string>Open Online</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+O</string>
    </property>
   </action>
  </widget>

@@ -1,6 +1,7 @@
 <RCC>
   <qresource prefix="/icons">
     <file>pynocchio_icon_2.png</file>
+    <file>elementary3-icon-theme/categories/48/applications-internet.svg</file>
     <file>notCover.png</file>
     <file>elementary3-icon-theme/actions/64/go-down.svg</file>
     <file>elementary3-icon-theme/apps/64/addressbook.svg</file>
