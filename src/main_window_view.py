@@ -81,6 +81,13 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.action_horizontal_fit.triggered.connect(controller.horizontal_fit)
         self.action_best_fit.triggered.connect(controller.best_fit)
 
+        self.menu_recent_bookmarks.aboutToShow.connect(
+            self.controller.update_bookmarks_menu)
+
+        actions = self.menu_recent_bookmarks.actions()
+        for bk in actions:
+            bk.triggered.connect(self.controller.load_bookmark)
+
     def _define_global_shortcuts(self, controller):
 
         sequence = {

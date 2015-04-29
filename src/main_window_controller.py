@@ -102,6 +102,28 @@ class MainWindowController():
     def best_fit(self):
         self.model.best_fit()
 
+    def update_bookmarks_menu(self):
+
+        bk_actions = self.view.menu_recent_bookmarks.actions()
+        bookmark_list = self.model.get_bookmark_list(len(bk_actions))
+
+        for bk in bk_actions:
+            bk.setVisible(False)
+
+        for i in range(len(bookmark_list)):
+            bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
+                                   bookmark_list[i].comic_page)
+            bk_actions[i].setText(bk_text)
+            bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
+            bk_actions[i].setVisible(True)
+
+    def load_bookmark(self):
+        action = self.view.sender()
+        if action:
+            bk = self.model.get_bookmark_from_path(action.statusTip())
+            if bk:
+                self.load(QtCore.QString(bk.comic_path), bk.comic_page - 1)
+
     def add_bookmark(self):
         self.model.add_bookmark()
 
@@ -139,3 +161,5 @@ class MainWindowController():
 
             self.view.update_status_bar(n_page, pages_size, page_title,
                                         page_width, page_height)
+
+
