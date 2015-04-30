@@ -17,7 +17,7 @@
 from manga_panda_parser import MangaPandaParser
 
 
-product = {
+_product = {
     'http://www.mangapanda.com/': MangaPandaParser,
 }
 
@@ -26,7 +26,7 @@ class ParserFactory(object):
 
     @staticmethod
     def create_loader(parser_name):
-        if parser_name in product:
-            return product[parser_name]()
+        if parser_name in _product:
+            return _product[parser_name]()
 
         return None
