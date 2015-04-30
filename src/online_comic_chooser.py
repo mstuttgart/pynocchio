@@ -20,7 +20,8 @@ from PyQt4 import QtGui, QtCore, uic
 from parser_factory import ParserFactory
 
 
-OnlineComicChooserForm, OnlineComicChooserBase = uic.loadUiType('online_comic_chooser.ui')
+OnlineComicChooserForm, OnlineComicChooserBase = \
+    uic.loadUiType('online_comic_chooser.ui')
 
 
 class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
@@ -63,10 +64,3 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
 
             for name in chapter_names:
                 self.chapter_combo_box.addItem(name)
-
-
-
-
-
-
-
