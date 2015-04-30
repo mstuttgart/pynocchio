@@ -29,7 +29,11 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QComboBox" name="host_combo_box"/>
+        <widget class="QComboBox" name="host_combo_box">
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="comic_label">
@@ -39,7 +43,29 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QComboBox" name="comic_combo_box"/>
+        <widget class="QComboBox" name="comic_combo_box">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maxVisibleItems">
+          <number>0</number>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::InsertAtBottom</enum>
+         </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+         </property>
+         <property name="frame">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="chapter_label">
@@ -49,7 +75,11 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QComboBox" name="chapter_combo_box"/>
+        <widget class="QComboBox" name="chapter_combo_box">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>

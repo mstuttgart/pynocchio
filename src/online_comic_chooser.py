@@ -17,7 +17,56 @@
 
 from PyQt4 import QtGui, QtCore, uic
 
-MainWindowForm, MainWindowBase = uic.loadUiType('online_comic_chooser.ui')
+from parser_factory import ParserFactory
 
 
-class OnlinefileChooser()
+OnlineComicChooserForm, OnlineComicChooserBase = uic.loadUiType('online_comic_chooser.ui')
+
+
+class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
+
+    def __init__(self, parent=None):
+        super(OnlineComicChooser, self).__init__(parent)
+        self.setupUi(self)
+
+        self.parser = None
+
+        self.host_combo_box.addItem('MangaPanda')
+        self.host_combo_box.addItem('MangaHere')
+        self.host_combo_box.addItem('MangaFox')
+        self.host_combo_box.addItem('Potato')
+        self.host_combo_box.addItem('HQBR')
+
+        self.host_combo_box.activated[str].connect(self.on_activat_host)
+        self.comic_combo_box.activated[str].connect(self.on_activat_comic)
+
+    def on_activat_host(self, host_name):
+        self.parser = ParserFactory.create_loader(str(host_name))
+
+        if self.parser is not None:
+            self.comic_combo_box.clear()
+            self.chapter_combo_box.clear()
+
+            self.comic_combo_box.setEnabled(True)
+            comics_names = self.parser.updated_comic_list()
+
+            for name in comics_names:
+                print name
+                self.comic_combo_box.addItem(name)
+
+    def on_activat_comic(self, comic_name):
+        print comic_name
+        if self.parser is not None:
+            self.chapter_combo_box.clear()
+            self.chapter_combo_box.setEnabled(True)
+            chapter_names = self.parser.update_chapters_list(str(comic_name))
+
+            for name in chapter_names:
+                self.chapter_combo_box.addItem(name)
+
+
+
+
+
+
+

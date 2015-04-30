@@ -18,7 +18,7 @@ from manga_panda_parser import MangaPandaParser
 
 
 _product = {
-    'http://www.mangapanda.com/': MangaPandaParser,
+    'MangaPanda': MangaPandaParser,
 }
 
 
