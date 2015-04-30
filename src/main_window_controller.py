@@ -136,7 +136,11 @@ class MainWindowController():
         self.model.remove_bookmark()
 
     def bookmark_manager(self):
-        print
+        import bookmark_manager_dialog
+        bookmark_dialog = bookmark_manager_dialog.BookmarkManagerDialog(
+            self.view, self)
+        bookmark_dialog.show()
+        bookmark_dialog.exec_()
 
     def preference_dialog(self):
         print

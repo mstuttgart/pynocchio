@@ -30,11 +30,10 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
 
     SCALE_RATIO = 0.18
 
-    def __init__(self, parent=None):
+    def __init__(self, parent, controller):
         super(BookmarkManagerDialog, self).__init__(parent)
         self.setupUi(self)
-
-        self.main_window = parent
+        self.controller = controller
         self.db = QSqlDatabase().addDatabase("QSQLITE")
         self.db.setDatabaseName("bookmark.db")
 
@@ -109,7 +108,7 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
         selection_model = self.bookmark_table.selectionModel()
         path = selection_model.selectedRows(1)[0].data().toString()
         page = selection_model.selectedRows(3)[0].data().toInt()[0]
-        self.main_window.load(path, page - 1)
+        self.controller.load(path, page - 1)
         self.close()
 
     def close(self):
