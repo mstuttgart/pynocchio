@@ -62,6 +62,11 @@ class MainWindowController():
 
     def open_online(self):
         print 'teste'
+        from online_comic_chooser import OnlineComicChooser
+
+        online_comic_chooser = OnlineComicChooser(self.view)
+        online_comic_chooser.show()
+        online_comic_chooser.exec_()
 
     def next_page(self):
         self.model.next_page()
