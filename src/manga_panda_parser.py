@@ -14,6 +14,8 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
+from collections import OrderedDict
+
 from base_parser import *
 
 
@@ -30,24 +32,23 @@ class MangaPandaParser(BaseParser):
         tree = html.fromstring(page.text)
 
         xpath = "//div[@class='series_alpha']/ul[@class='series_alpha']/li/a"
-        self.comics_urls = {}
+        self.comics_urls = OrderedDict()
 
         for comics in tree.xpath(xpath):
-            self.comics_urls[comics.text.encode("utf-8")] = \
-                'http://www.mangapanda.com'.join(comics.get('href'))
+            self.comics_urls[comics.text.encode("utf-8")] = comics.get('href')
 
         return self.comics_urls
 
     def update_chapters_list(self, comic_name):
-
-        self.chapter_urls = {}
+        print comic_name
+        self.chapter_urls = OrderedDict()
 
         try:
-            page = requests.get(self.comics_urls[comic_name])
+            page = requests.get(MangaPandaParser._HOST + self.comics_urls[comic_name])
             tree = html.fromstring(page.text)
             for chapter in tree.xpath("//table[@id='listing']/tr/td/a"):
                 self.chapter_urls[chapter.text.encode("utf-8")] = \
-                    'http://www.mangapanda.com'.join(chapter.get('href'))
+                    chapter.get('href')
         except KeyError as excp:
             print '[ERROR] Invalid comic name. ', excp.message
 
