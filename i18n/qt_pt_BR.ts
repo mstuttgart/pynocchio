@@ -893,107 +893,107 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="src/main_window.ui" line="225"/>
+        <location filename="src/main_window.ui" line="233"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;Arquivo</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="229"/>
+        <location filename="src/main_window.ui" line="237"/>
         <source>&amp;Recent files</source>
         <translation type="unfinished">A&amp;rquivos recentes</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="251"/>
+        <location filename="src/main_window.ui" line="259"/>
         <source>&amp;View</source>
         <translation type="unfinished">&amp;Visualizar</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="265"/>
+        <location filename="src/main_window.ui" line="273"/>
         <source>&amp;Navegation</source>
         <translation type="unfinished">&amp;Navegação</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="280"/>
+        <location filename="src/main_window.ui" line="288"/>
         <source>&amp;Help</source>
         <translation type="unfinished">A&amp;juda</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="287"/>
+        <location filename="src/main_window.ui" line="295"/>
         <source>&amp;Settings</source>
         <translation type="unfinished">&amp;Configuração</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="299"/>
+        <location filename="src/main_window.ui" line="307"/>
         <source>&amp;Bookmarks</source>
         <translation type="unfinished">&amp;Favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="397"/>
+        <location filename="src/main_window.ui" line="405"/>
         <source>&amp;Open</source>
         <translation type="unfinished">&amp;Abrir</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="415"/>
+        <location filename="src/main_window.ui" line="423"/>
         <source>&amp;About Pynocchio</source>
         <translation type="unfinished">&amp;Sobre o Pynocchio</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="420"/>
+        <location filename="src/main_window.ui" line="428"/>
         <source>&amp;About Qt</source>
         <translation type="unfinished">&amp;Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="429"/>
+        <location filename="src/main_window.ui" line="437"/>
         <source>&amp;Exit</source>
         <translation type="unfinished">&amp;Sair</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="444"/>
+        <location filename="src/main_window.ui" line="452"/>
         <source>&amp;Next page</source>
         <translation type="unfinished">&amp;Próxima página</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="447"/>
+        <location filename="src/main_window.ui" line="455"/>
         <source>Right</source>
         <translation type="unfinished">Direita </translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="468"/>
+        <location filename="src/main_window.ui" line="476"/>
         <source>&amp;Previous page</source>
         <translation type="unfinished">&amp;Página anterior</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="471"/>
+        <location filename="src/main_window.ui" line="479"/>
         <source>Left</source>
         <translation type="unfinished">Esquerda </translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="489"/>
+        <location filename="src/main_window.ui" line="497"/>
         <source>&amp;First page</source>
         <translation type="unfinished">&amp;Primeira página</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="492"/>
+        <location filename="src/main_window.ui" line="500"/>
         <source>Ctrl+Left</source>
         <translation type="unfinished">Ctrl + Esquerda</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="507"/>
+        <location filename="src/main_window.ui" line="515"/>
         <source>&amp;Last page</source>
         <translation type="unfinished">&amp;Última página</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="510"/>
+        <location filename="src/main_window.ui" line="518"/>
         <source>Ctrl+Right</source>
         <translation type="unfinished">Ctrl + Direita</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="528"/>
+        <location filename="src/main_window.ui" line="536"/>
         <source>&amp;Rotate left</source>
         <translation type="unfinished">Rotacionar para esquerda</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="546"/>
+        <location filename="src/main_window.ui" line="554"/>
         <source>&amp;Rotate right</source>
         <translation type="unfinished">Rotacionar para direita</translation>
     </message>
@@ -1008,12 +1008,12 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Ajuste horizontal</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="591"/>
+        <location filename="src/main_window.ui" line="599"/>
         <source>&amp;Fullscreen</source>
         <translation type="unfinished">Tela cheia</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="609"/>
+        <location filename="src/main_window.ui" line="617"/>
         <source>&amp;Go to page...</source>
         <translation type="unfinished">Ir para página...</translation>
     </message>
@@ -1028,52 +1028,52 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Preferências</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="630"/>
+        <location filename="src/main_window.ui" line="638"/>
         <source>&amp;Original fit</source>
         <translation type="unfinished">Tamanho original</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="650"/>
+        <location filename="src/main_window.ui" line="658"/>
         <source>&amp;Show Toolbar</source>
         <translation type="unfinished">Exibir barra de ferramentas</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="661"/>
+        <location filename="src/main_window.ui" line="669"/>
         <source>S&amp;how Statusbar</source>
         <translation type="unfinished">Exibir barra de status</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="673"/>
+        <location filename="src/main_window.ui" line="681"/>
         <source>&amp;Add bookmark</source>
         <translation type="unfinished">Adicionar aos favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="688"/>
+        <location filename="src/main_window.ui" line="696"/>
         <source>&amp;Remove bookmark</source>
         <translation type="unfinished">Remover dos favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="697"/>
+        <location filename="src/main_window.ui" line="705"/>
         <source>Bookmark &amp;manager</source>
         <translation type="unfinished">Gerenciar favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="723"/>
+        <location filename="src/main_window.ui" line="731"/>
         <source>Next Comic</source>
         <translation type="unfinished">Próximo quadrinho</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="726"/>
+        <location filename="src/main_window.ui" line="734"/>
         <source>Ctrl+Shift+Right</source>
         <translation type="unfinished">Ctrl + Shift + Direita</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="741"/>
+        <location filename="src/main_window.ui" line="749"/>
         <source>Previous Comic</source>
         <translation type="unfinished">Quadrinho anterior</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="744"/>
+        <location filename="src/main_window.ui" line="752"/>
         <source>Ctrl+Shift+Left</source>
         <translation type="unfinished">Ctrl + Shift + Esquerda</translation>
     </message>
@@ -1103,7 +1103,7 @@ p, li { white-space: pre-wrap; }
         <translation>Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="756"/>
+        <location filename="src/main_window.ui" line="764"/>
         <source>Preferences</source>
         <translation type="unfinished">Preferências</translation>
     </message>
@@ -1123,77 +1123,77 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="348"/>
+        <location filename="src/main_window.ui" line="356"/>
         <source>toolBar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="400"/>
+        <location filename="src/main_window.ui" line="408"/>
         <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="432"/>
+        <location filename="src/main_window.ui" line="440"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="531"/>
+        <location filename="src/main_window.ui" line="539"/>
         <source>Ctrl+Shift+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="549"/>
+        <location filename="src/main_window.ui" line="557"/>
         <source>Ctrl+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="573"/>
+        <location filename="src/main_window.ui" line="581"/>
         <source>Ctrl+K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="594"/>
+        <location filename="src/main_window.ui" line="602"/>
         <source>F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="612"/>
+        <location filename="src/main_window.ui" line="620"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="633"/>
+        <location filename="src/main_window.ui" line="641"/>
         <source>Ctrl+H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="702"/>
+        <location filename="src/main_window.ui" line="710"/>
         <source>Open &amp;Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="777"/>
+        <location filename="src/main_window.ui" line="785"/>
         <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="804"/>
+        <location filename="src/main_window.ui" line="812"/>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="819"/>
+        <location filename="src/main_window.ui" line="827"/>
         <source>&amp;Save image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="822"/>
+        <location filename="src/main_window.ui" line="830"/>
         <source>Save current image in disk.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="825"/>
+        <location filename="src/main_window.ui" line="833"/>
         <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1208,87 +1208,87 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="306"/>
+        <location filename="src/main_window.ui" line="314"/>
         <source>&amp;Recente bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="840"/>
+        <location filename="src/main_window.ui" line="848"/>
         <source>bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="852"/>
+        <location filename="src/main_window.ui" line="860"/>
         <source>bookmark_2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="864"/>
+        <location filename="src/main_window.ui" line="872"/>
         <source>bookmark_3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="876"/>
+        <location filename="src/main_window.ui" line="884"/>
         <source>bookmark_4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="888"/>
+        <location filename="src/main_window.ui" line="896"/>
         <source>bookmark_5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="896"/>
+        <location filename="src/main_window.ui" line="904"/>
         <source>tete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="570"/>
+        <location filename="src/main_window.ui" line="578"/>
         <source>&amp;Horizontal fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="774"/>
+        <location filename="src/main_window.ui" line="782"/>
         <source>&amp;Vertical fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="801"/>
+        <location filename="src/main_window.ui" line="809"/>
         <source>&amp;Best fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="905"/>
+        <location filename="src/main_window.ui" line="913"/>
         <source>recent_file_1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="917"/>
+        <location filename="src/main_window.ui" line="925"/>
         <source>recent_file_2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="929"/>
+        <location filename="src/main_window.ui" line="937"/>
         <source>recent_file_3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="941"/>
+        <location filename="src/main_window.ui" line="949"/>
         <source>recent_file_4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="953"/>
+        <location filename="src/main_window.ui" line="961"/>
         <source>recent_file_5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="965"/>
+        <location filename="src/main_window.ui" line="973"/>
         <source>Open Online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window.ui" line="968"/>
+        <location filename="src/main_window.ui" line="976"/>
         <source>Ctrl+Shift+O</source>
         <translation type="unfinished"></translation>
     </message>
