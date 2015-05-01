@@ -23,23 +23,6 @@ OnlineComicChooserForm, OnlineComicChooserBase = \
     uic.loadUiType('online_comic_chooser.ui')
 
 
-class CustomQTreeWidgetItem(QtGui.QTreeWidgetItem):
-
-    SITE = 0
-    COMIC = 1
-    CHAPTER = 2
-
-    def __init__(self, parent, title, nivel):
-        super(CustomQTreeWidgetItem, self).__init__(parent, [title])
-        self._nivel = nivel
-
-    def set_nivel(self, value):
-        self._nivel = value
-
-    def nivel(self):
-        return self._nivel
-
-
 class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
 
     def __init__(self, parent=None):
