@@ -29,6 +29,7 @@ class MainWindowController():
 
         settings_manager.SettingsManager.load(self.view, self)
 
+    @QtCore.pyqtSlot()
     def open(self):
 
         file_path = QtGui.QFileDialog().getOpenFileName(

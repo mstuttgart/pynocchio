@@ -202,10 +202,6 @@ class MainWindowModel(object):
                 self.controller.get_current_view_container_size().width() * 0.8,
                 QtCore.Qt.SmoothTransformation)
 
-        # pix_map = pix_map.scaled(pix_map.size() * self.zoom_factor,
-        #                          QtCore.Qt.KeepAspectRatio,
-        #                          QtCore.Qt.SmoothTransformation)
-
         return pix_map
 
     def original_fit(self):
