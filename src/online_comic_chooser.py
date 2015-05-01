@@ -36,7 +36,7 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
     def item_click(self, item):
         print item, str(item.text())
         self.parser = ParserFactory.create_loader(str(item.text()))
-        self.load_mangas()
+        self.load_comics()
 
     def add_parent(self, parent, column, title, data, status_tip):
         item = QtGui.QTreeWidgetItem(parent, title)
@@ -59,7 +59,7 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
         if item.parent() is None:
             self.load_chapter(item, column)
 
-    def load_mangas(self):
+    def load_comics(self):
 
         for name, url in self.parser.updated_comic_list().items():
             self.add_parent(
