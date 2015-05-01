@@ -47,21 +47,12 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
         self.setupUi(self)
 
         # self.addItems(self.tree_widget.invisibleRootItem())
-        # self.tree_widget.itemDoubleClicked.connect(self.handleChanged)
-
+        self.tree_widget.itemDoubleClicked.connect(self.handleChanged)
         self.host_list_widget.itemClicked.connect(self.item_click)
 
     def item_click(self, item):
         print item, str(item.text())
         self.load_mangas()
-
-
-
-    def addItems(self, parent):
-        column = 0
-        # clients_item = self.addParent(
-        #     parent, column, 'MangaPanda', 'MangaPanda', 'http://www.mangapanda.com/alphabetical')
-        # self.load_mangas()
 
     def addParent(self, parent, column, title, data, status_tip):
         item = QtGui.QTreeWidgetItem(parent, title)
@@ -77,21 +68,21 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
         item.setStatusTip(column, status_tip)
         return item
     #
-    # def handleChanged(self, item, column):
-    #     print 'double clicked'
-    #
-    #     if item.nivel() == CustomQTreeWidgetItem.SITE:
-    #         print 'SITE'
-    #         self.load_mangas(item, column)
-    #     elif item.nivel() == CustomQTreeWidgetItem.COMIC:
-    #         self.load_comic(item, column)
-    #         print 'COMIC'
-    #     elif item.nivel() == CustomQTreeWidgetItem.CHAPTER:
-    #         self.load_chapter(item, column)
-    #         print 'CHAPTER'
-    #     else:
-    #         print 'NADA'
-    #
+    def handleChanged(self, item, column):
+        print 'double clicked'
+
+        if item.nivel() == CustomQTreeWidgetItem.SITE:
+            print 'SITE'
+            self.load_mangas(item, column)
+        elif item.nivel() == CustomQTreeWidgetItem.COMIC:
+            self.load_comic(item, column)
+            print 'COMIC'
+        elif item.nivel() == CustomQTreeWidgetItem.CHAPTER:
+            self.load_chapter(item, column)
+            print 'CHAPTER'
+        else:
+            print 'NADA'
+    
 
     def load_mangas(self):
 
