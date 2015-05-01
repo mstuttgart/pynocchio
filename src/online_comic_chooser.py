@@ -46,134 +46,44 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
         super(OnlineComicChooser, self).__init__(parent)
         self.setupUi(self)
 
-        # self.addItems(self.tree_widget.invisibleRootItem())
-        self.tree_widget.itemDoubleClicked.connect(self.handleChanged)
+        self.parser = None
+        self.tree_widget.itemDoubleClicked.connect(self.handle_changed)
         self.host_list_widget.itemClicked.connect(self.item_click)
 
     def item_click(self, item):
         print item, str(item.text())
+        self.parser = ParserFactory.create_loader(str(item.text()))
         self.load_mangas()
 
-    def addParent(self, parent, column, title, data, status_tip):
+    def add_parent(self, parent, column, title, data, status_tip):
         item = QtGui.QTreeWidgetItem(parent, title)
         item.setData(column, QtCore.Qt.DisplayRole, data)
         item.setChildIndicatorPolicy(QtGui.QTreeWidgetItem.ShowIndicator)
         item.setExpanded(True)
         item.setStatusTip(column, status_tip)
+        item.setIcon(0, QtGui.QIcon(
+            ':icons/elementary3-icon-theme/actions/48/dialog-apply.svg'))
 
         return item
 
-    def addChild(self, parent, column, title, data, status_tip):
+    def add_child(self, parent, column, title, data, status_tip):
         item = QtGui.QTreeWidgetItem(parent, title)
         item.setData(column, QtCore.Qt.DisplayRole, data)
         item.setStatusTip(column, status_tip)
-        item.setIcon(0, QtGui.QIcon(
-            ':elementary3-icon-theme/actions/48/dialog-apply.svg'))
         return item
-    #
-    def handleChanged(self, item, column):
-        print 'double clicked'
 
+    def handle_changed(self, item, column):
         if item.parent() is None:
             self.load_chapter(item, column)
-            print 'CHAPTER'
-
-        # if item.nivel() == CustomQTreeWidgetItem.SITE:
-        #     print 'SITE'
-        #     self.load_mangas(item, column)
-        # elif item.nivel() == CustomQTreeWidgetItem.COMIC:
-        #     self.load_comic(item, column)
-        #     print 'COMIC'
-        # elif item.nivel() == CustomQTreeWidgetItem.CHAPTER:
-        #     self.load_chapter(item, column)
-        #     print 'CHAPTER'
-        # else:
-        #     print 'NADA'
-
 
     def load_mangas(self):
 
-        from lxml import html
-        import requests
-
-        url = 'http://www.mangapanda.com/alphabetical'
-        page = requests.get(url)
-        tree = html.fromstring(page.text)
-
-        for option in tree.xpath("//div[@class='series_alpha']/ul[@class='series_alpha']/li/a"):
-            url = 'http://www.mangapanda.com' + option.get('href')
-            self.addParent(self.tree_widget.invisibleRootItem(), 0,
-                           option.text.encode("utf-8"),
-                           option.text.encode("utf-8"), url)
+        for name, url in self.parser.updated_comic_list().items():
+            self.add_parent(
+                self.tree_widget.invisibleRootItem(), 0, name, name, url)
 
     def load_chapter(self, item, column):
-        from lxml import html
-        import requests
+        chapter_names = self.parser.update_chapters_list(str(item.text(column)))
 
-        url = item.statusTip(column)
-        page = requests.get(url)
-        tree = html.fromstring(page.text)
-
-        for option in tree.xpath("//table[@id='listing']/tr/td/a"):
-            self.addChild(item, column,
-                          option.text.encode("utf-8"),
-                          option.text.encode("utf-8"),
-                          'http://www.mangapanda.com'.join(option.get('href')))
-
-
-    #
-    # def load_chapter(self, item, column):
-    #     from lxml import html
-    #     import requests
-    #
-    #     url = item.statusTip(column)
-    #     page = requests.get(url)
-    #     tree = html.fromstring(page.text)
-    #
-    #     for option in tree.xpath("//table[@id='listing']/tr/td/a"):
-    #         self.addChild(
-    #             item, column, option.text.encode(
-    #                 "utf-8"), option.text.encode("utf-8"),
-    #             'http://www.mangapanda.com' + option.get('href'))
-    #
-
-
-
-
-
-
-
-    #     self.parser = None
-    #
-    #     self.host_combo_box.addItem('MangaPanda')
-    #     self.host_combo_box.addItem('MangaHere')
-    #     self.host_combo_box.addItem('MangaFox')
-    #     self.host_combo_box.addItem('Potato')
-    #     self.host_combo_box.addItem('HQBR')
-    #
-    #     self.host_combo_box.activated[str].connect(self.on_activat_host)
-    #     self.comic_combo_box.activated[str].connect(self.on_activat_comic)
-    #
-    # def on_activat_host(self, host_name):
-    #     self.parser = ParserFactory.create_loader(str(host_name))
-    #
-    #     if self.parser is not None:
-    #         self.comic_combo_box.clear()
-    #         self.chapter_combo_box.clear()
-    #
-    #         self.comic_combo_box.setEnabled(True)
-    #         comics_names = self.parser.updated_comic_list()
-    #
-    #         for name in comics_names:
-    #             print name
-    #             self.comic_combo_box.addItem(name)
-    #
-    # def on_activat_comic(self, comic_name):
-    #     print comic_name
-    #     if self.parser is not None:
-    #         self.chapter_combo_box.clear()
-    #         self.chapter_combo_box.setEnabled(True)
-    #         chapter_names = self.parser.update_chapters_list(str(comic_name))
-    #
-    #         for name in chapter_names:
-    #             self.chapter_combo_box.addItem(name)
+        for name, url in chapter_names.items():
+            self.add_child(item, column, name, name, url)
