@@ -20,15 +20,12 @@ from PyQt4 import QtGui, QtCore
 import main_window_view
 import main_window_model
 import settings_manager
-import tree_widget_manager
+
 
 class MainWindowController():
     def __init__(self):
         self.view = main_window_view.MainWindowView(self)
         self.model = main_window_model.MainWindowModel(self)
-
-        self.tree_widget_manager = tree_widget_manager.TreeWidgetManager(
-            self.view.tree_widget)
 
         settings_manager.SettingsManager.load(self.view, self)
 

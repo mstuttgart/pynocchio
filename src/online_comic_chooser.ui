@@ -26,7 +26,7 @@
           </property>
           <property name="icon">
            <iconset resource="../resource/main_window.qrc">
-            <normaloff>:/icons/mangapanda.png</normaloff>:/icons/mangapanda.png</iconset>
+            <normaloff>:/icons/elementary3-icon-theme/categories/48/applications-internet.svg</normaloff>:/icons/elementary3-icon-theme/categories/48/applications-internet.svg</iconset>
           </property>
           <property name="flags">
            <set>ItemIsSelectable|ItemIsEnabled</set>
@@ -41,18 +41,18 @@
          </attribute>
          <column>
           <property name="text">
-           <string notr="true">1</string>
+           <string notr="true">Hosts</string>
           </property>
          </column>
         </widget>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="textBrowser"/>
        </item>
       </layout>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QTextBrowser" name="textBrowser"/>
-       </item>
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">

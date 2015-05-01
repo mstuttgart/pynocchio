@@ -60,29 +60,36 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
         item.setChildIndicatorPolicy(QtGui.QTreeWidgetItem.ShowIndicator)
         item.setExpanded(True)
         item.setStatusTip(column, status_tip)
+
         return item
 
     def addChild(self, parent, column, title, data, status_tip):
-        item = QtGui.CustomQTreeWidgetItem(parent, title)
+        item = QtGui.QTreeWidgetItem(parent, title)
         item.setData(column, QtCore.Qt.DisplayRole, data)
         item.setStatusTip(column, status_tip)
+        item.setIcon(0, QtGui.QIcon(
+            ':elementary3-icon-theme/actions/48/dialog-apply.svg'))
         return item
     #
     def handleChanged(self, item, column):
         print 'double clicked'
 
-        if item.nivel() == CustomQTreeWidgetItem.SITE:
-            print 'SITE'
-            self.load_mangas(item, column)
-        elif item.nivel() == CustomQTreeWidgetItem.COMIC:
-            self.load_comic(item, column)
-            print 'COMIC'
-        elif item.nivel() == CustomQTreeWidgetItem.CHAPTER:
+        if item.parent() is None:
             self.load_chapter(item, column)
             print 'CHAPTER'
-        else:
-            print 'NADA'
-    
+
+        # if item.nivel() == CustomQTreeWidgetItem.SITE:
+        #     print 'SITE'
+        #     self.load_mangas(item, column)
+        # elif item.nivel() == CustomQTreeWidgetItem.COMIC:
+        #     self.load_comic(item, column)
+        #     print 'COMIC'
+        # elif item.nivel() == CustomQTreeWidgetItem.CHAPTER:
+        #     self.load_chapter(item, column)
+        #     print 'CHAPTER'
+        # else:
+        #     print 'NADA'
+
 
     def load_mangas(self):
 
@@ -99,19 +106,21 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
                            option.text.encode("utf-8"),
                            option.text.encode("utf-8"), url)
 
-    def load_comic(self):
+    def load_chapter(self, item, column):
         from lxml import html
         import requests
 
-        page = requests.get('http://www.mangapanda.com/alphabetical')
+        url = item.statusTip(column)
+        page = requests.get(url)
         tree = html.fromstring(page.text)
 
         for option in tree.xpath("//table[@id='listing']/tr/td/a"):
-            self.addParent(self.tree_widget.invisibleRootItem(), 0,
-                           option.text.encode("utf-8"),
-                           option.text.encode("utf-8"),
-                           'http://www.mangapanda.com' + option.get('href'))
-            print 'eita'
+            self.addChild(item, column,
+                          option.text.encode("utf-8"),
+                          option.text.encode("utf-8"),
+                          'http://www.mangapanda.com'.join(option.get('href')))
+
+
     #
     # def load_chapter(self, item, column):
     #     from lxml import html
