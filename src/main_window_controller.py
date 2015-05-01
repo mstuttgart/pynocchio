@@ -63,11 +63,15 @@ class MainWindowController():
 
     def open_online(self):
         print 'teste'
-        from online_comic_chooser import OnlineComicChooser
-
-        online_comic_chooser = OnlineComicChooser(self.view)
-        online_comic_chooser.show()
-        online_comic_chooser.exec_()
+        # from online_comic_chooser import OnlineComicChooser
+        #
+        # online_comic_chooser = OnlineComicChooser(self.view)
+        # online_comic_chooser.show()
+        # online_comic_chooser.exec_()
+        from tree_widget_teste import Window
+        dg = Window()
+        dg.show()
+        # dg.exec_()
 
     def next_page(self):
         self.model.next_page()
