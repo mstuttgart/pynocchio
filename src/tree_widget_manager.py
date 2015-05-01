@@ -32,8 +32,8 @@ class TreeWidgetManager(object):
 
     def addItems(self, parent):
         column = 0
-        clients_item = self.addParent(
-            parent, column, 'MangaPanda', 'MangaPanda', 'http://www.mangapanda.com/alphabetical')
+        self.addParent(parent, column, 'MangaPanda', 'MangaPanda',
+                       'http://www.mangapanda.com/alphabetical')
 
     def addParent(self, parent, column, title, data, status_tip):
         item = CustomQTreeWidgetItem(parent, title, CustomQTreeWidgetItem.SITE)

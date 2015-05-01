@@ -6,85 +6,67 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
-    <height>196</height>
+    <width>792</width>
+    <height>482</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <layout class="QHBoxLayout" name="horizontal_layout">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <layout class="QFormLayout" name="form_layout">
-       <property name="fieldGrowthPolicy">
-        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-       </property>
-       <item row="0" column="0">
-        <widget class="QLabel" name="host_label">
-         <property name="text">
-          <string>Host:</string>
-         </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QListWidget" name="host_list_widget">
+         <item>
+          <property name="text">
+           <string notr="true">MangaPanda</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../resource/main_window.qrc">
+            <normaloff>:/icons/mangapanda.png</normaloff>:/icons/mangapanda.png</iconset>
+          </property>
+          <property name="flags">
+           <set>ItemIsSelectable|ItemIsEnabled</set>
+          </property>
+         </item>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="host_combo_box">
-         <property name="frame">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="comic_label">
-         <property name="text">
-          <string>Comic:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QComboBox" name="comic_combo_box">
-         <property name="enabled">
+       <item>
+        <widget class="QTreeWidget" name="tree_widget">
+         <attribute name="headerVisible">
           <bool>false</bool>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maxVisibleItems">
-          <number>0</number>
-         </property>
-         <property name="insertPolicy">
-          <enum>QComboBox::InsertAtBottom</enum>
-         </property>
-         <property name="sizeAdjustPolicy">
-          <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
-         </property>
-         <property name="frame">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="chapter_label">
-         <property name="text">
-          <string>Chapter:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QComboBox" name="chapter_combo_box">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
+         </attribute>
+         <column>
+          <property name="text">
+           <string notr="true">1</string>
+          </property>
+         </column>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="web_preview_layout"/>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QTextBrowser" name="textBrowser"/>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
@@ -100,7 +82,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resource/main_window.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>
