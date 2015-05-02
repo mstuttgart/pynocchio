@@ -23,11 +23,11 @@ Ludic Game Library makes use of other libraries to perform some of their routine
 * Python 2.7
 * PyQT4: 
 ```
-* sudo apt-get install pyqt4-dev-tools
+* sudo apt-get install python-qt4-dev pyqt4-dev-tools
 ```
 * Tools Qt (QtDesigner e QLinguist): 
 ```
-sudo apt-get install qt4-designer qt4-linguist-tools qt4-dev-tools
+sudo apt-get install qt4-designer qt4-linguist-tools qt4-dev-tools unrar 
 ```
 * rarfile: 
 ```
