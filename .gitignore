@@ -73,3 +73,6 @@ resource/flags
 
 # Database files
 *.db
+
+*.py~
+*.xml~
