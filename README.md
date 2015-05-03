@@ -48,8 +48,7 @@ Please report any and all bugs using the project issue
 tracker. Be as precise as possible so that the bug can be found easier. Thanks!
 
 ### Third party resources
-Pynocchio use [FREE Icon Maker](http://freeiconmaker.com/account/create) to build icon set 
-and [Icons pack Streamline](http://www.webalys.com/) icon set free pack.
+Pynocchio use [Elementary Icon Theme](https://github.com/mstuttgart/elementary3-icon-theme) icon set free pack.
 
 ## Credits
 Copyright (C) 2014-2015 by Michell Stuttgart Faria
