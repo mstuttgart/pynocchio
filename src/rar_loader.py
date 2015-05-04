@@ -38,8 +38,8 @@ class RarLoader(Loader):
 
         try:
             rar = rarfile.RarFile(file_name, 'r')
-        except rarfile.RarOpenError, err:
-            print '%20s  %s' % (file_name, err)
+        except rarfile.RarOpenError as excp:
+            print excp.message
             return False
 
         name_list = rar.namelist()
@@ -60,4 +60,5 @@ class RarLoader(Loader):
 
         self.done.emit()
         rar.close()
+
         return True

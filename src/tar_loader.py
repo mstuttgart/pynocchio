@@ -32,8 +32,8 @@ class TarLoader(Loader):
 
         try:
             tar = tarfile.open(file_name, 'r')
-        except tarfile.CompressionError, err:
-            print '%20s  %s' % (file_name, err)
+        except tarfile.CompressionError as excp:
+            print excp.message
             return False
 
         name_list = tar.getnames()

@@ -32,11 +32,11 @@ class ZipLoader(Loader):
 
         try:
             zf = zipfile.ZipFile(file_name, 'r')
-        except zipfile.BadZipfile, err:
-            print '%20s  %s' % (file_name, err)
+        except zipfile.BadZipfile as excp:
+            print excp.message
             return False
-        except zipfile.LargeZipFile, err:
-            print '%20s  %s' % (file_name, err)
+        except zipfile.LargeZipFile as excp:
+            print excp.message
             return False
 
         self._clear_data()
