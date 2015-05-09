@@ -20,9 +20,9 @@ from collections import deque
 
 class RecenteFiles(object):
 
-    def __init__(self, comic_name, comic_path):
-        self.comic_name = comic_name
-        self.comic_path = comic_path
+    def __init__(self, file_name, path):
+        self.file_name = file_name
+        self.path = path
 
 
 class RecentFileManager(object):
@@ -30,28 +30,28 @@ class RecentFileManager(object):
     def __init__(self, max_items):
         self.recent_files_deque = deque(maxlen=max_items)
 
-    def append_left(self, text, path):
+    def append_left(self, file_name, path):
         rf = self._remove_equal_element(path)
 
         if rf is not None:
             self.recent_files_deque.appendleft(rf)
         else:
-            self.recent_files_deque.appendleft(RecenteFiles(text, path))
+            self.recent_files_deque.appendleft(RecenteFiles(file_name, path))
 
-    def append_right(self, text, path):
+    def append_right(self, file_name, path):
         rf = self._remove_equal_element(path)
 
         if rf is not None:
             self.recent_files_deque.appendleft(rf)
         else:
-            self.recent_files_deque.appendleft(RecenteFiles(text, path))
+            self.recent_files_deque.appendleft(RecenteFiles(file_name, path))
 
     def _remove_equal_element(self, path):
 
         for rf in self.recent_files_deque:
-                if rf.comic_path == path:
-                    self.recent_files_deque.remove(rf)
-                    return rf
+            if rf.path == path:
+                self.recent_files_deque.remove(rf)
+                return rf
 
         return None
 

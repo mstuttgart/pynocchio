@@ -125,9 +125,8 @@ class MainWindowController():
             rf.setVisible(False)
 
         for i in range(len(self.recent_file_manager.recent_files_deque)):
-            rf_actions[i].setText(self.recent_file_manager.get(i).comic_name)
-            rf_actions[i].setStatusTip(
-                self.recent_file_manager.get(i).comic_path)
+            rf_actions[i].setText(self.recent_file_manager.get(i).file_name)
+            rf_actions[i].setStatusTip(self.recent_file_manager.get(i).path)
             rf_actions[i].setVisible(True)
 
     def load_recent_file(self):
