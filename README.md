@@ -21,13 +21,9 @@ Ludic Game Library makes use of other libraries to perform some of their routine
 
 * To develop:
 * Python 2.7
-* PyQT4: 
+* PyQT4 and Qt tools (QtDesigner e QLinguist: 
 ```
-* sudo apt-get install python-qt4-dev pyqt4-dev-tools
-```
-* Tools Qt (QtDesigner e QLinguist): 
-```
-sudo apt-get install qt4-designer qt4-linguist-tools qt4-dev-tools unrar 
+* sudo apt-get install python-qt4-dev pyqt4-dev-tools python-qt4-sql qt4-designer qt4-linguist-tools qt4-dev-tools unrar
 ```
 * rarfile: 
 ```
