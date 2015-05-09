@@ -62,10 +62,12 @@ class MainWindowController():
                 Utility.convert_qstring_to_str(file_name))
 
             self.recent_file_manager.append_left(
-                recent_file.RecenteFiles(self.model.comic.name,
-                                                  Utility.convert_qstring_to_str(file_name)))
+                self.model.comic.name, file_name)
+
+            return True
         else:
             print '[ERROR] error load comics'
+            return False
 
     def save_image(self):
         print
@@ -130,14 +132,8 @@ class MainWindowController():
 
     def load_recent_file(self):
         action = self.view.sender()
+
         if action:
-
-            for rf in self.recent_file_manager.recent_files_deque:
-                if rf.comic_path == action.statusTip():
-                    self.recent_file_manager.remove(rf)
-                    # prevent deque to change lenght erro
-                    break
-
             self.load(QtCore.QString(action.statusTip()))
 
     def update_bookmarks_menu(self):

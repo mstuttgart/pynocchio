@@ -18,22 +18,42 @@
 from collections import deque
 
 
+class RecenteFiles(object):
+
+    def __init__(self, comic_name, comic_path):
+        self.comic_name = comic_name
+        self.comic_path = comic_path
+
+
 class RecentFileManager(object):
 
     def __init__(self, max_items):
         self.recent_files_deque = deque(maxlen=max_items)
 
-    def append_left(self, recent_file):
-        self.recent_files_deque.appendleft(recent_file)
+    def append_left(self, text, path):
+        rf = self._remove_equal_element(path)
 
-    def append_right(self, recent_file):
-        self.recent_files_deque.append(recent_file)
+        if rf is not None:
+            self.recent_files_deque.appendleft(rf)
+        else:
+            self.recent_files_deque.appendleft(RecenteFiles(text, path))
 
-    def remove(self, recent_file):
-        try:
-            self.recent_files_deque.remove(recent_file)
-        except ValueError as exp:
-            print exp.message
+    def append_right(self, text, path):
+        rf = self._remove_equal_element(path)
+
+        if rf is not None:
+            self.recent_files_deque.appendleft(rf)
+        else:
+            self.recent_files_deque.appendleft(RecenteFiles(text, path))
+
+    def _remove_equal_element(self, path):
+
+        for rf in self.recent_files_deque:
+                if rf.comic_path == path:
+                    self.recent_files_deque.remove(rf)
+                    return rf
+
+        return None
 
     def get(self, index):
         try:
