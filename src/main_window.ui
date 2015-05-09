@@ -118,7 +118,7 @@
          <x>0</x>
          <y>0</y>
          <width>1048</width>
-         <height>495</height>
+         <height>499</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -198,7 +198,7 @@
      <x>0</x>
      <y>0</y>
      <width>1048</width>
-     <height>27</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -207,8 +207,11 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <property name="autoFillBackground">
+   <property name="acceptDrops">
     <bool>false</bool>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
    </property>
    <property name="defaultUp">
     <bool>false</bool>
@@ -384,7 +387,7 @@
   <action name="action_open">
    <property name="icon">
     <iconset resource="../resource/main_window.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>

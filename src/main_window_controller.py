@@ -20,6 +20,8 @@ from PyQt4 import QtGui, QtCore
 import main_window_view
 import main_window_model
 import settings_manager
+import recent_files_manager
+import recent_file
 
 
 class MainWindowController():
@@ -28,6 +30,9 @@ class MainWindowController():
         self.model = main_window_model.MainWindowModel(self)
 
         settings_manager.SettingsManager.load(self.view, self)
+
+        self.recent_file_manager = recent_files_manager.RecentFileManager(
+            len(self.view.menu_recent_files.actions()))
 
     @QtCore.pyqtSlot()
     def open(self):
@@ -55,6 +60,10 @@ class MainWindowController():
             from utility import Utility
             self.model.current_directory = Utility.get_dir_name(
                 Utility.convert_qstring_to_str(file_name))
+
+            self.recent_file_manager.append_left(
+                recent_file.RecenteFiles(self.model.comic.name,
+                                                  Utility.convert_qstring_to_str(file_name)))
         else:
             print '[ERROR] error load comics'
 
@@ -106,6 +115,30 @@ class MainWindowController():
 
     def best_fit(self):
         self.model.best_fit()
+
+    def update_recent_files_menu(self):
+        rf_actions = self.view.menu_recent_files.actions()
+
+        for rf in rf_actions:
+            rf.setVisible(False)
+
+        for i in range(len(self.recent_file_manager.recent_files_deque)):
+            rf_actions[i].setText(self.recent_file_manager.get(i).comic_name)
+            rf_actions[i].setStatusTip(
+                self.recent_file_manager.get(i).comic_path)
+            rf_actions[i].setVisible(True)
+
+    def load_recent_file(self):
+        action = self.view.sender()
+        if action:
+
+            for rf in self.recent_file_manager.recent_files_deque:
+                if rf.comic_path == action.statusTip():
+                    self.recent_file_manager.remove(rf)
+                    # prevent deque to change lenght erro
+                    break
+
+            self.load(QtCore.QString(action.statusTip()))
 
     def update_bookmarks_menu(self):
 
