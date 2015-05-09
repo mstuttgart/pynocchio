@@ -20,8 +20,7 @@ from PyQt4 import QtGui, QtCore
 import main_window_view
 import main_window_model
 import settings_manager
-import recent_files_manager
-import recent_file
+from recent_files_manager import RecentFileManager
 
 
 class MainWindowController():
@@ -29,10 +28,11 @@ class MainWindowController():
         self.view = main_window_view.MainWindowView(self)
         self.model = main_window_model.MainWindowModel(self)
 
+        self.recent_file_manager = RecentFileManager(
+            len(self.view.menu_recent_files.actions()))
+
         settings_manager.SettingsManager.load(self.view, self)
 
-        self.recent_file_manager = recent_files_manager.RecentFileManager(
-            len(self.view.menu_recent_files.actions()))
 
     @QtCore.pyqtSlot()
     def open(self):

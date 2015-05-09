@@ -29,6 +29,7 @@ class SettingsManager(object):
 
             general = root.find('general')
             view_settings = root.find('view_settings')
+            recent_files = root.find('recent_files')
 
             controller.model.current_directory = general.find(
                 'current_directory').text or '.'
@@ -51,6 +52,10 @@ class SettingsManager(object):
             view.on_action_show_statusbar_triggered()
             view.on_action_show_toolbar_triggered()
 
+            for rf in recent_files.findall('files'):
+                controller.recent_file_manager.append_left(
+                    rf.attrib['file_name'], rf.text)
+
         except IOError as exp:
             print '[ERROR] %s: %s' % (exp.strerror, exp.filename)
 
@@ -59,11 +64,14 @@ class SettingsManager(object):
 
         try:
             root = Xml.Element('settings')
+
             general = Xml.Element('general')
             view_settings = Xml.Element('view_settings')
+            recent_files = Xml.Element('recent_files')
 
             root.append(general)
             root.append(view_settings)
+            root.append(recent_files)
 
             current_directory = Xml.SubElement(general, 'current_directory')
             current_directory.text = controller.model.current_directory
@@ -77,6 +85,12 @@ class SettingsManager(object):
 
             show_statusbar = Xml.SubElement(view_settings, 'show_statusbar')
             show_statusbar.text = str(view.action_show_statusbar.isChecked())
+
+            for rf in list(reversed(
+                    controller.recent_file_manager.recent_files_deque)):
+                recent_file = Xml.SubElement(recent_files, 'files')
+                recent_file.attrib['file_name'] = str(rf.file_name)
+                recent_file.text = str(rf.path)
 
             Xml.ElementTree(root).write(path.join(xml_file))
 
