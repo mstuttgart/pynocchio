@@ -54,7 +54,7 @@ class SettingsManager(object):
 
             for rf in recent_files.findall('files'):
                 controller.recent_file_manager.append_left(
-                    rf.attrib['file_name'], rf.text)
+                    rf.attrib['file_name'], rf.attrib['path'])
 
         except IOError as exp:
             print '[ERROR] %s: %s' % (exp.strerror, exp.filename)
@@ -90,7 +90,7 @@ class SettingsManager(object):
                     controller.recent_file_manager.recent_files_deque)):
                 recent_file = Xml.SubElement(recent_files, 'files')
                 recent_file.attrib['file_name'] = str(rf.file_name)
-                recent_file.text = str(rf.path)
+                recent_file.attrib['path'] = str(rf.path)
 
             Xml.ElementTree(root).write(path.join(xml_file))
 
