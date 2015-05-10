@@ -34,8 +34,20 @@ class Loader(QtCore.QObject):
     def load(self, file_name):
         raise NotImplementedError("Must subclass me")
 
+    def extension(self):
+        raise NotImplementedError("Must subclass me")
+
     def length_data(self):
         return len(self.data)
 
     def _clear_data(self):
         self.data = []
+
+
+def get_subclasses():
+    return all_subclasses(vars()['Loader'])
+
+
+def all_subclasses(cls):
+    return cls.__subclasses__() + [g for s in cls.__subclasses__()
+                                   for g in all_subclasses(s)]

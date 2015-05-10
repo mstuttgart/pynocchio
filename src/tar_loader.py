@@ -22,6 +22,9 @@ from utility import Utility
 
 
 class TarLoader(Loader):
+
+    EXTENSION = '.tar'
+
     def __init__(self, extension):
         super(TarLoader, self).__init__(extension)
 
@@ -60,3 +63,18 @@ class TarLoader(Loader):
         self.done.emit()
         tar.close()
         return True
+
+    def extension(self):
+        return '.tar'
+
+
+class CbzLoader(TarLoader):
+
+    EXTENSION = '.cbt'
+
+    def __init__(self, extension):
+        super(CbzLoader, self).__init__(extension)
+
+    @staticmethod
+    def extension(self):
+        return '.cbt'

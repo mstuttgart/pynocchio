@@ -14,18 +14,25 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-from zip_loader import ZipLoader
-from rar_loader import RarLoader
-from tar_loader import TarLoader
 
-product = {
-    '.zip': ZipLoader,
-    '.cbz': ZipLoader,
-    '.rar': RarLoader,
-    '.cbr': RarLoader,
-    '.tar': TarLoader,
-    '.cbt': TarLoader,
-}
+# Keep the unused import here, because all_subclasses method
+
+from loader import *
+from zip_loader import *
+from rar_loader import *
+from tar_loader import *
+
+product = {}
+
+
+def get_subclasses(cls):
+    return cls.__subclasses__() + [g for s in cls.__subclasses__()
+                                   for g in get_subclasses(s)]
+
+print get_subclasses(vars()['Loader'])
+
+for ld in all_subclasses(vars()['Loader']):
+    product[ld.EXTENSION] = ld
 
 
 class LoaderFactory(object):

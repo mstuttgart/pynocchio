@@ -28,6 +28,9 @@ from utility import Utility
 
 
 class RarLoader(Loader):
+
+    EXTENSION = '.rar'
+
     def __init__(self, extension):
         super(RarLoader, self).__init__(extension)
 
@@ -59,3 +62,17 @@ class RarLoader(Loader):
         rar.close()
 
         return True
+
+    def extension(self):
+        return '.rar'
+
+
+class CbrLoader(RarLoader):
+
+    EXTENSION = '.cbr'
+
+    def __init__(self, extension):
+        super(CbrLoader, self).__init__(extension)
+
+    def extension(self):
+        return '.cbr'

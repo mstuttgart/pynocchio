@@ -22,6 +22,9 @@ from utility import Utility
 
 
 class ZipLoader(Loader):
+
+    EXTENSION = '.zip'
+
     def __init__(self, extension):
         super(ZipLoader, self).__init__(extension)
 
@@ -56,3 +59,20 @@ class ZipLoader(Loader):
         self.done.emit()
         zf.close()
         return True
+
+    def extension(self):
+        return '.zip'
+
+
+class CbzLoader(ZipLoader):
+
+    EXTENSION = '.cbz'
+
+    def __init__(self, extension):
+        super(CbzLoader, self).__init__(extension)
+
+    def extension(self):
+        return '.cbz'
+
+
+
