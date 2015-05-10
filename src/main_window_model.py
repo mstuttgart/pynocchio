@@ -78,6 +78,9 @@ class MainWindowModel(object):
 
         return False
 
+    def save_content(self, file_name):
+        self.get_current_page().save(file_name)
+
     def next_page(self):
         if self.comic:
             self.comic.go_next_page()
