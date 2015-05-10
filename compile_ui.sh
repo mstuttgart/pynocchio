@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pylupdate4 pynocchio.pro
-pyrcc4 -o src/main_window_rc.py resource/main_window.qrc 
+pyrcc4 -o src/main_window_view_rc.py resource/main_window_view.qrc 
 
 #pyside-uic view/main_window.ui -o src/main_window_ui.py
 #pyside-uic view/go_to_page_dialog.ui -o src/go_to_page_dialog_ui.py
