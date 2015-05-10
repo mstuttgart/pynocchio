@@ -18,12 +18,13 @@
 from PyQt4 import QtCore
 
 
-class Loader(object):
-    
+class Loader(QtCore.QObject):
+
     progress = QtCore.pyqtSignal(int)
     done = QtCore.pyqtSignal()
 
     def __init__(self, extension):
+        super(Loader, self).__init__()
 
         if not isinstance(extension, list):
             raise TypeError
