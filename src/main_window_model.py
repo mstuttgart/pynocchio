@@ -56,7 +56,8 @@ class MainWindowModel(object):
             ld = LoaderFactory.create_loader(
                 Utility.get_file_extension(file_name), image_extensions)
 
-        except IOError:
+        except IOError as excp:
+            print '[ERROR]', excp.message
             return False
 
         ld.progress.connect(self.controller.view.statusbar.set_progressbar_value)
