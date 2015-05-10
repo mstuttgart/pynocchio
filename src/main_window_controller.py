@@ -70,7 +70,17 @@ class MainWindowController():
             return False
 
     def save_image(self):
-        print
+
+        if self.model.comic:
+
+            path = self.model.current_directory + \
+                self.model.comic.get_current_page_title()
+
+            file_path = QtGui.QFileDialog().getSaveFileName(
+                self.view, self.view.tr('Save current page'), path,
+                self.view.tr("Images (*.png *.xpm *.jpeg *.jpg *.gif)"))
+
+            self.model.save_content(file_path)
 
     def open_online(self):
         from online_comic_chooser import OnlineComicChooser
