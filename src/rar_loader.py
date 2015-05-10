@@ -63,9 +63,6 @@ class RarLoader(Loader):
 
         return True
 
-    def extension(self):
-        return '.rar'
-
 
 class CbrLoader(RarLoader):
 
@@ -73,6 +70,3 @@ class CbrLoader(RarLoader):
 
     def __init__(self, extension):
         super(CbrLoader, self).__init__(extension)
-
-    def extension(self):
-        return '.cbr'
