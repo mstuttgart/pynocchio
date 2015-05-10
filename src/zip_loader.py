@@ -27,16 +27,13 @@ class ZipLoader(Loader):
 
     def load(self, file_name):
 
-        if not zipfile.is_zipfile(file_name) or not isinstance(file_name, str):
-            return False
-
         try:
             zf = zipfile.ZipFile(file_name, 'r')
         except zipfile.BadZipfile as excp:
-            print excp.message
+            print '[ERROR]', excp.message
             return False
         except zipfile.LargeZipFile as excp:
-            print excp.message
+            print '[ERROR]', excp.message
             return False
 
         self._clear_data()

@@ -27,13 +27,10 @@ class TarLoader(Loader):
 
     def load(self, file_name):
 
-        if not tarfile.is_tarfile(file_name) or not isinstance(file_name, str):
-            return False
-
         try:
             tar = tarfile.open(file_name, 'r')
         except tarfile.CompressionError as excp:
-            print excp.message
+            print '[ERROR]', excp.message
             return False
 
         name_list = tar.getnames()
@@ -50,10 +47,10 @@ class TarLoader(Loader):
                 data = None
                 try:
                     data = tar.extractfile(name).read()
-                except tarfile.ExtractError, err:
-                    print '%20s  %s' % (name, err)
-                except tarfile.ReadError, err:
-                    print '%20s  %s' % (name, err)
+                except tarfile.ExtractError as err:
+                    print '%20s  %s' % (name, err.message)
+                except tarfile.ReadError as err:
+                    print '%20s  %s' % (name, err.message)
 
                 if data:
                     self.data.append({'data': data, 'name': name})

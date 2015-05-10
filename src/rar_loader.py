@@ -33,13 +33,10 @@ class RarLoader(Loader):
 
     def load(self, file_name):
 
-        if not rarfile.is_rarfile(file_name) or not isinstance(file_name, str):
-            return False
-
         try:
             rar = rarfile.RarFile(file_name, 'r')
         except rarfile.RarOpenError as excp:
-            print excp.message
+            print '[ERROR]', excp.message
             return False
 
         name_list = rar.namelist()
