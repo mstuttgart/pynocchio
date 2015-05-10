@@ -18,12 +18,12 @@
 from PyQt4 import QtCore
 
 
-class Loader(QtCore.QObject):
+class Loader(object):
+    
     progress = QtCore.pyqtSignal(int)
     done = QtCore.pyqtSignal()
 
     def __init__(self, extension):
-        super(Loader, self).__init__()
 
         if not isinstance(extension, list):
             raise TypeError
@@ -34,20 +34,8 @@ class Loader(QtCore.QObject):
     def load(self, file_name):
         raise NotImplementedError("Must subclass me")
 
-    def extension(self):
-        raise NotImplementedError("Must subclass me")
-
     def length_data(self):
         return len(self.data)
 
     def _clear_data(self):
         self.data = []
-
-
-def get_subclasses():
-    return all_subclasses(vars()['Loader'])
-
-
-def all_subclasses(cls):
-    return cls.__subclasses__() + [g for s in cls.__subclasses__()
-                                   for g in all_subclasses(s)]
