@@ -134,9 +134,9 @@ class MainWindowController():
         for rf in rf_actions:
             rf.setVisible(False)
 
-        for i in range(len(self.recent_file_manager.recent_files_deque)):
-            rf_actions[i].setText(self.recent_file_manager.get(i).file_name)
-            rf_actions[i].setStatusTip(self.recent_file_manager.get(i).path)
+        for i, r_file in enumerate(self.recent_file_manager.recent_files_deque):
+            rf_actions[i].setText(r_file.file_name)
+            rf_actions[i].setStatusTip(r_file.path)
             rf_actions[i].setVisible(True)
 
     def load_recent_file(self):
@@ -153,11 +153,10 @@ class MainWindowController():
         for bk in bk_actions:
             bk.setVisible(False)
 
-        for i in range(len(bookmark_list)):
-            bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
-                                   bookmark_list[i].comic_page)
+        for i, bk in enumerate(bookmark_list):
+            bk_text = '%s [%d]' % (bk.comic_name, bk.comic_page)
             bk_actions[i].setText(bk_text)
-            bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
+            bk_actions[i].setStatusTip(bk.comic_path)
             bk_actions[i].setVisible(True)
 
     def load_bookmark(self):
