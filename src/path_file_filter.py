@@ -23,8 +23,8 @@ class PathFileFilter(object):
 
     def __init__(self, path, extension_list):
         self._current_path = path
-        self._previous_path = ''
-        self._next_path = ''
+        self._previous_path = None
+        self._next_path = None
         self.extension_list = extension_list
         self._parse_dir()
 
@@ -44,11 +44,22 @@ class PathFileFilter(object):
 
         # find the next file path
         if current_index + 1 < len(file_list):
-            self.next_path = file_list[current_index + 1]
+            self._next_path = file_list[current_index + 1]
+        else:
+            self._next_path = None
 
         # find the previous file path
         if current_index - 1 > 0:
-            self.previous_path = file_list[current_index - 1]
+            self._previous_path = file_list[current_index - 1]
+        else:
+            self._previous_path = None
+
+    def parse(self, path, extension_list):
+        self._current_path = path
+        self._previous_path = None
+        self._next_path = None
+        self.extension_list = extension_list
+        self._parse_dir()
 
     @property
     def current_path(self):
