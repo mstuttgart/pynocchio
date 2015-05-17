@@ -40,7 +40,6 @@ class MainWindowModel(object):
         self.current_directory = '.'
         self.next_comic_path = ''
         self.previous_comic_path = ''
-        self.zoom_factor = 1.0
 
     def open(self, file_name, initial_page=0):
 
