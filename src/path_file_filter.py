@@ -17,6 +17,8 @@
 #
 
 import os
+import glob
+from utility import Utility
 
 
 class PathFileFilter(object):
@@ -30,27 +32,34 @@ class PathFileFilter(object):
 
     def _parse_dir(self):
 
-        files = os.listdir(self.current_path)
-        arquivos = [arq for arq in files if os.path.isfile(arq)]
+        # files = os.listdir(self.current_path)
+        # arquivos = [arq for arq in files if os.path.isfile(arq)]
 
-        file_list = []
+        dir_name = Utility.get_dir_name(self.current_path)
+        file_name = Utility.get_base_name(self.current_path)
 
         # get files with extension stored in ext
+        file_list = []
         for ext in self.extension_list:
-            file_list += [arq for arq in arquivos if arq.lower().endswith(ext)]
+            file_list += glob.glob1(dir_name, ext)
+            print file_list
+
+        # get files with extension stored in ext
+        # for ext in self.extension_list:
+        #     file_list += [arq for arq in arquivos if arq.lower().endswith(ext)]
 
         # current dile index list
-        current_index = file_list.index(self.current_path)
+        current_index = file_list.index(file_name)
 
         # find the next file path
         if current_index + 1 < len(file_list):
-            self._next_path = file_list[current_index + 1]
+            self._next_path = dir_name + '/' + file_list[current_index + 1]
         else:
             self._next_path = None
 
         # find the previous file path
-        if current_index - 1 > 0:
-            self._previous_path = file_list[current_index - 1]
+        if current_index > 0:
+            self._previous_path = dir_name + '/' + file_list[current_index - 1]
         else:
             self._previous_path = None
 

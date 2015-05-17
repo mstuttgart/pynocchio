@@ -22,6 +22,7 @@ from bookmark_database_manager import BookmarkManager
 from loader_factory import LoaderFactory
 from comic import Comic
 from page import *
+from path_file_filter import PathFileFilter
 
 
 class MainWindowModel(object):
@@ -40,6 +41,7 @@ class MainWindowModel(object):
         self.current_directory = '.'
         self.next_comic_path = ''
         self.previous_comic_path = ''
+        self.path_file_filter = None
 
     def open(self, file_name, initial_page=0):
 
@@ -73,6 +75,14 @@ class MainWindowModel(object):
                 self.comic.add_page(Page(page_data, page_name, page_index))
 
             self.current_directory = Utility.get_dir_name(file_name)
+
+            ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
+
+            if self.path_file_filter is None:
+                self.path_file_filter = PathFileFilter(file_name, ext_list)
+            else:
+                self.path_file_filter.parse(file_name, ext_list)
+
             return True
 
         return False
@@ -101,42 +111,10 @@ class MainWindowModel(object):
             self.controller.set_view_content(self.get_current_page())
 
     def next_comic(self):
-        return self.next_comic_path
+        return self.path_file_filter.next_path
 
     def previous_comic(self):
-        return self.previous_comic_path
-
-    def verify_comics_in_path(self):
-
-        from PyQt4.QtCore import QDir
-
-        d = QDir(self.comic.directory)
-        d.setFilter(QDir.Files | QDir.NoDotAndDotDot)
-        d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"])
-        d.setSorting(QDir.Name | QDir.IgnoreCase | QDir.LocaleAware)
-
-        str_list = d.entryList()
-        str_list.sort()
-        index = str_list.indexOf(self.comic.name)
-
-        if index == -1:
-            return
-
-        if index > 0:
-            self.previous_comic_path = self.comic.directory + "/" + str_list[
-                index - 1]
-            self.controller.action_previous_comic.setEnabled(True)
-        else:
-            self.previous_comic_path = ''
-            self.controller.action_previous_comic.setEnabled(False)
-
-        if (index + 1) < len(str_list):
-            self.next_comic_path = self.comic.directory + "/" + str_list[
-                index + 1]
-            self.controller.action_next_comic.setEnabled(True)
-        else:
-            self.next_comic_path = ''
-            self.controller.action_next_comic.setEnabled(False)
+        return self.path_file_filter.previous_path
 
     def rotate_left(self):
         self.rotateAngle = (self.rotateAngle - 90) % 360

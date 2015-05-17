@@ -105,10 +105,14 @@ class MainWindowController():
         print
 
     def next_comic(self):
-        print
+        ret = self.model.next_comic()
+        if ret:
+            self.load(QtCore.QString(ret))
 
     def previous_comic(self):
-        print
+        ret = self.model.previous_comic()
+        if ret:
+            self.load(QtCore.QString(ret))
 
     def rotate_left(self):
         self.model.rotate_left()
