@@ -41,7 +41,9 @@ class MainWindowModel(object):
         self.current_directory = '.'
         self.next_comic_path = ''
         self.previous_comic_path = ''
-        self.path_file_filter = None
+
+        ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
+        self.path_file_filter = PathFileFilter(ext_list)
 
     def open(self, file_name, initial_page=0):
 
@@ -76,12 +78,12 @@ class MainWindowModel(object):
 
             self.current_directory = Utility.get_dir_name(file_name)
 
-            ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
+            # ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
 
-            if self.path_file_filter is None:
-                self.path_file_filter = PathFileFilter(file_name, ext_list)
-            else:
-                self.path_file_filter.parse(file_name, ext_list)
+            # if self.path_file_filter is None:
+            # self.path_file_filter = PathFileFilter(ext_list)
+            # else:
+            self.path_file_filter.parse(file_name)
 
             return True
 
@@ -144,16 +146,22 @@ class MainWindowModel(object):
     def get_current_page_index(self):
         return self.comic.current_page_index if self.comic else -1
 
+    def is_first_page(self):
+        if self.comic and self.comic.current_page_index == 0:
+            return True
+        return False
+
     def is_last_page(self):
         if self.comic and self.comic.current_page_index + 1 == \
                 self.comic.get_number_of_pages():
             return True
         return False
 
-    def is_first_page(self):
-        if self.comic and self.comic.current_page_index == 0:
-            return True
-        return False
+    def is_firts_comic(self):
+        return self.path_file_filter.is_first_file()
+
+    def is_last_comic(self):
+        return self.path_file_filter.is_last_file()
 
     def update_content(self):
         pix_map = self.original_pixmap
@@ -230,3 +238,11 @@ class MainWindowModel(object):
             BookmarkManager.connect()
             BookmarkManager.remove_bookmark(self.comic.get_path())
             BookmarkManager.close()
+
+    # @property
+    # def current_directory(self):
+    #     return self.path_file_filter.current_path
+    #
+    # @current_directory.setter
+    # def current_directory(self, value):
+    #     self.path_file_filter.current_path = value

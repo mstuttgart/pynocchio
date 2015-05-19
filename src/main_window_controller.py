@@ -33,7 +33,6 @@ class MainWindowController():
 
         settings_manager.SettingsManager.load(self.view, self)
 
-
     @QtCore.pyqtSlot()
     def open(self):
 
@@ -64,6 +63,8 @@ class MainWindowController():
             self.recent_file_manager.append_left(
                 self.model.comic.name, file_name)
 
+            self._update_navegation_actions()
+
             return True
         else:
             print '[ERROR] error load comics'
@@ -91,15 +92,19 @@ class MainWindowController():
 
     def next_page(self):
         self.model.next_page()
+        self._update_navegation_actions()
 
     def previous_page(self):
         self.model.previous_page()
+        self._update_navegation_actions()
 
     def first_page(self):
         self.model.first_page()
+        self._update_navegation_actions()
 
     def last_page(self):
         self.model.last_page()
+        self._update_navegation_actions()
 
     def go_to_page(self):
         print
@@ -108,11 +113,30 @@ class MainWindowController():
         ret = self.model.next_comic()
         if ret:
             self.load(QtCore.QString(ret))
+            self._update_navegation_actions()
 
     def previous_comic(self):
         ret = self.model.previous_comic()
         if ret:
             self.load(QtCore.QString(ret))
+            self._update_navegation_actions()
+
+    def _update_navegation_actions(self):
+
+        is_last_comic = self.model.is_last_comic()
+        is_first_comic = self.model.is_firts_comic()
+
+        self.view.action_previous_comic.setEnabled(not is_first_comic)
+        self.view.action_next_comic.setEnabled(not is_last_comic)
+
+        is_first_page = self.model.is_first_page()
+        is_last_page = self.model.is_last_page()
+
+        self.view.action_previous_page.setEnabled(not is_first_page)
+        self.view.action_first_page.setEnabled(not is_first_page)
+
+        self.view.action_next_page.setEnabled(not is_last_page)
+        self.view.action_last_page.setEnabled(not is_last_page)
 
     def rotate_left(self):
         self.model.rotate_left()
@@ -211,5 +235,3 @@ class MainWindowController():
 
             self.view.update_status_bar(n_page, pages_size, page_title,
                                         page_width, page_height)
-
-
