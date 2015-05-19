@@ -22,6 +22,7 @@ from bookmark_database_manager import BookmarkManager
 from loader_factory import LoaderFactory
 from comic import Comic
 from page import *
+from path_file_filter import PathFileFilter
 
 
 class MainWindowModel(object):
@@ -40,7 +41,9 @@ class MainWindowModel(object):
         self.current_directory = '.'
         self.next_comic_path = ''
         self.previous_comic_path = ''
-        self.zoom_factor = 1.0
+
+        ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
+        self.path_file_filter = PathFileFilter(ext_list)
 
     def open(self, file_name, initial_page=0):
 
@@ -56,7 +59,8 @@ class MainWindowModel(object):
             ld = LoaderFactory.create_loader(
                 Utility.get_file_extension(file_name), image_extensions)
 
-        except IOError:
+        except IOError as excp:
+            print '[ERROR]', excp.message
             return False
 
         ld.progress.connect(self.controller.view.statusbar.set_progressbar_value)
@@ -73,6 +77,14 @@ class MainWindowModel(object):
                 self.comic.add_page(Page(page_data, page_name, page_index))
 
             self.current_directory = Utility.get_dir_name(file_name)
+
+            # ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
+
+            # if self.path_file_filter is None:
+            # self.path_file_filter = PathFileFilter(ext_list)
+            # else:
+            self.path_file_filter.parse(file_name)
+
             return True
 
         return False
@@ -101,42 +113,10 @@ class MainWindowModel(object):
             self.controller.set_view_content(self.get_current_page())
 
     def next_comic(self):
-        return self.next_comic_path
+        return self.path_file_filter.next_path
 
     def previous_comic(self):
-        return self.previous_comic_path
-
-    def verify_comics_in_path(self):
-
-        from PyQt4.QtCore import QDir
-
-        d = QDir(self.comic.directory)
-        d.setFilter(QDir.Files | QDir.NoDotAndDotDot)
-        d.setNameFilters(["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"])
-        d.setSorting(QDir.Name | QDir.IgnoreCase | QDir.LocaleAware)
-
-        str_list = d.entryList()
-        str_list.sort()
-        index = str_list.indexOf(self.comic.name)
-
-        if index == -1:
-            return
-
-        if index > 0:
-            self.previous_comic_path = self.comic.directory + "/" + str_list[
-                index - 1]
-            self.controller.action_previous_comic.setEnabled(True)
-        else:
-            self.previous_comic_path = ''
-            self.controller.action_previous_comic.setEnabled(False)
-
-        if (index + 1) < len(str_list):
-            self.next_comic_path = self.comic.directory + "/" + str_list[
-                index + 1]
-            self.controller.action_next_comic.setEnabled(True)
-        else:
-            self.next_comic_path = ''
-            self.controller.action_next_comic.setEnabled(False)
+        return self.path_file_filter.previous_path
 
     def rotate_left(self):
         self.rotateAngle = (self.rotateAngle - 90) % 360
@@ -166,16 +146,22 @@ class MainWindowModel(object):
     def get_current_page_index(self):
         return self.comic.current_page_index if self.comic else -1
 
+    def is_first_page(self):
+        if self.comic and self.comic.current_page_index == 0:
+            return True
+        return False
+
     def is_last_page(self):
         if self.comic and self.comic.current_page_index + 1 == \
                 self.comic.get_number_of_pages():
             return True
         return False
 
-    def is_first_page(self):
-        if self.comic and self.comic.current_page_index == 0:
-            return True
-        return False
+    def is_firts_comic(self):
+        return self.path_file_filter.is_first_file()
+
+    def is_last_comic(self):
+        return self.path_file_filter.is_last_file()
 
     def update_content(self):
         pix_map = self.original_pixmap
@@ -252,3 +238,11 @@ class MainWindowModel(object):
             BookmarkManager.connect()
             BookmarkManager.remove_bookmark(self.comic.get_path())
             BookmarkManager.close()
+
+    # @property
+    # def current_directory(self):
+    #     return self.path_file_filter.current_path
+    #
+    # @current_directory.setter
+    # def current_directory(self, value):
+    #     self.path_file_filter.current_path = value

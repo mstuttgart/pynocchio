@@ -33,7 +33,6 @@ class MainWindowController():
 
         settings_manager.SettingsManager.load(self.view, self)
 
-
     @QtCore.pyqtSlot()
     def open(self):
 
@@ -64,6 +63,8 @@ class MainWindowController():
             self.recent_file_manager.append_left(
                 self.model.comic.name, file_name)
 
+            self._update_navegation_actions()
+
             return True
         else:
             print '[ERROR] error load comics'
@@ -91,24 +92,51 @@ class MainWindowController():
 
     def next_page(self):
         self.model.next_page()
+        self._update_navegation_actions()
 
     def previous_page(self):
         self.model.previous_page()
+        self._update_navegation_actions()
 
     def first_page(self):
         self.model.first_page()
+        self._update_navegation_actions()
 
     def last_page(self):
         self.model.last_page()
+        self._update_navegation_actions()
 
     def go_to_page(self):
         print
 
     def next_comic(self):
-        print
+        ret = self.model.next_comic()
+        if ret:
+            self.load(QtCore.QString(ret))
+            self._update_navegation_actions()
 
     def previous_comic(self):
-        print
+        ret = self.model.previous_comic()
+        if ret:
+            self.load(QtCore.QString(ret))
+            self._update_navegation_actions()
+
+    def _update_navegation_actions(self):
+
+        is_last_comic = self.model.is_last_comic()
+        is_first_comic = self.model.is_firts_comic()
+
+        self.view.action_previous_comic.setEnabled(not is_first_comic)
+        self.view.action_next_comic.setEnabled(not is_last_comic)
+
+        is_first_page = self.model.is_first_page()
+        is_last_page = self.model.is_last_page()
+
+        self.view.action_previous_page.setEnabled(not is_first_page)
+        self.view.action_first_page.setEnabled(not is_first_page)
+
+        self.view.action_next_page.setEnabled(not is_last_page)
+        self.view.action_last_page.setEnabled(not is_last_page)
 
     def rotate_left(self):
         self.model.rotate_left()
@@ -134,9 +162,9 @@ class MainWindowController():
         for rf in rf_actions:
             rf.setVisible(False)
 
-        for i in range(len(self.recent_file_manager.recent_files_deque)):
-            rf_actions[i].setText(self.recent_file_manager.get(i).file_name)
-            rf_actions[i].setStatusTip(self.recent_file_manager.get(i).path)
+        for i, r_file in enumerate(self.recent_file_manager.recent_files_deque):
+            rf_actions[i].setText(r_file.file_name)
+            rf_actions[i].setStatusTip(r_file.path)
             rf_actions[i].setVisible(True)
 
     def load_recent_file(self):
@@ -153,11 +181,10 @@ class MainWindowController():
         for bk in bk_actions:
             bk.setVisible(False)
 
-        for i in range(len(bookmark_list)):
-            bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
-                                   bookmark_list[i].comic_page)
+        for i, bk in enumerate(bookmark_list):
+            bk_text = '%s [%d]' % (bk.comic_name, bk.comic_page)
             bk_actions[i].setText(bk_text)
-            bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
+            bk_actions[i].setStatusTip(bk.comic_path)
             bk_actions[i].setVisible(True)
 
     def load_bookmark(self):
@@ -208,5 +235,3 @@ class MainWindowController():
 
             self.view.update_status_bar(n_page, pages_size, page_title,
                                         page_width, page_height)
-
-

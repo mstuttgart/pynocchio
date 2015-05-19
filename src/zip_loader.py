@@ -60,9 +60,6 @@ class ZipLoader(Loader):
         zf.close()
         return True
 
-    def extension(self):
-        return '.zip'
-
 
 class CbzLoader(ZipLoader):
 
@@ -70,9 +67,6 @@ class CbzLoader(ZipLoader):
 
     def __init__(self, extension):
         super(CbzLoader, self).__init__(extension)
-
-    def extension(self):
-        return '.cbz'
 
 
 

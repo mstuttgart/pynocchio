@@ -64,17 +64,10 @@ class TarLoader(Loader):
         tar.close()
         return True
 
-    def extension(self):
-        return '.tar'
 
-
-class CbzLoader(TarLoader):
+class CbtLoader(TarLoader):
 
     EXTENSION = '.cbt'
 
     def __init__(self, extension):
-        super(CbzLoader, self).__init__(extension)
-
-    @staticmethod
-    def extension(self):
-        return '.cbt'
+        super(CbtLoader, self).__init__(extension)
