@@ -23,7 +23,7 @@
    <string>Bookmark manager</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resource/main_window.qrc">
+   <iconset resource="../resource/main_window_view.qrc">
     <normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -118,7 +118,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../resource/main_window.qrc">:/icons/pynocchio_icon_2.png</pixmap>
+           <pixmap resource="../resource/main_window_view.qrc">:/icons/pynocchio_icon_2.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -168,7 +168,11 @@
     </layout>
    </item>
    <item>
-    <widget class="QLineEdit" name="line_edit_path"/>
+    <widget class="QLineEdit" name="line_edit_path">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
    <item>
     <layout class="QGridLayout" name="grid_layout">
@@ -178,7 +182,7 @@
         <string>Remove</string>
        </property>
        <property name="icon">
-        <iconset resource="../resource/main_window.qrc">
+        <iconset resource="../resource/main_window_view.qrc">
          <normaloff>:/icons/elementary3-icon-theme/actions/64/list-remove.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/list-remove.svg</iconset>
        </property>
       </widget>
@@ -202,7 +206,7 @@
         <string>Cancel</string>
        </property>
        <property name="icon">
-        <iconset resource="../resource/main_window.qrc">
+        <iconset resource="../resource/main_window_view.qrc">
          <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</iconset>
        </property>
       </widget>
@@ -213,7 +217,7 @@
         <string>Load</string>
        </property>
        <property name="icon">
-        <iconset resource="../resource/main_window.qrc">
+        <iconset resource="../resource/main_window_view.qrc">
          <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
        </property>
        <property name="default">
@@ -228,7 +232,8 @@
   <zorder>line_edit_path</zorder>
  </widget>
  <resources>
-  <include location="../resource/main_window.qrc"/>
+  <include location="../resource/main_window_view.qrc"/>
+  <include location="../resource/main_window_view.qrc"/>
  </resources>
  <connections>
   <connection>
