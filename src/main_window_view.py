@@ -20,7 +20,7 @@ from PyQt4 import QtGui, QtCore, uic
 from qwebimage_widget import QWebImageWidget
 from status_bar import StatusBar
 
-MainWindowForm, MainWindowBase = uic.loadUiType('main_window.ui')
+MainWindowForm, MainWindowBase = uic.loadUiType('main_window_view.ui')
 
 
 class MainWindowView(MainWindowBase, MainWindowForm):
