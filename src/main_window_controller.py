@@ -107,7 +107,11 @@ class MainWindowController():
         self._update_navegation_actions()
 
     def go_to_page(self):
-        print
+        import go_to_page_dialog
+        go_to_dlg = go_to_page_dialog.GoToDialog(self, self.view)
+        go_to_dlg.show()
+        go_to_dlg.exec_()
+        self._update_navegation_actions()
 
     def next_comic(self):
         ret = self.model.next_comic()

@@ -21,23 +21,19 @@ GoToDialogDialogForm, GoToDialogBase = uic.loadUiType('go_to_page_dialog.ui')
 
 
 class GoToDialog(GoToDialogDialogForm, GoToDialogBase):
-    def __init__(self, model, viewer, parent=None):
+    def __init__(self, controller, parent=None):
         super(GoToDialog, self).__init__(parent)
         self.setupUi(self)
 
-        self.model = model
-        self.viewer = viewer
-
-        # self.height = self.height()
-        # self.spinBox_go_page = self.spinBox_go_page
+        self.controller = controller
+        self.model = controller.model
         self.spinBox_go_page.setValue(
             self.model.comic.get_current_page_number())
         self.change_label_image()
 
     def accept(self, *args, **kwargs):
         self.model.set_current_page_index(self.spinBox_go_page.value() - 1)
-        self.viewer.update_view(self.model.get_current_page())
-
+        self.controller.set_view_content(self.model.get_current_page())
         super(GoToDialog, self).accept(*args, **kwargs)
 
     def rejected(self, *args, **kwargs):
