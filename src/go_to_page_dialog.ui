@@ -26,9 +26,27 @@
      <item>
       <widget class="QGroupBox" name="groupBox">
        <property name="title">
-        <string>Page Preview</string>
+        <string/>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+       <layout class="QVBoxLayout" name="vertical_layout_3">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>9</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <widget class="QScrollArea" name="scrollArea">
           <property name="styleSheet">
@@ -57,8 +75,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>237</width>
-             <height>330</height>
+             <width>246</width>
+             <height>348</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
@@ -95,7 +113,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="lineEdit_num_page">
+        <widget class="QLineEdit" name="line_edit_num_page">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -130,7 +148,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEdit_current_page">
+        <widget class="QLineEdit" name="line_edit_current_page">
          <property name="frame">
           <bool>true</bool>
          </property>
@@ -150,7 +168,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QSpinBox" name="spinBox_go_page">
+        <widget class="QSpinBox" name="spin_box_go_page">
          <property name="wrapping">
           <bool>false</bool>
          </property>
@@ -230,7 +248,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>spinBox_go_page</sender>
+   <sender>spin_box_go_page</sender>
    <signal>valueChanged(int)</signal>
    <receiver>GoPageDialog</receiver>
    <slot>update()</slot>
