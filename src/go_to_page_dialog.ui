@@ -176,18 +176,24 @@
           <set>Qt::AlignCenter</set>
          </property>
          <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::PlusMinus</enum>
+          <enum>QAbstractSpinBox::UpDownArrows</enum>
          </property>
          <property name="accelerated">
           <bool>true</bool>
          </property>
          <property name="correctionMode">
-          <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+          <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
          </property>
          <property name="suffix">
           <string/>
          </property>
+         <property name="prefix">
+          <string/>
+         </property>
          <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="singleStep">
           <number>1</number>
          </property>
         </widget>
