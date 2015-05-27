@@ -174,6 +174,9 @@ class MainWindowView(MainWindowBase, MainWindowForm):
     def get_current_view_container_size(self):
         return self.current_view_container.size()
 
+    def change_background_color(self, color):
+        self.current_view_container.change_background_color(color)
+
     @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):
         if self.action_show_toolbar.isChecked():

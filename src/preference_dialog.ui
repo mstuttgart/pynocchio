@@ -17,7 +17,7 @@
    <string>Pynocchio Preferences</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resource/main_window.qrc">
+   <iconset resource="../resource/main_window_view.qrc">
     <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -77,7 +77,7 @@
             <item>
              <widget class="QPushButton" name="background_color_button">
               <property name="icon">
-               <iconset resource="../resource/main_window.qrc">
+               <iconset resource="../resource/main_window_view.qrc">
                 <normaloff>:/icons/elementary3-icon-theme/categories/48/applications-painting.svg</normaloff>:/icons/elementary3-icon-theme/categories/48/applications-painting.svg</iconset>
               </property>
              </widget>
@@ -148,7 +148,7 @@
         <string>Close</string>
        </property>
        <property name="icon">
-        <iconset resource="../resource/main_window.qrc">
+        <iconset resource="../resource/main_window_view.qrc">
          <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</iconset>
        </property>
       </widget>
@@ -165,7 +165,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../resource/main_window.qrc"/>
+  <include location="../resource/main_window_view.qrc"/>
  </resources>
  <connections>
   <connection>
