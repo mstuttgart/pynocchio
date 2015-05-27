@@ -33,7 +33,7 @@ class MainWindowController():
             len(self.view.menu_recent_files.actions()))
 
         self.preferences = Preference()
-        settings_manager.SettingsManager.load(self.view, self)
+        settings_manager.SettingsManager.load_settings(self.view, self)
 
     @QtCore.pyqtSlot()
     def open(self):
@@ -219,7 +219,7 @@ class MainWindowController():
 
     def exit(self):
         print '[INFO] Exiting Pynocchio Comic Reader'
-        settings_manager.SettingsManager.save(self.view, self)
+        settings_manager.SettingsManager.save_settings(self.view, self)
 
     def show(self):
         self.view.show()
