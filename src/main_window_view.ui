@@ -963,6 +963,9 @@
    <property name="shortcut">
     <string>Ctrl+Shift+O</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
  </widget>
  <customwidgets>
