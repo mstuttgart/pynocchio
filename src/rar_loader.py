@@ -41,6 +41,9 @@ class RarLoader(Loader):
         except rarfile.RarOpenError as excp:
             print '[ERROR]', excp.message
             return False
+        except IOError as excp:
+            print '[ERROR]', excp.strerror
+            return False
 
         name_list = rar.namelist()
         name_list.sort()

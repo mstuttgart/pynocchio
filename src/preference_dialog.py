@@ -30,11 +30,6 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
 
         self.preference = preference
 
-        self.show_toolbar_in_fullscreen.setChecked(
-            preference.show_toolbar_in_fullscreen)
-        self.show_statusbar_in_fullscreen.setChecked(
-            preference.show_statusbar_in_fullscreen)
-
         self.line_edit_color.background_color = \
             self.preference.background_color
 
@@ -48,12 +43,6 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
             self.line_edit_color.background_color = col
 
     def close(self):
-        self.preference.show_statusbar_in_fullscreen = \
-            self.show_statusbar_in_fullscreen.isChecked()
-
-        self.preference.show_toolbar_in_fullscreen = \
-            self.show_toolbar_in_fullscreen.isChecked()
-
         self.preference.background_color = \
             self.line_edit_color.background_color
 

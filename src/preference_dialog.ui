@@ -10,14 +10,14 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>213</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Pynocchio Preferences</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resource/main_window.qrc">
+   <iconset resource="../resource/main_window_view.qrc">
     <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -40,7 +40,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>General</string>
+          <string/>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
@@ -77,48 +77,12 @@
             <item>
              <widget class="QPushButton" name="background_color_button">
               <property name="icon">
-               <iconset resource="../resource/main_window.qrc">
+               <iconset resource="../resource/main_window_view.qrc">
                 <normaloff>:/icons/elementary3-icon-theme/categories/48/applications-painting.svg</normaloff>:/icons/elementary3-icon-theme/categories/48/applications-painting.svg</iconset>
               </property>
              </widget>
             </item>
            </layout>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_2">
-         <property name="title">
-          <string>Others</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QCheckBox" name="show_toolbar_in_fullscreen">
-            <property name="text">
-             <string>Show toolbar in fullscreen mode</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="show_statusbar_in_fullscreen">
-            <property name="text">
-             <string>Show statusbar in fullscreen mode</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
           </item>
          </layout>
         </widget>
@@ -148,7 +112,7 @@
         <string>Close</string>
        </property>
        <property name="icon">
-        <iconset resource="../resource/main_window.qrc">
+        <iconset resource="../resource/main_window_view.qrc">
          <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</iconset>
        </property>
       </widget>
@@ -165,7 +129,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../resource/main_window.qrc"/>
+  <include location="../resource/main_window_view.qrc"/>
  </resources>
  <connections>
   <connection>

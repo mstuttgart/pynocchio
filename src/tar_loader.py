@@ -35,6 +35,9 @@ class TarLoader(Loader):
         except tarfile.CompressionError as excp:
             print '[ERROR]', excp.message
             return False
+        except IOError as excp:
+            print '[ERROR]', excp.strerror
+            return False
 
         name_list = tar.getnames()
         name_list.sort()

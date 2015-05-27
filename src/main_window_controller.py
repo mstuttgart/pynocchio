@@ -21,6 +21,7 @@ import main_window_view
 import main_window_model
 import settings_manager
 from recent_files_manager import RecentFileManager
+from preference import Preference
 
 
 class MainWindowController():
@@ -31,7 +32,8 @@ class MainWindowController():
         self.recent_file_manager = RecentFileManager(
             len(self.view.menu_recent_files.actions()))
 
-        settings_manager.SettingsManager.load(self.view, self)
+        self.preferences = Preference()
+        settings_manager.SettingsManager.load_settings(self.view, self)
 
     @QtCore.pyqtSlot()
     def open(self):
@@ -212,11 +214,12 @@ class MainWindowController():
         bookmark_dialog.exec_()
 
     def preference_dialog(self):
-        print
+        self.preferences.show_preference_dialog(self.view)
+        self.view.change_background_color(self.preferences.background_color)
 
     def exit(self):
         print '[INFO] Exiting Pynocchio Comic Reader'
-        settings_manager.SettingsManager.save(self.view, self)
+        settings_manager.SettingsManager.save_settings(self.view, self)
 
     def show(self):
         self.view.show()

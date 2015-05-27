@@ -38,6 +38,9 @@ class ZipLoader(Loader):
         except zipfile.LargeZipFile as excp:
             print '[ERROR]', excp.message
             return False
+        except IOError as excp:
+            print '[ERROR]', excp.strerror
+            return False
 
         self._clear_data()
         name_list = zf.namelist()
