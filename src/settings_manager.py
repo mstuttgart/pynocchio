@@ -15,95 +15,85 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import xml.etree.ElementTree as Xml
-from utility import Utility
+from PyQt4 import QtGui
+from PyQt4 import QtCore
 
 
 class SettingsManager(object):
 
     @staticmethod
-    def load(view, controller, xml_file='settings.xml', path=''):
+    def save_settings(view, controller):
 
-        try:
-            root = Xml.ElementTree(file=path.join(xml_file)).getroot()
+        settings = QtCore.QSettings("pynocchio-comic-reader",
+                                    "pynocchio-interface")
 
-            general = root.find('general')
-            view_settings = root.find('view_settings')
-            recent_files = root.find('recent_files')
+        settings.setValue("view_adjust",
+                          view.action_group_view.checkedAction().objectName())
+        settings.setValue("show_toolbar",
+                          view.action_show_toolbar.isChecked())
+        settings.setValue("show_statusbar",
+                          view.action_show_statusbar.isChecked())
+        settings.setValue("directory", controller.model.current_directory)
+        settings.setValue("background_color",
+                          controller.preferences.background_color)
 
-            controller.model.current_directory = general.find(
-                'current_directory').text or '.'
+        recent_files_deque = controller.recent_file_manager.recent_files_deque
 
-            view_adjust = view_settings.find('view_adjust').text
+        settings.setValue("recent_file_list_lenght", len(recent_files_deque))
 
-            for act in view.action_group_view.actions():
-                if act.objectName() == view_adjust:
-                    act.setChecked(True)
-                    controller.model.fit_type = act.objectName()
-
-            aux = Utility.convert_string_to_boolean(
-                view_settings.find('show_toolbar').text)
-            view.action_show_toolbar.setChecked(aux)
-
-            aux = Utility.convert_string_to_boolean(
-                view_settings.find('show_statusbar').text)
-            view.action_show_statusbar.setChecked(aux)
-
-            view.on_action_show_statusbar_triggered()
-            view.on_action_show_toolbar_triggered()
-
-            for rf in recent_files.findall('files'):
-                controller.recent_file_manager.append_left(
-                    rf.attrib['file_name'], rf.attrib['path'])
-
-        except IOError as exp:
-            print '[ERROR] %s: %s' % (exp.strerror, exp.filename)
+        for i, value in enumerate(list(reversed(recent_files_deque))):
+            settings.setValue("recent_file_%d_comic_name" % i, value.file_name)
+            settings.setValue("recent_file_%d_comic_path" % i, value.path)
 
     @staticmethod
-    def save(view, controller, xml_file='settings.xml', path=''):
+    def load_settings(view, controller):
 
-        try:
-            root = Xml.Element('settings')
+        settings = QtCore.QSettings("pynocchio-comic-reader",
+                                    "pynocchio-interface")
 
-            general = Xml.Element('general')
-            view_settings = Xml.Element('view_settings')
-            recent_files = Xml.Element('recent_files')
+        view_adjust = settings.value(
+            'view_adjust', view.action_group_view.checkedAction().objectName(),
+            type=str)
 
-            root.append(general)
-            root.append(view_settings)
-            root.append(recent_files)
+        for act in view.action_group_view.actions():
+            if act.objectName() == view_adjust:
+                act.setChecked(True)
+                controller.model.fit_type = act.objectName()
 
-            current_directory = Xml.SubElement(general, 'current_directory')
-            current_directory.text = controller.model.current_directory
+        show_toolbar = settings.value('show_toolbar',
+                                      view.action_show_toolbar.isChecked(),
+                                      type=bool)
 
-            view_adjust = Xml.SubElement(view_settings, 'view_adjust')
-            view_adjust.text = \
-                str(view.action_group_view.checkedAction().objectName())
+        view.action_show_toolbar.setChecked(show_toolbar)
 
-            show_toolbar = Xml.SubElement(view_settings, 'show_toolbar')
-            show_toolbar.text = str(view.action_show_toolbar.isChecked())
+        show_status_bar = settings.value('show_statusbar',
+                                         view.action_show_statusbar.isChecked(),
+                                         type=bool)
 
-            show_statusbar = Xml.SubElement(view_settings, 'show_statusbar')
-            show_statusbar.text = str(view.action_show_statusbar.isChecked())
+        view.action_show_statusbar.setChecked(show_status_bar)
 
-            for rf in list(reversed(
-                    controller.recent_file_manager.recent_files_deque)):
-                recent_file = Xml.SubElement(recent_files, 'files')
-                recent_file.attrib['file_name'] = str(rf.file_name)
-                recent_file.attrib['path'] = str(rf.path)
+        controller.model.current_directory = settings.value(
+            'directory', controller.model.current_directory, type=str)
 
-            Xml.ElementTree(root).write(path.join(xml_file))
+        color_name = settings.value('background_color',
+                                    controller.preferences.background_color,
+                                    type=QtGui.QColor)
 
-        except IOError as exp:
-            print '[ERROR] %s: %s' % (exp.strerror, exp.filename)
+        controller.preferences.background_color = QtGui.QColor(color_name)
+        view.change_background_color(controller.preferences.background_color)
 
+        max_len = settings.value('recent_file_list_lenght', 0, type=int)
 
+        for i in range(max_len):
+            comic_name = settings.value("recent_file_%d_comic_name" % i, False,
+                                        type=str)
+            comic_path = settings.value("recent_file_%d_comic_path" % i, False,
+                                        type=str)
 
+            if comic_path and comic_name:
+                controller.recent_file_manager.append_left(comic_name,
+                                                           comic_path)
 
-
-
-
-
-
-
+        view.on_action_show_toolbar_triggered()
+        view.on_action_show_statusbar_triggered()
 
