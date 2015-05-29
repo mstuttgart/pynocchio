@@ -29,8 +29,6 @@ def get_subclasses(cls):
     return cls.__subclasses__() + [g for s in cls.__subclasses__()
                                    for g in get_subclasses(s)]
 
-print get_subclasses(vars()['Loader'])
-
 for ld in get_subclasses(vars()['Loader']):
     product[ld.EXTENSION] = ld
 
