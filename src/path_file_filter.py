@@ -41,10 +41,13 @@ class PathFileFilter(object):
             file_list += glob.glob1(dir_name, ext)
 
         # sort list
+        file_list = [f.decode('utf-8') for f in file_list]
         file_list.sort()
 
+        print file_list
+
         # current dile index list
-        current_index = file_list.index(file_name)
+        current_index = file_list.index(file_name.decode('utf-8'))
 
         # find the next file path
         if current_index + 1 < len(file_list):
@@ -68,12 +71,12 @@ class PathFileFilter(object):
 
     def is_first_file(self):
         file_name = Utility.get_base_name(self.current_path)
-        index = self.file_list.index(file_name)
+        index = self.file_list.index(file_name.decode('utf-8'))
         return True if index == 0 else False
 
     def is_last_file(self):
         file_name = Utility.get_base_name(self.current_path)
-        index = self.file_list.index(file_name)
+        index = self.file_list.index(file_name.decode('utf-8'))
         return True if index == len(self.file_list) - 1 else False
 
     @property

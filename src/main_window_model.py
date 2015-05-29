@@ -77,12 +77,6 @@ class MainWindowModel(object):
                 self.comic.add_page(Page(page_data, page_name, page_index))
 
             self.current_directory = Utility.get_dir_name(file_name)
-
-            # ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
-
-            # if self.path_file_filter is None:
-            # self.path_file_filter = PathFileFilter(ext_list)
-            # else:
             self.path_file_filter.parse(file_name)
 
             return True
