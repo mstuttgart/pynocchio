@@ -40,6 +40,9 @@ class PathFileFilter(object):
         for ext in self.extension_list:
             file_list += glob.glob1(dir_name, ext)
 
+        # sort list
+        file_list.sort()
+
         # current dile index list
         current_index = file_list.index(file_name)
 

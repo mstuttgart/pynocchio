@@ -238,11 +238,3 @@ class MainWindowModel(object):
             BookmarkManager.connect()
             BookmarkManager.remove_bookmark(self.comic.get_path())
             BookmarkManager.close()
-
-    # @property
-    # def current_directory(self):
-    #     return self.path_file_filter.current_path
-    #
-    # @current_directory.setter
-    # def current_directory(self, value):
-    #     self.path_file_filter.current_path = value
