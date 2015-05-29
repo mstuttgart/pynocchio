@@ -65,7 +65,7 @@ class TarLoader(Loader):
 
         self.done.emit()
         tar.close()
-        return True
+        return True if self.data else False
 
 
 class CbtLoader(TarLoader):

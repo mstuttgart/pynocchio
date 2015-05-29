@@ -61,7 +61,8 @@ class ZipLoader(Loader):
 
         self.done.emit()
         zf.close()
-        return True
+
+        return True if self.data else False
 
 
 class CbzLoader(ZipLoader):

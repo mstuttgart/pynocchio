@@ -64,7 +64,7 @@ class RarLoader(Loader):
         self.done.emit()
         rar.close()
 
-        return True
+        return True if self.data else False
 
 
 class CbrLoader(RarLoader):
