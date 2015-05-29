@@ -35,13 +35,9 @@ class MainWindowModel(object):
     def __init__(self, controller):
         self.controller = controller
         self.comic = None
-        self.original_pixmap = None
         self.fit_type = MainWindowModel._ORIGINAL_FIT
         self.rotateAngle = 0
         self.current_directory = '.'
-        self.next_comic_path = ''
-        self.previous_comic_path = ''
-
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
         self.path_file_filter = PathFileFilter(ext_list)
 
@@ -123,8 +119,10 @@ class MainWindowModel(object):
 
     def get_current_page(self):
         if self.comic:
-            self.original_pixmap = self.comic.get_current_page().pixmap
-            return self.update_content()
+            pix_map = self.comic.get_current_page().pixmap
+            pix_map = self._rotate_page(pix_map)
+            pix_map = self._resize_page(pix_map)
+            return pix_map
 
         return None
 
@@ -154,12 +152,6 @@ class MainWindowModel(object):
 
     def is_last_comic(self):
         return self.path_file_filter.is_last_file()
-
-    def update_content(self):
-        pix_map = self.original_pixmap
-        pix_map = self._rotate_page(pix_map)
-        pix_map = self._resize_page(pix_map)
-        return pix_map
 
     def _rotate_page(self, pix_map):
         if self.rotateAngle != 0:
