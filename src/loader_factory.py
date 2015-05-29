@@ -18,9 +18,9 @@
 # Keep the unused import here, because all_subclasses method
 
 from loader import *
-from zip_loader import *
-from rar_loader import *
-from tar_loader import *
+from loader_zip import *
+from loader_rar import *
+from loader_tar import *
 
 product = {}
 
