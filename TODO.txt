@@ -11,3 +11,6 @@
 #TODO: Arquivos de testes
 #TODO: Action para abrir um widget com a arvore de urls. Isso desvincula as
 views e deixa a view principal limpa
+#FIXME: Ajustar diretorio de bookmarks.db
+#FIXME: Next Comics não abre arquivo invalido, deve-se saltar para a proxima
+comics
