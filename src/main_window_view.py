@@ -33,7 +33,6 @@ class MainWindowView(MainWindowBase, MainWindowForm):
         self.web_view = None
         self.current_view_container = self.qscroll_area_viewer
         self.current_view_container.main_window_view = self
-        self.current_view_container.main_window_controller = controller
 
         self.global_shortcuts = []
 

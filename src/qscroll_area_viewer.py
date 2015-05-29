@@ -24,7 +24,6 @@ class QScrollAreaViewer(QtGui.QScrollArea):
         super(QScrollAreaViewer, self).__init__(parent)
 
         self.main_window_view = None
-        self.main_window_controller = None
         self.drag_mouse = False
         self.drag_position = {'x': 0, 'y': 0}
         self.setCursor(QtCore.Qt.OpenHandCursor)
