@@ -229,14 +229,12 @@ class MainWindowView(MainWindowBase, MainWindowForm):
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:
             self.on_action_fullscreen_triggered()
-        else:
-            super(MainWindowView, self).keyPressEvent(event)
+        super(MainWindowView, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
         if args[0].button() == QtCore.Qt.LeftButton:
             self.on_action_fullscreen_triggered()
-        else:
-            super(MainWindowView, self).mousePressEvent(*args, **kwargs)
+        super(MainWindowView, self).mousePressEvent(*args, **kwargs)
 
     def resizeEvent(self, *args, **kwargs):
         self.update_current_view_container_size()
