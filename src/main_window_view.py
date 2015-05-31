@@ -114,26 +114,13 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
     def enable_actions(self):
 
-        self.action_save_image.setEnabled(True)
+        action_list = self.menu_file.actions()
+        action_list += self.menu_view.actions()
+        action_list += self.menu_navegation.actions()
+        action_list += self.menu_bookmarks.actions()
 
-        self.action_fullscreen.setEnabled(True)
-        self.action_original_fit.setEnabled(True)
-        self.action_best_fit.setEnabled(True)
-        self.action_horizontal_fit.setEnabled(True)
-        self.action_vertical_fit.setEnabled(True)
-        self.action_rotate_left.setEnabled(True)
-        self.action_rotate_right.setEnabled(True)
-
-        self.action_next_page.setEnabled(True)
-        self.action_previous_page.setEnabled(True)
-        self.action_first_page.setEnabled(True)
-        self.action_last_page.setEnabled(True)
-        self.action_go_to_page.setEnabled(True)
-        self.action_next_comic.setEnabled(True)
-        self.action_previous_comic.setEnabled(True)
-
-        self.action_add_bookmark.setEnabled(True)
-        self.action_remove_bookmark.setEnabled(True)
+        for action in action_list:
+            action.setEnabled(True)
 
     def update_status_bar(self, page_number, total_pages, page_title,
                           page_width, page_height):
