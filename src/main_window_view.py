@@ -32,7 +32,6 @@ class MainWindowView(MainWindowBase, MainWindowForm):
 
         self.web_view = None
         self.current_view_container = self.qscroll_area_viewer
-        self.current_view_container.main_window_view = self
 
         self.global_shortcuts = []
 
@@ -165,7 +164,9 @@ class MainWindowView(MainWindowBase, MainWindowForm):
             QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
 
     def set_viewer_content(self, content):
-        self.current_view_container.set_content(content)
+        if content:
+            self.label.setPixmap(content)
+            self.current_view_container.reset_scroll_position()
 
     def update_current_view_container_size(self):
         self.set_viewer_content(self.controller.model.get_current_page())
@@ -249,3 +250,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
             self.on_action_fullscreen_triggered()
         else:
             super(MainWindowView, self).mousePressEvent(*args, **kwargs)
+
+    def resizeEvent(self, *args, **kwargs):
+        self.update_current_view_container_size()
+        super(MainWindowView, self).resizeEvent(*args, **kwargs)

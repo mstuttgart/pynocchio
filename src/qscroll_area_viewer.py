@@ -22,16 +22,12 @@ class QScrollAreaViewer(QtGui.QScrollArea):
 
     def __init__(self, parent=None):
         super(QScrollAreaViewer, self).__init__(parent)
-
-        self.main_window_view = None
         self.drag_mouse = False
         self.drag_position = {'x': 0, 'y': 0}
         self.setCursor(QtCore.Qt.OpenHandCursor)
 
-    def set_content(self, content):
-        if content is not None:
-            self.main_window_view.label.setPixmap(content)
-            self.verticalScrollBar().setValue(0)
+    def reset_scroll_position(self):
+        self.verticalScrollBar().setValue(0)
 
     def change_background_color(self, color):
         style = "QWidget { background-color: %s }" % color.name()
@@ -67,7 +63,3 @@ class QScrollAreaViewer(QtGui.QScrollArea):
             self.drag_position['y'] = args[0].y()
 
         super(QScrollAreaViewer, self).mouseMoveEvent(*args, **kwargs)
-
-    def resizeEvent(self, *args, **kwargs):
-        self.main_window_view.update_current_view_container_size()
-        super(QScrollAreaViewer, self).resizeEvent(*args, **kwargs)
