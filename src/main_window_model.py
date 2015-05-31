@@ -47,8 +47,6 @@ class MainWindowModel(object):
         if ph:
             file_name = ph
 
-        ret = False
-
         try:
             image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
                                 '.pgm', '.ppm', '.tiff', '.xbm', '.xpm',
@@ -72,10 +70,11 @@ class MainWindowModel(object):
                 self.comic.add_page(Page(p['data'], p['name'], index + 1))
 
             self.current_directory = Utility.get_dir_name(file_name)
-            ret = True
+            self.path_file_filter.parse(file_name)
+            return True
 
         self.path_file_filter.parse(file_name)
-        return ret
+        return False
 
     def save_content(self, file_name):
         self.get_current_page().save(file_name)
