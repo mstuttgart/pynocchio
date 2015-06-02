@@ -25,6 +25,7 @@ from page import *
 from path_file_filter import PathFileFilter
 
 
+
 class MainWindowModel(object):
 
     _ORIGINAL_FIT = 'action_original_fit'
@@ -47,33 +48,24 @@ class MainWindowModel(object):
         if ph:
             file_name = ph
 
-        try:
-            image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
-                                '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
+        image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
+                            '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
 
-            ld = LoaderFactory.create_loader(
-                Utility.get_file_extension(file_name), image_extensions)
-
-        except IOError as excp:
-            print '[ERROR]', excp.message
-            return False
+        ld = LoaderFactory.create_loader(
+            Utility.get_file_extension(file_name), image_extensions)
 
         ld.progress.connect(self.controller.view.statusbar.set_progressbar_value)
         ld.done.connect(self.controller.view.statusbar.close_progress_bar)
 
-        if ld.load(file_name):
-            self.comic = Comic(Utility.get_base_name(file_name),
-                               Utility.get_dir_name(file_name), initial_page)
+        ld.load(file_name)
+        self.comic = Comic(Utility.get_base_name(file_name),
+                           Utility.get_dir_name(file_name), initial_page)
 
-            for index, p in enumerate(ld.data):
-                self.comic.add_page(Page(p['data'], p['name'], index + 1))
+        for index, p in enumerate(ld.data):
+            self.comic.add_page(Page(p['data'], p['name'], index + 1))
 
-            self.current_directory = Utility.get_dir_name(file_name)
-            self.path_file_filter.parse(file_name)
-            return True
-
+        self.current_directory = Utility.get_dir_name(file_name)
         self.path_file_filter.parse(file_name)
-        return False
 
     def save_content(self, file_name):
         self.get_current_page().save(file_name)

@@ -19,6 +19,7 @@ import zipfile
 
 from loader import Loader
 from utility import Utility
+from pynocchio_exception import LoadComicsException, InvalidTypeFileException, NoDataFindException
 
 
 class ZipLoader(Loader):
@@ -33,14 +34,17 @@ class ZipLoader(Loader):
         try:
             zf = zipfile.ZipFile(file_name, 'r')
         except zipfile.BadZipfile as excp:
-            print '[ERROR]', excp.message
-            return False
+            raise InvalidTypeFileException(excp.message)
+            # print '[ERROR]', excp.message
+            # return False
         except zipfile.LargeZipFile as excp:
-            print '[ERROR]', excp.message
-            return False
+            raise LoadComicsException(excp.message)
+            # print '[ERROR]', excp.message
+            # return False
         except IOError as excp:
-            print '[ERROR]', excp.strerror
-            return False
+            raise LoadComicsException(excp.message)
+            # print '[ERROR]', excp.strerror
+            # return False
 
         self._clear_data()
         name_list = zf.namelist()
@@ -62,7 +66,10 @@ class ZipLoader(Loader):
         self.done.emit()
         zf.close()
 
-        return True if self.data else False
+        if not self.data:
+            raise NoDataFindException('No one file is loaded!')
+
+        # return True
 
 
 class CbzLoader(ZipLoader):

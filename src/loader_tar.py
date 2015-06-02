@@ -19,6 +19,9 @@ import tarfile
 
 from loader import Loader
 from utility import Utility
+from pynocchio_exception import LoadComicsException
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import NoDataFindException
 
 
 class TarLoader(Loader):
@@ -33,11 +36,13 @@ class TarLoader(Loader):
         try:
             tar = tarfile.open(file_name, 'r')
         except tarfile.CompressionError as excp:
-            print '[ERROR]', excp.message
-            return False
+            raise InvalidTypeFileException(excp.message)
+            # print '[ERROR]', excp.message
+            # return False
         except IOError as excp:
-            print '[ERROR]', excp.strerror
-            return False
+            raise LoadComicsException(excp.message)
+            # print '[ERROR]', excp.strerror
+            # return False
 
         name_list = tar.getnames()
         name_list.sort()
@@ -65,7 +70,11 @@ class TarLoader(Loader):
 
         self.done.emit()
         tar.close()
-        return True if self.data else False
+
+        if not self.data:
+            raise NoDataFindException
+
+        # return True if self.data else False
 
 
 class CbtLoader(TarLoader):

@@ -15,16 +15,21 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from pynocchio_exception import DependenceNotFoundException
+
 try:
     import rarfile
-except ImportError, err:
-    print 'rarfile module not installed.\n' \
+except ImportError as err:
+    msg = 'rarfile module not installed.\n' \
+          'you not can load .rar and .cbr files.' \
           'Please install it using: sudo pip install rarfile\n'
-    import sys
-    sys.exit(err)
+    raise DependenceNotFoundException(msg)
 
 from loader import Loader
 from utility import Utility
+from pynocchio_exception import LoadComicsException
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import NoDataFindException
 
 
 class RarLoader(Loader):
@@ -39,11 +44,13 @@ class RarLoader(Loader):
         try:
             rar = rarfile.RarFile(file_name, 'r')
         except rarfile.RarOpenError as excp:
-            print '[ERROR]', excp.message
-            return False
+            raise InvalidTypeFileException(excp.message)
+            # print '[ERROR]', excp.message
+            # return False
         except IOError as excp:
-            print '[ERROR]', excp.strerror
-            return False
+            raise LoadComicsException(excp.strerror)
+            # print '[ERROR]', excp.strerror
+            # return False
 
         name_list = rar.namelist()
         name_list.sort()
@@ -64,7 +71,10 @@ class RarLoader(Loader):
         self.done.emit()
         rar.close()
 
-        return True if self.data else False
+        if not self.data:
+            raise NoDataFindException
+
+        # return True if self.data else False
 
 
 class CbrLoader(RarLoader):
