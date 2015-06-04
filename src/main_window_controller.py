@@ -25,7 +25,6 @@ from preference import Preference
 from utility import Utility
 from pynocchio_exception import LoadComicsException
 from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import NoDataFindException
 
 
 class MainWindowController():
@@ -56,7 +55,7 @@ class MainWindowController():
     def load(self, file_name, initial_page=0):
 
         try:
-            self.model.open(file_name, initial_page)
+            res = self.model.open(file_name, initial_page)
             self.set_view_content(self.model.get_current_page())
             self.view.setWindowTitle(self.model.comic.name +
                                      ' - Pynocchio Comic Reader')
@@ -66,23 +65,23 @@ class MainWindowController():
             self.model.current_directory = Utility.get_dir_name(
                 Utility.convert_qstring_to_str(file_name))
 
-            self.recent_file_manager.append_left(
-                self.model.comic.name, file_name)
+            if res:
+                self.recent_file_manager.append_left(
+                    self.model.comic.name, file_name)
 
             self._update_navegation_actions()
 
-            return True
+            return res
 
         except LoadComicsException as excp:
             message = excp.message
         except InvalidTypeFileException as excp:
             message = excp.message
-        except NoDataFindException as excp:
-            message = excp.message
 
-        QtGui.QMessageBox().Warning(self.view,
+        QtGui.QMessageBox().warning(self.view,
                                     self.view.tr('Error!'),
-                                    self.view.tr(message))
+                                    self.view.tr(message),
+                                    QtGui.QMessageBox.Close)
         return False
 
     def save_image(self):

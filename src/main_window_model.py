@@ -23,7 +23,7 @@ from loader_factory import LoaderFactory
 from comic import Comic
 from page import *
 from path_file_filter import PathFileFilter
-
+from pynocchio_exception import NoDataFindException
 
 
 class MainWindowModel(object):
@@ -57,7 +57,22 @@ class MainWindowModel(object):
         ld.progress.connect(self.controller.view.statusbar.set_progressbar_value)
         ld.done.connect(self.controller.view.statusbar.close_progress_bar)
 
-        ld.load(file_name)
+        try:
+            ld.load(file_name)
+            ret = True
+        except NoDataFindException as excp:
+            # Caso nao exista nenhuma imagem, carregamos a imagem indicando
+            # erro
+            print excp.message
+            q_file = QtCore.QFile(":/icons/notCover.png")
+            q_file.open(QtCore.QIODevice.ReadOnly)
+            ld.data.append({
+                'data': q_file.readAll(),
+                'name': 'exit_red_1.png'
+            })
+
+            ret = False
+
         self.comic = Comic(Utility.get_base_name(file_name),
                            Utility.get_dir_name(file_name), initial_page)
 
@@ -66,6 +81,8 @@ class MainWindowModel(object):
 
         self.current_directory = Utility.get_dir_name(file_name)
         self.path_file_filter.parse(file_name)
+
+        return ret
 
     def save_content(self, file_name):
         self.get_current_page().save(file_name)

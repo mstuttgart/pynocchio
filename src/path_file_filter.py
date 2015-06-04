@@ -44,7 +44,7 @@ class PathFileFilter(object):
         file_list = [f.decode('utf-8') for f in file_list]
         file_list.sort()
 
-        # current dile index list
+        # current file index list
         current_index = file_list.index(file_name.decode('utf-8'))
 
         # find the next file path
