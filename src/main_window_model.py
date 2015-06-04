@@ -19,7 +19,7 @@ from PyQt4 import QtCore, QtGui
 
 from utility import Utility
 from bookmark_database_manager import BookmarkManager
-from loader_factory import LoaderFactory
+from compact_file_loader_factory import LoaderFactory
 from comic import Comic
 from page import *
 from path_file_filter import PathFileFilter

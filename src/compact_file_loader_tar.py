@@ -17,7 +17,7 @@
 
 import tarfile
 
-from loader import Loader
+from compact_file_loader import Loader
 from utility import Utility
 from pynocchio_exception import LoadComicsException
 from pynocchio_exception import InvalidTypeFileException

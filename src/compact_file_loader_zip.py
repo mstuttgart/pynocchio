@@ -15,71 +15,69 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from pynocchio_exception import DependenceNotFoundException
+import zipfile
 
-try:
-    import rarfile
-except ImportError as err:
-    msg = 'rarfile module not installed.\n' \
-          'you not can load .rar and .cbr files.' \
-          'Please install it using: sudo pip install rarfile\n'
-    raise DependenceNotFoundException(msg)
-
-from loader import Loader
+from compact_file_loader import Loader
 from utility import Utility
-from pynocchio_exception import LoadComicsException
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import NoDataFindException
+from pynocchio_exception import LoadComicsException, InvalidTypeFileException, NoDataFindException
 
 
-class RarLoader(Loader):
+class ZipLoader(Loader):
 
-    EXTENSION = '.rar'
+    EXTENSION = '.zip'
 
     def __init__(self, extension):
-        super(RarLoader, self).__init__(extension)
+        super(ZipLoader, self).__init__(extension)
 
     def load(self, file_name):
 
         try:
-            rar = rarfile.RarFile(file_name, 'r')
-        except rarfile.RarOpenError as excp:
+            zf = zipfile.ZipFile(file_name, 'r')
+        except zipfile.BadZipfile as excp:
             raise InvalidTypeFileException(excp.message)
             # print '[ERROR]', excp.message
             # return False
+        except zipfile.LargeZipFile as excp:
+            raise LoadComicsException(excp.message)
+            # print '[ERROR]', excp.message
+            # return False
         except IOError as excp:
-            raise LoadComicsException(excp.strerror)
+            raise LoadComicsException(excp.message)
             # print '[ERROR]', excp.strerror
             # return False
 
-        name_list = rar.namelist()
+        self._clear_data()
+        name_list = zf.namelist()
         name_list.sort()
 
         list_size = len(name_list)
         count = 1
 
-        for name in name_list:
-            file_extension = Utility.get_file_extension(name)
+        for info in name_list:
+            file_extension = Utility.get_file_extension(info)
 
-            if not rar.getinfo(name).isdir() and file_extension.lower() in \
+            if not Utility.is_dir(info) and file_extension.lower() in \
                     self.extension:
-                self.data.append({'data': rar.read(name), 'name': name})
+                self.data.append({'data': zf.read(info), 'name': info})
                 self.progress.emit(count * 100 / list_size)
 
             count += 1
 
         self.done.emit()
-        rar.close()
+        zf.close()
 
         if not self.data:
-            raise NoDataFindException
+            raise NoDataFindException('No one file is loaded!')
 
-        # return True if self.data else False
+        # return True
 
 
-class CbrLoader(RarLoader):
+class CbzLoader(ZipLoader):
 
-    EXTENSION = '.cbr'
+    EXTENSION = '.cbz'
 
     def __init__(self, extension):
-        super(CbrLoader, self).__init__(extension)
+        super(CbzLoader, self).__init__(extension)
+
+
+
