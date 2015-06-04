@@ -781,7 +781,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="src/about_dialog.ui" line="891"/>
         <source>Others</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Outros</translation>
     </message>
     <message>
         <location filename="src/about_dialog.ui" line="900"/>
@@ -840,7 +840,7 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Abrir</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="178"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="182"/>
         <source>Remove</source>
         <translation type="unfinished">Remover</translation>
     </message>
@@ -855,7 +855,7 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Fechar</translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="213"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="217"/>
         <source>Load</source>
         <translation type="unfinished">Carregar</translation>
     </message>
@@ -867,10 +867,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="src/bookmark_manager_dialog.ui" line="142"/>
         <source>Page Preview</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Visualização </translation>
     </message>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="202"/>
+        <location filename="src/bookmark_manager_dialog.ui" line="206"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -885,20 +885,20 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="src/go_to_page_dialog.ui" line="29"/>
         <source>Page Preview</source>
-        <translation type="unfinished">Visualização </translation>
+        <translation type="obsolete">Visualização </translation>
     </message>
     <message>
-        <location filename="src/go_to_page_dialog.ui" line="90"/>
+        <location filename="src/go_to_page_dialog.ui" line="108"/>
         <source>Number of pages: </source>
         <translation type="unfinished">Número de páginas:</translation>
     </message>
     <message>
-        <location filename="src/go_to_page_dialog.ui" line="125"/>
+        <location filename="src/go_to_page_dialog.ui" line="143"/>
         <source>Current page:        </source>
         <translation type="unfinished">Página atual:</translation>
     </message>
     <message>
-        <location filename="src/go_to_page_dialog.ui" line="148"/>
+        <location filename="src/go_to_page_dialog.ui" line="166"/>
         <source>Go to page:           </source>
         <translation type="unfinished">Ir para a página:</translation>
     </message>
@@ -1129,353 +1129,353 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindowView</name>
     <message>
-        <location filename="src/main_window_view.py" line="227"/>
+        <location filename="src/main_window_view.py" line="217"/>
         <source>About Pynocchio Comic Reader</source>
         <translation type="unfinished">Sobre Pynocchio Comic Reader</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.py" line="232"/>
+        <location filename="src/main_window_view.py" line="222"/>
         <source>About Qt</source>
         <translation type="unfinished">Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="30"/>
+        <location filename="src/main_window_view.ui" line="37"/>
         <source>Pynocchio Comic Reader</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="37"/>
-        <source>Pyellow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="221"/>
+        <location filename="src/main_window_view.ui" line="227"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;Arquivo</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="225"/>
+        <location filename="src/main_window_view.ui" line="231"/>
         <source>&amp;Recent files</source>
         <translation type="unfinished">A&amp;rquivos recentes</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="247"/>
+        <location filename="src/main_window_view.ui" line="253"/>
         <source>&amp;View</source>
         <translation type="unfinished">&amp;Visualizar</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="261"/>
+        <location filename="src/main_window_view.ui" line="267"/>
         <source>&amp;Navegation</source>
         <translation type="unfinished">&amp;Navegação</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="276"/>
+        <location filename="src/main_window_view.ui" line="282"/>
         <source>&amp;Help</source>
         <translation type="unfinished">A&amp;juda</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="283"/>
+        <location filename="src/main_window_view.ui" line="289"/>
         <source>&amp;Settings</source>
         <translation type="unfinished">&amp;Configuração</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="295"/>
+        <location filename="src/main_window_view.ui" line="301"/>
         <source>&amp;Bookmarks</source>
         <translation type="unfinished">&amp;Favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="302"/>
+        <location filename="src/main_window_view.ui" line="308"/>
         <source>&amp;Recente bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="344"/>
+        <location filename="src/main_window_view.ui" line="350"/>
         <source>toolBar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="393"/>
+        <location filename="src/main_window_view.ui" line="400"/>
         <source>&amp;Open</source>
         <translation type="unfinished">&amp;Abrir</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="396"/>
+        <location filename="src/main_window_view.ui" line="403"/>
         <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="411"/>
+        <location filename="src/main_window_view.ui" line="418"/>
         <source>&amp;About Pynocchio</source>
         <translation type="unfinished">&amp;Sobre o Pynocchio</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="416"/>
+        <location filename="src/main_window_view.ui" line="423"/>
         <source>&amp;About Qt</source>
         <translation type="unfinished">&amp;Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="425"/>
+        <location filename="src/main_window_view.ui" line="432"/>
         <source>&amp;Exit</source>
         <translation type="unfinished">&amp;Sair</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="428"/>
+        <location filename="src/main_window_view.ui" line="435"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="440"/>
+        <location filename="src/main_window_view.ui" line="447"/>
         <source>&amp;Next page</source>
         <translation type="unfinished">&amp;Próxima página</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="443"/>
+        <location filename="src/main_window_view.ui" line="450"/>
         <source>Right</source>
         <translation type="unfinished">Direita </translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="464"/>
+        <location filename="src/main_window_view.ui" line="471"/>
         <source>&amp;Previous page</source>
         <translation type="unfinished">&amp;Página anterior</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="467"/>
+        <location filename="src/main_window_view.ui" line="474"/>
         <source>Left</source>
         <translation type="unfinished">Esquerda </translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="485"/>
+        <location filename="src/main_window_view.ui" line="492"/>
         <source>&amp;First page</source>
         <translation type="unfinished">&amp;Primeira página</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="488"/>
+        <location filename="src/main_window_view.ui" line="495"/>
         <source>Ctrl+Left</source>
         <translation type="unfinished">Ctrl + Esquerda</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="503"/>
+        <location filename="src/main_window_view.ui" line="510"/>
         <source>&amp;Last page</source>
         <translation type="unfinished">&amp;Última página</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="506"/>
+        <location filename="src/main_window_view.ui" line="513"/>
         <source>Ctrl+Right</source>
         <translation type="unfinished">Ctrl + Direita</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="524"/>
+        <location filename="src/main_window_view.ui" line="531"/>
         <source>&amp;Rotate left</source>
         <translation type="unfinished">Rotacionar para esquerda</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="527"/>
+        <location filename="src/main_window_view.ui" line="534"/>
         <source>Ctrl+Shift+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="542"/>
+        <location filename="src/main_window_view.ui" line="549"/>
         <source>&amp;Rotate right</source>
         <translation type="unfinished">Rotacionar para direita</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="545"/>
+        <location filename="src/main_window_view.ui" line="552"/>
         <source>Ctrl+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="566"/>
+        <location filename="src/main_window_view.ui" line="573"/>
         <source>&amp;Horizontal fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="569"/>
+        <location filename="src/main_window_view.ui" line="576"/>
         <source>Ctrl+K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="587"/>
+        <location filename="src/main_window_view.ui" line="594"/>
         <source>&amp;Fullscreen</source>
         <translation type="unfinished">Tela cheia</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="590"/>
+        <location filename="src/main_window_view.ui" line="597"/>
         <source>F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="605"/>
+        <location filename="src/main_window_view.ui" line="612"/>
         <source>&amp;Go to page...</source>
         <translation type="unfinished">Ir para página...</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="608"/>
+        <location filename="src/main_window_view.ui" line="615"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="626"/>
+        <location filename="src/main_window_view.ui" line="633"/>
         <source>&amp;Original fit</source>
         <translation type="unfinished">Tamanho original</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="629"/>
+        <location filename="src/main_window_view.ui" line="636"/>
         <source>Ctrl+H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="646"/>
+        <location filename="src/main_window_view.ui" line="653"/>
         <source>&amp;Show Toolbar</source>
         <translation type="unfinished">Exibir barra de ferramentas</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="657"/>
+        <location filename="src/main_window_view.ui" line="664"/>
         <source>S&amp;how Statusbar</source>
         <translation type="unfinished">Exibir barra de status</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="669"/>
+        <location filename="src/main_window_view.ui" line="676"/>
         <source>&amp;Add bookmark</source>
         <translation type="unfinished">Adicionar aos favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="684"/>
+        <location filename="src/main_window_view.ui" line="691"/>
         <source>&amp;Remove bookmark</source>
         <translation type="unfinished">Remover dos favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="693"/>
+        <location filename="src/main_window_view.ui" line="703"/>
         <source>Bookmark &amp;manager</source>
         <translation type="unfinished">Gerenciar favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="698"/>
+        <location filename="src/main_window_view.ui" line="708"/>
         <source>Open &amp;Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="719"/>
+        <location filename="src/main_window_view.ui" line="729"/>
         <source>Next Comic</source>
         <translation type="unfinished">Próximo quadrinho</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="722"/>
+        <location filename="src/main_window_view.ui" line="732"/>
         <source>Ctrl+Shift+Right</source>
         <translation type="unfinished">Ctrl + Shift + Direita</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="737"/>
+        <location filename="src/main_window_view.ui" line="747"/>
         <source>Previous Comic</source>
         <translation type="unfinished">Quadrinho anterior</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="740"/>
+        <location filename="src/main_window_view.ui" line="750"/>
         <source>Ctrl+Shift+Left</source>
         <translation type="unfinished">Ctrl + Shift + Esquerda</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="752"/>
+        <location filename="src/main_window_view.ui" line="762"/>
         <source>Preferences</source>
         <translation type="unfinished">Preferências</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="770"/>
+        <location filename="src/main_window_view.ui" line="780"/>
         <source>&amp;Vertical fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="773"/>
+        <location filename="src/main_window_view.ui" line="783"/>
         <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="797"/>
+        <location filename="src/main_window_view.ui" line="807"/>
         <source>&amp;Best fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="800"/>
+        <location filename="src/main_window_view.ui" line="810"/>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="815"/>
+        <location filename="src/main_window_view.ui" line="825"/>
         <source>&amp;Save image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="818"/>
+        <location filename="src/main_window_view.ui" line="828"/>
         <source>Save current image in disk.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="821"/>
+        <location filename="src/main_window_view.ui" line="831"/>
         <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="836"/>
+        <location filename="src/main_window_view.ui" line="846"/>
         <source>bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="848"/>
+        <location filename="src/main_window_view.ui" line="858"/>
         <source>bookmark_2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="860"/>
+        <location filename="src/main_window_view.ui" line="870"/>
         <source>bookmark_3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="872"/>
+        <location filename="src/main_window_view.ui" line="882"/>
         <source>bookmark_4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="884"/>
+        <location filename="src/main_window_view.ui" line="894"/>
         <source>bookmark_5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="892"/>
+        <location filename="src/main_window_view.ui" line="902"/>
         <source>tete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="901"/>
+        <location filename="src/main_window_view.ui" line="911"/>
         <source>recent_file_1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="913"/>
+        <location filename="src/main_window_view.ui" line="923"/>
         <source>recent_file_2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="925"/>
+        <location filename="src/main_window_view.ui" line="935"/>
         <source>recent_file_3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="937"/>
+        <location filename="src/main_window_view.ui" line="947"/>
         <source>recent_file_4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="949"/>
+        <location filename="src/main_window_view.ui" line="959"/>
         <source>recent_file_5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="961"/>
+        <location filename="src/main_window_view.ui" line="971"/>
         <source>Open Online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="964"/>
+        <location filename="src/main_window_view.ui" line="974"/>
         <source>Ctrl+Shift+O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/main_window_view.ui" line="40"/>
+        <source>The Best Comic Reader</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1505,7 +1505,7 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Preferências</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="43"/>
+        <location filename="src/preference_dialog.ui" line="37"/>
         <source>General</source>
         <translation type="unfinished">Geral</translation>
     </message>
@@ -1527,20 +1527,20 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="src/preference_dialog.ui" line="93"/>
         <source>Others</source>
-        <translation type="unfinished">Outros</translation>
+        <translation type="obsolete">Outros</translation>
     </message>
     <message>
         <location filename="src/preference_dialog.ui" line="99"/>
         <source>Show toolbar in fullscreen mode</source>
-        <translation type="unfinished">Exibir barra de ferramentas no modo tela cheia</translation>
+        <translation type="obsolete">Exibir barra de ferramentas no modo tela cheia</translation>
     </message>
     <message>
         <location filename="src/preference_dialog.ui" line="106"/>
         <source>Show statusbar in fullscreen mode</source>
-        <translation type="unfinished">Exibir barra de status no modo tela cheia</translation>
+        <translation type="obsolete">Exibir barra de status no modo tela cheia</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="148"/>
+        <location filename="src/preference_dialog.ui" line="112"/>
         <source>Close</source>
         <translation type="unfinished">Fechar</translation>
     </message>
@@ -1558,23 +1558,28 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>self.view</name>
     <message>
-        <location filename="src/main_window_controller.py" line="39"/>
+        <location filename="src/main_window_controller.py" line="44"/>
         <source>Open comic file</source>
         <translation type="unfinished">Abrir quadrinho</translation>
     </message>
     <message>
-        <location filename="src/main_window_controller.py" line="39"/>
+        <location filename="src/main_window_controller.py" line="44"/>
         <source>All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr);; Tar Files (*.tar *.cbt);; All files (*)</source>
         <translation type="unfinished">Todos os formatos suportados (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Arquivos Zip (*.zip *.cbz);; Arquivos Rar (*.rar *.cbr);; Arquivos Tar (*.tar *.cbt);; Todos os arquivos (*)</translation>
     </message>
     <message>
-        <location filename="src/main_window_controller.py" line="80"/>
+        <location filename="src/main_window_controller.py" line="94"/>
         <source>Save current page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="src/main_window_controller.py" line="80"/>
+        <location filename="src/main_window_controller.py" line="94"/>
         <source>Images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/main_window_controller.py" line="81"/>
+        <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
