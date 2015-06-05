@@ -15,16 +15,24 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import QtGui
-from preference_dialog import PreferenceDialog
+# Keep the unused import here, because all_subclasses method
+
+product = {}
 
 
-class Preference(object):
-    def __init__(self):
-        self.background_color = QtGui.QColor()
+def get_subclasses(cls):
+    return cls.__subclasses__() + [g for s in cls.__subclasses__()
+                                   for g in get_subclasses(s)]
 
-    def show_preference_dialog(self, main_window):
-        preference_dialog = PreferenceDialog(
-            preference=self, parent=main_window)
-        preference_dialog.show()
-        preference_dialog.exec_()
+for ld in get_subclasses(vars()['Loader']):
+    product[ld.EXTENSION] = ld
+
+
+class LoaderFactory(object):
+
+    @staticmethod
+    def create_loader(compact_file_extension, data_extension):
+        if compact_file_extension in product:
+            return product[compact_file_extension](data_extension)
+
+        return None

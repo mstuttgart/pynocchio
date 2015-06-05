@@ -16,6 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from peewee import OperationalError, IntegrityError
+
 from bookmark import Bookmark, BookmarkBaseModel, db
 
 

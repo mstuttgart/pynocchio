@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from PyQt4 import QtGui, QtCore
-from parser_factory import ParserFactory
 
 
 class CustomQTreeWidgetItem(QtGui.QTreeWidgetItem):

@@ -62,11 +62,11 @@ target/
 .directory
 quadrinhos/
 zzz/
-resource/freeiconmaker_blue/
+pynocchio-comic-reader/resource/freeiconmaker_blue/
 TODO.txt~
-resource/freeiconmaker_amarelo.zip
-resource/freeiconmaker_amarelo/
-resource/flags
+pynocchio-comic-reader/resource/freeiconmaker_amarelo.zip
+pynocchio-comic-reader/resource/freeiconmaker_amarelo/
+pynocchio-comic-reader/resource/flags
 
 # Config files
 *.ini
