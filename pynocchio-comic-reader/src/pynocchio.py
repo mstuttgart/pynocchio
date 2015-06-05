@@ -22,7 +22,7 @@ try:
 except ImportError, err:
     sys.exit(err)
 
-from src.main_window_controller import MainWindowController
+from main_window_controller import MainWindowController
 
 
 def main():
