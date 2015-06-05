@@ -20,7 +20,7 @@ from PyQt4 import QtGui
 
 
 PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType(
-    'preference_dialog.ui')
+    'gui/preference_dialog.ui')
 
 
 class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):

@@ -17,7 +17,8 @@
 
 from PyQt4 import QtCore, uic
 
-GoToDialogDialogForm, GoToDialogBase = uic.loadUiType('go_to_page_dialog.ui')
+GoToDialogDialogForm, GoToDialogBase = uic.loadUiType(
+    'gui/go_to_page_dialog.ui')
 
 
 class GoToDialog(GoToDialogDialogForm, GoToDialogBase):

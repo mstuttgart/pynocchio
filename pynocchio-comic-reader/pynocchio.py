@@ -22,7 +22,7 @@ try:
 except ImportError, err:
     sys.exit(err)
 
-from main_window_controller import MainWindowController
+from src.main_window_controller import MainWindowController
 
 
 def main():
@@ -35,7 +35,7 @@ def main():
     if qm != 'en_US':
         translator = QtCore.QTranslator()
         try:
-            translator.load('../i18n/qt_%s.qm' % qm)
+            translator.load('translations/qt_%s.qm' % qm)
             app.installTranslator(translator)
         except IOError:
             print 'Translation file qt_%s.qm not find' % qm

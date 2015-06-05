@@ -20,7 +20,7 @@ from PyQt4.QtSql import QSqlTableModel, QSqlDatabase
 import logging
 
 BookmarkManagerDialogForm, BookmarkManagerDialogBase = uic.loadUiType(
-    'bookmark_manager_dialog.ui')
+    'gui/bookmark_manager_dialog.ui')
 
 log = logging.getLogger(__name__)
 
