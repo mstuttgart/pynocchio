@@ -1,9 +1,0 @@
-Package: pynocchio-comic-reader
-Version: 1.0
-Section: graphics
-Maintainer: Michell Stuttgart <michellstut@gmail.com>
-Architecture: all
-Depends: python, python-qt4, python-qt4-dev, python-qt4-sql,
-Suggests: unrar
-Description: Pynocchio Comic Reader
- Pynocchio Comic Reader is a image viewer specialized in manga/comic reading.

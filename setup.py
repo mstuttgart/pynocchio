@@ -4,8 +4,9 @@ from distutils.core import setup
 setup(
     name='pynocchio-comic-reader',
     version='0.1',
+    package_dir = {'':'pynocchio-comic-reader'},
     packages=['src'],
-    scripts=['src/pynocchio.py'],
+    scripts=['bin/pynocchio.sh'],
     url='https://github.com/mstuttgart/pynocchio-comic-reader',
     license='GPLv3',
     author='Michell Stuttgart',
@@ -17,14 +18,14 @@ setup(
         'peewee'
     ],
     data_files=[
-        ('/usr/share/pynocchio/', ['src/about_dialog.ui',
-                                   'src/bookmark_manager_dialog.ui',
-                                   'src/go_to_page_dialog.ui',
-                                   'src/main_window_view.ui']),
-        ('/usr/share/pynocchio/', ['i18n/qt_pt_BR.qm']),
-        ('/usr/share/pynocchio/', ['resource/pynocchio_icon.png']),
+        ('/usr/share/pynocchio-comic-reader/', ['pynocchio-comic-reader/gui/about_dialog.ui',
+                                   'pynocchio-comic-reader/gui/bookmark_manager_dialog.ui',
+                                   'pynocchio-comic-reader/gui/go_to_page_dialog.ui',
+                                   'pynocchio-comic-reader/gui/main_window_view.ui']),
+        ('/usr/share/pynocchio-comic-reader/', ['pynocchio-comic-reader/translation/qt_pt_BR.qm']),
+        ('/usr/share/pynocchio-comic-reader/', ['pynocchio-comic-reader/resource/pynocchio_icon.png']),
         ('/usr/share/applications', ['pynocchio-comic-reader.desktop']),
-        ('reademe', ['README.md'])],
+        ('share/doc/', ['README.md'])],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',

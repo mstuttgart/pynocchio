@@ -1,0 +1,15 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package pynocchio-comic-reader
+dpkg-buildpackage: source version 0.1
+dpkg-buildpackage: source distribution UNRELEASED
+dpkg-buildpackage: source changed by Michell Stuttgart <michellstut@gmail.com>
+ dpkg-source --before-build pynocchio-comic-reader-deb
+dpkg-buildpackage: host architecture amd64
+dpkg-source: warning: unknown information field 'Package' in input data in general section of control info file
+dpkg-source: warning: unknown information field 'Version' in input data in general section of control info file
+dpkg-source: warning: unknown information field 'Architecture' in input data in general section of control info file
+dpkg-source: warning: unknown information field 'Depends' in input data in general section of control info file
+dpkg-source: warning: unknown information field 'Suggests' in input data in general section of control info file
+dpkg-source: warning: unknown information field 'Description' in input data in general section of control info file
+dpkg-source: error: pynocchio-comic-reader-deb/debian/control doesn't list any binary package
+dpkg-buildpackage: error: dpkg-source --before-build pynocchio-comic-reader-deb gave error exit status 255

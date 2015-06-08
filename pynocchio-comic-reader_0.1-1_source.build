@@ -1,0 +1,78 @@
+ dpkg-buildpackage -rfakeroot -d -us -uc -S
+dpkg-buildpackage: source package pynocchio-comic-reader
+dpkg-buildpackage: source version 0.1-1
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by Michell Stuttgart <michellstut@gmail.com>
+ dpkg-source --before-build pynocchio-comic-reader-0.1
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b pynocchio-comic-reader-0.1
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building pynocchio-comic-reader using existing ./pynocchio-comic-reader_0.1.orig.tar.gz
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader.desktop
+dpkg-source: warning: ignoring deletion of file PKG-INFO
+dpkg-source: warning: ignoring deletion of file setup.py
+dpkg-source: warning: ignoring deletion of file README.md
+dpkg-source: warning: ignoring deletion of directory bin
+dpkg-source: warning: ignoring deletion of file bin/pynocchio.sh
+dpkg-source: warning: ignoring deletion of directory pynocchio-comic-reader
+dpkg-source: warning: ignoring deletion of directory pynocchio-comic-reader/src
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/compact_file_loader_zip.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/bookmark.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/comic.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/go_to_page_dialog.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/utility.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/path_file_filter.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/__init__.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/about_dialog.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/pynocchio_exception.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/parser_factory.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/qscroll_area_viewer.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/status_bar.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/online_comic_chooser.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/main_window_model.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/bookmark_manager_dialog.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/bookmark_database_manager.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/compact_file_loader_rar.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/main_window_view.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/color_line.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/compact_file_loader_factory.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/base_parser.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/manga_panda_parser.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/recent_files_manager.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/tree_widget_manager.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/qwebimage_widget.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/compact_file_loader.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/preference_dialog.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/compact_file_loader_tar.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/page.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/settings_manager.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/main_window_controller.py
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/preference.py
+dpkg-source: warning: ignoring deletion of directory pynocchio-comic-reader/resource
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/resource/pynocchio_icon.png
+dpkg-source: warning: ignoring deletion of directory pynocchio-comic-reader/gui
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/gui/about_dialog.ui
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/gui/bookmark_manager_dialog.ui
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/gui/main_window_view.ui
+dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/gui/go_to_page_dialog.ui
+dpkg-source: warning: executable mode 0755 of 'usr/bin/pynocchio.sh' will not be represented in diff
+dpkg-source: error: cannot represent change to usr/share/icons/hicolor/128x128/apps/pynocchio.png: binary file contents changed
+dpkg-source: error: add usr/share/icons/hicolor/128x128/apps/pynocchio.png in debian/source/include-binaries if you want to store the modified binary in the debian tarball
+dpkg-source: error: cannot represent change to usr/share/icons/hicolor/16x16/apps/pynocchio.png: binary file contents changed
+dpkg-source: error: add usr/share/icons/hicolor/16x16/apps/pynocchio.png in debian/source/include-binaries if you want to store the modified binary in the debian tarball
+dpkg-source: error: cannot represent change to usr/share/icons/hicolor/256x256/apps/pynocchio.png: binary file contents changed
+dpkg-source: error: add usr/share/icons/hicolor/256x256/apps/pynocchio.png in debian/source/include-binaries if you want to store the modified binary in the debian tarball
+dpkg-source: error: cannot represent change to usr/share/icons/hicolor/32x32/apps/pynocchio.png: binary file contents changed
+dpkg-source: error: add usr/share/icons/hicolor/32x32/apps/pynocchio.png in debian/source/include-binaries if you want to store the modified binary in the debian tarball
+dpkg-source: error: cannot represent change to usr/share/icons/hicolor/48x48/apps/pynocchio.png: binary file contents changed
+dpkg-source: error: add usr/share/icons/hicolor/48x48/apps/pynocchio.png in debian/source/include-binaries if you want to store the modified binary in the debian tarball
+dpkg-source: error: cannot represent change to usr/share/pynocchio-comic-reader/locale/qt_pt_BR.qm: binary file contents changed
+dpkg-source: error: add usr/share/pynocchio-comic-reader/locale/qt_pt_BR.qm in debian/source/include-binaries if you want to store the modified binary in the debian tarball
+dpkg-source: warning: file pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/parser_factory.py has no final newline (either original or modified version)
+dpkg-source: warning: file pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/tree_widget_manager.py has no final newline (either original or modified version)
+dpkg-source: error: unrepresentable changes to source
+dpkg-buildpackage: error: dpkg-source -b pynocchio-comic-reader-0.1 gave error exit status 2
