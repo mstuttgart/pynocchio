@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Sun, 07 Jun 2015 13:09:37 -0300
+Source: pynocchio-comic-reader
+Binary: pynocchio-comic-reader
+Architecture: source amd64
+Version: 0.1-1
+Distribution: unstable
+Urgency: low
+Maintainer: Michell Stuttgart <michellstut@gmail.com>
+Changed-By: Michell Stuttgart <michellstut@gmail.com>
+Description: 
+ pynocchio-comic-reader - Pynocchio Comic Reader
+Closes: 0001
+Changes: 
+ pynocchio-comic-reader (0.1-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #0001)  <nnnn is the bug number of your ITP>
+Checksums-Sha1: 
+ ebf329424dce371d63fb8e03d7f293daf2c82a14 1567 pynocchio-comic-reader_0.1-1.dsc
+ 0b392eef33a37612da1983c513cdef8bcf3edb0e 45500 pynocchio-comic-reader_0.1.orig.tar.gz
+ 88cbff9224fc822ca29d8c3dccd0efa7d63ee7b5 322294 pynocchio-comic-reader_0.1-1.debian.tar.gz
+ 0c5511cf82f46e7e17d6cf560041e53705a1b5fd 2232 pynocchio-comic-reader_0.1-1_amd64.deb
+Checksums-Sha256: 
+ 9d0cd4865ef1687ec1c6cb514f80a478158e0d8ebb2138f7747be3592a20b429 1567 pynocchio-comic-reader_0.1-1.dsc
+ 4c729d0ca16bcba47b8dcc52c4eb8db0cd7ec46189ce6e1151dbd80561a97df9 45500 pynocchio-comic-reader_0.1.orig.tar.gz
+ e5dd7a985d4d912b896df5fe8dd25fb7b6a4c9b0ab1eda04cac299e6928e4033 322294 pynocchio-comic-reader_0.1-1.debian.tar.gz
+ 066b942434ae92c7cd3a9d927a122b96752b54284cfde599149f86e721634f7e 2232 pynocchio-comic-reader_0.1-1_amd64.deb
+Files: 
+ a4488e4dafb837ed03ea1376aabe23f7 1567 contrib/graphics medium pynocchio-comic-reader_0.1-1.dsc
+ 21e8b1c8a5c11ee8b7b73fd6ead27e6a 45500 contrib/graphics medium pynocchio-comic-reader_0.1.orig.tar.gz
+ be23a96df2a56598a0f7f56eec2bf838 322294 contrib/graphics medium pynocchio-comic-reader_0.1-1.debian.tar.gz
+ 972532d79f1c8bf3cbf8aad5dc1e9e56 2232 contrib/graphics medium pynocchio-comic-reader_0.1-1_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJVdRbYAAoJEBDEn3CnQGGxHPIH/1DOGJwCA15ytKgfKtUiuXrg
+D6uH8fjYfnuAL0rZS1hvSHttvuKdEodCfUYYR/me8Nyjaj82GHsOXDNaO2sZle+k
+1YOsHZeR7iWVUcu719xQL+lSIDXCXmbt/cXbuNER569LmA8KKIkh+FsH3zJXm/J3
+7eqsutkLTOMx6ZV1/kCXmmZ6Z+RZMIo831iZ/PPM8YH2kLc9zT6gZ4+eRTucOHMY
+jT51QS2GzbN+w+rLchkhqvA0huHSIeEm6cdMOlqcON/wYh7VhmLWf6W/x3GHRFgY
+uu7StuhXI1zSX39urkyj+O1W+1vJakz8je4lulrZp8Mthy8uPbf9X5UfCZ0I3qw=
+=vnN7
+-----END PGP SIGNATURE-----

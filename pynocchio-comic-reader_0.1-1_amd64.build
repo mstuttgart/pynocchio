@@ -1,16 +1,16 @@
- dpkg-buildpackage -rfakeroot -D -us -uc --source-option=--include-binaries --source-option=-isession
+ dpkg-buildpackage -rfakeroot -D -us -uc --source-option=--include-binaries
 dpkg-buildpackage: source package pynocchio-comic-reader
 dpkg-buildpackage: source version 0.1-1
 dpkg-buildpackage: source distribution unstable
 dpkg-buildpackage: source changed by Michell Stuttgart <michellstut@gmail.com>
- dpkg-source --include-binaries -isession --before-build pynocchio-comic-reader-0.1
+ dpkg-source --include-binaries --before-build pynocchio-comic-reader-0.1
 dpkg-buildpackage: host architecture amd64
  fakeroot debian/rules clean
 dh clean 
    dh_testdir
    dh_auto_clean
    dh_clean
- dpkg-source --include-binaries -isession -b pynocchio-comic-reader-0.1
+ dpkg-source --include-binaries -b pynocchio-comic-reader-0.1
 dpkg-source: info: using source format `3.0 (quilt)'
 dpkg-source: info: building pynocchio-comic-reader using existing ./pynocchio-comic-reader_0.1.orig.tar.gz
 dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader.desktop
@@ -19,6 +19,7 @@ dpkg-source: warning: ignoring deletion of file setup.py
 dpkg-source: warning: ignoring deletion of file README.md
 dpkg-source: warning: ignoring deletion of directory bin
 dpkg-source: warning: ignoring deletion of file bin/pynocchio.sh
+dpkg-source: warning: ignoring deletion of file usr/bin/pynocchio.sh
 dpkg-source: warning: ignoring deletion of directory pynocchio-comic-reader
 dpkg-source: warning: ignoring deletion of directory pynocchio-comic-reader/src
 dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/src/compact_file_loader_zip.py
@@ -60,57 +61,48 @@ dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/gui/about
 dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/gui/bookmark_manager_dialog.ui
 dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/gui/main_window_view.ui
 dpkg-source: warning: ignoring deletion of file pynocchio-comic-reader/gui/go_to_page_dialog.ui
-dpkg-source: warning: executable mode 0755 of 'usr/bin/pynocchio.sh' will not be represented in diff
-dpkg-source: warning: file pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/parser_factory.py has no final newline (either original or modified version)
-dpkg-source: warning: file pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/tree_widget_manager.py has no final newline (either original or modified version)
-dpkg-source: info: local changes detected, the modified files are:
- pynocchio-comic-reader-0.1/usr/bin/pynocchio.sh
- pynocchio-comic-reader-0.1/usr/share/applications/pynocchio-comic-reader.desktop
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/LICENSE
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/MANIFEST
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/README.md
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/README.rst
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/gui/about_dialog.ui
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/gui/bookmark_manager_dialog.ui
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/gui/go_to_page_dialog.ui
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/gui/main_window_view.ui
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/gui/online_comic_chooser.ui
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/gui/preference_dialog.ui
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/locale/qt_pt_BR.ts
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/main_window_view_rc.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/pynocchio.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/__init__.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/about_dialog.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/base_parser.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/bookmark.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/bookmark_database_manager.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/bookmark_manager_dialog.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/color_line.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/comic.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/compact_file_loader.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/compact_file_loader_factory.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/compact_file_loader_rar.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/compact_file_loader_tar.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/compact_file_loader_zip.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/go_to_page_dialog.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/main_window_controller.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/main_window_model.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/main_window_view.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/manga_panda_parser.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/online_comic_chooser.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/page.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/parser_factory.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/path_file_filter.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/preference.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/preference_dialog.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/pynocchio_exception.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/qscroll_area_viewer.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/qwebimage_widget.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/recent_files_manager.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/settings_manager.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/status_bar.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/tree_widget_manager.py
- pynocchio-comic-reader-0.1/usr/share/pynocchio-comic-reader/src/utility.py
-dpkg-source: error: aborting due to unexpected upstream changes, see /tmp/pynocchio-comic-reader_0.1-1.diff.yhN1Oa
-dpkg-source: info: you can integrate the local changes with dpkg-source --commit
-dpkg-buildpackage: error: dpkg-source --include-binaries -isession -b pynocchio-comic-reader-0.1 gave error exit status 2
+dpkg-source: info: building pynocchio-comic-reader in pynocchio-comic-reader_0.1-1.debian.tar.gz
+dpkg-source: info: building pynocchio-comic-reader in pynocchio-comic-reader_0.1-1.dsc
+ debian/rules build
+dh build 
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary 
+   dh_testroot
+   dh_prep
+   dh_auto_install
+   dh_installdocs
+   dh_installchangelogs
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_strip
+   dh_makeshlibs
+   dh_shlibdeps
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: Depends field of package pynocchio-comic-reader: unknown substitution variable ${shlibs:Depends}
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `pynocchio-comic-reader' in `../pynocchio-comic-reader_0.1-1_amd64.deb'.
+ dpkg-genchanges  >../pynocchio-comic-reader_0.1-1_amd64.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source --include-binaries --after-build pynocchio-comic-reader-0.1
+dpkg-buildpackage: full upload (original source is included)
+Now running lintian...
+E: pynocchio-comic-reader changes: bad-distribution-in-changes-file unstable
+W: pynocchio-comic-reader source: unused-build-dependency-on-cdbs
+W: pynocchio-comic-reader source: package-needs-versioned-debhelper-build-depends 9
+W: pynocchio-comic-reader source: out-of-date-standards-version 3.9.4 (current is 3.9.5)
+W: pynocchio-comic-reader: wrong-bug-number-in-closes l3:#nnnn
+W: pynocchio-comic-reader: new-package-should-close-itp-bug
+E: pynocchio-comic-reader: changelog-is-dh_make-template
+E: pynocchio-comic-reader: helper-templates-in-copyright
+W: pynocchio-comic-reader: copyright-has-url-from-dh_make-boilerplate
+E: pynocchio-comic-reader: copyright-contains-dh_make-todo-boilerplate
+W: pynocchio-comic-reader: readme-debian-contains-debmake-template
+Finished running lintian.

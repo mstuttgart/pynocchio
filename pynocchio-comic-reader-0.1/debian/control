@@ -1,9 +1,9 @@
 Source: pynocchio-comic-reader
-Section: graphics
-Priority: optional
+Section: contrib/graphics
+Priority: medium
 Maintainer: Michell Stuttgart <michellstut@gmail.com>
-Build-Depends: debhelper (>= 8.0.0), python-support (>= 0.6), cdbs (>= 0.4.49), python-all-dev, python-qt4-dev, python-qt4-sql
-Standards-Version: 3.9.4
+Build-Depends: debhelper (>= 9.0.0), python-support (>= 0.6), python-all-dev, python-qt4-dev, python-qt4-sql
+Standards-Version: 3.9.5
 Homepage: https://github.com/mstuttgart/pynocchio-comic-reader
 #Vcs-Git: git://git.debian.org/collab-maint/pynocchio-comic-reader.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/pynocchio-comic-reader.git;a=summary

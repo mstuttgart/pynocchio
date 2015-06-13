@@ -5,7 +5,7 @@ Maintainer: Michell Stuttgart <michellstut@gmail.com>
 Build-Depends: debhelper (>=7.0.50~), python-support (>= 0.6), cdbs (>= 0.4.49), python-all-dev, python-qt4-dev, python-qt4-sql
 Architecture: all
 Homepage: https://github.com/mstuttgart/pynocchio-comic-reader
-Depends: ${misc:Depends}, ${python:Depends}, python-qt4, python-qt4-sql, unrar
+Depends: python, python-qt4, python-qt4-sql, unrar
 Suggests: unrar
 Standards-Version: 3.9.5
 Description: Pynocchio Comic Reader

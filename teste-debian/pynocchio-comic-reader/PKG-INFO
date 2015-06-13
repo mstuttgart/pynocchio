@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: pynocchio-comic-reader
+Version: 0.1
+Summary: Pynocchio Comic Reader is a image viewer specialized in manga/comic reading.
+Home-page: https://github.com/mstuttgart/pynocchio-comic-reader
+Author: Michell Stuttgart
+Author-email: michell.stut@gmail.com.br
+License: GPLv3
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Python Software Foundation License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Communications :: Email
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Software Development :: Bug Tracking
+Requires: rarfile
+Requires: peewee
