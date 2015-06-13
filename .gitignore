@@ -18,7 +18,6 @@ develop-eggs/
 dist/
 downloads/
 eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -62,11 +61,11 @@ target/
 .directory
 quadrinhos/
 zzz/
-resource/freeiconmaker_blue/
-TODO.txt~
-resource/freeiconmaker_amarelo.zip
-resource/freeiconmaker_amarelo/
-resource/flags
+src/resource/freeiconmaker_blue/
+TODO.txt
+src/resource/freeiconmaker_amarelo.zip
+src/resource/freeiconmaker_amarelo/
+src/resource/flags
 
 # Config files
 *.ini
