@@ -1,4 +1,0 @@
- dpkg-buildpackage -rfakeroot -d -us -uc -S --profile debian
-dpkg-buildpackage: unknown option or argument --profile
-
-Use --help for program usage information.
