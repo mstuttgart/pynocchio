@@ -982,7 +982,7 @@
   <customwidget>
    <class>QScrollAreaViewer</class>
    <extends>QScrollArea</extends>
-   <header location="global">src/qscroll_area_viewer.h</header>
+   <header location="global">lib/qscroll_area_viewer.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
