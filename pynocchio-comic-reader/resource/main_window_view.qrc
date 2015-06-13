@@ -1,7 +1,6 @@
 <RCC>
   <qresource prefix="/icons">
     <file>notCover.png</file>
-    <file>mangapanda.png</file>
     <file>pynocchio_icon_2.png</file>
     <file>elementary3-icon-theme/categories/48/applications-internet.svg</file>
     <file>notCover.png</file>
