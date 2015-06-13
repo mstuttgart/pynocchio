@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="pt_BR" sourcelanguage="en_US">
+<!DOCTYPE TS>
+<TS version="2.0" language="pt_BR" sourcelanguage="en_US">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -10,12 +11,12 @@
     <message>
         <location filename="gui/about_dialog.ui" line="40"/>
         <source>About</source>
-        <translation type="unfinished">Sobre</translation>
+        <translation>Sobre</translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="928"/>
         <source>Close</source>
-        <translation type="unfinished">Fechar</translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <location filename="view/about_dialog.ui" line="63"/>
@@ -33,67 +34,67 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
     <message>
         <location filename="gui/about_dialog.ui" line="23"/>
         <source>About Pynocchio Reader</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="89"/>
         <source>GPLv3</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="96"/>
         <source>License type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo de licença:</translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="103"/>
         <source>(c) 2014 -2015 Michell Stuttgart</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="110"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>Versão:</translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="117"/>
         <source>Developer: </source>
-        <translation type="unfinished"></translation>
+        <translation>Desenvolvedor:</translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="124"/>
         <source>Copyright:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="131"/>
         <source>Michell Stuttgart</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="138"/>
         <source>1.0.0</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="165"/>
         <source>Pynocchio Comic Reader</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="176"/>
         <source>The Pynocchio Comic Reader is an comic and manga reader. </source>
-        <translation type="unfinished"></translation>
+        <translation>Pynocchio.Comic.Reader é um leitor de mangás e histórias em quadrinhos</translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="186"/>
         <source>&lt;a href=http://pynocchio.github.io&gt;Pynocchio Comic Reader&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="199"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="205"/>
@@ -776,21 +777,18 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Public License instead of this License.  But first, please read&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&amp;lt;&lt;a href=&quot;http://www.gnu.org/philosophy/why-not-lgpl.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.gnu.org/philosophy/why-not-lgpl.html&lt;/span&gt;&lt;/a&gt;&amp;gt;.&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="891"/>
         <source>Others</source>
-        <translation type="unfinished">Outros</translation>
+        <translation>Outros</translation>
     </message>
     <message>
         <location filename="gui/about_dialog.ui" line="900"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set. &lt;/p&gt;&lt;p&gt;Icons pack by Icon Sweets 2 and Streamline icon set free pack.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
-</context>
-<context>
-    <name>BookmarkManagerDialog</name>
 </context>
 <context>
     <name>Bookmark_Dialog</name>
@@ -832,7 +830,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gui/bookmark_manager_dialog.ui" line="182"/>
         <source>Remove</source>
-        <translation type="unfinished">Remover</translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <location filename="src/bookmark_manager_dialog.ui" line="179"/>
@@ -847,22 +845,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gui/bookmark_manager_dialog.ui" line="217"/>
         <source>Load</source>
-        <translation type="unfinished">Carregar</translation>
+        <translation>Carregar</translation>
     </message>
     <message>
         <location filename="gui/bookmark_manager_dialog.ui" line="23"/>
         <source>Bookmark manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerenciar favoritos</translation>
     </message>
     <message>
         <location filename="gui/bookmark_manager_dialog.ui" line="142"/>
         <source>Page Preview</source>
-        <translation type="unfinished">Visualização </translation>
+        <translation>Visualização </translation>
     </message>
     <message>
         <location filename="gui/bookmark_manager_dialog.ui" line="206"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
@@ -870,7 +868,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gui/go_to_page_dialog.ui" line="14"/>
         <source>Go to Page</source>
-        <translation type="unfinished">Ir para a página</translation>
+        <translation>Ir para a página</translation>
     </message>
     <message>
         <location filename="src/go_to_page_dialog.ui" line="29"/>
@@ -880,17 +878,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gui/go_to_page_dialog.ui" line="108"/>
         <source>Number of pages: </source>
-        <translation type="unfinished">Número de páginas:</translation>
+        <translation>Número de páginas:</translation>
     </message>
     <message>
         <location filename="gui/go_to_page_dialog.ui" line="143"/>
         <source>Current page:        </source>
-        <translation type="unfinished">Página atual:</translation>
+        <translation>Página atual:</translation>
     </message>
     <message>
         <location filename="gui/go_to_page_dialog.ui" line="166"/>
         <source>Go to page:           </source>
-        <translation type="unfinished">Ir para a página:</translation>
+        <translation>Ir para a página:</translation>
     </message>
 </context>
 <context>
@@ -1129,174 +1127,344 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="227"/>
+        <location filename="gui/main_window_view.ui" line="227"/>
         <source>&amp;File</source>
-        <translation type="obsolete">&amp;Arquivo</translation>
+        <translation>&amp;Arquivo</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="231"/>
+        <location filename="gui/main_window_view.ui" line="231"/>
         <source>&amp;Recent files</source>
-        <translation type="obsolete">A&amp;rquivos recentes</translation>
+        <translation>A&amp;rquivos recentes</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="253"/>
+        <location filename="gui/main_window_view.ui" line="253"/>
         <source>&amp;View</source>
-        <translation type="obsolete">&amp;Visualizar</translation>
+        <translation>&amp;Visualizar</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="267"/>
+        <location filename="gui/main_window_view.ui" line="267"/>
         <source>&amp;Navegation</source>
-        <translation type="obsolete">&amp;Navegação</translation>
+        <translation>&amp;Navegação</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="282"/>
+        <location filename="gui/main_window_view.ui" line="282"/>
         <source>&amp;Help</source>
-        <translation type="obsolete">A&amp;juda</translation>
+        <translation>A&amp;juda</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="289"/>
+        <location filename="gui/main_window_view.ui" line="289"/>
         <source>&amp;Settings</source>
-        <translation type="obsolete">&amp;Configuração</translation>
+        <translation>&amp;Configuração</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="301"/>
+        <location filename="gui/main_window_view.ui" line="301"/>
         <source>&amp;Bookmarks</source>
-        <translation type="obsolete">&amp;Favoritos</translation>
+        <translation>&amp;Favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="400"/>
+        <location filename="gui/main_window_view.ui" line="400"/>
         <source>&amp;Open</source>
-        <translation type="obsolete">&amp;Abrir</translation>
+        <translation>&amp;Abrir</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="418"/>
+        <location filename="gui/main_window_view.ui" line="418"/>
         <source>&amp;About Pynocchio</source>
-        <translation type="obsolete">&amp;Sobre o Pynocchio</translation>
+        <translation>&amp;Sobre o Pynocchio</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="423"/>
+        <location filename="gui/main_window_view.ui" line="423"/>
         <source>&amp;About Qt</source>
-        <translation type="obsolete">&amp;Sobre o Qt</translation>
+        <translation>&amp;Sobre o Qt</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="432"/>
+        <location filename="gui/main_window_view.ui" line="432"/>
         <source>&amp;Exit</source>
-        <translation type="obsolete">&amp;Sair</translation>
+        <translation>&amp;Sair</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="447"/>
+        <location filename="gui/main_window_view.ui" line="447"/>
         <source>&amp;Next page</source>
-        <translation type="obsolete">&amp;Próxima página</translation>
+        <translation>&amp;Próxima página</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="450"/>
+        <location filename="gui/main_window_view.ui" line="450"/>
         <source>Right</source>
-        <translation type="obsolete">Direita </translation>
+        <translation>Direita </translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="471"/>
+        <location filename="gui/main_window_view.ui" line="471"/>
         <source>&amp;Previous page</source>
-        <translation type="obsolete">&amp;Página anterior</translation>
+        <translation>&amp;Página anterior</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="474"/>
+        <location filename="gui/main_window_view.ui" line="474"/>
         <source>Left</source>
-        <translation type="obsolete">Esquerda </translation>
+        <translation>Esquerda </translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="492"/>
+        <location filename="gui/main_window_view.ui" line="492"/>
         <source>&amp;First page</source>
-        <translation type="obsolete">&amp;Primeira página</translation>
+        <translation>&amp;Primeira página</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="495"/>
+        <location filename="gui/main_window_view.ui" line="495"/>
         <source>Ctrl+Left</source>
-        <translation type="obsolete">Ctrl + Esquerda</translation>
+        <translation>Ctrl + Esquerda</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="510"/>
+        <location filename="gui/main_window_view.ui" line="510"/>
         <source>&amp;Last page</source>
-        <translation type="obsolete">&amp;Última página</translation>
+        <translation>&amp;Última página</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="513"/>
+        <location filename="gui/main_window_view.ui" line="513"/>
         <source>Ctrl+Right</source>
-        <translation type="obsolete">Ctrl + Direita</translation>
+        <translation>Ctrl + Direita</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="531"/>
+        <location filename="gui/main_window_view.ui" line="531"/>
         <source>&amp;Rotate left</source>
-        <translation type="obsolete">Rotacionar para esquerda</translation>
+        <translation>Rotacionar para esquerda</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="549"/>
+        <location filename="gui/main_window_view.ui" line="549"/>
         <source>&amp;Rotate right</source>
-        <translation type="obsolete">Rotacionar para direita</translation>
+        <translation>Rotacionar para direita</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="594"/>
+        <location filename="gui/main_window_view.ui" line="594"/>
         <source>&amp;Fullscreen</source>
-        <translation type="obsolete">Tela cheia</translation>
+        <translation>Tela cheia</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="612"/>
+        <location filename="gui/main_window_view.ui" line="612"/>
         <source>&amp;Go to page...</source>
-        <translation type="obsolete">Ir para página...</translation>
+        <translation>Ir para página...</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="633"/>
+        <location filename="gui/main_window_view.ui" line="633"/>
         <source>&amp;Original fit</source>
-        <translation type="obsolete">Tamanho original</translation>
+        <translation>Tamanho original</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="653"/>
+        <location filename="gui/main_window_view.ui" line="653"/>
         <source>&amp;Show Toolbar</source>
-        <translation type="obsolete">Exibir barra de ferramentas</translation>
+        <translation>Exibir barra de ferramentas</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="664"/>
+        <location filename="gui/main_window_view.ui" line="664"/>
         <source>S&amp;how Statusbar</source>
-        <translation type="obsolete">Exibir barra de status</translation>
+        <translation>Exibir barra de status</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="676"/>
+        <location filename="gui/main_window_view.ui" line="676"/>
         <source>&amp;Add bookmark</source>
-        <translation type="obsolete">Adicionar aos favoritos</translation>
+        <translation>Adicionar aos favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="691"/>
+        <location filename="gui/main_window_view.ui" line="691"/>
         <source>&amp;Remove bookmark</source>
-        <translation type="obsolete">Remover dos favoritos</translation>
+        <translation>Remover dos favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="703"/>
+        <location filename="gui/main_window_view.ui" line="703"/>
         <source>Bookmark &amp;manager</source>
-        <translation type="obsolete">Gerenciar favoritos</translation>
+        <translation>Gerenciar favoritos</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="729"/>
+        <location filename="gui/main_window_view.ui" line="729"/>
         <source>Next Comic</source>
-        <translation type="obsolete">Próximo quadrinho</translation>
+        <translation>Próximo quadrinho</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="732"/>
+        <location filename="gui/main_window_view.ui" line="732"/>
         <source>Ctrl+Shift+Right</source>
-        <translation type="obsolete">Ctrl + Shift + Direita</translation>
+        <translation>Ctrl + Shift + Direita</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="747"/>
+        <location filename="gui/main_window_view.ui" line="747"/>
         <source>Previous Comic</source>
-        <translation type="obsolete">Quadrinho anterior</translation>
+        <translation>Quadrinho anterior</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="750"/>
+        <location filename="gui/main_window_view.ui" line="750"/>
         <source>Ctrl+Shift+Left</source>
-        <translation type="obsolete">Ctrl + Shift + Esquerda</translation>
+        <translation>Ctrl + Shift + Esquerda</translation>
     </message>
     <message>
-        <location filename="src/main_window_view.ui" line="762"/>
+        <location filename="gui/main_window_view.ui" line="762"/>
         <source>Preferences</source>
-        <translation type="obsolete">Preferências</translation>
+        <translation>Preferências</translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="37"/>
+        <source>Pynocchio Comic Reader</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="40"/>
+        <source>The Best Comic Reader</source>
+        <translation>O melhor leitor de quadrinhos</translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="308"/>
+        <source>&amp;Recente bookmarks</source>
+        <translation>Favoritos recentes</translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="350"/>
+        <source>toolBar</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="403"/>
+        <source>Ctrl+O</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="435"/>
+        <source>Ctrl+Q</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="534"/>
+        <source>Ctrl+Shift+R</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="552"/>
+        <source>Ctrl+R</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="573"/>
+        <source>&amp;Horizontal fit</source>
+        <translation>Ajuste horizontal</translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="576"/>
+        <source>Ctrl+K</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="597"/>
+        <source>F</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="615"/>
+        <source>Ctrl+G</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="636"/>
+        <source>Ctrl+H</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="708"/>
+        <source>Open &amp;Folder</source>
+        <translation>Abrir diretorio</translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="780"/>
+        <source>&amp;Vertical fit</source>
+        <translation>Ajuste vertical</translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="783"/>
+        <source>Ctrl+J</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="807"/>
+        <source>&amp;Best fit</source>
+        <translation>Melhor ajuste</translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="810"/>
+        <source>Ctrl+L</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="825"/>
+        <source>&amp;Save image</source>
+        <translation>Salvar imagem</translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="828"/>
+        <source>Save current image in disk.</source>
+        <translation>Salvar imagem atual no disco.</translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="831"/>
+        <source>Ctrl+S</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="846"/>
+        <source>bookmark</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="858"/>
+        <source>bookmark_2</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="870"/>
+        <source>bookmark_3</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="882"/>
+        <source>bookmark_4</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="894"/>
+        <source>bookmark_5</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="902"/>
+        <source>tete</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="911"/>
+        <source>recent_file_1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="923"/>
+        <source>recent_file_2</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="935"/>
+        <source>recent_file_3</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="947"/>
+        <source>recent_file_4</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="959"/>
+        <source>recent_file_5</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="971"/>
+        <source>Open Online</source>
+        <translation>Abrir online</translation>
+    </message>
+    <message>
+        <location filename="gui/main_window_view.ui" line="974"/>
+        <source>Ctrl+Shift+O</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1325,9 +1493,9 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Preferências</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="37"/>
+        <location filename="gui/preference_dialog.ui" line="37"/>
         <source>General</source>
-        <translation type="obsolete">Geral</translation>
+        <translation>Geral</translation>
     </message>
     <message>
         <location filename="src/preference_dialog.ui" line="51"/>
@@ -1360,9 +1528,19 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Exibir barra de status no modo tela cheia</translation>
     </message>
     <message>
-        <location filename="src/preference_dialog.ui" line="112"/>
+        <location filename="gui/preference_dialog.ui" line="112"/>
         <source>Close</source>
-        <translation type="obsolete">Fechar</translation>
+        <translation>Fechar</translation>
+    </message>
+    <message>
+        <location filename="gui/preference_dialog.ui" line="17"/>
+        <source>Pynocchio Preferences</source>
+        <translation>Pynocchio preferências</translation>
+    </message>
+    <message>
+        <location filename="gui/preference_dialog.ui" line="51"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Background color: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
     </message>
 </context>
 <context>
