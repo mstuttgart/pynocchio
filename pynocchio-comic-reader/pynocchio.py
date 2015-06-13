@@ -35,7 +35,7 @@ def main():
     if qm != 'en_US':
         translator = QtCore.QTranslator()
         try:
-            translator.load('translations/qt_%s.qm' % qm)
+            translator.load('locale/qt_%s.qm' % qm)
             app.installTranslator(translator)
         except IOError:
             print 'Translation file qt_%s.qm not find' % qm
