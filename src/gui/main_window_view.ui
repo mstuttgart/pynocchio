@@ -124,7 +124,7 @@
          <x>0</x>
          <y>0</y>
          <width>1048</width>
-         <height>495</height>
+         <height>507</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -204,7 +204,7 @@
      <x>0</x>
      <y>0</y>
      <width>1048</width>
-     <height>27</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -217,7 +217,7 @@
     <bool>false</bool>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="defaultUp">
     <bool>false</bool>
