@@ -27,7 +27,7 @@ from lib.main_window_controller import MainWindowController
 
 def main():
     app = QtGui.QApplication(sys.argv)
-    app.setApplicationName('Pynocchio Comic Reader')
+    app.setApplicationName('pynocchio-comic-reader')
     app.setApplicationVersion('1.0.0')
 
     qm = QtCore.QLocale.system().name()
