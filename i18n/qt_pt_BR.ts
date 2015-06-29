@@ -1189,7 +1189,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gui/main_window_view.ui" line="450"/>
         <source>Right</source>
-        <translation>Direita </translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/main_window_view.ui" line="471"/>
@@ -1199,7 +1199,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gui/main_window_view.ui" line="474"/>
         <source>Left</source>
-        <translation>Esquerda </translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/main_window_view.ui" line="492"/>
@@ -1209,7 +1209,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gui/main_window_view.ui" line="495"/>
         <source>Ctrl+Left</source>
-        <translation>Ctrl + Esquerda</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/main_window_view.ui" line="510"/>
@@ -1219,7 +1219,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gui/main_window_view.ui" line="513"/>
         <source>Ctrl+Right</source>
-        <translation>Ctrl + Direita</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/main_window_view.ui" line="531"/>
@@ -1279,7 +1279,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gui/main_window_view.ui" line="732"/>
         <source>Ctrl+Shift+Right</source>
-        <translation>Ctrl + Shift + Direita</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/main_window_view.ui" line="747"/>
@@ -1289,7 +1289,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gui/main_window_view.ui" line="750"/>
         <source>Ctrl+Shift+Left</source>
-        <translation>Ctrl + Shift + Esquerda</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="gui/main_window_view.ui" line="762"/>

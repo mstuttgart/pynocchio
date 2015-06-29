@@ -263,6 +263,12 @@
     <addaction name="action_rotate_right"/>
    </widget>
    <widget class="QMenu" name="menu_navegation">
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="tearOffEnabled">
+     <bool>false</bool>
+    </property>
     <property name="title">
      <string>&amp;Navegation</string>
     </property>
@@ -456,7 +462,7 @@
     <bool>true</bool>
    </property>
    <property name="priority">
-    <enum>QAction::NormalPriority</enum>
+    <enum>QAction::HighPriority</enum>
    </property>
   </action>
   <action name="action_previous_page">
