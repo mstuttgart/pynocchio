@@ -108,10 +108,10 @@ class MainWindowModel(object):
             self.controller.set_view_content(self.get_current_page())
 
     def next_comic(self):
-        return self.path_file_filter.next_path
+        return self.path_file_filter.next_path.decode('utf-8')
 
     def previous_comic(self):
-        return self.path_file_filter.previous_path
+        return self.path_file_filter.previous_path.decode('utf-8')
 
     def rotate_left(self):
         self.rotateAngle = (self.rotateAngle - 90) % 360
