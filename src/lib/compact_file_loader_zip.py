@@ -35,16 +35,10 @@ class ZipLoader(Loader):
             zf = zipfile.ZipFile(file_name, 'r')
         except zipfile.BadZipfile as excp:
             raise InvalidTypeFileException(excp.message)
-            # print '[ERROR]', excp.message
-            # return False
         except zipfile.LargeZipFile as excp:
             raise LoadComicsException(excp.message)
-            # print '[ERROR]', excp.message
-            # return False
         except IOError as excp:
             raise LoadComicsException(excp.message)
-            # print '[ERROR]', excp.strerror
-            # return False
 
         self._clear_data()
         name_list = zf.namelist()
