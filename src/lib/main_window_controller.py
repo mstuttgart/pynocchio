@@ -57,7 +57,7 @@ class MainWindowController():
         try:
             res = self.model.open(file_name, initial_page)
             self.set_view_content(self.model.get_current_page())
-            self.view.setWindowTitle(self.model.comic.name +
+            self.view.setWindowTitle(self.model.comic.name.decode('utf8') +
                                      ' - Pynocchio Comic Reader')
             self.view.enable_actions()
             self.update_statusbar()
@@ -69,7 +69,13 @@ class MainWindowController():
                 self.recent_file_manager.append_left(
                     self.model.comic.name, file_name)
 
+            is_last_comic = self.model.is_last_comic()
+            is_first_comic = self.model.is_firts_comic()
+
             self._update_navegation_actions()
+
+            self.view.action_previous_comic.setEnabled(not is_first_comic)
+            self.view.action_next_comic.setEnabled(not is_last_comic)
 
             return res
 
@@ -141,11 +147,11 @@ class MainWindowController():
 
     def _update_navegation_actions(self):
 
-        is_last_comic = self.model.is_last_comic()
-        is_first_comic = self.model.is_firts_comic()
-
-        self.view.action_previous_comic.setEnabled(not is_first_comic)
-        self.view.action_next_comic.setEnabled(not is_last_comic)
+        # is_last_comic = self.model.is_last_comic()
+        # is_first_comic = self.model.is_firts_comic()
+        #
+        # self.view.action_previous_comic.setEnabled(not is_first_comic)
+        # self.view.action_next_comic.setEnabled(not is_last_comic)
 
         is_first_page = self.model.is_first_page()
         is_last_page = self.model.is_last_page()
