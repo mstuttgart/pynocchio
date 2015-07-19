@@ -57,7 +57,7 @@ class MainWindowController():
         try:
             res = self.model.open(file_name, initial_page)
             self.set_view_content(self.model.get_current_page())
-            self.view.setWindowTitle(self.model.comic.name +
+            self.view.setWindowTitle(self.model.comic.name.decode('utf8') +
                                      ' - Pynocchio Comic Reader')
             self.view.enable_actions()
             self.update_statusbar()
