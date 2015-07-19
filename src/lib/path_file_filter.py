@@ -49,13 +49,15 @@ class PathFileFilter(object):
 
         # find the next file path
         if current_index + 1 < len(file_list):
-            self._next_path = dir_name + '/' + file_list[current_index + 1]
+            self._next_path = \
+                dir_name + '/' + file_list[current_index + 1].encode('utf-8')
         else:
             self._next_path = None
 
         # find the previous file path
         if current_index > 0:
-            self._previous_path = dir_name + '/' + file_list[current_index - 1]
+            self._previous_path = \
+                dir_name + '/' + file_list[current_index - 1].encode('utf-8')
         else:
             self._previous_path = None
 
