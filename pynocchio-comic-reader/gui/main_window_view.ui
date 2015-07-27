@@ -124,7 +124,7 @@
          <x>0</x>
          <y>0</y>
          <width>1048</width>
-         <height>507</height>
+         <height>495</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -204,7 +204,7 @@
      <x>0</x>
      <y>0</y>
      <width>1048</width>
-     <height>23</height>
+     <height>27</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -988,7 +988,7 @@
   <customwidget>
    <class>QScrollAreaViewer</class>
    <extends>QScrollArea</extends>
-   <header location="global">lib/qscroll_area_viewer.h</header>
+   <header location="global">src/qscroll_area_viewer.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

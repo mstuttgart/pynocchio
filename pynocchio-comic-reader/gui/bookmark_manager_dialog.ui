@@ -234,7 +234,7 @@
  <resources>
   <include location="../../rsc/main_window_view.qrc"/>
   <include location="../../rsc/main_window_view.qrc"/>
-  <include location="../resource/main_window_view.qrc"/>
+  <include location="../../rsc/main_window_view.qrc"/>
  </resources>
  <connections>
   <connection>
