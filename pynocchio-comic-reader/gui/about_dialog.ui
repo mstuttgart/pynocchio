@@ -33,13 +33,16 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="about">
       <attribute name="title">
        <string>About</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="leftMargin">
+        <number>9</number>
+       </property>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
