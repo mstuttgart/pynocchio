@@ -151,7 +151,7 @@ class MainWindowView(MainWindowBase, MainWindowForm):
             QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
 
     def set_viewer_content(self, content):
-        if content:
+        if content and isinstance(content, QtGui.QPixmap):
             self.label.setPixmap(content)
             self.current_view_container.reset_scroll_position()
 
