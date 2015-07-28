@@ -18,7 +18,9 @@
 from PyQt4 import QtGui, QtCore, uic
 from PyQt4.QtSql import QSqlTableModel, QSqlDatabase
 import logging
+import os
 
+os.chdir('/usr/share/pynocchio-comic-reader')
 BookmarkManagerDialogForm, BookmarkManagerDialogBase = uic.loadUiType(
     'gui/bookmark_manager_dialog.ui')
 

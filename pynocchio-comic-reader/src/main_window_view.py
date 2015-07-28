@@ -19,7 +19,9 @@ from PyQt4 import QtGui, QtCore, uic
 
 from qwebimage_widget import QWebImageWidget
 from status_bar import StatusBar
+import os
 
+os.chdir('/usr/share/pynocchio-comic-reader')
 MainWindowForm, MainWindowBase = uic.loadUiType('gui/main_window_view.ui')
 
 

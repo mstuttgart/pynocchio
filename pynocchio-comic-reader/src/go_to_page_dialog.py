@@ -16,7 +16,9 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import QtCore, uic
+import os
 
+os.chdir('/usr/share/pynocchio-comic-reader')
 GoToDialogDialogForm, GoToDialogBase = uic.loadUiType(
     'gui/go_to_page_dialog.ui')
 
