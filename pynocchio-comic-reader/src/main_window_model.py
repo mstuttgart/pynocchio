@@ -44,10 +44,6 @@ class MainWindowModel(object):
 
     def open(self, file_name, initial_page=0):
 
-        ph = Utility.convert_qstring_to_str(file_name)
-        if ph:
-            file_name = ph
-
         image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
                             '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
 

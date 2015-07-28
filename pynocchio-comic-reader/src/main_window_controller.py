@@ -54,6 +54,8 @@ class MainWindowController():
 
     def load(self, file_name, initial_page=0):
 
+        file_name = Utility.convert_qstring_to_str(file_name)
+
         try:
             res = self.model.open(file_name, initial_page)
             self.set_view_content(self.model.get_current_page())
@@ -62,13 +64,11 @@ class MainWindowController():
             self.view.enable_actions()
             self.update_statusbar()
 
-            file_name = Utility.convert_qstring_to_str(file_name)
-
             self.model.current_directory = Utility.get_dir_name(file_name)
 
             if res:
                 self.recent_file_manager.append_left(
-                    self.model.comic.name, file_name)
+                    self.model.comic.name.decode('utf8'), file_name.decode('utf8'))
 
             is_last_comic = self.model.is_last_comic()
             is_first_comic = self.model.is_firts_comic()
@@ -182,7 +182,7 @@ class MainWindowController():
             rf.setVisible(False)
 
         for i, r_file in enumerate(self.recent_file_manager.recent_files_deque):
-            rf_actions[i].setText(str(r_file.file_name.toUtf8()).encode())
+            rf_actions[i].setText(r_file.file_name)
             rf_actions[i].setStatusTip(r_file.path)
             rf_actions[i].setVisible(True)
 
