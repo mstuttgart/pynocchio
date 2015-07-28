@@ -62,8 +62,9 @@ class MainWindowController():
             self.view.enable_actions()
             self.update_statusbar()
 
-            self.model.current_directory = Utility.get_dir_name(
-                Utility.convert_qstring_to_str(file_name))
+            file_name = Utility.convert_qstring_to_str(file_name)
+
+            self.model.current_directory = Utility.get_dir_name(file_name)
 
             if res:
                 self.recent_file_manager.append_left(
@@ -147,12 +148,6 @@ class MainWindowController():
 
     def _update_navegation_actions(self):
 
-        # is_last_comic = self.model.is_last_comic()
-        # is_first_comic = self.model.is_firts_comic()
-        #
-        # self.view.action_previous_comic.setEnabled(not is_first_comic)
-        # self.view.action_next_comic.setEnabled(not is_last_comic)
-
         is_first_page = self.model.is_first_page()
         is_last_page = self.model.is_last_page()
 
@@ -187,7 +182,7 @@ class MainWindowController():
             rf.setVisible(False)
 
         for i, r_file in enumerate(self.recent_file_manager.recent_files_deque):
-            rf_actions[i].setText(r_file.file_name)
+            rf_actions[i].setText(str(r_file.file_name.toUtf8()).encode())
             rf_actions[i].setStatusTip(r_file.path)
             rf_actions[i].setVisible(True)
 

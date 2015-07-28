@@ -125,7 +125,7 @@
   <customwidget>
    <class>ColorLine</class>
    <extends>QLineEdit</extends>
-   <header location="global">lib/color_line.h</header>
+   <header location="global">src/color_line.h</header>
   </customwidget>
  </customwidgets>
  <resources>
