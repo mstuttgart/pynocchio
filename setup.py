@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name='pynocchio-comic-reader',
-    version='0.1',
+    version='1.0.2',
     package_dir = {'':'pynocchio-comic-reader'},
     packages=['src'],
     scripts=['bin/pynocchio.sh'],
@@ -12,7 +12,7 @@ setup(
     author='Michell Stuttgart',
     author_email='michell.stut@gmail.com.br',
     description='Pynocchio Comic Reader is a image viewer specialized in '
-                'manga/comic reading.',
+                'comic reading.',
     requires=[
         'rarfile',
         'peewee'
@@ -27,7 +27,7 @@ setup(
         ('/usr/share/applications', ['pynocchio-comic-reader.desktop']),
         ('share/doc/', ['README.md'])],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: Stable',
         'Environment :: Console',
         'Environment :: Web Environment',
         'Intended Audience :: End Users/Desktop',
