@@ -17,9 +17,7 @@
 
 from PyQt4 import uic
 from PyQt4 import QtGui
-import os
 
-os.chdir('/usr/share/pynocchio-comic-reader')
 PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType(
     'gui/preference_dialog.ui')
 
