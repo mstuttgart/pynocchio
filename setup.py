@@ -4,13 +4,13 @@ from distutils.core import setup
 setup(
     name='pynocchio-comic-reader',
     version='1.0.2',
-    package_dir = {'':'pynocchio-comic-reader'},
+    package_dir={'': 'pynocchio-comic-reader'},
     packages=['src'],
     scripts=['bin/pynocchio.sh'],
     url='https://github.com/mstuttgart/pynocchio-comic-reader',
     license='GPLv3',
     author='Michell Stuttgart',
-    author_email='michell.stut@gmail.com.br',
+    author_email='michellstut@gmail.com',
     description='Pynocchio Comic Reader is a image viewer specialized in '
                 'comic reading.',
     requires=[
@@ -22,9 +22,9 @@ setup(
                                    'pynocchio-comic-reader/gui/bookmark_manager_dialog.ui',
                                    'pynocchio-comic-reader/gui/go_to_page_dialog.ui',
                                    'pynocchio-comic-reader/gui/main_window_view.ui']),
-        ('/usr/share/pynocchio-comic-reader/', ['pynocchio-comic-reader/translation/qt_pt_BR.qm']),
-        ('/usr/share/pynocchio-comic-reader/', ['pynocchio-comic-reader/resource/pynocchio_icon.png']),
-        ('/usr/share/applications', ['pynocchio-comic-reader.desktop']),
+        ('/usr/share/pynocchio-comic-reader/', ['pynocchio-comic-reader/locale/qt_pt_BR.qm']),
+        ('/usr/share/pynocchio-comic-reader/', ['rsc/pynocchio_icon.png']),
+        ('/usr/share/applications', ['linux/usr/share/applications/pynocchio-comic-reader.desktop']),
         ('share/doc/', ['README.md'])],
     classifiers=[
         'Development Status :: Stable',
