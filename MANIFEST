@@ -2,10 +2,12 @@
 README.md
 setup.py
 bin/pynocchio.sh
+linux/usr/share/applications/pynocchio-comic-reader.desktop
 pynocchio-comic-reader/gui/about_dialog.ui
 pynocchio-comic-reader/gui/bookmark_manager_dialog.ui
 pynocchio-comic-reader/gui/go_to_page_dialog.ui
 pynocchio-comic-reader/gui/main_window_view.ui
+pynocchio-comic-reader/locale/qt_pt_BR.qm
 pynocchio-comic-reader/src/__init__.py
 pynocchio-comic-reader/src/about_dialog.py
 pynocchio-comic-reader/src/base_parser.py
@@ -38,3 +40,4 @@ pynocchio-comic-reader/src/settings_manager.py
 pynocchio-comic-reader/src/status_bar.py
 pynocchio-comic-reader/src/tree_widget_manager.py
 pynocchio-comic-reader/src/utility.py
+rsc/pynocchio_icon.png
