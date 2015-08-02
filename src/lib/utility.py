@@ -33,6 +33,14 @@ class Utility(object):
         return os.path.basename(file_path)
 
     @staticmethod
+    def get_parent_path(file_path):
+        return os.path.split(os.path.abspath(os.path.dirname(file_path)))[0]
+
+    @staticmethod
+    def join_path(root_dir, directory, file_name):
+        return os.path.join(root_dir, directory, file_name)
+
+    @staticmethod
     def path_exist(file_path):
         return os.path.lexists(file_path)
 
