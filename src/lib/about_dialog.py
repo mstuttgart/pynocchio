@@ -16,8 +16,12 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import uic
+from utility import Utility
 
-AboutDialogForm, AboutDialogBase = uic.loadUiType('gui/about_dialog.ui')
+root_dir = Utility.get_parent_path(__file__)
+
+AboutDialogForm, AboutDialogBase = \
+    uic.loadUiType(Utility.join_path(root_dir, 'gui', 'about_dialog.ui'))
 
 
 class AboutDialog(AboutDialogForm, AboutDialogBase):

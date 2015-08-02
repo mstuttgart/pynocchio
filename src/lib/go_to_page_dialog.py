@@ -16,9 +16,11 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import QtCore, uic
+from utility import Utility
 
-GoToDialogDialogForm, GoToDialogBase = uic.loadUiType(
-    'gui/go_to_page_dialog.ui')
+root_dir = Utility.get_parent_path(__file__)
+GoToDialogDialogForm, GoToDialogBase = uic.loadUiType(Utility.join_path(
+    root_dir, 'gui', 'go_to_page_dialog.ui'))
 
 
 class GoToDialog(GoToDialogDialogForm, GoToDialogBase):

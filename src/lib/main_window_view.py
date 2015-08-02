@@ -19,8 +19,12 @@ from PyQt4 import QtGui, QtCore, uic
 
 from qwebimage_widget import QWebImageWidget
 from status_bar import StatusBar
+from utility import Utility
 
-MainWindowForm, MainWindowBase = uic.loadUiType('gui/main_window_view.ui')
+root_dir = Utility.get_parent_path(__file__)
+
+MainWindowForm, MainWindowBase = \
+    uic.loadUiType(Utility.join_path(root_dir, 'gui', 'main_window_view.ui'))
 
 
 class MainWindowView(MainWindowBase, MainWindowForm):

@@ -18,9 +18,12 @@
 from PyQt4 import QtGui, QtCore, uic
 from PyQt4.QtSql import QSqlTableModel, QSqlDatabase
 import logging
+from utility import Utility
+
+root_dir = Utility.get_parent_path(__file__)
 
 BookmarkManagerDialogForm, BookmarkManagerDialogBase = uic.loadUiType(
-    'gui/bookmark_manager_dialog.ui')
+    Utility.join_path(root_dir, 'gui', 'bookmark_manager_dialog.ui'))
 
 log = logging.getLogger(__name__)
 
@@ -67,6 +70,7 @@ class BookmarkManagerDialog(BookmarkManagerDialogForm,
                 self.width() * self.SCALE_RATIO, QtCore.Qt.SmoothTransformation)
 
             self.page_image_label.setPixmap(self.no_cover_label)
+            log.debug('database load!')
 
         else:
             log.error("[ERROR] Unable to create talkdb file.")
