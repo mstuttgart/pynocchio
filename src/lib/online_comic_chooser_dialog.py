@@ -24,16 +24,17 @@ from utility import Utility
 root_dir = Utility.get_parent_path(__file__)
 
 OnlineComicChooserForm, OnlineComicChooserBase = \
-    uic.loadUiType(Utility.join_path(root_dir, 'gui', 'online_comic_chooser.ui'))
+    uic.loadUiType(Utility.join_path(root_dir, 'gui', 'online_comic_chooser_dialog.ui'))
 
 
-class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
+class OnlineComicChooserDialog(OnlineComicChooserForm, OnlineComicChooserBase):
 
     def __init__(self, parent=None):
-        super(OnlineComicChooser, self).__init__(parent)
+        super(OnlineComicChooserDialog, self).__init__(parent)
         self.setupUi(self)
 
         self.parser = None
+        self.url_comic_choose = None
         self.th = Thread(target=self._load_comics)
         self.tree_widget.itemDoubleClicked.connect(self._handle_changed)
         self.host_list_widget.itemClicked.connect(self.item_click)
@@ -55,13 +56,10 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
         item.setIcon(0, QtGui.QIcon(
             ':icons/elementary3-icon-theme/actions/48/dialog-apply.svg'))
 
-        return item
-
     def _add_child(self, parent, column, title, data, status_tip):
         item = QtGui.QTreeWidgetItem(parent, title)
         item.setData(column, QtCore.Qt.DisplayRole, data)
         item.setStatusTip(column, status_tip)
-        return item
 
     def _handle_changed(self, item, column):
         if item.parent() is None:
@@ -77,3 +75,7 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
 
         for name, url in chapter_names.items():
             self._add_child(item, column, name, name, url)
+
+    def close(self):
+        self.url_comic_choose = None
+        super(OnlineComicChooserDialog, self).close()

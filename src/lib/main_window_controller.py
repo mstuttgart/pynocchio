@@ -105,9 +105,9 @@ class MainWindowController():
             self.model.save_content(file_path)
 
     def open_online(self):
-        from online_comic_chooser import OnlineComicChooser
+        from online_comic_chooser_dialog import OnlineComicChooserDialog
 
-        online_comic_chooser = OnlineComicChooser(self.view)
+        online_comic_chooser = OnlineComicChooserDialog(self.view)
         online_comic_chooser.show()
         online_comic_chooser.exec_()
 
