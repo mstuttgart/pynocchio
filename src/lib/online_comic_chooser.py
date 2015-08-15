@@ -16,11 +16,15 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt4 import QtGui, QtCore, uic
+from threading import Thread
 
 from parser_factory import ParserFactory
+from utility import Utility
+
+root_dir = Utility.get_parent_path(__file__)
 
 OnlineComicChooserForm, OnlineComicChooserBase = \
-    uic.loadUiType('online_comic_chooser.ui')
+    uic.loadUiType(Utility.join_path(root_dir, 'gui', 'online_comic_chooser.ui'))
 
 
 class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
@@ -30,15 +34,19 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
         self.setupUi(self)
 
         self.parser = None
-        self.tree_widget.itemDoubleClicked.connect(self.handle_changed)
+        self.th = Thread(target=self._load_comics)
+        self.tree_widget.itemDoubleClicked.connect(self._handle_changed)
         self.host_list_widget.itemClicked.connect(self.item_click)
 
     def item_click(self, item):
         print item, str(item.text())
         self.parser = ParserFactory.create_loader(str(item.text()))
-        self.load_comics()
 
-    def add_parent(self, parent, column, title, data, status_tip):
+        if not self.th.isAlive():
+            self.th.start()
+        # self._load_comics()
+
+    def _add_parent(self, parent, column, title, data, status_tip):
         item = QtGui.QTreeWidgetItem(parent, title)
         item.setData(column, QtCore.Qt.DisplayRole, data)
         item.setChildIndicatorPolicy(QtGui.QTreeWidgetItem.ShowIndicator)
@@ -49,24 +57,23 @@ class OnlineComicChooser(OnlineComicChooserForm, OnlineComicChooserBase):
 
         return item
 
-    def add_child(self, parent, column, title, data, status_tip):
+    def _add_child(self, parent, column, title, data, status_tip):
         item = QtGui.QTreeWidgetItem(parent, title)
         item.setData(column, QtCore.Qt.DisplayRole, data)
         item.setStatusTip(column, status_tip)
         return item
 
-    def handle_changed(self, item, column):
+    def _handle_changed(self, item, column):
         if item.parent() is None:
-            self.load_chapter(item, column)
+            self._load_chapter(item, column)
 
-    def load_comics(self):
-
+    def _load_comics(self):
         for name, url in self.parser.updated_comic_list().items():
-            self.add_parent(
+            self._add_parent(
                 self.tree_widget.invisibleRootItem(), 0, name, name, url)
 
-    def load_chapter(self, item, column):
+    def _load_chapter(self, item, column):
         chapter_names = self.parser.update_chapters_list(str(item.text(column)))
 
         for name, url in chapter_names.items():
-            self.add_child(item, column, name, name, url)
+            self._add_child(item, column, name, name, url)
