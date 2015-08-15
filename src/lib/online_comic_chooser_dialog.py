@@ -79,4 +79,3 @@ class OnlineComicChooserDialog(OnlineComicChooserForm, OnlineComicChooserBase):
     def close(self):
         self.url_comic_choose = None
         super(OnlineComicChooserDialog, self).close()
-
