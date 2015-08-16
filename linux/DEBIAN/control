@@ -1,0 +1,19 @@
+Package: pynocchio-comic-reader
+Version: 1.0.2-2
+Source: pynocchio-comic-reader
+Maintainer: Michell Stuttgart <michellstut@gmail.com>
+Installed-Size: 1581
+Section: graphics
+Priority: optional
+Homepage: https://github.com/pynocchio-comic-reader
+Depends: python-all (>= 2.6.6-3), debhelper (>= 7.4.3), python-qt4-dev (>= 4.8.4), python-qt4-sql (>= 4.8.4), unrar (>= 5.0.0), python-pip (>= 1.4.9)
+Architecture: all
+Description: Comic reader based in Pyqt4
+ Pynocchio Comic Reader is a new and nice image viewer 
+ which uses PyQt4 API specialized in comic reading.
+ It is a comic reader that allow read cbr, cbz and cbt files
+ and have nice elementary icons theme on your interface.
+
+
+
+

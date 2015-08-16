@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Pynocchio Comic Reader
+GenericName=Comic Reader
+Comment=A image viewer specialized in manga/comic reading
+Exec=python /opt/pynocchio-comic-reader/pynocchio.py
+Terminal=false
+Type=Application
+MimeType=application/x-pynocchio;application/x-cbz;application/x-cbr;application/x-cbr;
+Icon=pynocchio_icon.png
+Categories=Graphics;Viewer;
+Keywords=comic;viewer;reader;
+Encoding=UTF-8
+StartupNotify=true
