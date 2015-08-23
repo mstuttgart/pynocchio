@@ -27,7 +27,8 @@ from pynocchio_exception import LoadComicsException
 from pynocchio_exception import InvalidTypeFileException
 
 
-class MainWindowController():
+class MainWindowController(object):
+
     def __init__(self):
         self.view = main_window_view.MainWindowView(self)
         self.model = main_window_model.MainWindowModel(self)
