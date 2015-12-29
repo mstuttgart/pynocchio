@@ -17,10 +17,10 @@
 
 from PyQt4 import QtGui
 from PyQt4 import QtCore
+from utility import Utility
 
 
 class SettingsManager(object):
-
     @staticmethod
     def save_settings(view, controller):
 
@@ -39,11 +39,17 @@ class SettingsManager(object):
 
         recent_files_deque = controller.recent_file_manager.recent_files_deque
 
-        settings.setValue("recent_file_list_lenght", len(recent_files_deque))
-
+        invalid_paths = 0
         for i, value in enumerate(list(reversed(recent_files_deque))):
-            settings.setValue("recent_file_%d_comic_name" % i, value.file_name)
-            settings.setValue("recent_file_%d_comic_path" % i, value.path)
+            if Utility.file_exist(value.path):
+                settings.setValue("recent_file_%d_comic_name" % i,
+                                  value.file_name)
+                settings.setValue("recent_file_%d_comic_path" % i, value.path)
+            else:
+                invalid_paths += 1
+
+        settings.setValue("recent_file_list_lenght",
+                          len(recent_files_deque) - invalid_paths)
 
     @staticmethod
     def load_settings(view, controller):
@@ -90,10 +96,10 @@ class SettingsManager(object):
             comic_path = settings.value("recent_file_%d_comic_path" % i, False,
                                         type=str)
 
-            if comic_path and comic_name:
+            if comic_path and comic_name and Utility.file_exist(
+                    Utility.convert_qstring_to_str(comic_path)):
                 controller.recent_file_manager.append_left(comic_name,
                                                            comic_path)
 
         view.on_action_show_toolbar_triggered()
         view.on_action_show_statusbar_triggered()
-
