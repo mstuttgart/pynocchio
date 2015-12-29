@@ -201,6 +201,9 @@ class MainWindowController(object):
         for bk in bk_actions:
             bk.setVisible(False)
 
+        bookmark_list = [x for x in bookmark_list
+                         if Utility.file_exist(x.comic_path)]
+
         for i, bk in enumerate(bookmark_list):
             bk_text = '%s [%d]' % (bk.comic_name, bk.comic_page)
             bk_actions[i].setText(bk_text)
