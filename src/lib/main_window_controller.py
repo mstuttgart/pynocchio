@@ -27,7 +27,8 @@ from pynocchio_exception import LoadComicsException
 from pynocchio_exception import InvalidTypeFileException
 
 
-class MainWindowController():
+class MainWindowController(object):
+
     def __init__(self):
         self.view = main_window_view.MainWindowView(self)
         self.model = main_window_model.MainWindowModel(self)
@@ -105,9 +106,9 @@ class MainWindowController():
             self.model.save_content(file_path)
 
     def open_online(self):
-        from online_comic_chooser import OnlineComicChooser
+        from online_comic_chooser_dialog import OnlineComicChooserDialog
 
-        online_comic_chooser = OnlineComicChooser(self.view)
+        online_comic_chooser = OnlineComicChooserDialog(self.view)
         online_comic_chooser.show()
         online_comic_chooser.exec_()
 
@@ -199,6 +200,9 @@ class MainWindowController():
 
         for bk in bk_actions:
             bk.setVisible(False)
+
+        bookmark_list = [x for x in bookmark_list
+                         if Utility.file_exist(x.comic_path)]
 
         for i, bk in enumerate(bookmark_list):
             bk_text = '%s [%d]' % (bk.comic_name, bk.comic_page)

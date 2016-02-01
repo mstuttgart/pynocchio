@@ -1,0 +1,2 @@
+#!/bin/bash
+python /opt/pynocchio-comic-reader/pynocchio.py

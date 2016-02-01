@@ -45,7 +45,7 @@ class MainWindowModel(object):
     def open(self, file_name, initial_page=0):
 
         image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
-                            '.pgm', '.ppm', '.tiff', '.xbm', '.xpm']
+                            '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
 
         ld = LoaderFactory.create_loader(
             Utility.get_file_extension(file_name), image_extensions)

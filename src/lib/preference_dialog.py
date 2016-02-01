@@ -30,11 +30,10 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
         self.setupUi(self)
 
         self.preference = preference
-
         self.line_edit_color.background_color = \
             self.preference.background_color
-
-        self.background_color_button.clicked.connect(self._open_color_dialog)
+        self.background_color_button.clicked.connect(
+            self._open_color_dialog)
 
     def _open_color_dialog(self):
         col_dialog = QtGui.QColorDialog(self)

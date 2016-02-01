@@ -23,8 +23,7 @@ setup(
                                           'src/gui/go_to_page_dialog.ui',
                                           'src/gui/main_window_view.ui']),
         ('/opt/pynocchio-comic-reader/', ['src/locale/qt_pt_BR.qm']),
-        ('/opt/pynocchio-comic-reader/',
-         ['rsc/pynocchio_icon_2.png']),
+        ('/opt/pynocchio-comic-reader/', ['rsc/pynocchio_icon_2.png']),
         ('/usr/share/applications', ['linux/usr/share/applications/pynocchio-comic-reader.desktop']),
     ],
     classifiers=[
