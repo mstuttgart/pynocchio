@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='pynocchio-comic-reader',
     version='1.0.2-2',
-    package_dir={'': 'src'},
-    packages=['lib'],
-    scripts=['bin/pynocchio.sh'],
+    packages=[
+        'src', 'test'
+    ],
+    scripts=[
+        'bin/pynocchio.sh'
+    ],
     url='https://github.com/mstuttgart/pynocchio-comic-reader',
     license='GPLv3',
     author='Michell Stuttgart',
