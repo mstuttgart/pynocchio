@@ -5,7 +5,7 @@ setup(
     name='pynocchio-comic-reader',
     version='1.0.2-2',
     packages=[
-        'src', 'test'
+        'pynocchio_comic_reader', 'test'
     ],
     scripts=[
         'bin/pynocchio.sh'
@@ -21,11 +21,11 @@ setup(
         'peewee'
     ],
     data_files=[
-        ('/opt/pynocchio-comic-reader/', ['src/gui/about_dialog.ui',
-                                          'src/gui/bookmark_manager_dialog.ui',
-                                          'src/gui/go_to_page_dialog.ui',
-                                          'src/gui/main_window_view.ui']),
-        ('/opt/pynocchio-comic-reader/', ['src/locale/qt_pt_BR.qm']),
+        ('/opt/pynocchio-comic-reader/', ['pynocchio_comic_reader/gui/about_dialog.ui',
+                                          'pynocchio_comic_reader/gui/bookmark_manager_dialog.ui',
+                                          'pynocchio_comic_reader/gui/go_to_page_dialog.ui',
+                                          'pynocchio_comic_reader/gui/main_window_view.ui']),
+        ('/opt/pynocchio-comic-reader/', ['pynocchio_comic_reader/locale/qt_pt_BR.qm']),
         ('/opt/pynocchio-comic-reader/', ['rsc/pynocchio_icon_2.png']),
         ('/usr/share/applications', ['linux/usr/share/applications/pynocchio-comic-reader.desktop']),
     ],

@@ -33,7 +33,7 @@ class QWebImageWidget(QWebView):
         self.setHtml(html)
 
     def load_url(self, url):
-        img_aatr = '<img src="%s" alt="%s">' % (url, self.image_height)
+        img_aatr = '<img pynocchio_comic_reader="%s" alt="%s">' % (url, self.image_height)
         html = '<body bgcolor="%s"><center>%s</center></body>' % (self.background_color, img_aatr)
         self.setHtml(html, QUrl(url))
 

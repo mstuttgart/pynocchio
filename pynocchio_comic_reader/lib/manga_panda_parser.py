@@ -77,7 +77,7 @@ class MangaPandaParser(BaseParser):
 
         self.image_urls = []
         for src in tree.xpath("//div[@id='imgholder']/a/img[@id='img']"):
-            self.image_urls.append(src.get('src'))
+            self.image_urls.append(src.get('pynocchio_comic_reader'))
 
         return self.image_urls
 
