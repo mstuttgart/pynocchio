@@ -1,10 +1,5 @@
 Pynocchio Comic Reader
 ==================
-[![Build Status](https://travis-ci.org/mstuttgart/pynocchio-comic-reader.svg?branch=develop)](https://travis-ci.org/mstuttgart/pynocchio-comic-reader)
-[![Coverage Status](https://coveralls.io/repos/github/mstuttgart/pynocchio-comic-reader/badge.svg?branch=develop)](https://coveralls.io/github/mstuttgart/pynocchio-comic-reader?branch=develop)
-[![Code Health](https://landscape.io/github/mstuttgart/pycep-correios/develop/landscape.svg?style=plastic)](https://landscape.io/github/mstuttgart/pycep-correios/develop)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/kefir500/ghstats/master/LICENSE)
-
 Pynocchio is a image viewer specialized in manga/comic reading
 developed on PyQt4 API.
 
@@ -47,6 +42,18 @@ sudo pip install peewee
 
 You need of Qt Designer to open and edit .ui view files.
 Use de **compile_ui.sh** file to compile views of project.
+
+### Download
+In this moment, only Linux version is avaliable:
+
+[pynocchio-comic-reader-beta.deb](https://github.com/mstuttgart/pynocchio-comic-reader/releases/download/v1.0.4/pynocchio-comic-reader-1.0.4-2.deb)
+
+Obs.: Please, don't forget to install *rarfile* and *peewee* Python modules.
+
+```
+sudo pip install peewee rarfile
+```
+
 
 ### I found a bug!
 Please report any and all bugs using the project issue
