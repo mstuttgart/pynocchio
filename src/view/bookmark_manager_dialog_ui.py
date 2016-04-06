@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'view/ui/bookmark_manager_dialog.ui'
+# Form implementation generated from reading ui file '../ui_files/bookmark_manager_dialog.ui'
 #
-# Created: Wed Apr  6 00:23:04 2016
+# Created: Wed Apr  6 14:25:04 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!

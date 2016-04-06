@@ -18,7 +18,7 @@
 from PyQt4 import QtGui
 from PyQt4 import uic
 
-from src.lib.utility import Utility
+from utility import Utility
 
 root_dir = Utility.get_parent_path(__file__)
 PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType(Utility.join_path(

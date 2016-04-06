@@ -49,7 +49,7 @@
    <enum>Qt::ToolButtonIconOnly</enum>
   </property>
   <property name="animated">
-   <bool>false</bool>
+   <bool>true</bool>
   </property>
   <property name="documentMode">
    <bool>false</bool>
@@ -124,7 +124,7 @@
          <x>0</x>
          <y>0</y>
          <width>1048</width>
-         <height>507</height>
+         <height>485</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -396,6 +396,11 @@
    <addaction name="action_fullscreen"/>
    <addaction name="separator"/>
    <addaction name="action_exit"/>
+  </widget>
+  <widget class="StatusBar" name="statusbar">
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
   </widget>
   <action name="action_open">
    <property name="icon">
@@ -991,8 +996,13 @@
   <customwidget>
    <class>QScrollAreaViewer</class>
    <extends>QScrollArea</extends>
-   <header location="global">model/qscroll_area_viewer.h</header>
+   <header location="global">qscroll_area_viewer.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>StatusBar</class>
+   <extends>QStatusBar</extends>
+   <header location="global">status_bar.h</header>
   </customwidget>
  </customwidgets>
  <resources>

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'view/ui/main_window_view.ui'
+# Form implementation generated from reading ui file '../ui_files/main_window_view.ui'
 #
-# Created: Wed Apr  6 00:23:04 2016
+# Created: Wed Apr  6 14:25:04 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -25,7 +25,7 @@ class Ui_MainWindowView(object):
         MainWindowView.setWindowIcon(icon)
         MainWindowView.setIconSize(QtCore.QSize(22, 22))
         MainWindowView.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
-        MainWindowView.setAnimated(False)
+        MainWindowView.setAnimated(True)
         MainWindowView.setDocumentMode(False)
         MainWindowView.setTabShape(QtGui.QTabWidget.Rounded)
         MainWindowView.setDockNestingEnabled(False)
@@ -60,7 +60,7 @@ class Ui_MainWindowView(object):
         self.qscroll_area_viewer.setAlignment(QtCore.Qt.AlignCenter)
         self.qscroll_area_viewer.setObjectName("qscroll_area_viewer")
         self.scroll_area_widget_contents = QtGui.QWidget()
-        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 1048, 507))
+        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 1048, 485))
         self.scroll_area_widget_contents.setObjectName("scroll_area_widget_contents")
         self.horizontalLayout_2 = QtGui.QHBoxLayout(self.scroll_area_widget_contents)
         self.horizontalLayout_2.setSpacing(0)
@@ -144,6 +144,10 @@ class Ui_MainWindowView(object):
         self.toolbar.setFloatable(False)
         self.toolbar.setObjectName("toolbar")
         MainWindowView.addToolBar(QtCore.Qt.TopToolBarArea, self.toolbar)
+        self.statusbar = StatusBar(MainWindowView)
+        self.statusbar.setAutoFillBackground(True)
+        self.statusbar.setObjectName("statusbar")
+        MainWindowView.setStatusBar(self.statusbar)
         self.action_open = QtGui.QAction(MainWindowView)
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/64/address-book-new.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -522,7 +526,9 @@ class Ui_MainWindowView(object):
         self.action_open_online.setText(QtGui.QApplication.translate("MainWindowView", "Open Online", None, QtGui.QApplication.UnicodeUTF8))
         self.action_open_online.setShortcut(QtGui.QApplication.translate("MainWindowView", "Ctrl+Shift+O", None, QtGui.QApplication.UnicodeUTF8))
 
+from status_bar import StatusBar
 from qscroll_area_viewer import QScrollAreaViewer
+import main_window_view_rc
 import main_window_view_rc
 import main_window_view_rc
 import main_window_view_rc

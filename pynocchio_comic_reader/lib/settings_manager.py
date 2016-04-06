@@ -18,7 +18,7 @@
 from PyQt4 import QtCore
 from PyQt4 import QtGui
 
-from src.lib.utility import Utility
+from utility import Utility
 
 
 class SettingsManager(object):

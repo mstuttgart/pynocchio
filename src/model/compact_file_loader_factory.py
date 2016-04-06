@@ -15,28 +15,29 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import QtCore
+# Keep the unused import here, because all_subclasses method
+
+from compact_file_loader import Loader
+from compact_file_loader_zip import *
+from compact_file_loader_rar import *
+from compact_file_loader_tar import *
+
+product = {}
 
 
-class Loader(QtCore.QObject):
+def get_subclasses(cls):
+    return cls.__subclasses__() + [g for s in cls.__subclasses__()
+                                   for g in get_subclasses(s)]
 
-    progress = QtCore.pyqtSignal(int)
-    done = QtCore.pyqtSignal()
+for ld in get_subclasses(vars()['Loader']):
+    product[ld.EXTENSION] = ld
 
-    def __init__(self, extension):
-        super(Loader, self).__init__()
 
-        if not isinstance(extension, list):
-            raise TypeError
+class LoaderFactory(object):
 
-        self.extension = extension
-        self.data = []
+    @staticmethod
+    def create_loader(compact_file_extension, data_extension):
+        if compact_file_extension in product:
+            return product[compact_file_extension](data_extension)
 
-    def load(self, file_name):
-        raise NotImplementedError("Must subclass me")
-
-    def length_data(self):
-        return len(self.data)
-
-    def _clear_data(self):
-        self.data = []
+        return None

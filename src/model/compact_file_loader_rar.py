@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from pynocchio_exception import DependenceNotFoundException
+from src.pynocchio_exception import DependenceNotFoundException
 
 try:
     import rarfile
@@ -27,9 +27,9 @@ except ImportError as err:
 
 from compact_file_loader import Loader
 from utility import Utility
-from pynocchio_exception import LoadComicsException
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import NoDataFindException
+from src.pynocchio_exception import LoadComicsException
+from src.pynocchio_exception import InvalidTypeFileException
+from src.pynocchio_exception import NoDataFindException
 
 
 class RarLoader(Loader):
@@ -40,17 +40,14 @@ class RarLoader(Loader):
         super(RarLoader, self).__init__(extension)
 
     def load(self, file_name):
-
         try:
             rar = rarfile.RarFile(file_name, 'r')
         except rarfile.RarOpenError as excp:
+            self.done.emit()
             raise InvalidTypeFileException(excp.message)
-            # print '[ERROR]', excp.message
-            # return False
         except IOError as excp:
+            self.done.emit()
             raise LoadComicsException(excp.strerror)
-            # print '[ERROR]', excp.strerror
-            # return False
 
         name_list = rar.namelist()
         name_list.sort()
@@ -73,8 +70,6 @@ class RarLoader(Loader):
 
         if not self.data:
             raise NoDataFindException
-
-        # return True if self.data else False
 
 
 class CbrLoader(RarLoader):

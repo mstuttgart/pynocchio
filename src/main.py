@@ -51,9 +51,8 @@
 import sys
 from PyQt4 import QtGui
 
-from main_window_view import MainWindowView
-from ctrl.main_window_controller import MainWindowController
-from main_window_model import MainWindowModel
+from src.model.main_window_model import MainWindowModel
+from src.view.main_window_view import MainWindowView
 
 
 class App(QtGui.QApplication):

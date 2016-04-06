@@ -23,7 +23,7 @@ from compact_file_loader_factory import LoaderFactory
 from page import *
 from path_file_filter import PathFileFilter
 from pynocchio_exception import NoDataFindException
-from src.lib.utility import Utility
+from utility import Utility
 
 
 class MainWindowModel(object):

@@ -18,7 +18,7 @@
 from PyQt4 import QtGui, QtCore, uic
 
 from qwebimage_widget import QWebImageWidget
-from src.lib.utility import Utility
+from utility import Utility
 from status_bar import StatusBar
 
 root_dir = Utility.get_parent_path(__file__)

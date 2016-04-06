@@ -21,7 +21,7 @@ from compact_file_loader import Loader
 from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import LoadComicsException
 from pynocchio_exception import NoDataFindException
-from src.lib.utility import Utility
+from utility import Utility
 
 
 class TarLoader(Loader):

@@ -18,9 +18,9 @@
 import tarfile
 
 from compact_file_loader import Loader
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import LoadComicsException
-from pynocchio_exception import NoDataFindException
+from src.pynocchio_exception import InvalidTypeFileException
+from src.pynocchio_exception import LoadComicsException
+from src.pynocchio_exception import NoDataFindException
 from utility import Utility
 
 

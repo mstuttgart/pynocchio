@@ -24,7 +24,7 @@ from preference import Preference
 from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import LoadComicsException
 from recent_files_manager import RecentFileManager
-from src.lib.utility import Utility
+from utility import Utility
 
 
 class MainWindowController(object):

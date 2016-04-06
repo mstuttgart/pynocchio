@@ -23,61 +23,29 @@ from comic import Comic
 from compact_file_loader_factory import LoaderFactory
 from page import *
 from path_file_filter import PathFileFilter
-from pynocchio_exception import NoDataFindException
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import LoadComicsException
+from src.pynocchio_exception import NoDataFindException
+from src.pynocchio_exception import InvalidTypeFileException
+from src.pynocchio_exception import LoadComicsException
 from utility import Utility
 
 
-class MainWindowModel(object):
+class MainWindowModel(QtCore.QObject):
     _ORIGINAL_FIT = 'action_original_fit'
     _VERTICAL_FIT = 'action_vertical_fit'
     _HORIZONTAL_FIT = 'action_horizontal_fit'
     _BEST_FIT = 'action_best_fit'
 
+    load_progress = QtCore.Signal(int)
+    load_done = QtCore.Signal()
+
     def __init__(self):
+        super(MainWindowModel, self).__init__()
         self.comic = None
         self.fit_type = MainWindowModel._ORIGINAL_FIT
         self.rotateAngle = 0
         self.current_directory = '.'
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
         self.path_file_filter = PathFileFilter(ext_list)
-
-    # def open(self, filename):
-    #
-    #     try:
-    #         self.load(filename)
-    #         # self.set_view_content(self.get_current_page())
-    #         # self.view.setWindowTitle(self.comic.name.decode('utf8') +
-    #         #                          ' - Pynocchio Comic Reader')
-    #
-    #         # self.view.enable_actions()
-    #         # self.update_statusbar()
-    #
-    #         # self.model.current_directory = Utility.get_dir_name(file_name)
-    #         #
-    #         # if res:
-    #         #     self.recent_file_manager.append_left(
-    #         #         self.model.comic.name.decode('utf8'),
-    #         # file_name.decode('utf8'))
-    #
-    #         # is_last_comic = self.is_last_comic()
-    #         # is_first_comic = self.is_firts_comic()
-    #
-    #         # self._update_navegation_actions()
-    #
-    #         # self.view.action_previous_comic.setEnabled(not is_first_comic)
-    #         # self.view.action_next_comic.setEnabled(not is_last_comic)
-    #
-    #     except LoadComicsException as excp:
-    #         message = excp.message
-    #     except InvalidTypeFileException as excp:
-    #         message = excp.message
-    #
-    #     QtGui.QMessageBox().warning(self.view,
-    #                                 self.view.tr('error!'),
-    #                                 self.view.tr(message),
-    #                                 QtGui.QMessageBox.Close)
 
     def load(self, filename, initial_page=0):
 
@@ -89,8 +57,8 @@ class MainWindowModel(object):
         ld = LoaderFactory.create_loader(
             Utility.get_file_extension(filename), image_extensions)
 
-        # ld.progress.connect(self.controller.view.statusbar.set_progressbar_value)
-        # ld.done.connect(self.controller.view.statusbar.close_progress_bar)
+        ld.progress.connect(self.load_progressbar_value)
+        ld.progress.connect(self.load_progressbar_done)
 
         try:
             ld.load(filename)
@@ -218,32 +186,31 @@ class MainWindowModel(object):
 
         return pix_map
 
-    def _update_navegation_actions(self):
-
-        is_first_page = self.is_first_page()
-        is_last_page = self.is_last_page()
-
-        # self.view.action_previous_page.setEnabled(not is_first_page)
-        # self.view.action_first_page.setEnabled(not is_first_page)
-        #
-        # self.view.action_next_page.setEnabled(not is_last_page)
-        # self.view.action_last_page.setEnabled(not is_last_page)
-
     def original_fit(self):
         self.fit_type = MainWindowModel._ORIGINAL_FIT
-        self.controller.set_view_content(self.get_current_page())
+        # self.controller.set_view_content(self.get_current_page())
 
     def vertical_fit(self):
         self.fit_type = MainWindowModel._VERTICAL_FIT
-        self.controller.set_view_content(self.get_current_page())
+        # self.controller.set_view_content(self.get_current_page())
 
     def horizontal_fit(self):
         self.fit_type = MainWindowModel._HORIZONTAL_FIT
-        self.controller.set_view_content(self.get_current_page())
+        # self.controller.set_view_content(self.get_current_page())
 
     def best_fit(self):
         self.fit_type = MainWindowModel._BEST_FIT
-        self.controller.set_view_content(self.get_current_page())
+        # self.controller.set_view_content(self.get_current_page())
+
+    @QtCore.Slot(int)
+    def load_progressbar_value(self, percent):
+        self.load_progress.emit(percent)
+
+    @QtCore.Slot()
+    def load_progressbar_done(self):
+        self.load_done.emit()
+
+        # ld.done.connect(self.controller.view.statusbar.close_progress_bar)
 
         # @staticmethod
         # def get_bookmark_list(n):

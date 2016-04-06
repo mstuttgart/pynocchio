@@ -15,14 +15,10 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import os
-import sys
-
 from PySide import QtGui, QtCore
 
-from pynocchio_exception import NoDataFindException
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import LoadComicsException
+from src.pynocchio_exception import InvalidTypeFileException
+from src.pynocchio_exception import LoadComicsException
 
 # SCRIPT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 # print SCRIPT_DIRECTORY
@@ -31,28 +27,26 @@ from pynocchio_exception import LoadComicsException
 # from status_bar import StatusBar
 # from utility import Utility
 
-from uic.ui_main_window_view import Ui_MainWindowView
+from main_window_view_ui import Ui_MainWindowView
 
 
 class MainWindowView(QtGui.QMainWindow):
 
     def __init__(self, model, parent=None):
         super(MainWindowView, self).__init__(parent)
-        # self.model = model
         self.model = model
-        # self.main_ctrl.view = self
 
         self.ui = Ui_MainWindowView()
         self.ui.setupUi(self)
 
         self.global_shortcuts = []
-    #
-    #     self.statusbar = StatusBar(self)
-    #     self.setStatusBar(self.statusbar)
-    #
+
         self._create_connections()
         self._centralize_window()
         self._define_global_shortcuts()
+
+        self.model.load_progress.connect(self.ui.statusbar.set_progressbar_value)
+        self.model.load_done.connect(self.ui.statusbar.close_progress_bar)
 
     @QtCore.Slot()
     def on_action_open_triggered(self):
@@ -120,9 +114,12 @@ class MainWindowView(QtGui.QMainWindow):
 
             try:
                 self.model.load(filename)
+                self.ui.statusbar.add_progress_bar()
+                self.update_status_bar()
                 self.update_viewer_content()
                 self.setWindowTitle(self.model.get_comic_title())
                 self.enable_actions()
+
                 # self.set_view_content(self.get_current_page())
                 # self.view.setWindowTitle(self.comic.name.decode('utf8') +
                 #                          ' - Pynocchio Comic Reader')
@@ -136,14 +133,17 @@ class MainWindowView(QtGui.QMainWindow):
                 #     self.recent_file_manager.append_left(
                 #         self.model.comic.name.decode('utf8'),
                 # file_name.decode('utf8'))
-
-                # is_last_comic = self.is_last_comic()
-                # is_first_comic = self.is_firts_comic()
+                #
+                # is_last_comic = self.model.is_last_comic()
+                # is_first_comic = self.model.is_firts_comic()
 
                 # self._update_navegation_actions()
 
-                # self.view.action_previous_comic.setEnabled(not is_first_comic)
-                # self.view.action_next_comic.setEnabled(not is_last_comic)
+                self.ui.action_previous_comic.setEnabled(
+                    not self.model.is_firts_comic())
+
+                self.ui.action_next_comic.setEnabled(
+                    not self.model.is_last_comic())
 
             except LoadComicsException as excp:
                 QtGui.QMessageBox().warning(self,
@@ -155,6 +155,24 @@ class MainWindowView(QtGui.QMainWindow):
                                             self.tr('InvalidTypeFileException'),
                                             self.tr(excp.message),
                                             QtGui.QMessageBox.Close)
+
+    def show_progress_bar_dialog(self):
+        from qprogress_bar_dialog import QProgressBarDialog
+        dlg = QProgressBarDialog(self.model, self)
+        dlg.show()
+        # th = QProgressBarDialogThread(self.model)
+        # th.start()
+
+    def update_navegation_actions(self):
+
+        is_first_page = self.model.is_first_page()
+        is_last_page = self.model.is_last_page()
+
+        self.ui.action_previous_page.setEnabled(not is_first_page)
+        self.ui.action_first_page.setEnabled(not is_first_page)
+
+        self.ui.action_next_page.setEnabled(not is_last_page)
+        self.ui.action_last_page.setEnabled(not is_last_page)
 
     def _create_connections(self):
 
@@ -235,14 +253,20 @@ class MainWindowView(QtGui.QMainWindow):
 
         for action in action_list:
             action.setEnabled(True)
-    #
-    # def update_status_bar(self, page_number, total_pages, page_title,
-    #                       page_width, page_height):
-    #
-    #     if self.statusbar.isVisible():
-    #         self.statusbar.set_comic_page(page_number, total_pages)
-    #         self.statusbar.set_page_resolution(page_width, page_height)
-    #         self.statusbar.set_comic_path(page_title)
+
+    def update_status_bar(self):
+
+        if self.model.comic:
+            page_number = self.model.comic.get_current_page_number()
+            total_pages = self.model.comic.get_number_of_pages()
+            page_width = self.model.get_current_page().width()
+            page_height = self.model.get_current_page().height()
+            page_title = self.model.comic.get_current_page_title()
+
+            if self.ui.statusbar.isVisible():
+                self.ui.statusbar.set_comic_page(page_number, total_pages)
+                self.ui.statusbar.set_page_resolution(page_width, page_height)
+                self.ui.statusbar.set_comic_path(page_title)
     #
     # def switch_to_web_view(self):
     #     if self.web_view is None:
@@ -302,7 +326,7 @@ class MainWindowView(QtGui.QMainWindow):
             self.ui.menubar.show()
             self.ui.toolbar.show()
             self.ui.statusbar.show()
-            self.ui.showMaximized()
+            self.showMaximized()
 
             for sc in self.global_shortcuts:
                 sc.setEnabled(False)
@@ -310,7 +334,7 @@ class MainWindowView(QtGui.QMainWindow):
             self.ui.menubar.hide()
             self.ui.toolbar.hide()
             self.ui.statusbar.hide()
-            self.ui.showFullScreen()
+            self.showFullScreen()
             for sc in self.global_shortcuts:
                 sc.setEnabled(True)
 
@@ -350,12 +374,12 @@ class MainWindowView(QtGui.QMainWindow):
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:
-            self.ui.on_action_fullscreen_triggered()
+            self.on_action_fullscreen_triggered()
         super(MainWindowView, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
         if args[0].button() == QtCore.Qt.LeftButton:
-            self.ui.on_action_fullscreen_triggered()
+            self.on_action_fullscreen_triggered()
         super(MainWindowView, self).mousePressEvent(*args, **kwargs)
 
     def resizeEvent(self, *args, **kwargs):
