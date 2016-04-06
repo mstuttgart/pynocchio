@@ -20,6 +20,10 @@ import sys
 
 from PySide import QtGui, QtCore
 
+from pynocchio_exception import NoDataFindException
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import LoadComicsException
+
 # SCRIPT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 # print SCRIPT_DIRECTORY
 
@@ -61,10 +65,7 @@ class MainWindowView(QtGui.QMainWindow):
                 'zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; '
                 'tar_files (*.tar *.cbt);; all_files (*)'))
 
-        if filename:
-            self.set_viewer_content(self.model.open(filename[0]))
-            self.setWindowTitle(self.model.get_comic_title())
-            self.enable_actions()
+        self.open_comics(filename[0])
 
     @QtCore.Slot()
     def on_action_save_image_triggered(self):
@@ -79,6 +80,81 @@ class MainWindowView(QtGui.QMainWindow):
 
             if file_path:
                 self.model.save_current_page_image(file_path[0])
+
+    @QtCore.Slot()
+    def on_action_previous_page_triggered(self):
+        self.model.previous_page()
+        self.update_viewer_content()
+
+    @QtCore.Slot()
+    def on_action_next_page_triggered(self):
+        self.model.next_page()
+        self.update_viewer_content()
+
+    @QtCore.Slot()
+    def on_action_first_page_triggered(self):
+        self.model.first_page()
+        self.update_viewer_content()
+
+    @QtCore.Slot()
+    def on_action_first_page_triggered(self):
+        self.model.first_page()
+        self.update_viewer_content()
+
+    @QtCore.Slot()
+    def on_action_last_page_triggered(self):
+        self.model.last_page()
+        self.update_viewer_content()
+
+    @QtCore.Slot()
+    def on_action_next_comic_triggered(self):
+        self.open_comics(self.model.next_comic())
+
+    @QtCore.Slot()
+    def on_action_previous_comic_triggered(self):
+        self.open_comics(self.model.previous_comic())
+
+    def open_comics(self, filename):
+
+        if filename:
+
+            try:
+                self.model.load(filename)
+                self.update_viewer_content()
+                self.setWindowTitle(self.model.get_comic_title())
+                self.enable_actions()
+                # self.set_view_content(self.get_current_page())
+                # self.view.setWindowTitle(self.comic.name.decode('utf8') +
+                #                          ' - Pynocchio Comic Reader')
+
+                # self.view.enable_actions()
+                # self.update_statusbar()
+
+                # self.model.current_directory = Utility.get_dir_name(file_name)
+                #
+                # if res:
+                #     self.recent_file_manager.append_left(
+                #         self.model.comic.name.decode('utf8'),
+                # file_name.decode('utf8'))
+
+                # is_last_comic = self.is_last_comic()
+                # is_first_comic = self.is_firts_comic()
+
+                # self._update_navegation_actions()
+
+                # self.view.action_previous_comic.setEnabled(not is_first_comic)
+                # self.view.action_next_comic.setEnabled(not is_last_comic)
+
+            except LoadComicsException as excp:
+                QtGui.QMessageBox().warning(self,
+                                            self.tr('LoadComicsExceptionError'),
+                                            self.tr(excp.message),
+                                            QtGui.QMessageBox.Close)
+            except InvalidTypeFileException as excp:
+                QtGui.QMessageBox().warning(self,
+                                            self.tr('InvalidTypeFileException'),
+                                            self.tr(excp.message),
+                                            QtGui.QMessageBox.Close)
 
     def _create_connections(self):
 
@@ -189,13 +265,14 @@ class MainWindowView(QtGui.QMainWindow):
         self.setMinimumSize(
             QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
 
-    def set_viewer_content(self, content):
+    def update_viewer_content(self):
+        content = self.model.get_current_page()
         if content and isinstance(content, QtGui.QPixmap):
             self.ui.label.setPixmap(content)
             self.ui.qscroll_area_viewer.reset_scroll_position()
 
     def update_current_view_container_size(self):
-        self.set_viewer_content(self.model.get_current_page())
+        self.update_viewer_content()
 
     def get_current_view_container_size(self):
         return self.current_view_container.size()

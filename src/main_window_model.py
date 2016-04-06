@@ -43,44 +43,41 @@ class MainWindowModel(object):
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
         self.path_file_filter = PathFileFilter(ext_list)
 
-    def open(self, filename):
-
-        try:
-            self.load(filename)
-            # self.set_view_content(self.get_current_page())
-            # self.view.setWindowTitle(self.comic.name.decode('utf8') +
-            #                          ' - Pynocchio Comic Reader')
-
-            # self.view.enable_actions()
-            # self.update_statusbar()
-
-            # self.model.current_directory = Utility.get_dir_name(file_name)
-            #
-            # if res:
-            #     self.recent_file_manager.append_left(
-            #         self.model.comic.name.decode('utf8'),
-            # file_name.decode('utf8'))
-
-            is_last_comic = self.is_last_comic()
-            is_first_comic = self.is_firts_comic()
-
-            self._update_navegation_actions()
-
-            # self.view.action_previous_comic.setEnabled(not is_first_comic)
-            # self.view.action_next_comic.setEnabled(not is_last_comic)
-
-            return self.get_current_page()
-
-        except LoadComicsException as excp:
-            message = excp.message
-        except InvalidTypeFileException as excp:
-            message = excp.message
-
-        QtGui.QMessageBox().warning(self.view,
-                                    self.view.tr('error!'),
-                                    self.view.tr(message),
-                                    QtGui.QMessageBox.Close)
-        return False
+    # def open(self, filename):
+    #
+    #     try:
+    #         self.load(filename)
+    #         # self.set_view_content(self.get_current_page())
+    #         # self.view.setWindowTitle(self.comic.name.decode('utf8') +
+    #         #                          ' - Pynocchio Comic Reader')
+    #
+    #         # self.view.enable_actions()
+    #         # self.update_statusbar()
+    #
+    #         # self.model.current_directory = Utility.get_dir_name(file_name)
+    #         #
+    #         # if res:
+    #         #     self.recent_file_manager.append_left(
+    #         #         self.model.comic.name.decode('utf8'),
+    #         # file_name.decode('utf8'))
+    #
+    #         # is_last_comic = self.is_last_comic()
+    #         # is_first_comic = self.is_firts_comic()
+    #
+    #         # self._update_navegation_actions()
+    #
+    #         # self.view.action_previous_comic.setEnabled(not is_first_comic)
+    #         # self.view.action_next_comic.setEnabled(not is_last_comic)
+    #
+    #     except LoadComicsException as excp:
+    #         message = excp.message
+    #     except InvalidTypeFileException as excp:
+    #         message = excp.message
+    #
+    #     QtGui.QMessageBox().warning(self.view,
+    #                                 self.view.tr('error!'),
+    #                                 self.view.tr(message),
+    #                                 QtGui.QMessageBox.Close)
 
     def load(self, filename, initial_page=0):
 
@@ -123,22 +120,22 @@ class MainWindowModel(object):
     def next_page(self):
         if self.comic:
             self.comic.go_next_page()
-            self.controller.set_view_content(self.get_current_page())
+            # self.controller.set_view_content(self.get_current_page())
 
     def previous_page(self):
         if self.comic:
             self.comic.go_previous_page()
-            self.controller.set_view_content(self.get_current_page())
+            # self.controller.set_view_content(self.get_current_page())
 
     def first_page(self):
         if self.comic:
             self.comic.go_first_page()
-            self.controller.set_view_content(self.get_current_page())
+            # self.controller.set_view_content(self.get_current_page())
 
     def last_page(self):
         if self.comic:
             self.comic.go_last_page()
-            self.controller.set_view_content(self.get_current_page())
+            # self.controller.set_view_content(self.get_current_page())
 
     def next_comic(self):
         return self.path_file_filter.next_path.decode('utf-8')
@@ -148,11 +145,11 @@ class MainWindowModel(object):
 
     def rotate_left(self):
         self.rotateAngle = (self.rotateAngle - 90) % 360
-        self.controller.set_view_content(self.get_current_page())
+        # self.controller.set_view_content(self.get_current_page())
 
     def rotate_right(self):
         self.rotateAngle = (self.rotateAngle + 90) % 360
-        self.controller.set_view_content(self.get_current_page())
+        # self.controller.set_view_content(self.get_current_page())
 
     def get_comic_name(self):
         return self.comic.name if self.comic else ''

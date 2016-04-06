@@ -72,6 +72,7 @@ class MainWindowController(object):
             # if res:
             #     self.recent_file_manager.append_left(
             #         self.model.comic.name.decode('utf8'), file_name.decode('utf8'))
+            #
 
             is_last_comic = self.model.is_last_comic()
             is_first_comic = self.model.is_firts_comic()
