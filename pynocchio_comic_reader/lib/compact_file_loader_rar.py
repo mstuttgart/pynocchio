@@ -26,7 +26,7 @@ except ImportError as err:
     raise DependenceNotFoundException(msg)
 
 from compact_file_loader import Loader
-from utility import Utility
+from src.lib.utility import Utility
 from pynocchio_exception import LoadComicsException
 from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import NoDataFindException

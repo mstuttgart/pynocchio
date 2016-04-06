@@ -15,9 +15,10 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import QtGui
 from PyQt4 import QtCore
-from utility import Utility
+from PyQt4 import QtGui
+
+from src.lib.utility import Utility
 
 
 class SettingsManager(object):

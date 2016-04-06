@@ -17,14 +17,14 @@
 
 from PyQt4 import QtGui, QtCore
 
-import main_window_view
 import main_window_model
+import main_window_view
 import settings_manager
-from recent_files_manager import RecentFileManager
 from preference import Preference
-from utility import Utility
-from pynocchio_exception import LoadComicsException
 from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import LoadComicsException
+from recent_files_manager import RecentFileManager
+from src.lib.utility import Utility
 
 
 class MainWindowController(object):

@@ -15,26 +15,27 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/
 #
-from PyQt4 import QtCore
 
-from bookmark_database_manager import BookmarkManager
+from PySide import QtCore
+
+# from bookmark_database_manager import BookmarkManager
 from comic import Comic
 from compact_file_loader_factory import LoaderFactory
 from page import *
 from path_file_filter import PathFileFilter
 from pynocchio_exception import NoDataFindException
-from src.lib.utility import Utility
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import LoadComicsException
+from utility import Utility
 
 
 class MainWindowModel(object):
-
     _ORIGINAL_FIT = 'action_original_fit'
     _VERTICAL_FIT = 'action_vertical_fit'
     _HORIZONTAL_FIT = 'action_horizontal_fit'
     _BEST_FIT = 'action_best_fit'
 
-    def __init__(self, controller):
-        self.controller = controller
+    def __init__(self):
         self.comic = None
         self.fit_type = MainWindowModel._ORIGINAL_FIT
         self.rotateAngle = 0
@@ -42,20 +43,60 @@ class MainWindowModel(object):
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
         self.path_file_filter = PathFileFilter(ext_list)
 
-    def open(self, file_name, initial_page=0):
+    def open(self, filename):
+
+        try:
+            self.load(filename)
+            # self.set_view_content(self.get_current_page())
+            # self.view.setWindowTitle(self.comic.name.decode('utf8') +
+            #                          ' - Pynocchio Comic Reader')
+
+            # self.view.enable_actions()
+            # self.update_statusbar()
+
+            # self.model.current_directory = Utility.get_dir_name(file_name)
+            #
+            # if res:
+            #     self.recent_file_manager.append_left(
+            #         self.model.comic.name.decode('utf8'),
+            # file_name.decode('utf8'))
+
+            is_last_comic = self.is_last_comic()
+            is_first_comic = self.is_firts_comic()
+
+            self._update_navegation_actions()
+
+            # self.view.action_previous_comic.setEnabled(not is_first_comic)
+            # self.view.action_next_comic.setEnabled(not is_last_comic)
+
+            return self.get_current_page()
+
+        except LoadComicsException as excp:
+            message = excp.message
+        except InvalidTypeFileException as excp:
+            message = excp.message
+
+        QtGui.QMessageBox().warning(self.view,
+                                    self.view.tr('error!'),
+                                    self.view.tr(message),
+                                    QtGui.QMessageBox.Close)
+        return False
+
+    def load(self, filename, initial_page=0):
+
+        print filename
 
         image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
                             '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
 
         ld = LoaderFactory.create_loader(
-            Utility.get_file_extension(file_name), image_extensions)
+            Utility.get_file_extension(filename), image_extensions)
 
-        ld.progress.connect(self.controller.view.statusbar.set_progressbar_value)
-        ld.done.connect(self.controller.view.statusbar.close_progress_bar)
+        # ld.progress.connect(self.controller.view.statusbar.set_progressbar_value)
+        # ld.done.connect(self.controller.view.statusbar.close_progress_bar)
 
         try:
-            ld.load(file_name)
-            ret = True
+            ld.load(filename)
         except NoDataFindException as excp:
             # Caso nao exista nenhuma imagem, carregamos a imagem indicando
             # erro
@@ -67,20 +108,16 @@ class MainWindowModel(object):
                 'name': 'exit_red_1.png'
             })
 
-            ret = False
-
-        self.comic = Comic(Utility.get_base_name(file_name),
-                           Utility.get_dir_name(file_name), initial_page)
+        self.comic = Comic(Utility.get_base_name(filename),
+                           Utility.get_dir_name(filename), initial_page)
 
         for index, p in enumerate(ld.data):
             self.comic.add_page(Page(p['data'], p['name'], index + 1))
 
-        self.current_directory = Utility.get_dir_name(file_name)
-        self.path_file_filter.parse(file_name)
+        self.current_directory = Utility.get_dir_name(filename)
+        self.path_file_filter.parse(filename)
 
-        return ret
-
-    def save_content(self, file_name):
+    def save_current_page_image(self, file_name):
         self.get_current_page().save(file_name)
 
     def next_page(self):
@@ -119,6 +156,9 @@ class MainWindowModel(object):
 
     def get_comic_name(self):
         return self.comic.name if self.comic else ''
+
+    def get_comic_title(self):
+        return self.comic.name.decode('utf8') + ' - Pynocchio Comic Reader'
 
     def get_current_page(self):
         if self.comic:
@@ -181,6 +221,17 @@ class MainWindowModel(object):
 
         return pix_map
 
+    def _update_navegation_actions(self):
+
+        is_first_page = self.is_first_page()
+        is_last_page = self.is_last_page()
+
+        # self.view.action_previous_page.setEnabled(not is_first_page)
+        # self.view.action_first_page.setEnabled(not is_first_page)
+        #
+        # self.view.action_next_page.setEnabled(not is_last_page)
+        # self.view.action_last_page.setEnabled(not is_last_page)
+
     def original_fit(self):
         self.fit_type = MainWindowModel._ORIGINAL_FIT
         self.controller.set_view_content(self.get_current_page())
@@ -197,31 +248,31 @@ class MainWindowModel(object):
         self.fit_type = MainWindowModel._BEST_FIT
         self.controller.set_view_content(self.get_current_page())
 
-    @staticmethod
-    def get_bookmark_list(n):
-        BookmarkManager.connect()
-        bookmark_list = BookmarkManager.get_bookmarks(n)
-        BookmarkManager.close()
-        return bookmark_list
-
-    @staticmethod
-    def get_bookmark_from_path(path):
-        BookmarkManager.connect()
-        bk = BookmarkManager.get_bookmark_by_path(path)
-        BookmarkManager.close()
-        return bk
-
-    def add_bookmark(self):
-        if self.comic:
-            BookmarkManager.connect()
-            BookmarkManager.add_bookmark(self.comic.name,
-                                         self.comic.get_path(),
-                                         self.comic.get_current_page_number(),
-                                         self.comic.get_current_page().data)
-            BookmarkManager.close()
-
-    def remove_bookmark(self):
-        if self.comic:
-            BookmarkManager.connect()
-            BookmarkManager.remove_bookmark(self.comic.get_path())
-            BookmarkManager.close()
+        # @staticmethod
+        # def get_bookmark_list(n):
+        #     BookmarkManager.connect()
+        #     bookmark_list = BookmarkManager.get_bookmarks(n)
+        #     BookmarkManager.close()
+        #     return bookmark_list
+        #
+        # @staticmethod
+        # def get_bookmark_from_path(path):
+        #     BookmarkManager.connect()
+        #     bk = BookmarkManager.get_bookmark_by_path(path)
+        #     BookmarkManager.close()
+        #     return bk
+        #
+        # def add_bookmark(self):
+        #     if self.comic:
+        #         BookmarkManager.connect()
+        #         BookmarkManager.add_bookmark(self.comic.name,
+        #                                      self.comic.get_path(),
+        #                                      self.comic.get_current_page_number(),
+        #                                      self.comic.get_current_page().data)
+        #         BookmarkManager.close()
+        #
+        # def remove_bookmark(self):
+        #     if self.comic:
+        #         BookmarkManager.connect()
+        #         BookmarkManager.remove_bookmark(self.comic.get_path())
+        #         BookmarkManager.close()

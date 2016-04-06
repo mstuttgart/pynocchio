@@ -15,17 +15,28 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import uic
-
-from src.lib.utility import Utility
-
-root_dir = Utility.get_parent_path(__file__)
-
-AboutDialogForm, AboutDialogBase = \
-    uic.loadUiType(Utility.join_path(root_dir, 'gui', 'about_dialog.ui'))
+from PyQt4 import QtCore
 
 
-class AboutDialog(AboutDialogForm, AboutDialogBase):
-    def __init__(self, parent=None):
-        super(AboutDialog, self).__init__(parent)
-        self.setupUi(self)
+class Loader(QtCore.QObject):
+
+    progress = QtCore.pyqtSignal(int)
+    done = QtCore.pyqtSignal()
+
+    def __init__(self, extension):
+        super(Loader, self).__init__()
+
+        if not isinstance(extension, list):
+            raise TypeError
+
+        self.extension = extension
+        self.data = []
+
+    def load(self, file_name):
+        raise NotImplementedError("Must subclass me")
+
+    def length_data(self):
+        return len(self.data)
+
+    def _clear_data(self):
+        self.data = []

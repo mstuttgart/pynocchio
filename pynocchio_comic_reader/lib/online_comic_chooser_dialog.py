@@ -19,7 +19,7 @@ from PyQt4 import QtGui, QtCore, uic
 from threading import Thread
 
 from parser_factory import ParserFactory
-from utility import Utility
+from src.lib.utility import Utility
 
 root_dir = Utility.get_parent_path(__file__)
 

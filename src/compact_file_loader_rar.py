@@ -15,36 +15,44 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import tarfile
+from pynocchio_exception import DependenceNotFoundException
+
+try:
+    import rarfile
+except ImportError as err:
+    msg = 'rarfile module not installed.\n' \
+          'you not can load .rar and .cbr files.' \
+          'Please install it using: sudo pip install rarfile\n'
+    raise DependenceNotFoundException(msg)
 
 from compact_file_loader import Loader
-from pynocchio_exception import InvalidTypeFileException
+from utility import Utility
 from pynocchio_exception import LoadComicsException
+from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import NoDataFindException
-from src.lib.utility import Utility
 
 
-class TarLoader(Loader):
+class RarLoader(Loader):
 
-    EXTENSION = '.tar'
+    EXTENSION = '.rar'
 
     def __init__(self, extension):
-        super(TarLoader, self).__init__(extension)
+        super(RarLoader, self).__init__(extension)
 
     def load(self, file_name):
 
         try:
-            tar = tarfile.open(file_name, 'r')
-        except tarfile.CompressionError as excp:
+            rar = rarfile.RarFile(file_name, 'r')
+        except rarfile.RarOpenError as excp:
             raise InvalidTypeFileException(excp.message)
             # print '[ERROR]', excp.message
             # return False
         except IOError as excp:
-            raise LoadComicsException(excp.message)
+            raise LoadComicsException(excp.strerror)
             # print '[ERROR]', excp.strerror
             # return False
 
-        name_list = tar.getnames()
+        name_list = rar.namelist()
         name_list.sort()
 
         list_size = len(name_list)
@@ -53,23 +61,15 @@ class TarLoader(Loader):
         for name in name_list:
             file_extension = Utility.get_file_extension(name)
 
-            if not tar.getmember(name).isdir() and file_extension.lower() in \
+            if not rar.getinfo(name).isdir() and file_extension.lower() in \
                     self.extension:
-                data = None
-                try:
-                    data = tar.extractfile(name).read()
-                except tarfile.ExtractError as err:
-                    print '%20s  %s' % (name, err.message)
-                except tarfile.ReadError as err:
-                    print '%20s  %s' % (name, err.message)
+                self.data.append({'data': rar.read(name), 'name': name})
+                self.progress.emit(count * 100 / list_size)
 
-                if data:
-                    self.data.append({'data': data, 'name': name})
-                    self.progress.emit(count * 100 / list_size)
             count += 1
 
         self.done.emit()
-        tar.close()
+        rar.close()
 
         if not self.data:
             raise NoDataFindException
@@ -77,9 +77,9 @@ class TarLoader(Loader):
         # return True if self.data else False
 
 
-class CbtLoader(TarLoader):
+class CbrLoader(RarLoader):
 
-    EXTENSION = '.cbt'
+    EXTENSION = '.cbr'
 
     def __init__(self, extension):
-        super(CbtLoader, self).__init__(extension)
+        super(CbrLoader, self).__init__(extension)

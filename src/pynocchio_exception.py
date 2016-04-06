@@ -15,17 +15,38 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import uic
 
-from src.lib.utility import Utility
+class PynocchioBaseException(Exception):
 
-root_dir = Utility.get_parent_path(__file__)
+    def __init__(self, msg, *args):
+        self.message = msg.format(args)
 
-AboutDialogForm, AboutDialogBase = \
-    uic.loadUiType(Utility.join_path(root_dir, 'gui', 'about_dialog.ui'))
+    def __str__(self):
+        return repr(self.message)
 
 
-class AboutDialog(AboutDialogForm, AboutDialogBase):
-    def __init__(self, parent=None):
-        super(AboutDialog, self).__init__(parent)
-        self.setupUi(self)
+class LoadComicsException(PynocchioBaseException):
+
+    def __str__(self):
+        return repr(self.message)
+
+
+class InvalidTypeFileException(PynocchioBaseException):
+
+    def __str__(self):
+        return repr(self.message)
+
+
+class DependenceNotFoundException(PynocchioBaseException):
+
+    def __str__(self):
+        return repr(self.message)
+
+
+class NoDataFindException(PynocchioBaseException):
+
+    def __str__(self):
+        return repr(self.message)
+
+
+

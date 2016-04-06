@@ -19,7 +19,7 @@ import zipfile
 
 from compact_file_loader import Loader
 from pynocchio_exception import LoadComicsException, InvalidTypeFileException, NoDataFindException
-from src.lib.utility import Utility
+from utility import Utility
 
 
 class ZipLoader(Loader):

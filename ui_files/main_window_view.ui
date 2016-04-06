@@ -30,7 +30,7 @@
    <string>Pynocchio Comic Reader</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../rsc/main_window_view.qrc">
+   <iconset resource="../rsc/main_window_view.qrc">
     <normaloff>:/icons/pynocchio_icon_2.png</normaloff>:/icons/pynocchio_icon_2.png</iconset>
   </property>
   <property name="accessibleName">
@@ -176,7 +176,7 @@
            <enum>Qt::PlainText</enum>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../rsc/main_window_view.qrc">:/icons/pynocchio_icon_2.png</pixmap>
+           <pixmap resource="../rsc/main_window_view.qrc">:/icons/pynocchio_icon_2.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>false</bool>
@@ -231,7 +231,7 @@
       <string>&amp;Recent files</string>
      </property>
      <property name="icon">
-      <iconset resource="../../rsc/main_window_view.qrc">
+      <iconset resource="../rsc/main_window_view.qrc">
        <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
      </property>
      <addaction name="action_recent_file_1"/>
@@ -314,7 +314,7 @@
       <string>&amp;Recente bookmarks</string>
      </property>
      <property name="icon">
-      <iconset resource="../../rsc/main_window_view.qrc">
+      <iconset resource="../rsc/main_window_view.qrc">
        <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
      </property>
      <addaction name="action_bookmark_1"/>
@@ -399,7 +399,7 @@
   </widget>
   <action name="action_open">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</iconset>
    </property>
    <property name="text">
@@ -417,7 +417,7 @@
   </action>
   <action name="action_about">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</iconset>
    </property>
    <property name="text">
@@ -431,7 +431,7 @@
   </action>
   <action name="action_exit">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</iconset>
    </property>
    <property name="text">
@@ -446,7 +446,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</iconset>
    </property>
    <property name="text">
@@ -470,7 +470,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</iconset>
    </property>
    <property name="text">
@@ -491,7 +491,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</iconset>
    </property>
    <property name="text">
@@ -509,7 +509,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</iconset>
    </property>
    <property name="text">
@@ -530,7 +530,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-left.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-left.svg</iconset>
    </property>
    <property name="text">
@@ -548,7 +548,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-right.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-right.svg</iconset>
    </property>
    <property name="text">
@@ -572,7 +572,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</iconset>
    </property>
    <property name="text">
@@ -593,7 +593,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</iconset>
    </property>
    <property name="text">
@@ -611,7 +611,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</iconset>
    </property>
    <property name="text">
@@ -632,7 +632,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/freeiconmaker-icons/original-fit.svg</normaloff>:/icons/freeiconmaker-icons/original-fit.svg</iconset>
    </property>
    <property name="text">
@@ -675,7 +675,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/64/bookmark_add.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/bookmark_add.svg</iconset>
    </property>
    <property name="text">
@@ -690,7 +690,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/64/stock_delete.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/stock_delete.svg</iconset>
    </property>
    <property name="text">
@@ -702,7 +702,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</iconset>
    </property>
    <property name="text">
@@ -728,7 +728,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-forward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-forward.svg</iconset>
    </property>
    <property name="text">
@@ -746,7 +746,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-backward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-backward.svg</iconset>
    </property>
    <property name="text">
@@ -761,7 +761,7 @@
   </action>
   <action name="action_preference_dialog">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/document-properties.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-properties.svg</iconset>
    </property>
    <property name="text">
@@ -779,7 +779,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</iconset>
    </property>
    <property name="text">
@@ -806,7 +806,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/freeiconmaker-icons/best-fit.svg</normaloff>:/icons/freeiconmaker-icons/best-fit.svg</iconset>
    </property>
    <property name="text">
@@ -824,7 +824,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/64/go-down.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/go-down.svg</iconset>
    </property>
    <property name="text">
@@ -839,7 +839,7 @@
   </action>
   <action name="action_bookmark_1">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
    </property>
    <property name="text">
@@ -857,7 +857,7 @@
   </action>
   <action name="action_bookmark_2">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
    </property>
    <property name="text">
@@ -869,7 +869,7 @@
   </action>
   <action name="action_bookmark_3">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
    </property>
    <property name="text">
@@ -881,7 +881,7 @@
   </action>
   <action name="action_bookmark_4">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
    </property>
    <property name="text">
@@ -893,7 +893,7 @@
   </action>
   <action name="action_bookmark_5">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
    </property>
    <property name="text">
@@ -910,7 +910,7 @@
   </action>
   <action name="action_recent_file_1">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
    </property>
    <property name="text">
@@ -922,7 +922,7 @@
   </action>
   <action name="action_recent_file_2">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
    </property>
    <property name="text">
@@ -934,7 +934,7 @@
   </action>
   <action name="action_recent_file_3">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
    </property>
    <property name="text">
@@ -946,7 +946,7 @@
   </action>
   <action name="action_recent_file_4">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
    </property>
    <property name="text">
@@ -958,7 +958,7 @@
   </action>
   <action name="action_recent_file_5">
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
    </property>
    <property name="text">
@@ -973,7 +973,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="../../rsc/main_window_view.qrc">
+    <iconset resource="../rsc/main_window_view.qrc">
      <normaloff>:/icons/elementary3-icon-theme/categories/48/applications-internet.svg</normaloff>:/icons/elementary3-icon-theme/categories/48/applications-internet.svg</iconset>
    </property>
    <property name="text">
@@ -991,13 +991,15 @@
   <customwidget>
    <class>QScrollAreaViewer</class>
    <extends>QScrollArea</extends>
-   <header location="global">lib/qscroll_area_viewer.h</header>
+   <header location="global">model/qscroll_area_viewer.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../../rsc/main_window_view.qrc"/>
-  <include location="../../rsc/main_window_view.qrc"/>
+  <include location="../rsc/main_window_view.qrc"/>
+  <include location="../rsc/main_window_view.qrc"/>
+  <include location="../rsc/main_window_view.qrc"/>
+  <include location="../rsc/main_window_view.qrc"/>
  </resources>
  <connections/>
  <designerdata>

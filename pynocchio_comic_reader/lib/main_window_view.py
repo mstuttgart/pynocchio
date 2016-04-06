@@ -18,8 +18,8 @@
 from PyQt4 import QtGui, QtCore, uic
 
 from qwebimage_widget import QWebImageWidget
+from src.lib.utility import Utility
 from status_bar import StatusBar
-from utility import Utility
 
 root_dir = Utility.get_parent_path(__file__)
 
@@ -204,27 +204,27 @@ class MainWindowView(MainWindowBase, MainWindowForm):
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
 
-        # text = '<p><justify><a ' \
-        #        'href=https://github.com/pynocchio>Pynocchio Comic ' \
-        #        'Reader</a> is an image viewer <br>' \
-        #        'specifically designed  to ' \
-        #        'handle comic books is licensed <br>under the ' \
-        #        'GPLv3.<justify></p>'\
-        #        '<br>Copyright (C) 2014-2015 ' \
-        #        '<a href=https://github.com/mstuttgart>' \
-        #        'Michell Stuttgart Faria</a>'\
-        #        '<br>Pynocchio use <a href=http://freeiconmaker.com>Free Icon ' \
-        #        'Maker</a> to build icon set and <br>'\
-        #        '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
-        #        '>Elementary OS 3.1 icons</a>.</p></justify>'
-        #
-        # QtGui.QMessageBox().about(self, self.tr('About Pynocchio Comic Reader'),
-        #                           self.tr(text))
+        text = '<p><justify><a ' \
+               'href=https://github.com/pynocchio>Pynocchio Comic ' \
+               'Reader</a> is an image viewer <br>' \
+               'specifically designed  to ' \
+               'handle comic books is licensed <br>under the ' \
+               'GPLv3.<justify></p>'\
+               '<br>Copyright (C) 2014-2015 ' \
+               '<a href=https://github.com/mstuttgart>' \
+               'Michell Stuttgart Faria</a>'\
+               '<br>Pynocchio use <a href=http://freeiconmaker.com>Free Icon ' \
+               'Maker</a> to build icon set and <br>'\
+               '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
+               '>Elementary OS 3.1 icons</a>.</p></justify>'
 
-        import about_dialog
-        ab_dlg = about_dialog.AboutDialog()
-        ab_dlg.show()
-        ab_dlg.exec_()
+        QtGui.QMessageBox().about(self, self.tr('About Pynocchio Comic Reader'),
+                                  self.tr(text))
+
+        # import about_dialog
+        # ab_dlg = about_dialog.AboutDialog()
+        # ab_dlg.show()
+        # ab_dlg.exec_()
 
     @QtCore.pyqtSlot()
     def on_action_about_qt_triggered(self):

@@ -15,17 +15,19 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import uic
-
-from src.lib.utility import Utility
-
-root_dir = Utility.get_parent_path(__file__)
-
-AboutDialogForm, AboutDialogBase = \
-    uic.loadUiType(Utility.join_path(root_dir, 'gui', 'about_dialog.ui'))
+from PyQt4 import QtGui
 
 
-class AboutDialog(AboutDialogForm, AboutDialogBase):
+class ColorLine(QtGui.QLineEdit):
     def __init__(self, parent=None):
-        super(AboutDialog, self).__init__(parent)
-        self.setupUi(self)
+        super(ColorLine, self).__init__(parent)
+        self.background_color = QtGui.QColor()
+
+    def paintEvent(self, e):
+        p = QtGui.QPainter(self)
+        p.fillRect(0, 0, self.width(), self.height(), self.background_color)
+        p.end()
+        e.accept()
+
+    def reset_background_color(self):
+        self.background_color = QtGui.QColor()
