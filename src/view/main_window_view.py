@@ -216,10 +216,19 @@ class MainWindowView(QtGui.QMainWindow):
         if filename:
 
             try:
+                # Load comic
                 self.model.load(filename)
+
+                # Update label and scrool_area_viewer
                 self.update_viewer_content()
+
+                # set window title
                 self.setWindowTitle(self.model.get_comic_title())
+
+                # Enable window actions
                 self.enable_actions()
+
+                # Update status bar data
                 self.update_status_bar()
 
                 #
@@ -378,13 +387,11 @@ class MainWindowView(QtGui.QMainWindow):
 
     def _centralize_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
+        self.setMinimumSize(screen.size() * 0.8)
         size = self.geometry()
         x_center = (screen.width() - size.width()) / 2
         y_center = (screen.height() - size.height()) / 2
         self.move(x_center, y_center)
-        self.setMinimumSize(
-            screen.size() * 0.8)
-        self.update()
 
     def update_viewer_content(self):
         content = self.model.get_current_page()
@@ -392,7 +399,6 @@ class MainWindowView(QtGui.QMainWindow):
             self.ui.label.setPixmap(content)
             self.ui.qscroll_area_viewer.reset_scroll_position()
             self.update_status_bar()
-            self.repaint()
 
     def update_current_view_container_size(self):
         self.model.scroll_area_size = self.get_current_view_container_size()
