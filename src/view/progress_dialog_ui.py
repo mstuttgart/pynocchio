@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/progress_dialog.ui'
 #
-# Created: Thu Apr  7 01:55:37 2016
+# Created: Thu Apr  7 15:27:33 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,6 +33,7 @@ class Ui_QProgressDialog(object):
         self.progress_bar.setStatusTip("")
         self.progress_bar.setAutoFillBackground(True)
         self.progress_bar.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.progress_bar.setMaximum(100)
         self.progress_bar.setProperty("value", 0)
         self.progress_bar.setAlignment(QtCore.Qt.AlignCenter)
         self.progress_bar.setOrientation(QtCore.Qt.Horizontal)

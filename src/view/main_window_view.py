@@ -45,6 +45,8 @@ class MainWindowView(QtGui.QMainWindow):
         self._centralize_window()
         self._define_global_shortcuts()
 
+        self.model.scroll_area_size = self.get_current_view_container_size()
+
         self.model.load_progress.connect(
             self.ui.statusbar.set_progressbar_value)
         # self.model.load_done.connect(self.ui.statusbar.close_progress_bar)
@@ -80,42 +82,45 @@ class MainWindowView(QtGui.QMainWindow):
     def on_action_previous_page_triggered(self):
         self.model.previous_page()
         self.update_viewer_content()
+        self.update_navegation_actions()
 
     @QtCore.Slot()
     def on_action_next_page_triggered(self):
         self.model.next_page()
         self.update_viewer_content()
+        self.update_navegation_actions()
 
     @QtCore.Slot()
     def on_action_first_page_triggered(self):
         self.model.first_page()
         self.update_viewer_content()
-
-    @QtCore.Slot()
-    def on_action_first_page_triggered(self):
-        self.model.first_page()
-        self.update_viewer_content()
+        self.update_navegation_actions()
 
     @QtCore.Slot()
     def on_action_last_page_triggered(self):
         self.model.last_page()
         self.update_viewer_content()
+        self.update_navegation_actions()
 
     @QtCore.Slot()
     def on_action_next_comic_triggered(self):
         self.open_comics(self.model.next_comic())
+        self.update_navegation_actions()
 
     @QtCore.Slot()
     def on_action_previous_comic_triggered(self):
         self.open_comics(self.model.previous_comic())
+        self.update_navegation_actions()
 
     @QtCore.Slot()
     def on_action_rotate_left_triggered(self):
-        print
+        self.model.rotate_left()
+        self.update_viewer_content()
 
     @QtCore.Slot()
     def on_action_rotate_right_triggered(self):
-        print
+        self.model.rotate_right()
+        self.update_viewer_content()
 
     @QtCore.Slot()
     def on_action_add_bookmark_triggered(self):
@@ -135,44 +140,88 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def on_action_original_fit_triggered(self):
-        print
+        self.model.original_fit()
+        self.update_viewer_content()
 
     @QtCore.Slot()
     def on_action_vertical_fit_triggered(self):
-        print
+        self.model.vertical_fit()
+        self.update_viewer_content()
 
     @QtCore.Slot()
     def on_action_horizontal_fit_triggered(self):
-        print
+        self.model.horizontal_fit()
+        self.update_viewer_content()
 
     @QtCore.Slot()
     def on_action_best_fit_triggered(self):
-        print
+        self.model.best_fit()
+        self.update_viewer_content()
+
+    @QtCore.Slot()
+    def on_action_fullscreen_triggered(self):
+
+        if self.isFullScreen():
+            self.ui.menubar.show()
+            self.ui.toolbar.show()
+            self.ui.statusbar.show()
+            self.showMaximized()
+
+            for sc in self.global_shortcuts:
+                sc.setEnabled(False)
+        else:
+            self.ui.menubar.hide()
+            self.ui.toolbar.hide()
+            self.ui.statusbar.hide()
+            self.showFullScreen()
+            for sc in self.global_shortcuts:
+                sc.setEnabled(True)
+
+    @QtCore.Slot()
+    def on_action_about_triggered(self):
+
+        text = '<p><justify><a ' \
+               'href=https://github.com/pynocchio>Pynocchio Comic ' \
+               'Reader</a> is an image viewer <br>' \
+               'specifically designed  to ' \
+               'handle comic books is licensed <br>under the ' \
+               'GPLv3.<justify></p>'\
+               '<br>Copyright (C) 2014-2015 ' \
+               '<a href=https://github.com/mstuttgart>' \
+               'Michell Stuttgart Faria</a>'\
+               '<br>Pynocchio use <a href=http://freeiconmaker.com>Free Icon ' \
+               'Maker</a> to build icon set and <br>'\
+               '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
+               '>Elementary OS 3.1 icons</a>.</p></justify>'
+
+        QtGui.QMessageBox().about(self, self.tr('About Pynocchio Comic Reader'),
+                                  self.tr(text))
+
+        # import about_dialog
+        # ab_dlg = about_dialog.AboutDialog()
+        # ab_dlg.show()
+        # ab_dlg.exec_()
+
+    @QtCore.Slot()
+    def on_action_about_qt_triggered(self):
+        QtGui.QMessageBox().aboutQt(self, self.tr(u'About Qt'))
+
+    @QtCore.Slot()
+    def on_action_exit_triggered(self):
+        super(MainWindowView, self).close()
+        # self.controller.exit()
 
     def open_comics(self, filename):
 
         if filename:
 
             try:
-                # self.update_status_bar()
-                # self.ui.statusbar.add_progress_bar()
-                # self.show_progress_bar_dialog()
                 self.model.load(filename)
-
                 self.update_viewer_content()
                 self.setWindowTitle(self.model.get_comic_title())
                 self.enable_actions()
                 self.update_status_bar()
 
-
-                # self.set_view_content(self.get_current_page())
-                # self.view.setWindowTitle(self.comic.name.decode('utf8') +
-                #                          ' - Pynocchio Comic Reader')
-
-                # self.view.enable_actions()
-                # self.update_statusbar()
-
-                # self.model.current_directory = Utility.get_dir_name(file_name)
                 #
                 # if res:
                 #     self.recent_file_manager.append_left(
@@ -275,14 +324,14 @@ class MainWindowView(QtGui.QMainWindow):
     def _define_global_shortcuts(self):
 
         sequence = {
-            'Ctrl+Shift+Left': self.model.previous_comic,
-            'Ctrl+Left': self.model.first_page,
-            'Left': self.model.previous_page,
-            'Right': self.model.next_page,
-            'Ctrl+Right': self.model.last_page,
-            'Ctrl+Shift+Right': self.model.next_comic,
-            'Ctrl+R': self.model.rotate_right,
-            'Ctrl+Shift+R': self.model.rotate_left,
+            'Ctrl+Shift+Left': self.on_action_previous_comic_triggered,
+            'Ctrl+Left': self.on_action_first_page_triggered,
+            'Left': self.on_action_previous_page_triggered,
+            'Right': self.on_action_next_page_triggered,
+            'Ctrl+Right': self.on_action_last_page_triggered,
+            'Ctrl+Shift+Right': self.on_action_next_comic_triggered,
+            'Ctrl+R': self.on_action_rotate_left_triggered,
+            'Ctrl+Shift+R': self.on_action_rotate_right_triggered,
         }
 
         for key, value in sequence.items():
@@ -334,7 +383,8 @@ class MainWindowView(QtGui.QMainWindow):
         y_center = (screen.height() - size.height()) / 2
         self.move(x_center, y_center)
         self.setMinimumSize(
-            QtGui.QApplication.desktop().screenGeometry().size() * 0.8)
+            screen.size() * 0.8)
+        self.update()
 
     def update_viewer_content(self):
         content = self.model.get_current_page()
@@ -342,12 +392,14 @@ class MainWindowView(QtGui.QMainWindow):
             self.ui.label.setPixmap(content)
             self.ui.qscroll_area_viewer.reset_scroll_position()
             self.update_status_bar()
+            self.repaint()
 
     def update_current_view_container_size(self):
+        self.model.scroll_area_size = self.get_current_view_container_size()
         self.update_viewer_content()
 
     def get_current_view_container_size(self):
-        return self.current_view_container.size()
+        return self.ui.qscroll_area_viewer.size()
     #
     # def change_background_color(self, color):
     #     self.current_view_container.change_background_color(color)
@@ -367,59 +419,6 @@ class MainWindowView(QtGui.QMainWindow):
     #         self.statusbar.hide()
     #
 
-    @QtCore.Slot()
-    def on_action_fullscreen_triggered(self):
-
-        if self.isFullScreen():
-            self.ui.menubar.show()
-            self.ui.toolbar.show()
-            self.ui.statusbar.show()
-            self.showMaximized()
-
-            for sc in self.global_shortcuts:
-                sc.setEnabled(False)
-        else:
-            self.ui.menubar.hide()
-            self.ui.toolbar.hide()
-            self.ui.statusbar.hide()
-            self.showFullScreen()
-            for sc in self.global_shortcuts:
-                sc.setEnabled(True)
-
-    @QtCore.Slot()
-    def on_action_about_triggered(self):
-
-        text = '<p><justify><a ' \
-               'href=https://github.com/pynocchio>Pynocchio Comic ' \
-               'Reader</a> is an image viewer <br>' \
-               'specifically designed  to ' \
-               'handle comic books is licensed <br>under the ' \
-               'GPLv3.<justify></p>'\
-               '<br>Copyright (C) 2014-2015 ' \
-               '<a href=https://github.com/mstuttgart>' \
-               'Michell Stuttgart Faria</a>'\
-               '<br>Pynocchio use <a href=http://freeiconmaker.com>Free Icon ' \
-               'Maker</a> to build icon set and <br>'\
-               '<a href=https://github.com/mstuttgart/elementary3-icon-theme ' \
-               '>Elementary OS 3.1 icons</a>.</p></justify>'
-
-        QtGui.QMessageBox().about(self, self.tr('About Pynocchio Comic Reader'),
-                                  self.tr(text))
-
-        # import about_dialog
-        # ab_dlg = about_dialog.AboutDialog()
-        # ab_dlg.show()
-        # ab_dlg.exec_()
-
-    @QtCore.Slot()
-    def on_action_about_qt_triggered(self):
-        QtGui.QMessageBox().aboutQt(self, self.tr(u'About Qt'))
-
-    @QtCore.Slot()
-    def on_action_exit_triggered(self):
-        super(MainWindowView, self).close()
-        # self.controller.exit()
-
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:
             self.on_action_fullscreen_triggered()
@@ -433,3 +432,10 @@ class MainWindowView(QtGui.QMainWindow):
     def resizeEvent(self, *args, **kwargs):
         self.update_current_view_container_size()
         super(MainWindowView, self).resizeEvent(*args, **kwargs)
+
+    def show(self):
+        """
+        :doc: Added to set the correct scrool_area_view size in model
+        """
+        super(MainWindowView, self).show()
+        self.update_current_view_container_size()

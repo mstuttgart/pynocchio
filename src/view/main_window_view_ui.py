@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/main_window_view.ui'
 #
-# Created: Thu Apr  7 01:55:37 2016
+# Created: Thu Apr  7 15:27:33 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -25,7 +25,7 @@ class Ui_MainWindowView(object):
         MainWindowView.setWindowIcon(icon)
         MainWindowView.setIconSize(QtCore.QSize(22, 22))
         MainWindowView.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
-        MainWindowView.setAnimated(True)
+        MainWindowView.setAnimated(False)
         MainWindowView.setDocumentMode(False)
         MainWindowView.setTabShape(QtGui.QTabWidget.Rounded)
         MainWindowView.setDockNestingEnabled(False)
@@ -36,7 +36,7 @@ class Ui_MainWindowView(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.central_widget.sizePolicy().hasHeightForWidth())
         self.central_widget.setSizePolicy(sizePolicy)
-        self.central_widget.setAutoFillBackground(False)
+        self.central_widget.setAutoFillBackground(True)
         self.central_widget.setObjectName("central_widget")
         self.horizontalLayout = QtGui.QHBoxLayout(self.central_widget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -49,7 +49,7 @@ class Ui_MainWindowView(object):
         self.qscroll_area_viewer.setSizePolicy(sizePolicy)
         self.qscroll_area_viewer.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.qscroll_area_viewer.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.qscroll_area_viewer.setAutoFillBackground(False)
+        self.qscroll_area_viewer.setAutoFillBackground(True)
         self.qscroll_area_viewer.setStyleSheet("background-color: rgb(5, 5, 5);")
         self.qscroll_area_viewer.setFrameShape(QtGui.QFrame.HLine)
         self.qscroll_area_viewer.setFrameShadow(QtGui.QFrame.Plain)
@@ -61,6 +61,12 @@ class Ui_MainWindowView(object):
         self.qscroll_area_viewer.setObjectName("qscroll_area_viewer")
         self.scroll_area_widget_contents = QtGui.QWidget()
         self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 1048, 485))
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.scroll_area_widget_contents.sizePolicy().hasHeightForWidth())
+        self.scroll_area_widget_contents.setSizePolicy(sizePolicy)
+        self.scroll_area_widget_contents.setAutoFillBackground(True)
         self.scroll_area_widget_contents.setObjectName("scroll_area_widget_contents")
         self.horizontalLayout_2 = QtGui.QHBoxLayout(self.scroll_area_widget_contents)
         self.horizontalLayout_2.setSpacing(0)
@@ -76,7 +82,7 @@ class Ui_MainWindowView(object):
         self.label.setMouseTracking(False)
         self.label.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.label.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.label.setAutoFillBackground(False)
+        self.label.setAutoFillBackground(True)
         self.label.setFrameShape(QtGui.QFrame.NoFrame)
         self.label.setFrameShadow(QtGui.QFrame.Plain)
         self.label.setLineWidth(0)
@@ -145,7 +151,6 @@ class Ui_MainWindowView(object):
         self.toolbar.setObjectName("toolbar")
         MainWindowView.addToolBar(QtCore.Qt.TopToolBarArea, self.toolbar)
         self.statusbar = StatusBar(MainWindowView)
-        self.statusbar.setAutoFillBackground(True)
         self.statusbar.setObjectName("statusbar")
         MainWindowView.setStatusBar(self.statusbar)
         self.action_open = QtGui.QAction(MainWindowView)
@@ -528,7 +533,6 @@ class Ui_MainWindowView(object):
 
 from status_bar import StatusBar
 from qscroll_area_viewer import QScrollAreaViewer
-import main_window_view_rc
 import main_window_view_rc
 import main_window_view_rc
 import main_window_view_rc

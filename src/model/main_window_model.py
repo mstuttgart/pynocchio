@@ -46,10 +46,9 @@ class MainWindowModel(QtCore.QObject):
         self.current_directory = '.'
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
         self.path_file_filter = PathFileFilter(ext_list)
+        self.scroll_area_size = None
 
     def load(self, filename, initial_page=0):
-
-        print filename
 
         image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
                             '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
@@ -171,17 +170,17 @@ class MainWindowModel(QtCore.QObject):
 
         if self.fit_type == MainWindowModel._VERTICAL_FIT:
             pix_map = pix_map.scaledToHeight(
-                self.controller.get_current_view_container_size().height(),
+                self.scroll_area_size.height(),
                 QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._HORIZONTAL_FIT:
             pix_map = pix_map.scaledToWidth(
-                self.controller.get_current_view_container_size().width(),
+                self.scroll_area_size.width(),
                 QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._BEST_FIT:
             pix_map = pix_map.scaledToWidth(
-                self.controller.get_current_view_container_size().width() * 0.8,
+                self.scroll_area_size.width() * 0.8,
                 QtCore.Qt.SmoothTransformation)
 
         return pix_map
@@ -204,7 +203,6 @@ class MainWindowModel(QtCore.QObject):
 
     @QtCore.Slot(int)
     def load_progressbar_value(self, percent):
-        print percent
         self.load_progress.emit(percent)
 
     @QtCore.Slot()
@@ -241,3 +239,4 @@ class MainWindowModel(QtCore.QObject):
         #         BookmarkManager.connect()
         #         BookmarkManager.remove_bookmark(self.comic.get_path())
         #         BookmarkManager.close()
+
