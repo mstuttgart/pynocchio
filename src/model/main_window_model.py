@@ -204,6 +204,7 @@ class MainWindowModel(QtCore.QObject):
 
     @QtCore.Slot(int)
     def load_progressbar_value(self, percent):
+        print percent
         self.load_progress.emit(percent)
 
     @QtCore.Slot()

@@ -64,8 +64,11 @@
    <property name="inputMethodHints">
     <set>Qt::ImhNone</set>
    </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
    <property name="value">
-    <number>20</number>
+    <number>0</number>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -80,7 +83,7 @@
     <enum>QProgressBar::TopToBottom</enum>
    </property>
    <property name="format">
-    <string notr="true">%p%</string>
+    <string>%p%</string>
    </property>
   </widget>
  </widget>

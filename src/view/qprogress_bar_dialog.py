@@ -27,5 +27,11 @@ class QProgressBarDialog(QtGui.QDialog):
 
         self.ui = Ui_QProgressDialog()
         self.ui.setupUi(self)
-        model.load_progress.connect(self.ui.progress_bar.setValue)
+        model.load_progress.connect(self.set_progressbar_value)
         model.load_done.connect(self.close)
+        QtGui.QApplication.processEvents()
+
+    def set_progressbar_value(self, n):
+        print 'tetet', n
+        self.ui.progress_bar.setValue(n)
+

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/progress_dialog.ui'
 #
-# Created: Wed Apr  6 14:25:04 2016
+# Created: Thu Apr  7 01:55:37 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,12 +33,11 @@ class Ui_QProgressDialog(object):
         self.progress_bar.setStatusTip("")
         self.progress_bar.setAutoFillBackground(True)
         self.progress_bar.setInputMethodHints(QtCore.Qt.ImhNone)
-        self.progress_bar.setProperty("value", 20)
+        self.progress_bar.setProperty("value", 0)
         self.progress_bar.setAlignment(QtCore.Qt.AlignCenter)
         self.progress_bar.setOrientation(QtCore.Qt.Horizontal)
         self.progress_bar.setInvertedAppearance(False)
         self.progress_bar.setTextDirection(QtGui.QProgressBar.TopToBottom)
-        self.progress_bar.setFormat("%p%")
         self.progress_bar.setObjectName("progress_bar")
 
         self.retranslateUi(QProgressDialog)
@@ -46,4 +45,5 @@ class Ui_QProgressDialog(object):
 
     def retranslateUi(self, QProgressDialog):
         QProgressDialog.setWindowTitle(QtGui.QApplication.translate("QProgressDialog", "loading_comic", None, QtGui.QApplication.UnicodeUTF8))
+        self.progress_bar.setFormat(QtGui.QApplication.translate("QProgressDialog", "%p%", None, QtGui.QApplication.UnicodeUTF8))
 

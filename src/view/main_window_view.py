@@ -45,8 +45,9 @@ class MainWindowView(QtGui.QMainWindow):
         self._centralize_window()
         self._define_global_shortcuts()
 
-        self.model.load_progress.connect(self.ui.statusbar.set_progressbar_value)
-        self.model.load_done.connect(self.ui.statusbar.close_progress_bar)
+        self.model.load_progress.connect(
+            self.ui.statusbar.set_progressbar_value)
+        # self.model.load_done.connect(self.ui.statusbar.close_progress_bar)
 
     @QtCore.Slot()
     def on_action_open_triggered(self):
@@ -108,17 +109,61 @@ class MainWindowView(QtGui.QMainWindow):
     def on_action_previous_comic_triggered(self):
         self.open_comics(self.model.previous_comic())
 
+    @QtCore.Slot()
+    def on_action_rotate_left_triggered(self):
+        print
+
+    @QtCore.Slot()
+    def on_action_rotate_right_triggered(self):
+        print
+
+    @QtCore.Slot()
+    def on_action_add_bookmark_triggered(self):
+        print
+
+    @QtCore.Slot()
+    def on_action_remove_bookmark_triggered(self):
+        print
+
+    @QtCore.Slot()
+    def on_action_bookmark_manager_triggered(self):
+        print
+
+    @QtCore.Slot()
+    def on_action_preference_dialog_triggered(self):
+        print
+
+    @QtCore.Slot()
+    def on_action_original_fit_triggered(self):
+        print
+
+    @QtCore.Slot()
+    def on_action_vertical_fit_triggered(self):
+        print
+
+    @QtCore.Slot()
+    def on_action_horizontal_fit_triggered(self):
+        print
+
+    @QtCore.Slot()
+    def on_action_best_fit_triggered(self):
+        print
+
     def open_comics(self, filename):
 
         if filename:
 
             try:
+                # self.update_status_bar()
+                # self.ui.statusbar.add_progress_bar()
+                # self.show_progress_bar_dialog()
                 self.model.load(filename)
-                self.ui.statusbar.add_progress_bar()
-                self.update_status_bar()
+
                 self.update_viewer_content()
                 self.setWindowTitle(self.model.get_comic_title())
                 self.enable_actions()
+                self.update_status_bar()
+
 
                 # self.set_view_content(self.get_current_page())
                 # self.view.setWindowTitle(self.comic.name.decode('utf8') +
@@ -156,10 +201,12 @@ class MainWindowView(QtGui.QMainWindow):
                                             self.tr(excp.message),
                                             QtGui.QMessageBox.Close)
 
-    def show_progress_bar_dialog(self):
-        from qprogress_bar_dialog import QProgressBarDialog
-        dlg = QProgressBarDialog(self.model, self)
-        dlg.show()
+    # def show_progress_bar_dialog(self):
+    #     from qprogress_bar_dialog import QProgressBarDialog
+    #     dlg = QProgressBarDialog(self.model, self)
+    #     dlg.show()
+
+        # dlg.exec_()
         # th = QProgressBarDialogThread(self.model)
         # th.start()
 
@@ -294,6 +341,7 @@ class MainWindowView(QtGui.QMainWindow):
         if content and isinstance(content, QtGui.QPixmap):
             self.ui.label.setPixmap(content)
             self.ui.qscroll_area_viewer.reset_scroll_position()
+            self.update_status_bar()
 
     def update_current_view_container_size(self):
         self.update_viewer_content()
