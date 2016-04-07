@@ -134,7 +134,7 @@
         </sizepolicy>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <property name="spacing">
@@ -164,7 +164,7 @@
            <enum>Qt::LeftToRight</enum>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
@@ -243,15 +243,9 @@
       <iconset resource="../rsc/main_window_view.qrc">
        <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
      </property>
-     <addaction name="action_recent_file_1"/>
-     <addaction name="action_recent_file_2"/>
-     <addaction name="action_recent_file_3"/>
-     <addaction name="action_recent_file_4"/>
-     <addaction name="action_recent_file_5"/>
     </widget>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>
-    <addaction name="action_open_online"/>
     <addaction name="action_save_image"/>
     <addaction name="menu_recent_files"/>
     <addaction name="separator"/>
@@ -913,89 +907,6 @@
     <bool>false</bool>
    </property>
   </action>
-  <action name="actionTete">
-   <property name="text">
-    <string>tete</string>
-   </property>
-  </action>
-  <action name="action_recent_file_1">
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
-   </property>
-   <property name="text">
-    <string>recent_file_1</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="action_recent_file_2">
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
-   </property>
-   <property name="text">
-    <string>recent_file_2</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="action_recent_file_3">
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
-   </property>
-   <property name="text">
-    <string>recent_file_3</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="action_recent_file_4">
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
-   </property>
-   <property name="text">
-    <string>recent_file_4</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="action_recent_file_5">
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
-   </property>
-   <property name="text">
-    <string>recent_file_5</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="action_open_online">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/categories/48/applications-internet.svg</normaloff>:/icons/elementary3-icon-theme/categories/48/applications-internet.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Open Online</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+Shift+O</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -1013,7 +924,7 @@
  <resources>
   <include location="../rsc/main_window_view.qrc"/>
   <include location="../rsc/main_window_view.qrc"/>
-  <include location="../../rsc/main_window_view.qrc"/>
+  <include location="../rsc/main_window_view.qrc"/>
  </resources>
  <connections/>
  <designerdata>
