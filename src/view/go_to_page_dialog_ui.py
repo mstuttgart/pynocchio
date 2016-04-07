@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/go_to_page_dialog.ui'
 #
-# Created: Thu Apr  7 15:27:33 2016
+# Created: Thu Apr  7 19:35:11 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!

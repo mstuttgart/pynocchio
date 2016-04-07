@@ -32,6 +32,8 @@ from main_window_view_ui import Ui_MainWindowView
 
 class MainWindowView(QtGui.QMainWindow):
 
+    MaxRecentFiles = 5
+
     def __init__(self, model, parent=None):
         super(MainWindowView, self).__init__(parent)
         self.model = model
@@ -39,13 +41,14 @@ class MainWindowView(QtGui.QMainWindow):
         self.ui = Ui_MainWindowView()
         self.ui.setupUi(self)
 
-        self.global_shortcuts = []
+        self.ui.menu_recent_files.menuAction().setVisible(False)
+        self.global_shortcuts = self._define_global_shortcuts()
 
         self._create_connections()
         self._centralize_window()
-        self._define_global_shortcuts()
 
-        self.model.scroll_area_size = self.get_current_view_container_size()
+        # self.model.scroll_area_size = self.get_current_view_container_size()
+
 
         self.model.load_progress.connect(
             self.ui.statusbar.set_progressbar_value)
@@ -211,6 +214,87 @@ class MainWindowView(QtGui.QMainWindow):
         super(MainWindowView, self).close()
         # self.controller.exit()
 
+    def _create_connections(self):
+
+        # self.ui.action_open.triggered.connect(ctrl.open)
+        # self.ui.action_save_image.triggered.connect(ctrl.save_image)
+        # self.ui.action_open_online.triggered.connect(ctrl.open_online)
+        #
+        # self.ui.action_next_page.triggered.connect(ctrl.next_page)
+        # self.ui.action_previous_page.triggered.connect(ctrl.previous_page)
+        #
+        # self.ui.action_first_page.triggered.connect(ctrl.first_page)
+        # self.ui.action_last_page.triggered.connect(ctrl.last_page)
+        # self.ui.action_go_to_page.triggered.connect(ctrl.go_to_page)
+        # self.ui.action_next_comic.triggered.connect(ctrl.next_comic)
+        # self.ui.action_previous_comic.triggered.connect(ctrl.previous_comic)
+        #
+        # self.ui.action_rotate_left.triggered.connect(ctrl.rotate_left)
+        # self.ui.action_rotate_right.triggered.connect(ctrl.rotate_right)
+        #
+        # self.ui.action_add_bookmark.triggered.connect(ctrl.add_bookmark)
+        # self.ui.action_remove_bookmark.triggered.connect(ctrl.remove_bookmark)
+        # self.ui.action_bookmark_manager.triggered.connect(ctrl.bookmark_manager)
+        #
+        # self.ui.action_preference_dialog.triggered.connect(
+        #     ctrl.preference_dialog)
+        #
+        self.ui.action_group_view = QtGui.QActionGroup(self)
+
+        self.ui.action_group_view.addAction(self.ui.action_original_fit)
+        self.ui.action_group_view.addAction(self.ui.action_vertical_fit)
+        self.ui.action_group_view.addAction(self.ui.action_horizontal_fit)
+        self.ui.action_group_view.addAction(self.ui.action_best_fit)
+
+        for i in xrange(MainWindowView.MaxRecentFiles):
+            act = QtGui.QAction(
+                self, visible=True, triggered=self.open_recent_file)
+            self.ui.menu_recent_files.addAction(act)
+
+        self.update_recent_file_actions()
+
+        # self.ui.action_original_fit.triggered.connect(ctrl.original_fit)
+        # self.ui.action_vertical_fit.triggered.connect(ctrl.vertical_fit)
+        # self.ui.action_horizontal_fit.triggered.connect(ctrl.horizontal_fit)
+        # self.ui.action_best_fit.triggered.connect(ctrl.best_fit)
+        #
+        # self.ui.menu_recent_files.aboutToShow.connect(
+        #     ctrl.update_recent_files_menu)
+        # #
+        # # actions =
+        #
+        # for rf in self.ui.menu_recent_files.actions():
+        #     rf.triggered.connect(ctrl.load_recent_file)
+        #
+        # self.ui.menu_recent_bookmarks.aboutToShow.connect(
+        #     ctrl.update_bookmarks_menu)
+        #
+        # for bk in self.ui.menu_recent_bookmarks.actions():
+        #     bk.triggered.connect(ctrl.load_bookmark)
+
+    def _define_global_shortcuts(self):
+
+        shortcuts = []
+
+        sequence = {
+            'Ctrl+Shift+Left': self.on_action_previous_comic_triggered,
+            'Ctrl+Left': self.on_action_first_page_triggered,
+            'Left': self.on_action_previous_page_triggered,
+            'Right': self.on_action_next_page_triggered,
+            'Ctrl+Right': self.on_action_last_page_triggered,
+            'Ctrl+Shift+Right': self.on_action_next_comic_triggered,
+            'Ctrl+R': self.on_action_rotate_left_triggered,
+            'Ctrl+Shift+R': self.on_action_rotate_right_triggered,
+        }
+
+        for key, value in sequence.items():
+            s = QtGui.QShortcut(QtGui.QKeySequence(key),
+                                self.ui.qscroll_area_viewer, value)
+            s.setEnabled(False)
+            shortcuts.append(s)
+
+        return shortcuts
+
     def open_comics(self, filename):
 
         if filename:
@@ -230,6 +314,9 @@ class MainWindowView(QtGui.QMainWindow):
 
                 # Update status bar data
                 self.update_status_bar()
+
+                # Add this comic like recent file
+                self.set_current_file(filename)
 
                 #
                 # if res:
@@ -268,6 +355,65 @@ class MainWindowView(QtGui.QMainWindow):
         # th = QProgressBarDialogThread(self.model)
         # th.start()
 
+    def open_recent_file(self):
+        action = self.sender()
+        if action:
+            self.open_comics(action.data())
+
+    def set_current_file(self, filename):
+
+        files = []
+
+        settings = QtCore.QSettings('Pynocchio Comic Raeder', 'Recent Files')
+        size = settings.beginReadArray("recentFileList")
+        for idx in range(size):
+            settings.setArrayIndex(idx)
+            files.append(settings.value("recent_file"))
+        settings.endArray()
+
+        try:
+            files.remove(filename)
+        except ValueError:
+            pass
+
+        files.insert(0, filename)
+        del files[MainWindowView.MaxRecentFiles:]
+
+        settings.beginWriteArray('recentFileList')
+        for idx, value in enumerate(files):
+            settings.setArrayIndex(idx)
+            settings.setValue("recent_file", value)
+        settings.endArray()
+
+        self.update_recent_file_actions()
+
+    def update_recent_file_actions(self):
+
+        files = []
+
+        settings = QtCore.QSettings('Pynocchio Comic Raeder', 'Recent Files')
+        size = settings.beginReadArray("recentFileList")
+        for idx in range(size):
+            settings.setArrayIndex(idx)
+            files.append(settings.value("recent_file"))
+        settings.endArray()
+
+        num_recent_files = len(files) if files else 0
+        num_recent_files = min(num_recent_files, MainWindowView.MaxRecentFiles)
+
+        self.ui.menu_recent_files.menuAction().setVisible(True if files else
+                                                          False)
+        recent_file_actions = self.ui.menu_recent_files.actions()
+
+        for i in xrange(num_recent_files):
+            text = "&%d %s" % (i + 1, QtCore.QFileInfo(files[i]).fileName())
+            recent_file_actions[i].setText(text)
+            recent_file_actions[i].setData(files[i])
+            recent_file_actions[i].setVisible(True)
+
+        for j in xrange(num_recent_files, MainWindowView.MaxRecentFiles):
+            recent_file_actions[j].setVisible(False)
+
     def update_navegation_actions(self):
 
         is_first_page = self.model.is_first_page()
@@ -278,76 +424,6 @@ class MainWindowView(QtGui.QMainWindow):
 
         self.ui.action_next_page.setEnabled(not is_last_page)
         self.ui.action_last_page.setEnabled(not is_last_page)
-
-    def _create_connections(self):
-
-        # self.ui.action_open.triggered.connect(ctrl.open)
-        # self.ui.action_save_image.triggered.connect(ctrl.save_image)
-        # self.ui.action_open_online.triggered.connect(ctrl.open_online)
-        #
-        # self.ui.action_next_page.triggered.connect(ctrl.next_page)
-        # self.ui.action_previous_page.triggered.connect(ctrl.previous_page)
-        #
-        # self.ui.action_first_page.triggered.connect(ctrl.first_page)
-        # self.ui.action_last_page.triggered.connect(ctrl.last_page)
-        # self.ui.action_go_to_page.triggered.connect(ctrl.go_to_page)
-        # self.ui.action_next_comic.triggered.connect(ctrl.next_comic)
-        # self.ui.action_previous_comic.triggered.connect(ctrl.previous_comic)
-        #
-        # self.ui.action_rotate_left.triggered.connect(ctrl.rotate_left)
-        # self.ui.action_rotate_right.triggered.connect(ctrl.rotate_right)
-        #
-        # self.ui.action_add_bookmark.triggered.connect(ctrl.add_bookmark)
-        # self.ui.action_remove_bookmark.triggered.connect(ctrl.remove_bookmark)
-        # self.ui.action_bookmark_manager.triggered.connect(ctrl.bookmark_manager)
-        #
-        # self.ui.action_preference_dialog.triggered.connect(
-        #     ctrl.preference_dialog)
-        #
-        self.ui.action_group_view = QtGui.QActionGroup(self)
-
-        self.ui.action_group_view.addAction(self.ui.action_original_fit)
-        self.ui.action_group_view.addAction(self.ui.action_vertical_fit)
-        self.ui.action_group_view.addAction(self.ui.action_horizontal_fit)
-        self.ui.action_group_view.addAction(self.ui.action_best_fit)
-
-        # self.ui.action_original_fit.triggered.connect(ctrl.original_fit)
-        # self.ui.action_vertical_fit.triggered.connect(ctrl.vertical_fit)
-        # self.ui.action_horizontal_fit.triggered.connect(ctrl.horizontal_fit)
-        # self.ui.action_best_fit.triggered.connect(ctrl.best_fit)
-        #
-        # self.ui.menu_recent_files.aboutToShow.connect(
-        #     ctrl.update_recent_files_menu)
-        # #
-        # # actions =
-        #
-        # for rf in self.ui.menu_recent_files.actions():
-        #     rf.triggered.connect(ctrl.load_recent_file)
-        #
-        # self.ui.menu_recent_bookmarks.aboutToShow.connect(
-        #     ctrl.update_bookmarks_menu)
-        #
-        # for bk in self.ui.menu_recent_bookmarks.actions():
-        #     bk.triggered.connect(ctrl.load_bookmark)
-
-    def _define_global_shortcuts(self):
-
-        sequence = {
-            'Ctrl+Shift+Left': self.on_action_previous_comic_triggered,
-            'Ctrl+Left': self.on_action_first_page_triggered,
-            'Left': self.on_action_previous_page_triggered,
-            'Right': self.on_action_next_page_triggered,
-            'Ctrl+Right': self.on_action_last_page_triggered,
-            'Ctrl+Shift+Right': self.on_action_next_comic_triggered,
-            'Ctrl+R': self.on_action_rotate_left_triggered,
-            'Ctrl+Shift+R': self.on_action_rotate_right_triggered,
-        }
-
-        for key, value in sequence.items():
-            s = QtGui.QShortcut(QtGui.QKeySequence(key),
-                                self.ui.qscroll_area_viewer, value)
-            s.setEnabled(False)
-            self.global_shortcuts.append(s)
 
     def enable_actions(self):
 
@@ -372,18 +448,6 @@ class MainWindowView(QtGui.QMainWindow):
                 self.ui.statusbar.set_comic_page(page_number, total_pages)
                 self.ui.statusbar.set_page_resolution(page_width, page_height)
                 self.ui.statusbar.set_comic_path(page_title)
-    #
-    # def switch_to_web_view(self):
-    #     if self.web_view is None:
-    #         self.web_view = QWebImageWidget()
-    #
-    #     self.current_view_container = self.web_view
-    #     self.setCentralWidget(self.web_view)
-    #
-    # def switch_to_normal_view(self):
-    #     self.setCentralWidget(self.qscroll_area_viewer)
-    #     self.current_view_container = self.qscroll_area_viewer
-    #
 
     def _centralize_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()

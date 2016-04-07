@@ -236,12 +236,21 @@
      <string>&amp;File</string>
     </property>
     <widget class="QMenu" name="menu_recent_files">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="tearOffEnabled">
+      <bool>false</bool>
+     </property>
      <property name="title">
       <string>&amp;Recent files</string>
      </property>
      <property name="icon">
       <iconset resource="../rsc/main_window_view.qrc">
        <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
+     </property>
+     <property name="separatorsCollapsible">
+      <bool>false</bool>
      </property>
     </widget>
     <addaction name="action_open"/>
@@ -825,7 +834,7 @@
   </action>
   <action name="action_save_image">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="icon">
     <iconset resource="../rsc/main_window_view.qrc">
