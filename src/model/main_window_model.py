@@ -16,9 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/
 #
 
-from PySide import QtCore
+from PySide import QtCore, QtSql
 
-# from bookmark_database_manager import BookmarkManager
 from comic import Comic
 from compact_file_loader_factory import LoaderFactory
 from page import *
@@ -28,6 +27,7 @@ from src.pynocchio_exception import InvalidTypeFileException
 from src.pynocchio_exception import LoadComicsException
 from utility import Utility
 from settings_manager import SettingsManager
+from bookmark_database_manager import BookmarkManager
 
 
 class MainWindowModel(QtCore.QObject):
@@ -235,32 +235,46 @@ class MainWindowModel(QtCore.QObject):
         self.save_current_directory(self.current_directory)
         # ld.done.connect(self.controller.view.statusbar.close_progress_bar)
 
-        # @staticmethod
-        # def get_bookmark_list(n):
-        #     BookmarkManager.connect()
-        #     bookmark_list = BookmarkManager.get_bookmarks(n)
-        #     BookmarkManager.close()
-        #     return bookmark_list
-        #
-        # @staticmethod
-        # def get_bookmark_from_path(path):
-        #     BookmarkManager.connect()
-        #     bk = BookmarkManager.get_bookmark_by_path(path)
-        #     BookmarkManager.close()
-        #     return bk
-        #
-        # def add_bookmark(self):
-        #     if self.comic:
-        #         BookmarkManager.connect()
-        #         BookmarkManager.add_bookmark(self.comic.name,
-        #                                      self.comic.get_path(),
-        #                                      self.comic.get_current_page_number(),
-        #                                      self.comic.get_current_page().data)
-        #         BookmarkManager.close()
-        #
-        # def remove_bookmark(self):
-        #     if self.comic:
-        #         BookmarkManager.connect()
-        #         BookmarkManager.remove_bookmark(self.comic.get_path())
-        #         BookmarkManager.close()
+    @staticmethod
+    def get_bookmark_list(n):
+        BookmarkManager.connect()
+        bookmark_list = BookmarkManager.get_bookmarks(n)
+        BookmarkManager.close()
+        return bookmark_list
 
+    @staticmethod
+    def get_bookmark_from_path(path):
+        BookmarkManager.connect()
+        bk = BookmarkManager.get_bookmark_by_path(path)
+        BookmarkManager.close()
+        return bk
+
+    def add_bookmark(self):
+        db = QtSql.QSqlDatabase.addDatabase("QSQLITE")
+        db.setDatabaseName("file.db")
+        if not db.open():
+            return False
+        query = QtSql.QSqlQuery()
+
+        query.exec_("create table if not exists bookmark(id integer primary "
+                    "key, path var_char, name varchar, page_number int, "
+                    "page_data blob)")
+
+        q = "INSERT INTO bookmark (id, path, name, page_number, page_data) "\
+            "VALUES (:Id, :path, :name, :page_number, :page_data)"
+        query.prepare(q)
+        query.bindValue(":id", None)
+        query.bindValue(":path", self.comic.get_path())
+        query.bindValue(":name", self.comic.name)
+        query.bindValue(":page_number", self.comic.get_current_page_number())
+        query.bindValue(":page_data", self.comic.get_current_page().data)
+        query.exec_()
+
+        db.close()
+        return True
+
+    def remove_bookmark(self):
+        if self.comic:
+            BookmarkManager.connect()
+            BookmarkManager.remove_bookmark(self.comic.get_path())
+            BookmarkManager.close()

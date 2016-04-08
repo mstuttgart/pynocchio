@@ -15,16 +15,13 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import QtCore, uic
+from PySide import QtCore, QtGui
 
-from src.lib.utility import Utility
-
-root_dir = Utility.get_parent_path(__file__)
-GoToDialogDialogForm, GoToDialogBase = uic.loadUiType(Utility.join_path(
-    root_dir, 'gui', 'go_to_page_dialog.ui'))
+# from ..model.utility import Utility
 
 
-class GoToDialog(GoToDialogDialogForm, GoToDialogBase):
+class GoToDialog(QtGui.QDialog):
+
     def __init__(self, controller, parent=None):
         super(GoToDialog, self).__init__(parent)
         self.setupUi(self)

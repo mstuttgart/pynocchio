@@ -22,6 +22,7 @@ class SettingsManager(object):
 
     def __init__(self):
         self.settings = QtCore.QSettings('Pynocchio Comic Reader', 'Pynocchio')
+        # QApplication::applicationDirPath()
 
     def save_recent_files(self, recent_files_list):
         self.settings.beginWriteArray('recent_file_list')

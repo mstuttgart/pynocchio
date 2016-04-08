@@ -126,7 +126,15 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def on_action_add_bookmark_triggered(self):
-        print
+        if not self.model.add_bookmark():
+            QtGui.QMessageBox.critical(None, QtGui.qApp.tr("Cannot open database"),
+                    QtGui.qApp.tr("Unable to establish a database connection.\n"
+                                  "This example needs SQLite support. Please read "
+                                  "the Qt SQL driver documentation for information "
+                                  "how to build it.\n\nClick Cancel to exit."),
+                    QtGui.QMessageBox.Cancel, QtGui.QMessageBox.NoButton)
+        # return False
+
 
     @QtCore.Slot()
     def on_action_remove_bookmark_triggered(self):
@@ -211,6 +219,9 @@ class MainWindowView(QtGui.QMainWindow):
     @QtCore.Slot()
     def on_action_exit_triggered(self):
         super(MainWindowView, self).close()
+        self.model.save_settings()
+
+    def closeEvent(self, event):
         self.model.save_settings()
 
     def _create_connections(self):
