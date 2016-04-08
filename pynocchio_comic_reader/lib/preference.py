@@ -21,6 +21,7 @@ from preference_dialog import PreferenceDialog
 
 
 class Preference(object):
+
     def __init__(self):
         self.background_color = QtGui.QColor()
 

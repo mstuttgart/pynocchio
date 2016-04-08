@@ -22,6 +22,7 @@ from utility import Utility
 
 
 class SettingsManager(object):
+
     @staticmethod
     def save_settings(view, controller):
 

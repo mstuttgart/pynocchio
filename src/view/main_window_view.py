@@ -49,7 +49,6 @@ class MainWindowView(QtGui.QMainWindow):
 
         # self.model.scroll_area_size = self.get_current_view_container_size()
 
-
         self.model.load_progress.connect(
             self.ui.statusbar.set_progressbar_value)
         # self.model.load_done.connect(self.ui.statusbar.close_progress_bar)
@@ -212,26 +211,10 @@ class MainWindowView(QtGui.QMainWindow):
     @QtCore.Slot()
     def on_action_exit_triggered(self):
         super(MainWindowView, self).close()
-        # self.controller.exit()
+        self.model.save_settings()
 
     def _create_connections(self):
 
-        # self.ui.action_open.triggered.connect(ctrl.open)
-        # self.ui.action_save_image.triggered.connect(ctrl.save_image)
-        # self.ui.action_open_online.triggered.connect(ctrl.open_online)
-        #
-        # self.ui.action_next_page.triggered.connect(ctrl.next_page)
-        # self.ui.action_previous_page.triggered.connect(ctrl.previous_page)
-        #
-        # self.ui.action_first_page.triggered.connect(ctrl.first_page)
-        # self.ui.action_last_page.triggered.connect(ctrl.last_page)
-        # self.ui.action_go_to_page.triggered.connect(ctrl.go_to_page)
-        # self.ui.action_next_comic.triggered.connect(ctrl.next_comic)
-        # self.ui.action_previous_comic.triggered.connect(ctrl.previous_comic)
-        #
-        # self.ui.action_rotate_left.triggered.connect(ctrl.rotate_left)
-        # self.ui.action_rotate_right.triggered.connect(ctrl.rotate_right)
-        #
         # self.ui.action_add_bookmark.triggered.connect(ctrl.add_bookmark)
         # self.ui.action_remove_bookmark.triggered.connect(ctrl.remove_bookmark)
         # self.ui.action_bookmark_manager.triggered.connect(ctrl.bookmark_manager)
@@ -239,6 +222,7 @@ class MainWindowView(QtGui.QMainWindow):
         # self.ui.action_preference_dialog.triggered.connect(
         #     ctrl.preference_dialog)
         #
+        # Define group to action fit items and load fit of settings file
         self.ui.action_group_view = QtGui.QActionGroup(self)
 
         self.ui.action_group_view.addAction(self.ui.action_original_fit)
@@ -246,6 +230,16 @@ class MainWindowView(QtGui.QMainWindow):
         self.ui.action_group_view.addAction(self.ui.action_horizontal_fit)
         self.ui.action_group_view.addAction(self.ui.action_best_fit)
 
+        view_adjust = self.model.load_view_adjust(
+            self.ui.action_group_view.checkedAction().objectName())
+
+        # Define that action fit is checked
+        for act in self.ui.action_group_view.actions():
+            if act.objectName() == view_adjust:
+                act.setChecked(True)
+                self.model.fit_type = act.objectName()
+
+        # Create action to receive recent files
         for i in xrange(MainWindowView.MaxRecentFiles):
             act = QtGui.QAction(
                 self, visible=True, triggered=self.open_recent_file)
@@ -253,19 +247,6 @@ class MainWindowView(QtGui.QMainWindow):
 
         self.update_recent_file_actions()
 
-        # self.ui.action_original_fit.triggered.connect(ctrl.original_fit)
-        # self.ui.action_vertical_fit.triggered.connect(ctrl.vertical_fit)
-        # self.ui.action_horizontal_fit.triggered.connect(ctrl.horizontal_fit)
-        # self.ui.action_best_fit.triggered.connect(ctrl.best_fit)
-        #
-        # self.ui.menu_recent_files.aboutToShow.connect(
-        #     ctrl.update_recent_files_menu)
-        # #
-        # # actions =
-        #
-        # for rf in self.ui.menu_recent_files.actions():
-        #     rf.triggered.connect(ctrl.load_recent_file)
-        #
         # self.ui.menu_recent_bookmarks.aboutToShow.connect(
         #     ctrl.update_bookmarks_menu)
         #
@@ -318,17 +299,6 @@ class MainWindowView(QtGui.QMainWindow):
                 # Add this comic like recent file
                 self.set_current_file(filename)
 
-                #
-                # if res:
-                #     self.recent_file_manager.append_left(
-                #         self.model.comic.name.decode('utf8'),
-                # file_name.decode('utf8'))
-                #
-                # is_last_comic = self.model.is_last_comic()
-                # is_first_comic = self.model.is_firts_comic()
-
-                # self._update_navegation_actions()
-
                 self.ui.action_previous_comic.setEnabled(
                     not self.model.is_firts_comic())
 
@@ -346,15 +316,6 @@ class MainWindowView(QtGui.QMainWindow):
                                             self.tr(excp.message),
                                             QtGui.QMessageBox.Close)
 
-    # def show_progress_bar_dialog(self):
-    #     from qprogress_bar_dialog import QProgressBarDialog
-    #     dlg = QProgressBarDialog(self.model, self)
-    #     dlg.show()
-
-        # dlg.exec_()
-        # th = QProgressBarDialogThread(self.model)
-        # th.start()
-
     def open_recent_file(self):
         action = self.sender()
         if action:
@@ -362,14 +323,7 @@ class MainWindowView(QtGui.QMainWindow):
 
     def set_current_file(self, filename):
 
-        files = []
-
-        settings = QtCore.QSettings('Pynocchio Comic Raeder', 'Recent Files')
-        size = settings.beginReadArray("recentFileList")
-        for idx in range(size):
-            settings.setArrayIndex(idx)
-            files.append(settings.value("recent_file"))
-        settings.endArray()
+        files = self.model.load_recent_files()
 
         try:
             files.remove(filename)
@@ -379,25 +333,12 @@ class MainWindowView(QtGui.QMainWindow):
         files.insert(0, filename)
         del files[MainWindowView.MaxRecentFiles:]
 
-        settings.beginWriteArray('recentFileList')
-        for idx, value in enumerate(files):
-            settings.setArrayIndex(idx)
-            settings.setValue("recent_file", value)
-        settings.endArray()
-
+        self.model.save_recent_files(files)
         self.update_recent_file_actions()
 
     def update_recent_file_actions(self):
 
-        files = []
-
-        settings = QtCore.QSettings('Pynocchio Comic Raeder', 'Recent Files')
-        size = settings.beginReadArray("recentFileList")
-        for idx in range(size):
-            settings.setArrayIndex(idx)
-            files.append(settings.value("recent_file"))
-        settings.endArray()
-
+        files = self.model.load_recent_files()
         num_recent_files = len(files) if files else 0
         num_recent_files = min(num_recent_files, MainWindowView.MaxRecentFiles)
 

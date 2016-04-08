@@ -17,7 +17,6 @@
 #
 
 import glob
-
 from utility import Utility
 
 

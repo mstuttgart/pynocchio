@@ -197,6 +197,7 @@ class MainWindowModel(object):
         self.fit_type = MainWindowModel._BEST_FIT
         self.controller.set_view_content(self.get_current_page())
 
+
     @staticmethod
     def get_bookmark_list(n):
         BookmarkManager.connect()

@@ -17,8 +17,6 @@
 
 from PySide import QtGui
 
-# from base_parser import *
-
 
 class Page(object):
 
@@ -34,33 +32,3 @@ class Page(object):
             self._pixmap = QtGui.QPixmap()
             self._pixmap.loadFromData(self.data)
         return self._pixmap
-
-
-# class OnlinePage(object):
-#
-#     def __init__(self, url, title, number, parser):
-#
-#         if not isinstance(parser, BaseParser):
-#             raise TypeError
-#
-#         self.url = url
-#         self.title = title
-#         self.number = number
-#         self.parser = parser
-#         self._image_url = False
-#
-#     @property
-#     def image_url(self):
-#         if not self._image_url:
-#             try:
-#                 self._image_url = self.parser.update_image_url(self.url)[0]
-#             except IndexError as excp:
-#                 print '[ERROR] image_url is empty. ', excp.message
-#                 self._image_url = False
-#
-#         return self._image_url
-#
-#     @image_url.setter
-#     def image_url(self, value):
-#         self.url = value
-#         self._image_url = False

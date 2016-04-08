@@ -27,6 +27,7 @@ from src.pynocchio_exception import NoDataFindException
 from src.pynocchio_exception import InvalidTypeFileException
 from src.pynocchio_exception import LoadComicsException
 from utility import Utility
+from settings_manager import SettingsManager
 
 
 class MainWindowModel(QtCore.QObject):
@@ -41,12 +42,32 @@ class MainWindowModel(QtCore.QObject):
     def __init__(self):
         super(MainWindowModel, self).__init__()
         self.comic = None
-        self.fit_type = MainWindowModel._ORIGINAL_FIT
+        self.settings_manager = SettingsManager()
         self.rotateAngle = 0
-        self.current_directory = '.'
+        self.scroll_area_size = None
+        self.fit_type = self.load_view_adjust(MainWindowModel._ORIGINAL_FIT)
+        self.current_directory = self.load_current_directory()
+
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
         self.path_file_filter = PathFileFilter(ext_list)
-        self.scroll_area_size = None
+
+    def save_recent_files(self, recent_files_list):
+        self.settings_manager.save_recent_files(recent_files_list)
+
+    def load_recent_files(self):
+        return self.settings_manager.load_recent_files()
+
+    def save_view_adjust(self, object_name):
+        self.settings_manager.save_view_adjust(object_name)
+
+    def load_view_adjust(self, default_object_name):
+        return self.settings_manager.load_view_adjust(default_object_name)
+
+    def save_current_directory(self, current_directory):
+        self.settings_manager.save_current_directory(current_directory)
+
+    def load_current_directory(self):
+        return self.settings_manager.load_current_directory()
 
     def load(self, filename, initial_page=0):
 
@@ -209,6 +230,9 @@ class MainWindowModel(QtCore.QObject):
     def load_progressbar_done(self):
         self.load_done.emit()
 
+    def save_settings(self):
+        self.save_view_adjust(self.fit_type)
+        self.save_current_directory(self.current_directory)
         # ld.done.connect(self.controller.view.statusbar.close_progress_bar)
 
         # @staticmethod
