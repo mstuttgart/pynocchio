@@ -25,10 +25,6 @@ class Loader(QtCore.QObject):
 
     def __init__(self, extension):
         super(Loader, self).__init__()
-
-        if not isinstance(extension, list):
-            raise TypeError
-
         self.extension = extension
         self.data = []
 

@@ -75,10 +75,10 @@ class MainWindowModel(QtCore.QObject):
                             '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
 
         ld = LoaderFactory.create_loader(
-            Utility.get_file_extension(filename), image_extensions)
+            Utility.get_file_extension(filename), set(image_extensions))
 
         ld.progress.connect(self.load_progressbar_value)
-        ld.progress.connect(self.load_progressbar_done)
+        # ld.progress.connect(self.load_progressbar_done)
 
         try:
             ld.load(filename)
@@ -96,8 +96,10 @@ class MainWindowModel(QtCore.QObject):
         self.comic = Comic(Utility.get_base_name(filename),
                            Utility.get_dir_name(filename), initial_page)
 
-        for index, p in enumerate(ld.data):
-            self.comic.add_page(Page(p['data'], p['name'], index + 1))
+        self.comic.pages = ld.data
+
+        # for index, p in enumerate(ld.data):
+        #     self.comic.add_page(Page(p['data'], p['name'], index + 1))
 
         self.current_directory = Utility.get_dir_name(filename)
         self.path_file_filter.parse(filename)

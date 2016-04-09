@@ -30,6 +30,7 @@ from utility import Utility
 from src.pynocchio_exception import LoadComicsException
 from src.pynocchio_exception import InvalidTypeFileException
 from src.pynocchio_exception import NoDataFindException
+from page import Page
 
 
 class RarLoader(Loader):
@@ -43,29 +44,33 @@ class RarLoader(Loader):
         try:
             rar = rarfile.RarFile(file_name, 'r')
         except rarfile.RarOpenError as excp:
-            self.done.emit()
+            # self.done.emit()
             raise InvalidTypeFileException(excp.message)
         except IOError as excp:
-            self.done.emit()
+            # self.done.emit()
             raise LoadComicsException(excp.strerror)
 
         name_list = rar.namelist()
         name_list.sort()
 
-        list_size = len(name_list)
-        count = 1
+        # list_size = len(name_list)
+        # count = 1
+        aux = 100.0 / len(name_list)
+        page_number = 1
 
-        for name in name_list:
-            file_extension = Utility.get_file_extension(name)
+        for idx, name in enumerate(name_list):
+            # file_extension = Utility.get_file_extension(name)
 
-            if not rar.getinfo(name).isdir() and file_extension.lower() in \
-                    self.extension:
-                self.data.append({'data': rar.read(name), 'name': name})
-                self.progress.emit(count * 100 / list_size)
+            if Utility.get_file_extension(name).lower() in self.extension:
+                # self.data.append({'data': rar.read(name), 'name': name})
+                self.data.append(Page(rar.read(name), name, page_number))
+                page_number += 1
 
-            count += 1
+            self.progress.emit(idx * aux)
 
-        self.done.emit()
+            # count += 1
+
+        # self.done.emit()
         rar.close()
 
         if not self.data:
