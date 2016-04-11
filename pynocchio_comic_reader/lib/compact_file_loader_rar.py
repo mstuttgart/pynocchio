@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from pynocchio_exception import DependenceNotFoundException
+from pynocchio_comic_reader.lib.pynocchio_exception import DependenceNotFoundException
 
 try:
     import rarfile
@@ -27,9 +27,10 @@ except ImportError as err:
 
 from compact_file_loader import Loader
 from utility import Utility
-from pynocchio_exception import LoadComicsException
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import NoDataFindException
+from pynocchio_comic_reader.lib.pynocchio_exception import LoadComicsException
+from pynocchio_comic_reader.lib.pynocchio_exception import InvalidTypeFileException
+from pynocchio_comic_reader.lib.pynocchio_exception import NoDataFindException
+from page import Page
 
 
 class RarLoader(Loader):
@@ -40,41 +41,40 @@ class RarLoader(Loader):
         super(RarLoader, self).__init__(extension)
 
     def load(self, file_name):
-
         try:
             rar = rarfile.RarFile(file_name, 'r')
         except rarfile.RarOpenError as excp:
+            # self.done.emit()
             raise InvalidTypeFileException(excp.message)
-            # print '[ERROR]', excp.message
-            # return False
         except IOError as excp:
+            # self.done.emit()
             raise LoadComicsException(excp.strerror)
-            # print '[ERROR]', excp.strerror
-            # return False
 
         name_list = rar.namelist()
         name_list.sort()
 
-        list_size = len(name_list)
-        count = 1
+        # list_size = len(name_list)
+        # count = 1
+        aux = 100.0 / len(name_list)
+        page_number = 1
 
-        for name in name_list:
-            file_extension = Utility.get_file_extension(name)
+        for idx, name in enumerate(name_list):
+            # file_extension = Utility.get_file_extension(name)
 
-            if not rar.getinfo(name).isdir() and file_extension.lower() in \
-                    self.extension:
-                self.data.append({'data': rar.read(name), 'name': name})
-                self.progress.emit(count * 100 / list_size)
+            if Utility.get_file_extension(name).lower() in self.extension:
+                # self.data.append({'data': rar.read(name), 'name': name})
+                self.data.append(Page(rar.read(name), name, page_number))
+                page_number += 1
 
-            count += 1
+            self.progress.emit(idx * aux)
 
-        self.done.emit()
+            # count += 1
+
+        # self.done.emit()
         rar.close()
 
         if not self.data:
             raise NoDataFindException
-
-        # return True if self.data else False
 
 
 class CbrLoader(RarLoader):

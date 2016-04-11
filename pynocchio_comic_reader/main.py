@@ -16,35 +16,34 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import sys
+from PyQt4 import QtGui, QtCore
 
-try:
-    from PyQt4 import QtCore, QtGui
-except ImportError, err:
-    sys.exit(err)
-
-from lib.main_window_controller import MainWindowController
+from lib.main_window_model import MainWindowModel
+from lib.main_window_view import MainWindowView
 
 
-def main():
-    app = QtGui.QApplication(sys.argv)
-    app.setApplicationName('pynocchio-comic-reader')
-    app.setApplicationVersion('1.0.0')
+class App(QtGui.QApplication):
 
-    qm = QtCore.QLocale.system().name()
+    def __init__(self, sys_argv):
+        super(App, self).__init__(sys_argv)
 
-    if qm != 'en_US':
-        translator = QtCore.QTranslator()
-        try:
-            translator.load('locale/qt_%s.qm' % qm)
-            app.installTranslator(translator)
-        except IOError:
-            print 'Translation file qt_%s.qm not find' % qm
+        self.setApplicationName('Pynocchio Comic Reader')
+        self.setApplicationVersion('1.1.0')
 
-    main_window = MainWindowController()
-    main_window.show()
+        qm = QtCore.QLocale.system().name()
 
+        if qm != 'en_US':
+            translator = QtCore.QTranslator()
+            try:
+                translator.load('locale/qt_%s.qm' % qm)
+                self.installTranslator(translator)
+            except IOError:
+                print 'Translation file qt_%s.qm not find' % qm
+
+        self.model = MainWindowModel()
+        self.view_control = MainWindowView(self.model)
+        self.view_control.show()
+
+if __name__ == '__main__':
+    app = App(sys.argv)
     sys.exit(app.exec_())
-
-
-if __name__ == "__main__":
-    main()

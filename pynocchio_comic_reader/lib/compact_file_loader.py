@@ -15,20 +15,16 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import QtCore
+from PySide import QtCore
 
 
 class Loader(QtCore.QObject):
 
-    progress = QtCore.pyqtSignal(int)
-    done = QtCore.pyqtSignal()
+    progress = QtCore.Signal(int)
+    done = QtCore.Signal()
 
     def __init__(self, extension):
         super(Loader, self).__init__()
-
-        if not isinstance(extension, list):
-            raise TypeError
-
         self.extension = extension
         self.data = []
 

@@ -16,6 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Keep the unused import here, because all_subclasses method
+
 from compact_file_loader import Loader
 from compact_file_loader_zip import *
 from compact_file_loader_rar import *

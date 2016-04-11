@@ -15,16 +15,12 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import uic
-from utility import Utility
-
-root_dir = Utility.get_parent_path(__file__)
-
-AboutDialogForm, AboutDialogBase = \
-    uic.loadUiType(Utility.join_path(root_dir, 'gui', 'about_dialog.ui'))
+from PySide import QtGui
+from uic_files.ui_about_dialog import Ui_AboutDialog
 
 
-class AboutDialog(AboutDialogForm, AboutDialogBase):
+class AboutDialog(QtGui.QDialog):
     def __init__(self, parent=None):
         super(AboutDialog, self).__init__(parent)
-        self.setupUi(self)
+        self.ui = Ui_AboutDialog()
+        self.ui.setupUi(self)

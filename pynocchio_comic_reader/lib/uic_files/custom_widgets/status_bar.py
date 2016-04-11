@@ -14,10 +14,12 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-from PyQt4 import QtCore, QtGui
+
+from PySide import QtCore, QtGui
 
 
 class StatusBar(QtGui.QStatusBar):
+
     def __init__(self, parent=None):
         super(StatusBar, self).__init__(parent)
 
@@ -55,15 +57,14 @@ class StatusBar(QtGui.QStatusBar):
 
     def add_progress_bar(self, maximum_value=100):
 
-        if self.progress_bar is None:
-            self.remove_labels()
-            self.remove_slider()
-            self.progress_bar = QtGui.QProgressBar()
-            self.progress_bar.setFixedHeight(15)
-            self.progress_bar.setMaximum(maximum_value)
-            self.progress_bar.setMaximumWidth(self.width())
-            self.addWidget(self.progress_bar, 3)
-            self.progress_bar.show()
+        self.remove_labels()
+        self.remove_slider()
+        self.progress_bar = QtGui.QProgressBar()
+        self.progress_bar.setFixedHeight(15)
+        self.progress_bar.setMaximum(maximum_value)
+        self.progress_bar.setMaximumWidth(self.width())
+        self.addWidget(self.progress_bar, 3)
+        self.progress_bar.show()
 
     def add_slider(self):
 
@@ -121,12 +122,13 @@ class StatusBar(QtGui.QStatusBar):
 
         self.comic_path.setText(self.tr('Title: ') + path)
 
-    @QtCore.pyqtSlot(int)
+    @QtCore.Slot(int)
     def set_progressbar_value(self, n):
-        self.add_progress_bar()
+        if self.progress_bar is None:
+            self.add_progress_bar()
         self.progress_bar.setValue(n)
 
-    @QtCore.pyqtSlot()
+    @QtCore.Slot()
     def close_progress_bar(self):
         self.remove_progress_bar()
         self.add_page_number_label()

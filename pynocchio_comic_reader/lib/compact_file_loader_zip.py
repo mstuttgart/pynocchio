@@ -18,8 +18,11 @@
 import zipfile
 
 from compact_file_loader import Loader
+from page import Page
+from pynocchio_comic_reader.lib.pynocchio_exception import InvalidTypeFileException
+from pynocchio_comic_reader.lib.pynocchio_exception import LoadComicsException
+from pynocchio_comic_reader.lib.pynocchio_exception import NoDataFindException
 from utility import Utility
-from pynocchio_exception import LoadComicsException, InvalidTypeFileException, NoDataFindException
 
 
 class ZipLoader(Loader):
@@ -40,24 +43,27 @@ class ZipLoader(Loader):
         except IOError as excp:
             raise LoadComicsException(excp.message)
 
-        self._clear_data()
+        # self._clear_data()
         name_list = zf.namelist()
         name_list.sort()
+        #
+        # list_size =
+        # count = 1
+        aux = 100.0 / len(name_list)
+        page_number = 1
 
-        list_size = len(name_list)
-        count = 1
+        for idx, name in enumerate(name_list):
 
-        for info in name_list:
-            file_extension = Utility.get_file_extension(info)
+            if Utility.get_file_extension(name).lower() in self.extension:
+                self.data.append(Page(zf.read(name), name, page_number))
+                page_number += 1
+                # self.data.append({'data': zf.read(info), 'name': info})
 
-            if not Utility.is_dir(info) and file_extension.lower() in \
-                    self.extension:
-                self.data.append({'data': zf.read(info), 'name': info})
-                self.progress.emit(count * 100 / list_size)
+            self.progress.emit(idx * aux)
 
-            count += 1
+            # count += 1
 
-        self.done.emit()
+        # self.done.emit()
         zf.close()
 
         if not self.data:

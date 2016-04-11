@@ -14,19 +14,24 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-from manga_panda_parser import MangaPandaParser
+
+from PySide import QtGui, QtCore
+
+from progress_dialog_ui import Ui_QProgressDialog
 
 
-_product = {
-    'MangaPanda': MangaPandaParser,
-}
+class QProgressBarDialog(QtGui.QDialog):
 
+    def __init__(self, model, parent=None):
+        super(QProgressBarDialog, self).__init__(parent)
 
-class ParserFactory(object):
+        self.ui = Ui_QProgressDialog()
+        self.ui.setupUi(self)
+        model.load_progress.connect(self.set_progressbar_value)
+        model.load_done.connect(self.close)
+        QtGui.QApplication.processEvents()
 
-    @staticmethod
-    def create_loader(parser_name):
-        if parser_name in _product:
-            return _product[parser_name]()
+    def set_progressbar_value(self, n):
+        print 'tetet', n
+        self.ui.progress_bar.setValue(n)
 
-        return None
