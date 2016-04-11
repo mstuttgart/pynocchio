@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/bookmark_manager_dialog.ui'
 #
-# Created: Mon Apr 11 17:14:56 2016
+# Created: Mon Apr 11 17:51:52 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,7 +13,7 @@ class Ui_Bookmark_Dialog(object):
     def setupUi(self, Bookmark_Dialog):
         Bookmark_Dialog.setObjectName("Bookmark_Dialog")
         Bookmark_Dialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        Bookmark_Dialog.resize(726, 436)
+        Bookmark_Dialog.resize(750, 436)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)

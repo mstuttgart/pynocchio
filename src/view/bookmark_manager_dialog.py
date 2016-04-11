@@ -75,6 +75,8 @@ class BookmarkManagerDialog(QtGui.QDialog):
             #     self.selection_changed)
             # sel = self.ui.bookmark_table.selectionModel()
             # seel.
+            selection = self.ui.bookmark_table.selectionModel()
+            selection.selectionChanged.connect(self.selection_changed)
 
             self.no_cover_label = self.ui.page_image_label.pixmap(
             ).scaledToWidth(self.width() * self.SCALE_RATIO,
@@ -94,17 +96,17 @@ class BookmarkManagerDialog(QtGui.QDialog):
         info = QtCore.QFileInfo(model.settings_manager.settings.fileName())
         return info.absoluteDir().absolutePath() + u'/bookmark.db'
 
-    def selection_changed(self, current, previous):
+    def selection_changed(self, selected, deselected):
 
-        model_indexes = current.indexes()
+        model_indexes = selected.indexes()
 
         if model_indexes:
             pixmap = QtGui.QPixmap()
-            pixmap.loadFromData(model_indexes[4].data().toByteArray())
+            pixmap.loadFromData(model_indexes[4].data())
             pixmap = pixmap.scaledToWidth(self.width() * self.SCALE_RATIO,
                                           QtCore.Qt.SmoothTransformation)
             self.ui.page_image_label.setPixmap(pixmap)
-            self.ui.line_edit_path.setText(model_indexes[1].data().toString())
+            self.ui.line_edit_path.setText(model_indexes[1].data())
 
         else:
             self.ui.page_image_label.setPixmap(self.no_cover_label)
@@ -129,9 +131,9 @@ class BookmarkManagerDialog(QtGui.QDialog):
 
     def _get_comic_to_open(self):
         selection_model = self.ui.bookmark_table.selectionModel()
-        path = selection_model.selectedRows(1)[0].data().toString()
-        page = selection_model.selectedRows(3)[0].data().toInt()[0]
-        self.controller.load(path, page - 1)
+        path = selection_model.selectedRows(1)[0].data()
+        page = selection_model.selectedRows(3)[0].data()
+        self.controller.open_comics(path, page - 1)
         self.close()
 
     def close(self):

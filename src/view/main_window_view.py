@@ -20,13 +20,6 @@ from PySide import QtGui, QtCore
 from src.pynocchio_exception import InvalidTypeFileException
 from src.pynocchio_exception import LoadComicsException
 
-# SCRIPT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
-# print SCRIPT_DIRECTORY
-
-# from qwebimage_widget import QWebImageWidget
-# from status_bar import StatusBar
-# from utility import Utility
-
 from main_window_view_ui import Ui_MainWindowView
 
 
@@ -49,17 +42,13 @@ class MainWindowView(QtGui.QMainWindow):
         self.ui.menu_recent_files.menuAction().setVisible(False)
 
         self.global_shortcuts = self._define_global_shortcuts()
-
         self.create_connections()
         self.centralize_window()
 
         self.update_recent_file_actions()
 
-        # self.model.scroll_area_size = self.get_current_view_container_size()
-
         self.model.load_progress.connect(
             self.ui.statusbar.set_progressbar_value)
-        # self.model.load_done.connect(self.ui.statusbar.close_progress_bar)
 
     @QtCore.Slot()
     def on_action_open_file_triggered(self):
@@ -209,7 +198,7 @@ class MainWindowView(QtGui.QMainWindow):
                'specifically designed  to ' \
                'handle comic books is licensed <br>under the ' \
                'GPLv3.<justify></p>'\
-               '<br>Copyright (C) 2014-2015 ' \
+               '<br>Copyright (C) 2014-2016 ' \
                '<a href=https://github.com/mstuttgart>' \
                'Michell Stuttgart Faria</a>'\
                '<br>Pynocchio use <a href=http://freeiconmaker.com>Free Icon ' \
@@ -239,11 +228,6 @@ class MainWindowView(QtGui.QMainWindow):
 
     def create_connections(self):
 
-        # self.ui.action_bookmark_manager.triggered.connect(ctrl.bookmark_manager)
-        #
-        # self.ui.action_preference_dialog.triggered.connect(
-        #     ctrl.preference_dialog)
-        #
         # Define group to action fit items and load fit of settings file
         self.ui.action_group_view = QtGui.QActionGroup(self)
 
@@ -261,18 +245,6 @@ class MainWindowView(QtGui.QMainWindow):
                 act.setChecked(True)
                 self.model.fit_type = act.objectName()
 
-        # # Create action to receive recent files
-        # for i in xrange(MainWindowView.MaxRecentFiles):
-        #     act = QtGui.QAction(
-        #         self, visible=True, triggered=self.open_recent_file)
-        #     self.ui.menu_recent_files.addAction(act)
-
-        # # Create action to receive bookmark files
-        # for i in xrange(MainWindowView.MaxBookmarkFiles):
-        #     act = QtGui.QAction(
-        #         self, visible=True, triggered=self.open_recent_bookmark)
-        #     self.ui.menu_recent_bookmarks.addAction(act)
-
         # Connect recent file menu
         for act in self.ui.menu_recent_files.actions():
             act.triggered.connect(self.open_recent_file)
@@ -281,11 +253,9 @@ class MainWindowView(QtGui.QMainWindow):
         for act in self.ui.menu_recent_bookmarks.actions():
             act.triggered.connect(self.open_recent_bookmark)
 
+        # update recent bookmark menu when mouse hover
         self.ui.menu_recent_bookmarks.aboutToShow.connect(
             self.update_recent_bookmarks_menu)
-        #
-        # for bk in self.ui.menu_recent_bookmarks.actions():
-        #     bk.triggered.connect(ctrl.open_recent_bookmark)
 
     def _define_global_shortcuts(self):
 

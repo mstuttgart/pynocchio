@@ -784,6 +784,9 @@
    <property name="text">
     <string>Preferences</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="action_vertical_fit">
    <property name="checkable">

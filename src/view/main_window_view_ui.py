@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/main_window_view.ui'
 #
-# Created: Mon Apr 11 17:14:56 2016
+# Created: Mon Apr 11 17:51:52 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -302,6 +302,7 @@ class Ui_MainWindowView(object):
         icon20 = QtGui.QIcon()
         icon20.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/document-properties.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_preference_dialog.setIcon(icon20)
+        self.action_preference_dialog.setVisible(False)
         self.action_preference_dialog.setObjectName("action_preference_dialog")
         self.action_vertical_fit = QtGui.QAction(MainWindowView)
         self.action_vertical_fit.setCheckable(True)
