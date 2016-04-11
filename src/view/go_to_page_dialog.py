@@ -16,25 +16,27 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PySide import QtCore, QtGui
-
+from go_to_page_dialog_ui import Ui_GoPageDialog
 # from ..model.utility import Utility
 
 
 class GoToDialog(QtGui.QDialog):
 
-    def __init__(self, controller, parent=None):
-        super(GoToDialog, self).__init__(parent)
-        self.setupUi(self)
+    def __init__(self, controller):
+        super(GoToDialog, self).__init__()
+
+        self.ui = Ui_GoPageDialog()
+        self.ui.setupUi(self)
 
         self.controller = controller
         self.model = controller.model
-        self.spin_box_go_page.setValue(
+        self.ui.spin_box_go_page.setValue(
             self.model.comic.get_current_page_number())
         self.change_label_image()
 
     def accept(self, *args, **kwargs):
-        self.model.set_current_page_index(self.spin_box_go_page.value() - 1)
-        self.controller.set_view_content(self.model.get_current_page())
+        self.model.set_current_page_index(self.ui.spin_box_go_page.value() - 1)
+        self.controller.update_viewer_content()
         super(GoToDialog, self).accept(*args, **kwargs)
 
     def rejected(self, *args, **kwargs):
@@ -43,12 +45,12 @@ class GoToDialog(QtGui.QDialog):
         super(GoToDialog, self).rejected(*args, **kwargs)
 
     def change_label_image(self):
-        self.model.set_current_page_index(self.spin_box_go_page.value() - 1)
+        self.model.set_current_page_index(self.ui.spin_box_go_page.value() - 1)
         image_page = self.model.get_current_page()
         image_page = image_page.scaledToHeight(
             self.height() * 0.6, QtCore.Qt.SmoothTransformation)
 
-        self.label_icon.setPixmap(image_page)
+        self.ui.label_icon.setPixmap(image_page)
 
     def update(self):
         self.change_label_image()
@@ -58,10 +60,10 @@ class GoToDialog(QtGui.QDialog):
         current_page_idx = self.model.get_current_page_index()
         num_page = self.model.comic.get_number_of_pages()
 
-        self.line_edit_current_page.setText(str(current_page_idx + 1))
-        self.line_edit_num_page.setText(str(num_page))
+        self.ui.line_edit_current_page.setText(str(current_page_idx + 1))
+        self.ui.line_edit_num_page.setText(str(num_page))
 
-        self.spin_box_go_page.setValue(current_page_idx + 1)
-        self.spin_box_go_page.setMaximum(num_page)
+        self.ui.spin_box_go_page.setValue(current_page_idx + 1)
+        self.ui.spin_box_go_page.setMaximum(num_page)
 
         super(GoToDialog, self).show()

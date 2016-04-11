@@ -133,6 +133,14 @@ class MainWindowView(QtGui.QMainWindow):
         self.update_viewer_content()
 
     @QtCore.Slot()
+    def on_action_go_to_page_triggered(self):
+        import go_to_page_dialog
+        go_to_dlg = go_to_page_dialog.GoToDialog(self)
+        go_to_dlg.show()
+        go_to_dlg.exec_()
+        self.update_navegation_actions()
+
+    @QtCore.Slot()
     def on_action_add_bookmark_triggered(self):
         self.model.add_bookmark()
         self.update_bookmark_actions()
@@ -144,7 +152,10 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def on_action_bookmark_manager_triggered(self):
-        print
+        from bookmark_manager_dialog import BookmarkManagerDialog
+        bookmark_dialog = BookmarkManagerDialog(self)
+        bookmark_dialog.show()
+        bookmark_dialog.exec_()
 
     @QtCore.Slot()
     def on_action_preference_dialog_triggered(self):
@@ -362,8 +373,6 @@ class MainWindowView(QtGui.QMainWindow):
 
     def update_recent_file_actions(self):
 
-        # max_recent_files = len(self.ui.menu_recent_files.actions())
-
         files = self.model.load_recent_files()
         num_recent_files = len(files) if files else 0
         num_recent_files = min(num_recent_files, MainWindowView.MaxRecentFiles)
@@ -416,9 +425,6 @@ class MainWindowView(QtGui.QMainWindow):
         action = self.sender()
         if action:
             self.open_comics(action.statusTip(), action.data() - 1)
-            # bk = self.model.get_bookmark_from_path(action.data())
-            # if bk:
-            #     self.open_comics(bk.comic_path, bk.comic_page - 1)
 
     def enable_actions(self):
 
@@ -482,24 +488,20 @@ class MainWindowView(QtGui.QMainWindow):
 
     def get_current_view_container_size(self):
         return self.ui.qscroll_area_viewer.size()
-    #
-    # def change_background_color(self, color):
-    #     self.current_view_container.change_background_color(color)
-    #
-    # @QtCore.pyqtSlot()
-    # def on_action_show_toolbar_triggered(self):
-    #     if self.action_show_toolbar.isChecked():
-    #         self.toolbar.show()
-    #     else:
-    #         self.toolbar.hide()
-    #
-    # @QtCore.pyqtSlot()
-    # def on_action_show_statusbar_triggered(self):
-    #     if self.action_show_statusbar.isChecked():
-    #         self.statusbar.show()
-    #     else:
-    #         self.statusbar.hide()
-    #
+
+    @QtCore.Slot()
+    def on_action_show_toolbar_triggered(self):
+        if self.ui.action_show_toolbar.isChecked():
+            self.ui.toolbar.show()
+        else:
+            self.ui.toolbar.hide()
+
+    @QtCore.Slot()
+    def on_action_show_statusbar_triggered(self):
+        if self.ui.action_show_statusbar.isChecked():
+            self.ui.statusbar.show()
+        else:
+            self.ui.statusbar.hide()
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:

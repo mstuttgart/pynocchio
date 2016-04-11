@@ -14,7 +14,7 @@
    <string>Go to Page</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../rsc/main_window_view.qrc">
+   <iconset resource="../rsc/main_window_view.qrc">
     <normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</iconset>
   </property>
   <property name="modal">
@@ -75,8 +75,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>246</width>
-             <height>341</height>
+             <width>258</width>
+             <height>378</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
@@ -218,7 +218,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../../rsc/main_window_view.qrc"/>
+  <include location="../rsc/main_window_view.qrc"/>
  </resources>
  <connections>
   <connection>
