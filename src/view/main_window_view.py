@@ -44,8 +44,8 @@ class MainWindowView(QtGui.QMainWindow):
         self.ui.menu_recent_files.menuAction().setVisible(False)
         self.global_shortcuts = self._define_global_shortcuts()
 
-        self._create_connections()
-        self._centralize_window()
+        self.create_connections()
+        self.centralize_window()
 
         # self.model.scroll_area_size = self.get_current_view_container_size()
 
@@ -126,19 +126,13 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def on_action_add_bookmark_triggered(self):
-        if not self.model.add_bookmark():
-            QtGui.QMessageBox.critical(None, QtGui.qApp.tr("Cannot open database"),
-                    QtGui.qApp.tr("Unable to establish a database connection.\n"
-                                  "This example needs SQLite support. Please read "
-                                  "the Qt SQL driver documentation for information "
-                                  "how to build it.\n\nClick Cancel to exit."),
-                    QtGui.QMessageBox.Cancel, QtGui.QMessageBox.NoButton)
-        # return False
-
+        self.model.add_bookmark()
+        self.update_bookmark_buttons()
 
     @QtCore.Slot()
     def on_action_remove_bookmark_triggered(self):
-        print
+        self.model.remove_bookmark()
+        self.update_bookmark_buttons()
 
     @QtCore.Slot()
     def on_action_bookmark_manager_triggered(self):
@@ -224,7 +218,7 @@ class MainWindowView(QtGui.QMainWindow):
     def closeEvent(self, event):
         self.model.save_settings()
 
-    def _create_connections(self):
+    def create_connections(self):
 
         # self.ui.action_add_bookmark.triggered.connect(ctrl.add_bookmark)
         # self.ui.action_remove_bookmark.triggered.connect(ctrl.remove_bookmark)
@@ -310,11 +304,8 @@ class MainWindowView(QtGui.QMainWindow):
                 # Add this comic like recent file
                 self.set_current_file(filename)
 
-                self.ui.action_previous_comic.setEnabled(
-                    not self.model.is_firts_comic())
-
-                self.ui.action_next_comic.setEnabled(
-                    not self.model.is_last_comic())
+                # Update status of add and remove bookmark buttons
+                self.update_bookmark_buttons()
 
             except LoadComicsException as excp:
                 QtGui.QMessageBox().warning(self,
@@ -377,6 +368,17 @@ class MainWindowView(QtGui.QMainWindow):
         self.ui.action_next_page.setEnabled(not is_last_page)
         self.ui.action_last_page.setEnabled(not is_last_page)
 
+        self.ui.action_previous_comic.setEnabled(
+                    not self.model.is_firts_comic())
+
+        self.ui.action_next_comic.setEnabled(
+                    not self.model.is_last_comic())
+
+    def update_bookmark_buttons(self):
+        is_bookmark = self.model.is_bookmark()
+        self.ui.action_remove_bookmark.setVisible(is_bookmark)
+        self.ui.action_add_bookmark.setVisible(not is_bookmark)
+
     def enable_actions(self):
 
         action_list = self.ui.menu_file.actions()
@@ -401,7 +403,7 @@ class MainWindowView(QtGui.QMainWindow):
                 self.ui.statusbar.set_page_resolution(page_width, page_height)
                 self.ui.statusbar.set_comic_path(page_title)
 
-    def _centralize_window(self):
+    def centralize_window(self):
         screen = QtGui.QDesktopWidget().screenGeometry()
         self.setMinimumSize(screen.size() * 0.8)
         size = self.geometry()

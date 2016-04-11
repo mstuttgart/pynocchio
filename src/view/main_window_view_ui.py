@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/main_window_view.ui'
 #
-# Created: Thu Apr  7 19:35:11 2016
+# Created: Mon Apr 11 11:55:58 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -274,6 +274,8 @@ class Ui_MainWindowView(object):
         icon16 = QtGui.QIcon()
         icon16.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/64/stock_delete.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_remove_bookmark.setIcon(icon16)
+        self.action_remove_bookmark.setVisible(False)
+        self.action_remove_bookmark.setIconVisibleInMenu(True)
         self.action_remove_bookmark.setObjectName("action_remove_bookmark")
         self.action_bookmark_manager = QtGui.QAction(MainWindowView)
         self.action_bookmark_manager.setEnabled(True)
@@ -411,6 +413,7 @@ class Ui_MainWindowView(object):
         self.toolbar.addSeparator()
         self.toolbar.addAction(self.action_go_to_page)
         self.toolbar.addAction(self.action_add_bookmark)
+        self.toolbar.addAction(self.action_remove_bookmark)
         self.toolbar.addAction(self.action_bookmark_manager)
         self.toolbar.addSeparator()
         self.toolbar.addAction(self.action_rotate_left)

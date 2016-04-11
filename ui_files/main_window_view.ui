@@ -396,6 +396,7 @@
    <addaction name="separator"/>
    <addaction name="action_go_to_page"/>
    <addaction name="action_add_bookmark"/>
+   <addaction name="action_remove_bookmark"/>
    <addaction name="action_bookmark_manager"/>
    <addaction name="separator"/>
    <addaction name="action_rotate_left"/>
@@ -708,6 +709,12 @@
    </property>
    <property name="text">
     <string>&amp;Remove bookmark</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
    </property>
   </action>
   <action name="action_bookmark_manager">

@@ -23,7 +23,16 @@ except ImportError, err:
     import sys
     sys.exit(err)
 
-db = peewee.SqliteDatabase('bookmark.db')
+from PySide import QtCore
+from settings_manager import SettingsManager
+
+
+# get settings path. In Linux is .config/Pynocchio Comic Reader
+def get_settings_path():
+    info = QtCore.QFileInfo(SettingsManager().settings.fileName())
+    return info.absoluteDir().absolutePath() + u'/bookmark.db'
+
+db = peewee.SqliteDatabase(get_settings_path())
 
 
 class BookmarkBaseModel(peewee.Model):
