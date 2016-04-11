@@ -234,11 +234,6 @@
       <iconset resource="../../rsc/main_window_view.qrc">
        <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
      </property>
-     <addaction name="action_recent_file_1"/>
-     <addaction name="action_recent_file_2"/>
-     <addaction name="action_recent_file_3"/>
-     <addaction name="action_recent_file_4"/>
-     <addaction name="action_recent_file_5"/>
     </widget>
     <addaction name="action_open"/>
     <addaction name="action_open_folder"/>

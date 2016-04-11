@@ -33,6 +33,7 @@ from main_window_view_ui import Ui_MainWindowView
 class MainWindowView(QtGui.QMainWindow):
 
     MaxRecentFiles = 5
+    MaxBookmarkFiles = 5
 
     def __init__(self, model, parent=None):
         super(MainWindowView, self).__init__(parent)
@@ -41,11 +42,18 @@ class MainWindowView(QtGui.QMainWindow):
         self.ui = Ui_MainWindowView()
         self.ui.setupUi(self)
 
+        MainWindowView.MaxRecentFiles = len(self.ui.menu_recent_files.actions())
+        MainWindowView.MaxBookmarkFiles = \
+            len(self.ui.menu_recent_bookmarks.actions())
+
         self.ui.menu_recent_files.menuAction().setVisible(False)
+
         self.global_shortcuts = self._define_global_shortcuts()
 
         self.create_connections()
         self.centralize_window()
+
+        self.update_recent_file_actions()
 
         # self.model.scroll_area_size = self.get_current_view_container_size()
 
@@ -54,7 +62,7 @@ class MainWindowView(QtGui.QMainWindow):
         # self.model.load_done.connect(self.ui.statusbar.close_progress_bar)
 
     @QtCore.Slot()
-    def on_action_open_triggered(self):
+    def on_action_open_file_triggered(self):
 
         filename = QtGui.QFileDialog().getOpenFileName(
             self, self.tr('open_comic_file'),
@@ -127,12 +135,12 @@ class MainWindowView(QtGui.QMainWindow):
     @QtCore.Slot()
     def on_action_add_bookmark_triggered(self):
         self.model.add_bookmark()
-        self.update_bookmark_buttons()
+        self.update_bookmark_actions()
 
     @QtCore.Slot()
     def on_action_remove_bookmark_triggered(self):
         self.model.remove_bookmark()
-        self.update_bookmark_buttons()
+        self.update_bookmark_actions()
 
     @QtCore.Slot()
     def on_action_bookmark_manager_triggered(self):
@@ -220,8 +228,6 @@ class MainWindowView(QtGui.QMainWindow):
 
     def create_connections(self):
 
-        # self.ui.action_add_bookmark.triggered.connect(ctrl.add_bookmark)
-        # self.ui.action_remove_bookmark.triggered.connect(ctrl.remove_bookmark)
         # self.ui.action_bookmark_manager.triggered.connect(ctrl.bookmark_manager)
         #
         # self.ui.action_preference_dialog.triggered.connect(
@@ -244,19 +250,31 @@ class MainWindowView(QtGui.QMainWindow):
                 act.setChecked(True)
                 self.model.fit_type = act.objectName()
 
-        # Create action to receive recent files
-        for i in xrange(MainWindowView.MaxRecentFiles):
-            act = QtGui.QAction(
-                self, visible=True, triggered=self.open_recent_file)
-            self.ui.menu_recent_files.addAction(act)
+        # # Create action to receive recent files
+        # for i in xrange(MainWindowView.MaxRecentFiles):
+        #     act = QtGui.QAction(
+        #         self, visible=True, triggered=self.open_recent_file)
+        #     self.ui.menu_recent_files.addAction(act)
 
-        self.update_recent_file_actions()
+        # # Create action to receive bookmark files
+        # for i in xrange(MainWindowView.MaxBookmarkFiles):
+        #     act = QtGui.QAction(
+        #         self, visible=True, triggered=self.open_recent_bookmark)
+        #     self.ui.menu_recent_bookmarks.addAction(act)
 
-        # self.ui.menu_recent_bookmarks.aboutToShow.connect(
-        #     ctrl.update_bookmarks_menu)
+        # Connect recent file menu
+        for act in self.ui.menu_recent_files.actions():
+            act.triggered.connect(self.open_recent_file)
+
+        # Connect recent bookmark menu
+        for act in self.ui.menu_recent_bookmarks.actions():
+            act.triggered.connect(self.open_recent_bookmark)
+
+        self.ui.menu_recent_bookmarks.aboutToShow.connect(
+            self.update_recent_bookmarks_menu)
         #
         # for bk in self.ui.menu_recent_bookmarks.actions():
-        #     bk.triggered.connect(ctrl.load_bookmark)
+        #     bk.triggered.connect(ctrl.open_recent_bookmark)
 
     def _define_global_shortcuts(self):
 
@@ -281,13 +299,13 @@ class MainWindowView(QtGui.QMainWindow):
 
         return shortcuts
 
-    def open_comics(self, filename):
+    def open_comics(self, filename, initial_page=0):
 
         if filename:
 
             try:
                 # Load comic
-                self.model.load(filename)
+                self.model.load(filename, initial_page)
 
                 # Update label and scrool_area_viewer
                 self.update_viewer_content()
@@ -305,7 +323,9 @@ class MainWindowView(QtGui.QMainWindow):
                 self.set_current_file(filename)
 
                 # Update status of add and remove bookmark buttons
-                self.update_bookmark_buttons()
+                self.update_bookmark_actions()
+
+                return True
 
             except LoadComicsException as excp:
                 QtGui.QMessageBox().warning(self,
@@ -317,6 +337,8 @@ class MainWindowView(QtGui.QMainWindow):
                                             self.tr('InvalidTypeFileException'),
                                             self.tr(excp.message),
                                             QtGui.QMessageBox.Close)
+
+        return False
 
     def open_recent_file(self):
         action = self.sender()
@@ -340,6 +362,8 @@ class MainWindowView(QtGui.QMainWindow):
 
     def update_recent_file_actions(self):
 
+        # max_recent_files = len(self.ui.menu_recent_files.actions())
+
         files = self.model.load_recent_files()
         num_recent_files = len(files) if files else 0
         num_recent_files = min(num_recent_files, MainWindowView.MaxRecentFiles)
@@ -349,13 +373,62 @@ class MainWindowView(QtGui.QMainWindow):
         recent_file_actions = self.ui.menu_recent_files.actions()
 
         for i in xrange(num_recent_files):
-            text = "&%d %s" % (i + 1, QtCore.QFileInfo(files[i]).fileName())
+            text = QtCore.QFileInfo(files[i]).fileName()
             recent_file_actions[i].setText(text)
             recent_file_actions[i].setData(files[i])
             recent_file_actions[i].setVisible(True)
+            recent_file_actions[i].setStatusTip(files[i])
 
         for j in xrange(num_recent_files, MainWindowView.MaxRecentFiles):
             recent_file_actions[j].setVisible(False)
+
+    def update_bookmark_actions(self):
+        is_bookmark = self.model.is_bookmark()
+        self.ui.action_remove_bookmark.setVisible(is_bookmark)
+        self.ui.action_add_bookmark.setVisible(not is_bookmark)
+
+        bookmark_list = self.model.get_bookmark_list(
+            MainWindowView.MaxBookmarkFiles)
+        self.ui.menu_recent_bookmarks.menuAction().setVisible(
+            True if bookmark_list else False)
+
+    def update_recent_bookmarks_menu(self):
+
+        bk_actions = self.ui.menu_recent_bookmarks.actions()
+        bookmark_list = self.model.get_bookmark_list(len(bk_actions))
+
+        num_bookmarks_files = len(bookmark_list) if bookmark_list else 0
+        num_bookmarks_files = min(num_bookmarks_files,
+                                  MainWindowView.MaxBookmarkFiles)
+
+        for i in xrange(num_bookmarks_files):
+            bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
+                                   bookmark_list[i].comic_page)
+            bk_actions[i].setText(bk_text)
+            bk_actions[i].setData(bookmark_list[i].comic_page)
+            bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
+            bk_actions[i].setVisible(True)
+
+        for j in xrange(num_bookmarks_files, MainWindowView.MaxBookmarkFiles):
+            bk_actions[j].setVisible(False)
+
+    def open_recent_bookmark(self):
+        action = self.sender()
+        if action:
+            self.open_comics(action.statusTip(), action.data() - 1)
+            # bk = self.model.get_bookmark_from_path(action.data())
+            # if bk:
+            #     self.open_comics(bk.comic_path, bk.comic_page - 1)
+
+    def enable_actions(self):
+
+        action_list = self.ui.menu_file.actions()
+        action_list += self.ui.menu_view.actions()
+        action_list += self.ui.menu_navegation.actions()
+        action_list += self.ui.menu_bookmarks.actions()
+
+        for action in action_list:
+            action.setEnabled(True)
 
     def update_navegation_actions(self):
 
@@ -373,21 +446,6 @@ class MainWindowView(QtGui.QMainWindow):
 
         self.ui.action_next_comic.setEnabled(
                     not self.model.is_last_comic())
-
-    def update_bookmark_buttons(self):
-        is_bookmark = self.model.is_bookmark()
-        self.ui.action_remove_bookmark.setVisible(is_bookmark)
-        self.ui.action_add_bookmark.setVisible(not is_bookmark)
-
-    def enable_actions(self):
-
-        action_list = self.ui.menu_file.actions()
-        action_list += self.ui.menu_view.actions()
-        action_list += self.ui.menu_navegation.actions()
-        action_list += self.ui.menu_bookmarks.actions()
-
-        for action in action_list:
-            action.setEnabled(True)
 
     def update_status_bar(self):
 

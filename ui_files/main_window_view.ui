@@ -252,11 +252,22 @@
      <property name="separatorsCollapsible">
       <bool>false</bool>
      </property>
+     <addaction name="actionRecent_file_1"/>
+     <addaction name="actionRecent_file_2"/>
+     <addaction name="actionRecent_file_3"/>
+     <addaction name="actionRecent_file_4"/>
+     <addaction name="actionRecent_file_5"/>
+     <addaction name="actionRecent_file_6"/>
+     <addaction name="actionRecent_file_7"/>
+     <addaction name="actionRecent_file_8"/>
+     <addaction name="actionRecent_file_9"/>
+     <addaction name="actionRecent_file_10"/>
     </widget>
-    <addaction name="action_open"/>
+    <addaction name="action_open_file"/>
     <addaction name="action_open_folder"/>
-    <addaction name="action_save_image"/>
     <addaction name="menu_recent_files"/>
+    <addaction name="separator"/>
+    <addaction name="action_save_image"/>
     <addaction name="separator"/>
     <addaction name="action_exit"/>
    </widget>
@@ -329,11 +340,11 @@
       <iconset resource="../rsc/main_window_view.qrc">
        <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
      </property>
-     <addaction name="action_bookmark_1"/>
-     <addaction name="action_bookmark_2"/>
-     <addaction name="action_bookmark_3"/>
-     <addaction name="action_bookmark_4"/>
-     <addaction name="action_bookmark_5"/>
+     <addaction name="actionRecent_bookmark_1"/>
+     <addaction name="actionRecent_bookmark_2"/>
+     <addaction name="actionRecent_bookmark_3"/>
+     <addaction name="actionRecent_bookmark_4"/>
+     <addaction name="actionRecent_bookmark_5"/>
     </widget>
     <addaction name="action_add_bookmark"/>
     <addaction name="action_remove_bookmark"/>
@@ -385,7 +396,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="action_open"/>
+   <addaction name="action_open_file"/>
    <addaction name="separator"/>
    <addaction name="action_previous_comic"/>
    <addaction name="action_first_page"/>
@@ -411,24 +422,6 @@
    <addaction name="action_exit"/>
   </widget>
   <widget class="StatusBar" name="statusbar"/>
-  <action name="action_open">
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/address-book-new.svg</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Open</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+O</string>
-   </property>
-   <property name="menuRole">
-    <enum>QAction::TextHeuristicRole</enum>
-   </property>
-   <property name="iconVisibleInMenu">
-    <bool>true</bool>
-   </property>
-  </action>
   <action name="action_about">
    <property name="icon">
     <iconset resource="../rsc/main_window_view.qrc">
@@ -730,11 +723,15 @@
    </property>
   </action>
   <action name="action_open_folder">
+   <property name="icon">
+    <iconset resource="../rsc/main_window_view.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open.svg</iconset>
+   </property>
    <property name="text">
     <string>Open &amp;Folder</string>
    </property>
    <property name="visible">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="menuRole">
     <enum>QAction::TextHeuristicRole</enum>
@@ -857,67 +854,136 @@
     <string>Ctrl+S</string>
    </property>
   </action>
-  <action name="action_bookmark_1">
+  <action name="action_open_file">
    <property name="icon">
     <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</iconset>
    </property>
    <property name="text">
-    <string notr="true">bookmark_1</string>
+    <string>&amp;Open File</string>
    </property>
-   <property name="iconText">
-    <string>bookmark</string>
+   <property name="font">
+    <font/>
    </property>
-   <property name="toolTip">
-    <string>bookmark</string>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionRecent_file_1">
+   <property name="text">
+    <string>recent_file_1</string>
    </property>
    <property name="visible">
     <bool>false</bool>
    </property>
   </action>
-  <action name="action_bookmark_2">
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
-   </property>
+  <action name="actionRecent_file_2">
    <property name="text">
-    <string>bookmark_2</string>
+    <string>recent_file_2</string>
    </property>
    <property name="visible">
     <bool>false</bool>
    </property>
   </action>
-  <action name="action_bookmark_3">
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
-   </property>
+  <action name="actionRecent_file_3">
    <property name="text">
-    <string>bookmark_3</string>
+    <string>recent_file_3</string>
    </property>
    <property name="visible">
     <bool>false</bool>
    </property>
   </action>
-  <action name="action_bookmark_4">
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
-   </property>
+  <action name="actionRecent_file_4">
    <property name="text">
-    <string>bookmark_4</string>
+    <string>recent_file_4</string>
    </property>
    <property name="visible">
     <bool>false</bool>
    </property>
   </action>
-  <action name="action_bookmark_5">
-   <property name="icon">
-    <iconset resource="../rsc/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
-   </property>
+  <action name="actionRecent_file_5">
    <property name="text">
-    <string>bookmark_5</string>
+    <string>recent_file_5</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRecent_file_6">
+   <property name="text">
+    <string>recent_file_6</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRecent_file_7">
+   <property name="text">
+    <string>recent_file_7</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRecent_file_8">
+   <property name="text">
+    <string>recent_file_8</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRecent_file_9">
+   <property name="text">
+    <string>recent_file_9</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRecent_file_10">
+   <property name="text">
+    <string>recent_file_10</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRecent_bookmark_1">
+   <property name="text">
+    <string>recent_bookmark_1</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRecent_bookmark_2">
+   <property name="text">
+    <string>recent_bookmark_2</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRecent_bookmark_3">
+   <property name="text">
+    <string>recent_bookmark_3</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRecent_bookmark_4">
+   <property name="text">
+    <string>recent_bookmark_4</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRecent_bookmark_5">
+   <property name="text">
+    <string>recent_bookmark_5</string>
    </property>
    <property name="visible">
     <bool>false</bool>
