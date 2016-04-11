@@ -17,7 +17,7 @@
 
 from PySide import QtCore, QtGui
 
-from src.lib.uic_files.ui_go_to_page_dialog import Ui_GoPageDialog
+from pynocchio_comic_reader.lib.uic_files.ui_go_to_page_dialog import Ui_GoPageDialog
 
 
 # from ..model.utility import Utility

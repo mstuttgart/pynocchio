@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/main_window_view.ui'
 #
-# Created: Mon Apr 11 18:15:49 2016
+# Created: Mon Apr 11 18:57:49 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -540,8 +540,9 @@ class Ui_MainWindowView(object):
         self.actionRecent_bookmark_4.setText(QtGui.QApplication.translate("MainWindowView", "recent_bookmark_4", None, QtGui.QApplication.UnicodeUTF8))
         self.actionRecent_bookmark_5.setText(QtGui.QApplication.translate("MainWindowView", "recent_bookmark_5", None, QtGui.QApplication.UnicodeUTF8))
 
-from src.lib.status_bar import StatusBar
-from src.lib.qscroll_area_viewer import QScrollAreaViewer
-import src.main_window_view_rc
-import src.main_window_view_rc
-import src.main_window_view_rc
+from custom_widgets.qscroll_area_viewer import QScrollAreaViewer
+from custom_widgets.status_bar import StatusBar
+import main_window_view_rc
+import main_window_view_rc
+import main_window_view_rc
+import main_window_view_rc

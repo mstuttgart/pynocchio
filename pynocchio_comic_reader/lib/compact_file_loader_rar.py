@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from src.lib.pynocchio_exception import DependenceNotFoundException
+from pynocchio_comic_reader.lib.pynocchio_exception import DependenceNotFoundException
 
 try:
     import rarfile
@@ -27,9 +27,9 @@ except ImportError as err:
 
 from compact_file_loader import Loader
 from utility import Utility
-from src.lib.pynocchio_exception import LoadComicsException
-from src.lib.pynocchio_exception import InvalidTypeFileException
-from src.lib.pynocchio_exception import NoDataFindException
+from pynocchio_comic_reader.lib.pynocchio_exception import LoadComicsException
+from pynocchio_comic_reader.lib.pynocchio_exception import InvalidTypeFileException
+from pynocchio_comic_reader.lib.pynocchio_exception import NoDataFindException
 from page import Page
 
 

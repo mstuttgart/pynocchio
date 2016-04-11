@@ -23,7 +23,7 @@ from comic import Comic
 from compact_file_loader_factory import LoaderFactory
 from path_file_filter import PathFileFilter
 from settings_manager import SettingsManager
-from src.lib.pynocchio_exception import NoDataFindException
+from pynocchio_comic_reader.lib.pynocchio_exception import NoDataFindException
 from utility import Utility
 
 

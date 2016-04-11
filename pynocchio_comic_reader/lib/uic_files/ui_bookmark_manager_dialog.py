@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/bookmark_manager_dialog.ui'
 #
-# Created: Mon Apr 11 18:15:49 2016
+# Created: Mon Apr 11 18:57:49 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -120,7 +120,8 @@ class Ui_Bookmark_Dialog(object):
         self.button_cancel.setText(QtGui.QApplication.translate("Bookmark_Dialog", "Cancel", None, QtGui.QApplication.UnicodeUTF8))
         self.button_load.setText(QtGui.QApplication.translate("Bookmark_Dialog", "Load", None, QtGui.QApplication.UnicodeUTF8))
 
-import src.main_window_view_rc
-import src.main_window_view_rc
-import src.main_window_view_rc
-import src.main_window_view_rc
+import main_window_view_rc
+import main_window_view_rc
+import main_window_view_rc
+import main_window_view_rc
+import main_window_view_rc

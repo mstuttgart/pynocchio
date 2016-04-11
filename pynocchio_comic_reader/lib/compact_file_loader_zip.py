@@ -19,9 +19,9 @@ import zipfile
 
 from compact_file_loader import Loader
 from page import Page
-from src.lib.pynocchio_exception import InvalidTypeFileException
-from src.lib.pynocchio_exception import LoadComicsException
-from src.lib.pynocchio_exception import NoDataFindException
+from pynocchio_comic_reader.lib.pynocchio_exception import InvalidTypeFileException
+from pynocchio_comic_reader.lib.pynocchio_exception import LoadComicsException
+from pynocchio_comic_reader.lib.pynocchio_exception import NoDataFindException
 from utility import Utility
 
 

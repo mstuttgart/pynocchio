@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/progress_dialog.ui'
 #
-# Created: Mon Apr 11 18:15:49 2016
+# Created: Mon Apr 11 18:57:49 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!

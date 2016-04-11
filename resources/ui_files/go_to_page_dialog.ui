@@ -14,7 +14,7 @@
    <string>Go to Page</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../rsc/main_window_view.qrc">
+   <iconset resource="../main_window_view.qrc">
     <normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</iconset>
   </property>
   <property name="modal">
@@ -218,7 +218,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../rsc/main_window_view.qrc"/>
+  <include location="../main_window_view.qrc"/>
  </resources>
  <connections>
   <connection>

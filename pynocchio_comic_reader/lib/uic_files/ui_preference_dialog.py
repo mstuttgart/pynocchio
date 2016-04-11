@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/preference_dialog.ui'
 #
-# Created: Mon Apr 11 18:15:49 2016
+# Created: Mon Apr 11 18:57:49 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -82,5 +82,5 @@ class Ui_config_dialog(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QtGui.QApplication.translate("config_dialog", "General", None, QtGui.QApplication.UnicodeUTF8))
         self.close_button.setText(QtGui.QApplication.translate("config_dialog", "Close", None, QtGui.QApplication.UnicodeUTF8))
 
-from src.lib.color_line import ColorLine
-import src.main_window_view_rc
+from lib.color_line import ColorLine
+import main_window_view_rc
