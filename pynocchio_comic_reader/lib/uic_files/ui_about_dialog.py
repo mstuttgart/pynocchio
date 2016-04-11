@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/about_dialog.ui'
 #
-# Created: Mon Apr 11 18:57:49 2016
+# Created: Mon Apr 11 19:10:09 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -147,12 +147,12 @@ class Ui_AboutDialog(object):
         AboutDialog.setWindowTitle(QtGui.QApplication.translate("AboutDialog", "About Pynocchio Reader", None, QtGui.QApplication.UnicodeUTF8))
         self.label_7.setText(QtGui.QApplication.translate("AboutDialog", "GPLv3", None, QtGui.QApplication.UnicodeUTF8))
         self.label_5.setText(QtGui.QApplication.translate("AboutDialog", "License type:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_9.setText(QtGui.QApplication.translate("AboutDialog", "(c) 2014 -2015 Michell Stuttgart", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_9.setText(QtGui.QApplication.translate("AboutDialog", "(c) 2014 -2016 Michell Stuttgart", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("AboutDialog", "Version: ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("AboutDialog", "Developer: ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_8.setText(QtGui.QApplication.translate("AboutDialog", "Copyright:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("AboutDialog", "Michell Stuttgart", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_6.setText(QtGui.QApplication.translate("AboutDialog", "1.0.0", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("AboutDialog", "1.2.0", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("AboutDialog", "Pynocchio Comic Reader", None, QtGui.QApplication.UnicodeUTF8))
         self.label_10.setText(QtGui.QApplication.translate("AboutDialog", "The Pynocchio Comic Reader is an comic and manga reader. ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_11.setText(QtGui.QApplication.translate("AboutDialog", "<a href=http://pynocchio.github.io>Pynocchio Comic Reader</a>", None, QtGui.QApplication.UnicodeUTF8))

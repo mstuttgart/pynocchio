@@ -55,6 +55,8 @@ Obs.: Please, don't forget to install *rarfile* and *peewee* Python modules.
 sudo pip install peewee rarfile
 ```
 
+### TODO:
+[TODO list](https://github.com/mstuttgart/pynocchio-comic-reader/issues/21)
 
 ### I found a bug!
 Please report any and all bugs using the project issue
