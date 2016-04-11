@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>1048</width>
-    <height>560</height>
+    <height>561</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -124,7 +124,7 @@
          <x>0</x>
          <y>0</y>
          <width>1048</width>
-         <height>485</height>
+         <height>486</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -731,7 +731,7 @@
     <string>Open &amp;Folder</string>
    </property>
    <property name="visible">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="menuRole">
     <enum>QAction::TextHeuristicRole</enum>

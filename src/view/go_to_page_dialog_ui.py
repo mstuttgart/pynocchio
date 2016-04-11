@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/go_to_page_dialog.ui'
 #
-# Created: Mon Apr 11 15:33:28 2016
+# Created: Mon Apr 11 17:14:56 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -39,7 +39,7 @@ class Ui_GoPageDialog(object):
         self.scrollArea.setAlignment(QtCore.Qt.AlignCenter)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 246, 341))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 258, 378))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.horizontalLayout = QtGui.QHBoxLayout(self.scrollAreaWidgetContents_2)
         self.horizontalLayout.setObjectName("horizontalLayout")

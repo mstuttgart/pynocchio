@@ -15,25 +15,31 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt4 import QtGui
-from PyQt4 import uic
+# from PyQt4 import QtGui
+# from PyQt4 import uic
+#
+# from src.lib.utility import Utility
+#
+# root_dir = Utility.get_parent_path(__file__)
+# PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType(Utility.join_path(
+#     root_dir, 'gui', 'preference_dialog.ui'))
 
-from src.lib.utility import Utility
-
-root_dir = Utility.get_parent_path(__file__)
-PreferenceDialogForm, PreferenceDialogBase = uic.loadUiType(Utility.join_path(
-    root_dir, 'gui', 'preference_dialog.ui'))
+from PySide import QtCore, QtGui
+from preference_dialog_ui import Ui_config_dialog
 
 
-class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
+class PreferenceDialog(QtGui.QDialog):
+
     def __init__(self, preference, parent=None):
         super(PreferenceDialog, self).__init__(parent)
-        self.setupUi(self)
+
+        self.ui = Ui_config_dialog()
+        self.ui.setupUi(self)
 
         self.preference = preference
-        self.line_edit_color.background_color = \
+        self.ui.line_edit_color.background_color = \
             self.preference.background_color
-        self.background_color_button.clicked.connect(
+        self.ui.background_color_button.clicked.connect(
             self._open_color_dialog)
 
     def _open_color_dialog(self):
@@ -41,10 +47,10 @@ class PreferenceDialog(PreferenceDialogForm, PreferenceDialogBase):
         col = col_dialog.getColor(self.preference.background_color)
         if col.isValid():
             self.preference.background_color = col
-            self.line_edit_color.background_color = col
+            self.ui.line_edit_color.background_color = col
 
     def close(self):
         self.preference.background_color = \
-            self.line_edit_color.background_color
+            self.ui.line_edit_color.background_color
 
         super(PreferenceDialog, self).close()

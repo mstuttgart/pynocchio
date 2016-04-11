@@ -86,6 +86,10 @@ class BookmarkManagerDialog(QtGui.QDialog):
         else:
             log.error("[ERROR] Unable to create talkdb file.")
 
+    @QtCore.Slot(int)
+    def selectRow(self, row):
+        print row
+
     def get_settings_path(self, model):
         info = QtCore.QFileInfo(model.settings_manager.settings.fileName())
         return info.absoluteDir().absolutePath() + u'/bookmark.db'

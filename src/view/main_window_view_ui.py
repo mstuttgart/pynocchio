@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '../ui_files/main_window_view.ui'
 #
-# Created: Mon Apr 11 15:33:28 2016
+# Created: Mon Apr 11 17:14:56 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_MainWindowView(object):
     def setupUi(self, MainWindowView):
         MainWindowView.setObjectName("MainWindowView")
-        MainWindowView.resize(1048, 560)
+        MainWindowView.resize(1048, 561)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -60,7 +60,7 @@ class Ui_MainWindowView(object):
         self.qscroll_area_viewer.setAlignment(QtCore.Qt.AlignCenter)
         self.qscroll_area_viewer.setObjectName("qscroll_area_viewer")
         self.scroll_area_widget_contents = QtGui.QWidget()
-        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 1048, 485))
+        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 1048, 486))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -280,7 +280,7 @@ class Ui_MainWindowView(object):
         icon17 = QtGui.QIcon()
         icon17.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/document-open.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_open_folder.setIcon(icon17)
-        self.action_open_folder.setVisible(True)
+        self.action_open_folder.setVisible(False)
         self.action_open_folder.setMenuRole(QtGui.QAction.TextHeuristicRole)
         self.action_open_folder.setIconVisibleInMenu(True)
         self.action_open_folder.setObjectName("action_open_folder")
