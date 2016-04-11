@@ -1,7 +1,7 @@
 Pynocchio Comic Reader
 ==================
 Pynocchio is a image viewer specialized in manga/comic reading
-developed on PyQt4 API.
+developed on PySide API.
 
 ![](https://lh3.googleusercontent.com/-NUdXYl_JOjs/VvFn3L812JI/AAAAAAAAFlg/B9ykmSlwcG4OkD6a7x7WoaXW9SZlC-ddwCCo/s1152-Ic42/snapshot4.png)
 
@@ -25,9 +25,10 @@ Ludic Game Library makes use of other libraries to perform some of their routine
 
 * To develop:
 * Python 2.7
-* PyQT4 and Qt tools (QtDesigner e QLinguist: 
+* PySide and Qt tools (QtDesigner e QLinguist): 
 ```
-sudo apt-get install python-qt4-dev pyqt4-dev-tools python-qt4-sql qt4-designer qt4-linguist-tools qt4-dev-tools unrar python-lxml
+sudo apt-get install python-pyside pyside-tools python-qt4-sql qt4-designer 
+qt4-linguist-tools qt4-dev-tools unrar
 ```
 * rarfile: 
 ```
@@ -46,7 +47,7 @@ Use de **compile_ui.sh** file to compile views of project.
 ### Download
 In this moment, only Linux version is avaliable:
 
-[pynocchio-comic-reader-beta.deb](https://github.com/mstuttgart/pynocchio-comic-reader/releases/download/v1.0.4/pynocchio-comic-reader-1.0.4-2.deb)
+[pynocchio-comic-reader-beta.deb]()
 
 Obs.: Please, don't forget to install *rarfile* and *peewee* Python modules.
 
@@ -63,4 +64,4 @@ tracker. Be as precise as possible so that the bug can be found easier. Thanks!
 Pynocchio use [Elementary Icon Theme](https://github.com/mstuttgart/elementary3-icon-theme) icon set free pack.
 
 ## Credits
-Copyright (C) 2014-2015 by Michell Stuttgart Faria
+Copyright (C) 2014-2016 by Michell Stuttgart Faria
