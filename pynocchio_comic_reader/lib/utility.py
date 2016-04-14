@@ -16,8 +16,6 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 import os
 
-from PySide import QtCore
-
 
 class Utility(object):
 
@@ -52,15 +50,6 @@ class Utility(object):
     @staticmethod
     def is_dir(file_path):
         return os.path.isdir(file_path)
-
-    @staticmethod
-    def get_home_dir():
-        return os.path.expanduser('~')
-
-    # @staticmethod
-    # def convert_qstring_to_str(qstring):
-    #     if isinstance(qstring, QtCore.QString):
-    #         return str(qstring.toUtf8())
 
     @staticmethod
     def convert_string_to_boolean(string):
