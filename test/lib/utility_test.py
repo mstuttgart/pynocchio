@@ -20,6 +20,7 @@ from pynocchio_comic_reader.lib.utility import Utility
 
 
 class TestUtility(TestCase):
+
     def setUp(self):
         TestCase.setUp(self)
         self.obj = Utility()
