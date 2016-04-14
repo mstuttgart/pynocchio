@@ -1,5 +1,11 @@
 Pynocchio Comic Reader
 ==================
+[![Build Status](https://travis-ci.org/mstuttgart/pynocchio-comic-reader.svg?branch=develop)](https://travis-ci.org/mstuttgart/pynocchio-comic-reader)
+[![Coverage Status](https://coveralls.io/repos/github/mstuttgart/pynocchio-comic-reader/badge.svg?branch=master)](https://coveralls.io/github/mstuttgart/pynocchio-comic-reader?branch=develop)
+[![Code Health](https://landscape.io/github/mstuttgart/pynocchio-comic-reader/develop/landscape.svg?style=flat)](https://landscape.io/github/mstuttgart/pynocchio-comic-reader/develop)
+[![Project Status](https://img.shields.io/badge/status-development-yellow.svg)](https://github.com/mstuttgart/pynocchio-comic-reader/tree/develop)
+[![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
+
 Pynocchio is a image viewer specialized in manga/comic reading
 developed on PySide API.
 
