@@ -1,4 +1,3 @@
-PySide
 rarfile
 peewee
 flake8
