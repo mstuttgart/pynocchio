@@ -18,16 +18,14 @@
 import tarfile
 
 from compact_file_loader import Loader
-from page import Page
-from pynocchio_comic_reader.lib.pynocchio_exception import InvalidTypeFileException
-from pynocchio_comic_reader.lib.pynocchio_exception import LoadComicsException
-from pynocchio_comic_reader.lib.pynocchio_exception import NoDataFindException
 from utility import Utility
+from page import Page
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import LoadComicsException
+from pynocchio_exception import NoDataFindException
 
 
 class TarLoader(Loader):
-
-    EXTENSION = '.tar'
 
     def __init__(self, extension):
         super(TarLoader, self).__init__(extension)
@@ -38,24 +36,17 @@ class TarLoader(Loader):
             tar = tarfile.open(file_name, 'r')
         except tarfile.CompressionError as excp:
             raise InvalidTypeFileException(excp.message)
-            # print '[ERROR]', excp.message
-            # return False
         except IOError as excp:
             raise LoadComicsException(excp.message)
-            # print '[ERROR]', excp.strerror
-            # return False
 
         name_list = tar.getnames()
         name_list.sort()
-
-        # list_size = len(name_list)
         aux = 100.0 / len(name_list)
         page_number = 1
 
         for idx, name in enumerate(name_list):
 
             if Utility.get_file_extension(name).lower() in self.extension:
-                # data = None
                 try:
                     data = tar.extractfile(name).read()
                     self.data.append(Page(data, name, page_number))
@@ -67,23 +58,13 @@ class TarLoader(Loader):
 
             self.progress.emit(idx * aux)
 
-            # if data:
-            #     self.data.append({'data': data, 'name': name})
-            #     self.progress.emit(idx * aux)
-            # count += 1
-
-        # self.done.emit()
         tar.close()
 
         if not self.data:
             raise NoDataFindException
 
-        # return True if self.data else False
-
 
 class CbtLoader(TarLoader):
-
-    EXTENSION = '.cbt'
 
     def __init__(self, extension):
         super(CbtLoader, self).__init__(extension)

@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from pynocchio_comic_reader.lib.pynocchio_exception import DependenceNotFoundException
+from pynocchio_exception import DependenceNotFoundException
 
 try:
     import rarfile
@@ -27,15 +27,13 @@ except ImportError as err:
 
 from compact_file_loader import Loader
 from utility import Utility
-from pynocchio_comic_reader.lib.pynocchio_exception import LoadComicsException
-from pynocchio_comic_reader.lib.pynocchio_exception import InvalidTypeFileException
-from pynocchio_comic_reader.lib.pynocchio_exception import NoDataFindException
 from page import Page
+from pynocchio_exception import LoadComicsException
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import NoDataFindException
 
 
 class RarLoader(Loader):
-
-    EXTENSION = '.rar'
 
     def __init__(self, extension):
         super(RarLoader, self).__init__(extension)
@@ -44,33 +42,23 @@ class RarLoader(Loader):
         try:
             rar = rarfile.RarFile(file_name, 'r')
         except rarfile.RarOpenError as excp:
-            # self.done.emit()
             raise InvalidTypeFileException(excp.message)
         except IOError as excp:
-            # self.done.emit()
             raise LoadComicsException(excp.strerror)
 
         name_list = rar.namelist()
         name_list.sort()
-
-        # list_size = len(name_list)
-        # count = 1
         aux = 100.0 / len(name_list)
         page_number = 1
 
         for idx, name in enumerate(name_list):
-            # file_extension = Utility.get_file_extension(name)
 
             if Utility.get_file_extension(name).lower() in self.extension:
-                # self.data.append({'data': rar.read(name), 'name': name})
                 self.data.append(Page(rar.read(name), name, page_number))
                 page_number += 1
 
             self.progress.emit(idx * aux)
 
-            # count += 1
-
-        # self.done.emit()
         rar.close()
 
         if not self.data:
@@ -78,8 +66,6 @@ class RarLoader(Loader):
 
 
 class CbrLoader(RarLoader):
-
-    EXTENSION = '.cbr'
 
     def __init__(self, extension):
         super(CbrLoader, self).__init__(extension)
