@@ -18,8 +18,8 @@
 import sys
 from PySide import QtGui, QtCore
 
-import lib.main_window_model
-import lib.main_window_view
+from lib.main_window_model import MainWindowModel
+from lib.main_window_view import MainWindowView
 
 
 class App(QtGui.QApplication):
@@ -40,8 +40,8 @@ class App(QtGui.QApplication):
             except IOError:
                 print 'Translation file qt_%s.qm not find' % qm
 
-        self.model = lib.main_window_view.MainWindowModel()
-        self.view_control = lib.main_window_view.MainWindowView(self.model)
+        self.model = MainWindowModel()
+        self.view_control = MainWindowView(self.model)
         self.view_control.show()
 
 if __name__ == '__main__':

@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-import logging
+
 from PySide import QtCore
 from PySide import QtGui
 from PySide import QtSql
@@ -23,8 +23,6 @@ from PySide import QtSql
 from pynocchio_comic_reader.lib.uic_files.ui_bookmark_manager_dialog \
     import Ui_Bookmark_Dialog
 from utility import Utility
-
-log = logging.getLogger(__name__)
 
 
 class BookmarkManagerDialog(QtGui.QDialog):
@@ -75,10 +73,10 @@ class BookmarkManagerDialog(QtGui.QDialog):
                             QtCore.Qt.SmoothTransformation)
 
             self.ui.page_image_label.setPixmap(self.no_cover_label)
-            log.debug('database load!')
+            print '[INFO] Database load!'
 
         else:
-            log.error("[ERROR] Unable to create db file.")
+            print "[ERROR] Unable to create db file."
 
     def selection_changed(self, selected):
 
