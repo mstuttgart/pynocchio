@@ -17,7 +17,7 @@
 
 from PySide import QtGui
 
-from pynocchio_comic_reader.lib.uic_files.ui_preference_dialog import Ui_config_dialog
+from uic_files.ui_preference_dialog import Ui_config_dialog
 
 
 class PreferenceDialog(QtGui.QDialog):

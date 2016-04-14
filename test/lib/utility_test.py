@@ -20,7 +20,6 @@ from pynocchio_comic_reader.lib.utility import Utility
 
 
 class TestUtility(TestCase):
-
     def setUp(self):
         TestCase.setUp(self)
         self.obj = Utility()
@@ -65,4 +64,5 @@ class TestUtility(TestCase):
     def test_convert_string_to_boolean(self):
         self.assertTrue(Utility.convert_string_to_boolean('True'))
         self.assertFalse(Utility.convert_string_to_boolean('False'))
-        self.assertRaises(ValueError, Utility.convert_string_to_boolean, 'true')
+        self.assertRaises(ValueError, Utility.convert_string_to_boolean,
+                          'true')

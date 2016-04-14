@@ -16,15 +16,15 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/
 #
 
-from PySide import QtCore
+from PySide import QtCore, QtGui
 
 from bookmark_database_manager import BookmarkManager
-from comic import Comic
 from compact_file_loader_factory import LoaderFactory
 from path_file_filter import PathFileFilter
 from settings_manager import SettingsManager
-from pynocchio_comic_reader.lib.pynocchio_exception import NoDataFindException
+from pynocchio_exception import NoDataFindException
 from utility import Utility
+from comic import Comic
 
 
 class MainWindowModel(QtCore.QObject):

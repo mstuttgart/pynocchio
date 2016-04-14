@@ -18,7 +18,8 @@
 import logging
 from PySide import QtCore, QtGui, QtSql
 
-from pynocchio_comic_reader.lib.uic_files.ui_bookmark_manager_dialog import Ui_Bookmark_Dialog
+from pynocchio_comic_reader.lib.uic_files.ui_bookmark_manager_dialog \
+    import Ui_Bookmark_Dialog
 
 log = logging.getLogger(__name__)
 

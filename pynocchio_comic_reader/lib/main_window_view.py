@@ -34,7 +34,8 @@ class MainWindowView(QtGui.QMainWindow):
         self.ui = Ui_MainWindowView()
         self.ui.setupUi(self)
 
-        MainWindowView.MaxRecentFiles = len(self.ui.menu_recent_files.actions())
+        MainWindowView.MaxRecentFiles = len(
+            self.ui.menu_recent_files.actions())
         MainWindowView.MaxBookmarkFiles = \
             len(self.ui.menu_recent_bookmarks.actions())
 
@@ -291,12 +292,13 @@ class MainWindowView(QtGui.QMainWindow):
 
             except LoadComicsException as excp:
                 QtGui.QMessageBox().warning(self,
-                                            self.tr('LoadComicsExceptionError'),
+                                            self.tr('LoadComicsException'),
                                             self.tr(excp.message),
                                             QtGui.QMessageBox.Close)
             except InvalidTypeFileException as excp:
                 QtGui.QMessageBox().warning(self,
-                                            self.tr('InvalidTypeFileException'),
+                                            self.tr('InvalidTypeFile'
+                                                    'Exception'),
                                             self.tr(excp.message),
                                             QtGui.QMessageBox.Close)
 

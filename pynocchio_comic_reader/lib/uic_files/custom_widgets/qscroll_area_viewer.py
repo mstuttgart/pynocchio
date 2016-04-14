@@ -48,18 +48,20 @@ class QScrollAreaViewer(QtGui.QScrollArea):
     def mouseMoveEvent(self, *args, **kwargs):
 
         if self.drag_mouse:
+            pos = args[0]
+
             scroll_position = {
                 'x': self.horizontalScrollBar().sliderPosition(),
                 'y': self.verticalScrollBar().sliderPosition()
             }
 
-            new_x = scroll_position['x'] + self.drag_position['x'] - args[0].x()
-            new_y = scroll_position['y'] + self.drag_position['y'] - args[0].y()
+            new_x = scroll_position['x'] + self.drag_position['x'] - pos.x()
+            new_y = scroll_position['y'] + self.drag_position['y'] - pos.y()
 
             self.horizontalScrollBar().setSliderPosition(new_x)
             self.verticalScrollBar().setSliderPosition(new_y)
 
-            self.drag_position['x'] = args[0].x()
-            self.drag_position['y'] = args[0].y()
+            self.drag_position['x'] = pos.x()
+            self.drag_position['y'] = pos.y()
 
         super(QScrollAreaViewer, self).mouseMoveEvent(*args, **kwargs)
