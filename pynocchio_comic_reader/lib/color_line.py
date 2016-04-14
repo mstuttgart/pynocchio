@@ -20,7 +20,7 @@ from PySide import QtGui
 
 class ColorLine(QtGui.QLineEdit):
     def __init__(self, parent=None):
-        super(ColorLine, self).__init__(parent)
+        QtGui.QLineEdit.__init__(self, parent)
         self.background_color = QtGui.QColor()
 
     def paintEvent(self, e):

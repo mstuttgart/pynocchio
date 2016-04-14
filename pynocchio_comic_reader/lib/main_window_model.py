@@ -37,7 +37,7 @@ class MainWindowModel(QtCore.QObject):
     load_done = QtCore.Signal()
 
     def __init__(self):
-        super(MainWindowModel, self).__init__()
+        QtCore.QObject.__init__(self)
         self.comic = None
         self.settings_manager = SettingsManager()
         self.rotateAngle = 0

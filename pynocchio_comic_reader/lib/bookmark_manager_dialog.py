@@ -16,10 +16,13 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 import logging
-from PySide import QtCore, QtGui, QtSql
+from PySide import QtCore
+from PySide import QtGui
+from PySide import QtSql
 
 from pynocchio_comic_reader.lib.uic_files.ui_bookmark_manager_dialog \
     import Ui_Bookmark_Dialog
+from utility import Utility
 
 log = logging.getLogger(__name__)
 
@@ -29,14 +32,17 @@ class BookmarkManagerDialog(QtGui.QDialog):
     SCALE_RATIO = 0.18
 
     def __init__(self, controller):
-        super(BookmarkManagerDialog, self).__init__()
+        QtGui.QDialog.__init__(self)
 
         self.ui = Ui_Bookmark_Dialog()
         self.ui.setupUi(self)
 
         self.controller = controller
+        path = Utility.get_dir_name(
+            controller.model.settings_manager.settings.fileName())
+
         self.db = QtSql.QSqlDatabase().addDatabase("QSQLITE")
-        self.db.setDatabaseName(self.get_settings_path(controller.model))
+        self.db.setDatabaseName(path + u'/bookmark.db')
 
         if self.db.open():
 
@@ -72,13 +78,9 @@ class BookmarkManagerDialog(QtGui.QDialog):
             log.debug('database load!')
 
         else:
-            log.error("[ERROR] Unable to create talkdb file.")
+            log.error("[ERROR] Unable to create db file.")
 
-    def get_settings_path(self, model):
-        info = QtCore.QFileInfo(model.settings_manager.settings.fileName())
-        return info.absoluteDir().absolutePath() + u'/bookmark.db'
-
-    def selection_changed(self, selected, deselected):
+    def selection_changed(self, selected):
 
         model_indexes = selected.indexes()
 
@@ -120,4 +122,4 @@ class BookmarkManagerDialog(QtGui.QDialog):
 
     def close(self):
         self.db.close()
-        super(BookmarkManagerDialog, self).close()
+        QtGui.QDialog.close(self)

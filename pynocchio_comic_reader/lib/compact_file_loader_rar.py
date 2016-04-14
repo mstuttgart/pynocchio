@@ -36,7 +36,7 @@ from pynocchio_exception import NoDataFindException
 class RarLoader(Loader):
 
     def __init__(self, extension):
-        super(RarLoader, self).__init__(extension)
+        Loader.__init__(self, extension)
 
     def load(self, file_name):
         try:
@@ -68,4 +68,4 @@ class RarLoader(Loader):
 class CbrLoader(RarLoader):
 
     def __init__(self, extension):
-        super(CbrLoader, self).__init__(extension)
+        RarLoader.__init__(self, extension)

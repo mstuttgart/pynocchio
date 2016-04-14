@@ -23,7 +23,7 @@ from uic_files.ui_preference_dialog import Ui_config_dialog
 class PreferenceDialog(QtGui.QDialog):
 
     def __init__(self, preference, parent=None):
-        super(PreferenceDialog, self).__init__(parent)
+        QtGui.QDialog.__init__(self, parent)
 
         self.ui = Ui_config_dialog()
         self.ui.setupUi(self)
@@ -44,5 +44,4 @@ class PreferenceDialog(QtGui.QDialog):
     def close(self):
         self.preference.background_color = \
             self.ui.line_edit_color.background_color
-
-        super(PreferenceDialog, self).close()
+        QtGui.QDialog.close(self)

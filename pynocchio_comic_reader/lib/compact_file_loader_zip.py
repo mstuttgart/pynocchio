@@ -28,7 +28,7 @@ from pynocchio_exception import NoDataFindException
 class ZipLoader(Loader):
 
     def __init__(self, extension):
-        super(ZipLoader, self).__init__(extension)
+        Loader.__init__(self, extension)
 
     def load(self, file_name):
 
@@ -63,4 +63,4 @@ class ZipLoader(Loader):
 class CbzLoader(ZipLoader):
 
     def __init__(self, extension):
-        super(CbzLoader, self).__init__(extension)
+        ZipLoader.__init__(self, extension)

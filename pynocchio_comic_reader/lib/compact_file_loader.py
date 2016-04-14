@@ -24,7 +24,7 @@ class Loader(QtCore.QObject):
     done = QtCore.Signal()
 
     def __init__(self, extension):
-        super(Loader, self).__init__()
+        QtCore.QObject.__init__(self)
         self.extension = extension
         self.data = []
 

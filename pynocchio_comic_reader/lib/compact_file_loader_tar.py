@@ -28,7 +28,7 @@ from pynocchio_exception import NoDataFindException
 class TarLoader(Loader):
 
     def __init__(self, extension):
-        super(TarLoader, self).__init__(extension)
+        Loader.__init__(self, extension)
 
     def load(self, file_name):
 
@@ -67,4 +67,4 @@ class TarLoader(Loader):
 class CbtLoader(TarLoader):
 
     def __init__(self, extension):
-        super(CbtLoader, self).__init__(extension)
+        TarLoader.__init__(self, extension)

@@ -28,7 +28,7 @@ class MainWindowView(QtGui.QMainWindow):
     MaxBookmarkFiles = 5
 
     def __init__(self, model, parent=None):
-        super(MainWindowView, self).__init__(parent)
+        QtGui.QMainWindow.__init__(self, parent)
         self.model = model
 
         self.ui = Ui_MainWindowView()
@@ -202,7 +202,7 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def on_action_exit_triggered(self):
-        super(MainWindowView, self).close()
+        QtGui.QMainWindow.close(self)
         self.model.save_settings()
 
     def closeEvent(self, event):
@@ -459,20 +459,20 @@ class MainWindowView(QtGui.QMainWindow):
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:
             self.on_action_fullscreen_triggered()
-        super(MainWindowView, self).keyPressEvent(event)
+        QtGui.QMainWindow.keyPressEvent(self, event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
         if args[0].button() == QtCore.Qt.LeftButton:
             self.on_action_fullscreen_triggered()
-        super(MainWindowView, self).mousePressEvent(*args, **kwargs)
+        QtGui.QMainWindow.mousePressEvent(self, *args, **kwargs)
 
     def resizeEvent(self, *args, **kwargs):
         self.update_current_view_container_size()
-        super(MainWindowView, self).resizeEvent(*args, **kwargs)
+        QtGui.QMainWindow.resizeEvent(self, *args, **kwargs)
 
     def show(self):
         """
         :doc: Added to set the correct scrool_area_view size in model
         """
-        super(MainWindowView, self).show()
+        QtGui.QMainWindow.show(self)
         self.update_current_view_container_size()

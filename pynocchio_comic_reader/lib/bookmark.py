@@ -36,7 +36,7 @@ db = peewee.SqliteDatabase(get_settings_path())
 
 
 class BookmarkBaseModel(peewee.Model):
-    class Meta:
+    class Meta(object):
         database = db
 
 

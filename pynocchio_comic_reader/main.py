@@ -18,17 +18,17 @@
 import sys
 from PySide import QtGui, QtCore
 
-from lib.main_window_model import MainWindowModel
-from lib.main_window_view import MainWindowView
+import lib.main_window_model
+import lib.main_window_view
 
 
 class App(QtGui.QApplication):
 
     def __init__(self, sys_argv):
-        super(App, self).__init__(sys_argv)
+        QtGui.QApplication.__init__(self, sys_argv)
 
         self.setApplicationName('Pynocchio Comic Reader')
-        self.setApplicationVersion('1.1.0')
+        self.setApplicationVersion('1.0.9')
 
         qm = QtCore.QLocale.system().name()
 
@@ -40,8 +40,8 @@ class App(QtGui.QApplication):
             except IOError:
                 print 'Translation file qt_%s.qm not find' % qm
 
-        self.model = MainWindowModel()
-        self.view_control = MainWindowView(self.model)
+        self.model = lib.main_window_view.MainWindowModel()
+        self.view_control = lib.main_window_view.MainWindowView(self.model)
         self.view_control.show()
 
 if __name__ == '__main__':
