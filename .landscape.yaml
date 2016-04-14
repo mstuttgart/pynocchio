@@ -1,0 +1,4 @@
+strictness: high
+doc-warnings: no
+ignore-patterns:
+  - ui_*
