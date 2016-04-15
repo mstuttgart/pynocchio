@@ -1,26 +1,11 @@
 [run]
 branch = True
-omit = 'ui_*'
-
-[report]
-# Regexes for lines to exclude from consideration
-exclude_lines =
-    # Have to re-enable the standard pragma
-    pragma: no cover
-
-    # Don't complain about missing debug-only code:
-    def __repr__
-    if self\.debug
-
-    # Don't complain if tests don't hit defensive assertion code:
-    raise AssertionError
-    raise NotImplementedError
-
-    # Don't complain if non-runnable code isn't run:
-    if 0:
-    if __name__ == .__main__.:
-
-ignore_errors = True
-
-[html]
-directory = coverage_html_report
+source = pynocchio_comic_reader
+omit =
+    pynocchio_comic_reader/lib/uic_files/ui_*.py
+    pynocchio_comic_reader/lib/uic_files/main_window_view_rc.py
+    pynocchio_comic_reader//lib/pynocchio_exception.py
+    pynocchio_comic_reader/lib/preference_dialog.py
+    pynocchio_comic_reader/lib/about_dialog.py
+    pynocchio_comic_reader/lib/bookmark.py
+    pynocchio_comic_reader/main.py
