@@ -15,22 +15,15 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-try:
-    import peewee
-except ImportError, err:
-    print 'peewee module not installed.\n' \
-          'Please install it using: sudo pip install peewee\n'
-    import sys
-    sys.exit(err)
-
-from PySide import QtCore
+import peewee
+from utility import Utility
 from settings_manager import SettingsManager
 
 
 # get settings path. In Linux is .config/Pynocchio Comic Reader
 def get_settings_path():
-    info = QtCore.QFileInfo(SettingsManager().settings.fileName())
-    return info.absoluteDir().absolutePath() + u'/bookmark.db'
+    path = Utility.get_dir_name(SettingsManager().settings.fileName())
+    return path + u'/bookmark.db'
 
 db = peewee.SqliteDatabase(get_settings_path())
 

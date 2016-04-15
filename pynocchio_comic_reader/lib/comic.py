@@ -19,7 +19,6 @@
 class Comic(object):
 
     def __init__(self, name, directory, initial_page=0):
-        super(Comic, self).__init__()
         self.name = name
         self.directory = directory
         self.current_page_index = initial_page

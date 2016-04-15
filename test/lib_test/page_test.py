@@ -27,4 +27,3 @@ class TestPage(TestCase):
         self.assertEqual(page.title, 'title')
         self.assertEqual(page.number, 1)
         self.assertFalse(page._pixmap)
-
