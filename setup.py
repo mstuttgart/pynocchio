@@ -3,12 +3,8 @@ from setuptools import setup
 
 setup(
     name='pynocchio-comic-reader',
-    version='beta',
-    packages=['test', 'test.lib',
-              'test.lib.custom_widgets', 'pynocchio_comic_reader',
-              'pynocchio_comic_reader.lib',
-              'pynocchio_comic_reader.lib.uic_files',
-              'pynocchio_comic_reader.lib.uic_files.custom_widgets'],
+    version='1.0.0',
+    packages=['test', 'pynocchio_comic_reader'],
     test_suite='test',
     url='https://github.com/mstuttgart/pynocchio-comic-reader#'
         'pynocchio-comic-reader',
