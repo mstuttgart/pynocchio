@@ -4,14 +4,21 @@ python:
 
 sudo: required
 
+virtualenv:
+  system_site_packages: true
+
 install:
   - pip install -r requirements.txt
-  - sudo apt-get install python-pyside
+  - sudo apt-get install -qq python-pyside --fix-missing
 
-before_script: flake8 .
+before_script:
+  - flake8 .
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
 
 script:
-  - coverage run --source=pynocchio_comic_reader setup.py test
+  - coverage run setup.py test
 
 after_success:
   - coveralls
