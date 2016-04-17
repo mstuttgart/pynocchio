@@ -15,20 +15,17 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from compact_file_loader_zip import ZipLoader
-from compact_file_loader_zip import CbzLoader
-from compact_file_loader_rar import RarLoader
-from compact_file_loader_rar import CbrLoader
-from compact_file_loader_tar import TarLoader
-from compact_file_loader_tar import CbtLoader
+import compact_file_loader_zip
+import compact_file_loader_rar
+import compact_file_loader_tar
 
 product = {
-    '.zip': ZipLoader,
-    '.cbz': CbzLoader,
-    '.rar': RarLoader,
-    '.cbr': CbrLoader,
-    '.tar': TarLoader,
-    '.cbt': CbtLoader
+    '.zip': compact_file_loader_zip.ZipLoader,
+    '.cbz': compact_file_loader_zip.CbzLoader,
+    '.rar': compact_file_loader_rar.RarLoader,
+    '.cbr': compact_file_loader_rar.CbrLoader,
+    '.tar': compact_file_loader_tar.TarLoader,
+    '.cbt': compact_file_loader_tar.CbtLoader,
 }
 
 
