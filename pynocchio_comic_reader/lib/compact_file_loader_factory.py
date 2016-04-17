@@ -19,7 +19,7 @@ import compact_file_loader_zip
 import compact_file_loader_rar
 import compact_file_loader_tar
 
-product = {
+PRODUCT = {
     '.zip': compact_file_loader_zip.ZipLoader,
     '.cbz': compact_file_loader_zip.CbzLoader,
     '.rar': compact_file_loader_rar.RarLoader,
@@ -33,7 +33,7 @@ class LoaderFactory(object):
 
     @staticmethod
     def create_loader(compact_file_extension, data_extension):
-        if compact_file_extension in product:
-            return product[compact_file_extension](data_extension)
+        if compact_file_extension in PRODUCT:
+            return PRODUCT[compact_file_extension](data_extension)
 
         return None
