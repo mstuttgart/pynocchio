@@ -45,6 +45,7 @@ class ZipLoader(Loader):
         name_list.sort()
         aux = 100.0 / len(name_list)
         page_number = 1
+        self.data = []
 
         for idx, name in enumerate(name_list):
 

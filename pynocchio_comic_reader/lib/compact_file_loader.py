@@ -30,9 +30,3 @@ class Loader(QtCore.QObject):
 
     def load(self, file_name):
         raise NotImplementedError("Must subclass me")
-
-    def length_data(self):
-        return len(self.data)
-
-    def _clear_data(self):
-        self.data = []
