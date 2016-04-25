@@ -1,12 +1,11 @@
 # -*- mode: python -*-
 
 block_cipher = None
-onefile=True
 
 a = Analysis(['pynocchio_comic_reader/main.py'],
              pathex=['/home/michell/Documents/Projects/pynocchio-comic-reader/pynocchio_comic_reader'],
              binaries=None,
-             datas=[('pynocchio_comic_reader/locale/qt_*.qm', 'locale')],
+             datas=[('pynocchio_comic_reader/locale/qt_*.qm', '/usr/share/pynocchio-comic-reader/locale')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
