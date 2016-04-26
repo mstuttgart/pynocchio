@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo
+echo "Running PyInstaller"
+pyinstaller pynocchio.spec
+
+echo
+echo "Copy binary file to linux/usr/bin folder"
+cp dist/pynocchio-comic-reader linux/usr/bin
+
+echo
+echo "Copy locale file to linux/usr/share/pynocchio-comic-reader"
+cp -r pynocchio_comic_reader/locale linux/usr/share/pynocchio-comic-reader
+
+echo
+echo "Uninstall pynocchio comic reader from system"
+sudo apt-get purge pynocchio-comic-reader -y
+
+echo
+echo "Build .deb file"
+dpkg --build linux pynocchio-comic-reader-0.0.1-amd64.deb
+
+echo
+echo "Install .deb file"
+sudo dpkg -i pynocchio-comic-reader-0.0.1-amd64.deb
+
+echo "Remove buind and dist folder"
+rm -rf build dist
