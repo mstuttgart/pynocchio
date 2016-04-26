@@ -44,7 +44,6 @@ class MainWindowModel(QtCore.QObject):
         self.scroll_area_size = None
         self.fit_type = self.load_view_adjust(MainWindowModel._ORIGINAL_FIT)
         self.current_directory = self.load_current_directory()
-        self.language = self.load_language()
 
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
         self.path_file_filter = PathFileFilter(ext_list)

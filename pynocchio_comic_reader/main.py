@@ -32,6 +32,8 @@ datadirs = (
 QLocale = QtCore.QLocale
 QLibraryInfo = QtCore.QLibraryInfo
 QTranslator = QtCore.QTranslator
+QFileInfo = QtCore.QFileInfo
+QFile = QtCore.QFile
 
 
 def main():
@@ -53,8 +55,14 @@ def main():
     app.installTranslator(qt_translator)
 
     model = MainWindowModel()
-    view_control = MainWindowView(model)
-    view_control.show()
+    view = MainWindowView(model)
+    view.show()
+
+    if len(sys.argv) > 1:
+        file_name = QFileInfo(sys.argv[1]).canonicalFilePath()
+
+        if QFile.exists(file_name):
+            view.open_comics(file_name)
 
     sys.exit(app.exec_())
 
