@@ -67,12 +67,6 @@ class MainWindowModel(QtCore.QObject):
     def load_current_directory(self):
         return self.settings_manager.load_current_directory()
 
-    def save_language(self, laguage):
-        self.settings_manager.save_language(laguage)
-
-    def load_language(self):
-        return self.settings_manager.load_language()
-
     def load(self, filename, initial_page=0):
 
         image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
@@ -88,13 +82,11 @@ class MainWindowModel(QtCore.QObject):
         except NoDataFindException as excp:
             # Caso nao exista nenhuma imagem, carregamos a imagem indicando
             # erro
+            from page import Page
             print excp.message
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
-            ld.data.append({
-                'data': q_file.readAll(),
-                'name': 'exit_red_1.png'
-            })
+            ld.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
 
         self.comic = Comic(Utility.get_base_name(filename),
                            Utility.get_dir_name(filename), initial_page)
@@ -224,7 +216,6 @@ class MainWindowModel(QtCore.QObject):
     def save_settings(self):
         self.save_view_adjust(self.fit_type)
         self.save_current_directory(self.current_directory)
-        self.save_language(self.language)
 
     @staticmethod
     def get_bookmark_list(n):
