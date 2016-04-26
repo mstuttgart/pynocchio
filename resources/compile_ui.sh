@@ -8,4 +8,4 @@ pyside-uic ui_files/preference_dialog.ui -o ../pynocchio_comic_reader/lib/uic_fi
 pyside-uic ui_files/bookmark_manager_dialog.ui -o ../pynocchio_comic_reader/lib/uic_files/ui_bookmark_manager_dialog.py
 pyside-uic ui_files/progress_dialog.ui -o ../pynocchio_comic_reader/lib/uic_files/ui_progress_dialog.py
 
-#pyside-lupdate ../src/pynocchio.pro
+pyside-lupdate -verbose ../pynocchio.pro
