@@ -16,34 +16,47 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import sys
+from os.path import abspath
 from PySide import QtGui, QtCore
 
 from lib.main_window_model import MainWindowModel
 from lib.main_window_view import MainWindowView
 
+datadirs = (
+        abspath('.'),
+        '/usr/share/pynocchio-comic-reader',
+        '/usr/local/share/pynocchio-comic-reader',
+        QtCore.QDir.homePath() + '/.local/share/pynocchio-comic-reader',
+    )
 
-class App(QtGui.QApplication):
+QLocale = QtCore.QLocale
+QLibraryInfo = QtCore.QLibraryInfo
+QTranslator = QtCore.QTranslator
 
-    def __init__(self, sys_argv):
-        QtGui.QApplication.__init__(self, sys_argv)
 
-        self.setApplicationName('Pynocchio Comic Reader')
-        self.setApplicationVersion('1.0.9')
+def main():
+    app = QtGui.QApplication(sys.argv)
+    app.setOrganizationName('Pynocchio Comic Reader')
+    app.setApplicationName('Pynocchio')
+    if hasattr(app, 'setApplicationDisplayName'):
+        app.setApplicationDisplayName('Pynocchio')
 
-        qm = QtCore.QLocale.system().name()
+    translator = QTranslator()
+    for path in datadirs:
+        if translator.load('pynocchio_' + QLocale.system().name(),
+                           path + '/locale'):
+            break
+    qt_translator = QTranslator()
+    qt_translator.load('qt_' + QLocale.system().name(),
+                       QLibraryInfo.location(QLibraryInfo.TranslationsPath))
+    app.installTranslator(translator)
+    app.installTranslator(qt_translator)
 
-        if qm != 'en_US':
-            translator = QtCore.QTranslator()
-            try:
-                translator.load('locale/qt_%s.qm' % qm)
-                self.installTranslator(translator)
-            except IOError:
-                print 'Translation file qt_%s.qm not find' % qm
+    model = MainWindowModel()
+    view_control = MainWindowView(model)
+    view_control.show()
 
-        self.model = MainWindowModel()
-        self.view_control = MainWindowView(self.model)
-        self.view_control.show()
+    sys.exit(app.exec_())
 
 if __name__ == '__main__':
-    app = App(sys.argv)
-    sys.exit(app.exec_())
+    main()
