@@ -44,6 +44,7 @@ class MainWindowModel(QtCore.QObject):
         self.scroll_area_size = None
         self.fit_type = self.load_view_adjust(MainWindowModel._ORIGINAL_FIT)
         self.current_directory = self.load_current_directory()
+        self.language = self.load_language()
 
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
         self.path_file_filter = PathFileFilter(ext_list)
@@ -65,6 +66,12 @@ class MainWindowModel(QtCore.QObject):
 
     def load_current_directory(self):
         return self.settings_manager.load_current_directory()
+
+    def save_language(self, laguage):
+        self.settings_manager.save_language(laguage)
+
+    def load_language(self):
+        return self.settings_manager.load_language()
 
     def load(self, filename, initial_page=0):
 
@@ -217,6 +224,7 @@ class MainWindowModel(QtCore.QObject):
     def save_settings(self):
         self.save_view_adjust(self.fit_type)
         self.save_current_directory(self.current_directory)
+        self.save_language(self.language)
 
     @staticmethod
     def get_bookmark_list(n):

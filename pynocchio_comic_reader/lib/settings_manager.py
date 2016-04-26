@@ -21,7 +21,7 @@ from PySide import QtCore
 class SettingsManager(object):
 
     def __init__(self):
-        self.settings = QtCore.QSettings('Pynocchio Comic Reader', 'Pynocchio')
+        self.settings = QtCore.QSettings('Pynocchio', 'Pynocchio')
 
     def save_recent_files(self, recent_files_list):
         self.settings.beginWriteArray('recent_file_list')
@@ -54,3 +54,9 @@ class SettingsManager(object):
 
     def load_current_directory(self):
         return self.settings.value('current_directory', '.')
+
+    def save_language(self, language):
+        self.settings.setValue('language', language)
+
+    def load_language(self):
+        return self.settings.value('language', 'en_us')
