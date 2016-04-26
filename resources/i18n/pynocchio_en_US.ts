@@ -1,79 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1" language="pt_BR">
+<!DOCTYPE TS><TS version="1.1" language="en_US">
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="view/about_dialog.ui" line="14"/>
-        <source>About Pynocchio Comic Reader</source>
-        <translation type="obsolete">Sobre Pynocchio Comic Reader</translation>
+        <location filename="resources/ui_files/about_dialog.ui" line="23"/>
+        <source>About Pynocchio Reader</source>
+        <translation>About Pynocchio Reader</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="40"/>
         <source>About</source>
-        <translation>Sobre</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/about_dialog.ui" line="931"/>
-        <source>Close</source>
-        <translation>Fechar</translation>
-    </message>
-    <message>
-        <location filename="view/about_dialog.ui" line="63"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The &lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader &lt;/span&gt;&lt;/a&gt; is an image viewer specifically designed to handle comic books. &lt;/p&gt;&lt;p&gt;It reads ZIP, RAR and TAR archives well as plain image files. &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; is licensed under the GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set.  &lt;/p&gt;&lt;p&gt;Icons pack by Icon Sweets 2 and Streamline icon set free pack.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">O Leitor de quadrinhos Pynocchio é um visualizador de imagens desenhado 
-exclusivamente para leitura de arquivos .zip , cbr , rar
-</translation>
-    </message>
-    <message>
-        <location filename="src/about_dialog.ui" line="73"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The &lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader &lt;/span&gt;&lt;/a&gt;is an image viewer specifically designed to handle comic books. &lt;/p&gt;&lt;p&gt;It reads CBR, ZIP, CBZ, RAR and TAR comic files. &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; is licensed under the GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set. &lt;/p&gt;&lt;p&gt;Icons pack by Icon Sweets 2 and Streamline icon set free pack.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;p id=&quot;result&quot;&gt; &lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; é um visualizador de imagens especificamente &lt;p&gt;
-projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos nos formatos CBR, ZIP, CBZ, RAR e TAR.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; é licenciado sob a GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;file:///home/michell/Projetos/pynocchio-comic-reader/yacreader/files/Free%20Icon%20Maker&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; para construir o conjunto de ícones.&lt;/p&gt;&lt;p&gt;Pacote de ícones por Icons Sweets 2 e o pacote gratuito Streamline Icone Set .&lt;/p&gt;&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/about_dialog.ui" line="23"/>
-        <source>About Pynocchio Reader</source>
-        <translation></translation>
+        <translation>About</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="92"/>
         <source>GPLv3</source>
-        <translation></translation>
+        <translation>GPLv3</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="99"/>
         <source>License type:</source>
-        <translation>Tipo de licença:</translation>
+        <translation>License type:</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="106"/>
+        <source>(c) 2014 -2016 Michell Stuttgart</source>
+        <translation>(c) 2014 -2016 Michell Stuttgart</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="113"/>
         <source>Version: </source>
-        <translation>Versão:</translation>
+        <translation>Version:</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="120"/>
         <source>Developer: </source>
-        <translation>Desenvolvedor:</translation>
+        <translation>Developer:</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="127"/>
         <source>Copyright:</source>
-        <translation></translation>
+        <translation>Copyright:</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="134"/>
         <source>Michell Stuttgart</source>
-        <translation></translation>
+        <translation>Michell Stuttgart</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="141"/>
+        <source>1.2.0</source>
+        <translation>1.2.0</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="168"/>
         <source>Pynocchio Comic Reader</source>
-        <translation></translation>
+        <translation>Pynocchio Comic Reader</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="179"/>
         <source>The Pynocchio Comic Reader is an comic and manga reader. </source>
-        <translation>Pynocchio.Comic.Reader é um leitor de mangás e histórias em quadrinhos.</translation>
+        <translation>The Pynocchio Comic Reader is an comic and manga reader.</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="189"/>
@@ -83,22 +70,7 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="202"/>
         <source>License</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/about_dialog.ui" line="894"/>
-        <source>Others</source>
-        <translation>Outros</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/about_dialog.ui" line="106"/>
-        <source>(c) 2014 -2016 Michell Stuttgart</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/about_dialog.ui" line="141"/>
-        <source>1.2.0</source>
-        <translation></translation>
+        <translation>License</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="208"/>
@@ -784,9 +756,19 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="894"/>
+        <source>Others</source>
+        <translation>Others</translation>
+    </message>
+    <message>
         <location filename="resources/ui_files/about_dialog.ui" line="903"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set. &lt;/p&gt;&lt;p&gt;Icons pack by &lt;a href=&quot;https://github.com/opengraphix/elementary3-icon-theme&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Elementary Icon&lt;/span&gt;&lt;/a&gt; theme.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="931"/>
+        <source>Close</source>
+        <translation>Close</translation>
     </message>
 </context>
 <context>
@@ -794,85 +776,40 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="pynocchio_comic_reader/lib/bookmark_manager_dialog.py" line="100"/>
         <source>Delete bookmarks</source>
-        <translation>Deletar favoritos</translation>
+        <translation>Delete bookmarks</translation>
     </message>
     <message>
         <location filename="pynocchio_comic_reader/lib/bookmark_manager_dialog.py" line="101"/>
         <source>This action will go delete you bookmarks! Preceed?</source>
-        <translation>Esta ação irá deletar seus favoritos! Deseja continuar?</translation>
+        <translation>This action will go delete you bookmarks! Preceed?</translation>
     </message>
 </context>
 <context>
     <name>Bookmark_Dialog</name>
     <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="95"/>
-        <source>Name</source>
-        <translation type="obsolete">Nome</translation>
-    </message>
-    <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="100"/>
-        <source>Path</source>
-        <translation type="obsolete">Diretório</translation>
-    </message>
-    <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="105"/>
-        <source>Page</source>
-        <translation type="obsolete">Página</translation>
-    </message>
-    <message>
-        <location filename="view/bookmark_manager_dialog.ui" line="110"/>
-        <source>Remover</source>
-        <translation type="obsolete">Remover</translation>
-    </message>
-    <message>
-        <location filename="view/bookmark_manager_dialog.ui" line="117"/>
-        <source>Selecionar tudo</source>
-        <translation type="obsolete">Selecionar tudo</translation>
-    </message>
-    <message>
-        <location filename="view/bookmark_manager_dialog.ui" line="124"/>
-        <source>Sair</source>
-        <translation type="obsolete">Fechar</translation>
-    </message>
-    <message>
-        <location filename="view/bookmark_manager_dialog.ui" line="131"/>
-        <source>Open</source>
-        <translation type="obsolete">Abrir</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/bookmark_manager_dialog.ui" line="182"/>
-        <source>Remove</source>
-        <translation>Remover</translation>
-    </message>
-    <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="179"/>
-        <source>Select All</source>
-        <translation type="obsolete">Selecionar tudo</translation>
-    </message>
-    <message>
-        <location filename="src/bookmark_manager_dialog.ui" line="173"/>
-        <source>Close</source>
-        <translation type="obsolete">Fechar</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/bookmark_manager_dialog.ui" line="217"/>
-        <source>Load</source>
-        <translation>Carregar</translation>
-    </message>
-    <message>
         <location filename="resources/ui_files/bookmark_manager_dialog.ui" line="23"/>
         <source>Bookmark manager</source>
-        <translation>Gerenciar favoritos</translation>
+        <translation>Bookmark Manager</translation>
     </message>
     <message>
         <location filename="resources/ui_files/bookmark_manager_dialog.ui" line="142"/>
         <source>Page Preview</source>
-        <translation>Visualização </translation>
+        <translation>Page Preview</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/bookmark_manager_dialog.ui" line="182"/>
+        <source>Remove</source>
+        <translation>Remove</translation>
     </message>
     <message>
         <location filename="resources/ui_files/bookmark_manager_dialog.ui" line="206"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation>Cancel</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/bookmark_manager_dialog.ui" line="217"/>
+        <source>Load</source>
+        <translation>Load</translation>
     </message>
 </context>
 <context>
@@ -880,468 +817,45 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="resources/ui_files/go_to_page_dialog.ui" line="14"/>
         <source>Go to Page</source>
-        <translation>Ir para a página</translation>
-    </message>
-    <message>
-        <location filename="src/go_to_page_dialog.ui" line="29"/>
-        <source>Page Preview</source>
-        <translation type="obsolete">Visualização </translation>
+        <translation>Go to Page</translation>
     </message>
     <message>
         <location filename="resources/ui_files/go_to_page_dialog.ui" line="108"/>
         <source>Number of pages: </source>
-        <translation>Número de páginas:</translation>
+        <translation>Number of pages:</translation>
     </message>
     <message>
         <location filename="resources/ui_files/go_to_page_dialog.ui" line="143"/>
         <source>Current page:        </source>
-        <translation>Página atual:</translation>
+        <translation>Current page:</translation>
     </message>
     <message>
         <location filename="resources/ui_files/go_to_page_dialog.ui" line="166"/>
         <source>Go to page:           </source>
-        <translation>Ir para a página:</translation>
-    </message>
-</context>
-<context>
-    <name>MainWindow</name>
-    <message>
-        <location filename="src/main_window_view.ui" line="221"/>
-        <source>&amp;File</source>
-        <translation type="obsolete">&amp;Arquivo</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="225"/>
-        <source>&amp;Recent files</source>
-        <translation type="obsolete">A&amp;rquivos recentes</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="247"/>
-        <source>&amp;View</source>
-        <translation type="obsolete">&amp;Visualizar</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="261"/>
-        <source>&amp;Navegation</source>
-        <translation type="obsolete">&amp;Navegação</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="276"/>
-        <source>&amp;Help</source>
-        <translation type="obsolete">A&amp;juda</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="283"/>
-        <source>&amp;Settings</source>
-        <translation type="obsolete">&amp;Configuração</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="295"/>
-        <source>&amp;Bookmarks</source>
-        <translation type="obsolete">&amp;Favoritos</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="393"/>
-        <source>&amp;Open</source>
-        <translation type="obsolete">&amp;Abrir</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="411"/>
-        <source>&amp;About Pynocchio</source>
-        <translation type="obsolete">&amp;Sobre o Pynocchio</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="416"/>
-        <source>&amp;About Qt</source>
-        <translation type="obsolete">&amp;Sobre o Qt</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="425"/>
-        <source>&amp;Exit</source>
-        <translation type="obsolete">&amp;Sair</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="440"/>
-        <source>&amp;Next page</source>
-        <translation type="obsolete">&amp;Próxima página</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="443"/>
-        <source>Right</source>
-        <translation type="obsolete">Direita </translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="464"/>
-        <source>&amp;Previous page</source>
-        <translation type="obsolete">&amp;Página anterior</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="467"/>
-        <source>Left</source>
-        <translation type="obsolete">Esquerda </translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="485"/>
-        <source>&amp;First page</source>
-        <translation type="obsolete">&amp;Primeira página</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="488"/>
-        <source>Ctrl+Left</source>
-        <translation type="obsolete">Ctrl + Esquerda</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="503"/>
-        <source>&amp;Last page</source>
-        <translation type="obsolete">&amp;Última página</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="506"/>
-        <source>Ctrl+Right</source>
-        <translation type="obsolete">Ctrl + Direita</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="524"/>
-        <source>&amp;Rotate left</source>
-        <translation type="obsolete">Rotacionar para esquerda</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="542"/>
-        <source>&amp;Rotate right</source>
-        <translation type="obsolete">Rotacionar para direita</translation>
-    </message>
-    <message>
-        <location filename="src/main_window.ui" line="753"/>
-        <source>&amp;Vertical adjust</source>
-        <translation type="obsolete">Ajuste vertical</translation>
-    </message>
-    <message>
-        <location filename="src/main_window.ui" line="549"/>
-        <source>&amp;Horizontal adjust</source>
-        <translation type="obsolete">Ajuste horizontal</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="587"/>
-        <source>&amp;Fullscreen</source>
-        <translation type="obsolete">Tela cheia</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="605"/>
-        <source>&amp;Go to page...</source>
-        <translation type="obsolete">Ir para página...</translation>
-    </message>
-    <message>
-        <location filename="src/main_window.ui" line="780"/>
-        <source>&amp;Whole page</source>
-        <translation type="obsolete">Página inteira</translation>
-    </message>
-    <message>
-        <location filename="view/main_window.ui" line="590"/>
-        <source>&amp;Preferences</source>
-        <translation type="obsolete">Preferências</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="626"/>
-        <source>&amp;Original fit</source>
-        <translation type="obsolete">Tamanho original</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="646"/>
-        <source>&amp;Show Toolbar</source>
-        <translation type="obsolete">Exibir barra de ferramentas</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="657"/>
-        <source>S&amp;how Statusbar</source>
-        <translation type="obsolete">Exibir barra de status</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="669"/>
-        <source>&amp;Add bookmark</source>
-        <translation type="obsolete">Adicionar aos favoritos</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="684"/>
-        <source>&amp;Remove bookmark</source>
-        <translation type="obsolete">Remover dos favoritos</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="693"/>
-        <source>Bookmark &amp;manager</source>
-        <translation type="obsolete">Gerenciar favoritos</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="719"/>
-        <source>Next Comic</source>
-        <translation type="obsolete">Próximo quadrinho</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="722"/>
-        <source>Ctrl+Shift+Right</source>
-        <translation type="obsolete">Ctrl + Shift + Direita</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="737"/>
-        <source>Previous Comic</source>
-        <translation type="obsolete">Quadrinho anterior</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="740"/>
-        <source>Ctrl+Shift+Left</source>
-        <translation type="obsolete">Ctrl + Shift + Esquerda</translation>
-    </message>
-    <message>
-        <location filename="src/main_window.py" line="110"/>
-        <source>Error</source>
-        <translation type="obsolete">Erro</translation>
-    </message>
-    <message>
-        <location filename="src/main_window.py" line="110"/>
-        <source>Error to load file </source>
-        <translation type="obsolete">Erro ao carregar arquivo</translation>
-    </message>
-    <message>
-        <location filename="src/main_window.py" line="118"/>
-        <source>Open comic file</source>
-        <translation type="obsolete">Abrir quadrinho</translation>
-    </message>
-    <message>
-        <location filename="src/main_window.py" line="118"/>
-        <source>All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr);; Tar Files (*.tar *.cbt);; All files (*)</source>
-        <translation type="obsolete">Todos os formatos suportados (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Arquivos Zip (*.zip *.cbz);; Arquivos Rar (*.rar *.cbr);; Arquivos Tar (*.tar *.cbt);; Todos os arquivos (*)</translation>
-    </message>
-    <message>
-        <location filename="src/main_window.py" line="363"/>
-        <source>About Qt</source>
-        <translation type="obsolete">Sobre o Qt</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_view.ui" line="752"/>
-        <source>Preferences</source>
-        <translation type="obsolete">Preferências</translation>
-    </message>
-    <message>
-        <location filename="src/main_window.py" line="357"/>
-        <source>About Pynocchio Comic Reader</source>
-        <translation type="obsolete">Sobre Pynocchio Comic Reader</translation>
+        <translation>Go to page:</translation>
     </message>
 </context>
 <context>
     <name>MainWindowView</name>
     <message>
-        <location filename="src/main_window_view.py" line="217"/>
-        <source>About Pynocchio Comic Reader</source>
-        <translation type="obsolete">Sobre Pynocchio Comic Reader</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="436"/>
-        <source>About Qt</source>
-        <translation>Sobre o Qt</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="236"/>
-        <source>&amp;File</source>
-        <translation>&amp;Arquivo</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="246"/>
-        <source>&amp;Recent files</source>
-        <translation type="obsolete">A&amp;rquivos recentes</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="276"/>
-        <source>&amp;View</source>
-        <translation>&amp;Visualizar</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="296"/>
-        <source>&amp;Navegation</source>
-        <translation>&amp;Navegação</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="311"/>
-        <source>&amp;Help</source>
-        <translation>A&amp;juda</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="318"/>
-        <source>&amp;Settings</source>
-        <translation>&amp;Configuração</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="330"/>
-        <source>&amp;Bookmarks</source>
-        <translation>&amp;Favoritos</translation>
-    </message>
-    <message>
-        <location filename="gui/main_window_view.ui" line="400"/>
-        <source>&amp;Open</source>
-        <translation type="obsolete">&amp;Abrir</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="431"/>
-        <source>&amp;About Pynocchio</source>
-        <translation type="obsolete">&amp;Sobre o Pynocchio</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="436"/>
-        <source>&amp;About Qt</source>
-        <translation type="obsolete">&amp;Sobre o Qt</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="445"/>
-        <source>&amp;Exit</source>
-        <translation type="obsolete">&amp;Sair</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="460"/>
-        <source>&amp;Next page</source>
-        <translation type="obsolete">&amp;Próxima página</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="484"/>
-        <source>&amp;Previous page</source>
-        <translation type="obsolete">&amp;Página anterior</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="505"/>
-        <source>&amp;First page</source>
-        <translation type="obsolete">&amp;Primeira página</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="523"/>
-        <source>&amp;Last page</source>
-        <translation type="obsolete">&amp;Última página</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="544"/>
-        <source>&amp;Rotate left</source>
-        <translation type="obsolete">&amp;Rotacionar para esquerda</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="562"/>
-        <source>&amp;Rotate right</source>
-        <translation type="obsolete">&amp;Rotacionar para direita</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="607"/>
-        <source>&amp;Fullscreen</source>
-        <translation type="obsolete">&amp;Tela cheia</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="625"/>
-        <source>&amp;Go to page...</source>
-        <translation type="obsolete">&amp;Ir para página...</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="646"/>
-        <source>&amp;Original fit</source>
-        <translation type="obsolete">&amp;Tamanho original</translation>
-    </message>
-    <message>
-        <location filename="gui/main_window_view.ui" line="653"/>
-        <source>&amp;Show Toolbar</source>
-        <translation type="obsolete">Exibir barra de ferramentas</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="666"/>
-        <source>S&amp;how Statusbar</source>
-        <translation type="obsolete">Exibir barra de status</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="678"/>
-        <source>&amp;Add bookmark</source>
-        <translation type="obsolete">Adicionar aos favoritos</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="693"/>
-        <source>&amp;Remove bookmark</source>
-        <translation type="obsolete">Remover dos favoritos</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="711"/>
-        <source>Bookmark &amp;manager</source>
-        <translation type="obsolete">Gerenciar favoritos</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="741"/>
-        <source>Next Comic</source>
-        <translation>Próximo quadrinho</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="759"/>
-        <source>Previous Comic</source>
-        <translation>Quadrinho anterior</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="774"/>
-        <source>Preferences</source>
-        <translation>Preferências</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="40"/>
-        <source>The Best Comic Reader</source>
-        <translation>O melhor leitor de quadrinhos</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="337"/>
-        <source>&amp;Recente bookmarks</source>
-        <translation type="obsolete">Favoritos recentes</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="594"/>
-        <source>&amp;Horizontal fit</source>
-        <translation type="obsolete">Ajuste horizontal</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="720"/>
-        <source>Open &amp;Folder</source>
-        <translation type="obsolete">Abrir diretorio</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="795"/>
-        <source>&amp;Vertical fit</source>
-        <translation type="obsolete">Ajuste vertical</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="822"/>
-        <source>&amp;Best fit</source>
-        <translation type="obsolete">Melhor ajuste</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="840"/>
-        <source>&amp;Save image</source>
-        <translation type="obsolete">Salvar imagem</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/main_window_view.ui" line="843"/>
-        <source>Save current image in disk.</source>
-        <translation>Salvar imagem atual no disco.</translation>
-    </message>
-    <message>
-        <location filename="gui/main_window_view.ui" line="971"/>
-        <source>Open Online</source>
-        <translation type="obsolete">Abrir online</translation>
-    </message>
-    <message>
         <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="57"/>
         <source>open_comic_file</source>
-        <translation>Abrir quadrinho</translation>
+        <translation>Open Comic File</translation>
     </message>
     <message>
         <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="62"/>
         <source>all_supported_files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; tar_files (*.tar *.cbt);; all_files (*)</source>
-        <translation>Todos os arquivosa suportadoss (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Arquivos zip (*.zip *.cbz);; Arquivos rar (*.rar *.cbr);; Arquivos tar (*.tar *.cbt);; Todos osarquivos (*)</translation>
+        <translation>All supported.files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Zip.files (*.zip *.cbz);; Rar files (*.rar *.cbr);; Tar files (*.tar *.cbt);; All files (*)</translation>
     </message>
     <message>
         <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="74"/>
         <source>save_current_page</source>
-        <translation>Salvar página atual</translation>
+        <translation>Save current page</translation>
     </message>
     <message>
         <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="75"/>
         <source>images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
-        <translation>Imagens (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
+        <translation>Images (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
     </message>
     <message>
         <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="292"/>
@@ -1356,17 +870,77 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="37"/>
         <source>Pynocchio Comic Reader</source>
-        <translation></translation>
+        <translation>Pynocchio Comic Reader</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="40"/>
+        <source>The Best Comic Reader</source>
+        <translation>The Best Comic Reader</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="236"/>
+        <source>&amp;File</source>
+        <translation>&amp;File</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="246"/>
+        <source>&amp;Recent files</source>
+        <translation type="obsolete">&amp;Recent files</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="276"/>
+        <source>&amp;View</source>
+        <translation>&amp;View</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="296"/>
+        <source>&amp;Navegation</source>
+        <translation>&amp;Navegation</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="311"/>
+        <source>&amp;Help</source>
+        <translation>&amp;Help</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="318"/>
+        <source>&amp;Settings</source>
+        <translation>&amp;Settings</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="322"/>
         <source>Language</source>
-        <translation type="obsolete">Idioma</translation>
+        <translation type="obsolete">Language</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="330"/>
+        <source>&amp;Bookmarks</source>
+        <translation>&amp;Bookmarks</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="337"/>
+        <source>&amp;Recente bookmarks</source>
+        <translation type="obsolete">Recente bookmarks</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="379"/>
         <source>toolBar</source>
-        <translation></translation>
+        <translation>toolBar</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="431"/>
+        <source>&amp;About Pynocchio</source>
+        <translation type="obsolete">&amp;About Pynocchio</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="436"/>
+        <source>&amp;About Qt</source>
+        <translation type="obsolete">&amp;About Qt</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="445"/>
+        <source>&amp;Exit</source>
+        <translation type="obsolete">&amp;Exit</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="448"/>
@@ -1374,9 +948,19 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="460"/>
+        <source>&amp;Next page</source>
+        <translation type="obsolete">&amp;Next page</translation>
+    </message>
+    <message>
         <location filename="resources/ui_files/main_window_view.ui" line="463"/>
         <source>Right</source>
         <translation>Right</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="484"/>
+        <source>&amp;Previous page</source>
+        <translation type="obsolete">&amp;Previous page</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="487"/>
@@ -1384,9 +968,19 @@ p, li { white-space: pre-wrap; }
         <translation>Left</translation>
     </message>
     <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="505"/>
+        <source>&amp;First page</source>
+        <translation type="obsolete">&amp;First page</translation>
+    </message>
+    <message>
         <location filename="resources/ui_files/main_window_view.ui" line="508"/>
         <source>Ctrl+Left</source>
         <translation>Ctrl+Left</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="523"/>
+        <source>&amp;Last page</source>
+        <translation type="obsolete">&amp;Last page</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="526"/>
@@ -1394,9 +988,19 @@ p, li { white-space: pre-wrap; }
         <translation>Ctrl+Right</translation>
     </message>
     <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="544"/>
+        <source>&amp;Rotate left</source>
+        <translation type="obsolete">&amp;Rotate left</translation>
+    </message>
+    <message>
         <location filename="resources/ui_files/main_window_view.ui" line="547"/>
         <source>Ctrl+Shift+R</source>
-        <translation></translation>
+        <translation>Ctrl+Shift+R</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="562"/>
+        <source>&amp;Rotate right</source>
+        <translation type="obsolete">&amp;Rotate right</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="565"/>
@@ -1404,9 +1008,19 @@ p, li { white-space: pre-wrap; }
         <translation>Ctrl+R</translation>
     </message>
     <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="594"/>
+        <source>&amp;Horizontal fit</source>
+        <translation type="obsolete">&amp;Horizontal fit</translation>
+    </message>
+    <message>
         <location filename="resources/ui_files/main_window_view.ui" line="589"/>
         <source>Ctrl+K</source>
-        <translation></translation>
+        <translation>Ctrl+K</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="607"/>
+        <source>&amp;Fullscreen</source>
+        <translation type="obsolete">&amp;Fullscreen</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="610"/>
@@ -1414,9 +1028,19 @@ p, li { white-space: pre-wrap; }
         <translation>F</translation>
     </message>
     <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="625"/>
+        <source>&amp;Go to page...</source>
+        <translation type="obsolete">&amp;Go to page...</translation>
+    </message>
+    <message>
         <location filename="resources/ui_files/main_window_view.ui" line="628"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="646"/>
+        <source>&amp;Original fit</source>
+        <translation type="obsolete">&amp;Original fit</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="649"/>
@@ -1424,9 +1048,44 @@ p, li { white-space: pre-wrap; }
         <translation>Ctrl+H</translation>
     </message>
     <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="666"/>
+        <source>S&amp;how Statusbar</source>
+        <translation type="obsolete">S&amp;how Statusbar</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="678"/>
+        <source>&amp;Add bookmark</source>
+        <translation type="obsolete">&amp;Add bookmark</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="693"/>
+        <source>&amp;Remove bookmark</source>
+        <translation type="obsolete">&amp;Remove bookmark</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="711"/>
+        <source>Bookmark &amp;manager</source>
+        <translation type="obsolete">Bookmark &amp;manager</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="720"/>
+        <source>Open &amp;Folder</source>
+        <translation type="obsolete">Open &amp;Folder</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="741"/>
+        <source>Next Comic</source>
+        <translation>Next Comic</translation>
+    </message>
+    <message>
         <location filename="resources/ui_files/main_window_view.ui" line="744"/>
         <source>Ctrl+Shift+Right</source>
         <translation>Ctrl+Shift+Right</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="759"/>
+        <source>Previous Comic</source>
+        <translation>Previous Comic</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="762"/>
@@ -1434,14 +1093,39 @@ p, li { white-space: pre-wrap; }
         <translation>Ctrl+Shift+Left</translation>
     </message>
     <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="774"/>
+        <source>Preferences</source>
+        <translation>Preferences</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="795"/>
+        <source>&amp;Vertical fit</source>
+        <translation type="obsolete">&amp;Vertical fit</translation>
+    </message>
+    <message>
         <location filename="resources/ui_files/main_window_view.ui" line="798"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="822"/>
+        <source>&amp;Best fit</source>
+        <translation type="obsolete">&amp;Best fit</translation>
+    </message>
+    <message>
         <location filename="resources/ui_files/main_window_view.ui" line="825"/>
         <source>Ctrl+L</source>
         <translation>Ctrl+L</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="840"/>
+        <source>&amp;Save image</source>
+        <translation type="obsolete">&amp;Save image</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="843"/>
+        <source>Save current image in disk.</source>
+        <translation>Save current image in disk.</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="846"/>
@@ -1451,7 +1135,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="855"/>
         <source>&amp;Open File</source>
-        <translation type="obsolete">&amp;Abrir Aquivo</translation>
+        <translation type="obsolete">&amp;Open File</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="861"/>
@@ -1536,22 +1220,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="993"/>
         <source>English</source>
-        <translation>Inglês</translation>
+        <translation>English</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="1008"/>
         <source>Portuguese</source>
-        <translation>Português</translation>
+        <translation>Portuguese</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="1022"/>
         <source>Show Toolbar</source>
-        <translation>Exibir barra de status</translation>
+        <translation>Show Toolbar</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="586"/>
         <source>Horizontal fit</source>
-        <translation>Ajuste horizontal</translation>
+        <translation>Horizontal fit</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="996"/>
@@ -1561,117 +1245,122 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="431"/>
         <source>About Pynocchio</source>
-        <translation>Sobre Pynocchio</translation>
+        <translation>About Pynocchio</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/main_window_view.ui" line="436"/>
+        <source>About Qt</source>
+        <translation>About Qt</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="445"/>
         <source>Exit</source>
-        <translation>Sair</translation>
+        <translation>Exit</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="460"/>
         <source>Next page</source>
-        <translation>Próxima página</translation>
+        <translation>Next page</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="484"/>
         <source>Previous page</source>
-        <translation>Página anterior</translation>
+        <translation>Previous page</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="505"/>
         <source>First page</source>
-        <translation>Primeira página</translation>
+        <translation>First page</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="523"/>
         <source>Last page</source>
-        <translation>Última página</translation>
+        <translation>Last page</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="544"/>
         <source>Rotate left</source>
-        <translation>Rotacionar para esquerda</translation>
+        <translation>Rotate left</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="562"/>
         <source>Rotate right</source>
-        <translation>Rotacionar para direita</translation>
+        <translation>Rotate right</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="607"/>
         <source>Fullscreen</source>
-        <translation>Tela cheia</translation>
+        <translation>Fullscreen</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="625"/>
         <source>Go to page...</source>
-        <translation type="obsolete">Ir para a página</translation>
+        <translation type="obsolete">Go to Page</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="646"/>
         <source>Original fit</source>
-        <translation>Tamanho original</translation>
+        <translation>Original fit</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="666"/>
         <source>Show Statusbar</source>
-        <translation>Exibir barra de status</translation>
+        <translation>Show Toolbar</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="678"/>
         <source>Add bookmark</source>
-        <translation>Adicionar aos favoritos</translation>
+        <translation>Add bookmark</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="693"/>
         <source>Remove bookmark</source>
-        <translation>Remover dos favoritos</translation>
+        <translation>Remove bookmark</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="720"/>
         <source>Open Folder</source>
-        <translation>Abrir diretorio</translation>
+        <translation>Open Folder</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="795"/>
         <source>Vertical fit</source>
-        <translation>Ajuste vertical</translation>
+        <translation>Vertical fit</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="822"/>
         <source>Best fit</source>
-        <translation>Melhor ajuste</translation>
+        <translation>Best fit</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="840"/>
         <source>Save image</source>
-        <translation>Salvar imagem</translation>
+        <translation>Save image</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="855"/>
         <source>Open File</source>
-        <translation>Abrir Aquivo</translation>
+        <translation>Open File</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="246"/>
         <source>Recent files</source>
-        <translation>Arquivos recentes</translation>
+        <translation>Recent files</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="625"/>
         <source>Go to page</source>
-        <translation>Ir para a página</translation>
+        <translation>Go to Page</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="337"/>
         <source>Recente bookmarks</source>
-        <translation>Favoritos recentes</translation>
+        <translation>Recente bookmarks</translation>
     </message>
     <message>
         <location filename="resources/ui_files/main_window_view.ui" line="711"/>
         <source>Bookmark manager</source>
-        <translation>Gerenciar favoritos</translation>
+        <translation>Bookmark Manager</translation>
     </message>
 </context>
 <context>
@@ -1679,88 +1368,40 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="pynocchio_comic_reader/lib/uic_files/custom_widgets/status_bar.py" line="110"/>
         <source>Page: </source>
-        <translation>Página: </translation>
+        <translation>Page: </translation>
     </message>
     <message>
         <location filename="pynocchio_comic_reader/lib/uic_files/custom_widgets/status_bar.py" line="116"/>
         <source>Resolution: </source>
-        <translation>Resolução: </translation>
+        <translation>Resolution: </translation>
     </message>
     <message>
         <location filename="pynocchio_comic_reader/lib/uic_files/custom_widgets/status_bar.py" line="123"/>
         <source>Title: </source>
-        <translation>Título: </translation>
+        <translation>Title: </translation>
     </message>
 </context>
 <context>
     <name>config_dialog</name>
     <message>
-        <location filename="src/preference_dialog.ui" line="17"/>
-        <source>Pynocchio Config</source>
-        <translation type="obsolete">Preferências</translation>
+        <location filename="resources/ui_files/preference_dialog.ui" line="17"/>
+        <source>Pynocchio Preferences</source>
+        <translation>Pynocchio Preferences</translation>
     </message>
     <message>
         <location filename="resources/ui_files/preference_dialog.ui" line="37"/>
         <source>General</source>
-        <translation>Geral</translation>
-    </message>
-    <message>
-        <location filename="src/preference_dialog.ui" line="51"/>
-        <source>Background color: </source>
-        <translation type="obsolete">Cor de fundo:</translation>
-    </message>
-    <message>
-        <location filename="view/config_dialog.ui" line="77"/>
-        <source>Language</source>
-        <translation type="obsolete">Idioma</translation>
-    </message>
-    <message>
-        <location filename="view/config_dialog.ui" line="85"/>
-        <source>Select language: </source>
-        <translation type="obsolete">Selecione o idioma:</translation>
-    </message>
-    <message>
-        <location filename="src/preference_dialog.ui" line="93"/>
-        <source>Others</source>
-        <translation type="obsolete">Outros</translation>
-    </message>
-    <message>
-        <location filename="src/preference_dialog.ui" line="99"/>
-        <source>Show toolbar in fullscreen mode</source>
-        <translation type="obsolete">Exibir barra de ferramentas no modo tela cheia</translation>
-    </message>
-    <message>
-        <location filename="src/preference_dialog.ui" line="106"/>
-        <source>Show statusbar in fullscreen mode</source>
-        <translation type="obsolete">Exibir barra de status no modo tela cheia</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/preference_dialog.ui" line="112"/>
-        <source>Close</source>
-        <translation>Fechar</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/preference_dialog.ui" line="17"/>
-        <source>Pynocchio Preferences</source>
-        <translation>Pynocchio preferências</translation>
+        <translation>General</translation>
     </message>
     <message>
         <location filename="resources/ui_files/preference_dialog.ui" line="51"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Background color: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
     </message>
-</context>
-<context>
-    <name>self.view</name>
     <message>
-        <location filename="src/main_window_controller.py" line="44"/>
-        <source>Open comic file</source>
-        <translation type="obsolete">Abrir quadrinho</translation>
-    </message>
-    <message>
-        <location filename="src/main_window_controller.py" line="44"/>
-        <source>All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Zip Files (*.zip *.cbz);; Rar Files (*.rar *.cbr);; Tar Files (*.tar *.cbt);; All files (*)</source>
-        <translation type="obsolete">Todos os formatos suportados (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Arquivos Zip (*.zip *.cbz);; Arquivos Rar (*.rar *.cbr);; Arquivos Tar (*.tar *.cbt);; Todos os arquivos (*)</translation>
+        <location filename="resources/ui_files/preference_dialog.ui" line="112"/>
+        <source>Close</source>
+        <translation>Close</translation>
     </message>
 </context>
 </TS>
