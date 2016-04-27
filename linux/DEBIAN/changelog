@@ -1,5 +1,5 @@
-pynocchio-comic-reader (1.0.2-2) trusty; urgency=medium
+pynocchio (0.0.1) trusty; urgency=low
 
   * Initial release.
 
- -- Michell Stuttgart <michellstut@gmail.com>  Sat, 01 Aug 2015 15:04:35 -0300
+ -- Michell Stuttgart <michellstut@gmail.com>  Seg, 25 Abr 2016 15:04:35 -0300

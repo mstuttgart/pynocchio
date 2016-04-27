@@ -24,9 +24,9 @@ from lib.main_window_view import MainWindowView
 
 datadirs = (
         abspath('.'),
-        '/usr/share/pynocchio-comic-reader',
-        '/usr/local/share/pynocchio-comic-reader',
-        QtCore.QDir.homePath() + '/.local/share/pynocchio-comic-reader',
+        '/usr/share/pynocchio',
+        '/usr/local/share/pynocchio',
+        QtCore.QDir.homePath() + '/.local/share/pynocchio',
     )
 
 QLocale = QtCore.QLocale
@@ -38,7 +38,7 @@ QFile = QtCore.QFile
 
 def main():
     app = QtGui.QApplication(sys.argv)
-    app.setOrganizationName('Pynocchio Comic Reader')
+    app.setOrganizationName('Pynocchio')
     app.setApplicationName('Pynocchio')
     if hasattr(app, 'setApplicationDisplayName'):
         app.setApplicationDisplayName('Pynocchio')

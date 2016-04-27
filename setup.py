@@ -2,12 +2,11 @@
 from setuptools import setup
 
 setup(
-    name='pynocchio-comic-reader',
+    name='pynocchio',
     version='1.0.0',
     packages=['test', 'pynocchio_comic_reader'],
     test_suite='test',
-    url='https://github.com/mstuttgart/pynocchio-comic-reader#'
-        'pynocchio-comic-reader',
+    url='https://github.com/mstuttgart/pynocchio-comic-reader',
     license='GPL v3',
     author='Michell Stuttgart',
     author_email='michellstut@gmail.com',
