@@ -838,32 +838,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindowView</name>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="57"/>
+        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="60"/>
         <source>open_comic_file</source>
         <translation>Open Comic File</translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="62"/>
+        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="65"/>
         <source>all_supported_files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; tar_files (*.tar *.cbt);; all_files (*)</source>
         <translation>All supported.files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Zip.files (*.zip *.cbz);; Rar files (*.rar *.cbr);; Tar files (*.tar *.cbt);; All files (*)</translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="74"/>
+        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="77"/>
         <source>save_current_page</source>
         <translation>Save current page</translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="75"/>
+        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="78"/>
         <source>images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
         <translation>Images (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="292"/>
+        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="295"/>
         <source>LoadComicsException</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="298"/>
+        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="301"/>
         <source>InvalidTypeFileException</source>
         <translation></translation>
     </message>

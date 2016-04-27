@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_files/main_window_view.ui'
 #
-# Created: Tue Apr 26 16:11:11 2016
+# Created: Wed Apr 27 00:19:04 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!

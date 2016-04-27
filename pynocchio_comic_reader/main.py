@@ -60,7 +60,6 @@ def main():
 
     if len(sys.argv) > 1:
         file_name = QFileInfo(sys.argv[1]).canonicalFilePath()
-
         if QFile.exists(file_name):
             view.open_comics(file_name)
 
