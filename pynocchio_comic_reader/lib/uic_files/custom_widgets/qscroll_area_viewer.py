@@ -65,3 +65,9 @@ class QScrollAreaViewer(QtGui.QScrollArea):
             self.drag_position['y'] = pos.y()
 
         super(QScrollAreaViewer, self).mouseMoveEvent(*args, **kwargs)
+
+    def scrool_up(self):
+        print 'scrool up'
+
+    def scrool_down(self):
+        print 'scrool down'

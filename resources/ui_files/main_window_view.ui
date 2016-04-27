@@ -243,7 +243,7 @@
       <bool>false</bool>
      </property>
      <property name="title">
-      <string>&amp;Recent files</string>
+      <string>Recent files</string>
      </property>
      <property name="icon">
       <iconset resource="../main_window_view.qrc">
@@ -306,14 +306,14 @@
     <addaction name="action_next_comic"/>
     <addaction name="action_previous_comic"/>
    </widget>
-   <widget class="QMenu" name="menu_Help">
+   <widget class="QMenu" name="menu_help">
     <property name="title">
      <string>&amp;Help</string>
     </property>
     <addaction name="action_about"/>
     <addaction name="action_about_qt"/>
    </widget>
-   <widget class="QMenu" name="menu_Settings">
+   <widget class="QMenu" name="menu_settings">
     <property name="title">
      <string>&amp;Settings</string>
     </property>
@@ -334,7 +334,7 @@
     </property>
     <widget class="QMenu" name="menu_recent_bookmarks">
      <property name="title">
-      <string>&amp;Recente bookmarks</string>
+      <string>Recente bookmarks</string>
      </property>
      <property name="icon">
       <iconset resource="../main_window_view.qrc">
@@ -356,8 +356,8 @@
    <addaction name="menu_view"/>
    <addaction name="menu_navegation"/>
    <addaction name="menu_bookmarks"/>
-   <addaction name="menu_Settings"/>
-   <addaction name="menu_Help"/>
+   <addaction name="menu_settings"/>
+   <addaction name="menu_help"/>
   </widget>
   <widget class="QToolBar" name="toolbar">
    <property name="enabled">
@@ -428,12 +428,12 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;About Pynocchio</string>
+    <string>About Pynocchio</string>
    </property>
   </action>
   <action name="action_about_qt">
    <property name="text">
-    <string>&amp;About Qt</string>
+    <string>About Qt</string>
    </property>
   </action>
   <action name="action_exit">
@@ -442,7 +442,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Exit</string>
+    <string>Exit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
@@ -457,7 +457,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Next page</string>
+    <string>Next page</string>
    </property>
    <property name="shortcut">
     <string>Right</string>
@@ -481,7 +481,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Previous page</string>
+    <string>Previous page</string>
    </property>
    <property name="shortcut">
     <string>Left</string>
@@ -502,7 +502,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;First page</string>
+    <string>First page</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Left</string>
@@ -520,7 +520,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Last page</string>
+    <string>Last page</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Right</string>
@@ -541,7 +541,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-left.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-left.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Rotate left</string>
+    <string>Rotate left</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+R</string>
@@ -559,7 +559,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-right.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-right.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Rotate right</string>
+    <string>Rotate right</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
@@ -583,7 +583,7 @@
      <normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Horizontal fit</string>
+    <string>Horizontal fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+K</string>
@@ -604,7 +604,7 @@
      <normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Fullscreen</string>
+    <string>Fullscreen</string>
    </property>
    <property name="shortcut">
     <string>F</string>
@@ -622,7 +622,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Go to page...</string>
+    <string>Go to page</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+G</string>
@@ -643,7 +643,7 @@
      <normaloff>:/icons/freeiconmaker-icons/original-fit.svg</normaloff>:/icons/freeiconmaker-icons/original-fit.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Original fit</string>
+    <string>Original fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+H</string>
@@ -655,17 +655,6 @@
     <bool>true</bool>
    </property>
   </action>
-  <action name="action_show_toolbar">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Show Toolbar</string>
-   </property>
-  </action>
   <action name="action_show_statusbar">
    <property name="checkable">
     <bool>true</bool>
@@ -674,7 +663,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>S&amp;how Statusbar</string>
+    <string>Show Statusbar</string>
    </property>
   </action>
   <action name="action_add_bookmark">
@@ -686,7 +675,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/64/bookmark_add.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/bookmark_add.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Add bookmark</string>
+    <string>Add bookmark</string>
    </property>
    <property name="visible">
     <bool>true</bool>
@@ -701,7 +690,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/64/stock_delete.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/stock_delete.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Remove bookmark</string>
+    <string>Remove bookmark</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -719,7 +708,7 @@
      <normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</iconset>
    </property>
    <property name="text">
-    <string>Bookmark &amp;manager</string>
+    <string>Bookmark manager</string>
    </property>
   </action>
   <action name="action_open_folder">
@@ -728,7 +717,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open.svg</iconset>
    </property>
    <property name="text">
-    <string>Open &amp;Folder</string>
+    <string>Open Folder</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -803,7 +792,7 @@
      <normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Vertical fit</string>
+    <string>Vertical fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+J</string>
@@ -830,7 +819,7 @@
      <normaloff>:/icons/freeiconmaker-icons/best-fit.svg</normaloff>:/icons/freeiconmaker-icons/best-fit.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Best fit</string>
+    <string>Best fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+L</string>
@@ -848,7 +837,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/64/go-down.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/go-down.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Save image</string>
+    <string>Save image</string>
    </property>
    <property name="whatsThis">
     <string>Save current image in disk.</string>
@@ -863,7 +852,7 @@
      <normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Open File</string>
+    <string>Open File</string>
    </property>
    <property name="font">
     <font/>
@@ -992,6 +981,47 @@
     <bool>false</bool>
    </property>
   </action>
+  <action name="action_en_us">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/famfamfam_flag_icons/png/us.png</normaloff>:/icons/famfamfam_flag_icons/png/us.png</iconset>
+   </property>
+   <property name="text">
+    <string>English</string>
+   </property>
+   <property name="iconText">
+    <string>en_US</string>
+   </property>
+  </action>
+  <action name="action_pt_br">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/famfamfam_flag_icons/png/br.png</normaloff>:/icons/famfamfam_flag_icons/png/br.png</iconset>
+   </property>
+   <property name="text">
+    <string>Portuguese</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">pt_BR</string>
+   </property>
+  </action>
+  <action name="action_show_toolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Toolbar</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -1007,9 +1037,6 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../main_window_view.qrc"/>
-  <include location="../main_window_view.qrc"/>
-  <include location="../main_window_view.qrc"/>
   <include location="../main_window_view.qrc"/>
  </resources>
  <connections/>

@@ -21,7 +21,7 @@ from PySide import QtCore
 class SettingsManager(object):
 
     def __init__(self):
-        self.settings = QtCore.QSettings('Pynocchio Comic Reader', 'Pynocchio')
+        self.settings = QtCore.QSettings('Pynocchio', 'Pynocchio')
 
     def save_recent_files(self, recent_files_list):
         self.settings.beginWriteArray('recent_file_list')

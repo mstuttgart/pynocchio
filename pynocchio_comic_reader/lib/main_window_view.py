@@ -50,6 +50,9 @@ class MainWindowView(QtGui.QMainWindow):
         self.model.load_progress.connect(
             self.ui.statusbar.set_progressbar_value)
 
+        self.vertical_anim = QtCore.QPropertyAnimation(
+            self.ui.qscroll_area_viewer.verticalScrollBar(), "sliderPosition")
+
     @QtCore.Slot()
     def on_action_open_file_triggered(self):
 
@@ -203,9 +206,6 @@ class MainWindowView(QtGui.QMainWindow):
     @QtCore.Slot()
     def on_action_exit_triggered(self):
         QtGui.QMainWindow.close(self)
-        self.model.save_settings()
-
-    def closeEvent(self, event):
         self.model.save_settings()
 
     def create_connections(self):
@@ -459,7 +459,26 @@ class MainWindowView(QtGui.QMainWindow):
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:
             self.on_action_fullscreen_triggered()
-        QtGui.QMainWindow.keyPressEvent(self, event)
+
+        elif event.key() == QtCore.Qt.Key_Up:
+            vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
+            next_pos = vert_scroll_bar.sliderPosition() - self.height() * 0.8
+
+            self.vertical_anim.setDuration(250)
+            self.vertical_anim.setStartValue(vert_scroll_bar.sliderPosition())
+            self.vertical_anim.setEndValue(next_pos)
+            self.vertical_anim.start()
+
+        elif event.key() == QtCore.Qt.Key_Down:
+            vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
+            next_pos = vert_scroll_bar.sliderPosition() + self.height() * 0.8
+
+            self.vertical_anim.setDuration(250)
+            self.vertical_anim.setStartValue(vert_scroll_bar.sliderPosition())
+            self.vertical_anim.setEndValue(next_pos)
+            self.vertical_anim.start()
+
+        super(MainWindowView, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, *args, **kwargs):
         if args[0].button() == QtCore.Qt.LeftButton:

@@ -21,7 +21,7 @@ from PySide import QtGui
 class Page(object):
 
     def __init__(self, data, title, number):
-        self._pixmap = False
+        self._pixmap = None
         self.data = data
         self.title = title
         self.number = number
