@@ -23,7 +23,7 @@ from compact_file_loader_factory import LoaderFactory
 from path_file_filter import PathFileFilter
 from settings_manager import SettingsManager
 from pynocchio_exception import NoDataFindException
-from utility import Utility
+from src.lib.utility import Utility
 from comic import Comic
 
 
@@ -40,7 +40,7 @@ class MainWindowModel(QtCore.QObject):
         QtCore.QObject.__init__(self)
         self.comic = None
         self.settings_manager = SettingsManager()
-        self.rotateAngle = 0
+        self.rotate_angle = 0
         self.scroll_area_size = None
         self.fit_type = self.load_view_adjust(MainWindowModel._ORIGINAL_FIT)
         self.current_directory = self.load_current_directory()
@@ -120,10 +120,10 @@ class MainWindowModel(QtCore.QObject):
         return self.path_file_filter.previous_path.decode('utf-8')
 
     def rotate_left(self):
-        self.rotateAngle = (self.rotateAngle - 90) % 360
+        self.rotate_angle = (self.rotate_angle - 90) % 360
 
     def rotate_right(self):
-        self.rotateAngle = (self.rotateAngle + 90) % 360
+        self.rotate_angle = (self.rotate_angle + 90) % 360
 
     def get_comic_name(self):
         return self.comic.name if self.comic else ''
@@ -168,8 +168,8 @@ class MainWindowModel(QtCore.QObject):
         return self.path_file_filter.is_last_file()
 
     def _rotate_page(self, pix_map):
-        if self.rotateAngle != 0:
-            trans = QtGui.QTransform().rotate(self.rotateAngle)
+        if self.rotate_angle != 0:
+            trans = QtGui.QTransform().rotate(self.rotate_angle)
             pix_map = QtGui.QPixmap(pix_map.transformed(trans))
         return pix_map
 

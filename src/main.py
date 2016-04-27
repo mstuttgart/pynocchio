@@ -22,7 +22,7 @@ from PySide import QtGui, QtCore
 from lib.main_window_model import MainWindowModel
 from lib.main_window_view import MainWindowView
 
-datadirs = (
+DATADIRS = (
         abspath('.'),
         '/usr/share/pynocchio',
         '/usr/local/share/pynocchio',
@@ -44,7 +44,7 @@ def main():
         app.setApplicationDisplayName('Pynocchio')
 
     translator = QTranslator()
-    for path in datadirs:
+    for path in DATADIRS:
         if translator.load('pynocchio_' + QLocale.system().name(),
                            path + '/locale'):
             break

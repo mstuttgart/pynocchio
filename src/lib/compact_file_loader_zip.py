@@ -18,7 +18,7 @@
 import zipfile
 
 from compact_file_loader import Loader
-from utility import Utility
+from src.lib.utility import Utility
 from page import Page
 from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import LoadComicsException

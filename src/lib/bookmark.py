@@ -16,7 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import peewee
-from utility import Utility
+from src.lib.utility import Utility
 from settings_manager import SettingsManager
 
 

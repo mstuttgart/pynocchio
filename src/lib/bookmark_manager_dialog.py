@@ -22,7 +22,7 @@ from PySide import QtSql
 
 from src.lib.uic_files.ui_bookmark_manager_dialog \
     import Ui_Bookmark_Dialog
-from utility import Utility
+from src.lib.utility import Utility
 
 
 class BookmarkManagerDialog(QtGui.QDialog):
