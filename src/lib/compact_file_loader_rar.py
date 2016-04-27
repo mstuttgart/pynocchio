@@ -26,7 +26,8 @@ except ImportError as err:
     raise DependenceNotFoundException(msg)
 
 from compact_file_loader import Loader
-from utility import Utility
+from src.lib.utility import Utility
+from page import Page
 from pynocchio_exception import LoadComicsException
 from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import NoDataFindException
@@ -34,52 +35,38 @@ from pynocchio_exception import NoDataFindException
 
 class RarLoader(Loader):
 
-    EXTENSION = '.rar'
-
     def __init__(self, extension):
-        super(RarLoader, self).__init__(extension)
+        Loader.__init__(self, extension)
 
     def load(self, file_name):
-
         try:
             rar = rarfile.RarFile(file_name, 'r')
         except rarfile.RarOpenError as excp:
             raise InvalidTypeFileException(excp.message)
-            # print '[ERROR]', excp.message
-            # return False
         except IOError as excp:
             raise LoadComicsException(excp.strerror)
-            # print '[ERROR]', excp.strerror
-            # return False
 
         name_list = rar.namelist()
         name_list.sort()
+        aux = 100.0 / len(name_list)
+        page_number = 1
+        self.data = []
 
-        list_size = len(name_list)
-        count = 1
+        for idx, name in enumerate(name_list):
 
-        for name in name_list:
-            file_extension = Utility.get_file_extension(name)
+            if Utility.get_file_extension(name).lower() in self.extension:
+                self.data.append(Page(rar.read(name), name, page_number))
+                page_number += 1
 
-            if not rar.getinfo(name).isdir() and file_extension.lower() in \
-                    self.extension:
-                self.data.append({'data': rar.read(name), 'name': name})
-                self.progress.emit(count * 100 / list_size)
+            self.progress.emit(idx * aux)
 
-            count += 1
-
-        self.done.emit()
         rar.close()
 
         if not self.data:
             raise NoDataFindException
 
-        # return True if self.data else False
-
 
 class CbrLoader(RarLoader):
 
-    EXTENSION = '.cbr'
-
     def __init__(self, extension):
-        super(CbrLoader, self).__init__(extension)
+        RarLoader.__init__(self, extension)

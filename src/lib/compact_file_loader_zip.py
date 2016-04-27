@@ -18,16 +18,17 @@
 import zipfile
 
 from compact_file_loader import Loader
-from utility import Utility
-from pynocchio_exception import LoadComicsException, InvalidTypeFileException, NoDataFindException
+from src.lib.utility import Utility
+from page import Page
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import LoadComicsException
+from pynocchio_exception import NoDataFindException
 
 
 class ZipLoader(Loader):
 
-    EXTENSION = '.zip'
-
     def __init__(self, extension):
-        super(ZipLoader, self).__init__(extension)
+        Loader.__init__(self, extension)
 
     def load(self, file_name):
 
@@ -40,38 +41,27 @@ class ZipLoader(Loader):
         except IOError as excp:
             raise LoadComicsException(excp.message)
 
-        self._clear_data()
         name_list = zf.namelist()
         name_list.sort()
+        aux = 100.0 / len(name_list)
+        page_number = 1
+        self.data = []
 
-        list_size = len(name_list)
-        count = 1
+        for idx, name in enumerate(name_list):
 
-        for info in name_list:
-            file_extension = Utility.get_file_extension(info)
+            if Utility.get_file_extension(name).lower() in self.extension:
+                self.data.append(Page(zf.read(name), name, page_number))
+                page_number += 1
 
-            if not Utility.is_dir(info) and file_extension.lower() in \
-                    self.extension:
-                self.data.append({'data': zf.read(info), 'name': info})
-                self.progress.emit(count * 100 / list_size)
+            self.progress.emit(idx * aux)
 
-            count += 1
-
-        self.done.emit()
         zf.close()
 
         if not self.data:
             raise NoDataFindException('No one file is loaded!')
 
-        # return True
-
 
 class CbzLoader(ZipLoader):
 
-    EXTENSION = '.cbz'
-
     def __init__(self, extension):
-        super(CbzLoader, self).__init__(extension)
-
-
-
+        ZipLoader.__init__(self, extension)

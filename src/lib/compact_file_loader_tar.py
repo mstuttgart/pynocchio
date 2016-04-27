@@ -18,18 +18,17 @@
 import tarfile
 
 from compact_file_loader import Loader
-from utility import Utility
-from pynocchio_exception import LoadComicsException
+from src.lib.utility import Utility
+from page import Page
 from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import LoadComicsException
 from pynocchio_exception import NoDataFindException
 
 
 class TarLoader(Loader):
 
-    EXTENSION = '.tar'
-
     def __init__(self, extension):
-        super(TarLoader, self).__init__(extension)
+        Loader.__init__(self, extension)
 
     def load(self, file_name):
 
@@ -37,49 +36,36 @@ class TarLoader(Loader):
             tar = tarfile.open(file_name, 'r')
         except tarfile.CompressionError as excp:
             raise InvalidTypeFileException(excp.message)
-            # print '[ERROR]', excp.message
-            # return False
         except IOError as excp:
             raise LoadComicsException(excp.message)
-            # print '[ERROR]', excp.strerror
-            # return False
 
         name_list = tar.getnames()
         name_list.sort()
+        aux = 100.0 / len(name_list)
+        page_number = 1
+        self.data = []
 
-        list_size = len(name_list)
-        count = 1
+        for idx, name in enumerate(name_list):
 
-        for name in name_list:
-            file_extension = Utility.get_file_extension(name)
-
-            if not tar.getmember(name).isdir() and file_extension.lower() in \
-                    self.extension:
-                data = None
+            if Utility.get_file_extension(name).lower() in self.extension:
                 try:
                     data = tar.extractfile(name).read()
+                    self.data.append(Page(data, name, page_number))
+                    page_number += 1
                 except tarfile.ExtractError as err:
                     print '%20s  %s' % (name, err.message)
                 except tarfile.ReadError as err:
                     print '%20s  %s' % (name, err.message)
 
-                if data:
-                    self.data.append({'data': data, 'name': name})
-                    self.progress.emit(count * 100 / list_size)
-            count += 1
+            self.progress.emit(idx * aux)
 
-        self.done.emit()
         tar.close()
 
         if not self.data:
             raise NoDataFindException
 
-        # return True if self.data else False
-
 
 class CbtLoader(TarLoader):
 
-    EXTENSION = '.cbt'
-
     def __init__(self, extension):
-        super(CbtLoader, self).__init__(extension)
+        TarLoader.__init__(self, extension)

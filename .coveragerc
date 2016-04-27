@@ -1,0 +1,11 @@
+[run]
+branch = True
+source = src
+omit =
+    src/lib/uic_files/ui_*.py
+    src/lib/uic_files/main_window_view_rc.py
+    src//lib/pynocchio_exception.py
+    src/lib/preference_dialog.py
+    src/lib/about_dialog.py
+    src/lib/bookmark.py
+    src/main.py

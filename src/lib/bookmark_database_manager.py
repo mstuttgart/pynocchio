@@ -16,7 +16,6 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from peewee import OperationalError, IntegrityError
-
 from bookmark import Bookmark, BookmarkBaseModel, db
 
 
@@ -70,3 +69,7 @@ class BookmarkManager(BookmarkBaseModel):
         bk_list = Bookmark.select().where(Bookmark.comic_path == path)
         return bk_list[0] if bk_list else None
 
+    @staticmethod
+    def is_bookmark(path):
+        bk_list = Bookmark.select().where(Bookmark.comic_path == path)
+        return True if bk_list else False

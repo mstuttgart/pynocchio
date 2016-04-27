@@ -15,28 +15,25 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Keep the unused import here, because all_subclasses method
-from compact_file_loader import Loader
-from compact_file_loader_zip import *
-from compact_file_loader_rar import *
-from compact_file_loader_tar import *
+import compact_file_loader_zip
+import compact_file_loader_rar
+import compact_file_loader_tar
 
-product = {}
-
-
-def get_subclasses(cls):
-    return cls.__subclasses__() + [g for s in cls.__subclasses__()
-                                   for g in get_subclasses(s)]
-
-for ld in get_subclasses(vars()['Loader']):
-    product[ld.EXTENSION] = ld
+PRODUCT = {
+    '.zip': compact_file_loader_zip.ZipLoader,
+    '.cbz': compact_file_loader_zip.CbzLoader,
+    '.rar': compact_file_loader_rar.RarLoader,
+    '.cbr': compact_file_loader_rar.CbrLoader,
+    '.tar': compact_file_loader_tar.TarLoader,
+    '.cbt': compact_file_loader_tar.CbtLoader,
+}
 
 
 class LoaderFactory(object):
 
     @staticmethod
     def create_loader(compact_file_extension, data_extension):
-        if compact_file_extension in product:
-            return product[compact_file_extension](data_extension)
+        if compact_file_extension in PRODUCT:
+            return PRODUCT[compact_file_extension](data_extension)
 
         return None
