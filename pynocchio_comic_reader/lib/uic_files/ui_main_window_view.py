@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_files/main_window_view.ui'
 #
-# Created: Wed Apr 27 03:22:49 2016
+# Created: Wed Apr 27 03:26:38 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -558,4 +558,6 @@ class Ui_MainWindowView(object):
 
 from custom_widgets.qscroll_area_viewer import QScrollAreaViewer
 from custom_widgets.status_bar import StatusBar
+import main_window_view_rc
+import main_window_view_rc
 import main_window_view_rc
