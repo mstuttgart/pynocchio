@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1" language="pt_BR">
+<!DOCTYPE TS>
+<TS version="2.0" language="pt_BR">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -29,11 +30,6 @@ exclusivamente para leitura de arquivos .zip , cbr , rar
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The &lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader &lt;/span&gt;&lt;/a&gt;is an image viewer specifically designed to handle comic books. &lt;/p&gt;&lt;p&gt;It reads CBR, ZIP, CBZ, RAR and TAR comic files. &lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; is licensed under the GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set. &lt;/p&gt;&lt;p&gt;Icons pack by Icon Sweets 2 and Streamline icon set free pack.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="obsolete">&lt;p id=&quot;result&quot;&gt; &lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; é um visualizador de imagens especificamente &lt;p&gt;
 projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos nos formatos CBR, ZIP, CBZ, RAR e TAR.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://mstuttgart.github.io/pynocchio-comic-reader/&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Pynocchio Comic Reader&lt;/span&gt;&lt;/a&gt; é licenciado sob a GNU General Public License.&lt;/p&gt;&lt;p&gt;Copyright (C) 2014-2015 &lt;a href=&quot;https://github.com/mstuttgart&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;file:///home/michell/Projetos/pynocchio-comic-reader/yacreader/files/Free%20Icon%20Maker&quot;&gt; &lt;span style=&quot;text-decoration: underline; color:#0000ff;&quot;&gt; http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; para construir o conjunto de ícones.&lt;/p&gt;&lt;p&gt;Pacote de ícones por Icons Sweets 2 e o pacote gratuito Streamline Icone Set .&lt;/p&gt;&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/about_dialog.ui" line="23"/>
-        <source>About Pynocchio Reader</source>
-        <translation></translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="92"/>
@@ -73,12 +69,7 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="179"/>
         <source>The Pynocchio Comic Reader is an comic and manga reader. </source>
-        <translation>Pynocchio.Comic.Reader é um leitor de mangás e histórias em quadrinhos.</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/about_dialog.ui" line="189"/>
-        <source>&lt;a href=http://pynocchio.github.io&gt;Pynocchio Comic Reader&lt;/a&gt;</source>
-        <translation></translation>
+        <translation type="obsolete">Pynocchio.Comic.Reader é um leitor de mangás e histórias em quadrinhos.</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="202"/>
@@ -93,11 +84,6 @@ projetado para leitura de revista em quadrinhos.&lt;/p&gt;&lt;p&gt;Lê arquivos 
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="106"/>
         <source>(c) 2014 -2016 Michell Stuttgart</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/about_dialog.ui" line="141"/>
-        <source>1.2.0</source>
         <translation></translation>
     </message>
     <message>
@@ -786,6 +772,26 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="903"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pynocchio use &lt;a href=&quot;Free Icon Maker&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://freeiconmaker.com&lt;/span&gt;&lt;/a&gt; to build icon set. &lt;/p&gt;&lt;p&gt;Icons pack by &lt;a href=&quot;https://github.com/opengraphix/elementary3-icon-theme&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Elementary Icon&lt;/span&gt;&lt;/a&gt; theme.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="23"/>
+        <source>About Pynocchio</source>
+        <translation>Sobre Pynocchio</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="141"/>
+        <source>0.0.1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="179"/>
+        <source>The Pynocchio is an comic and manga reader. </source>
+        <translation>Pynocchio.Comic.Reader é um leitor de mangás e histórias em quadrinhos.</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="189"/>
+        <source>&lt;a href=https://github.com/mstuttgart/pynocchio-comic-reader&gt;Pynocchio Comic Reader&lt;/a&gt;</source>
         <translation></translation>
     </message>
 </context>

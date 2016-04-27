@@ -20,7 +20,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>About Pynocchio Reader</string>
+   <string>About Pynocchio</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../main_window_view.qrc">
@@ -138,7 +138,7 @@
              <item row="2" column="1">
               <widget class="QLabel" name="label_6">
                <property name="text">
-                <string>1.2.0</string>
+                <string>0.0.1</string>
                </property>
               </widget>
              </item>
@@ -176,7 +176,7 @@
          <item>
           <widget class="QLabel" name="label_10">
            <property name="text">
-            <string>The Pynocchio Comic Reader is an comic and manga reader. </string>
+            <string>The Pynocchio is an comic and manga reader. </string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -186,7 +186,7 @@
          <item>
           <widget class="QLabel" name="label_11">
            <property name="text">
-            <string>&lt;a href=http://pynocchio.github.io&gt;Pynocchio Comic Reader&lt;/a&gt;</string>
+            <string>&lt;a href=https://github.com/mstuttgart/pynocchio-comic-reader&gt;Pynocchio Comic Reader&lt;/a&gt;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>

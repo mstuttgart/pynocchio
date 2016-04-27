@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1" language="en_US">
+<!DOCTYPE TS>
+<TS version="2.0" language="en_US">
 <context>
     <name>AboutDialog</name>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="23"/>
         <source>About Pynocchio Reader</source>
-        <translation>About Pynocchio Reader</translation>
+        <translation type="obsolete">About Pynocchio Reader</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="40"/>
@@ -50,7 +51,7 @@
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="141"/>
         <source>1.2.0</source>
-        <translation>1.2.0</translation>
+        <translation type="obsolete">1.2.0</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="168"/>
@@ -60,12 +61,7 @@
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="179"/>
         <source>The Pynocchio Comic Reader is an comic and manga reader. </source>
-        <translation>The Pynocchio Comic Reader is an comic and manga reader.</translation>
-    </message>
-    <message>
-        <location filename="resources/ui_files/about_dialog.ui" line="189"/>
-        <source>&lt;a href=http://pynocchio.github.io&gt;Pynocchio Comic Reader&lt;/a&gt;</source>
-        <translation></translation>
+        <translation type="obsolete">The Pynocchio Comic Reader is an comic and manga reader.</translation>
     </message>
     <message>
         <location filename="resources/ui_files/about_dialog.ui" line="202"/>
@@ -769,6 +765,26 @@ p, li { white-space: pre-wrap; }
         <location filename="resources/ui_files/about_dialog.ui" line="931"/>
         <source>Close</source>
         <translation>Close</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="23"/>
+        <source>About Pynocchio</source>
+        <translation>About Pynocchio</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="141"/>
+        <source>0.0.1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="179"/>
+        <source>The Pynocchio is an comic and manga reader. </source>
+        <translation>The Pynocchio Comic Reader is an comic and manga reader.</translation>
+    </message>
+    <message>
+        <location filename="resources/ui_files/about_dialog.ui" line="189"/>
+        <source>&lt;a href=https://github.com/mstuttgart/pynocchio-comic-reader&gt;Pynocchio Comic Reader&lt;/a&gt;</source>
+        <translation></translation>
     </message>
 </context>
 <context>
