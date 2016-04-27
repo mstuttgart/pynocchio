@@ -11,6 +11,6 @@ resources/ui_files/go_to_page_dialog.ui \
 resources/ui_files/preference_dialog.ui \
 resources/ui_files/main_window_view.ui
 
-TRANSLATIONS = resources/i18n/pynocchio_en_US.ts resources/i18n/pynocchio_pt_BR.ts
+TRANSLATIONS = i18n/pynocchio_en_US.ts i18n/pynocchio_pt_BR.ts
 
 RESOURCES += resources/main_window_view.qrc

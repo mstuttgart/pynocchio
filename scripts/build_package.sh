@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd ..
 echo
 echo "Running PyInstaller"
 pyinstaller pynocchio.spec
