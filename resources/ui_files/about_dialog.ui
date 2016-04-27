@@ -24,7 +24,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../main_window_view.qrc">
-    <normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/help-info.svg</iconset>
+    <normaloff>:/icons/elementary3-icon-theme/actions/48/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/help-info.svg</iconset>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -68,7 +68,7 @@
               <enum>Qt::RichText</enum>
              </property>
              <property name="pixmap">
-              <pixmap resource="../main_window_view.qrc">:/icons/pynocchio_icon_2.png</pixmap>
+              <pixmap resource="../main_window_view.qrc">:/icons/pynocchio_icon.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>false</bool>

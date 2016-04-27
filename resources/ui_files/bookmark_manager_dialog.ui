@@ -24,7 +24,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../main_window_view.qrc">
-    <normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/64/office-database.svg</iconset>
+    <normaloff>:/icons/elementary3-icon-theme/apps/48/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/48/office-database.svg</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -118,7 +118,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../main_window_view.qrc">:/icons/pynocchio_icon_2.png</pixmap>
+           <pixmap>:/icons/pynocchio_icon_2.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -183,7 +183,7 @@
        </property>
        <property name="icon">
         <iconset resource="../main_window_view.qrc">
-         <normaloff>:/icons/elementary3-icon-theme/actions/64/list-remove.svg</normaloff>:/icons/elementary3-icon-theme/actions/64/list-remove.svg</iconset>
+         <normaloff>:/icons/elementary3-icon-theme/actions/48/stock_delete.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/stock_delete.svg</iconset>
        </property>
       </widget>
      </item>
@@ -236,7 +236,7 @@
   <include location="../main_window_view.qrc"/>
   <include location="../main_window_view.qrc"/>
   <include location="../main_window_view.qrc"/>
-  <include location="../rsc/main_window_view.qrc"/>
+  <include location="../main_window_view.qrc"/>
  </resources>
  <connections>
   <connection>

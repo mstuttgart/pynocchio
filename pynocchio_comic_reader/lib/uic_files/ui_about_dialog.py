@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_files/about_dialog.ui'
 #
-# Created: Wed Apr 27 02:16:56 2016
+# Created: Wed Apr 27 03:22:49 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -20,7 +20,7 @@ class Ui_AboutDialog(object):
         sizePolicy.setHeightForWidth(AboutDialog.sizePolicy().hasHeightForWidth())
         AboutDialog.setSizePolicy(sizePolicy)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/64/help-info.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/help-info.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutDialog.setWindowIcon(icon)
         AboutDialog.setModal(True)
         self.verticalLayout = QtGui.QVBoxLayout(AboutDialog)
@@ -46,7 +46,7 @@ class Ui_AboutDialog(object):
         self.about_text.setFrameShadow(QtGui.QFrame.Plain)
         self.about_text.setText("")
         self.about_text.setTextFormat(QtCore.Qt.RichText)
-        self.about_text.setPixmap(QtGui.QPixmap(":/icons/pynocchio_icon_2.png"))
+        self.about_text.setPixmap(QtGui.QPixmap(":/icons/pynocchio_icon.png"))
         self.about_text.setScaledContents(False)
         self.about_text.setAlignment(QtCore.Qt.AlignCenter)
         self.about_text.setMargin(5)

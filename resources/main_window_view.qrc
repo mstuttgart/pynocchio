@@ -1,15 +1,10 @@
 <RCC>
   <qresource prefix="/icons">
+    <file>elementary3-icon-theme/actions/48/go-down.svg</file>
     <file>notCover.png</file>
-    <file>pynocchio_icon_2.png</file>
-    <file>elementary3-icon-theme/categories/48/applications-internet.svg</file>
-    <file>notCover.png</file>
-    <file>elementary3-icon-theme/actions/64/go-down.svg</file>
-    <file>elementary3-icon-theme/apps/64/addressbook.svg</file>
-    <file>elementary3-icon-theme/apps/64/office-database.svg</file>
+    <file>elementary3-icon-theme/apps/48/office-database.svg</file>
     <file>elementary3-icon-theme/actions/48/document-open-recent.svg</file>
     <file>elementary3-icon-theme/actions/48/document-open.svg</file>
-    <file>elementary3-icon-theme/actions/48/document-save.svg</file>
     <file>elementary3-icon-theme/categories/48/applications-painting.svg</file>
     <file>pynocchio_icon.png</file>
     <file>freeiconmaker-icons/best-fit.svg</file>
@@ -19,14 +14,12 @@
     <file>freeiconmaker-icons/vertical-fit.svg</file>
     <file>elementary3-icon-theme/actions/48/object-rotate-left.svg</file>
     <file>elementary3-icon-theme/actions/48/object-rotate-right.svg</file>
-    <file>elementary3-icon-theme/actions/64/address-book-new.svg</file>
-    <file>elementary3-icon-theme/actions/64/bookmark_add.svg</file>
-    <file>elementary3-icon-theme/actions/64/help-contents.svg</file>
-    <file>elementary3-icon-theme/actions/64/help-info.svg</file>
-    <file>elementary3-icon-theme/actions/64/stock_delete.svg</file>
     <file>elementary3-icon-theme/actions/48/archive-extract.svg</file>
+    <file>elementary3-icon-theme/actions/48/help-info.svg</file>
+    <file>elementary3-icon-theme/actions/48/help-hint.svg</file>
+    <file>elementary3-icon-theme/actions/48/stock_delete.svg</file>
+    <file>elementary3-icon-theme/actions/48/bookmark-new.svg</file>
     <file>elementary3-icon-theme/actions/48/application-exit.svg</file>
-    <file>elementary3-icon-theme/actions/48/document-open.svg</file>
     <file>elementary3-icon-theme/actions/48/document-properties.svg</file>
     <file>elementary3-icon-theme/actions/48/go-next.svg</file>
     <file>elementary3-icon-theme/actions/48/go-previous.svg</file>
@@ -35,8 +28,6 @@
     <file>elementary3-icon-theme/actions/48/media-skip-backward.svg</file>
     <file>elementary3-icon-theme/actions/48/media-skip-forward.svg</file>
     <file>elementary3-icon-theme/actions/48/search.svg</file>
-    <file>elementary3-icon-theme/actions/64/add.svg</file>
-    <file>elementary3-icon-theme/actions/64/list-remove.svg</file>
     <file>elementary3-icon-theme/actions/48/dialog-apply.svg</file>
     <file>elementary3-icon-theme/actions/48/dialog-cancel.svg</file>
   </qresource>

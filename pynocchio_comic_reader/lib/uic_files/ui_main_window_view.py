@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_files/main_window_view.ui'
 #
-# Created: Wed Apr 27 02:16:56 2016
+# Created: Wed Apr 27 03:22:49 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -21,7 +21,7 @@ class Ui_MainWindowView(object):
         MainWindowView.setBaseSize(QtCore.QSize(0, 3))
         MainWindowView.setFocusPolicy(QtCore.Qt.WheelFocus)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/pynocchio_icon_2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icons/pynocchio_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindowView.setWindowIcon(icon)
         MainWindowView.setIconSize(QtCore.QSize(22, 22))
         MainWindowView.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
@@ -89,7 +89,7 @@ class Ui_MainWindowView(object):
         self.label.setMidLineWidth(0)
         self.label.setText("")
         self.label.setTextFormat(QtCore.Qt.PlainText)
-        self.label.setPixmap(QtGui.QPixmap(":/icons/pynocchio_icon_2.png"))
+        self.label.setPixmap(QtGui.QPixmap(":/icons/pynocchio_icon.png"))
         self.label.setScaledContents(False)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setMargin(0)
@@ -158,7 +158,7 @@ class Ui_MainWindowView(object):
         MainWindowView.setStatusBar(self.statusbar)
         self.action_about = QtGui.QAction(MainWindowView)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/64/help-info.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/help-info.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_about.setIcon(icon2)
         self.action_about.setObjectName("action_about")
         self.action_about_qt = QtGui.QAction(MainWindowView)
@@ -254,14 +254,14 @@ class Ui_MainWindowView(object):
         self.action_add_bookmark = QtGui.QAction(MainWindowView)
         self.action_add_bookmark.setEnabled(False)
         icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/64/bookmark_add.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon14.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/bookmark-new.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_add_bookmark.setIcon(icon14)
         self.action_add_bookmark.setVisible(True)
         self.action_add_bookmark.setObjectName("action_add_bookmark")
         self.action_remove_bookmark = QtGui.QAction(MainWindowView)
         self.action_remove_bookmark.setEnabled(False)
         icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/64/stock_delete.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon15.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/stock_delete.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_remove_bookmark.setIcon(icon15)
         self.action_remove_bookmark.setVisible(False)
         self.action_remove_bookmark.setIconVisibleInMenu(True)
@@ -269,7 +269,7 @@ class Ui_MainWindowView(object):
         self.action_bookmark_manager = QtGui.QAction(MainWindowView)
         self.action_bookmark_manager.setEnabled(True)
         icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/apps/64/office-database.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon16.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/apps/48/office-database.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_bookmark_manager.setIcon(icon16)
         self.action_bookmark_manager.setObjectName("action_bookmark_manager")
         self.action_open_folder = QtGui.QAction(MainWindowView)
@@ -322,7 +322,7 @@ class Ui_MainWindowView(object):
         self.action_save_image = QtGui.QAction(MainWindowView)
         self.action_save_image.setEnabled(True)
         icon23 = QtGui.QIcon()
-        icon23.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/64/go-down.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon23.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/go-down.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_save_image.setIcon(icon23)
         self.action_save_image.setObjectName("action_save_image")
         self.action_open_file = QtGui.QAction(MainWindowView)

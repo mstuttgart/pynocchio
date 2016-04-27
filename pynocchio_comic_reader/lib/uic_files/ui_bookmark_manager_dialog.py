@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_files/bookmark_manager_dialog.ui'
 #
-# Created: Wed Apr 27 02:16:56 2016
+# Created: Wed Apr 27 03:22:50 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -20,7 +20,7 @@ class Ui_Bookmark_Dialog(object):
         sizePolicy.setHeightForWidth(Bookmark_Dialog.sizePolicy().hasHeightForWidth())
         Bookmark_Dialog.setSizePolicy(sizePolicy)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/apps/64/office-database.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/apps/48/office-database.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Bookmark_Dialog.setWindowIcon(icon)
         self.verticalLayout_3 = QtGui.QVBoxLayout(Bookmark_Dialog)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -88,7 +88,7 @@ class Ui_Bookmark_Dialog(object):
         self.grid_layout.setObjectName("grid_layout")
         self.button_remove = QtGui.QPushButton(Bookmark_Dialog)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/64/list-remove.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/stock_delete.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.button_remove.setIcon(icon1)
         self.button_remove.setObjectName("button_remove")
         self.grid_layout.addWidget(self.button_remove, 1, 1, 1, 1)
