@@ -16,7 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from unittest import TestCase
-from pynocchio_comic_reader.lib.utility import Utility
+from src.lib.utility import Utility
 
 
 class TestUtility(TestCase):

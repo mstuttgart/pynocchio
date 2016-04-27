@@ -11,7 +11,7 @@ cp dist/pynocchio linux/usr/bin
 
 echo
 echo "Copy locale file to linux/usr/share/pynocchio"
-cp -r pynocchio_comic_reader/locale linux/usr/share/pynocchio
+cp -r src/locale linux/usr/share/pynocchio
 
 echo
 echo "Uninstall pynocchio comic reader from system"

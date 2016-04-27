@@ -2,10 +2,10 @@
 
 block_cipher = None
 
-a = Analysis(['pynocchio_comic_reader/main.py'],
-             pathex=['/home/michell/Documents/Projects/pynocchio-comic-reader/pynocchio_comic_reader'],
+a = Analysis(['src/main.py'],
+             pathex=['/home/michell/Documents/Projects/pynocchio-comic-reader/src'],
              binaries=None,
-             datas=[('pynocchio_comic_reader/locale/pynocchio_*.qm', '/usr/share/pynocchio-comic-reader/locale')],
+             datas=[('src/locale/pynocchio_*.qm', '/usr/share/pynocchio/locale')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],

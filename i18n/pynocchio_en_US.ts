@@ -789,12 +789,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BookmarkManagerDialog</name>
     <message>
-        <location filename="pynocchio_comic_reader/lib/bookmark_manager_dialog.py" line="100"/>
+        <location filename="src/lib/bookmark_manager_dialog.py" line="100"/>
         <source>Delete bookmarks</source>
         <translation>Delete bookmarks</translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/bookmark_manager_dialog.py" line="101"/>
+        <location filename="src/lib/bookmark_manager_dialog.py" line="101"/>
         <source>This action will go delete you bookmarks! Preceed?</source>
         <translation>This action will go delete you bookmarks! Preceed?</translation>
     </message>
@@ -853,32 +853,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindowView</name>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="60"/>
+        <location filename="src/lib/main_window_view.py" line="60"/>
         <source>open_comic_file</source>
         <translation>Open Comic File</translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="65"/>
+        <location filename="src/lib/main_window_view.py" line="65"/>
         <source>all_supported_files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; tar_files (*.tar *.cbt);; all_files (*)</source>
         <translation>All supported.files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Zip.files (*.zip *.cbz);; Rar files (*.rar *.cbr);; Tar files (*.tar *.cbt);; All files (*)</translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="77"/>
+        <location filename="src/lib/main_window_view.py" line="77"/>
         <source>save_current_page</source>
         <translation>Save current page</translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="78"/>
+        <location filename="src/lib/main_window_view.py" line="78"/>
         <source>images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
         <translation>Images (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="295"/>
+        <location filename="src/lib/main_window_view.py" line="309"/>
         <source>LoadComicsException</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/main_window_view.py" line="301"/>
+        <location filename="src/lib/main_window_view.py" line="315"/>
         <source>InvalidTypeFileException</source>
         <translation></translation>
     </message>
@@ -1381,17 +1381,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>StatusBar</name>
     <message>
-        <location filename="pynocchio_comic_reader/lib/uic_files/custom_widgets/status_bar.py" line="110"/>
+        <location filename="src/lib/uic_files/custom_widgets/status_bar.py" line="110"/>
         <source>Page: </source>
         <translation>Page: </translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/uic_files/custom_widgets/status_bar.py" line="116"/>
+        <location filename="src/lib/uic_files/custom_widgets/status_bar.py" line="116"/>
         <source>Resolution: </source>
         <translation>Resolution: </translation>
     </message>
     <message>
-        <location filename="pynocchio_comic_reader/lib/uic_files/custom_widgets/status_bar.py" line="123"/>
+        <location filename="src/lib/uic_files/custom_widgets/status_bar.py" line="123"/>
         <source>Title: </source>
         <translation>Title: </translation>
     </message>

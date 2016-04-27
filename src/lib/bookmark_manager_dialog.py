@@ -20,7 +20,7 @@ from PySide import QtCore
 from PySide import QtGui
 from PySide import QtSql
 
-from pynocchio_comic_reader.lib.uic_files.ui_bookmark_manager_dialog \
+from src.lib.uic_files.ui_bookmark_manager_dialog \
     import Ui_Bookmark_Dialog
 from utility import Utility
 

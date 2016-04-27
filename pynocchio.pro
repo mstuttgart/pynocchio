@@ -1,8 +1,8 @@
-SOURCES = pynocchio_comic_reader/lib/main_window_view.py \
-pynocchio_comic_reader/lib/bookmark_manager_dialog.py \
-pynocchio_comic_reader/lib/go_to_page_dialog.py \
-pynocchio_comic_reader/lib/preference_dialog.py \
-pynocchio_comic_reader/lib/uic_files/custom_widgets/status_bar.py
+SOURCES = src/lib/main_window_view.py \
+src/lib/bookmark_manager_dialog.py \
+src/lib/go_to_page_dialog.py \
+src/lib/preference_dialog.py \
+src/lib/uic_files/custom_widgets/status_bar.py
 
 
 FORMS = resources/ui_files/about_dialog.ui \
