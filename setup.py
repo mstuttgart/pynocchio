@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='pynocchio',
-    version='1.0.0',
+    version='0.0.1',
     packages=['test', 'pynocchio_comic_reader'],
     test_suite='test',
     url='https://github.com/mstuttgart/pynocchio-comic-reader',
