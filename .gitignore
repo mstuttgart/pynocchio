@@ -76,4 +76,4 @@ src/resource/flags
 *.py~
 *.xml~
 *.deb
-linux/usr/bin/*
+linux/usr/bin/
