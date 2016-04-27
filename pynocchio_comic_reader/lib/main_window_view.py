@@ -193,6 +193,20 @@ class MainWindowView(QtGui.QMainWindow):
                 sc.setEnabled(True)
 
     @QtCore.Slot()
+    def on_action_show_toolbar_triggered(self):
+        if self.ui.action_show_toolbar.isChecked():
+            self.ui.toolbar.show()
+        else:
+            self.ui.toolbar.hide()
+
+    @QtCore.Slot()
+    def on_action_show_statusbar_triggered(self):
+        if self.ui.action_show_statusbar.isChecked():
+            self.ui.statusbar.show()
+        else:
+            self.ui.statusbar.hide()
+
+    @QtCore.Slot()
     def on_action_about_triggered(self):
         import about_dialog
         ab_dlg = about_dialog.AboutDialog()
@@ -442,20 +456,6 @@ class MainWindowView(QtGui.QMainWindow):
     def get_current_view_container_size(self):
         return self.ui.qscroll_area_viewer.size()
 
-    @QtCore.Slot()
-    def on_action_show_toolbar_triggered(self):
-        if self.ui.action_show_toolbar.isChecked():
-            self.ui.toolbar.show()
-        else:
-            self.ui.toolbar.hide()
-
-    @QtCore.Slot()
-    def on_action_show_statusbar_triggered(self):
-        if self.ui.action_show_statusbar.isChecked():
-            self.ui.statusbar.show()
-        else:
-            self.ui.statusbar.hide()
-
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:
             self.on_action_fullscreen_triggered()
@@ -478,16 +478,16 @@ class MainWindowView(QtGui.QMainWindow):
             self.vertical_anim.setEndValue(next_pos)
             self.vertical_anim.start()
 
-        super(MainWindowView, self).keyPressEvent(event)
+        QtGui.QMainWindow.keyPressEvent(self, event)
 
-    def mouseDoubleClickEvent(self, *args, **kwargs):
-        if args[0].button() == QtCore.Qt.LeftButton:
+    def mouseDoubleClickEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
             self.on_action_fullscreen_triggered()
-        QtGui.QMainWindow.mousePressEvent(self, *args, **kwargs)
+        QtGui.QMainWindow.mousePressEvent(self, event)
 
-    def resizeEvent(self, *args, **kwargs):
+    def resizeEvent(self, event):
         self.update_current_view_container_size()
-        QtGui.QMainWindow.resizeEvent(self, *args, **kwargs)
+        QtGui.QMainWindow.resizeEvent(self, event)
 
     def show(self):
         """
