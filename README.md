@@ -46,7 +46,21 @@ sudo pip install peewee
 ```
 
 You need of Qt Designer to open and edit .ui view files.
-Use de **compile_ui.sh** file (inside of resource/script/ folder) to compile .ui files of project.
+Use de **compile_ui.sh** file (inside of `script` folder) to compile .ui 
+files of project and `pynocchio.pro` file.
+
+**build_package.sh** use `PyInstaller` to generate executable and build a `.deb` file.
+You need install:
+
+* PyInstaller:
+```
+sudo pip install PyInstaller
+```
+
+* Ubuntu dev tools:
+```
+sudo apt-get install packaging-dev
+```
 
 ### ToDo:
 Please, see this [list](https://github.com/mstuttgart/pynocchio-comic-reader/issues/21)
