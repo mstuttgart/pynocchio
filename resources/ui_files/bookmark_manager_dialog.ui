@@ -118,7 +118,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/icons/pynocchio_icon_2.png</pixmap>
+           <pixmap resource="../main_window_view.qrc">:/icons/pynocchio_icon.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>

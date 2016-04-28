@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'resources/ui_files/bookmark_manager_dialog.ui'
 #
-# Created: Wed Apr 27 14:39:17 2016
+# Created: Thu Apr 28 00:03:52 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -63,7 +63,7 @@ class Ui_Bookmark_Dialog(object):
         self.verticalLayout.addItem(spacerItem)
         self.page_image_label = QtGui.QLabel(self.verticalFrame)
         self.page_image_label.setText("")
-        self.page_image_label.setPixmap(QtGui.QPixmap(":/icons/pynocchio_icon_2.png"))
+        self.page_image_label.setPixmap(QtGui.QPixmap(":/icons/pynocchio_icon.png"))
         self.page_image_label.setScaledContents(True)
         self.page_image_label.setAlignment(QtCore.Qt.AlignCenter)
         self.page_image_label.setObjectName("page_image_label")
