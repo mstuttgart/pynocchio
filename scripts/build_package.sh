@@ -25,6 +25,6 @@ echo
 echo "Install .deb file"
 sudo dpkg -i pynocchio-0.0.1-amd64.deb
 
-echo "Remove buind and dist foldere exec file"
-rm -rf build dist
-rm -rf linux/usr/bin/pynocchio
+echo "Remove exec file from linux/bin folder"
+#rm -rf build dist
+rm -f linux/usr/bin/pynocchio

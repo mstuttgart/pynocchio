@@ -44,6 +44,10 @@ def main():
         app.setApplicationDisplayName('Pynocchio')
 
     translator = QTranslator()
+
+    for path in DATADIRS:
+        app.addLibraryPath(path)
+
     for path in DATADIRS:
         if translator.load('pynocchio_' + QLocale.system().name(),
                            path + '/locale'):
