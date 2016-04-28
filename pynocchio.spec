@@ -21,7 +21,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           name='pynocchio',
-          debug=False,
+          debug=True,
           strip=False,
           upx=True,
           console=True )
