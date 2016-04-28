@@ -23,6 +23,6 @@ exe = EXE(pyz,
           name='pynocchio',
           debug=True,
           strip=False,
-          upx=True,
+          upx=False,
           console=True )
 
