@@ -20,6 +20,7 @@ sudo apt-get purge pynocchio -y
 echo
 echo "Build .deb file"
 dpkg --build linux pynocchio-0.0.1-amd64.deb
+dpkg-sig --sign builder pynocchio-0.0.1-amd64.deb
 
 echo
 echo "Install .deb file"
