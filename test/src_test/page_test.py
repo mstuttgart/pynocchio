@@ -15,25 +15,15 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import compact_file_loader_zip
-import compact_file_loader_rar
-import compact_file_loader_tar
-
-PRODUCT = {
-    '.zip': compact_file_loader_zip.ZipLoader,
-    '.cbz': compact_file_loader_zip.CbzLoader,
-    '.rar': compact_file_loader_rar.RarLoader,
-    '.cbr': compact_file_loader_rar.CbrLoader,
-    '.tar': compact_file_loader_tar.TarLoader,
-    '.cbt': compact_file_loader_tar.CbtLoader,
-}
+from unittest import TestCase
+from pynocchio.src.page import Page
 
 
-class LoaderFactory(object):
+class TestPage(TestCase):
 
-    @staticmethod
-    def create_loader(compact_file_extension, data_extension):
-        if compact_file_extension in PRODUCT:
-            return PRODUCT[compact_file_extension](data_extension)
-
-        return None
+    def test__init__(self):
+        page = Page(None, 'title', 1)
+        self.assertEqual(page.data, None)
+        self.assertEqual(page.title, 'title')
+        self.assertEqual(page.number, 1)
+        self.assertFalse(page._pixmap)

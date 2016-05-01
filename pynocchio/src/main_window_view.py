@@ -17,9 +17,9 @@
 
 from PySide import QtGui, QtCore
 
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import LoadComicsException
-from uic_files.ui_main_window_view import Ui_MainWindowView
+from pynocchio.src.pynocchio_exception import InvalidTypeFileException
+from pynocchio.src.pynocchio_exception import LoadComicsException
+from pynocchio.src.uic_files.ui_main_window_view import Ui_MainWindowView
 
 
 class MainWindowView(QtGui.QMainWindow):

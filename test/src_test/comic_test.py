@@ -16,8 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from unittest import TestCase
-from src.lib.comic import Comic
-from src.lib.page import Page
+from pynocchio.src.comic import Comic
+from pynocchio.src.page import Page
 
 
 class TestComic(TestCase):

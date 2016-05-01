@@ -16,7 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from unittest import TestCase
-from src.lib.utility import Utility
+from pynocchio.src.utility import Utility
 
 
 class TestUtility(TestCase):
