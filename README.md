@@ -15,8 +15,8 @@ developed on PySide API.
 The current version is stable and we intend to improve it even more.
 
 * Support several view adjust modes using anti-aliasing.
-* Support the several image formates provide by Qt: JPG, PNG, GIF.
-* Support a several comic formats like .ZIP, .RAR, .TAR, .CBR, .CBZ and etc
+* Support the several image formates provide by Qt: JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM.
+* Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ and etc
 * Elegant visual, free and easy to use.
 
 ![](https://lh3.googleusercontent.com/-pedd53CIEtc/VwwYg1TpnoI/AAAAAAAAF04/gOJWtN5XZwYwQT_IBwYQEk-sYhqrw_owgCCo/s1152-Ic42/snapshot12.png)
@@ -33,34 +33,16 @@ Ludic Game Library makes use of other libraries to perform some of their routine
 * Python 2.7
 * PySide and Qt tools (QtDesigner e QLinguist): 
 ```
-sudo apt-get install python-pyside pyside-tools python-qt4-sql qt4-designer 
-qt4-linguist-tools qt4-dev-tools unrar
+sudo apt-get install python-pyside pyside-tools qt4-designer qt4-linguist-tools qt4-dev-tools unrar
 ```
-* rarfile: 
+* rarfile and peewee: 
 ```
-sudo pip install rarfile
-```
-* peewee: 
-```
-sudo pip install peewee
+sudo pip install rarfile peewee
 ```
 
 You need of Qt Designer to open and edit .ui view files.
 Use de **compile_ui.sh** file (inside of `script` folder) to compile .ui 
 files of project and `pynocchio.pro` file.
-
-**build_package.sh** use `PyInstaller` to generate executable and build a `.deb` file.
-You need install:
-
-* PyInstaller:
-```
-sudo pip install PyInstaller
-```
-
-* Ubuntu dev tools:
-```
-sudo apt-get install packaging-dev
-```
 
 ### ToDo:
 Please, see this [list](https://github.com/mstuttgart/pynocchio-comic-reader/issues/21)
