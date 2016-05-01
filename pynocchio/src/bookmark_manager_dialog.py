@@ -20,9 +20,9 @@ from PySide import QtCore
 from PySide import QtGui
 from PySide import QtSql
 
-from src.lib.uic_files.ui_bookmark_manager_dialog \
+from pynocchio.src.uic_files.ui_bookmark_manager_dialog \
     import Ui_Bookmark_Dialog
-from src.lib.utility import Utility
+from pynocchio.src.utility import Utility
 
 
 class BookmarkManagerDialog(QtGui.QDialog):

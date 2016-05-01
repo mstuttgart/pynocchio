@@ -17,12 +17,12 @@
 
 import zipfile
 
-from compact_file_loader import Loader
-from src.lib.utility import Utility
-from page import Page
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import LoadComicsException
-from pynocchio_exception import NoDataFindException
+from pynocchio.src.compact_file_loader import Loader
+from pynocchio.src.utility import Utility
+from pynocchio.src.page import Page
+from pynocchio.src.pynocchio_exception import InvalidTypeFileException
+from pynocchio.src.pynocchio_exception import LoadComicsException
+from pynocchio.src.pynocchio_exception import NoDataFindException
 
 
 class ZipLoader(Loader):

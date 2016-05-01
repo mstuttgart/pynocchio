@@ -17,7 +17,7 @@
 
 from PySide import QtGui
 
-from uic_files.ui_preference_dialog import Ui_config_dialog
+from pynocchio.src.uic_files.ui_preference_dialog import Ui_config_dialog
 
 
 class PreferenceDialog(QtGui.QDialog):

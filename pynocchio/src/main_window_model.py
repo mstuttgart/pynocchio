@@ -18,13 +18,13 @@
 
 from PySide import QtCore, QtGui
 
-from bookmark_database_manager import BookmarkManager
-from compact_file_loader_factory import LoaderFactory
-from path_file_filter import PathFileFilter
-from settings_manager import SettingsManager
-from pynocchio_exception import NoDataFindException
-from src.lib.utility import Utility
-from comic import Comic
+from pynocchio.src.bookmark_database_manager import BookmarkManager
+from pynocchio.src.compact_file_loader_factory import LoaderFactory
+from pynocchio.src.path_file_filter import PathFileFilter
+from pynocchio.src.settings_manager import SettingsManager
+from pynocchio.src.pynocchio_exception import NoDataFindException
+from pynocchio.src.utility import Utility
+from pynocchio.src.comic import Comic
 
 
 class MainWindowModel(QtCore.QObject):
