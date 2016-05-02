@@ -67,7 +67,7 @@ version = get_version(package_name)
 
 class CompileUiFileCommand(distutils.cmd.Command):
     """
-    A command compile ui files.
+    A command to compile ui files.
     """
 
     description = "Compile PySide ui files"
@@ -98,25 +98,31 @@ class CompileUiFileCommand(distutils.cmd.Command):
 
         In practice, this is where the values are assigned and verified.
         """
-        assert os.path.isdir(self.path) is True
-        assert os.path.lexists(self.path) is True
+        assert os.path.isdir(self.path), ('[INFO] Folder %s not is valid '
+                                          'folder!' % self.path)
+        assert os.path.lexists(self.path), ('[INFO] Folder %s not exist!' %
+                                            self.path)
 
     def run(self):
 
-        print "[INFO] Compile ui files..."
+        print "[INFO] Start compile ui files..."
 
         uic_folder = 'pynocchio/src/uic_files'
         files = get_regex_files(self.path, '.ui')
         for f in files:
             uic_name = os.path.join(uic_folder, 'ui_' + f[1] + '.py')
-            os.system('pyside-uic %s -o %s' % (f[0], uic_name))
+            os.system('pyside-uic %s -d -o %s' % (f[0], uic_name))
+            print '[INFO] Compile %s file' % f[0]
+
+        print '[INFO] uic files added in %s' % uic_folder
+        print '[INFO] Compile ui files successfully!'
 
         sys.exit()
 
 
 class CompileQrcFileCommand(distutils.cmd.Command):
     """
-    A command compile qrc resource files.
+    A command to compile qrc resource files.
     """
 
     description = "Compile PySide qrc files"
@@ -130,8 +136,10 @@ class CompileQrcFileCommand(distutils.cmd.Command):
         self.path = 'data'
 
     def finalize_options(self):
-        assert os.path.isdir(self.path) is True
-        assert os.path.lexists(self.path) is True
+        assert os.path.isdir(self.path), ('[INFO] Folder %s not is valid '
+                                          'folder!' % self.path)
+        assert os.path.lexists(self.path), ('[INFO] Folder %s not exist!' %
+                                            self.path)
 
     def run(self):
 
@@ -142,8 +150,49 @@ class CompileQrcFileCommand(distutils.cmd.Command):
         for f in files:
             uic_name = os.path.join(uic_folder, f[1] + '_rc.py')
             os.system('pyside-rcc -verbose -o %s %s' % (uic_name, f[0]))
+            print '[INFO] Compile %s file' % f[0]
 
+        print '[INFO] rc files added in %s' % uic_folder
+        print '[INFO] Compile qrc files successfully!'
         sys.exit()
+
+
+class BuildDEBPackageCommand(distutils.cmd.Command):
+    """
+    A command build deb package.
+    """
+
+    description = "Build .deb package"
+
+    # The format is (long option, short option, description).
+    user_options = [
+        ('folder=', None, 'The folder where deb package will be build'),
+    ]
+
+    def initialize_options(self):
+        self.folder = 'dist'
+
+    def finalize_options(self):
+        if os.path.isdir(self.folder) and os.path.lexists(self.folder):
+            os.system('rm -rf %s' % self.folder)
+
+    def run(self):
+
+        print "[INFO] Compile a deb package..."
+
+        os.system('mkdir %s' % self.folder)
+        os.system('cp -r stdeb.cfg setup.py %s' % self.folder)
+        os.system('cp -r pynocchio linux %s' % self.folder)
+        os.system('cd %s && python setup.py --command-packages=stdeb.command '
+                  'sdist_dsc' % self.folder)
+        os.system('cd %s/deb_dist && dpkg-source -x %s_%s-1.dsc' % (self.folder,
+                                                                    package_name,
+                                                                    version))
+        os.system('cd %s/deb_dist/%s-%s && debuild -S -sa' % (self.folder,
+                                                              package_name,
+                                                              version))
+        sys.exit()
+
 
 setup(
     name=package_name,
@@ -163,6 +212,7 @@ setup(
     cmdclass={
         'compile_ui': CompileUiFileCommand,
         'compile_qrc': CompileQrcFileCommand,
+        'build_deb': BuildDEBPackageCommand,
     },
     scripts=[
         'pynocchio-comic-reader/pynocchio/main',
