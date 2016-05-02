@@ -151,7 +151,33 @@ class CompileQrcFileCommand(distutils.cmd.Command):
             print '[INFO] Compile %s file' % f[0]
 
         print '[INFO] rc files added in %s' % uic_folder
-        print '[INFO] Compile qrc files successfully!'
+        sys.exit()
+
+
+class CompileProFileCommand(distutils.cmd.Command):
+    """
+    A command to compile pro condig files.
+    """
+
+    description = "Compile PySide pro files"
+
+    # The format is (long option, short option, description).
+    user_options = [
+        ('path=', None, 'The path of pro files folder'),
+    ]
+
+    def initialize_options(self):
+        self.path = 'pynocchio.pro'
+
+    def finalize_options(self):
+        assert os.path.isfile(self.path), ('[INFO] %s not is valid file!' %
+                                           self.path)
+        assert os.path.exists(self.path), ('[INFO] File %s not exist!' %
+                                           self.path)
+
+    def run(self):
+        print "[INFO] Compile pro files..."
+        os.system('pyside-lupdate -verbose %s' % self.path)
         sys.exit()
 
 
@@ -165,17 +191,20 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
     # The format is (long option, short option, description).
     user_options = [
         ('folder=', None, 'The folder where deb package will be build'),
+        ('upload=', None, 'Upload package to launchpad'),
     ]
 
     def initialize_options(self):
         self.folder = 'dist'
+        self.upload = False
 
     def finalize_options(self):
         if os.path.isdir(self.folder) and os.path.lexists(self.folder):
             os.system('rm -rf %s' % self.folder)
 
+        assert self.upload in (True, False)
+
     def run(self):
-        # TODO: Add upload launchpad command
 
         print "[INFO] Compile a deb package..."
 
@@ -191,6 +220,11 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
         os.system('cd %s/deb_dist/%s-%s && debuild -S -sa' % (self.folder,
                                                               package_name,
                                                               version))
+
+        if self.upload:
+            os.system('dput ppa:pynocchio-team/pynocchio-stable '
+                      '%s_%s-1_source.changes' % (package_name, version))
+
         sys.exit()
 
 
@@ -212,6 +246,7 @@ setup(
     cmdclass={
         'compile_ui': CompileUiFileCommand,
         'compile_qrc': CompileQrcFileCommand,
+        'compile_pro': CompileProFileCommand,
         'build_deb': BuildDEBPackageCommand,
     },
     scripts=[
