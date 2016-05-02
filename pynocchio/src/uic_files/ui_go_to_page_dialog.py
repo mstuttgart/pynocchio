@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'resources/ui_files/go_to_page_dialog.ui'
+# Form implementation generated from reading ui file 'data/ui_files/go_to_page_dialog.ui'
 #
-# Created: Thu Apr 28 00:03:52 2016
+# Created: Mon May  2 03:14:40 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
