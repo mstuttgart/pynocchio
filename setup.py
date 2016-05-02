@@ -45,13 +45,27 @@ def get_packages(package):
             if os.path.exists(os.path.join(dirpath, '__init__.py'))]
 
 
+def get_regex_files(path, extension):
+    """
+    :param path Path of ui files
+    :param extension Extension of file. .ui, .qrc, .ts, for example.
+    Return list of files with selected extension .
+    """
+    ret = []
+
+    for dirpath, dirnames, filenames in os.walk(path):
+        ret += [(os.path.join(dirpath, fname), os.path.splitext(fname)[0]) for
+                fname in filenames if os.path.splitext(fname)[1] == extension]
+
+    return ret
+
 package_name = 'pynocchio'
 version = get_version(package_name)
 
 if sys.argv[-1] == 'build_deb':
     folder = 'dist'
 
-    print "[INFO] Compile a deb package now:"
+    print "[INFO] Compile a deb package now"
     os.system('rm -rf %s' % folder)
     os.system('mkdir %s' % folder)
     os.system('cp -r stdeb.cfg setup.py %s' % folder)
@@ -64,6 +78,17 @@ if sys.argv[-1] == 'build_deb':
     os.system('cd %s/deb_dist/%s-%s && debuild -S -sa' % (folder,
                                                           package_name,
                                                           version))
+    sys.exit()
+
+if sys.argv[-1] == 'build_ui':
+    print "[INFO] Compile ui files now"
+
+    folder = 'pynocchio/src/uic_files'
+    files = get_regex_files('data', '.ui')
+    for f in files:
+        uic_name = os.path.join(folder, 'ui_' + f[1] + '.py')
+        os.system('pyside-uic %s -o %s' % (f[0], uic_name))
+
     sys.exit()
 
 setup(

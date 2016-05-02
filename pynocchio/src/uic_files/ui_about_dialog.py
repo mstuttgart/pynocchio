@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'resources/ui_files/about_dialog.ui'
+# Form implementation generated from reading ui file 'data/ui_files/about_dialog.ui'
 #
-# Created: Thu Apr 28 00:03:52 2016
+# Created: Mon May  2 02:08:05 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
