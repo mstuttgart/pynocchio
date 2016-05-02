@@ -65,7 +65,7 @@ version = get_version(package_name)
 if sys.argv[-1] == 'build_deb':
     folder = 'dist'
 
-    print "[INFO] Compile a deb package now"
+    print "[INFO] Compile a deb package..."
     os.system('rm -rf %s' % folder)
     os.system('mkdir %s' % folder)
     os.system('cp -r stdeb.cfg setup.py %s' % folder)
@@ -81,13 +81,24 @@ if sys.argv[-1] == 'build_deb':
     sys.exit()
 
 if sys.argv[-1] == 'build_ui':
-    print "[INFO] Compile ui files now"
+    print "[INFO] Compile ui files..."
 
     folder = 'pynocchio/src/uic_files'
     files = get_regex_files('data', '.ui')
     for f in files:
         uic_name = os.path.join(folder, 'ui_' + f[1] + '.py')
         os.system('pyside-uic %s -o %s' % (f[0], uic_name))
+
+    sys.exit()
+
+if sys.argv[-1] == 'build_qrc':
+    print "[INFO] Compile qrc files..."
+
+    folder = 'pynocchio/src/uic_files'
+    files = get_regex_files('data', '.qrc')
+    for f in files:
+        uic_name = os.path.join(folder, f[1] + '_rc.py')
+        os.system('pyside-rcc -verbose -o %s %s' % (uic_name, f[0]))
 
     sys.exit()
 
