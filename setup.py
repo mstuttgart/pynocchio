@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
 #
 # Copyright (C) 2014-2016  Michell Stuttgart Faria
 
@@ -16,6 +15,8 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import distutils.cmd
+import distutils.log
 from setuptools import setup
 import os
 import re
@@ -59,48 +60,90 @@ def get_regex_files(path, extension):
 
     return ret
 
+
 package_name = 'pynocchio'
 version = get_version(package_name)
 
-if sys.argv[-1] == 'build_deb':
-    folder = 'dist'
 
-    print "[INFO] Compile a deb package..."
-    os.system('rm -rf %s' % folder)
-    os.system('mkdir %s' % folder)
-    os.system('cp -r stdeb.cfg setup.py %s' % folder)
-    os.system('cp -r pynocchio linux %s' % folder)
-    os.system('cd %s && python setup.py --command-packages=stdeb.command '
-              'sdist_dsc' % folder)
-    os.system('cd %s/deb_dist && dpkg-source -x %s_%s-1.dsc' % (folder,
-                                                                package_name,
-                                                                version))
-    os.system('cd %s/deb_dist/%s-%s && debuild -S -sa' % (folder,
-                                                          package_name,
-                                                          version))
-    sys.exit()
+class CompileUiFileCommand(distutils.cmd.Command):
+    """
+    A command compile ui files.
+    """
 
-if sys.argv[-1] == 'build_ui':
-    print "[INFO] Compile ui files..."
+    description = "Compile PySide ui files"
 
-    folder = 'pynocchio/src/uic_files'
-    files = get_regex_files('data', '.ui')
-    for f in files:
-        uic_name = os.path.join(folder, 'ui_' + f[1] + '.py')
-        os.system('pyside-uic %s -o %s' % (f[0], uic_name))
+    # The format is (long option, short option, description).
+    user_options = [
+        ('path=', None, 'The path of ui files folder'),
+    ]
 
-    sys.exit()
+    def initialize_options(self):
+        """
+        Sets the default value for the server socket.
 
-if sys.argv[-1] == 'build_qrc':
-    print "[INFO] Compile qrc files..."
+        The method is responsible for setting default values for
+        all the options that the command supports.
 
-    folder = 'pynocchio/src/uic_files'
-    files = get_regex_files('data', '.qrc')
-    for f in files:
-        uic_name = os.path.join(folder, f[1] + '_rc.py')
-        os.system('pyside-rcc -verbose -o %s %s' % (uic_name, f[0]))
+        Option dependencies should not be set here.
+        """
+        self.path = 'data'
 
-    sys.exit()
+    def finalize_options(self):
+        """
+        Overriding a required abstract method.
+
+        The method is responsible for setting and checking the
+        final values and option dependencies for all the options
+        just before the method run is executed.
+
+        In practice, this is where the values are assigned and verified.
+        """
+        assert os.path.isdir(self.path) is True
+        assert os.path.lexists(self.path) is True
+
+    def run(self):
+
+        print "[INFO] Compile ui files..."
+
+        uic_folder = 'pynocchio/src/uic_files'
+        files = get_regex_files(self.path, '.ui')
+        for f in files:
+            uic_name = os.path.join(uic_folder, 'ui_' + f[1] + '.py')
+            os.system('pyside-uic %s -o %s' % (f[0], uic_name))
+
+        sys.exit()
+
+
+class CompileQrcFileCommand(distutils.cmd.Command):
+    """
+    A command compile qrc resource files.
+    """
+
+    description = "Compile PySide qrc files"
+
+    # The format is (long option, short option, description).
+    user_options = [
+        ('path=', None, 'The path of qrc files folder'),
+    ]
+
+    def initialize_options(self):
+        self.path = 'data'
+
+    def finalize_options(self):
+        assert os.path.isdir(self.path) is True
+        assert os.path.lexists(self.path) is True
+
+    def run(self):
+
+        print "[INFO] Compile qrc files..."
+
+        uic_folder = 'pynocchio/src/uic_files'
+        files = get_regex_files(self.path, '.qrc')
+        for f in files:
+            uic_name = os.path.join(uic_folder, f[1] + '_rc.py')
+            os.system('pyside-rcc -verbose -o %s %s' % (uic_name, f[0]))
+
+        sys.exit()
 
 setup(
     name=package_name,
@@ -117,6 +160,10 @@ setup(
                      'interface.',
     packages=get_packages(package_name),
     test_suite='test',
+    cmdclass={
+        'compile_ui': CompileUiFileCommand,
+        'compile_qrc': CompileQrcFileCommand,
+    },
     scripts=[
         'pynocchio-comic-reader/pynocchio/main',
     ],

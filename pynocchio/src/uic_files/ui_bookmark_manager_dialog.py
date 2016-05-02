@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'data/ui_files/bookmark_manager_dialog.ui'
 #
-# Created: Mon May  2 02:08:06 2016
+# Created: Mon May  2 02:53:17 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
