@@ -104,7 +104,6 @@ class CompileUiFileCommand(distutils.cmd.Command):
                                             self.path)
 
     def run(self):
-
         print "[INFO] Start compile ui files..."
 
         uic_folder = 'pynocchio/src/uic_files'
@@ -142,7 +141,6 @@ class CompileQrcFileCommand(distutils.cmd.Command):
                                             self.path)
 
     def run(self):
-
         print "[INFO] Compile qrc files..."
 
         uic_folder = 'pynocchio/src/uic_files'
@@ -177,6 +175,7 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
             os.system('rm -rf %s' % self.folder)
 
     def run(self):
+        # TODO: Add upload launchpad command
 
         print "[INFO] Compile a deb package..."
 
@@ -185,9 +184,10 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
         os.system('cp -r pynocchio linux %s' % self.folder)
         os.system('cd %s && python setup.py --command-packages=stdeb.command '
                   'sdist_dsc' % self.folder)
-        os.system('cd %s/deb_dist && dpkg-source -x %s_%s-1.dsc' % (self.folder,
-                                                                    package_name,
-                                                                    version))
+        os.system(
+            'cd %s/deb_dist && dpkg-source -x %s_%s-1.dsc' % (self.folder,
+                                                              package_name,
+                                                              version))
         os.system('cd %s/deb_dist/%s-%s && debuild -S -sa' % (self.folder,
                                                               package_name,
                                                               version))
