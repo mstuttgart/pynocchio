@@ -71,26 +71,26 @@ class MainWindowModel(QtCore.QObject):
         image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
                             '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
 
-        ld = LoaderFactory.create_loader(
+        loader = LoaderFactory.create_loader(
             Utility.get_file_extension(filename), set(image_extensions))
 
-        ld.progress.connect(self.load_progressbar_value)
+        loader.progress.connect(self.load_progressbar_value)
 
         try:
-            ld.load(filename)
+            loader.load(filename)
         except NoDataFindException as excp:
             # Caso nao exista nenhuma imagem, carregamos a imagem indicando
             # erro
-            from page import Page
+            from pynocchio.src.page import Page
             print excp.message
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
-            ld.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
+            loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
 
         self.comic = Comic(Utility.get_base_name(filename),
                            Utility.get_dir_name(filename), initial_page)
 
-        self.comic.pages = ld.data
+        self.comic.pages = loader.data
         self.current_directory = Utility.get_dir_name(filename)
         self.path_file_filter.parse(filename)
 
@@ -217,9 +217,9 @@ class MainWindowModel(QtCore.QObject):
         self.save_current_directory(self.current_directory)
 
     @staticmethod
-    def get_bookmark_list(n):
+    def get_bookmark_list(qty):
         BookmarkManager.connect()
-        bookmark_list = BookmarkManager.get_bookmarks(n)
+        bookmark_list = BookmarkManager.get_bookmarks(qty)
         BookmarkManager.close()
         return bookmark_list
 
@@ -232,9 +232,9 @@ class MainWindowModel(QtCore.QObject):
     @staticmethod
     def get_bookmark_from_path(path):
         BookmarkManager.connect()
-        bk = BookmarkManager.get_bookmark_by_path(path)
+        bookmark = BookmarkManager.get_bookmark_by_path(path)
         BookmarkManager.close()
-        return bk
+        return bookmark
 
     def add_bookmark(self):
         if self.comic:
