@@ -15,12 +15,16 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide import QtGui
-from pynocchio.src.uic_files.ui_about_dialog import Ui_AboutDialog
+from unittest import TestCase
+
+from pynocchio.page import Page
 
 
-class AboutDialog(QtGui.QDialog):
-    def __init__(self, parent=None):
-        QtGui.QDialog.__init__(self, parent)
-        self.ui = Ui_AboutDialog()
-        self.ui.setupUi(self)
+class TestPage(TestCase):
+
+    def test__init__(self):
+        page = Page(None, 'title', 1)
+        self.assertEqual(page.data, None)
+        self.assertEqual(page.title, 'title')
+        self.assertEqual(page.number, 1)
+        self.assertFalse(page._pixmap)

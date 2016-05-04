@@ -15,9 +15,10 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from pynocchio.page import Page
 from unittest import TestCase
-from pynocchio.src.comic import Comic
-from pynocchio.src.page import Page
+
+from pynocchio.comic import Comic
 
 
 class TestComic(TestCase):

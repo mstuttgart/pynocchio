@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'data/ui_files/preference_dialog.ui'
+# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/data/ui_files/preference_dialog.ui'
 #
-# Created: Mon May  2 03:14:41 2016
+# Created: Wed May  4 18:49:40 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -83,4 +83,4 @@ class Ui_config_dialog(object):
         self.close_button.setText(QtGui.QApplication.translate("config_dialog", "Close", None, QtGui.QApplication.UnicodeUTF8))
 
 from lib.color_line import ColorLine
-import main_window_view_rc
+from . import main_window_view_rc

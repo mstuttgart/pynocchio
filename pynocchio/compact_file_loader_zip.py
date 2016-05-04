@@ -16,13 +16,13 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import zipfile
+from pynocchio.page import Page
+from pynocchio.pynocchio_exception import InvalidTypeFileException
+from pynocchio.pynocchio_exception import LoadComicsException
+from pynocchio.pynocchio_exception import NoDataFindException
+from pynocchio.utility import Utility
 
-from pynocchio.src.compact_file_loader import Loader
-from pynocchio.src.utility import Utility
-from pynocchio.src.page import Page
-from pynocchio.src.pynocchio_exception import InvalidTypeFileException
-from pynocchio.src.pynocchio_exception import LoadComicsException
-from pynocchio.src.pynocchio_exception import NoDataFindException
+from pynocchio.compact_file_loader import Loader
 
 
 class ZipLoader(Loader):

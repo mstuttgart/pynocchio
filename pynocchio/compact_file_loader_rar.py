@@ -15,31 +15,38 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import tarfile
+from pynocchio.pynocchio_exception import DependenceNotFoundException
 
-from pynocchio.src.compact_file_loader import Loader
-from pynocchio.src.utility import Utility
-from pynocchio.src.page import Page
-from pynocchio.src.pynocchio_exception import InvalidTypeFileException
-from pynocchio.src.pynocchio_exception import LoadComicsException
-from pynocchio.src.pynocchio_exception import NoDataFindException
+try:
+    import rarfile
+except ImportError as err:
+    msg = 'rarfile module not installed.\n' \
+          'you not can load .rar and .cbr files.' \
+          'Please install it using: sudo pip install rarfile\n'
+    raise DependenceNotFoundException(msg)
+
+from pynocchio.compact_file_loader import Loader
+from pynocchio.utility import Utility
+from pynocchio.page import Page
+from pynocchio.pynocchio_exception import LoadComicsException
+from pynocchio.pynocchio_exception import InvalidTypeFileException
+from pynocchio.pynocchio_exception import NoDataFindException
 
 
-class TarLoader(Loader):
+class RarLoader(Loader):
 
     def __init__(self, extension):
         Loader.__init__(self, extension)
 
     def load(self, file_name):
-
         try:
-            tar = tarfile.open(file_name, 'r')
-        except tarfile.CompressionError as excp:
+            rar = rarfile.RarFile(file_name, 'r')
+        except rarfile.RarOpenError as excp:
             raise InvalidTypeFileException(excp.message)
         except IOError as excp:
-            raise LoadComicsException(excp.message)
+            raise LoadComicsException(excp.strerror)
 
-        name_list = tar.getnames()
+        name_list = rar.namelist()
         name_list.sort()
         aux = 100.0 / len(name_list)
         page_number = 1
@@ -48,24 +55,18 @@ class TarLoader(Loader):
         for idx, name in enumerate(name_list):
 
             if Utility.get_file_extension(name).lower() in self.extension:
-                try:
-                    data = tar.extractfile(name).read()
-                    self.data.append(Page(data, name, page_number))
-                    page_number += 1
-                except tarfile.ExtractError as err:
-                    print '%20s  %s' % (name, err.message)
-                except tarfile.ReadError as err:
-                    print '%20s  %s' % (name, err.message)
+                self.data.append(Page(rar.read(name), name, page_number))
+                page_number += 1
 
             self.progress.emit(idx * aux)
 
-        tar.close()
+        rar.close()
 
         if not self.data:
             raise NoDataFindException
 
 
-class CbtLoader(TarLoader):
+class CbrLoader(RarLoader):
 
     def __init__(self, extension):
-        TarLoader.__init__(self, extension)
+        RarLoader.__init__(self, extension)

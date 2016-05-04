@@ -17,14 +17,14 @@
 #
 
 from PySide import QtCore, QtGui
+from pynocchio.comic import Comic
+from pynocchio.compact_file_loader_factory import LoaderFactory
+from pynocchio.path_file_filter import PathFileFilter
+from pynocchio.pynocchio_exception import NoDataFindException
+from pynocchio.settings_manager import SettingsManager
+from pynocchio.utility import Utility
 
-from pynocchio.src.bookmark_database_manager import BookmarkManager
-from pynocchio.src.compact_file_loader_factory import LoaderFactory
-from pynocchio.src.path_file_filter import PathFileFilter
-from pynocchio.src.settings_manager import SettingsManager
-from pynocchio.src.pynocchio_exception import NoDataFindException
-from pynocchio.src.utility import Utility
-from pynocchio.src.comic import Comic
+from pynocchio.bookmark_database_manager import BookmarkManager
 
 
 class MainWindowModel(QtCore.QObject):
@@ -81,7 +81,7 @@ class MainWindowModel(QtCore.QObject):
         except NoDataFindException as excp:
             # Caso nao exista nenhuma imagem, carregamos a imagem indicando
             # erro
-            from pynocchio.src.page import Page
+            from pynocchio.page import Page
             print excp.message
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)

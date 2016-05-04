@@ -15,9 +15,10 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import pynocchio.src.compact_file_loader_zip as compact_file_loader_zip
-import pynocchio.src.compact_file_loader_rar as compact_file_loader_rar
-import pynocchio.src.compact_file_loader_tar as compact_file_loader_tar
+import pynocchio.compact_file_loader_tar as compact_file_loader_tar
+import pynocchio.compact_file_loader_zip as compact_file_loader_zip
+
+import pynocchio.compact_file_loader_rar as compact_file_loader_rar
 
 PRODUCT = {
     '.zip': compact_file_loader_zip.ZipLoader,
