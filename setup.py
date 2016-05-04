@@ -17,7 +17,7 @@
 
 import distutils.cmd
 import distutils.log
-from setuptools import setup
+from setuptools import setup, find_packages
 import os
 import re
 import sys
@@ -41,17 +41,6 @@ def get_version(package):
     init_py = open(os.path.join(package, '__init__.py')).read()
     return re.search("__version__ = ['\"]([^'\"]+)['\"]", init_py).group(1)
 
-
-def get_packages(package):
-    """
-    Based id https://github.com/tomchristie/django-rest-framework/blob/
-    971578ca345c3d3bae7fd93b87c41d43483b6f05/setup.py
-    :param package Package name
-    Return root package and all sub-packages.
-    """
-    return [dirpath
-            for dirpath, dirnames, filenames in os.walk(package)
-            if os.path.exists(os.path.join(dirpath, '__init__.py'))]
 
 package_name = 'pynocchio'
 version = get_version(package_name)
@@ -154,6 +143,8 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
 cmdclass['compile_pro'] = CompileProFileCommand
 cmdclass['build_deb'] = BuildDEBPackageCommand
 
+print
+
 setup(
     name=package_name,
     version=version,
@@ -167,18 +158,14 @@ setup(
                      'It is a comic reader that allow read cbr, cbz and cbt '
                      'files and have nice elementary icons theme on your '
                      'interface.',
-    packages=get_packages(package_name),
+    keywords="pynocchio comics manga viewer image",
+    packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
     test_suite='test',
     cmdclass=cmdclass,
-    # cmdclass={
-    #     'compile_ui': CompileUiFileCommand,
-    #     'compile_qrc': CompileQrcFileCommand,
-    #     'compile_pro': CompileProFileCommand,
-    #     'build_deb': BuildDEBPackageCommand,
-    # },
     scripts=[
         'pynocchio/pynocchio',
     ],
+    include_package_data=True,
     data_files=[
         ('/usr/share/applications', ['linux/applications/pynocchio.desktop']),
         ('/usr/share/pixmaps', ['linux/pixmaps/pynocchio_icon.png']),
