@@ -166,7 +166,7 @@ setup(
     include_package_data=True,
     data_files=[
         ('/usr/share/applications', ['linux/applications/pynocchio.desktop']),
-        ('/usr/share/pixmaps', ['linux/pixmaps/pynocchio_icon.png']),
+        ('/usr/share/pixmaps', ['linux/pixmaps/pynocchio.png']),
         ('/usr/share/pynocchio/locale/', [
             'pynocchio/locale/pynocchio_en_US.qm',
             'pynocchio/locale/pynocchio_pt_BR.qm',
