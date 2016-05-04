@@ -47,7 +47,7 @@ version = get_version(package_name)
 debian_version = '1'
 
 
-class CompileProFileCommand(distutils.cmd.Command):
+class BuildProFileCommand(distutils.cmd.Command):
     """
     A command to compile pro condig files.
     """
@@ -140,10 +140,8 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
 
         sys.exit()
 
-cmdclass['compile_pro'] = CompileProFileCommand
+cmdclass['build_pro'] = BuildProFileCommand
 cmdclass['build_deb'] = BuildDEBPackageCommand
-
-print
 
 setup(
     name=package_name,
