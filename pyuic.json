@@ -1,0 +1,33 @@
+{
+    "files": [
+        [
+            "data/ui_files/about_dialog.ui", 
+            "pynocchio/uic_files"
+        ], 
+        [
+            "data/ui_files/bookmark_manager_dialog.ui", 
+            "pynocchio/uic_files"
+        ], 
+        [
+            "data/ui_files/go_to_page_dialog.ui", 
+            "pynocchio/uic_files"
+        ], 
+        [
+            "data/ui_files/main_window_view.ui", 
+            "pynocchio/uic_files"
+        ], 
+        [
+            "data/ui_files/preference_dialog.ui", 
+            "pynocchio/uic_files"
+        ], 
+        [
+            "data/main_window_view.qrc", 
+            "pynocchio/uic_files"
+        ]
+    ], 
+    "hooks": [], 
+    "pyrcc": "pyside-rcc", 
+    "pyrcc_options": "-py3", 
+    "pyuic": "pyside-uic", 
+    "pyuic_options": "--from-import"
+}
