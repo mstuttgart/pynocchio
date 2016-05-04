@@ -16,13 +16,13 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import tarfile
-from pynocchio.page import Page
-from pynocchio.pynocchio_exception import InvalidTypeFileException
-from pynocchio.pynocchio_exception import LoadComicsException
-from pynocchio.pynocchio_exception import NoDataFindException
-from pynocchio.utility import Utility
+from page import Page
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import LoadComicsException
+from pynocchio_exception import NoDataFindException
+from utility import Utility
 
-from pynocchio.compact_file_loader import Loader
+from compact_file_loader import Loader
 
 
 class TarLoader(Loader):

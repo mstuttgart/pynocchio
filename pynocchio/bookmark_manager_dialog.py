@@ -19,9 +19,9 @@
 from PySide import QtCore
 from PySide import QtGui
 from PySide import QtSql
-from pynocchio.utility import Utility
+from utility import Utility
 
-from pynocchio.uic_files.bookmark_manager_dialog_ui \
+from uic_files.bookmark_manager_dialog_ui \
     import Ui_Bookmark_Dialog
 
 

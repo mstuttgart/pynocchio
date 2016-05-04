@@ -17,7 +17,7 @@
 
 from PySide import QtCore, QtGui
 
-from pynocchio.uic_files.go_to_page_dialog_ui import Ui_GoPageDialog
+from uic_files.go_to_page_dialog_ui import Ui_GoPageDialog
 
 
 class GoToDialog(QtGui.QDialog):

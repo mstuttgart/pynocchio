@@ -17,7 +17,7 @@
 
 from peewee import OperationalError, IntegrityError
 
-from pynocchio.bookmark import Bookmark, BookmarkBaseModel, db
+from bookmark import Bookmark, BookmarkBaseModel, db
 
 
 class BookmarkManager(BookmarkBaseModel):

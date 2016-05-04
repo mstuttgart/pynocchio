@@ -16,9 +16,9 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import peewee
-from pynocchio.utility import Utility
+from utility import Utility
 
-from pynocchio.settings_manager import SettingsManager
+from settings_manager import SettingsManager
 
 
 # get settings path. In Linux is .config/Pynocchio Comic Reader

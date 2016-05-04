@@ -161,7 +161,7 @@ setup(
     test_suite='test',
     cmdclass=cmdclass,
     scripts=[
-        'pynocchio/pynocchio',
+        'pynocchio_run',
     ],
     include_package_data=True,
     data_files=[

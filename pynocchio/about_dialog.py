@@ -17,7 +17,7 @@
 
 from PySide import QtGui
 
-from pynocchio.uic_files.about_dialog_ui import Ui_AboutDialog
+from uic_files.about_dialog_ui import Ui_AboutDialog
 
 
 class AboutDialog(QtGui.QDialog):
