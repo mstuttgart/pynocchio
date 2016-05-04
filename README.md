@@ -52,27 +52,7 @@ If you'd like to contribute, please create a fork and issue pull requests! I am
 very open to newcomers, and will need all the help we can get to make the best
 comic reader available.
 
-* To compile .ui files, use:
-
-```
-python setup.py compile_ui
-```
-
-* To compile .qrc files, please use:
-
-```
-python setup.py compile_qrc
-```
- 
-* To compile .pro files, please use:
-
-```
-python setup.py compile_pro
-```
-
-### Dependences
-
-Ludic Game Library makes use of other libraries to perform some of their routines:
+Pynocchio Comic Reader makes use of follow dependences:
 
 * To develop:
 * Python 2.7
@@ -88,11 +68,30 @@ sudo apt-get install python-pyside pyside-tools qt4-designer qt4-linguist-tools 
 sudo pip install rarfile peewee
 ```
 
-You need of Qt Designer to open and edit .ui view files.
+* To compile .ui and qrc files, please first install [pyqt_distutils](https://github.com/ColinDuquesnoy/pyqt_distutils) module:
 
-### ToDo:
+```
+sudo pip install pyqt-distutils
+```
 
-Please, see this [list](https://github.com/mstuttgart/pynocchio-comic-reader/issues/21)
+You need of Qt Designer to open and edit .ui view files and QtLinguist to 
+translate .ts files.
+
+To compile .ui and qrc files, please first install pyqt_distutils module:
+
+```
+python setup.py build_ui
+```
+ 
+* To compile .pro files, please use:
+
+```
+python setup.py build_pro
+```
+
+### To Do:
+
+Please, see this [list](https://github.com/mstuttgart/pynocchio-comic-reader/issues/21).
 
 ### I found a bug!
 
