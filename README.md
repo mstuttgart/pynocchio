@@ -89,6 +89,11 @@ python setup.py build_ui
 python setup.py build_pro
 ```
 
+New .ui files must be added in `pyuic.json` file.
+
+#### Run Pynocchio
+ To run pynocchio, only double-click in `pynocchio_run` or make `python pynocchio_run`
+
 ### To Do:
 
 Please, see this [list](https://github.com/mstuttgart/pynocchio-comic-reader/issues/21).
