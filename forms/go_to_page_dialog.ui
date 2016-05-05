@@ -14,8 +14,11 @@
    <string>Go to Page</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../main_window_view.qrc">
+   <iconset resource="../data/main_window_view.qrc">
     <normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</iconset>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -104,6 +107,9 @@
        </property>
        <item row="0" column="0">
         <widget class="QLabel" name="label_num_pages">
+         <property name="locale">
+          <locale language="English" country="UnitedStates"/>
+         </property>
          <property name="text">
           <string>Number of pages: </string>
          </property>
@@ -139,6 +145,9 @@
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_current_page">
+         <property name="locale">
+          <locale language="English" country="UnitedStates"/>
+         </property>
          <property name="text">
           <string>Current page:        </string>
          </property>
@@ -162,6 +171,9 @@
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_go_page">
+         <property name="locale">
+          <locale language="English" country="UnitedStates"/>
+         </property>
          <property name="text">
           <string>Go to page:           </string>
          </property>
@@ -204,6 +216,9 @@
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="locale">
+      <locale language="English" country="UnitedStates"/>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -218,7 +233,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../main_window_view.qrc"/>
+  <include location="../data/main_window_view.qrc"/>
  </resources>
  <connections>
   <connection>

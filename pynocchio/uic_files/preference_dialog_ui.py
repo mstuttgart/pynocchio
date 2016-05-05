@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/data/ui_files/preference_dialog.ui'
+# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/forms/preference_dialog.ui'
 #
-# Created: Wed May  4 18:49:40 2016
+# Created: Thu May  5 13:07:39 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!

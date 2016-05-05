@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/data/ui_files/bookmark_manager_dialog.ui'
+# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/forms/bookmark_manager_dialog.ui'
 #
-# Created: Wed May  4 18:49:40 2016
+# Created: Thu May  5 13:07:38 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -22,6 +22,7 @@ class Ui_Bookmark_Dialog(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/apps/48/office-database.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Bookmark_Dialog.setWindowIcon(icon)
+        Bookmark_Dialog.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.verticalLayout_3 = QtGui.QVBoxLayout(Bookmark_Dialog)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.horizontalLayout = QtGui.QHBoxLayout()
@@ -73,6 +74,7 @@ class Ui_Bookmark_Dialog(object):
         font = QtGui.QFont()
         font.setItalic(True)
         self.page_preview_label.setFont(font)
+        self.page_preview_label.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.page_preview_label.setAlignment(QtCore.Qt.AlignCenter)
         self.page_preview_label.setObjectName("page_preview_label")
         self.verticalLayout.addWidget(self.page_preview_label)
@@ -87,6 +89,7 @@ class Ui_Bookmark_Dialog(object):
         self.grid_layout = QtGui.QGridLayout()
         self.grid_layout.setObjectName("grid_layout")
         self.button_remove = QtGui.QPushButton(Bookmark_Dialog)
+        self.button_remove.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/stock_delete.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.button_remove.setIcon(icon1)
@@ -120,6 +123,7 @@ class Ui_Bookmark_Dialog(object):
         self.button_cancel.setText(QtGui.QApplication.translate("Bookmark_Dialog", "Cancel", None, QtGui.QApplication.UnicodeUTF8))
         self.button_load.setText(QtGui.QApplication.translate("Bookmark_Dialog", "Load", None, QtGui.QApplication.UnicodeUTF8))
 
+from . import main_window_view_rc
 from . import main_window_view_rc
 from . import main_window_view_rc
 from . import main_window_view_rc

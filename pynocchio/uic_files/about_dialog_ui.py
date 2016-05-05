@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/data/ui_files/about_dialog.ui'
+# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/forms/about_dialog.ui'
 #
-# Created: Wed May  4 18:49:40 2016
+# Created: Thu May  5 13:07:38 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -22,10 +22,12 @@ class Ui_AboutDialog(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/help-info.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutDialog.setWindowIcon(icon)
+        AboutDialog.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         AboutDialog.setModal(True)
         self.verticalLayout = QtGui.QVBoxLayout(AboutDialog)
         self.verticalLayout.setObjectName("verticalLayout")
         self.tabWidget = QtGui.QTabWidget(AboutDialog)
+        self.tabWidget.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.tabWidget.setObjectName("tabWidget")
         self.about = QtGui.QWidget()
         self.about.setObjectName("about")
@@ -59,18 +61,22 @@ class Ui_AboutDialog(object):
         self.label_7.setObjectName("label_7")
         self.gridLayout.addWidget(self.label_7, 3, 1, 1, 1)
         self.label_5 = QtGui.QLabel(self.about)
+        self.label_5.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.label_5.setObjectName("label_5")
         self.gridLayout.addWidget(self.label_5, 3, 0, 1, 1)
         self.label_9 = QtGui.QLabel(self.about)
         self.label_9.setObjectName("label_9")
         self.gridLayout.addWidget(self.label_9, 4, 1, 1, 1)
         self.label_4 = QtGui.QLabel(self.about)
+        self.label_4.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.label_4.setObjectName("label_4")
         self.gridLayout.addWidget(self.label_4, 2, 0, 1, 1)
         self.label_2 = QtGui.QLabel(self.about)
+        self.label_2.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
         self.label_8 = QtGui.QLabel(self.about)
+        self.label_8.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.label_8.setObjectName("label_8")
         self.gridLayout.addWidget(self.label_8, 4, 0, 1, 1)
         self.label_3 = QtGui.QLabel(self.about)
@@ -92,6 +98,7 @@ class Ui_AboutDialog(object):
         self.horizontalLayout_2.addLayout(self.gridLayout)
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
         self.label_10 = QtGui.QLabel(self.about)
+        self.label_10.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.label_10.setAlignment(QtCore.Qt.AlignCenter)
         self.label_10.setObjectName("label_10")
         self.verticalLayout_2.addWidget(self.label_10)
@@ -841,6 +848,7 @@ class Ui_AboutDialog(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.other), QtGui.QApplication.translate("AboutDialog", "Others", None, QtGui.QApplication.UnicodeUTF8))
         self.button_close.setText(QtGui.QApplication.translate("AboutDialog", "Close", None, QtGui.QApplication.UnicodeUTF8))
 
+from . import main_window_view_rc
 from . import main_window_view_rc
 from . import main_window_view_rc
 from . import main_window_view_rc
