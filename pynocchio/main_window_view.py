@@ -145,7 +145,7 @@ class MainWindowView(QtGui.QMainWindow):
     @QtCore.Slot()
     def on_action_bookmark_manager_triggered(self):
         from bookmark_manager_dialog import BookmarkManagerDialog
-        bookmark_dialog = BookmarkManagerDialog(self)
+        bookmark_dialog = BookmarkManagerDialog(self, self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
 

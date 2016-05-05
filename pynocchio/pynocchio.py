@@ -19,16 +19,16 @@
 
 import sys
 from PySide import QtGui, QtCore
-from os.path import abspath
+import os
 
 from main_window_model import MainWindowModel
 from main_window_view import MainWindowView
 
 DATADIRS = (
-        abspath('.'),
+        os.path.abspath('./pynocchio'),
         '/usr/share/pynocchio',
         '/usr/local/share/pynocchio',
-        QtCore.QDir.homePath() + '/.local/share/pynocchio',
+        os.path.join(QtCore.QDir.homePath(), '.local/share/pynocchio'),
     )
 
 QLocale = QtCore.QLocale
@@ -54,7 +54,7 @@ class Pynocchio(QtGui.QApplication):
 
         for path in DATADIRS:
             if translator.load('pynocchio_' + QLocale.system().name(),
-                               path + '/locale'):
+                               os.path.join(path, 'locale')):
                 break
         qt_translator = QTranslator()
         qt_translator.load('qt_' + QLocale.system().name(),

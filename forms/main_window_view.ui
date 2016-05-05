@@ -863,7 +863,13 @@
   </action>
   <action name="actionRecent_file_1">
    <property name="text">
-    <string>recent_file_1</string>
+    <string notr="true">recent_file_1</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_file_1</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_file_1</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -871,7 +877,13 @@
   </action>
   <action name="actionRecent_file_2">
    <property name="text">
-    <string>recent_file_2</string>
+    <string notr="true">recent_file_2</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_file_2</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_file_2</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -879,7 +891,13 @@
   </action>
   <action name="actionRecent_file_3">
    <property name="text">
-    <string>recent_file_3</string>
+    <string notr="true">recent_file_3</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_file_3</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_file_3</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -887,7 +905,13 @@
   </action>
   <action name="actionRecent_file_4">
    <property name="text">
-    <string>recent_file_4</string>
+    <string notr="true">recent_file_4</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_file_4</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_file_4</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -895,7 +919,13 @@
   </action>
   <action name="actionRecent_file_5">
    <property name="text">
-    <string>recent_file_5</string>
+    <string notr="true">recent_file_5</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_file_5</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_file_5</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -903,7 +933,10 @@
   </action>
   <action name="actionRecent_file_6">
    <property name="text">
-    <string>recent_file_6</string>
+    <string notr="true">recent_file_6</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_file_6</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -911,7 +944,13 @@
   </action>
   <action name="actionRecent_file_7">
    <property name="text">
-    <string>recent_file_7</string>
+    <string notr="true">recent_file_7</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_file_7</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_file_7</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -919,7 +958,13 @@
   </action>
   <action name="actionRecent_file_8">
    <property name="text">
-    <string>recent_file_8</string>
+    <string notr="true">recent_file_8</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_file_8</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_file_8</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -927,7 +972,13 @@
   </action>
   <action name="actionRecent_file_9">
    <property name="text">
-    <string>recent_file_9</string>
+    <string notr="true">recent_file_9</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_file_9</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_file_9</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -935,7 +986,13 @@
   </action>
   <action name="actionRecent_file_10">
    <property name="text">
-    <string>recent_file_10</string>
+    <string notr="true">recent_file_10</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_file_10</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_file_10</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -943,7 +1000,13 @@
   </action>
   <action name="actionRecent_bookmark_1">
    <property name="text">
-    <string>recent_bookmark_1</string>
+    <string notr="true">recent_bookmark_1</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_bookmark_1</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_bookmark_1</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -951,7 +1014,13 @@
   </action>
   <action name="actionRecent_bookmark_2">
    <property name="text">
-    <string>recent_bookmark_2</string>
+    <string notr="true">recent_bookmark_2</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_bookmark_2</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_bookmark_2</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -959,7 +1028,13 @@
   </action>
   <action name="actionRecent_bookmark_3">
    <property name="text">
-    <string>recent_bookmark_3</string>
+    <string notr="true">recent_bookmark_3</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_bookmark_3</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_bookmark_3</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -967,7 +1042,10 @@
   </action>
   <action name="actionRecent_bookmark_4">
    <property name="text">
-    <string>recent_bookmark_4</string>
+    <string notr="true">recent_bookmark_4</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_bookmark_4</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -975,7 +1053,13 @@
   </action>
   <action name="actionRecent_bookmark_5">
    <property name="text">
-    <string>recent_bookmark_5</string>
+    <string notr="true">recent_bookmark_5</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">recent_bookmark_5</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">recent_bookmark_5</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -1040,7 +1124,7 @@
   <include location="../data/main_window_view.qrc"/>
   <include location="../data/main_window_view.qrc"/>
   <include location="../data/main_window_view.qrc"/>
-  <include location="../main_window_view.qrc"/>
+  <include location="../data/main_window_view.qrc"/>
  </resources>
  <connections/>
  <designerdata>

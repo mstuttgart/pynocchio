@@ -60,7 +60,7 @@ class BuildProFileCommand(distutils.cmd.Command):
     ]
 
     def initialize_options(self):
-        self.path = 'pynocchio.pro'
+        self.path = 'i18n/pynocchio.pro'
 
     def finalize_options(self):
         assert os.path.isfile(self.path), ('[INFO] %s not is valid file!' %

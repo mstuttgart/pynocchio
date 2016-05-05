@@ -29,8 +29,9 @@ class BookmarkManagerDialog(QtGui.QDialog):
 
     SCALE_RATIO = 0.18
 
-    def __init__(self, controller):
-        QtGui.QDialog.__init__(self)
+    def __init__(self, controller, parent=None):
+        # QtGui.QDialog.__init__(self, parent)
+        super(BookmarkManagerDialog, self).__init__(parent=parent)
 
         self.ui = Ui_Bookmark_Dialog()
         self.ui.setupUi(self)
@@ -76,7 +77,7 @@ class BookmarkManagerDialog(QtGui.QDialog):
             print '[INFO] Database load!'
 
         else:
-            print "[ERROR] Unable to create db file."
+            print "[ERROR] Unable to create db file!"
 
     def selection_changed(self, selected):
 
