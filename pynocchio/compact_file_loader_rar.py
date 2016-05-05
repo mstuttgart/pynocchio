@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from pynocchio.src.pynocchio_exception import DependenceNotFoundException
+from pynocchio_exception import DependenceNotFoundException
 
 try:
     import rarfile
@@ -25,12 +25,12 @@ except ImportError as err:
           'Please install it using: sudo pip install rarfile\n'
     raise DependenceNotFoundException(msg)
 
-from pynocchio.src.compact_file_loader import Loader
-from pynocchio.src.utility import Utility
-from pynocchio.src.page import Page
-from pynocchio.src.pynocchio_exception import LoadComicsException
-from pynocchio.src.pynocchio_exception import InvalidTypeFileException
-from pynocchio.src.pynocchio_exception import NoDataFindException
+from compact_file_loader import Loader
+from utility import Utility
+from page import Page
+from pynocchio_exception import LoadComicsException
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import NoDataFindException
 
 
 class RarLoader(Loader):

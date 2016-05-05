@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'data/ui_files/go_to_page_dialog.ui'
+# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/data/ui_files/go_to_page_dialog.ui'
 #
-# Created: Mon May  2 03:14:40 2016
+# Created: Wed May  4 18:49:40 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -116,4 +116,4 @@ class Ui_GoPageDialog(object):
         self.label_current_page.setText(QtGui.QApplication.translate("GoPageDialog", "Current page:        ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_go_page.setText(QtGui.QApplication.translate("GoPageDialog", "Go to page:           ", None, QtGui.QApplication.UnicodeUTF8))
 
-import main_window_view_rc
+from . import main_window_view_rc

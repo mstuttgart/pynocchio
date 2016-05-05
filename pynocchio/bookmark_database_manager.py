@@ -16,7 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from peewee import OperationalError, IntegrityError
-from pynocchio.src.bookmark import Bookmark, BookmarkBaseModel, db
+
+from bookmark import Bookmark, BookmarkBaseModel, db
 
 
 class BookmarkManager(BookmarkBaseModel):

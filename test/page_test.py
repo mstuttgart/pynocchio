@@ -16,7 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from unittest import TestCase
-from pynocchio.src.page import Page
+
+from pynocchio.page import Page
 
 
 class TestPage(TestCase):

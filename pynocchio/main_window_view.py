@@ -16,10 +16,10 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PySide import QtGui, QtCore
+from uic_files.main_window_view_ui import Ui_MainWindowView
 
-from pynocchio.src.pynocchio_exception import InvalidTypeFileException
-from pynocchio.src.pynocchio_exception import LoadComicsException
-from pynocchio.src.uic_files.ui_main_window_view import Ui_MainWindowView
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import LoadComicsException
 
 
 class MainWindowView(QtGui.QMainWindow):

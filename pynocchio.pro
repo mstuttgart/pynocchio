@@ -1,8 +1,8 @@
-SOURCES = pynocchio/src/main_window_view.py \
-pynocchio/src/bookmark_manager_dialog.py \
-pynocchio/src/go_to_page_dialog.py \
-pynocchio/src/preference_dialog.py \
-pynocchio/src/uic_files/custom_widgets/status_bar.py
+SOURCES = pynocchio/main_window_view.py \
+pynocchio/bookmark_manager_dialog.py \
+pynocchio/go_to_page_dialog.py \
+pynocchio/preference_dialog.py \
+pynocchio/uic_files/custom_widgets/status_bar.py
 
 
 FORMS = data/ui_files/about_dialog.ui \

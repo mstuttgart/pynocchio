@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'data/ui_files/main_window_view.ui'
+# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/data/ui_files/main_window_view.ui'
 #
-# Created: Mon May  2 03:14:40 2016
+# Created: Wed May  4 18:49:40 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -558,6 +558,6 @@ class Ui_MainWindowView(object):
 
 from custom_widgets.qscroll_area_viewer import QScrollAreaViewer
 from custom_widgets.status_bar import StatusBar
-import main_window_view_rc
-import main_window_view_rc
-import main_window_view_rc
+from . import main_window_view_rc
+from . import main_window_view_rc
+from . import main_window_view_rc

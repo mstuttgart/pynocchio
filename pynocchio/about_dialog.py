@@ -14,3 +14,14 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+from PySide import QtGui
+
+from uic_files.about_dialog_ui import Ui_AboutDialog
+
+
+class AboutDialog(QtGui.QDialog):
+    def __init__(self, parent=None):
+        QtGui.QDialog.__init__(self, parent)
+        self.ui = Ui_AboutDialog()
+        self.ui.setupUi(self)

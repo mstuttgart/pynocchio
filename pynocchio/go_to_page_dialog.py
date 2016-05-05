@@ -16,7 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PySide import QtCore, QtGui
-from pynocchio.src.uic_files.ui_go_to_page_dialog import Ui_GoPageDialog
+
+from uic_files.go_to_page_dialog_ui import Ui_GoPageDialog
 
 
 class GoToDialog(QtGui.QDialog):

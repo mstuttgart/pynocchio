@@ -15,17 +15,17 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import zipfile
+import tarfile
+from page import Page
+from pynocchio_exception import InvalidTypeFileException
+from pynocchio_exception import LoadComicsException
+from pynocchio_exception import NoDataFindException
+from utility import Utility
 
-from pynocchio.src.compact_file_loader import Loader
-from pynocchio.src.utility import Utility
-from pynocchio.src.page import Page
-from pynocchio.src.pynocchio_exception import InvalidTypeFileException
-from pynocchio.src.pynocchio_exception import LoadComicsException
-from pynocchio.src.pynocchio_exception import NoDataFindException
+from compact_file_loader import Loader
 
 
-class ZipLoader(Loader):
+class TarLoader(Loader):
 
     def __init__(self, extension):
         Loader.__init__(self, extension)
@@ -33,15 +33,13 @@ class ZipLoader(Loader):
     def load(self, file_name):
 
         try:
-            zf = zipfile.ZipFile(file_name, 'r')
-        except zipfile.BadZipfile as excp:
+            tar = tarfile.open(file_name, 'r')
+        except tarfile.CompressionError as excp:
             raise InvalidTypeFileException(excp.message)
-        except zipfile.LargeZipFile as excp:
-            raise LoadComicsException(excp.message)
         except IOError as excp:
             raise LoadComicsException(excp.message)
 
-        name_list = zf.namelist()
+        name_list = tar.getnames()
         name_list.sort()
         aux = 100.0 / len(name_list)
         page_number = 1
@@ -50,18 +48,24 @@ class ZipLoader(Loader):
         for idx, name in enumerate(name_list):
 
             if Utility.get_file_extension(name).lower() in self.extension:
-                self.data.append(Page(zf.read(name), name, page_number))
-                page_number += 1
+                try:
+                    data = tar.extractfile(name).read()
+                    self.data.append(Page(data, name, page_number))
+                    page_number += 1
+                except tarfile.ExtractError as err:
+                    print '%20s  %s' % (name, err.message)
+                except tarfile.ReadError as err:
+                    print '%20s  %s' % (name, err.message)
 
             self.progress.emit(idx * aux)
 
-        zf.close()
+        tar.close()
 
         if not self.data:
-            raise NoDataFindException('No one file is loaded!')
+            raise NoDataFindException
 
 
-class CbzLoader(ZipLoader):
+class CbtLoader(TarLoader):
 
     def __init__(self, extension):
-        ZipLoader.__init__(self, extension)
+        TarLoader.__init__(self, extension)
