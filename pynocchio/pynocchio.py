@@ -47,7 +47,7 @@ class Pynocchio(QtGui.QApplication):
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')
 
-        translator = QTranslator()
+        translator = QTranslator(self)
 
         for path in DATADIRS:
             self.addLibraryPath(path)
@@ -56,7 +56,7 @@ class Pynocchio(QtGui.QApplication):
             if translator.load('pynocchio_' + QLocale.system().name(),
                                os.path.join(path, 'locale')):
                 break
-        qt_translator = QTranslator()
+        qt_translator = QTranslator(self)
         qt_translator.load('qt_' + QLocale.system().name(),
                            QLibraryInfo.location(QLibraryInfo.TranslationsPath))
         self.installTranslator(translator)
