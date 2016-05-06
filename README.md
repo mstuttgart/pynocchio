@@ -1,5 +1,7 @@
 Pynocchio Comic Reader
 ==================
+
+[![Join the chat at https://gitter.im/pynocchio/pynocchio-comic-reader](https://badges.gitter.im/pynocchio/pynocchio-comic-reader.svg)](https://gitter.im/pynocchio/pynocchio-comic-reader?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/mstuttgart/pynocchio-comic-reader.svg?branch=master)](https://travis-ci.org/mstuttgart/pynocchio-comic-reader)
 [![Coverage Status](https://coveralls.io/repos/github/mstuttgart/pynocchio-comic-reader/badge.svg?branch=master)](https://coveralls.io/github/mstuttgart/pynocchio-comic-reader?branch=master)
 [![Code Health](https://landscape.io/github/mstuttgart/pynocchio-comic-reader/master/landscape.svg?style=flat)](https://landscape.io/github/mstuttgart/pynocchio-comic-reader/master)
