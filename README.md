@@ -54,11 +54,17 @@ comic reader available.
 
 Ps: please, make your work on `develop` branch and send your pull request to `develop`branch to.
 
+Fork this repo and make a git clone with follow command:
+
+```
+git clone --depth 1 --recursive https://github.com/youusername/pynocchio-comic-reader.git
+```
+
 Pynocchio Comic Reader makes use of follow dependences:
 
 * To develop:
 * Python 2.7
-* PySide and Qt tools (QtDesigner e QLinguist): 
+* PySide and Qt tools (QtDesigner e QLinguist):
 
 ```
 sudo apt-get install python-pyside pyside-tools qt4-designer qt4-linguist-tools python-qt4-sql unrar-free
