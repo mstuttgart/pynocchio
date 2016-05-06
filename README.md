@@ -52,6 +52,8 @@ If you'd like to contribute, please create a fork and issue pull requests! I am
 very open to newcomers, and will need all the help we can get to make the best
 comic reader available.
 
+Ps: please, make your work on `develop` branch and send your pull request to `develop`branch to.
+
 Pynocchio Comic Reader makes use of follow dependences:
 
 * To develop:
