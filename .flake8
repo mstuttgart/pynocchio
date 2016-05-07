@@ -1,2 +1,2 @@
 [flake8]
-exclude = ui_*, zzz, main_window_view_rc.py
+exclude = *_ui.py, main_window_view_rc.py
