@@ -22,9 +22,9 @@ import os
 import re
 import sys
 
-
 try:
     from pyqt_distutils.build_ui import build_ui
+
     cmdclass = {'build_ui': build_ui}
 except ImportError:
     build_ui = None  # user won't have pyqt_distutils when deploying
@@ -140,6 +140,7 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
 
         sys.exit()
 
+
 cmdclass['build_pro'] = BuildProFileCommand
 cmdclass['build_deb'] = BuildDEBPackageCommand
 
@@ -171,11 +172,16 @@ setup(
             'pynocchio/locale/pynocchio_en_US.qm',
             'pynocchio/locale/pynocchio_pt_BR.qm',
         ]),
-        ('/usr/share/icons/hicolor/16x16/apps', ['linux/hicolor/16x16/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/32x32/apps', ['linux/hicolor/32x32/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/48x48/apps', ['linux/hicolor/48x48/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/128x128/apps', ['linux/hicolor/128x128/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/256x256/apps', ['linux/hicolor/256x256/apps/pynocchio.png']),
+        ('/usr/share/icons/hicolor/16x16/apps',
+         ['linux/hicolor/16x16/apps/pynocchio.png']),
+        ('/usr/share/icons/hicolor/32x32/apps',
+         ['linux/hicolor/32x32/apps/pynocchio.png']),
+        ('/usr/share/icons/hicolor/48x48/apps',
+         ['linux/hicolor/48x48/apps/pynocchio.png']),
+        ('/usr/share/icons/hicolor/128x128/apps',
+         ['linux/hicolor/128x128/apps/pynocchio.png']),
+        ('/usr/share/icons/hicolor/256x256/apps',
+         ['linux/hicolor/256x256/apps/pynocchio.png']),
     ],
     install_requires=[
         'rarfile',

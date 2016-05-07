@@ -58,7 +58,8 @@ class Pynocchio(QtGui.QApplication):
                 break
         qt_translator = QTranslator(self)
         qt_translator.load('qt_' + QLocale.system().name(),
-                           QLibraryInfo.location(QLibraryInfo.TranslationsPath))
+                           QLibraryInfo.location(
+                               QLibraryInfo.TranslationsPath))
         self.installTranslator(translator)
         self.installTranslator(qt_translator)
 
