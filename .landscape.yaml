@@ -1,4 +1,4 @@
 strictness: high
 doc-warnings: no
 ignore-patterns:
-  - ui_*
+  - *_ui.py
