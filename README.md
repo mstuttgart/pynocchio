@@ -28,14 +28,6 @@ The current version is stable and we intend to improve it even more.
 
 #### Ubuntu 14.04 and Linux Mint 17.3 (or later)
 
-* To install *stable* version, add this ppa:
-
-```
-sudo add-apt-repository ppa:pynocchio-team/pynocchio-stable
-sudo apt-get update
-sudo apt-get install pynocchio
-``` 
-
 * To install *unstable* version, add this ppa:
 
 ```
