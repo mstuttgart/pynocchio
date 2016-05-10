@@ -150,7 +150,7 @@ setup(
     author='Michell Stuttgart Faria',
     author_email='michellstut@gmail.com',
     url='https://github.com/mstuttgart/pynocchio-comic-reader',
-    license='GPL v3',
+    license='GPLv3 License',
     description='Pynocchio is a image viewer specialized in comic reading.',
     long_description='Pynocchio Comic Reader is a new and nice image viewer '
                      'which uses PySide API specialized in comic reading. '
