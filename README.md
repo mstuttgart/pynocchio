@@ -4,6 +4,7 @@ Pynocchio Comic Reader
 [![Build Status](https://travis-ci.org/pynocchio/pynocchio-comic-reader.svg?branch=develop)](https://travis-ci.org/pynocchio/pynocchio-comic-reader)
 [![Coverage Status](https://coveralls.io/repos/github/pynocchio/pynocchio-comic-reader/badge.svg?branch=develop)](https://coveralls.io/github/pynocchio/pynocchio-comic-reader?branch=develop)
 [![Code Health](https://landscape.io/github/pynocchio/pynocchio-comic-reader/develop/landscape.svg?style=flat)](https://landscape.io/github/pynocchio/pynocchio-comic-reader/develop)
+[![Requirements Status](https://requires.io/github/pynocchio/pynocchio-comic-reader/requirements.svg?branch=develop)](https://requires.io/github/pynocchio/pynocchio-comic-reader/requirements/?branch=develop)
 [![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio-comic-reader.svg?maxAge=2592000?style=plastic)](https://github.com/pynocchio/pynocchio-comic-reader)
 [![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 [![Join the chat at https://gitter.im/pynocchio/pynocchio-comic-reader](https://badges.gitter.im/pynocchio/pynocchio-comic-reader.svg)](https://gitter.im/pynocchio/pynocchio-comic-reader?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
