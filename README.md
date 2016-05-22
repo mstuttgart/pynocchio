@@ -62,7 +62,7 @@ Pynocchio Comic Reader makes use of follow dependences:
 * PySide and Qt tools (QtDesigner e QLinguist):
 
 ```
-sudo apt-get install python-pyside pyside-tools qt4-designer qt4-linguist-tools libqt4-sql-sqlite unrar-free
+sudo apt-get install python-pyside pyside-tools qt4-designer qt4-linguist-tools qt4-dev-tools libqt4-sql-sqlite unrar-free
 ```
 
 * rarfile and peewee:
