@@ -37,6 +37,12 @@ sudo apt-get update
 sudo apt-get install pynocchio
 ```
 
+or download .deb packages clicking on the follow link:
+
+[pynocchio-0.0.4-amd64.zip](http://kde-apps.org/content/download.php?content=176091&id=1&tan=27317847)
+
+Please, see instructions inside `pynocchio_package.zip` file.
+
 #### Windows version and others OS
 
 Coming soon! Please help me build packages to the others OS.
