@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # -*- coding: utf-8 -*-
 #
 # Copyright (C) 2014-2016  Michell Stuttgart Faria
@@ -71,8 +69,14 @@ class Pynocchio(QtGui.QApplication):
         self.view.show()
 
         if len(sys.argv) > 1:
-            file_name = QFileInfo(sys.argv[1]).canonicalFilePath()
-            if QFile.exists(file_name):
-                self.view.open_comics(file_name)
+            a = sys.argv
+            filename = ''
+            for s in sys.argv[1:]:
+                filename += s
+
+            filename = filename.replace('\\', ' ')
+
+            if os.path.isfile(filename):
+                self.view.open_comics(filename)
 
         sys.exit(self.exec_())

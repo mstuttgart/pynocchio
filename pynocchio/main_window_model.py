@@ -72,17 +72,17 @@ class MainWindowModel(QtCore.QObject):
                             '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
 
         loader = LoaderFactory.create_loader(
-            Utility.get_file_extension(filename), set(image_extensions))
+            Utility.get_file_extension(filename), filename, set(image_extensions))
 
         loader.progress.connect(self.load_progressbar_value)
 
         try:
             loader.load(filename)
-        except NoDataFindException as excp:
+        except NoDataFindException as exc:
             # Caso nao exista nenhuma imagem, carregamos a imagem indicando
             # erro
             from page import Page
-            print excp.message
+            print exc.message
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
