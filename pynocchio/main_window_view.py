@@ -415,7 +415,7 @@ class MainWindowView(QtGui.QMainWindow):
         self.ui.action_last_page.setEnabled(not is_last_page)
 
         self.ui.action_previous_comic.setEnabled(
-                    not self.model.is_firts_comic())
+                    not self.model.is_first_comic())
 
         self.ui.action_next_comic.setEnabled(
                     not self.model.is_last_comic())

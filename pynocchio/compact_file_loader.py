@@ -28,5 +28,9 @@ class Loader(QtCore.QObject):
         self.extension = extension
         self.data = []
 
-    def load(self, file_name):
+    @staticmethod
+    def load(file_name):
+        raise NotImplementedError("Must subclass me")
+
+    def type_verify(self, file_name):
         raise NotImplementedError("Must subclass me")
