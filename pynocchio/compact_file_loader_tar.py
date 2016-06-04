@@ -34,10 +34,10 @@ class TarLoader(Loader):
 
         try:
             tar = tarfile.open(file_name, 'r')
-        except tarfile.CompressionError as excp:
-            raise InvalidTypeFileException(excp.message)
-        except IOError as excp:
-            raise LoadComicsException(excp.message)
+        except tarfile.CompressionError as exception:
+            raise InvalidTypeFileException(exception.message)
+        except IOError as exception:
+            raise LoadComicsException(exception.message)
 
         name_list = tar.getnames()
         name_list.sort()
@@ -64,8 +64,6 @@ class TarLoader(Loader):
         if not self.data:
             raise NoDataFindException
 
-
-class CbtLoader(TarLoader):
-
-    def __init__(self, extension):
-        TarLoader.__init__(self, extension)
+    @staticmethod
+    def type_verify(file_name):
+        return tarfile.is_tarfile(file_name)
