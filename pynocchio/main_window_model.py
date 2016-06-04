@@ -161,7 +161,7 @@ class MainWindowModel(QtCore.QObject):
             return True
         return False
 
-    def is_firts_comic(self):
+    def is_first_comic(self):
         return self.path_file_filter.is_first_file()
 
     def is_last_comic(self):
