@@ -117,7 +117,7 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
                                                                package_name,
                                                                version,
                                                                debian_version))
-        os.system('cd %s/deb_dist/%s-%s && debuild -S -sa' % (self.folder,
+        os.system('cd %s/deb_dist/%s-%s && debuild -S' % (self.folder,
                                                               package_name,
                                                               version))
 
