@@ -1,13 +1,12 @@
 Pynocchio Comic Reader
 ==================
-
-[![Build Status](https://travis-ci.org/pynocchio/pynocchio.svg?branch=develop)](https://travis-ci.org/pynocchio/pynocchio)
-[![Coverage Status](https://coveralls.io/repos/github/pynocchio/pynocchio/badge.svg?branch=develop)](https://coveralls.io/github/pynocchio/pynocchio?branch=develop)
-[![Code Health](https://landscape.io/github/pynocchio/pynocchio/develop/landscape.svg?style=flat)](https://landscape.io/github/pynocchio/pynocchio/develop)
-[![Requirements Status](https://requires.io/github/pynocchio/pynocchio/requirements.svg?branch=develop)](https://requires.io/github/pynocchio/pynocchio/requirements/?branch=develop)
-[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?maxAge=2592000?style=plastic)](https://github.com/pynocchio/pynocchio)
+[![Build Status](https://travis-ci.org/pynocchio/pynocchio-comic-reader.svg?branch=master)](https://travis-ci.org/pynocchio/pynocchio-comic-reader)
+[![Coverage Status](https://coveralls.io/repos/github/pynocchio/pynocchio-comic-reader/badge.svg?branch=master)](https://coveralls.io/github/pynocchio/pynocchio-comic-reader?branch=master)
+[![Code Health](https://landscape.io/github/pynocchio/pynocchio-comic-reader/develop/landscape.svg?style=flat)](https://landscape.io/github/pynocchio/pynocchio-comic-reader/master)
+[![Requirements Status](https://requires.io/github/pynocchio/pynocchio-comic-reader/requirements.svg?branch=master)](https://requires.io/github/pynocchio/pynocchio-comic-reader/requirements/?branch=master)
+[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio-comic-reader.svg?maxAge=2592000?style=plastic)](https://github.com/pynocchio/pynocchio-comic-reader)
 [![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
-[![Join the chat at https://gitter.im/pynocchio/pynocchio](https://badges.gitter.im/pynocchio/pynocchio.svg)](https://gitter.im/pynocchio/pynocchio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/pynocchio/pynocchio-comic-reader](https://badges.gitter.im/pynocchio/pynocchio-comic-reader.svg)](https://gitter.im/pynocchio/pynocchio-comic-reader?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Pynocchio is a image viewer specialized in manga/comic reading developed on
 PySide API.
@@ -29,15 +28,13 @@ The current version is stable and we intend to improve it even more.
 
 #### Ubuntu 14.04 and Linux Mint 17.3 (or later)
 
-* To install *unstable* version, add this ppa:
+* To install *stable* version, add this ppa:
 
 ```
-sudo add-apt-repository ppa:pynocchio-team/pynocchio-dev
+sudo add-apt-repository ppa:pynocchio-team/pynocchio-stable
 sudo apt-get update
 sudo apt-get install pynocchio
-```
-
-or download .deb packages [here](http://kde-apps.org/content/show.php?content=176091). Please, see instructions inside `pynocchio_package.zip` file.
+``` 
 
 #### Windows version and others OS
 
