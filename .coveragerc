@@ -1,11 +1,9 @@
 [run]
 branch = True
-source = src
+source = pynocchio
 omit =
-    src/lib/uic_files/ui_*.py
-    src/lib/uic_files/main_window_view_rc.py
-    src//lib/pynocchio_exception.py
-    src/lib/preference_dialog.py
-    src/lib/about_dialog.py
-    src/lib/bookmark.py
-    src/main.py
+    pynocchio/uic_files/*_ui.py
+    pynocchio/uic_files/main_window_view_rc.py
+    pynocchio/pynocchio_exception.py
+    pynocchio/preference_dialog.py
+    pynocchio_run

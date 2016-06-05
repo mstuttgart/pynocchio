@@ -34,12 +34,12 @@ class ZipLoader(Loader):
 
         try:
             zf = zipfile.ZipFile(file_name, 'r')
-        except zipfile.BadZipfile as excp:
-            raise InvalidTypeFileException(excp.message)
-        except zipfile.LargeZipFile as excp:
-            raise LoadComicsException(excp.message)
-        except IOError as excp:
-            raise LoadComicsException(excp.message)
+        except zipfile.BadZipfile as exception:
+            raise InvalidTypeFileException(exception.message)
+        except zipfile.LargeZipFile as exception:
+            raise LoadComicsException(exception.message)
+        except IOError as exception:
+            raise LoadComicsException(exception.message)
 
         name_list = zf.namelist()
         name_list.sort()
@@ -60,8 +60,6 @@ class ZipLoader(Loader):
         if not self.data:
             raise NoDataFindException('No one file is loaded!')
 
-
-class CbzLoader(ZipLoader):
-
-    def __init__(self, extension):
-        ZipLoader.__init__(self, extension)
+    @staticmethod
+    def type_verify(file_name):
+        return zipfile.is_zipfile(file_name)

@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # -*- coding: utf-8 -*-
 #
 # Copyright (C) 2014-2016  Michell Stuttgart Faria
@@ -19,16 +17,16 @@
 
 import sys
 from PySide import QtGui, QtCore
-from os.path import abspath
+import os
 
 from main_window_model import MainWindowModel
 from main_window_view import MainWindowView
 
 DATADIRS = (
-        abspath('.'),
+        os.path.abspath('./pynocchio'),
         '/usr/share/pynocchio',
         '/usr/local/share/pynocchio',
-        QtCore.QDir.homePath() + '/.local/share/pynocchio',
+        os.path.join(QtCore.QDir.homePath(), '.local/share/pynocchio'),
     )
 
 QLocale = QtCore.QLocale
@@ -47,18 +45,19 @@ class Pynocchio(QtGui.QApplication):
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')
 
-        translator = QTranslator()
-
         for path in DATADIRS:
             self.addLibraryPath(path)
 
+        translator = QTranslator(self)
+        language = 'pynocchio_' + QLocale.system().uiLanguages()[0]
+
         for path in DATADIRS:
-            if translator.load('pynocchio_' + QLocale.system().name(),
-                               path + '/locale'):
+            if translator.load(language, os.path.join(path, 'locale')):
                 break
-        qt_translator = QTranslator()
+        qt_translator = QTranslator(self)
         qt_translator.load('qt_' + QLocale.system().name(),
-                           QLibraryInfo.location(QLibraryInfo.TranslationsPath))
+                           QLibraryInfo.location(
+                               QLibraryInfo.TranslationsPath))
         self.installTranslator(translator)
         self.installTranslator(qt_translator)
 
@@ -70,8 +69,14 @@ class Pynocchio(QtGui.QApplication):
         self.view.show()
 
         if len(sys.argv) > 1:
-            file_name = QFileInfo(sys.argv[1]).canonicalFilePath()
-            if QFile.exists(file_name):
-                self.view.open_comics(file_name)
+            a = sys.argv
+            filename = ''
+            for s in sys.argv[1:]:
+                filename += s
+
+            filename = filename.replace('\\', ' ')
+
+            if os.path.isfile(filename):
+                self.view.open_comics(filename)
 
         sys.exit(self.exec_())

@@ -22,9 +22,9 @@ import os
 import re
 import sys
 
-
 try:
     from pyqt_distutils.build_ui import build_ui
+
     cmdclass = {'build_ui': build_ui}
 except ImportError:
     build_ui = None  # user won't have pyqt_distutils when deploying
@@ -60,7 +60,7 @@ class BuildProFileCommand(distutils.cmd.Command):
     ]
 
     def initialize_options(self):
-        self.path = 'pynocchio.pro'
+        self.path = 'i18n/pynocchio.pro'
 
     def finalize_options(self):
         assert os.path.isfile(self.path), ('[INFO] %s not is valid file!' %
@@ -117,7 +117,7 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
                                                                package_name,
                                                                version,
                                                                debian_version))
-        os.system('cd %s/deb_dist/%s-%s && debuild -S -sa' % (self.folder,
+        os.system('cd %s/deb_dist/%s-%s && debuild -S' % (self.folder,
                                                               package_name,
                                                               version))
 
@@ -140,6 +140,7 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
 
         sys.exit()
 
+
 cmdclass['build_pro'] = BuildProFileCommand
 cmdclass['build_deb'] = BuildDEBPackageCommand
 
@@ -149,7 +150,7 @@ setup(
     author='Michell Stuttgart Faria',
     author_email='michellstut@gmail.com',
     url='https://github.com/mstuttgart/pynocchio-comic-reader',
-    license='GPL v3',
+    license='GPLv3 License',
     description='Pynocchio is a image viewer specialized in comic reading.',
     long_description='Pynocchio Comic Reader is a new and nice image viewer '
                      'which uses PySide API specialized in comic reading. '
@@ -171,11 +172,16 @@ setup(
             'pynocchio/locale/pynocchio_en_US.qm',
             'pynocchio/locale/pynocchio_pt_BR.qm',
         ]),
-        ('/usr/share/icons/hicolor/16x16/apps', ['linux/hicolor/16x16/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/32x32/apps', ['linux/hicolor/32x32/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/48x48/apps', ['linux/hicolor/48x48/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/128x128/apps', ['linux/hicolor/128x128/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/256x256/apps', ['linux/hicolor/256x256/apps/pynocchio.png']),
+        ('/usr/share/icons/hicolor/16x16/apps',
+         ['linux/hicolor/16x16/apps/pynocchio.png']),
+        ('/usr/share/icons/hicolor/32x32/apps',
+         ['linux/hicolor/32x32/apps/pynocchio.png']),
+        ('/usr/share/icons/hicolor/48x48/apps',
+         ['linux/hicolor/48x48/apps/pynocchio.png']),
+        ('/usr/share/icons/hicolor/128x128/apps',
+         ['linux/hicolor/128x128/apps/pynocchio.png']),
+        ('/usr/share/icons/hicolor/256x256/apps',
+         ['linux/hicolor/256x256/apps/pynocchio.png']),
     ],
     install_requires=[
         'rarfile',

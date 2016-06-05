@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/data/ui_files/go_to_page_dialog.ui'
+# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/forms/go_to_page_dialog.ui'
 #
-# Created: Wed May  4 18:49:40 2016
+# Created: Thu May  5 13:07:39 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -16,6 +16,7 @@ class Ui_GoPageDialog(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/search.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         GoPageDialog.setWindowIcon(icon)
+        GoPageDialog.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         GoPageDialog.setModal(True)
         self.verticalLayout = QtGui.QVBoxLayout(GoPageDialog)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -55,6 +56,7 @@ class Ui_GoPageDialog(object):
         self.formLayout.setFieldGrowthPolicy(QtGui.QFormLayout.ExpandingFieldsGrow)
         self.formLayout.setObjectName("formLayout")
         self.label_num_pages = QtGui.QLabel(GoPageDialog)
+        self.label_num_pages.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.label_num_pages.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_num_pages.setObjectName("label_num_pages")
         self.formLayout.setWidget(0, QtGui.QFormLayout.LabelRole, self.label_num_pages)
@@ -71,6 +73,7 @@ class Ui_GoPageDialog(object):
         self.line_edit_num_page.setObjectName("line_edit_num_page")
         self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.line_edit_num_page)
         self.label_current_page = QtGui.QLabel(GoPageDialog)
+        self.label_current_page.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.label_current_page.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_current_page.setObjectName("label_current_page")
         self.formLayout.setWidget(1, QtGui.QFormLayout.LabelRole, self.label_current_page)
@@ -81,6 +84,7 @@ class Ui_GoPageDialog(object):
         self.line_edit_current_page.setObjectName("line_edit_current_page")
         self.formLayout.setWidget(1, QtGui.QFormLayout.FieldRole, self.line_edit_current_page)
         self.label_go_page = QtGui.QLabel(GoPageDialog)
+        self.label_go_page.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.label_go_page.setObjectName("label_go_page")
         self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.label_go_page)
         self.spin_box_go_page = QtGui.QSpinBox(GoPageDialog)
@@ -98,6 +102,7 @@ class Ui_GoPageDialog(object):
         self.verticalLayout_2.addLayout(self.formLayout)
         self.verticalLayout.addLayout(self.verticalLayout_2)
         self.buttonBox = QtGui.QDialogButtonBox(GoPageDialog)
+        self.buttonBox.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setCenterButtons(False)

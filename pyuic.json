@@ -1,23 +1,23 @@
 {
     "files": [
         [
-            "data/ui_files/about_dialog.ui", 
+            "forms/about_dialog.ui",
             "pynocchio/uic_files"
         ], 
         [
-            "data/ui_files/bookmark_manager_dialog.ui", 
+            "forms/bookmark_manager_dialog.ui",
             "pynocchio/uic_files"
         ], 
         [
-            "data/ui_files/go_to_page_dialog.ui", 
+            "forms/go_to_page_dialog.ui",
             "pynocchio/uic_files"
         ], 
         [
-            "data/ui_files/main_window_view.ui", 
+            "forms/main_window_view.ui",
             "pynocchio/uic_files"
         ], 
         [
-            "data/ui_files/preference_dialog.ui", 
+            "forms/preference_dialog.ui",
             "pynocchio/uic_files"
         ], 
         [

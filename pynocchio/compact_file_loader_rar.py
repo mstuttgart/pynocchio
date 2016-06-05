@@ -41,10 +41,10 @@ class RarLoader(Loader):
     def load(self, file_name):
         try:
             rar = rarfile.RarFile(file_name, 'r')
-        except rarfile.RarOpenError as excp:
-            raise InvalidTypeFileException(excp.message)
-        except IOError as excp:
-            raise LoadComicsException(excp.strerror)
+        except rarfile.RarOpenError as exception:
+            raise InvalidTypeFileException(exception.message)
+        except IOError as exception:
+            raise LoadComicsException(exception.strerror)
 
         name_list = rar.namelist()
         name_list.sort()
@@ -65,8 +65,6 @@ class RarLoader(Loader):
         if not self.data:
             raise NoDataFindException
 
-
-class CbrLoader(RarLoader):
-
-    def __init__(self, extension):
-        RarLoader.__init__(self, extension)
+    @staticmethod
+    def type_verify(file_name):
+        return rarfile.is_rarfile(file_name)

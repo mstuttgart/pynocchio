@@ -8,7 +8,7 @@ Pynocchio Comic Reader
 [![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 [![Join the chat at https://gitter.im/pynocchio/pynocchio-comic-reader](https://badges.gitter.im/pynocchio/pynocchio-comic-reader.svg)](https://gitter.im/pynocchio/pynocchio-comic-reader?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Pynocchio is a image viewer specialized in manga/comic reading developed on 
+Pynocchio is a image viewer specialized in manga/comic reading developed on
 PySide API.
 
 ![](https://lh3.googleusercontent.com/-p0TtjyX-GgM/VwwYhAAUjrI/AAAAAAAAF04/_JSom_IMmasZfnRn4EPhxKejjj_9aHzYwCCo/s1152-Ic42/snapshot11.png)
@@ -48,17 +48,23 @@ comic reader available.
 
 Ps: please, make your work on `develop` branch and send your pull request to `develop`branch to.
 
+Fork this repo and make a git clone with follow command:
+
+```
+git clone --recursive https://github.com/youusername/pynocchio-comic-reader.git
+```
+
 Pynocchio Comic Reader makes use of follow dependences:
 
 * To develop:
 * Python 2.7
-* PySide and Qt tools (QtDesigner e QLinguist): 
+* PySide and Qt tools (QtDesigner e QLinguist):
 
 ```
-sudo apt-get install python-pyside pyside-tools qt4-designer qt4-linguist-tools python-qt4-sql unrar-free
+sudo apt-get install python-pyside pyside-tools qt4-designer qt4-linguist-tools qt4-dev-tools libqt4-sql-sqlite unrar-free
 ```
 
-* rarfile and peewee: 
+* rarfile and peewee:
 
 ```
 sudo pip install rarfile peewee
@@ -70,7 +76,7 @@ sudo pip install rarfile peewee
 sudo pip install pyqt-distutils
 ```
 
-You need of Qt Designer to open and edit .ui view files and QtLinguist to 
+You need of Qt Designer to open and edit .ui view files and QtLinguist to
 translate .ts files.
 
 To compile .ui and qrc files, please first install pyqt_distutils module:
@@ -78,7 +84,7 @@ To compile .ui and qrc files, please first install pyqt_distutils module:
 ```
 python setup.py build_ui
 ```
- 
+
 * To compile .pro files, please use:
 
 ```
@@ -88,7 +94,7 @@ python setup.py build_pro
 New .ui files must be added in `pyuic.json` file.
 
 #### Run Pynocchio
- To run pynocchio, only double-click in `pynocchio_run` or make `python pynocchio_run`
+ To run pynocchio, only double-click in `pynocchio_run`, run `./pynocchio_run` or `python pynocchio_run`.
 
 ### To Do:
 

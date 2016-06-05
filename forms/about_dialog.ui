@@ -23,8 +23,11 @@
    <string>About Pynocchio</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../main_window_view.qrc">
+   <iconset resource="../data/main_window_view.qrc">
     <normaloff>:/icons/elementary3-icon-theme/actions/48/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/help-info.svg</iconset>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -32,6 +35,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="locale">
+      <locale language="English" country="UnitedStates"/>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -68,7 +74,7 @@
               <enum>Qt::RichText</enum>
              </property>
              <property name="pixmap">
-              <pixmap resource="../main_window_view.qrc">:/icons/pynocchio_icon.png</pixmap>
+              <pixmap resource="../data/main_window_view.qrc">:/icons/pynocchio_icon.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>false</bool>
@@ -95,6 +101,9 @@
              </item>
              <item row="3" column="0">
               <widget class="QLabel" name="label_5">
+               <property name="locale">
+                <locale language="English" country="UnitedStates"/>
+               </property>
                <property name="text">
                 <string>License type:</string>
                </property>
@@ -109,6 +118,9 @@
              </item>
              <item row="2" column="0">
               <widget class="QLabel" name="label_4">
+               <property name="locale">
+                <locale language="English" country="UnitedStates"/>
+               </property>
                <property name="text">
                 <string>Version: </string>
                </property>
@@ -116,6 +128,9 @@
              </item>
              <item row="1" column="0">
               <widget class="QLabel" name="label_2">
+               <property name="locale">
+                <locale language="English" country="UnitedStates"/>
+               </property>
                <property name="text">
                 <string>Developer: </string>
                </property>
@@ -123,6 +138,9 @@
              </item>
              <item row="4" column="0">
               <widget class="QLabel" name="label_8">
+               <property name="locale">
+                <locale language="English" country="UnitedStates"/>
+               </property>
                <property name="text">
                 <string>Copyright:</string>
                </property>
@@ -175,6 +193,9 @@
          </item>
          <item>
           <widget class="QLabel" name="label_10">
+           <property name="locale">
+            <locale language="English" country="UnitedStates"/>
+           </property>
            <property name="text">
             <string>The Pynocchio is an comic and manga reader. </string>
            </property>
@@ -931,7 +952,7 @@ p, li { white-space: pre-wrap; }
         <string>Close</string>
        </property>
        <property name="icon">
-        <iconset resource="../main_window_view.qrc">
+        <iconset resource="../data/main_window_view.qrc">
          <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</iconset>
        </property>
        <property name="default">
@@ -944,8 +965,9 @@ p, li { white-space: pre-wrap; }
   </layout>
  </widget>
  <resources>
-  <include location="../main_window_view.qrc"/>
-  <include location="../main_window_view.qrc"/>
+  <include location="../data/main_window_view.qrc"/>
+  <include location="../data/main_window_view.qrc"/>
+  <include location="../data/main_window_view.qrc"/>
   <include location="../main_window_view.qrc"/>
  </resources>
  <connections>
