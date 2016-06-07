@@ -20,6 +20,7 @@ from uic_files.main_window_view_ui import Ui_MainWindowView
 
 from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import LoadComicsException
+from utility import Utility
 
 
 class MainWindowView(QtGui.QMainWindow):
@@ -139,7 +140,7 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def on_action_remove_bookmark_triggered(self):
-        self.model.remove_bookmark()
+        self.model.remove_bookmark(self.model.get_comic_path())
         self.update_bookmark_actions()
 
     @QtCore.Slot()
@@ -321,7 +322,14 @@ class MainWindowView(QtGui.QMainWindow):
     def open_recent_file(self):
         action = self.sender()
         if action:
-            self.open_comics(action.data())
+            filename = action.data()
+            if Utility.file_exist(filename):
+                self.open_comics(filename)
+            else:
+                files = self.model.load_recent_files()
+                files.remove(filename)
+                self.model.save_recent_files(files)
+                self.update_recent_file_actions()
 
     def set_current_file(self, filename):
 
@@ -391,7 +399,12 @@ class MainWindowView(QtGui.QMainWindow):
     def open_recent_bookmark(self):
         action = self.sender()
         if action:
-            self.open_comics(action.statusTip(), action.data() - 1)
+            filename = action.statusTip()
+            if Utility.file_exist(filename):
+                self.open_comics(action.statusTip(), action.data() - 1)
+            else:
+                self.model.remove_bookmark(action.statusTip())
+                self.update_bookmark_actions()
 
     def enable_actions(self):
 
