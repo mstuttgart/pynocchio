@@ -1,10 +1,10 @@
 Pynocchio Comic Reader
 ==================
-[![Build Status](https://travis-ci.org/pynocchio/pynocchio-comic-reader.svg?branch=master)](https://travis-ci.org/pynocchio/pynocchio-comic-reader)
-[![Coverage Status](https://coveralls.io/repos/github/pynocchio/pynocchio-comic-reader/badge.svg?branch=master)](https://coveralls.io/github/pynocchio/pynocchio-comic-reader?branch=master)
-[![Code Health](https://landscape.io/github/pynocchio/pynocchio-comic-reader/develop/landscape.svg?style=flat)](https://landscape.io/github/pynocchio/pynocchio-comic-reader/master)
-[![Requirements Status](https://requires.io/github/pynocchio/pynocchio-comic-reader/requirements.svg?branch=master)](https://requires.io/github/pynocchio/pynocchio-comic-reader/requirements/?branch=master)
-[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio-comic-reader.svg?maxAge=2592000?style=plastic)](https://github.com/pynocchio/pynocchio-comic-reader)
+[![Build Status](https://travis-ci.org/pynocchio/pynocchio.svg?branch=master)](https://travis-ci.org/pynocchio/pynocchio)
+[![Coverage Status](https://coveralls.io/repos/github/pynocchio/pynocchio/badge.svg?branch=master)](https://coveralls.io/github/pynocchio/pynocchio?branch=master)
+[![Code Health](https://landscape.io/github/pynocchio/pynocchio/develop/landscape.svg?style=flat)](https://landscape.io/github/pynocchio/pynocchio/master)
+[![Requirements Status](https://requires.io/github/pynocchio/pynocchio/requirements.svg?branch=master)](https://requires.io/github/pynocchio/pynocchio/requirements/?branch=master)
+[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?maxAge=2592000?style=plastic)](https://github.com/pynocchio/pynocchio)
 [![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 [![Join the chat at https://gitter.im/pynocchio/pynocchio-comic-reader](https://badges.gitter.im/pynocchio/pynocchio-comic-reader.svg)](https://gitter.im/pynocchio/pynocchio-comic-reader?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
