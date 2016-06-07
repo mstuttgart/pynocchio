@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import distutils.cmd
+from distutils.cmd import Command
 import distutils.log
 from setuptools import setup, find_packages
 import os
@@ -47,7 +47,7 @@ version = get_version(package_name)
 debian_version = '1'
 
 
-class BuildProFileCommand(distutils.cmd.Command):
+class BuildProFileCommand(Command):
     """
     A command to compile pro condig files.
     """
@@ -74,7 +74,7 @@ class BuildProFileCommand(distutils.cmd.Command):
         sys.exit()
 
 
-class BuildDEBPackageCommand(distutils.cmd.Command):
+class BuildDEBPackageCommand(Command):
     """
     A command build deb package.
     """
@@ -108,7 +108,7 @@ class BuildDEBPackageCommand(distutils.cmd.Command):
         print "[INFO] Compile a deb package..."
 
         os.system('mkdir %s' % self.folder)
-        os.system('cp stdeb.cfg setup.py pynocchio_run %s' % self.folder)
+        os.system('cp stdeb.cfg setup.py pynocchio_client %s' % self.folder)
         os.system('cp -r pynocchio linux %s' % self.folder)
         os.system('cd %s && python setup.py --command-packages=stdeb.command '
                   'sdist_dsc --package %s' % (self.folder, package_name))
@@ -149,7 +149,7 @@ setup(
     version=version,
     author='Michell Stuttgart Faria',
     author_email='michellstut@gmail.com',
-    url='https://github.com/mstuttgart/pynocchio-comic-reader',
+    url='https://github.com/pynocchio',
     license='GPLv3 License',
     description='Pynocchio is a image viewer specialized in comic reading.',
     long_description='Pynocchio Comic Reader is a new and nice image viewer '
@@ -162,7 +162,7 @@ setup(
     test_suite='test',
     cmdclass=cmdclass,
     scripts=[
-        'pynocchio_run',
+        'pynocchio_client',
     ],
     include_package_data=True,
     data_files=[
