@@ -36,6 +36,6 @@ If you'd like to contribute, please see [contributing session](CONTRIBUTING.md).
 
 Pynocchio use [Elementary Icon Theme](https://github.com/opengraphix/elementary3-icon-theme) icon set free pack.
 
-## Credits
+### Credits
 
 Copyright (C) 2014-2016 by Michell Stuttgart Faria
