@@ -26,7 +26,7 @@ The current version is stable and we intend to improve it even more.
 
 ### Install
 
-Please, see the latest release [here](https://github.com/pynocchio/pynocchio/releases/latest).
+Please, download the latest release [here](https://github.com/pynocchio/pynocchio/releases/latest) or in [KDE Apps](http://kde-apps.org/content/show.php/Pynocchio?content=176091).
 
 ### Contributing
 
