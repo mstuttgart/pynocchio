@@ -16,8 +16,8 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PySide import QtGui, QtCore
-from uic_files.main_window_view_ui import Ui_MainWindowView
 
+from uic_files import main_window_view_ui
 from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import LoadComicsException
 from utility import Utility
@@ -32,7 +32,7 @@ class MainWindowView(QtGui.QMainWindow):
         QtGui.QMainWindow.__init__(self, parent)
         self.model = model
 
-        self.ui = Ui_MainWindowView()
+        self.ui = main_window_view_ui.Ui_MainWindowView()
         self.ui.setupUi(self)
 
         MainWindowView.MaxRecentFiles = len(
