@@ -18,12 +18,11 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from pynocchio.pynocchio import Pynocchio
+from pynocchio import Pynocchio
 
 
 def main():
-    pynocchio = Pynocchio()
-    pynocchio.run()
+    Pynocchio().run()
 
 if __name__ == '__main__':
     main()
