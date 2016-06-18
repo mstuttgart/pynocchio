@@ -16,13 +16,10 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from PySide import QtCore
-from PySide import QtGui
-from PySide import QtSql
-from utility import Utility
+from PySide import QtCore, QtGui, QtSql
 
-from uic_files.bookmark_manager_dialog_ui \
-    import Ui_Bookmark_Dialog
+from uic_files import bookmark_manager_dialog_ui
+from utility import Utility
 
 
 class BookmarkManagerDialog(QtGui.QDialog):
@@ -33,7 +30,7 @@ class BookmarkManagerDialog(QtGui.QDialog):
         # QtGui.QDialog.__init__(self, parent)
         super(BookmarkManagerDialog, self).__init__(parent=parent)
 
-        self.ui = Ui_Bookmark_Dialog()
+        self.ui = bookmark_manager_dialog_ui.Ui_Bookmark_Dialog()
         self.ui.setupUi(self)
 
         self.controller = controller
@@ -99,7 +96,7 @@ class BookmarkManagerDialog(QtGui.QDialog):
 
         option = QtGui.QMessageBox().warning(
             self, self.tr('Delete bookmarks'),
-            self.tr('This action will go delete you bookmarks! Preceed?'),
+            self.tr('This action will go delete you bookmarks! Proceed?'),
             QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel,
             QtGui.QMessageBox.Ok)
 
