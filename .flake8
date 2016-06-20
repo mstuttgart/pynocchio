@@ -1,2 +1,0 @@
-[flake8]
-exclude = *_ui.py, main_window_view_rc.py
