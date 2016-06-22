@@ -108,7 +108,7 @@ class BuildDEBPackageCommand(Command):
         print "[INFO] Compile a deb package..."
 
         os.system('mkdir %s' % self.folder)
-        os.system('cp stdeb.cfg setup.py pynocchio_client %s' % self.folder)
+        os.system('cp stdeb.cfg setup.py pynocchio-client %s' % self.folder)
         os.system('cp -r pynocchio linux %s' % self.folder)
         os.system('cd %s && python setup.py --command-packages=stdeb.command '
                   'sdist_dsc --package %s' % (self.folder, package_name))
@@ -162,7 +162,7 @@ setup(
     test_suite='test',
     cmdclass=cmdclass,
     scripts=[
-        'pynocchio_client',
+        'pynocchio-client',
     ],
     include_package_data=True,
     data_files=[
