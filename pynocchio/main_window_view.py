@@ -51,7 +51,7 @@ class MainWindowView(QtGui.QMainWindow):
         self.model.load_progress.connect(
             self.ui.statusbar.set_progressbar_value)
 
-        self.vertical_anim = QtCore.QPropertyAnimation(
+        self.vertical_animation = QtCore.QPropertyAnimation(
             self.ui.qscroll_area_viewer.verticalScrollBar(), "sliderPosition")
 
     @QtCore.Slot()
@@ -477,19 +477,19 @@ class MainWindowView(QtGui.QMainWindow):
             vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
             next_pos = vert_scroll_bar.sliderPosition() - self.height() * 0.8
 
-            self.vertical_anim.setDuration(250)
-            self.vertical_anim.setStartValue(vert_scroll_bar.sliderPosition())
-            self.vertical_anim.setEndValue(next_pos)
-            self.vertical_anim.start()
+            self.vertical_animation.setDuration(250)
+            self.vertical_animation.setStartValue(vert_scroll_bar.sliderPosition())
+            self.vertical_animation.setEndValue(next_pos)
+            self.vertical_animation.start()
 
         elif event.key() == QtCore.Qt.Key_Down:
             vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
             next_pos = vert_scroll_bar.sliderPosition() + self.height() * 0.8
 
-            self.vertical_anim.setDuration(250)
-            self.vertical_anim.setStartValue(vert_scroll_bar.sliderPosition())
-            self.vertical_anim.setEndValue(next_pos)
-            self.vertical_anim.start()
+            self.vertical_animation.setDuration(250)
+            self.vertical_animation.setStartValue(vert_scroll_bar.sliderPosition())
+            self.vertical_animation.setEndValue(next_pos)
+            self.vertical_animation.start()
 
         QtGui.QMainWindow.keyPressEvent(self, event)
 
