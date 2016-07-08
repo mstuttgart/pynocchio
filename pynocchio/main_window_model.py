@@ -79,10 +79,8 @@ class MainWindowModel(QtCore.QObject):
         try:
             loader.load(filename)
         except NoDataFindException as exc:
-            # Caso nao exista nenhuma imagem, carregamos a imagem indicando
-            # erro
             from page import Page
-            print exc.message
+            print '[INFO] Error in load. %s' % exc.message
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
