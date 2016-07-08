@@ -113,8 +113,22 @@ class BookmarkManagerDialog(QtGui.QDialog):
         selection_model = self.ui.bookmark_table.selectionModel()
         path = selection_model.selectedRows(1)[0].data()
         page = selection_model.selectedRows(3)[0].data()
-        self.controller.open_comics(path, page - 1)
-        self.close()
+
+        if Utility.file_exist(path):
+            self.controller.open_comics(path, page - 1)
+        else:
+            option = QtGui.QMessageBox().warning(
+                self, self.tr('Comic not exist'),
+                self.tr('Selected comic not exist! Do you like to remove it from bookmark list?'),
+                QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel,
+                QtGui.QMessageBox.Ok)
+
+            if option == QtGui.QMessageBox.Ok:
+                selected_idx = self.ui.bookmark_table.selectedIndexes()
+
+                if selected_idx:
+                    for index in selected_idx:
+                        self.model.removeRow(index.row())
 
     def close(self):
         self.db.close()
