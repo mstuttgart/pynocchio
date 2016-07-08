@@ -156,7 +156,7 @@
              <item row="2" column="1">
               <widget class="QLabel" name="label_6">
                <property name="text">
-                <string>0.0.7</string>
+                <string>0.0.8</string>
                </property>
               </widget>
              </item>

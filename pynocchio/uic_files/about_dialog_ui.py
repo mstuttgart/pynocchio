@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '/home/michell/Projects/pynocchio/forms/about_dialog.ui'
 #
-# Created: Tue Jun  7 15:35:50 2016
+# Created: Fri Jul  8 15:41:35 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -159,7 +159,7 @@ class Ui_AboutDialog(object):
         self.label_2.setText(QtGui.QApplication.translate("AboutDialog", "Developer: ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_8.setText(QtGui.QApplication.translate("AboutDialog", "Copyright:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("AboutDialog", "Michell Stuttgart", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_6.setText(QtGui.QApplication.translate("AboutDialog", "0.0.7", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("AboutDialog", "0.0.8", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("AboutDialog", "Pynocchio", None, QtGui.QApplication.UnicodeUTF8))
         self.label_10.setText(QtGui.QApplication.translate("AboutDialog", "The Pynocchio is an comic and manga reader. ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_11.setText(QtGui.QApplication.translate("AboutDialog", "<a href=https://github.com/pynocchio/pynocchio>Pynocchio</a>", None, QtGui.QApplication.UnicodeUTF8))

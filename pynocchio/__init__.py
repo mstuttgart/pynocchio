@@ -16,7 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 __title__ = 'Pynocchio Comic Reader'
-__version__ = '0.0.7.74dc87'
+__version__ = '0.0.8'
 __author__ = 'Michell Stuttgart Faria'
 __license__ = 'GPL v3'
 __copyright__ = 'Copyright 2014-2016 Michell Stuttgart Faria'
