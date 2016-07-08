@@ -58,21 +58,6 @@ New .ui files must be added in `pyuic.json` file.
 
 Please, see this [list](https://github.com/mstuttgart/pynocchio-comic-reader/issues/21).
 
-List of improviments:
-
-- [x] Pynocchio using PySide and uicfiles
-- [ ] Add Unittest to base code. Code coverage >= 50%
-- [x] Database file save in .config directory
-- [x] Add Coveralls and Travis support
-- [ ] Add "Open Folder" option.
-- [ ] Add Settings Dialog.
-- [ ] Add mirror image option
-- [x] Add persist rotate and mirror option
-- [ ] Add PDF support
-- [x] Add others language support
-- [ ] Add language select option in settings dialog
-- [x] Add mime type open file support
-
 ### I found a bug!
 
 Please report any and all bugs using the project issue
