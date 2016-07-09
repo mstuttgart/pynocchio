@@ -55,8 +55,11 @@ class RarLoader(Loader):
         for idx, name in enumerate(name_list):
 
             if Utility.get_file_extension(name).lower() in self.extension:
-                self.data.append(Page(rar.read(name), name, page_number))
-                page_number += 1
+                try:
+                    self.data.append(Page(rar.read(name), name, page_number))
+                    page_number += 1
+                except rarfile.BadRarFile as exc:
+                    print '[INFO] Error in read %s file. Exception: %s' % (name, exc.message)
 
             self.progress.emit(idx * aux)
 

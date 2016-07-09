@@ -79,10 +79,8 @@ class MainWindowModel(QtCore.QObject):
         try:
             loader.load(filename)
         except NoDataFindException as exc:
-            # Caso nao exista nenhuma imagem, carregamos a imagem indicando
-            # erro
             from page import Page
-            print exc.message
+            print '[INFO] Error in load. %s' % exc.message
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
@@ -127,6 +125,9 @@ class MainWindowModel(QtCore.QObject):
 
     def get_comic_name(self):
         return self.comic.name if self.comic else ''
+
+    def get_comic_path(self):
+        return self.comic.get_path() if self.comic else ''
 
     def get_comic_title(self):
         return self.comic.name + ' - Pynocchio Comic Reader'
@@ -245,8 +246,7 @@ class MainWindowModel(QtCore.QObject):
                                          self.comic.get_current_page().data)
             BookmarkManager.close()
 
-    def remove_bookmark(self):
-        if self.comic:
+    def remove_bookmark(self, path):
             BookmarkManager.connect()
-            BookmarkManager.remove_bookmark(self.comic.get_path())
+            BookmarkManager.remove_bookmark(path)
             BookmarkManager.close()

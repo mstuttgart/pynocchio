@@ -16,12 +16,11 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PySide import QtGui
-
-from uic_files.about_dialog_ui import Ui_AboutDialog
+from uic_files import about_dialog_ui
 
 
 class AboutDialog(QtGui.QDialog):
     def __init__(self, parent=None):
         QtGui.QDialog.__init__(self, parent)
-        self.ui = Ui_AboutDialog()
+        self.ui = about_dialog_ui.Ui_AboutDialog()
         self.ui.setupUi(self)

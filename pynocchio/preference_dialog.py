@@ -17,7 +17,7 @@
 
 from PySide import QtGui
 
-from uic_files.preference_dialog_ui import Ui_config_dialog
+from uic_files import preference_dialog_ui
 
 
 class PreferenceDialog(QtGui.QDialog):
@@ -25,7 +25,7 @@ class PreferenceDialog(QtGui.QDialog):
     def __init__(self, preference, parent=None):
         QtGui.QDialog.__init__(self, parent)
 
-        self.ui = Ui_config_dialog()
+        self.ui = preference_dialog_ui.Ui_config_dialog()
         self.ui.setupUi(self)
 
         self.preference = preference

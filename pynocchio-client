@@ -22,8 +22,7 @@ from pynocchio.pynocchio import Pynocchio
 
 
 def main():
-    pynocchio = Pynocchio()
-    pynocchio.run()
+    Pynocchio().run()
 
 if __name__ == '__main__':
     main()

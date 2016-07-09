@@ -17,7 +17,7 @@
 
 from PySide import QtCore, QtGui
 
-from uic_files.go_to_page_dialog_ui import Ui_GoPageDialog
+from uic_files import go_to_page_dialog_ui
 
 
 class GoToDialog(QtGui.QDialog):
@@ -25,7 +25,7 @@ class GoToDialog(QtGui.QDialog):
     def __init__(self, controller):
         QtGui.QDialog.__init__(self)
 
-        self.ui = Ui_GoPageDialog()
+        self.ui = go_to_page_dialog_ui.Ui_GoPageDialog()
         self.ui.setupUi(self)
 
         self.controller = controller

@@ -27,7 +27,7 @@ class BookmarkManager(BookmarkBaseModel):
         db.connect()
         try:
             db.create_tables([Bookmark], safe=True)
-            print "[INFO] Table 'Bookmark' create/updates sucessfully!"
+            print "[INFO] Table 'Bookmark' create/updates successfully!"
         except OperationalError:
             print "[ERROR] Error to create table 'Bookmark'!"
 
@@ -57,7 +57,7 @@ class BookmarkManager(BookmarkBaseModel):
             q.execute()
             print '[INFO] Bookmark deleted.'
         except IntegrityError:
-            print '[ERROR] Bookmark not find.'
+            print '[ERROR] Bookmark not find!'
 
     @staticmethod
     def get_bookmarks(rows_number):

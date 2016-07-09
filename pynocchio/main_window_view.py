@@ -16,10 +16,11 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PySide import QtGui, QtCore
-from uic_files.main_window_view_ui import Ui_MainWindowView
 
+from uic_files import main_window_view_ui
 from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import LoadComicsException
+from utility import Utility
 
 
 class MainWindowView(QtGui.QMainWindow):
@@ -31,7 +32,7 @@ class MainWindowView(QtGui.QMainWindow):
         QtGui.QMainWindow.__init__(self, parent)
         self.model = model
 
-        self.ui = Ui_MainWindowView()
+        self.ui = main_window_view_ui.Ui_MainWindowView()
         self.ui.setupUi(self)
 
         MainWindowView.MaxRecentFiles = len(
@@ -50,7 +51,7 @@ class MainWindowView(QtGui.QMainWindow):
         self.model.load_progress.connect(
             self.ui.statusbar.set_progressbar_value)
 
-        self.vertical_anim = QtCore.QPropertyAnimation(
+        self.vertical_animation = QtCore.QPropertyAnimation(
             self.ui.qscroll_area_viewer.verticalScrollBar(), "sliderPosition")
 
     @QtCore.Slot()
@@ -139,7 +140,7 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def on_action_remove_bookmark_triggered(self):
-        self.model.remove_bookmark()
+        self.model.remove_bookmark(self.model.get_comic_path())
         self.update_bookmark_actions()
 
     @QtCore.Slot()
@@ -321,7 +322,14 @@ class MainWindowView(QtGui.QMainWindow):
     def open_recent_file(self):
         action = self.sender()
         if action:
-            self.open_comics(action.data())
+            filename = action.data()
+            if Utility.file_exist(filename):
+                self.open_comics(filename)
+            else:
+                files = self.model.load_recent_files()
+                files.remove(filename)
+                self.model.save_recent_files(files)
+                self.update_recent_file_actions()
 
     def set_current_file(self, filename):
 
@@ -391,7 +399,12 @@ class MainWindowView(QtGui.QMainWindow):
     def open_recent_bookmark(self):
         action = self.sender()
         if action:
-            self.open_comics(action.statusTip(), action.data() - 1)
+            filename = action.statusTip()
+            if Utility.file_exist(filename):
+                self.open_comics(action.statusTip(), action.data() - 1)
+            else:
+                self.model.remove_bookmark(action.statusTip())
+                self.update_bookmark_actions()
 
     def enable_actions(self):
 
@@ -464,19 +477,19 @@ class MainWindowView(QtGui.QMainWindow):
             vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
             next_pos = vert_scroll_bar.sliderPosition() - self.height() * 0.8
 
-            self.vertical_anim.setDuration(250)
-            self.vertical_anim.setStartValue(vert_scroll_bar.sliderPosition())
-            self.vertical_anim.setEndValue(next_pos)
-            self.vertical_anim.start()
+            self.vertical_animation.setDuration(250)
+            self.vertical_animation.setStartValue(vert_scroll_bar.sliderPosition())
+            self.vertical_animation.setEndValue(next_pos)
+            self.vertical_animation.start()
 
         elif event.key() == QtCore.Qt.Key_Down:
             vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
             next_pos = vert_scroll_bar.sliderPosition() + self.height() * 0.8
 
-            self.vertical_anim.setDuration(250)
-            self.vertical_anim.setStartValue(vert_scroll_bar.sliderPosition())
-            self.vertical_anim.setEndValue(next_pos)
-            self.vertical_anim.start()
+            self.vertical_animation.setDuration(250)
+            self.vertical_animation.setStartValue(vert_scroll_bar.sliderPosition())
+            self.vertical_animation.setEndValue(next_pos)
+            self.vertical_animation.start()
 
         QtGui.QMainWindow.keyPressEvent(self, event)
 

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/michell/Documents/Projects/pynocchio-comic-reader/forms/about_dialog.ui'
+# Form implementation generated from reading ui file '/home/michell/Projects/pynocchio/forms/about_dialog.ui'
 #
-# Created: Thu May  5 13:07:38 2016
+# Created: Fri Jul  8 15:41:35 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -159,10 +159,10 @@ class Ui_AboutDialog(object):
         self.label_2.setText(QtGui.QApplication.translate("AboutDialog", "Developer: ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_8.setText(QtGui.QApplication.translate("AboutDialog", "Copyright:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("AboutDialog", "Michell Stuttgart", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_6.setText(QtGui.QApplication.translate("AboutDialog", "0.0.1", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("AboutDialog", "Pynocchio Comic Reader", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("AboutDialog", "0.0.8", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("AboutDialog", "Pynocchio", None, QtGui.QApplication.UnicodeUTF8))
         self.label_10.setText(QtGui.QApplication.translate("AboutDialog", "The Pynocchio is an comic and manga reader. ", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_11.setText(QtGui.QApplication.translate("AboutDialog", "<a href=https://github.com/mstuttgart/pynocchio-comic-reader>Pynocchio Comic Reader</a>", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_11.setText(QtGui.QApplication.translate("AboutDialog", "<a href=https://github.com/pynocchio/pynocchio>Pynocchio</a>", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.about), QtGui.QApplication.translate("AboutDialog", "About", None, QtGui.QApplication.UnicodeUTF8))
         self.textBrowser.setHtml(QtGui.QApplication.translate("AboutDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"

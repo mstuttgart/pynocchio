@@ -6,7 +6,7 @@ Pynocchio Comic Reader
 [![Requirements Status](https://requires.io/github/pynocchio/pynocchio/requirements.svg?branch=master)](https://requires.io/github/pynocchio/pynocchio/requirements/?branch=master)
 [![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?maxAge=2592000?style=plastic)](https://github.com/pynocchio/pynocchio)
 [![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
-[![Join the chat at https://gitter.im/pynocchio/pynocchio-comic-reader](https://badges.gitter.im/pynocchio/pynocchio-comic-reader.svg)](https://gitter.im/pynocchio/pynocchio-comic-reader?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/pynocchio/pynocchio](https://badges.gitter.im/pynocchio/pynocchio.svg)](https://gitter.im/pynocchio/pynocchio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Pynocchio is a image viewer specialized in manga/comic reading developed on
 PySide API.
@@ -26,89 +26,16 @@ The current version is stable and we intend to improve it even more.
 
 ### Install
 
-#### Ubuntu 14.04 and Linux Mint 17.3 (or later)
-
-* To install *stable* version, add this ppa:
-
-```
-sudo add-apt-repository ppa:pynocchio-team/pynocchio-stable
-sudo apt-get update
-sudo apt-get install pynocchio
-``` 
-
-#### Windows version and others OS
-
-Coming soon! Please help me build packages to the others OS.
+Please, download the latest release [here](https://github.com/pynocchio/pynocchio/releases/latest) or in [Linux Apps](https://www.linux-apps.com/p/1126786).
 
 ### Contributing
 
-If you'd like to contribute, please create a fork and issue pull requests! I am
-very open to newcomers, and will need all the help we can get to make the best
-comic reader available.
-
-Ps: please, make your work on `develop` branch and send your pull request to `develop`branch to.
-
-Fork this repo and make a git clone with follow command:
-
-```
-git clone --recursive https://github.com/youusername/pynocchio-comic-reader.git
-```
-
-Pynocchio Comic Reader makes use of follow dependences:
-
-* To develop:
-* Python 2.7
-* PySide and Qt tools (QtDesigner e QLinguist):
-
-```
-sudo apt-get install python-pyside pyside-tools qt4-designer qt4-linguist-tools qt4-dev-tools libqt4-sql-sqlite unrar-free
-```
-
-* rarfile and peewee:
-
-```
-sudo pip install rarfile peewee
-```
-
-* To compile .ui and qrc files, please first install [pyqt_distutils](https://github.com/ColinDuquesnoy/pyqt_distutils) module:
-
-```
-sudo pip install pyqt-distutils
-```
-
-You need of Qt Designer to open and edit .ui view files and QtLinguist to
-translate .ts files.
-
-To compile .ui and qrc files, please first install pyqt_distutils module:
-
-```
-python setup.py build_ui
-```
-
-* To compile .pro files, please use:
-
-```
-python setup.py build_pro
-```
-
-New .ui files must be added in `pyuic.json` file.
-
-#### Run Pynocchio
- To run pynocchio, only double-click in `pynocchio_run`, run `./pynocchio_run` or `python pynocchio_run`.
-
-### To Do:
-
-Please, see this [list](https://github.com/mstuttgart/pynocchio-comic-reader/issues/21).
-
-### I found a bug!
-
-Please report any and all bugs using the project issue
-tracker. Be as precise as possible so that the bug can be found easier. Thanks!
+If you'd like to contribute, please see [contributing session](CONTRIBUTING.md).
 
 ### Third party resources
 
 Pynocchio use [Elementary Icon Theme](https://github.com/opengraphix/elementary3-icon-theme) icon set free pack.
 
-## Credits
+### Credits
 
 Copyright (C) 2014-2016 by Michell Stuttgart Faria

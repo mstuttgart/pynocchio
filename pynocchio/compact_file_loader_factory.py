@@ -35,6 +35,7 @@ class LoaderFactory(object):
                 compact_file_loader_tar.TarLoader,
             ]
 
+            # Return appropriate loader by with file compact coding
             for loader in loaders:
                 if loader.type_verify(filename):
                     return loader(data_extension)

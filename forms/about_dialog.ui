@@ -156,7 +156,7 @@
              <item row="2" column="1">
               <widget class="QLabel" name="label_6">
                <property name="text">
-                <string>0.0.1</string>
+                <string>0.0.8</string>
                </property>
               </widget>
              </item>
@@ -183,7 +183,7 @@
                 </font>
                </property>
                <property name="text">
-                <string>Pynocchio Comic Reader</string>
+                <string>Pynocchio</string>
                </property>
               </widget>
              </item>
@@ -207,7 +207,7 @@
          <item>
           <widget class="QLabel" name="label_11">
            <property name="text">
-            <string>&lt;a href=https://github.com/mstuttgart/pynocchio-comic-reader&gt;Pynocchio Comic Reader&lt;/a&gt;</string>
+            <string>&lt;a href=https://github.com/pynocchio/pynocchio&gt;Pynocchio&lt;/a&gt;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -968,7 +968,7 @@ p, li { white-space: pre-wrap; }
   <include location="../data/main_window_view.qrc"/>
   <include location="../data/main_window_view.qrc"/>
   <include location="../data/main_window_view.qrc"/>
-  <include location="../main_window_view.qrc"/>
+  <include location="../data/main_window_view.qrc"/>
  </resources>
  <connections>
   <connection>
