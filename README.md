@@ -1,7 +1,6 @@
 Pynocchio Comic Reader
 ==================
 [![Build Status](https://travis-ci.org/pynocchio/pynocchio.svg?branch=master)](https://travis-ci.org/pynocchio/pynocchio)
-[![Coverage Status](https://coveralls.io/repos/github/pynocchio/pynocchio/badge.svg?branch=master)](https://coveralls.io/github/pynocchio/pynocchio?branch=master)
 [![Code Health](https://landscape.io/github/pynocchio/pynocchio/develop/landscape.svg?style=flat)](https://landscape.io/github/pynocchio/pynocchio/master)
 [![Requirements Status](https://requires.io/github/pynocchio/pynocchio/requirements.svg?branch=master)](https://requires.io/github/pynocchio/pynocchio/requirements/?branch=master)
 [![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?maxAge=2592000?style=plastic)](https://github.com/pynocchio/pynocchio)
