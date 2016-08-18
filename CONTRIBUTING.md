@@ -9,7 +9,7 @@ Ps: please, make your work on `develop` branch and send your pull request to `de
 Fork this repo and make a git clone with follow command:
 
 ```bash
-git clone --recursive https://github.com/youusername/pynocchio-comic-reader.git
+git clone --recursive https://github.com/youusername/pynocchio.git
 ```
 
 Pynocchio Comic Reader makes use of follow dependences:
@@ -56,7 +56,7 @@ New .ui files must be added in `pyuic.json` file.
 
 ### To Do list:
 
-Please, see this [list](https://github.com/mstuttgart/pynocchio-comic-reader/issues/21).
+Please, see this [list](https://github.com/mstuttgart/pynocchio/issues/21).
 
 ### I found a bug!
 
