@@ -4,11 +4,8 @@ python:
 
 sudo: required
 
-virtualenv:
-  system_site_packages: true
-
 install:
-  - sudo apt-get install -qq build-essential git cmake libqt4-dev libphonon-dev python2.7-dev libxml2-dev libxslt1-dev qtmobility-dev libqtwebkit-dev --fix-missing
+  - sudo apt-get install build-essential git cmake libqt4-dev libphonon-dev python2.7-dev libxml2-dev libxslt1-dev qtmobility-dev libqtwebkit-dev
   - pip install -r dev-requirements.txt
 #  - sudo apt-get install -qq python-pyside --fix-missing
 
