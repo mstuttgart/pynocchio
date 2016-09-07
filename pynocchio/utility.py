@@ -52,6 +52,10 @@ class Utility(object):
         return os.path.isdir(file_path)
 
     @staticmethod
+    def is_file(file_name):
+        return os.path.isfile(file_name)
+
+    @staticmethod
     def convert_string_to_boolean(string):
         if string == 'True':
             return True
