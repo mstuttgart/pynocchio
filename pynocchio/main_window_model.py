@@ -90,6 +90,7 @@ class MainWindowModel(QtCore.QObject):
 
         self.comic.pages = loader.data
         self.current_directory = Utility.get_dir_name(filename)
+
         self.path_file_filter.parse(filename)
 
     def save_current_page_image(self, file_name):

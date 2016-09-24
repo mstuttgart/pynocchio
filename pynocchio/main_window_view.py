@@ -343,17 +343,23 @@ class MainWindowView(QtGui.QMainWindow):
 
     def set_current_file(self, filename):
 
+        # Load recent files list
         files = self.model.load_recent_files()
 
         try:
+            # Remove the current file from recent file list
             files.remove(filename)
         except ValueError:
             pass
 
+        # Insert it on top of recent file list
         files.insert(0, filename)
         del files[MainWindowView.MaxRecentFiles:]
 
+        # Save recent file list
         self.model.save_recent_files(files)
+
+        # Update text and data of recent file actions
         self.update_recent_file_actions()
 
     def update_recent_file_actions(self):

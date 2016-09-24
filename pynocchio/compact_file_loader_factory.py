@@ -15,11 +15,13 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import compact_file_loader_tar
-import compact_file_loader_zip
-import compact_file_loader_rar
+from compact_file_loader_tar import TarLoader
+from compact_file_loader_zip import ZipLoader
+from compact_file_loader_rar import RarLoader
+from compact_folder_loader import FolderLoader
 
-from pynocchio_exception import InvalidTypeFileException
+from .pynocchio_exception import InvalidTypeFileException
+from .utility import Utility
 
 
 class LoaderFactory(object):
@@ -27,17 +29,16 @@ class LoaderFactory(object):
     @staticmethod
     def create_loader(compact_file_extension, filename, data_extension):
 
-        if compact_file_extension in ['.zip', '.cbz', '.rar', '.cbr', '.tar', '.cbt']:
+        if Utility.is_file(file_name=filename):
 
-            loaders = [
-                compact_file_loader_zip.ZipLoader,
-                compact_file_loader_rar.RarLoader,
-                compact_file_loader_tar.TarLoader,
-            ]
+            loaders = [ZipLoader, RarLoader, TarLoader]
 
             # Return appropriate loader by with file compact coding
             for loader in loaders:
                 if loader.type_verify(filename):
                     return loader(data_extension)
 
-        raise InvalidTypeFileException('Invalid file extension: %s' % compact_file_extension)
+            raise InvalidTypeFileException('Invalid file extension: %s' % compact_file_extension)
+
+        elif Utility.is_dir(filename):
+            return FolderLoader(data_extension)

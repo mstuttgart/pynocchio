@@ -17,13 +17,9 @@
 
 import glob
 
-from pynocchio_exception import DependenceNotFoundException
-
 from compact_file_loader import Loader
 from utility import Utility
 from page import Page
-from pynocchio_exception import LoadComicsException
-from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import NoDataFindException
 
 
@@ -38,28 +34,14 @@ class FolderLoader(Loader):
                           '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
 
         # get files with extension stored in ext
-        # file_list = [glob.glob1(dir_name, ext) for ext in extension_list]
-
-        # get files with extension stored in ext
         file_list = []
 
         for ext in extension_list:
-            file_list += glob.glob1(dir_name + '/', ext)
+            file_list += glob.glob1(dir_name, '*' + ext)
 
         # sort list
-        file_list = [f for f in file_list]
         file_list.sort()
 
-        #
-        # try:
-        #     rar = rarfile.FolderFile(file_name, 'r')
-        # except rarfile.FolderOpenError as exception:
-        #     raise InvalidTypeFileException(exception.message)
-        # except IOError as exception:
-        #     raise LoadComicsException(exception.strerror)
-
-        # name_list = rar.namelist()
-        file_list.sort()
         aux = 100.0 / len(file_list)
         page_number = 1
         self.data = []
@@ -67,15 +49,15 @@ class FolderLoader(Loader):
         for idx, name in enumerate(file_list):
 
             if Utility.get_file_extension(name).lower() in self.extension:
-                img_file = open(name, 'wb')
-                self.data.append(Page(img_file.read(name), name, page_number))
+                img_file = open(Utility.join_path(dir_name, '', name), 'r')
+                self.data.append(Page(img_file.read(), name, page_number))
                 page_number += 1
                 img_file.close()
 
             self.progress.emit(idx * aux)
 
         if not self.data:
-            raise NoDataFindException
+            raise NoDataFindException('')
 
     @staticmethod
     def type_verify(path):
