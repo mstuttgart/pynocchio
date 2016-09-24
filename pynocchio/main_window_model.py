@@ -91,7 +91,8 @@ class MainWindowModel(QtCore.QObject):
         self.comic.pages = loader.data
         self.current_directory = Utility.get_dir_name(filename)
 
-        self.path_file_filter.parse(filename)
+        if Utility.is_file(filename):
+            self.path_file_filter.parse(filename)
 
     def save_current_page_image(self, file_name):
         self.get_current_page().save(file_name)
@@ -164,10 +165,16 @@ class MainWindowModel(QtCore.QObject):
         return False
 
     def is_first_comic(self):
-        return self.path_file_filter.is_first_file()
+        if self.path_file_filter.current_path:
+            return self.path_file_filter.is_first_file()
+        else:
+            return True
 
     def is_last_comic(self):
-        return self.path_file_filter.is_last_file()
+        if self.path_file_filter.current_path:
+            return self.path_file_filter.is_last_file()
+        else:
+            return True
 
     def _rotate_page(self, pix_map):
         if self.rotate_angle != 0:
