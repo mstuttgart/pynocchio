@@ -5,7 +5,6 @@ Pynocchio Comic Reader
 [![Requirements Status](https://requires.io/github/pynocchio/pynocchio/requirements.svg?branch=master)](https://requires.io/github/pynocchio/pynocchio/requirements/?branch=master)
 [![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?maxAge=2592000?style=plastic)](https://github.com/pynocchio/pynocchio)
 [![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
-[![Join the chat at https://gitter.im/pynocchio/pynocchio](https://badges.gitter.im/pynocchio/pynocchio.svg)](https://gitter.im/pynocchio/pynocchio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Pynocchio is a image viewer specialized in manga/comic reading developed on
 PySide API.
