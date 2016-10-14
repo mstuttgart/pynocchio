@@ -11,7 +11,7 @@ PySide API.
 
 ![](https://lh3.googleusercontent.com/-p0TtjyX-GgM/VwwYhAAUjrI/AAAAAAAAF04/_JSom_IMmasZfnRn4EPhxKejjj_9aHzYwCCo/s1152-Ic42/snapshot11.png)
 
-[![GPL](lib/gplv3-88x31.png)](LICENSE)
+[![GPL](data/gplv3-88x31.png)](LICENSE)
 
 ### Features
 
