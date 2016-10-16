@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-build_deb_folder='pynocchio-deb'
+package_version=$1
+build_deb_folder="build_deb_package"
+dist='dist'
+build='build'
+package_name="pynocchio_${package_version}_amd64.deb"
 
-rm -rf ${build_deb_folder}
-
-cd ..
-rm -rf ${build_deb_folder}
 pyinstaller pynocchio.spec
+
 mkdir -p ${build_deb_folder}/DEBIAN
 mkdir -p ${build_deb_folder}/usr/share
 mkdir -p ${build_deb_folder}/usr/bin
@@ -17,12 +18,12 @@ cp -r linux/hicolor ${build_deb_folder}/usr/share/
 cp -r linux/pixmaps ${build_deb_folder}/usr/share/
 cp -r pynocchio/locale ${build_deb_folder}/usr/share/pynocchio/
 
-cp dist/* ${build_deb_folder}/usr/bin
+cp ${dist}/* ${build_deb_folder}/usr/bin
 cp linux/control ${build_deb_folder}/DEBIAN
 cp linux/changelog ${build_deb_folder}/DEBIAN
 
-dpkg --build ${build_deb_folder}/ pynocchio-0.8.0_amd64.deb
+dpkg --build ${build_deb_folder}/ ${package_name}
 
-rm -rf build
-rm -rf dist
+rm -rf ${build}
+rm -rf ${dist}
 rm -rf ${build_deb_folder}
