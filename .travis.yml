@@ -7,9 +7,9 @@ sudo: required
 dist: trusty
 
 install:
-  - sudo apt-get -y install build-essential git cmake libqt4-dev libphonon-dev python2.7-dev libxml2-dev libxslt1-dev qtmobility-dev libqtwebkit-dev
+  - sudo apt-get install build-essential git cmake libqt4-dev libphonon-dev python2.7-dev libxml2-dev libxslt1-dev qtmobility-dev libqtwebkit-dev
   - pip install -r requirements-dev.txt
-  - sudo apt-get -y install upx
+  - sudo apt-get install upx
 
 before_script:
 - export DISPLAY=:99.0
