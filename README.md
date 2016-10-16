@@ -31,7 +31,7 @@ Please, download the latest release [here](https://github.com/pynocchio/pynocchi
 
 ### Contributing
 
-If you'd like to contribute, please see [contributing session](CONTRIBUTING.md).
+If you'd like to contribute, please see [contributing session in Pynocchio Wiki](https://github.com/pynocchio/pynocchio/wiki/Contributing).
 
 ### Third party resources
 
