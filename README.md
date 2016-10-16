@@ -2,6 +2,7 @@ Pynocchio Comic Reader
 ==================
 [![Build Status](https://travis-ci.org/pynocchio/pynocchio.svg?branch=master)](https://travis-ci.org/pynocchio/pynocchio)
 [![Code Health](https://landscape.io/github/pynocchio/pynocchio/develop/landscape.svg?style=flat)](https://landscape.io/github/pynocchio/pynocchio/master)
+[![Code Climate](https://codeclimate.com/github/pynocchio/pynocchio/badges/gpa.svg)](https://codeclimate.com/github/pynocchio/pynocchio)
 [![Requirements Status](https://requires.io/github/pynocchio/pynocchio/requirements.svg?branch=master)](https://requires.io/github/pynocchio/pynocchio/requirements/?branch=master)
 [![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?maxAge=2592000?style=plastic)](https://github.com/pynocchio/pynocchio)
 [![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
