@@ -29,7 +29,7 @@ deploy:
   username: "mstuttgart"
   token:
     secure: 04F87fZmibN2FSgOp+2V/rI/Q44BXPsusTZ9lkWpaY1tDmaUyfvl9v0LtWWLlLE4NYOKiB6Ngi4aWmdQOU5jbGmCyzFlUHj7cX+KffNB3qkf+7VrL+9xPZL/77AiirGhvvVj6OvKG3uw9h9snGcATYkOhMWrJ+zOX3WcDp0xZklAWKcAg/NJSd8fbX2nLAEep0qrn+iotb9aQD4HirYiI6aj6J7ClEUWun77aJWSir6bdcI3RxJIDBuV7iOGqKOkS0botkXMIdlH7PAObP+zoNyG1N/3Xv0QaK/ZaUJ9ZyDwHMU/OcmclU+mHpoKuQpuxpIkNr+zEPRycQgRZxQ5/gXdLebp49SQxl/x//XKDt8EQYmFgpPhAcBlqVI3EYRalN8vryWf8GbFLFzAt5q0oX/iPcg+ZSBEMPl44R+q9BHZMH546YnT0lcUjpIOBotFzQhzdPzyWbF9Jp3T+0QXsvOUPPq4LrhqPDxLWFJbC4+itK49jZoabftUkc8lKQrlYVjwlkX1gWkbgJJdCsrGydvoDDeJhfdLhqAua1VaG/M4AZQtC69mtDnn3s9zwrvt48CyZD909ks7sdC4PBX1wUKZESuAozt/MSC4JE6OVxjaZEGfKuHBP+zuTn5BHq1UV1RD6F8NNrGEvnX8dJeXfGnpN4qnOAKt03cQFkaTWwc=
+  skip_cleanup: true
   on:
     all_branches: true
   dist: "linuxmint/sarah"
-  skip_cleanup: true
