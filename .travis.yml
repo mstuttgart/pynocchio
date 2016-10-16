@@ -32,3 +32,4 @@ deploy:
   on:
     all_branches: true
   dist: "linuxmint/sarah"
+  skip_cleanup: true
