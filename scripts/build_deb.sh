@@ -21,7 +21,7 @@ cp dist/* ${build_deb_folder}/usr/bin
 cp linux/control ${build_deb_folder}/DEBIAN
 cp linux/changelog ${build_deb_folder}/DEBIAN
 
-dpkg --build ${build_deb_folder}/ pynocchio-deb-0.8.0_amd64.deb
+dpkg --build ${build_deb_folder}/ pynocchio-0.8.0_amd64.deb
 
 rm -rf build
 rm -rf dist
