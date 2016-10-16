@@ -18,9 +18,13 @@
 
 class Comic(object):
 
-    def __init__(self, name, directory, initial_page=0):
+    FILE = 0
+    FOLDER = 1
+
+    def __init__(self, name, directory, initial_page=0, comic_type=FILE):
         self.name = name
         self.directory = directory
+        self.type = comic_type
         self.current_page_index = initial_page
         self.pages = []
 

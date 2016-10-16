@@ -25,6 +25,10 @@ from settings_manager import SettingsManager
 from utility import Utility
 
 from bookmark_database_manager import BookmarkManager
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 class MainWindowModel(QtCore.QObject):
@@ -80,7 +84,7 @@ class MainWindowModel(QtCore.QObject):
             loader.load(filename)
         except NoDataFindException as exc:
             from page import Page
-            print '[INFO] Error in load. %s' % exc.message
+            logger.exception('Error in load comic')
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
@@ -90,7 +94,9 @@ class MainWindowModel(QtCore.QObject):
 
         self.comic.pages = loader.data
         self.current_directory = Utility.get_dir_name(filename)
-        self.path_file_filter.parse(filename)
+
+        if Utility.is_file(filename):
+            self.path_file_filter.parse(filename)
 
     def save_current_page_image(self, file_name):
         self.get_current_page().save(file_name)
@@ -163,10 +169,16 @@ class MainWindowModel(QtCore.QObject):
         return False
 
     def is_first_comic(self):
-        return self.path_file_filter.is_first_file()
+        if self.path_file_filter.current_path:
+            return self.path_file_filter.is_first_file()
+        else:
+            return True
 
     def is_last_comic(self):
-        return self.path_file_filter.is_last_file()
+        if self.path_file_filter.current_path:
+            return self.path_file_filter.is_last_file()
+        else:
+            return True
 
     def _rotate_page(self, pix_map):
         if self.rotate_angle != 0:

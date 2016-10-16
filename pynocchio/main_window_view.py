@@ -37,6 +37,7 @@ class MainWindowView(QtGui.QMainWindow):
 
         MainWindowView.MaxRecentFiles = len(
             self.ui.menu_recent_files.actions())
+
         MainWindowView.MaxBookmarkFiles = \
             len(self.ui.menu_recent_bookmarks.actions())
 
@@ -66,6 +67,15 @@ class MainWindowView(QtGui.QMainWindow):
                 'tar_files (*.tar *.cbt);; all_files (*)'))
 
         self.open_comics(filename[0])
+
+    @QtCore.Slot()
+    def on_action_open_folder_triggered(self):
+
+        folder_name = QtGui.QFileDialog().getExistingDirectory(self,
+                                                               self.tr('open_comic_folder'),
+                                                               self.model.current_directory)
+
+        self.open_comics(folder_name)
 
     @QtCore.Slot()
     def on_action_save_image_triggered(self):
@@ -333,17 +343,23 @@ class MainWindowView(QtGui.QMainWindow):
 
     def set_current_file(self, filename):
 
+        # Load recent files list
         files = self.model.load_recent_files()
 
         try:
+            # Remove the current file from recent file list
             files.remove(filename)
         except ValueError:
             pass
 
+        # Insert it on top of recent file list
         files.insert(0, filename)
         del files[MainWindowView.MaxRecentFiles:]
 
+        # Save recent file list
         self.model.save_recent_files(files)
+
+        # Update text and data of recent file actions
         self.update_recent_file_actions()
 
     def update_recent_file_actions(self):

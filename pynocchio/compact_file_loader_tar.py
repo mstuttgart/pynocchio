@@ -23,6 +23,9 @@ from pynocchio_exception import NoDataFindException
 from utility import Utility
 
 from compact_file_loader import Loader
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 class TarLoader(Loader):
@@ -53,9 +56,9 @@ class TarLoader(Loader):
                     self.data.append(Page(data, name, page_number))
                     page_number += 1
                 except tarfile.ExtractError as err:
-                    print '%20s  %s' % (name, err.message)
+                    logger.exception('%20s' % name)
                 except tarfile.ReadError as err:
-                    print '%20s  %s' % (name, err.message)
+                    logger.exception('%20s' % name)
 
             self.progress.emit(idx * aux)
 

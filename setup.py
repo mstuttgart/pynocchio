@@ -15,16 +15,15 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from setuptools import setup, find_packages
 from distutils.cmd import Command
 import distutils.log
-from setuptools import setup, find_packages
 import os
 import re
 import sys
 
 try:
     from pyqt_distutils.build_ui import build_ui
-
     cmdclass = {'build_ui': build_ui}
 except ImportError:
     build_ui = None  # user won't have pyqt_distutils when deploying
@@ -41,111 +40,25 @@ def get_version(package):
     init_py = open(os.path.join(package, '__init__.py')).read()
     return re.search("__version__ = ['\"]([^'\"]+)['\"]", init_py).group(1)
 
+version = get_version('pynocchio')
 
-package_name = 'pynocchio'
-version = get_version(package_name)
-debian_version = '1'
+if sys.argv[-1] == 'build_deb':
+    os.system('sh scripts/build_deb.sh %s' % version)
+    sys.exit()
 
+if sys.argv[-1] == 'compile_pro':
+    path = 'i18n/pynocchio.pro'
+    os.system('pyside-lupdate -verbose %s' % path)
+    sys.exit()
 
-class BuildProFileCommand(Command):
-    """
-    A command to compile pro condig files.
-    """
+if sys.argv[-1] == 'publish':
+    os.system("git tag -a %s -m 'version %s'" % (version, version))
+    os.system("git push --tags")
+    sys.exit()
 
-    description = "Compile PySide pro files"
-
-    # The format is (long option, short option, description).
-    user_options = [
-        ('path=', None, 'The path of pro files folder'),
-    ]
-
-    def initialize_options(self):
-        self.path = 'i18n/pynocchio.pro'
-
-    def finalize_options(self):
-        assert os.path.isfile(self.path), ('[INFO] %s not is valid file!' %
-                                           self.path)
-        assert os.path.exists(self.path), ('[INFO] File %s not exist!' %
-                                           self.path)
-
-    def run(self):
-        print "[INFO] Compile pro files..."
-        os.system('pyside-lupdate -verbose %s' % self.path)
-        sys.exit()
-
-
-class BuildDEBPackageCommand(Command):
-    """
-    A command build deb package.
-    """
-
-    description = "Build .deb package"
-
-    # The format is (long option, short option, description).
-    user_options = [
-        ('folder=', None, 'The folder where deb package will be build'),
-        ('upload=', None, 'Upload package to launchpad'),
-        ('stable=', None, 'Upload package to launchpad stable ppa'),
-    ]
-
-    def initialize_options(self):
-        self.folder = 'dist'
-        self.upload = None
-        self.stable = None
-
-    def finalize_options(self):
-        if os.path.isdir(self.folder) and os.path.lexists(self.folder):
-            os.system('rm -rf %s' % self.folder)
-
-        if self.upload:
-            assert self.upload == 'True'
-
-        if self.stable:
-            assert self.stable == 'True'
-
-    def run(self):
-
-        print "[INFO] Compile a deb package..."
-
-        os.system('mkdir %s' % self.folder)
-        os.system('cp stdeb.cfg setup.py pynocchio-client %s' % self.folder)
-        os.system('cp -r pynocchio linux %s' % self.folder)
-        os.system('cd %s && python setup.py --command-packages=stdeb.command '
-                  'sdist_dsc --package %s' % (self.folder, package_name))
-        os.system(
-            'cd %s/deb_dist && dpkg-source -x %s_%s-%s.dsc' % (self.folder,
-                                                               package_name,
-                                                               version,
-                                                               debian_version))
-        os.system('cd %s/deb_dist/%s-%s && debuild -S' % (self.folder,
-                                                              package_name,
-                                                              version))
-
-        if self.upload and self.stable:
-            os.system('cd %s/deb_dist && dput '
-                      'ppa:pynocchio-team/pynocchio-stable '
-                      '%s_%s-%s_source.changes' % (self.folder,
-                                                   package_name,
-                                                   version,
-                                                   debian_version))
-        elif self.upload and not self.stable:
-            os.system('cd %s/deb_dist && dput '
-                      'ppa:pynocchio-team/pynocchio-dev '
-                      '%s_%s-%s_source.changes' % (self.folder,
-                                                   package_name,
-                                                   version,
-                                                   debian_version))
-        else:
-            print '[INFO] Local build.'
-
-        sys.exit()
-
-
-cmdclass['build_pro'] = BuildProFileCommand
-cmdclass['build_deb'] = BuildDEBPackageCommand
 
 setup(
-    name=package_name,
+    name='pynocchio',
     version=version,
     author='Michell Stuttgart Faria',
     author_email='michellstut@gmail.com',
@@ -162,7 +75,7 @@ setup(
     test_suite='test',
     cmdclass=cmdclass,
     scripts=[
-        'pynocchio-client',
+        'pynocchio-client.py',
     ],
     include_package_data=True,
     data_files=[

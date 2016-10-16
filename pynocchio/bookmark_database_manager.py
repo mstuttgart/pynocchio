@@ -16,8 +16,11 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from peewee import OperationalError, IntegrityError
-
 from bookmark import Bookmark, BookmarkBaseModel, db
+
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 class BookmarkManager(BookmarkBaseModel):
@@ -27,14 +30,14 @@ class BookmarkManager(BookmarkBaseModel):
         db.connect()
         try:
             db.create_tables([Bookmark], safe=True)
-            print "[INFO] Table 'Bookmark' create/updates successfully!"
+            logger.info('Table Bookmark create/updates successfully!')
         except OperationalError:
-            print "[ERROR] Error to create table 'Bookmark'!"
+            logger.exception("Error to create table Bookmark!")
 
     @staticmethod
     def close():
         db.close()
-        print '[INFO] Bookmark database closed.'
+        logger.info('Bookmark database closed.')
 
     @staticmethod
     def add_bookmark(name, path, page, data):
@@ -43,21 +46,21 @@ class BookmarkManager(BookmarkBaseModel):
             q = Bookmark.insert(comic_name=name, comic_path=path,
                                 comic_page=page, page_data=data)
             q.execute()
-            print '[INFO] Bookmark %s inserted.' % name
+            logger.info('Bookmark %s inserted.' % name)
         except IntegrityError:
             q = Bookmark.update(comic_page=page, page_data=data).where(
                 Bookmark.comic_path == path)
             q.execute()
-            print '[INFO] Bookmark updated.'
+            logger.info('Bookmark updated')
 
     @staticmethod
     def remove_bookmark(path):
         try:
             q = Bookmark.delete().where(Bookmark.comic_path == path)
             q.execute()
-            print '[INFO] Bookmark deleted.'
+            logger.info('Bookmark deleted.')
         except IntegrityError:
-            print '[ERROR] Bookmark not find!'
+            logger.exception('Bookmark not find!')
 
     @staticmethod
     def get_bookmarks(rows_number):
@@ -74,3 +77,4 @@ class BookmarkManager(BookmarkBaseModel):
     def is_bookmark(path):
         bk_list = Bookmark.select().where(Bookmark.comic_path == path)
         return True if bk_list else False
+
