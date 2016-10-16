@@ -25,6 +25,10 @@ from settings_manager import SettingsManager
 from utility import Utility
 
 from bookmark_database_manager import BookmarkManager
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 class MainWindowModel(QtCore.QObject):
@@ -80,7 +84,7 @@ class MainWindowModel(QtCore.QObject):
             loader.load(filename)
         except NoDataFindException as exc:
             from page import Page
-            print '[INFO] Error in load. %s' % exc.message
+            logger.exception('Error in load comic')
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))

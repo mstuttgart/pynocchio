@@ -23,6 +23,10 @@ from pynocchio_exception import NoDataFindException
 from utility import Utility
 
 from compact_file_loader import Loader
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 class ZipLoader(Loader):
@@ -54,7 +58,7 @@ class ZipLoader(Loader):
                     self.data.append(Page(zf.read(name), name, page_number))
                     page_number += 1
                 except zipfile.BadZipfile as exc:
-                    print '[INFO] Error in read %s file. Exception: %s' % (name, exc.message)
+                    logger.exception('Error in read %s file' % name)
 
             self.progress.emit(idx * aux)
 

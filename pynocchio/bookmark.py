@@ -17,7 +17,6 @@
 
 import peewee
 from utility import Utility
-
 from settings_manager import SettingsManager
 
 

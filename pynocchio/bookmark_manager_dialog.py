@@ -21,6 +21,10 @@ from PySide import QtCore, QtGui, QtSql
 from uic_files import bookmark_manager_dialog_ui
 from utility import Utility
 
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 class BookmarkManagerDialog(QtGui.QDialog):
 
@@ -71,10 +75,10 @@ class BookmarkManagerDialog(QtGui.QDialog):
                             QtCore.Qt.SmoothTransformation)
 
             self.ui.page_image_label.setPixmap(self.no_cover_label)
-            print '[INFO] Database load!'
+            logger.info('Database load!')
 
         else:
-            print "[ERROR] Unable to create db file!"
+            logger.error('Unable to create db file!')
 
     def selection_changed(self, selected):
 

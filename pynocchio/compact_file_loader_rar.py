@@ -31,6 +31,10 @@ from page import Page
 from pynocchio_exception import LoadComicsException
 from pynocchio_exception import InvalidTypeFileException
 from pynocchio_exception import NoDataFindException
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 class RarLoader(Loader):
@@ -59,7 +63,7 @@ class RarLoader(Loader):
                     self.data.append(Page(rar.read(name), name, page_number))
                     page_number += 1
                 except rarfile.BadRarFile as exc:
-                    print '[INFO] Error in read %s file. Exception: %s' % (name, exc.message)
+                    logger.exception('Error in read %s file. ' % name)
 
             self.progress.emit(idx * aux)
 
