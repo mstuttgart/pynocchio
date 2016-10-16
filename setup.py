@@ -52,9 +52,6 @@ if sys.argv[-1] == 'compile_pro':
     sys.exit()
 
 if sys.argv[-1] == 'publish':
-    print("You probably want to also tag the version now:")
-    os.system("git push origin :refs/tags/0.1.1")
-    os.system("git  tag -d 0.1.1")
     os.system("git tag -a %s -m 'version %s'" % (version, version))
     os.system("git push --tags")
     sys.exit()
