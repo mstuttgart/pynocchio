@@ -25,3 +25,4 @@ dpkg --build ${build_deb_folder}/ pynocchio-deb-0.8.0_amd64.deb
 
 rm -rf build
 rm -rf dist
+rm -rf ${build_deb_folder}

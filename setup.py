@@ -162,7 +162,7 @@ setup(
     test_suite='test',
     cmdclass=cmdclass,
     scripts=[
-        'pynocchio-client',
+        'pynocchio-client.py',
     ],
     include_package_data=True,
     data_files=[
