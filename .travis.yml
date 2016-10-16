@@ -1,21 +1,31 @@
 language: python
+
 python:
-  - "2.7"
+- '2.7'
 
 sudo: required
 
 install:
-  - sudo apt-get install build-essential git cmake libqt4-dev libphonon-dev python2.7-dev libxml2-dev libxslt1-dev qtmobility-dev libqtwebkit-dev
-  - pip install -r dev-requirements.txt
-#  - sudo apt-get install -qq python-pyside --fix-missing
+- sudo apt-get install build-essential git cmake libqt4-dev libphonon-dev python2.7-dev libxml2-dev libxslt1-dev qtmobility-dev libqtwebkit-dev
+- pip install -r dev-requirements.txt
 
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- sleep 3
 
 script:
-  - coverage run setup.py test
+- coverage run setup.py test
+- cd scripts && ./build_deb.sh
 
 after_success:
-  - coveralls
+- coveralls
+
+deploy:
+  repository: "pynocchio"
+  username: "mstuttgart"
+  token:
+    secure: 04F87fZmibN2FSgOp+2V/rI/Q44BXPsusTZ9lkWpaY1tDmaUyfvl9v0LtWWLlLE4NYOKiB6Ngi4aWmdQOU5jbGmCyzFlUHj7cX+KffNB3qkf+7VrL+9xPZL/77AiirGhvvVj6OvKG3uw9h9snGcATYkOhMWrJ+zOX3WcDp0xZklAWKcAg/NJSd8fbX2nLAEep0qrn+iotb9aQD4HirYiI6aj6J7ClEUWun77aJWSir6bdcI3RxJIDBuV7iOGqKOkS0botkXMIdlH7PAObP+zoNyG1N/3Xv0QaK/ZaUJ9ZyDwHMU/OcmclU+mHpoKuQpuxpIkNr+zEPRycQgRZxQ5/gXdLebp49SQxl/x//XKDt8EQYmFgpPhAcBlqVI3EYRalN8vryWf8GbFLFzAt5q0oX/iPcg+ZSBEMPl44R+q9BHZMH546YnT0lcUjpIOBotFzQhzdPzyWbF9Jp3T+0QXsvOUPPq4LrhqPDxLWFJbC4+itK49jZoabftUkc8lKQrlYVjwlkX1gWkbgJJdCsrGydvoDDeJhfdLhqAua1VaG/M4AZQtC69mtDnn3s9zwrvt48CyZD909ks7sdC4PBX1wUKZESuAozt/MSC4JE6OVxjaZEGfKuHBP+zuTn5BHq1UV1RD6F8NNrGEvnX8dJeXfGnpN4qnOAKt03cQFkaTWwc=
+  on:
+    all_branches: true
+  dist: "linuxmint/sarah"

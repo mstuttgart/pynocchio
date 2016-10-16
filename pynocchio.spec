@@ -3,7 +3,7 @@
 block_cipher = None
 
 a = Analysis(['pynocchio-client.py'],
-             pathex=['/home/michell/Documents/Projects/pynocchio/pynocchio/'],
+             pathex=['pynocchio/'],
              binaries=None,
              datas=None,
              hiddenimports=[],

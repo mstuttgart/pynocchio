@@ -2,10 +2,10 @@
 Name=Pynocchio
 GenericName=Comic Book Viewer
 Comment=A image viewer specialized in manga/comic reading
-Exec=pynocchio-client
+Exec=pynocchio
 Terminal=false
 Type=Application
-MimeType=application/x-pynocchio;application/x-cbz;application/x-cbr;application/x-cbt;application/x-zip;application/x-rar;application/x-7z;
+MimeType=application/x-cbz;application/x-cbr;application/x-cbt;application/x-zip;application/x-rar;application/x-7z;
 Icon=pynocchio.png
 Categories=Graphics;Viewer;
 Keywords=comic;viewer;reader;
