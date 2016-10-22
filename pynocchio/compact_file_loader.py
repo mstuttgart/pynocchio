@@ -15,13 +15,13 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide import QtCore
+from PyQt5 import QtCore
 
 
 class Loader(QtCore.QObject):
 
-    progress = QtCore.Signal(int)
-    done = QtCore.Signal()
+    progress = QtCore.pyqtSignal(int)
+    done = QtCore.pyqtSignal()
 
     def __init__(self, extension):
         QtCore.QObject.__init__(self)

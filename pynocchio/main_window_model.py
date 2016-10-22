@@ -37,8 +37,8 @@ class MainWindowModel(QtCore.QObject):
     _HORIZONTAL_FIT = 'action_horizontal_fit'
     _BEST_FIT = 'action_best_fit'
 
-    load_progress = QtCore.Signal(int)
-    load_done = QtCore.Signal()
+    load_progress = QtCore.pyqtSignal(int)
+    load_done = QtCore.pyqtSignal()
 
     def __init__(self):
         QtCore.QObject.__init__(self)
@@ -217,11 +217,11 @@ class MainWindowModel(QtCore.QObject):
     def best_fit(self):
         self.fit_type = MainWindowModel._BEST_FIT
 
-    @QtCore.Slot(int)
+    @QtCore.pyqtSlot(int)
     def load_progressbar_value(self, percent):
         self.load_progress.emit(percent)
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def load_progressbar_done(self):
         self.load_done.emit()
 

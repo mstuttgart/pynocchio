@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide import QtGui, QtCore
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 from .uic_files import main_window_view_ui
 from .pynocchio_exception import InvalidTypeFileException
@@ -55,7 +55,7 @@ class MainWindowView(QtGui.QMainWindow):
         self.vertical_animation = QtCore.QPropertyAnimation(
             self.ui.qscroll_area_viewer.verticalScrollBar(), "sliderPosition")
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_open_file_triggered(self):
 
         filename = QtGui.QFileDialog().getOpenFileName(
@@ -68,7 +68,7 @@ class MainWindowView(QtGui.QMainWindow):
 
         self.open_comics(filename[0])
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_open_folder_triggered(self):
 
         folder_name = QtGui.QFileDialog().getExistingDirectory(self,
@@ -77,7 +77,7 @@ class MainWindowView(QtGui.QMainWindow):
 
         self.open_comics(folder_name)
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_save_image_triggered(self):
 
         if self.model.comic:
@@ -91,51 +91,51 @@ class MainWindowView(QtGui.QMainWindow):
             if file_path:
                 self.model.save_current_page_image(file_path[0])
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_previous_page_triggered(self):
         self.model.previous_page()
         self.update_viewer_content()
         self.update_navegation_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_next_page_triggered(self):
         self.model.next_page()
         self.update_viewer_content()
         self.update_navegation_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_first_page_triggered(self):
         self.model.first_page()
         self.update_viewer_content()
         self.update_navegation_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_last_page_triggered(self):
         self.model.last_page()
         self.update_viewer_content()
         self.update_navegation_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_next_comic_triggered(self):
         self.open_comics(self.model.next_comic())
         self.update_navegation_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_previous_comic_triggered(self):
         self.open_comics(self.model.previous_comic())
         self.update_navegation_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_rotate_left_triggered(self):
         self.model.rotate_left()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_rotate_right_triggered(self):
         self.model.rotate_right()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
         from . import go_to_page_dialog
         go_to_dlg = go_to_page_dialog.GoToDialog(self)
@@ -143,48 +143,48 @@ class MainWindowView(QtGui.QMainWindow):
         go_to_dlg.exec_()
         self.update_navegation_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
         self.model.add_bookmark()
         self.update_bookmark_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_remove_bookmark_triggered(self):
         self.model.remove_bookmark(self.model.get_comic_path())
         self.update_bookmark_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_bookmark_manager_triggered(self):
         from .bookmark_manager_dialog import BookmarkManagerDialog
         bookmark_dialog = BookmarkManagerDialog(self, self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_preference_dialog_triggered(self):
         print()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_original_fit_triggered(self):
         self.model.original_fit()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_vertical_fit_triggered(self):
         self.model.vertical_fit()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_horizontal_fit_triggered(self):
         self.model.horizontal_fit()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_best_fit_triggered(self):
         self.model.best_fit()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_fullscreen_triggered(self):
 
         if self.isFullScreen():
@@ -203,32 +203,32 @@ class MainWindowView(QtGui.QMainWindow):
             for sc in self.global_shortcuts:
                 sc.setEnabled(True)
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):
         if self.ui.action_show_toolbar.isChecked():
             self.ui.toolbar.show()
         else:
             self.ui.toolbar.hide()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_show_statusbar_triggered(self):
         if self.ui.action_show_statusbar.isChecked():
             self.ui.statusbar.show()
         else:
             self.ui.statusbar.hide()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
         from . import about_dialog
         ab_dlg = about_dialog.AboutDialog()
         ab_dlg.show()
         ab_dlg.exec_()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_about_qt_triggered(self):
         QtGui.QMessageBox().aboutQt(self, self.tr('About Qt'))
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):
         QtGui.QMainWindow.close(self)
         self.model.save_settings()

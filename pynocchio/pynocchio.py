@@ -16,7 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import sys
-from PySide import QtGui, QtCore
+from PyQt5 import QtCore, QtGui, QtWidgets
 import os
 
 from .main_window_model import MainWindowModel

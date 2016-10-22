@@ -122,13 +122,13 @@ class StatusBar(QtGui.QStatusBar):
 
         self.comic_path.setText(self.tr('Title: ') + path)
 
-    @QtCore.Slot(int)
+    @QtCore.pyqtSlot(int)
     def set_progressbar_value(self, n):
         if self.progress_bar is None:
             self.add_progress_bar()
         self.progress_bar.setValue(n)
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def close_progress_bar(self):
         self.remove_progress_bar()
         self.add_page_number_label()
