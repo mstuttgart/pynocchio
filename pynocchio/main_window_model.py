@@ -16,7 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/
 #
 
-from PySide import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 from .comic import Comic
 from .compact_file_loader_factory import LoaderFactory
 from .path_file_filter import PathFileFilter

@@ -16,7 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from PySide import QtCore, QtGui, QtSql
+from PyQt5 import QtCore, QtGui, QtWidgets, QtSql
 
 from .uic_files import bookmark_manager_dialog_ui
 from .utility import Utility

@@ -7,7 +7,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PySide import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_GoPageDialog(object):
     def setupUi(self, GoPageDialog):

@@ -7,7 +7,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PySide import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_AboutDialog(object):
     def setupUi(self, AboutDialog):
