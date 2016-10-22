@@ -76,3 +76,4 @@ src/resource/flags
 *.py~
 *.xml~
 *.deb
+env*/
