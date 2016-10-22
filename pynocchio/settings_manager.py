@@ -36,7 +36,7 @@ class SettingsManager(object):
         recent_files_list = []
         size = self.settings.beginReadArray("recent_file_list")
 
-        for idx in xrange(size):
+        for idx in range(size):
             self.settings.setArrayIndex(idx)
             recent_files_list.append(self.settings.value("recent_file"))
 

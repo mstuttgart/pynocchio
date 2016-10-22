@@ -18,8 +18,8 @@
 
 from PySide import QtCore, QtGui, QtSql
 
-from uic_files import bookmark_manager_dialog_ui
-from utility import Utility
+from .uic_files import bookmark_manager_dialog_ui
+from .utility import Utility
 
 import logging
 logging.basicConfig(level=logging.INFO)
@@ -42,7 +42,7 @@ class BookmarkManagerDialog(QtGui.QDialog):
             controller.model.settings_manager.settings.fileName())
 
         self.db = QtSql.QSqlDatabase().addDatabase("QSQLITE")
-        self.db.setDatabaseName(path + u'/bookmark.db')
+        self.db.setDatabaseName(path + '/bookmark.db')
 
         if self.db.open():
 
@@ -123,7 +123,8 @@ class BookmarkManagerDialog(QtGui.QDialog):
         else:
             option = QtGui.QMessageBox().warning(
                 self, self.tr('Comic not exist'),
-                self.tr('Selected comic not exist! Do you like to remove it from bookmark list?'),
+                self.tr('Selected comic not exist! Do you '
+                        'like to remove it from bookmark list?'),
                 QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel,
                 QtGui.QMessageBox.Ok)
 

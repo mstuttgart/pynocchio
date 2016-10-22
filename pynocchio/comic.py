@@ -16,7 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-class Comic(object):
+class Comic:
 
     FILE = 0
     FOLDER = 1
@@ -58,7 +58,7 @@ class Comic(object):
         self.current_page_index = self.get_number_of_pages() - 1
 
     def set_current_page_index(self, idx):
-        if idx in xrange(self.get_number_of_pages()):
+        if idx in range(self.get_number_of_pages()):
             self.current_page_index = idx
 
     def get_number_of_pages(self):

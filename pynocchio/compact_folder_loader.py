@@ -17,10 +17,10 @@
 
 import glob
 
-from compact_file_loader import Loader
-from utility import Utility
-from page import Page
-from pynocchio_exception import NoDataFindException
+from .compact_file_loader import Loader
+from .utility import Utility
+from .page import Page
+from .pynocchio_exception import NoDataFindException
 
 
 class FolderLoader(Loader):
@@ -60,5 +60,5 @@ class FolderLoader(Loader):
             raise NoDataFindException('')
 
     @staticmethod
-    def type_verify(path):
-        return Utility.is_dir(path)
+    def type_verify(self, folder_name):
+        return Utility.is_dir(folder_name)

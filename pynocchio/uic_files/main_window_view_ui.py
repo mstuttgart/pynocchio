@@ -584,8 +584,8 @@ class Ui_MainWindowView(object):
         self.action_pt_br.setText(QtGui.QApplication.translate("MainWindowView", "Portuguese", None, QtGui.QApplication.UnicodeUTF8))
         self.action_show_toolbar.setText(QtGui.QApplication.translate("MainWindowView", "Show Toolbar", None, QtGui.QApplication.UnicodeUTF8))
 
-from custom_widgets.qscroll_area_viewer import QScrollAreaViewer
-from custom_widgets.status_bar import StatusBar
+from .custom_widgets.qscroll_area_viewer import QScrollAreaViewer
+from .custom_widgets.status_bar import StatusBar
 from . import main_window_view_rc
 from . import main_window_view_rc
 from . import main_window_view_rc

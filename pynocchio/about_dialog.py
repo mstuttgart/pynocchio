@@ -16,7 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PySide import QtGui
-from uic_files import about_dialog_ui
+from .uic_files import about_dialog_ui
 
 
 class AboutDialog(QtGui.QDialog):

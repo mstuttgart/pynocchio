@@ -17,10 +17,10 @@
 
 from PySide import QtGui, QtCore
 
-from uic_files import main_window_view_ui
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import LoadComicsException
-from utility import Utility
+from .uic_files import main_window_view_ui
+from .pynocchio_exception import InvalidTypeFileException
+from .pynocchio_exception import LoadComicsException
+from .utility import Utility
 
 
 class MainWindowView(QtGui.QMainWindow):
@@ -137,7 +137,7 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def on_action_go_to_page_triggered(self):
-        import go_to_page_dialog
+        from . import go_to_page_dialog
         go_to_dlg = go_to_page_dialog.GoToDialog(self)
         go_to_dlg.show()
         go_to_dlg.exec_()
@@ -155,14 +155,14 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def on_action_bookmark_manager_triggered(self):
-        from bookmark_manager_dialog import BookmarkManagerDialog
+        from .bookmark_manager_dialog import BookmarkManagerDialog
         bookmark_dialog = BookmarkManagerDialog(self, self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
 
     @QtCore.Slot()
     def on_action_preference_dialog_triggered(self):
-        print
+        print()
 
     @QtCore.Slot()
     def on_action_original_fit_triggered(self):
@@ -219,14 +219,14 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def on_action_about_triggered(self):
-        import about_dialog
+        from . import about_dialog
         ab_dlg = about_dialog.AboutDialog()
         ab_dlg.show()
         ab_dlg.exec_()
 
     @QtCore.Slot()
     def on_action_about_qt_triggered(self):
-        QtGui.QMessageBox().aboutQt(self, self.tr(u'About Qt'))
+        QtGui.QMessageBox().aboutQt(self, self.tr('About Qt'))
 
     @QtCore.Slot()
     def on_action_exit_triggered(self):
@@ -279,7 +279,7 @@ class MainWindowView(QtGui.QMainWindow):
             'Ctrl+Shift+R': self.on_action_rotate_right_triggered,
         }
 
-        for key, value in sequence.items():
+        for key, value in list(sequence.items()):
             s = QtGui.QShortcut(QtGui.QKeySequence(key),
                                 self.ui.qscroll_area_viewer, value)
             s.setEnabled(False)
@@ -372,14 +372,14 @@ class MainWindowView(QtGui.QMainWindow):
                                                           False)
         recent_file_actions = self.ui.menu_recent_files.actions()
 
-        for i in xrange(num_recent_files):
+        for i in range(num_recent_files):
             text = QtCore.QFileInfo(files[i]).fileName()
             recent_file_actions[i].setText(text)
             recent_file_actions[i].setData(files[i])
             recent_file_actions[i].setVisible(True)
             recent_file_actions[i].setStatusTip(files[i])
 
-        for j in xrange(num_recent_files, MainWindowView.MaxRecentFiles):
+        for j in range(num_recent_files, MainWindowView.MaxRecentFiles):
             recent_file_actions[j].setVisible(False)
 
     def update_bookmark_actions(self):
@@ -401,7 +401,7 @@ class MainWindowView(QtGui.QMainWindow):
         num_bookmarks_files = min(num_bookmarks_files,
                                   MainWindowView.MaxBookmarkFiles)
 
-        for i in xrange(num_bookmarks_files):
+        for i in range(num_bookmarks_files):
             bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
                                    bookmark_list[i].comic_page)
             bk_actions[i].setText(bk_text)
@@ -409,7 +409,7 @@ class MainWindowView(QtGui.QMainWindow):
             bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
             bk_actions[i].setVisible(True)
 
-        for j in xrange(num_bookmarks_files, MainWindowView.MaxBookmarkFiles):
+        for j in range(num_bookmarks_files, MainWindowView.MaxBookmarkFiles):
             bk_actions[j].setVisible(False)
 
     def open_recent_bookmark(self):

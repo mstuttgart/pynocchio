@@ -16,13 +16,13 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import zipfile
-from page import Page
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import LoadComicsException
-from pynocchio_exception import NoDataFindException
-from utility import Utility
+from .page import Page
+from .pynocchio_exception import InvalidTypeFileException
+from .pynocchio_exception import LoadComicsException
+from .pynocchio_exception import NoDataFindException
+from .utility import Utility
 
-from compact_file_loader import Loader
+from .compact_file_loader import Loader
 import logging
 
 logger = logging.getLogger(__name__)
@@ -67,6 +67,5 @@ class ZipLoader(Loader):
         if not self.data:
             raise NoDataFindException('No one file is loaded!')
 
-    @staticmethod
-    def type_verify(file_name):
+    def type_verify(self, file_name):
         return zipfile.is_zipfile(file_name)

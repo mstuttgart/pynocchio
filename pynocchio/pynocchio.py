@@ -19,8 +19,8 @@ import sys
 from PySide import QtGui, QtCore
 import os
 
-from main_window_model import MainWindowModel
-from main_window_view import MainWindowView
+from .main_window_model import MainWindowModel
+from .main_window_view import MainWindowView
 
 DATADIRS = (
         os.path.abspath('./pynocchio'),
