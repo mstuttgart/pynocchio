@@ -10,7 +10,7 @@ Pynocchio Comic Reader
 Pynocchio is a image viewer specialized in manga/comic reading developed on
 PySide API.
 
-![](https://lh3.googleusercontent.com/-p0TtjyX-GgM/VwwYhAAUjrI/AAAAAAAAF04/_JSom_IMmasZfnRn4EPhxKejjj_9aHzYwCCo/s1152-Ic42/snapshot11.png)
+![Ubunchu Manga by Hiroshi Seo (Seotch)](https://lh3.googleusercontent.com/-p0TtjyX-GgM/VwwYhAAUjrI/AAAAAAAAF04/_JSom_IMmasZfnRn4EPhxKejjj_9aHzYwCCo/s1152-Ic42/snapshot11.png)
 
 [![GPL](data/gplv3-88x31.png)](LICENSE)
 
@@ -23,7 +23,7 @@ The current version is stable and we intend to improve it even more.
 * Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ and etc
 * Elegant visual, free and easy to use.
 
-![](https://lh3.googleusercontent.com/-pedd53CIEtc/VwwYg1TpnoI/AAAAAAAAF04/gOJWtN5XZwYwQT_IBwYQEk-sYhqrw_owgCCo/s1152-Ic42/snapshot12.png)
+![Ubunchu Manga by Hiroshi Seo (Seotch)](https://lh3.googleusercontent.com/-pedd53CIEtc/VwwYg1TpnoI/AAAAAAAAF04/gOJWtN5XZwYwQT_IBwYQEk-sYhqrw_owgCCo/s1152-Ic42/snapshot12.png)
 
 ### Install
 
