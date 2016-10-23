@@ -26,12 +26,11 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class BookmarkManagerDialog(QtGui.QDialog):
+class BookmarkManagerDialog(QtWidgets.QDialog):
 
     SCALE_RATIO = 0.18
 
     def __init__(self, controller, parent=None):
-        # QtGui.QDialog.__init__(self, parent)
         super(BookmarkManagerDialog, self).__init__(parent=parent)
 
         self.ui = bookmark_manager_dialog_ui.Ui_Bookmark_Dialog()
@@ -137,4 +136,4 @@ class BookmarkManagerDialog(QtGui.QDialog):
 
     def close(self):
         self.db.close()
-        QtGui.QDialog.close(self)
+        QtWidgets.QDialog.close(self)

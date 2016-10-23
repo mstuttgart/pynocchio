@@ -26,8 +26,8 @@
         ]
     ], 
     "hooks": [], 
-    "pyrcc": "pyside-rcc", 
-    "pyrcc_options": "-py3", 
-    "pyuic": "pyside-uic", 
+    "pyrcc": "pyrcc5",
+    "pyrcc_options": "",
+    "pyuic": "pyuic5",
     "pyuic_options": "--from-import"
 }

@@ -18,7 +18,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class QScrollAreaViewer(QtGui.QScrollArea):
+class QScrollAreaViewer(QtWidgets.QScrollArea):
 
     def __init__(self, parent=None):
         super(QScrollAreaViewer, self).__init__(parent)

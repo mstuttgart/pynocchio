@@ -36,12 +36,14 @@ QFileInfo = QtCore.QFileInfo
 QFile = QtCore.QFile
 
 
-class Pynocchio(QtGui.QApplication):
+class Pynocchio(QtWidgets.QApplication):
 
     def __init__(self):
         super(Pynocchio, self).__init__(sys.argv)
         self.setOrganizationName('Pynocchio')
         self.setApplicationName('Pynocchio')
+        # self.setStyle(QtWidgets.QStyleFactory.create('fusion'))
+        # self.setStyle(QtWidgets.QStyleFactory.create("gtk3"))
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')
 

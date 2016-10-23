@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 class TarLoader(Loader):
 
     def __init__(self, extension):
-        Loader.__init__(self, extension)
+        super(TarLoader, self).__init__(extension)
 
     def load(self, file_name):
 
@@ -67,5 +67,6 @@ class TarLoader(Loader):
         if not self.data:
             raise NoDataFindException
 
-    def type_verify(self, file_name):
+    @staticmethod
+    def type_verify(file_name):
         return tarfile.is_tarfile(file_name)

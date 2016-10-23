@@ -24,13 +24,13 @@ class Loader(QtCore.QObject):
     done = QtCore.pyqtSignal()
 
     def __init__(self, extension):
-        QtCore.QObject.__init__(self)
+        super(Loader, self).__init__()
         self.extension = extension
         self.data = []
 
-    @staticmethod
-    def load(file_name):
+    def load(self, file_name):
         raise NotImplementedError("Must subclass me")
 
-    def type_verify(self, file_name):
+    @staticmethod
+    def type_verify(file_name):
         raise NotImplementedError("Must subclass me")

@@ -41,7 +41,7 @@ class MainWindowModel(QtCore.QObject):
     load_done = QtCore.pyqtSignal()
 
     def __init__(self):
-        QtCore.QObject.__init__(self)
+        super(MainWindowModel, self).__init__()
         self.comic = None
         self.settings_manager = SettingsManager()
         self.rotate_angle = 0
@@ -118,10 +118,10 @@ class MainWindowModel(QtCore.QObject):
             self.comic.go_last_page()
 
     def next_comic(self):
-        return self.path_file_filter.next_path.decode('utf-8')
+        return self.path_file_filter.next_path
 
     def previous_comic(self):
-        return self.path_file_filter.previous_path.decode('utf-8')
+        return self.path_file_filter.previous_path
 
     def rotate_left(self):
         self.rotate_angle = (self.rotate_angle - 90) % 360

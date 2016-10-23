@@ -26,7 +26,7 @@ from .pynocchio_exception import NoDataFindException
 class FolderLoader(Loader):
 
     def __init__(self, extension):
-        Loader.__init__(self, extension)
+        super(FolderLoader, self).__init__(extension)
 
     def load(self, dir_name):
 
@@ -60,5 +60,5 @@ class FolderLoader(Loader):
             raise NoDataFindException('')
 
     @staticmethod
-    def type_verify(self, folder_name):
+    def type_verify(folder_name):
         return Utility.is_dir(folder_name)

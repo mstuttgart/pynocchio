@@ -24,7 +24,7 @@ from .pynocchio_exception import InvalidTypeFileException
 from .utility import Utility
 
 
-class LoaderFactory(object):
+class LoaderFactory:
 
     @staticmethod
     def create_loader(compact_file_extension, filename, data_extension):
@@ -35,7 +35,7 @@ class LoaderFactory(object):
 
             # Return appropriate loader by with file compact coding
             for loader in loaders:
-                if loader.type_verify(filename):
+                if loader.type_verify(file_name=filename):
                     return loader(data_extension)
 
             raise InvalidTypeFileException('Invalid file extension: %s' %

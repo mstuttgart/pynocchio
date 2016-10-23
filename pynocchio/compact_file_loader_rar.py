@@ -40,7 +40,7 @@ logger.setLevel(logging.INFO)
 class RarLoader(Loader):
 
     def __init__(self, extension):
-        Loader.__init__(self, extension)
+        super(RarLoader, self).__init__(extension)
 
     def load(self, file_name):
         try:
@@ -72,5 +72,6 @@ class RarLoader(Loader):
         if not self.data:
             raise NoDataFindException
 
-    def type_verify(self, file_name):
+    @staticmethod
+    def type_verify(file_name):
         return rarfile.is_rarfile(file_name)

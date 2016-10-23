@@ -23,13 +23,13 @@ from .pynocchio_exception import LoadComicsException
 from .utility import Utility
 
 
-class MainWindowView(QtGui.QMainWindow):
+class MainWindowView(QtWidgets.QMainWindow):
 
     MaxRecentFiles = 5
     MaxBookmarkFiles = 5
 
     def __init__(self, model, parent=None):
-        QtGui.QMainWindow.__init__(self, parent)
+        super(MainWindowView, self).__init__(parent=parent)
         self.model = model
 
         self.ui = main_window_view_ui.Ui_MainWindowView()
@@ -53,12 +53,12 @@ class MainWindowView(QtGui.QMainWindow):
             self.ui.statusbar.set_progressbar_value)
 
         self.vertical_animation = QtCore.QPropertyAnimation(
-            self.ui.qscroll_area_viewer.verticalScrollBar(), "sliderPosition")
+            self.ui.qscroll_area_viewer.verticalScrollBar())
 
     @QtCore.pyqtSlot()
     def on_action_open_file_triggered(self):
 
-        filename = QtGui.QFileDialog().getOpenFileName(
+        filename = QtWidgets.QFileDialog().getOpenFileName(
             self, self.tr('open_comic_file'),
             self.model.current_directory,
             self.tr(
@@ -226,17 +226,17 @@ class MainWindowView(QtGui.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_about_qt_triggered(self):
-        QtGui.QMessageBox().aboutQt(self, self.tr('About Qt'))
+        QtWidgets.QMessageBox().aboutQt(self, self.tr('About Qt'))
 
     @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):
-        QtGui.QMainWindow.close(self)
+        QtWidgets.QMainWindow.close(self)
         self.model.save_settings()
 
     def create_connections(self):
 
         # Define group to action fit items and load fit of settings file
-        self.ui.action_group_view = QtGui.QActionGroup(self)
+        self.ui.action_group_view = QtWidgets.QActionGroup(self)
 
         self.ui.action_group_view.addAction(self.ui.action_original_fit)
         self.ui.action_group_view.addAction(self.ui.action_vertical_fit)
@@ -280,7 +280,7 @@ class MainWindowView(QtGui.QMainWindow):
         }
 
         for key, value in list(sequence.items()):
-            s = QtGui.QShortcut(QtGui.QKeySequence(key),
+            s = QtWidgets.QShortcut(QtGui.QKeySequence(key),
                                 self.ui.qscroll_area_viewer, value)
             s.setEnabled(False)
             shortcuts.append(s)
@@ -295,7 +295,7 @@ class MainWindowView(QtGui.QMainWindow):
                 # Load comic
                 self.model.load(filename, initial_page)
 
-                # Update label and scrool_area_viewer
+                # Update label and scroll_area_viewer
                 self.update_viewer_content()
 
                 # set window title
@@ -464,7 +464,7 @@ class MainWindowView(QtGui.QMainWindow):
                 self.ui.statusbar.set_comic_path(page_title)
 
     def centralize_window(self):
-        screen = QtGui.QDesktopWidget().screenGeometry()
+        screen = QtWidgets.QDesktopWidget().screenGeometry()
         self.setMinimumSize(screen.size() * 0.8)
         size = self.geometry()
         x_center = (screen.width() - size.width()) / 2
@@ -507,20 +507,20 @@ class MainWindowView(QtGui.QMainWindow):
             self.vertical_animation.setEndValue(next_pos)
             self.vertical_animation.start()
 
-        QtGui.QMainWindow.keyPressEvent(self, event)
+        QtWidgets.QMainWindow.keyPressEvent(self, event)
 
     def mouseDoubleClickEvent(self, event):
         if event.button() == QtCore.Qt.LeftButton:
             self.on_action_fullscreen_triggered()
-        QtGui.QMainWindow.mousePressEvent(self, event)
+        QtWidgets.QMainWindow.mousePressEvent(self, event)
 
     def resizeEvent(self, event):
         self.update_current_view_container_size()
-        QtGui.QMainWindow.resizeEvent(self, event)
+        QtWidgets.QMainWindow.resizeEvent(self, event)
 
     def show(self):
         """
         :doc: Added to set the correct scrool_area_view size in model
         """
-        QtGui.QMainWindow.show(self)
+        QtWidgets.QMainWindow.show(self)
         self.update_current_view_container_size()
