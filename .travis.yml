@@ -7,8 +7,7 @@ sudo: required
 dist: trusty
 
 install:
-  - sudo apt-get install build-essential git cmake libqt4-dev libphonon-dev python2.7-dev libxml2-dev libxslt1-dev qtmobility-dev libqtwebkit-dev
-  - pip install -r requirements-dev.txt
+  - pip3 install -r requirements-dev.txt
   - sudo apt-get install upx
 
 before_script:
@@ -30,7 +29,9 @@ deploy:
   skip_cleanup: true
   on:
     repo: pynocchio/pynocchio
-    branch: master
+    branch:
+      - master
+      - develop
   dist:
     - "ubuntu/xenial"
 
