@@ -1,10 +1,10 @@
 Package: pynocchio
-Version: 0.8.0
+Version: 0.1.1
 Architecture: amd64
 Section: graphics
 Priority: extra
 Maintainer: Michell Stuttgart Faria <michellstut@gmail.com>
-Depends: libqt4-sql-sqlite (>= 4.8.5), python
+Depends: libqt5sql5-sqlite (>= 5.5.1), python
 Description: Image viewer specialized in comic reading.
  Pynocchio is a new and nice image viewer specialized in
  comic reading. It is a comic reader that allow read cbr,
