@@ -136,7 +136,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
-        from go_to_page_dialog import GoToDialog
+        from .go_to_page_dialog import GoToDialog
         go_to_dlg = GoToDialog(self)
         go_to_dlg.show()
         go_to_dlg.exec_()
@@ -155,7 +155,7 @@ class MainWindowView(QtWidgets.QMainWindow):
     @QtCore.pyqtSlot()
     def on_action_bookmark_manager_triggered(self):
         from .bookmark_manager_dialog import BookmarkManagerDialog
-        bookmark_dialog = BookmarkManagerDialog(self, self)
+        bookmark_dialog = BookmarkManagerDialog(self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
 

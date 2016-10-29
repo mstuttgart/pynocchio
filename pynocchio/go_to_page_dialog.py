@@ -37,12 +37,12 @@ class GoToDialog(QtWidgets.QDialog):
     def accept(self, *args, **kwargs):
         self.model.set_current_page_index(self.ui.spin_box_go_page.value() - 1)
         self.controller.update_viewer_content()
-        super(GoToDialog, self).accept(self, *args, **kwargs)
+        super(GoToDialog, self).accept(*args, **kwargs)
 
     def rejected(self, *args, **kwargs):
         self.model.set_current_page_index(
             int(self.line_edit_current_page.text()))
-        super(GoToDialog, self).rejected(self, *args, **kwargs)
+        super(GoToDialog, self).rejected(*args, **kwargs)
 
     def change_label_image(self):
         self.model.set_current_page_index(self.ui.spin_box_go_page.value() - 1)
@@ -54,7 +54,7 @@ class GoToDialog(QtWidgets.QDialog):
 
     def update(self):
         self.change_label_image()
-        super(GoToDialog, self).update(self)
+        super(GoToDialog, self).update()
 
     def show(self):
         current_page_idx = self.model.get_current_page_index()
@@ -66,4 +66,4 @@ class GoToDialog(QtWidgets.QDialog):
         self.ui.spin_box_go_page.setValue(current_page_idx + 1)
         self.ui.spin_box_go_page.setMaximum(num_page)
 
-        super(GoToDialog, self).show(self)
+        super(GoToDialog, self).show()
