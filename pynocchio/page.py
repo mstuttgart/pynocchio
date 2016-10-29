@@ -15,10 +15,10 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5 import QtGui, QtWidgets
+from PyQt5 import QtGui
 
 
-class Page(object):
+class Page:
 
     def __init__(self, data, title, number):
         self._pixmap = None

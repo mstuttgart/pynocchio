@@ -21,7 +21,6 @@ from PyQt5 import QtWidgets
 class ColorLine(QtWidgets.QLineEdit):
     def __init__(self, parent=None):
         super(ColorLine, self).__init__(parent=parent)
-        QtWidgets.QLineEdit.__init__(self, parent)
         self.background_color = QtGui.QColor()
 
     def paintEvent(self, e):

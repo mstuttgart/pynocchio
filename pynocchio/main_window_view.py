@@ -71,9 +71,8 @@ class MainWindowView(QtWidgets.QMainWindow):
     @QtCore.pyqtSlot()
     def on_action_open_folder_triggered(self):
 
-        folder_name = QtGui.QFileDialog().getExistingDirectory(self,
-                                                               self.tr('open_comic_folder'),
-                                                               self.model.current_directory)
+        folder_name = QtWidgets.QFileDialog().getExistingDirectory(
+            self, self.tr('open_comic_folder'), self.model.current_directory)
 
         self.open_comics(folder_name)
 
@@ -84,7 +83,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
             path = self.model.current_directory + \
                 self.model.comic.get_current_page_title()
-            file_path = QtGui.QFileDialog().getSaveFileName(
+            file_path = QtWidgets.QFileDialog().getSaveFileName(
                 self, self.tr('save_current_page'), path,
                 self.tr("images (*.png *.xpm *.jpeg *.jpg *.gif)"))
 
@@ -137,8 +136,8 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
-        from . import go_to_page_dialog
-        go_to_dlg = go_to_page_dialog.GoToDialog(self)
+        from go_to_page_dialog import GoToDialog
+        go_to_dlg = GoToDialog(self)
         go_to_dlg.show()
         go_to_dlg.exec_()
         self.update_navegation_actions()
@@ -219,8 +218,8 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
-        from . import about_dialog
-        ab_dlg = about_dialog.AboutDialog()
+        from .about_dialog import AboutDialog
+        ab_dlg = AboutDialog()
         ab_dlg.show()
         ab_dlg.exec_()
 
@@ -230,7 +229,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):
-        QtWidgets.QMainWindow.close(self)
+        super(MainWindowView, self).close()
         self.model.save_settings()
 
     def create_connections(self):
@@ -316,16 +315,16 @@ class MainWindowView(QtWidgets.QMainWindow):
                 return True
 
             except LoadComicsException as excp:
-                QtGui.QMessageBox().warning(self,
-                                            self.tr('LoadComicsException'),
-                                            self.tr(excp.message),
-                                            QtGui.QMessageBox.Close)
+                QtWidgets.QMessageBox().warning(self,
+                                                self.tr('LoadComicsException'),
+                                                self.tr(excp.message),
+                                                QtWidgets.QMessageBox.Close)
             except InvalidTypeFileException as excp:
-                QtGui.QMessageBox().warning(self,
-                                            self.tr('InvalidTypeFile'
-                                                    'Exception'),
-                                            self.tr(excp.message),
-                                            QtGui.QMessageBox.Close)
+                QtWidgets.QMessageBox().warning(self,
+                                                self.tr('InvalidTypeFile'
+                                                        'Exception'),
+                                                self.tr(excp.message),
+                                                QtWidgets.QMessageBox.Close)
 
         return False
 
@@ -494,7 +493,8 @@ class MainWindowView(QtWidgets.QMainWindow):
             next_pos = vert_scroll_bar.sliderPosition() - self.height() * 0.8
 
             self.vertical_animation.setDuration(250)
-            self.vertical_animation.setStartValue(vert_scroll_bar.sliderPosition())
+            self.vertical_animation.setStartValue(
+                vert_scroll_bar.sliderPosition())
             self.vertical_animation.setEndValue(next_pos)
             self.vertical_animation.start()
 
@@ -503,24 +503,25 @@ class MainWindowView(QtWidgets.QMainWindow):
             next_pos = vert_scroll_bar.sliderPosition() + self.height() * 0.8
 
             self.vertical_animation.setDuration(250)
-            self.vertical_animation.setStartValue(vert_scroll_bar.sliderPosition())
+            self.vertical_animation.setStartValue(
+                vert_scroll_bar.sliderPosition())
             self.vertical_animation.setEndValue(next_pos)
             self.vertical_animation.start()
 
-        QtWidgets.QMainWindow.keyPressEvent(self, event)
+        super(MainWindowView, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, event):
         if event.button() == QtCore.Qt.LeftButton:
             self.on_action_fullscreen_triggered()
-        QtWidgets.QMainWindow.mousePressEvent(self, event)
+        super(MainWindowView, self).mousePressEvent(event)
 
     def resizeEvent(self, event):
         self.update_current_view_container_size()
-        QtWidgets.QMainWindow.resizeEvent(self, event)
+        super(MainWindowView, self).resizeEvent(event)
 
     def show(self):
         """
         :doc: Added to set the correct scrool_area_view size in model
         """
-        QtWidgets.QMainWindow.show(self)
+        super(MainWindowView, self).show()
         self.update_current_view_container_size()

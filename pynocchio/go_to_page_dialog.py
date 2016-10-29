@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 from .uic_files import go_to_page_dialog_ui
 
@@ -37,12 +37,12 @@ class GoToDialog(QtWidgets.QDialog):
     def accept(self, *args, **kwargs):
         self.model.set_current_page_index(self.ui.spin_box_go_page.value() - 1)
         self.controller.update_viewer_content()
-        QtWidgets.QDialog.accept(self, *args, **kwargs)
+        super(GoToDialog, self).accept(self, *args, **kwargs)
 
     def rejected(self, *args, **kwargs):
         self.model.set_current_page_index(
             int(self.line_edit_current_page.text()))
-        QtWidgets.QDialog.rejected(self, *args, **kwargs)
+        super(GoToDialog, self).rejected(self, *args, **kwargs)
 
     def change_label_image(self):
         self.model.set_current_page_index(self.ui.spin_box_go_page.value() - 1)
@@ -54,7 +54,7 @@ class GoToDialog(QtWidgets.QDialog):
 
     def update(self):
         self.change_label_image()
-        QtWidgets.QDialog.update(self)
+        super(GoToDialog, self).update(self)
 
     def show(self):
         current_page_idx = self.model.get_current_page_index()
@@ -66,4 +66,4 @@ class GoToDialog(QtWidgets.QDialog):
         self.ui.spin_box_go_page.setValue(current_page_idx + 1)
         self.ui.spin_box_go_page.setMaximum(num_page)
 
-        QtWidgets.QDialog.show(self)
+        super(GoToDialog, self).show(self)

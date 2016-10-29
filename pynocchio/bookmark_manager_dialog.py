@@ -97,13 +97,13 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
 
     def _remove_table_item(self):
 
-        option = QtGui.QMessageBox().warning(
+        option = QtWidgets.QMessageBox().warning(
             self, self.tr('Delete bookmarks'),
             self.tr('This action will go delete you bookmarks! Proceed?'),
             QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel,
             QtGui.QMessageBox.Ok)
 
-        if option == QtGui.QMessageBox.Ok:
+        if option == QtWidgets.QMessageBox.Ok:
             selected_idx = self.ui.bookmark_table.selectedIndexes()
 
             if selected_idx:
@@ -120,14 +120,14 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
         if Utility.file_exist(path):
             self.controller.open_comics(path, page - 1)
         else:
-            option = QtGui.QMessageBox().warning(
+            option = QtWidgets.QMessageBox().warning(
                 self, self.tr('Comic not exist'),
                 self.tr('Selected comic not exist! Do you '
                         'like to remove it from bookmark list?'),
-                QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel,
-                QtGui.QMessageBox.Ok)
+                QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel,
+                QtWidgets.QMessageBox.Ok)
 
-            if option == QtGui.QMessageBox.Ok:
+            if option == QtWidgets.QMessageBox.Ok:
                 selected_idx = self.ui.bookmark_table.selectedIndexes()
 
                 if selected_idx:
@@ -136,4 +136,4 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
 
     def close(self):
         self.db.close()
-        QtWidgets.QDialog.close(self)
+        super(BookmarkManagerDialog, self).close(self)

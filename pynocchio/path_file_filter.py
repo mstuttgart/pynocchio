@@ -21,7 +21,7 @@ import glob
 from .utility import Utility
 
 
-class PathFileFilter(object):
+class PathFileFilter:
 
     def __init__(self, extension_list):
         self._current_path = None

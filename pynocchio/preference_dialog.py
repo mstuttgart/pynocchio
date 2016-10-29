@@ -35,7 +35,7 @@ class PreferenceDialog(QtWidgets.QDialog):
             self._open_color_dialog)
 
     def _open_color_dialog(self):
-        col_dialog = QtGui.QColorDialog(self)
+        col_dialog = QtWidgets.QColorDialog(self)
         col = col_dialog.getColor(self.preference.background_color)
         if col.isValid():
             self.preference.background_color = col
@@ -44,4 +44,4 @@ class PreferenceDialog(QtWidgets.QDialog):
     def close(self):
         self.preference.background_color = \
             self.ui.line_edit_color.background_color
-        QtWidgets.QDialog.close(self)
+        super(PreferenceDialog, self).close(self)
