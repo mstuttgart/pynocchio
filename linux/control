@@ -4,7 +4,7 @@ Architecture: amd64
 Section: graphics
 Priority: extra
 Maintainer: Michell Stuttgart Faria <michellstut@gmail.com>
-Depends: libqt5sql5-sqlite (>= 5.5.0), python
+Depends: libqt5sql5-sqlite, python3
 Description: Image viewer specialized in comic reading.
  Pynocchio is a new and nice image viewer specialized in
  comic reading. It is a comic reader that allow read cbr,
