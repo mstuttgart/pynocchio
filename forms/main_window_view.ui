@@ -39,6 +39,9 @@
   <property name="accessibleDescription">
    <string>The Best Comic Reader</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <property name="iconSize">
    <size>
     <width>22</width>
@@ -49,7 +52,7 @@
    <enum>Qt::ToolButtonIconOnly</enum>
   </property>
   <property name="animated">
-   <bool>false</bool>
+   <bool>true</bool>
   </property>
   <property name="documentMode">
    <bool>false</bool>
@@ -71,10 +74,19 @@
     </sizepolicy>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="margin">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
      <number>0</number>
     </property>
     <item>
@@ -124,7 +136,7 @@
          <x>0</x>
          <y>0</y>
          <width>1048</width>
-         <height>486</height>
+         <height>476</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -136,6 +148,9 @@
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <property name="spacing">
          <number>0</number>
@@ -143,7 +158,16 @@
         <property name="sizeConstraint">
          <enum>QLayout::SetMaximumSize</enum>
         </property>
-        <property name="margin">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
          <number>0</number>
         </property>
         <item>
@@ -213,7 +237,7 @@
      <x>0</x>
      <y>0</y>
      <width>1048</width>
-     <height>23</height>
+     <height>24</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -379,7 +403,7 @@
     <string>toolBar</string>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="movable">
     <bool>false</bool>
@@ -1111,13 +1135,13 @@
   <customwidget>
    <class>QScrollAreaViewer</class>
    <extends>QScrollArea</extends>
-   <header location="global">custom_widgets/qscroll_area_viewer.h</header>
+   <header location="global">.custom_widgets/qscroll_area_viewer.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>StatusBar</class>
    <extends>QStatusBar</extends>
-   <header location="global">custom_widgets/status_bar.h</header>
+   <header location="global">.custom_widgets/status_bar.h</header>
   </customwidget>
  </customwidgets>
  <resources>

@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from .pynocchio_exception import DependenceNotFoundException
+from .core.pynocchio_exception import DependenceNotFoundException
 
 try:
     import rarfile
@@ -26,11 +26,11 @@ except ImportError as err:
     raise DependenceNotFoundException(msg)
 
 from .compact_file_loader import Loader
-from .utility import Utility
-from .page import Page
-from .pynocchio_exception import LoadComicsException
-from .pynocchio_exception import InvalidTypeFileException
-from .pynocchio_exception import NoDataFindException
+from .core.utility import Utility
+from .core.page import Page
+from .core.pynocchio_exception import LoadComicsException
+from .core.pynocchio_exception import InvalidTypeFileException
+from .core.pynocchio_exception import NoDataFindException
 import logging
 
 logger = logging.getLogger(__name__)

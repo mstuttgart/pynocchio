@@ -43,9 +43,9 @@ class Pynocchio(QtWidgets.QApplication):
         super(Pynocchio, self).__init__(sys.argv)
         self.setOrganizationName('Pynocchio')
         self.setApplicationName('Pynocchio')
-        # self.setStyle(QtWidgets.QStyleFactory.create('fusion'))
+        self.setStyle(QtWidgets.QStyleFactory.create('fusion'))
         # self.setStyle(QtWidgets.QStyleFactory.create("gtk+"))
-        self.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+        # self.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
 
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')

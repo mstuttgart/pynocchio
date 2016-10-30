@@ -14,17 +14,3 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-from unittest import TestCase
-
-from pynocchio.core.page import Page
-
-
-class TestPage(TestCase):
-
-    def test__init__(self):
-        page = Page(None, 'title', 1)
-        self.assertEqual(page.data, None)
-        self.assertEqual(page.title, 'title')
-        self.assertEqual(page.number, 1)
-        self.assertFalse(page._pixmap)

@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 
 class StatusBar(QtWidgets.QStatusBar):
@@ -73,7 +73,7 @@ class StatusBar(QtWidgets.QStatusBar):
             self.slider = QtWidgets.QSlider(QtCore.Qt.Horizontal, self)
             self.slider.setFixedWidth(200)
             self.slider.setValue(50)
-            self.slider.setTickPosition(QtGui.QSlider.TicksBelow)
+            self.slider.setTickPosition(QtWidgets.QSlider.TicksBelow)
             self.addWidget(self.slider, 3)
 
     def remove_slider(self):
@@ -134,4 +134,3 @@ class StatusBar(QtWidgets.QStatusBar):
         self.add_page_number_label()
         self.add_page_resolution_label()
         self.add_comic_path_label()
-        # self.add_slider()

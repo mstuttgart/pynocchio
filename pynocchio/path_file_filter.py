@@ -18,7 +18,7 @@
 
 import glob
 
-from .utility import Utility
+from .core.utility import Utility
 
 
 class PathFileFilter:

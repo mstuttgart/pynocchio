@@ -15,15 +15,16 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import tarfile
-from .page import Page
-from .pynocchio_exception import InvalidTypeFileException
-from .pynocchio_exception import LoadComicsException
-from .pynocchio_exception import NoDataFindException
-from .utility import Utility
-
-from .compact_file_loader import Loader
 import logging
+import tarfile
+
+from .core.page import Page
+from .core.pynocchio_exception import InvalidTypeFileException
+from .core.pynocchio_exception import LoadComicsException
+from .core.pynocchio_exception import NoDataFindException
+from .core.utility import Utility
+from .compact_file_loader import Loader
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 

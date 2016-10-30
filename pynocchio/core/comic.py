@@ -16,6 +16,11 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
 class Comic:
 
     FILE = 0
@@ -27,12 +32,6 @@ class Comic:
         self.type = comic_type
         self.current_page_index = initial_page
         self.pages = []
-
-    def add_page(self, obj_page):
-        self.pages.append(obj_page)
-
-    def remove_page(self, obj_page):
-        self.pages.remove(obj_page)
 
     def get_current_page(self):
         return self.pages[self.current_page_index]
@@ -58,8 +57,10 @@ class Comic:
         self.current_page_index = self.get_number_of_pages() - 1
 
     def set_current_page_index(self, idx):
-        if idx in range(self.get_number_of_pages()):
+        try:
             self.current_page_index = idx
+        except IndexError as exc:
+            logger.exception(exc)
 
     def get_number_of_pages(self):
         return len(self.pages)

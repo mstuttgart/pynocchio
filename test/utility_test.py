@@ -17,7 +17,7 @@
 
 from unittest import TestCase
 
-from pynocchio.utility import Utility
+from pynocchio.core.utility import Utility
 
 
 class TestUtility(TestCase):

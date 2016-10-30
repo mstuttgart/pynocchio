@@ -17,10 +17,10 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from .core.pynocchio_exception import InvalidTypeFileException
+from .core.pynocchio_exception import LoadComicsException
+from .core.utility import Utility
 from .uic_files import main_window_view_ui
-from .pynocchio_exception import InvalidTypeFileException
-from .pynocchio_exception import LoadComicsException
-from .utility import Utility
 
 
 class MainWindowView(QtWidgets.QMainWindow):

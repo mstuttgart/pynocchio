@@ -17,10 +17,10 @@
 
 import glob
 
+from .core.page import Page
+from .core.pynocchio_exception import NoDataFindException
+from .core.utility import Utility
 from .compact_file_loader import Loader
-from .utility import Utility
-from .page import Page
-from .pynocchio_exception import NoDataFindException
 
 
 class FolderLoader(Loader):

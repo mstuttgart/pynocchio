@@ -16,16 +16,17 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/
 #
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from .comic import Comic
+import logging
+
+from PyQt5 import QtCore, QtGui
+
+from .core.comic import Comic
+from .core.pynocchio_exception import NoDataFindException
+from .core.utility import Utility
+from .bookmark_database_manager import BookmarkManager
 from .compact_file_loader_factory import LoaderFactory
 from .path_file_filter import PathFileFilter
-from .pynocchio_exception import NoDataFindException
 from .settings_manager import SettingsManager
-from .utility import Utility
-
-from .bookmark_database_manager import BookmarkManager
-import logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -83,7 +84,7 @@ class MainWindowModel(QtCore.QObject):
         try:
             loader.load(filename)
         except NoDataFindException as exc:
-            from .page import Page
+            from pynocchio.core.page import Page
             logger.exception('Error in load comic')
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
@@ -139,8 +140,11 @@ class MainWindowModel(QtCore.QObject):
         return self.comic.name + ' - Pynocchio Comic Reader'
 
     def get_current_page(self):
+
         if self.comic:
-            pix_map = self.comic.get_current_page().pixmap
+            pix_map = QtGui.QPixmap()
+            pix_map.loadFromData(self.comic.get_current_page().data)
+            # pix_map = self.comic.get_current_page().pixmap
             pix_map = self._rotate_page(pix_map)
             pix_map = self._resize_page(pix_map)
             return pix_map
