@@ -15,8 +15,8 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from .core.pynocchio_exception import InvalidTypeFileException
-from .core.utility import Utility
+from pynocchio.exception import InvalidTypeFileException
+from pynocchio.utility import Utility
 from .compact_file_loader_rar import RarLoader
 from .compact_file_loader_tar import TarLoader
 from .compact_file_loader_zip import ZipLoader

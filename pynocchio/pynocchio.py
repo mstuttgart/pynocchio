@@ -47,6 +47,11 @@ class Pynocchio(QtWidgets.QApplication):
         # self.setStyle(QtWidgets.QStyleFactory.create("gtk+"))
         # self.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
 
+        # sshFile = "pynocchio.stylesheet"
+        # with open(sshFile, "r") as fh:
+        #     # self.setStyle("fusion")
+        #     self.setStyleSheet(fh.read())
+
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')
 

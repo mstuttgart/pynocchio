@@ -18,7 +18,7 @@
 
 import glob
 
-from .core.utility import Utility
+from pynocchio.utility import Utility
 
 
 class PathFileFilter:

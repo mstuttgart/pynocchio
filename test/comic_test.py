@@ -17,8 +17,8 @@
 
 from unittest import TestCase
 
-from pynocchio.core.comic import Comic
-from pynocchio.core.page import Page
+from pynocchio.comic import Comic
+from pynocchio.page import Page
 
 
 class TestComic(TestCase):
@@ -28,50 +28,40 @@ class TestComic(TestCase):
         self.obj = Comic('comic_test', 'comic_dir')
         self.page = Page(None, 'page_title_1', 1)
 
-    def test_add_page(self):
-        self.assertNotIn(self.page, self.obj.pages)
-        self.obj.add_page(self.page)
-        self.assertIn(self.page, self.obj.pages)
-
-    def test_remove_page(self):
-        self.obj.add_page(self.page)
-        self.obj.remove_page(self.page)
-        self.assertNotIn(self.page, self.obj.pages)
-
     def test_get_current_page(self):
         self.obj.pages = []
-        self.obj.add_page(self.page)
+        self.obj.pages.append(self.page)
         self.assertEqual(self.page, self.obj.get_current_page())
 
     def test_get_current_page_title(self):
         self.obj.pages = []
-        self.obj.add_page(self.page)
+        self.obj.pages.append(self.page)
         self.assertEqual(self.page.title, self.obj.get_current_page_title())
 
     def test_get_current_page_number(self):
         self.obj.pages = []
-        self.obj.add_page(self.page)
+        self.obj.pages.append(self.page)
         self.assertEqual(self.page.number, self.obj.get_current_page_number())
 
     def test_go_next_page(self):
         self.obj.pages = []
-        self.obj.add_page(self.page)
+        self.obj.pages.append(self.page)
 
         self.obj.go_next_page()
         self.assertEqual(0, self.obj.current_page_index)
 
-        self.obj.add_page(Page(None, 'page_title_2', 2))
+        self.obj.pages.append(Page(None, 'page_title_2', 2))
         self.obj.go_next_page()
         self.assertEqual(1, self.obj.current_page_index)
 
     def test_go_previous_page(self):
         self.obj.pages = []
 
-        self.obj.add_page(self.page)
+        self.obj.pages.append(self.page)
         self.obj.go_previous_page()
         self.assertEqual(0, self.obj.current_page_index)
 
-        self.obj.add_page(Page(None, 'page_title_2', 2))
+        self.obj.pages.append(Page(None, 'page_title_2', 2))
         self.obj.go_next_page()
 
         self.obj.go_previous_page()
@@ -84,8 +74,8 @@ class TestComic(TestCase):
 
     def test_go_last_page(self):
         self.obj.pages = []
-        self.obj.add_page(self.page)
-        self.obj.add_page(Page(None, 'page_title_2', 2))
+        self.obj.pages.append(self.page)
+        self.obj.pages.append(Page(None, 'page_title_2', 2))
 
         self.assertEqual(0, self.obj.current_page_index)
         self.obj.go_last_page()
@@ -93,8 +83,8 @@ class TestComic(TestCase):
 
     def test_set_current_page_index(self):
         self.obj.pages = []
-        self.obj.add_page(self.page)
-        self.obj.add_page(Page(None, 'page_title_2', 2))
+        self.obj.pages.append(self.page)
+        self.obj.pages.append(Page(None, 'page_title_2', 2))
 
         self.obj.set_current_page_index(3)
         self.assertNotEqual(self.obj.current_page_index, 3)
@@ -104,8 +94,8 @@ class TestComic(TestCase):
 
     def test_get_number_of_pages(self):
         self.obj.pages = []
-        self.obj.add_page(self.page)
-        self.obj.add_page(Page(None, 'page_title_2', 2))
+        self.obj.pages.append(self.page)
+        self.obj.pages.append(Page(None, 'page_title_2', 2))
 
         self.assertEqual(self.obj.get_number_of_pages(), 2)
 

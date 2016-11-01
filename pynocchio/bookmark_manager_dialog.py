@@ -16,12 +16,12 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+import logging
+
 from PyQt5 import QtCore, QtGui, QtWidgets, QtSql
 
-from .core.utility import Utility
+from pynocchio.utility import Utility
 from .uic_files import bookmark_manager_dialog_ui
-
-import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -85,7 +85,6 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
     def selection_changed(self, selected):
 
         model_indexes = selected.indexes()
-        print('teste')
 
         if model_indexes:
             pixmap = QtGui.QPixmap()
@@ -96,7 +95,6 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
             self.ui.line_edit_path.setText(model_indexes[1].data())
 
         else:
-            print('vazio')
             self.ui.page_image_label.setPixmap(self.no_cover_label)
             self.ui.line_edit_path.setText('')
 
@@ -131,6 +129,7 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
 
             if Utility.file_exist(path):
                 self.controller.open_comics(path, page - 1)
+                self.close()
             else:
                 option = QtWidgets.QMessageBox().warning(
                     self, self.tr('Comic not exist'),

@@ -20,11 +20,11 @@ import logging
 
 from PyQt5 import QtCore, QtGui
 
-from .core.comic import Comic
-from .core.pynocchio_exception import NoDataFindException
-from .core.utility import Utility
+from pynocchio.exception import NoDataFindException
+from pynocchio.utility import Utility
 from .bookmark_database_manager import BookmarkManager
 from .compact_file_loader_factory import LoaderFactory
+from .core.comic import Comic
 from .path_file_filter import PathFileFilter
 from .settings_manager import SettingsManager
 
@@ -84,7 +84,7 @@ class MainWindowModel(QtCore.QObject):
         try:
             loader.load(filename)
         except NoDataFindException as exc:
-            from pynocchio.core.page import Page
+            from pynocchio.page import Page
             logger.exception('Error in load comic')
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)

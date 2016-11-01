@@ -16,11 +16,6 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-
 class Comic:
 
     FILE = 0
@@ -57,10 +52,8 @@ class Comic:
         self.current_page_index = self.get_number_of_pages() - 1
 
     def set_current_page_index(self, idx):
-        try:
+        if idx in range(self.get_number_of_pages()):
             self.current_page_index = idx
-        except IndexError as exc:
-            logger.exception(exc)
 
     def get_number_of_pages(self):
         return len(self.pages)

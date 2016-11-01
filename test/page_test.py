@@ -17,7 +17,7 @@
 
 from unittest import TestCase
 
-from pynocchio.core.page import Page
+from pynocchio.page import Page
 
 
 class TestPage(TestCase):
@@ -27,4 +27,3 @@ class TestPage(TestCase):
         self.assertEqual(page.data, None)
         self.assertEqual(page.title, 'title')
         self.assertEqual(page.number, 1)
-        self.assertFalse(page._pixmap)
