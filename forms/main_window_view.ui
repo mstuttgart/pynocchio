@@ -107,7 +107,7 @@
        <bool>true</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 5, 5);</string>
+       <string notr="true">background-color: rgb(80, 80, 80)</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::HLine</enum>
