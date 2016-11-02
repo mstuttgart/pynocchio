@@ -23,7 +23,7 @@ from pynocchio.exception import LoadComicsException
 from pynocchio.exception import NoDataFindException
 from pynocchio.utility import Utility
 from .compact_file_loader import Loader
-from .core.page import Page
+from .page import Page
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

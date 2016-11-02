@@ -24,7 +24,7 @@ from pynocchio.exception import NoDataFindException
 from pynocchio.utility import Utility
 from .bookmark_database_manager import BookmarkManager
 from .compact_file_loader_factory import LoaderFactory
-from .core.comic import Comic
+from .comic import Comic
 from .path_file_filter import PathFileFilter
 from .settings_manager import SettingsManager
 
@@ -119,10 +119,10 @@ class MainWindowModel(QtCore.QObject):
             self.comic.go_last_page()
 
     def next_comic(self):
-        return self.path_file_filter.next_path
+        return self.path_file_filter.next_path.path
 
     def previous_comic(self):
-        return self.path_file_filter.previous_path
+        return self.path_file_filter.previous_path.path
 
     def rotate_left(self):
         self.rotate_angle = (self.rotate_angle - 90) % 360
@@ -173,16 +173,16 @@ class MainWindowModel(QtCore.QObject):
         return False
 
     def is_first_comic(self):
-        if self.path_file_filter.current_path:
-            return self.path_file_filter.is_first_file()
-        else:
-            return True
+        return not self.path_file_filter.has_previous_file()
+        #     return self.path_file_filter.is_first_file()
+        # else:
+        #     return True
 
     def is_last_comic(self):
-        if self.path_file_filter.current_path:
-            return self.path_file_filter.is_last_file()
-        else:
-            return True
+        return not self.path_file_filter.has_next_file()
+        #     return self.path_file_filter.is_last_file()
+        # else:
+        #     return True
 
     def _rotate_page(self, pix_map):
         if self.rotate_angle != 0:
