@@ -48,3 +48,9 @@ class NoDataFindException(PynocchioBaseException):
 
     def __str__(self):
         return repr(self.message)
+
+
+class NoDataFindException(PynocchioBaseException):
+
+    def __str__(self):
+        return repr(self.message)

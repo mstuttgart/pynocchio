@@ -17,10 +17,15 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from pynocchio.exception import InvalidTypeFileException
-from pynocchio.exception import LoadComicsException
-from pynocchio.utility import Utility
+from .exception import InvalidTypeFileException
+from .exception import LoadComicsException
+from .exception import NoDataFindException
+from .utility import Utility
 from .uic_files import main_window_view_ui
+
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 class MainWindowView(QtWidgets.QMainWindow):
@@ -115,13 +120,21 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.update_navegation_actions()
 
     @QtCore.pyqtSlot()
-    def on_action_next_comic_triggered(self):
-        self.open_comics(self.model.next_comic())
+    def on_action_previous_comic_triggered(self):
+        try:
+            self.open_comics(self.model.previous_comic())
+        except NoDataFindException as exc:
+            logger.exception(exc.message)
+
         self.update_navegation_actions()
 
     @QtCore.pyqtSlot()
-    def on_action_previous_comic_triggered(self):
-        self.open_comics(self.model.previous_comic())
+    def on_action_next_comic_triggered(self):
+        try:
+            self.open_comics(self.model.next_comic())
+        except NoDataFindException as exc:
+            logger.exception(exc.message)
+
         self.update_navegation_actions()
 
     @QtCore.pyqtSlot()
@@ -311,6 +324,10 @@ class MainWindowView(QtWidgets.QMainWindow):
 
                 # Update status of add and remove bookmark buttons
                 self.update_bookmark_actions()
+
+                # Update next page, previous page, next and previous comics
+                # actions
+                self.update_navegation_actions()
 
                 return True
 

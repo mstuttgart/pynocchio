@@ -25,7 +25,7 @@ from pynocchio.utility import Utility
 from .bookmark_database_manager import BookmarkManager
 from .compact_file_loader_factory import LoaderFactory
 from .comic import Comic
-from .comic_file_filter import PathComicFilter
+from .path_comic_filter import PathComicFilter
 from .settings_manager import SettingsManager
 
 logger = logging.getLogger(__name__)
