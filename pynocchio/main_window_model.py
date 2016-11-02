@@ -25,7 +25,7 @@ from pynocchio.utility import Utility
 from .bookmark_database_manager import BookmarkManager
 from .compact_file_loader_factory import LoaderFactory
 from .comic import Comic
-from .path_file_filter import PathFileFilter
+from .comic_file_filter import PathComicFilter
 from .settings_manager import SettingsManager
 
 logger = logging.getLogger(__name__)
@@ -51,7 +51,7 @@ class MainWindowModel(QtCore.QObject):
         self.current_directory = self.load_current_directory()
 
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
-        self.path_file_filter = PathFileFilter(ext_list)
+        self.comic_file_filter = PathComicFilter(ext_list)
 
     def save_recent_files(self, recent_files_list):
         self.settings_manager.save_recent_files(recent_files_list)
@@ -97,7 +97,7 @@ class MainWindowModel(QtCore.QObject):
         self.current_directory = Utility.get_dir_name(filename)
 
         if Utility.is_file(filename):
-            self.path_file_filter.parse(filename)
+            self.comic_file_filter.parse(self.current_directory)
 
     def save_current_page_image(self, file_name):
         self.get_current_page().save(file_name)
@@ -118,11 +118,11 @@ class MainWindowModel(QtCore.QObject):
         if self.comic:
             self.comic.go_last_page()
 
-    def next_comic(self):
-        return self.path_file_filter.next_path.path
-
     def previous_comic(self):
-        return self.path_file_filter.previous_path.path
+        return self.comic_file_filter.get_previous_comic(self.comic.name)
+
+    def next_comic(self):
+        return self.comic_file_filter.get_next_comic(self.comic.name)
 
     def rotate_left(self):
         self.rotate_angle = (self.rotate_angle - 90) % 360
@@ -173,14 +173,15 @@ class MainWindowModel(QtCore.QObject):
         return False
 
     def is_first_comic(self):
-        return not self.path_file_filter.has_previous_file()
-        #     return self.path_file_filter.is_first_file()
+
+        return self.comic_file_filter.is_first_comic(self.comic.name)
+        #     return self.comic_file_filter.is_first_comic()
         # else:
         #     return True
 
     def is_last_comic(self):
-        return not self.path_file_filter.has_next_file()
-        #     return self.path_file_filter.is_last_file()
+        return self.comic_file_filter.is_last_comic(self.comic.name)
+        #     return self.comic_file_filter.is_last_comic()
         # else:
         #     return True
 
