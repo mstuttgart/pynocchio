@@ -8,7 +8,7 @@ Pynocchio Comic Reader
 [![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 
 Pynocchio is a image viewer specialized in manga/comic reading developed on
-PySide API.
+PyQt5 API.
 
 ![Ubunchu Manga by Hiroshi Seo (Seotch)](https://lh3.googleusercontent.com/-p0TtjyX-GgM/VwwYhAAUjrI/AAAAAAAAF04/_JSom_IMmasZfnRn4EPhxKejjj_9aHzYwCCo/s1152-Ic42/snapshot11.png)
 
@@ -19,8 +19,8 @@ PySide API.
 The current version is stable and we intend to improve it even more.
 
 * Support several view adjust modes using anti-aliasing.
-* Support the several image formates provide by Qt: JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM.
-* Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ and etc
+* Support the several image formates provide by Qt: JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM, WEBP.
+* Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ.
 * Elegant visual, free and easy to use.
 
 ![Ubunchu Manga by Hiroshi Seo (Seotch)](https://lh3.googleusercontent.com/-pedd53CIEtc/VwwYg1TpnoI/AAAAAAAAF04/gOJWtN5XZwYwQT_IBwYQEk-sYhqrw_owgCCo/s1152-Ic42/snapshot12.png)
