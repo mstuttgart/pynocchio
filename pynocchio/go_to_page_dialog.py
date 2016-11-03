@@ -33,6 +33,7 @@ class GoToDialog(QtWidgets.QDialog):
         self.ui.spin_box_go_page.setValue(
             self.model.comic.get_current_page_number())
         self.change_label_image()
+        self.line_edit_current_page = 0
 
     def accept(self, *args, **kwargs):
         self.model.set_current_page_index(self.ui.spin_box_go_page.value() - 1)
@@ -40,8 +41,7 @@ class GoToDialog(QtWidgets.QDialog):
         super(GoToDialog, self).accept(*args, **kwargs)
 
     def rejected(self, *args, **kwargs):
-        self.model.set_current_page_index(
-            int(self.line_edit_current_page.text()))
+        self.model.set_current_page_index(self.line_edit_current_page)
         super(GoToDialog, self).rejected(*args, **kwargs)
 
     def change_label_image(self):
@@ -50,7 +50,7 @@ class GoToDialog(QtWidgets.QDialog):
         image_page = image_page.scaledToHeight(
             self.height() * 0.6, QtCore.Qt.SmoothTransformation)
 
-        self.ui.label_icon.setPixmap(image_page)
+        self.ui.page_label.setPixmap(image_page)
 
     def update(self):
         self.change_label_image()
@@ -60,10 +60,11 @@ class GoToDialog(QtWidgets.QDialog):
         current_page_idx = self.model.get_current_page_index()
         num_page = self.model.comic.get_number_of_pages()
 
-        self.ui.line_edit_current_page.setText(str(current_page_idx + 1))
-        self.ui.line_edit_num_page.setText(str(num_page))
+        self.line_edit_current_page = current_page_idx + 1
 
         self.ui.spin_box_go_page.setValue(current_page_idx + 1)
         self.ui.spin_box_go_page.setMaximum(num_page)
+        self.ui.horizontal_slider.setMaximum(num_page)
+        self.ui.total_page_label.setText('of %d' % num_page)
 
         super(GoToDialog, self).show()

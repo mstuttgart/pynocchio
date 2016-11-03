@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>283</width>
-    <height>513</height>
+    <width>306</width>
+    <height>515</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,13 +24,22 @@
    <bool>true</bool>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>4</number>
+   </property>
+   <property name="topMargin">
+    <number>4</number>
+   </property>
+   <property name="rightMargin">
+    <number>4</number>
+   </property>
+   <property name="bottomMargin">
     <number>4</number>
    </property>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QVBoxLayout" name="vertical_layout">
      <item>
-      <widget class="QGroupBox" name="groupBox">
+      <widget class="QGroupBox" name="group_box">
        <property name="title">
         <string/>
        </property>
@@ -38,9 +47,12 @@
         <set>Qt::AlignCenter</set>
        </property>
        <property name="flat">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <layout class="QVBoxLayout" name="vertical_layout_3">
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -48,13 +60,13 @@
          <number>0</number>
         </property>
         <property name="rightMargin">
-         <number>9</number>
-        </property>
-        <property name="bottomMargin">
          <number>0</number>
         </property>
+        <property name="bottomMargin">
+         <number>9</number>
+        </property>
         <item>
-         <widget class="QScrollArea" name="scrollArea">
+         <widget class="QScrollArea" name="scroll_area">
           <property name="styleSheet">
            <string notr="true">background-color: rgb(0, 0, 0);</string>
           </property>
@@ -70,24 +82,54 @@
           <property name="horizontalScrollBarPolicy">
            <enum>Qt::ScrollBarAlwaysOff</enum>
           </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::AdjustToContents</enum>
+          </property>
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
-          <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <widget class="QWidget" name="scroll_area_widget_contents">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>258</width>
-             <height>378</height>
+             <width>290</width>
+             <height>373</height>
             </rect>
            </property>
-           <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <layout class="QHBoxLayout" name="horizontal_layout">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
-             <widget class="QLabel" name="label_icon">
+             <widget class="QLabel" name="page_label">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -104,88 +146,8 @@
       </widget>
      </item>
      <item>
-      <layout class="QFormLayout" name="formLayout">
-       <property name="fieldGrowthPolicy">
-        <enum>QFormLayout::ExpandingFieldsGrow</enum>
-       </property>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_num_pages">
-         <property name="locale">
-          <locale language="English" country="UnitedStates"/>
-         </property>
-         <property name="text">
-          <string>Number of pages: </string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="line_edit_num_page">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777214</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="frame">
-          <bool>true</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_current_page">
-         <property name="locale">
-          <locale language="English" country="UnitedStates"/>
-         </property>
-         <property name="text">
-          <string>Current page:        </string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="line_edit_current_page">
-         <property name="autoFillBackground">
-          <bool>false</bool>
-         </property>
-         <property name="frame">
-          <bool>true</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_go_page">
-         <property name="locale">
-          <locale language="English" country="UnitedStates"/>
-         </property>
-         <property name="text">
-          <string>Go to page:           </string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
+      <layout class="QGridLayout" name="grid_layout">
+       <item row="2" column="2">
         <widget class="QSpinBox" name="spin_box_go_page">
          <property name="wrapping">
           <bool>false</bool>
@@ -203,16 +165,75 @@
           <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
          </property>
          <property name="suffix">
-          <string/>
+          <string notr="true"/>
          </property>
          <property name="prefix">
-          <string/>
+          <string notr="true"/>
          </property>
          <property name="minimum">
           <number>1</number>
          </property>
          <property name="singleStep">
           <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="5">
+        <spacer name="horizontal_spacer_right">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="page_label_2">
+         <property name="text">
+          <string>Page </string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QLabel" name="total_page_label">
+         <property name="text">
+          <string>page</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="0" colspan="6">
+        <widget class="QSlider" name="horizontal_slider">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="pageStep">
+          <number>4</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="tickPosition">
+          <enum>QSlider::TicksBelow</enum>
+         </property>
+         <property name="tickInterval">
+          <number>4</number>
          </property>
         </widget>
        </item>
@@ -249,8 +270,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>252</x>
-     <y>249</y>
+     <x>256</x>
+     <y>508</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -265,8 +286,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>320</x>
-     <y>249</y>
+     <x>278</x>
+     <y>508</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -281,12 +302,44 @@
    <slot>update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>283</x>
-     <y>83</y>
+     <x>64</x>
+     <y>452</y>
     </hint>
     <hint type="destinationlabel">
      <x>158</x>
      <y>83</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontal_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spin_box_go_page</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>466</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>38</x>
+     <y>438</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spin_box_go_page</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>horizontal_slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>38</x>
+     <y>438</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>141</x>
+     <y>466</y>
     </hint>
    </hints>
   </connection>
