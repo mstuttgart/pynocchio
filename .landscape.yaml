@@ -2,3 +2,4 @@ strictness: high
 doc-warnings: no
 ignore-patterns:
   - *_ui.py
+  - *_rc.py
