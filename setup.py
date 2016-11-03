@@ -16,34 +16,17 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from setuptools import setup, find_packages
-from distutils.cmd import Command
 import distutils.log
 import os
 import re
 import sys
 
-try:
-    from pyqt_distutils.build_ui import build_ui
-    cmdclass = {'build_ui': build_ui}
-except ImportError:
-    build_ui = None  # user won't have pyqt_distutils when deploying
-    cmdclass = {}
-
-
-def get_version(package):
-    """
-    Based in https://github.com/tomchristie/django-rest-framework/blob/
-    971578ca345c3d3bae7fd93b87c41d43483b6f05/setup.py
-    :param package Package name
-    Return package version as listed in `__version__` in `init.py`.
-    """
-    init_py = open(os.path.join(package, '__init__.py')).read()
-    return re.search("__version__ = ['\"]([^'\"]+)['\"]", init_py).group(1)
-
-version = get_version('pynocchio')
-
 if sys.argv[-1] == 'build_deb':
     os.system('sh scripts/build_deb.sh %s' % version)
+    sys.exit()
+#
+if sys.argv[-1] == 'build_ui':
+    os.system('sh scripts/build_ui.sh')
     sys.exit()
 
 if sys.argv[-1] == 'compile_pro':
@@ -56,10 +39,11 @@ if sys.argv[-1] == 'publish':
     os.system("git push --tags")
     sys.exit()
 
+exec(open('pynocchio/version.py').read())
 
 setup(
     name='pynocchio',
-    version=version,
+    version=__version__,
     author='Michell Stuttgart Faria',
     author_email='michellstut@gmail.com',
     url='https://github.com/pynocchio',
@@ -73,7 +57,6 @@ setup(
     keywords="pynocchio comics manga viewer image",
     packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
     test_suite='test',
-    cmdclass=cmdclass,
     scripts=[
         'pynocchio-client.py',
     ],
