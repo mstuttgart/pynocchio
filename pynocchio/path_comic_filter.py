@@ -39,7 +39,6 @@ class PathComicFilter:
 
         # sort list
         self.file_list.sort()
-        # self.current_index = self.file_list.index()
 
     def is_first_comic(self, filename):
         try:

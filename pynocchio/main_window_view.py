@@ -23,13 +23,14 @@ from .exception import NoDataFindException
 from .utility import Utility
 from .uic_files import main_window_view_ui
 
+import os
 import logging
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 class MainWindowView(QtWidgets.QMainWindow):
-
     MaxRecentFiles = 5
     MaxBookmarkFiles = 5
 
@@ -87,7 +88,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         if self.model.comic:
 
             path = self.model.current_directory + \
-                self.model.comic.get_current_page_title()
+                   self.model.comic.get_current_page_title()
             file_path = QtWidgets.QFileDialog().getSaveFileName(
                 self, self.tr('save_current_page'), path,
                 self.tr("images (*.png *.xpm *.jpeg *.jpg *.gif)"))
@@ -231,6 +232,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
+        from .version import __version__
         from .about_dialog import AboutDialog
         ab_dlg = AboutDialog()
         ab_dlg.show()
@@ -293,7 +295,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         for key, value in list(sequence.items()):
             s = QtWidgets.QShortcut(QtGui.QKeySequence(key),
-                                self.ui.qscroll_area_viewer, value)
+                                    self.ui.qscroll_area_viewer, value)
             s.setEnabled(False)
             shortcuts.append(s)
 
@@ -460,10 +462,10 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.ui.action_last_page.setEnabled(not is_last_page)
 
         self.ui.action_previous_comic.setEnabled(
-                    not self.model.is_first_comic())
+            not self.model.is_first_comic())
 
         self.ui.action_next_comic.setEnabled(
-                    not self.model.is_last_comic())
+            not self.model.is_last_comic())
 
     def update_status_bar(self):
 
