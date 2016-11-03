@@ -137,7 +137,7 @@ class MainWindowModel(QtCore.QObject):
         return self.comic.get_path() if self.comic else ''
 
     def get_comic_title(self):
-        return self.comic.name + ' - Pynocchio Comic Reader'
+        return self.comic.name
 
     def get_current_page(self):
 

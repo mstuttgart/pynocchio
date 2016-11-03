@@ -175,7 +175,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_preference_dialog_triggered(self):
-        print()
+        pass
 
     @QtCore.pyqtSlot()
     def on_action_original_fit_triggered(self):

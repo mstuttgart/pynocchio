@@ -525,8 +525,8 @@ class Ui_MainWindowView(object):
 
     def retranslateUi(self, MainWindowView):
         _translate = QtCore.QCoreApplication.translate
-        MainWindowView.setWindowTitle(_translate("MainWindowView", "Pynocchio Comic Reader"))
-        MainWindowView.setAccessibleName(_translate("MainWindowView", "Pynocchio Comic Reader"))
+        MainWindowView.setWindowTitle(_translate("MainWindowView", "Pynocchio"))
+        MainWindowView.setAccessibleName(_translate("MainWindowView", "Pynocchio"))
         MainWindowView.setAccessibleDescription(_translate("MainWindowView", "The Best Comic Reader"))
         self.menu_file.setTitle(_translate("MainWindowView", "&File"))
         self.menu_recent_files.setTitle(_translate("MainWindowView", "Recent files"))

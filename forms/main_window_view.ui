@@ -27,14 +27,14 @@
    <enum>Qt::WheelFocus</enum>
   </property>
   <property name="windowTitle">
-   <string>Pynocchio Comic Reader</string>
+   <string>Pynocchio</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../data/main_window_view.qrc">
     <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
   </property>
   <property name="accessibleName">
-   <string>Pynocchio Comic Reader</string>
+   <string>Pynocchio</string>
   </property>
   <property name="accessibleDescription">
    <string>The Best Comic Reader</string>
