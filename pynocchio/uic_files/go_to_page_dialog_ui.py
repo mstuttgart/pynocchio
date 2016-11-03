@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/michell/Projects/pynocchio/forms/go_to_page_dialog.ui'
+# Form implementation generated from reading ui file './forms/go_to_page_dialog.ui'
 #
 # Created by: PyQt5 UI code generator 5.7
 #

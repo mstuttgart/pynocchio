@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/michell/Projects/pynocchio/forms/main_window_view.ui'
+# Form implementation generated from reading ui file './forms/main_window_view.ui'
 #
 # Created by: PyQt5 UI code generator 5.7
 #
