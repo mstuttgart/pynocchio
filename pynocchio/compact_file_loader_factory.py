@@ -15,8 +15,8 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from pynocchio.exception import InvalidTypeFileException
-from pynocchio.utility import Utility
+from .exception import InvalidTypeFileException
+from .utility import Utility
 from .compact_file_loader_rar import RarLoader
 from .compact_file_loader_tar import TarLoader
 from .compact_file_loader_zip import ZipLoader
@@ -24,9 +24,8 @@ from .compact_folder_loader import FolderLoader
 
 
 class LoaderFactory:
-
     @staticmethod
-    def create_loader(compact_file_extension, filename, data_extension):
+    def create_loader(filename, data_extension):
 
         if Utility.is_file(file_name=filename):
 
@@ -38,7 +37,11 @@ class LoaderFactory:
                     return loader(data_extension)
 
             raise InvalidTypeFileException('Invalid file extension: %s' %
-                                           compact_file_extension)
-
+                                           Utility.get_file_extension(
+                                               filename))
         elif Utility.is_dir(filename):
             return FolderLoader(data_extension)
+        else:
+            raise InvalidTypeFileException('Invalid file extension: %s' %
+                                           Utility.get_file_extension(
+                                               filename))

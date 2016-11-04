@@ -76,9 +76,7 @@ class MainWindowModel(QtCore.QObject):
         image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
                             '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
 
-        loader = LoaderFactory.create_loader(
-            Utility.get_file_extension(filename), filename, set(image_extensions))
-
+        loader = LoaderFactory.create_loader(filename, set(image_extensions))
         loader.progress.connect(self.load_progressbar_value)
 
         try:
@@ -164,26 +162,21 @@ class MainWindowModel(QtCore.QObject):
     def is_first_page(self):
         if self.comic and self.comic.current_page_index == 0:
             return True
-        return False
+        else:
+            return False
 
     def is_last_page(self):
         if self.comic and self.comic.current_page_index + 1 == \
                 self.comic.get_number_of_pages():
             return True
-        return False
+        else:
+            return False
 
     def is_first_comic(self):
-
         return self.comic_file_filter.is_first_comic(self.comic.name)
-        #     return self.comic_file_filter.is_first_comic()
-        # else:
-        #     return True
 
     def is_last_comic(self):
         return self.comic_file_filter.is_last_comic(self.comic.name)
-        #     return self.comic_file_filter.is_last_comic()
-        # else:
-        #     return True
 
     def _rotate_page(self, pix_map):
         if self.rotate_angle != 0:
@@ -264,6 +257,6 @@ class MainWindowModel(QtCore.QObject):
             BookmarkManager.close()
 
     def remove_bookmark(self, path):
-            BookmarkManager.connect()
-            BookmarkManager.remove_bookmark(path)
-            BookmarkManager.close()
+        BookmarkManager.connect()
+        BookmarkManager.remove_bookmark(path)
+        BookmarkManager.close()
