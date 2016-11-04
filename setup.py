@@ -21,6 +21,8 @@ import os
 import re
 import sys
 
+version = __version__
+
 if sys.argv[-1] == 'build_deb':
     os.system('sh scripts/build_deb.sh %s' % version)
     sys.exit()
@@ -43,7 +45,7 @@ exec(open('pynocchio/version.py').read())
 
 setup(
     name='pynocchio',
-    version=__version__,
+    version=version,
     author='Michell Stuttgart Faria',
     author_email='michellstut@gmail.com',
     url='https://github.com/pynocchio',
