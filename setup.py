@@ -21,7 +21,7 @@ import os
 import re
 import sys
 
-from .pynocchio.version import __version__
+from pynocchio.version import __version__
 
 
 version = __version__
