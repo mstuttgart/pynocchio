@@ -308,6 +308,8 @@
     <addaction name="separator"/>
     <addaction name="action_rotate_left"/>
     <addaction name="action_rotate_right"/>
+    <addaction name="separator"/>
+    <addaction name="action_double_page_mode"/>
    </widget>
    <widget class="QMenu" name="menu_navegation">
     <property name="acceptDrops">
@@ -442,6 +444,8 @@
    <addaction name="action_horizontal_fit"/>
    <addaction name="action_best_fit"/>
    <addaction name="action_fullscreen"/>
+   <addaction name="separator"/>
+   <addaction name="action_double_page_mode"/>
    <addaction name="separator"/>
    <addaction name="action_exit"/>
   </widget>
@@ -635,6 +639,9 @@
    </property>
    <property name="shortcutContext">
     <enum>Qt::WidgetShortcut</enum>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
    </property>
   </action>
   <action name="action_go_to_page">
@@ -1130,6 +1137,21 @@
     <string>Show Toolbar</string>
    </property>
   </action>
+  <action name="action_double_page_mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../data/main_window_view.qrc">
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/gtk-media-pause.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/gtk-media-pause.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Double Page Mode</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -1145,9 +1167,6 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../data/main_window_view.qrc"/>
-  <include location="../data/main_window_view.qrc"/>
-  <include location="../data/main_window_view.qrc"/>
   <include location="../data/main_window_view.qrc"/>
  </resources>
  <connections/>

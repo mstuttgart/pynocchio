@@ -230,6 +230,7 @@ class Ui_MainWindowView(object):
         icon11.addPixmap(QtGui.QPixmap(":/icons/freeiconmaker-icons/fullscreen.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_fullscreen.setIcon(icon11)
         self.action_fullscreen.setShortcutContext(QtCore.Qt.WidgetShortcut)
+        self.action_fullscreen.setIconVisibleInMenu(True)
         self.action_fullscreen.setObjectName("action_fullscreen")
         self.action_go_to_page = QtWidgets.QAction(MainWindowView)
         self.action_go_to_page.setEnabled(False)
@@ -437,6 +438,13 @@ class Ui_MainWindowView(object):
         self.action_show_toolbar.setCheckable(True)
         self.action_show_toolbar.setChecked(True)
         self.action_show_toolbar.setObjectName("action_show_toolbar")
+        self.action_double_page_mode = QtWidgets.QAction(MainWindowView)
+        self.action_double_page_mode.setCheckable(True)
+        icon27 = QtGui.QIcon()
+        icon27.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/gtk-media-pause.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_double_page_mode.setIcon(icon27)
+        self.action_double_page_mode.setIconVisibleInMenu(True)
+        self.action_double_page_mode.setObjectName("action_double_page_mode")
         self.menu_recent_files.addAction(self.actionRecent_file_1)
         self.menu_recent_files.addAction(self.actionRecent_file_2)
         self.menu_recent_files.addAction(self.actionRecent_file_3)
@@ -463,6 +471,8 @@ class Ui_MainWindowView(object):
         self.menu_view.addSeparator()
         self.menu_view.addAction(self.action_rotate_left)
         self.menu_view.addAction(self.action_rotate_right)
+        self.menu_view.addSeparator()
+        self.menu_view.addAction(self.action_double_page_mode)
         self.menu_navegation.addAction(self.action_next_page)
         self.menu_navegation.addAction(self.action_previous_page)
         self.menu_navegation.addSeparator()
@@ -517,6 +527,8 @@ class Ui_MainWindowView(object):
         self.toolbar.addAction(self.action_horizontal_fit)
         self.toolbar.addAction(self.action_best_fit)
         self.toolbar.addAction(self.action_fullscreen)
+        self.toolbar.addSeparator()
+        self.toolbar.addAction(self.action_double_page_mode)
         self.toolbar.addSeparator()
         self.toolbar.addAction(self.action_exit)
 
@@ -584,6 +596,7 @@ class Ui_MainWindowView(object):
         self.action_en_us.setIconText(_translate("MainWindowView", "en_US"))
         self.action_pt_br.setText(_translate("MainWindowView", "Portuguese"))
         self.action_show_toolbar.setText(_translate("MainWindowView", "Show Toolbar"))
+        self.action_double_page_mode.setText(_translate("MainWindowView", "Double Page Mode"))
 
 from .custom_widgets.qscroll_area_viewer import QScrollAreaViewer
 from .custom_widgets.status_bar import StatusBar
