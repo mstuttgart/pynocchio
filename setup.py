@@ -21,6 +21,9 @@ import os
 import re
 import sys
 
+from .pynocchio.version import __version__
+
+
 version = __version__
 
 if sys.argv[-1] == 'build_deb':
