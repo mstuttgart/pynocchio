@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file './forms/about_dialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.7
+# Created by: PyQt5 UI code generator 5.5.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -31,7 +31,6 @@ class Ui_AboutDialog(object):
         self.about = QtWidgets.QWidget()
         self.about.setObjectName("about")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.about)
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.about_text_browser = QtWidgets.QTextBrowser(self.about)
         self.about_text_browser.setMaximumSize(QtCore.QSize(16777215, 16777215))
