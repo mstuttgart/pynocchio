@@ -217,6 +217,11 @@ class MainWindowView(QtWidgets.QMainWindow):
                 sc.setEnabled(True)
 
     @QtCore.pyqtSlot()
+    def on_action_double_page_mode_triggered(self):
+        pass
+
+
+    @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):
         if self.ui.action_show_toolbar.isChecked():
             self.ui.toolbar.show()
@@ -330,6 +335,9 @@ class MainWindowView(QtWidgets.QMainWindow):
                 # Update next page, previous page, next and previous comics
                 # actions
                 self.update_navegation_actions()
+
+                # Register view like listener of ComicPageHandler events
+                # self.model.comic_page_handler.listener.append(self)
 
                 return True
 
@@ -470,11 +478,11 @@ class MainWindowView(QtWidgets.QMainWindow):
     def update_status_bar(self):
 
         if self.model.comic:
-            page_number = self.model.comic.get_current_page_number()
-            total_pages = self.model.comic.get_number_of_pages()
+            page_number = self.model.get_current_page_number()
+            total_pages = self.model.get_number_of_pages()
             page_width = self.model.get_current_page().width()
             page_height = self.model.get_current_page().height()
-            page_title = self.model.comic.get_current_page_title()
+            page_title = self.model.get_current_page_title()
 
             if self.ui.statusbar.isVisible():
                 self.ui.statusbar.set_comic_page(page_number, total_pages)
@@ -491,17 +499,18 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     def update_viewer_content(self):
         content = self.model.get_current_page()
-        if content and isinstance(content, QtGui.QPixmap):
+
+        if content:
             self.ui.label.setPixmap(content)
             self.ui.qscroll_area_viewer.reset_scroll_position()
             self.update_status_bar()
 
     def update_current_view_container_size(self):
-        self.model.scroll_area_size = self.get_current_view_container_size()
+        self.model.scroll_area_size = self.ui.qscroll_area_viewer.size()
         self.update_viewer_content()
 
-    def get_current_view_container_size(self):
-        return self.ui.qscroll_area_viewer.size()
+    # def get_current_view_container_size(self):
+    #     return self.ui.qscroll_area_viewer.size()
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_F:

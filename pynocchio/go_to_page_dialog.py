@@ -31,7 +31,7 @@ class GoToDialog(QtWidgets.QDialog):
         self.controller = controller
         self.model = controller.model
         self.ui.spin_box_go_page.setValue(
-            self.model.comic.get_current_page_number())
+            self.model.comic_page_handler.get_current_page_number())
         self.change_label_image()
         self.line_edit_current_page = 0
 

@@ -25,6 +25,8 @@ from pynocchio.utility import Utility
 from .bookmark_database_manager import BookmarkManager
 from .compact_file_loader_factory import LoaderFactory
 from .comic import Comic
+from .comic_page_handler import ComicPageHandler
+from .comic_page_handler import ComicPageHandlerFactory
 from .path_comic_filter import PathComicFilter
 from .settings_manager import SettingsManager
 
@@ -44,6 +46,7 @@ class MainWindowModel(QtCore.QObject):
     def __init__(self):
         super(MainWindowModel, self).__init__()
         self.comic = None
+        self.comic_page_handler = None
         self.settings_manager = SettingsManager()
         self.rotate_angle = 0
         self.scroll_area_size = None
@@ -92,6 +95,7 @@ class MainWindowModel(QtCore.QObject):
                            Utility.get_dir_name(filename), initial_page)
 
         self.comic.pages = loader.data
+        self.comic_page_handler = ComicPageHandlerFactory.create_handler('DOUBLE', self.comic)
         self.current_directory = Utility.get_dir_name(filename)
 
         if Utility.is_file(filename):
@@ -101,20 +105,20 @@ class MainWindowModel(QtCore.QObject):
         self.get_current_page().save(file_name)
 
     def next_page(self):
-        if self.comic:
-            self.comic.go_next_page()
+        if self.comic_page_handler:
+            self.comic_page_handler.go_next_page()
 
     def previous_page(self):
-        if self.comic:
-            self.comic.go_previous_page()
+        if self.comic_page_handler:
+            self.comic_page_handler.go_previous_page()
 
     def first_page(self):
-        if self.comic:
-            self.comic.go_first_page()
+        if self.comic_page_handler:
+            self.comic_page_handler.go_first_page()
 
     def last_page(self):
-        if self.comic:
-            self.comic.go_last_page()
+        if self.comic_page_handler:
+            self.comic_page_handler.go_last_page()
 
     def previous_comic(self):
         return self.comic_file_filter.get_previous_comic(self.comic.name)
@@ -140,8 +144,9 @@ class MainWindowModel(QtCore.QObject):
     def get_current_page(self):
 
         if self.comic:
-            pix_map = QtGui.QPixmap()
-            pix_map.loadFromData(self.comic.get_current_page().data)
+            # pix_map = QtGui.QPixmap()
+            # pix_map.loadFromData(self.comic.get_current_page().data)
+            pix_map = self.comic_page_handler.get_current_page_image()
             # pix_map = self.comic.get_current_page().pixmap
             pix_map = self._rotate_page(pix_map)
             pix_map = self._resize_page(pix_map)
@@ -150,23 +155,29 @@ class MainWindowModel(QtCore.QObject):
         return None
 
     def get_current_page_title(self):
-        return self.comic.get_current_page_title() if self.comic else ''
+        return self.comic_page_handler.get_current_page().title if self.comic_page_handler else ''
 
     def set_current_page_index(self, idx):
-        if self.comic:
-            self.comic.set_current_page_index(idx)
+        if self.comic_page_handler:
+            self.comic_page_handler.set_current_page_index(idx)
 
     def get_current_page_index(self):
-        return self.comic.current_page_index if self.comic else -1
+        return self.comic_page_handler.current_page_index if self.comic_page_handler else -1
+
+    def get_current_page_number(self):
+        return self.comic_page_handler.get_current_page().number if self.comic_page_handler else -1
+
+    def get_number_of_pages(self):
+        return self.comic.get_number_of_pages()
 
     def is_first_page(self):
-        if self.comic and self.comic.current_page_index == 0:
+        if self.comic_page_handler and self.comic_page_handler.current_page_index == 0:
             return True
         else:
             return False
 
     def is_last_page(self):
-        if self.comic and self.comic.current_page_index + 1 == \
+        if self.comic and self.comic_page_handler.current_page_index + 1 == \
                 self.comic.get_number_of_pages():
             return True
         else:
@@ -215,6 +226,9 @@ class MainWindowModel(QtCore.QObject):
     def best_fit(self):
         self.fit_type = MainWindowModel._BEST_FIT
 
+    def double_page_mode(self):
+        pass
+
     @QtCore.pyqtSlot(int)
     def load_progressbar_value(self, percent):
         self.load_progress.emit(percent)
@@ -252,8 +266,8 @@ class MainWindowModel(QtCore.QObject):
             BookmarkManager.connect()
             BookmarkManager.add_bookmark(self.comic.name,
                                          self.comic.get_path(),
-                                         self.comic.get_current_page_number(),
-                                         self.comic.get_current_page().data)
+                                         self.comic_page_handler.get_current_page().number,
+                                         self.comic_page_handler.get_current_page().data)
             BookmarkManager.close()
 
     def remove_bookmark(self, path):

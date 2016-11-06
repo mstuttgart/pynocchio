@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/icons">
+    <file>elementary3-icon-theme/actions/48/media-playback-start.svg</file>
     <file>elementary3-icon-theme/actions/48/go-down.svg</file>
     <file>notCover.png</file>
     <file>elementary3-icon-theme/apps/48/office-database.svg</file>
