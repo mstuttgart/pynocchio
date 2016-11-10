@@ -92,10 +92,11 @@ class MainWindowModel(QtCore.QObject):
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
 
         self.comic = Comic(Utility.get_base_name(filename),
-                           Utility.get_dir_name(filename), initial_page)
+                           Utility.get_dir_name(filename))
 
         self.comic.pages = loader.data
-        self.comic_page_handler = ComicPageHandlerFactory.create_handler(False, self.comic)
+        self.comic_page_handler = ComicPageHandlerFactory.create_handler(
+            False, self.comic, index=initial_page)
         self.current_directory = Utility.get_dir_name(filename)
 
         if Utility.is_file(filename):
