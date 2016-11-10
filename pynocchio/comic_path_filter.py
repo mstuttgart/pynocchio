@@ -21,7 +21,7 @@ from .utility import Utility
 from .exception import NoDataFindException
 
 
-class PathComicFilter:
+class ComicPathFilter:
 
     def __init__(self, extension_list):
         self.file_list = []
@@ -45,14 +45,14 @@ class PathComicFilter:
             return True if self.file_list[0] == filename else False
         except IndexError as exc:
             raise NoDataFindException(
-                'PathComicFilter file list is empty!') from exc
+                'ComicPathFilter file list is empty!') from exc
 
     def is_last_comic(self, filename):
         try:
             return True if self.file_list[-1] == filename else False
         except IndexError as exc:
             raise NoDataFindException(
-                'PathComicFilter file list is empty!') from exc
+                'ComicPathFilter file list is empty!') from exc
 
     def get_previous_comic(self, filename):
 
@@ -60,7 +60,7 @@ class PathComicFilter:
             name = self.file_list[self.file_list.index(filename) - 1]
             return Utility.join_path(self.current_path, '', name)
         else:
-            raise NoDataFindException('PathComicFilter reach first file!')
+            raise NoDataFindException('ComicPathFilter reach first file!')
 
     def get_next_comic(self, filename):
 
@@ -68,4 +68,4 @@ class PathComicFilter:
             name = self.file_list[self.file_list.index(filename) + 1]
             return Utility.join_path(self.current_path, '', name)
         else:
-            raise NoDataFindException('PathComicFilter reach last file!')
+            raise NoDataFindException('ComicPathFilter reach last file!')

@@ -18,21 +18,21 @@
 from unittest import TestCase
 from unittest import mock
 
-from pynocchio.path_comic_filter import PathComicFilter
+from pynocchio.comic_path_filter import ComicPathFilter
 from pynocchio.exception import NoDataFindException
 
 
 class PathComicFilterTest(TestCase):
     def setUp(self):
         TestCase.setUp(self)
-        self.obj = PathComicFilter(["*.cbr", "*.cbz", "*.rar", "*.zip",
+        self.obj = ComicPathFilter(["*.cbr", "*.cbz", "*.rar", "*.zip",
                                     "*.tar", "*.cbt"])
 
     def test_parse(self):
         with mock.patch('glob.glob1') as mock_glob:
             mock_glob.return_value = ['comic_1.cbr', 'abc.cbr']
 
-            self.obj = PathComicFilter(['*.cbr'])
+            self.obj = ComicPathFilter(['*.cbr'])
             self.obj.parse('.')
 
             self.assertListEqual(self.obj.file_list,
@@ -40,7 +40,7 @@ class PathComicFilterTest(TestCase):
 
             mock_glob.return_value = []
 
-            self.obj = PathComicFilter(['*.zip'])
+            self.obj = ComicPathFilter(['*.zip'])
             self.obj.parse('.')
             self.assertListEqual(self.obj.file_list, [])
 
@@ -48,7 +48,7 @@ class PathComicFilterTest(TestCase):
         with mock.patch('glob.glob1') as mock_glob:
             mock_glob.return_value = ['comic_3.cbr', 'comic_1.cbr', 'abc.cbr']
 
-            self.obj = PathComicFilter(['*.cbr'])
+            self.obj = ComicPathFilter(['*.cbr'])
             self.obj.parse('.')
 
             self.assertTrue(self.obj.is_first_comic('abc.cbr'))
@@ -63,7 +63,7 @@ class PathComicFilterTest(TestCase):
         with mock.patch('glob.glob1') as mock_glob:
             mock_glob.return_value = ['comic_3.cbr', 'comic_1.cbr', 'abc.cbr']
 
-            self.obj = PathComicFilter(['*.cbr'])
+            self.obj = ComicPathFilter(['*.cbr'])
             self.obj.parse('.')
 
             self.assertFalse(self.obj.is_last_comic('abc.cbr'))
@@ -78,7 +78,7 @@ class PathComicFilterTest(TestCase):
         with mock.patch('glob.glob1') as mock_glob:
             mock_glob.return_value = ['comic_3.cbr', 'comic_1.cbr', 'abc.cbr']
 
-            self.obj = PathComicFilter(['*.cbr'])
+            self.obj = ComicPathFilter(['*.cbr'])
             self.obj.parse('pynocchio/comics/')
 
             previous_comics = self.obj.get_previous_comic('comic_1.cbr')
@@ -91,7 +91,7 @@ class PathComicFilterTest(TestCase):
         with mock.patch('glob.glob1') as mock_glob:
             mock_glob.return_value = ['comic_3.cbr', 'comic_1.cbr', 'abc.cbr']
 
-            self.obj = PathComicFilter(['*.cbr'])
+            self.obj = ComicPathFilter(['*.cbr'])
             self.obj.parse('pynocchio/comics/')
 
             next_comics = self.obj.get_next_comic('comic_1.cbr')

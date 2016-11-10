@@ -27,7 +27,7 @@ from .compact_file_loader_factory import LoaderFactory
 from .comic import Comic
 # from .comic_page_handler import ComicPageHandler
 from .comic_page_handler_factory import ComicPageHandlerFactory
-from .path_comic_filter import PathComicFilter
+from .comic_path_filter import ComicPathFilter
 from .settings_manager import SettingsManager
 
 logger = logging.getLogger(__name__)
@@ -54,7 +54,7 @@ class MainWindowModel(QtCore.QObject):
         self.current_directory = self.load_current_directory()
 
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
-        self.comic_file_filter = PathComicFilter(ext_list)
+        self.comic_file_filter = ComicPathFilter(ext_list)
 
     def save_recent_files(self, recent_files_list):
         self.settings_manager.save_recent_files(recent_files_list)
