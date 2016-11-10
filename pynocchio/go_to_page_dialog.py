@@ -18,11 +18,10 @@
 from PyQt5 import QtCore, QtWidgets
 
 from .uic_files import go_to_page_dialog_ui
-from .comic_page_handler import ComicPageHandlerSinglePage
+from .comic_page_handler_factory import ComicPageHandlerFactory
 
 
 class GoToDialog(QtWidgets.QDialog):
-
     def __init__(self, comic_handler, parent=None):
         super(GoToDialog, self).__init__(parent=parent)
 
@@ -33,8 +32,8 @@ class GoToDialog(QtWidgets.QDialog):
         page_number = comic_handler.get_current_page().number
 
         self.model_handler = comic_handler
-        self.handler = ComicPageHandlerSinglePage(comic_handler.comic,
-                                                  initial_page=page_number - 1)
+        self.handler = ComicPageHandlerFactory.create_handler(
+            False, comic=comic_handler.comic, index=page_number - 1)
 
         self.last_page = page_number
 

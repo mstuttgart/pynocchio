@@ -23,9 +23,9 @@ from .page import Page
 
 
 class ComicPageHandler:
-    def __init__(self, comic, initial_page=0):
+    def __init__(self, comic, index=0):
         self.comic = comic
-        self.current_page_index = initial_page
+        self.current_page_index = index
 
     def get_current_page(self):
         return self.comic.pages[self.current_page_index]
@@ -103,15 +103,3 @@ class ComicPageHandlerDoublePage(ComicPageHandler):
             painter.drawPixmap(page[0], page[1], page[2])
 
         return double_page
-
-
-class ComicPageHandlerFactory:
-    read_mode = {
-        False: ComicPageHandlerSinglePage,
-        True: ComicPageHandlerDoublePage,
-    }
-
-    @staticmethod
-    def create_handler(page_read_mode, comic, initial_page=0):
-        return ComicPageHandlerFactory.read_mode[page_read_mode](
-            comic, initial_page=initial_page)

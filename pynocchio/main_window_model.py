@@ -25,8 +25,8 @@ from .utility import Utility
 from .bookmark_database_manager import BookmarkManager
 from .compact_file_loader_factory import LoaderFactory
 from .comic import Comic
-from .comic_page_handler import ComicPageHandler
-from .comic_page_handler import ComicPageHandlerFactory
+# from .comic_page_handler import ComicPageHandler
+from .comic_page_handler_factory import ComicPageHandlerFactory
 from .path_comic_filter import PathComicFilter
 from .settings_manager import SettingsManager
 
@@ -229,7 +229,7 @@ class MainWindowModel(QtCore.QObject):
     def double_page_mode(self, checked):
         index = self.comic_page_handler.current_page_index
         self.comic_page_handler = ComicPageHandlerFactory.create_handler(
-            checked, self.comic, initial_page=index)
+            checked, self.comic, index=index)
 
     @QtCore.pyqtSlot(int)
     def load_progressbar_value(self, percent):
