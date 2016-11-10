@@ -23,13 +23,12 @@ from .page import Page
 
 
 class ComicPageHandler:
-
     def __init__(self, comic, initial_page=0):
         self.comic = comic
         self.current_page_index = initial_page
 
     def get_current_page(self):
-            return self.comic.pages[self.current_page_index]
+        return self.comic.pages[self.current_page_index]
 
     def go_next_page(self):
         if self.current_page_index < self.comic.get_number_of_pages() - 1:
@@ -54,7 +53,6 @@ class ComicPageHandler:
 
 
 class ComicPageHandlerSinglePage(ComicPageHandler):
-
     def get_current_page_image(self):
         pix_map = QtGui.QPixmap()
         pix_map.loadFromData(self.get_current_page().data)
@@ -62,7 +60,6 @@ class ComicPageHandlerSinglePage(ComicPageHandler):
 
 
 class ComicPageHandlerDoublePage(ComicPageHandler):
-
     def go_next_page(self):
         if self.current_page_index < self.comic.get_number_of_pages() - 2:
             self.current_page_index += 2
@@ -109,13 +106,12 @@ class ComicPageHandlerDoublePage(ComicPageHandler):
 
 
 class ComicPageHandlerFactory:
-
     read_mode = {
-        'SINGLE': ComicPageHandlerSinglePage,
-        'DOUBLE': ComicPageHandlerDoublePage,
+        False: ComicPageHandlerSinglePage,
+        True: ComicPageHandlerDoublePage,
     }
 
     @staticmethod
     def create_handler(page_read_mode, comic, initial_page=0):
-        return ComicPageHandlerFactory.read_mode[page_read_mode](comic,
-                                                                 initial_page)
+        return ComicPageHandlerFactory.read_mode[page_read_mode](
+            comic, initial_page=initial_page)

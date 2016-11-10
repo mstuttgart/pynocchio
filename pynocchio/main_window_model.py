@@ -20,8 +20,8 @@ import logging
 
 from PyQt5 import QtCore, QtGui
 
-from pynocchio.exception import NoDataFindException
-from pynocchio.utility import Utility
+from .exception import NoDataFindException
+from .utility import Utility
 from .bookmark_database_manager import BookmarkManager
 from .compact_file_loader_factory import LoaderFactory
 from .comic import Comic
@@ -95,7 +95,7 @@ class MainWindowModel(QtCore.QObject):
                            Utility.get_dir_name(filename), initial_page)
 
         self.comic.pages = loader.data
-        self.comic_page_handler = ComicPageHandlerFactory.create_handler('DOUBLE', self.comic)
+        self.comic_page_handler = ComicPageHandlerFactory.create_handler(False, self.comic)
         self.current_directory = Utility.get_dir_name(filename)
 
         if Utility.is_file(filename):
@@ -226,8 +226,10 @@ class MainWindowModel(QtCore.QObject):
     def best_fit(self):
         self.fit_type = MainWindowModel._BEST_FIT
 
-    def double_page_mode(self):
-        pass
+    def double_page_mode(self, checked):
+        index = self.comic_page_handler.current_page_index
+        self.comic_page_handler = ComicPageHandlerFactory.create_handler(
+            checked, self.comic, initial_page=index)
 
     @QtCore.pyqtSlot(int)
     def load_progressbar_value(self, percent):

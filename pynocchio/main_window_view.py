@@ -151,10 +151,15 @@ class MainWindowView(QtWidgets.QMainWindow):
     @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
         from .go_to_page_dialog import GoToDialog
-        go_to_dlg = GoToDialog(self)
+        go_to_dlg = GoToDialog(self.model.comic_page_handler, parent=self)
         go_to_dlg.show()
-        go_to_dlg.exec_()
-        self.update_navegation_actions()
+        ret = go_to_dlg.exec_()
+
+        if ret == QtWidgets.QDialog.Accepted:
+            self.model.set_current_page_index(
+                go_to_dlg.handler.current_page_index)
+            self.update_viewer_content()
+            self.update_navegation_actions()
 
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
@@ -216,10 +221,10 @@ class MainWindowView(QtWidgets.QMainWindow):
             for sc in self.global_shortcuts:
                 sc.setEnabled(True)
 
-    @QtCore.pyqtSlot()
-    def on_action_double_page_mode_triggered(self):
-        pass
-
+    @QtCore.pyqtSlot(bool)
+    def on_action_double_page_mode_triggered(self, checked):
+        self.model.double_page_mode(checked)
+        self.update_viewer_content()
 
     @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):
@@ -239,7 +244,7 @@ class MainWindowView(QtWidgets.QMainWindow):
     def on_action_about_triggered(self):
         from .version import __version__
         from .about_dialog import AboutDialog
-        ab_dlg = AboutDialog()
+        ab_dlg = AboutDialog(self)
         ab_dlg.show()
         ab_dlg.exec_()
 

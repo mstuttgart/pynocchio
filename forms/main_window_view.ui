@@ -310,7 +310,6 @@
     <addaction name="action_rotate_right"/>
     <addaction name="separator"/>
     <addaction name="action_double_page_mode"/>
-    <addaction name="action_single_page_mode"/>
    </widget>
    <widget class="QMenu" name="menu_navegation">
     <property name="acceptDrops">
@@ -1143,11 +1142,11 @@
     <bool>true</bool>
    </property>
    <property name="enabled">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/22/align-vertical-bottom.svg</normaloff>:/icons/elementary3-icon-theme/actions/22/align-vertical-bottom.svg</iconset>
+     <normaloff>:/icons/elementary3-icon-theme/actions/48/gtk-media-pause.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/gtk-media-pause.svg</iconset>
    </property>
    <property name="text">
     <string>Double Page Mode</string>
@@ -1157,18 +1156,6 @@
    </property>
    <property name="iconVisibleInMenu">
     <bool>true</bool>
-   </property>
-  </action>
-  <action name="action_single_page_mode">
-   <property name="checkable">
-    <bool>false</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/media-playback-start.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-playback-start.svg</iconset>
-   </property>
-   <property name="text">
-    <string>Single Page Mode</string>
    </property>
   </action>
  </widget>

@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_GoPageDialog(object):
     def setupUi(self, GoPageDialog):
         GoPageDialog.setObjectName("GoPageDialog")
-        GoPageDialog.resize(306, 515)
+        GoPageDialog.resize(306, 514)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/search.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         GoPageDialog.setWindowIcon(icon)
@@ -42,7 +42,7 @@ class Ui_GoPageDialog(object):
         self.scroll_area.setAlignment(QtCore.Qt.AlignCenter)
         self.scroll_area.setObjectName("scroll_area")
         self.scroll_area_widget_contents = QtWidgets.QWidget()
-        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 290, 373))
+        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 290, 372))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -94,6 +94,8 @@ class Ui_GoPageDialog(object):
         self.horizontal_slider.setMinimum(1)
         self.horizontal_slider.setPageStep(4)
         self.horizontal_slider.setOrientation(QtCore.Qt.Horizontal)
+        self.horizontal_slider.setInvertedAppearance(False)
+        self.horizontal_slider.setInvertedControls(False)
         self.horizontal_slider.setTickPosition(QtWidgets.QSlider.TicksBelow)
         self.horizontal_slider.setTickInterval(4)
         self.horizontal_slider.setObjectName("horizontal_slider")
@@ -111,9 +113,9 @@ class Ui_GoPageDialog(object):
         self.retranslateUi(GoPageDialog)
         self.buttonBox.accepted.connect(GoPageDialog.accept)
         self.buttonBox.rejected.connect(GoPageDialog.reject)
-        self.spin_box_go_page.valueChanged['int'].connect(GoPageDialog.update)
         self.horizontal_slider.valueChanged['int'].connect(self.spin_box_go_page.setValue)
         self.spin_box_go_page.valueChanged['int'].connect(self.horizontal_slider.setValue)
+        self.horizontal_slider.valueChanged['int'].connect(GoPageDialog.update)
         QtCore.QMetaObject.connectSlotsByName(GoPageDialog)
 
     def retranslateUi(self, GoPageDialog):

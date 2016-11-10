@@ -18,53 +18,55 @@
 from PyQt5 import QtCore, QtWidgets
 
 from .uic_files import go_to_page_dialog_ui
+from .comic_page_handler import ComicPageHandlerSinglePage
 
 
 class GoToDialog(QtWidgets.QDialog):
 
-    def __init__(self, controller):
-        super(GoToDialog, self).__init__()
+    def __init__(self, comic_handler, parent=None):
+        super(GoToDialog, self).__init__(parent=parent)
 
         self.ui = go_to_page_dialog_ui.Ui_GoPageDialog()
         self.ui.setupUi(self)
 
-        self.controller = controller
-        self.model = controller.model
-        self.ui.spin_box_go_page.setValue(
-            self.model.comic_page_handler.get_current_page_number())
-        self.change_label_image()
-        self.line_edit_current_page = 0
+        page_qty = comic_handler.comic.get_number_of_pages()
+        page_number = comic_handler.get_current_page().number
 
-    def accept(self, *args, **kwargs):
-        self.model.set_current_page_index(self.ui.spin_box_go_page.value() - 1)
-        self.controller.update_viewer_content()
-        super(GoToDialog, self).accept(*args, **kwargs)
+        self.model_handler = comic_handler
+        self.handler = ComicPageHandlerSinglePage(comic_handler.comic,
+                                                  initial_page=page_number - 1)
 
-    def rejected(self, *args, **kwargs):
-        self.model.set_current_page_index(self.line_edit_current_page)
-        super(GoToDialog, self).rejected(*args, **kwargs)
+        self.last_page = page_number
 
-    def change_label_image(self):
-        self.model.set_current_page_index(self.ui.spin_box_go_page.value() - 1)
-        image_page = self.model.get_current_page()
-        image_page = image_page.scaledToHeight(
-            self.height() * 0.6, QtCore.Qt.SmoothTransformation)
+        self.ui.total_page_label.setText(self.tr('of %d') % page_qty)
 
-        self.ui.page_label.setPixmap(image_page)
+        self.ui.horizontal_slider.setMaximum(page_qty)
+        self.ui.spin_box_go_page.setMaximum(page_qty)
+
+        self.ui.spin_box_go_page.setValue(page_number)
 
     def update(self):
-        self.change_label_image()
+
+        step_qty = abs(self.ui.horizontal_slider.value() - self.last_page)
+
+        if self.last_page < self.ui.horizontal_slider.value():
+
+            for i in range(step_qty):
+                self.handler.go_next_page()
+
+        else:
+            for i in range(step_qty):
+                self.handler.go_previous_page()
+
+        self.last_page = self.ui.spin_box_go_page.value()
+
+        image_page = self.handler.get_current_page_image()
+        image_page = image_page.scaledToHeight(self.height() * 0.6,
+                                               QtCore.Qt.SmoothTransformation)
+        self.ui.page_label.setPixmap(image_page)
+
         super(GoToDialog, self).update()
 
     def show(self):
-        current_page_idx = self.model.get_current_page_index()
-        num_page = self.model.comic.get_number_of_pages()
-
-        self.line_edit_current_page = current_page_idx + 1
-
-        self.ui.spin_box_go_page.setValue(current_page_idx + 1)
-        self.ui.spin_box_go_page.setMaximum(num_page)
-        self.ui.horizontal_slider.setMaximum(num_page)
-        self.ui.total_page_label.setText('of %d' % num_page)
-
+        self.update()
         super(GoToDialog, self).show()
