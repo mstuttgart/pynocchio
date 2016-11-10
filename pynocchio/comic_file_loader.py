@@ -57,34 +57,29 @@ class ComicRarLoader(ComicLoader):
         super(ComicRarLoader, self).__init__(extension)
 
     def load(self, file_name):
-        try:
-            rar = rarfile.RarFile(file_name, 'r')
-        except rarfile.RarOpenError as exception:
-            raise InvalidTypeFileException(exception.message)
-        except IOError as exception:
-            raise LoadComicsException(exception.strerror)
 
-        name_list = rar.namelist()
-        name_list.sort()
-        aux = 100.0 / len(name_list)
-        page_number = 1
-        self.data = []
+        with rarfile.RarFile(file_name, 'r') as rar:
 
-        for idx, name in enumerate(name_list):
+            name_list = rar.namelist()
+            name_list.sort()
+            aux = 100.0 / len(name_list)
+            page_number = 1
+            self.data = []
 
-            if Utility.get_file_extension(name).lower() in self.extension:
-                try:
-                    self.data.append(Page(rar.read(name), name, page_number))
-                    page_number += 1
-                except rarfile.BadRarFile as exc:
-                    logger.exception('Error in read %s file. ' % name)
+            for idx, name in enumerate(name_list):
 
-            self.progress.emit(idx * aux)
+                if Utility.get_file_extension(name).lower() in self.extension:
+                    try:
+                        self.data.append(Page(rar.read(name), name, page_number))
+                        page_number += 1
+                    except rarfile.BadRarFile as exc:
+                        logger.exception('Error in read %s file. %s' % (name,
+                                                                        exc))
 
-        rar.close()
+                self.progress.emit(idx * aux)
 
-        if not self.data:
-            raise NoDataFindException
+            if not self.data:
+                raise NoDataFindException
 
     @staticmethod
     def type_verify(file_name):
@@ -98,36 +93,27 @@ class ComicZipLoader(ComicLoader):
 
     def load(self, file_name):
 
-        try:
-            zf = zipfile.ZipFile(file_name, 'r')
-        except zipfile.BadZipfile as exception:
-            raise InvalidTypeFileException(exception.message)
-        except zipfile.LargeZipFile as exception:
-            raise LoadComicsException(exception.message)
-        except IOError as exception:
-            raise LoadComicsException(exception.message)
+        with zipfile.ZipFile(file_name, 'r') as zf:
 
-        name_list = zf.namelist()
-        name_list.sort()
-        aux = 100.0 / len(name_list)
-        page_number = 1
-        self.data = []
+            name_list = zf.namelist()
+            name_list.sort()
+            aux = 100.0 / len(name_list)
+            page_number = 1
+            self.data = []
 
-        for idx, name in enumerate(name_list):
+            for idx, name in enumerate(name_list):
 
-            if Utility.get_file_extension(name).lower() in self.extension:
-                try:
-                    self.data.append(Page(zf.read(name), name, page_number))
-                    page_number += 1
-                except zipfile.BadZipfile as exc:
-                    logger.exception('Error in read %s file' % name)
+                if Utility.get_file_extension(name).lower() in self.extension:
+                    try:
+                        self.data.append(Page(zf.read(name), name, page_number))
+                        page_number += 1
+                    except zipfile.BadZipfile as exc:
+                        logger.exception('Error in read %s file' % name)
 
-            self.progress.emit(idx * aux)
+                self.progress.emit(idx * aux)
 
-        zf.close()
-
-        if not self.data:
-            raise NoDataFindException('No one file is loaded!')
+            if not self.data:
+                raise NoDataFindException('No one file is loaded!')
 
     @staticmethod
     def type_verify(file_name):
@@ -141,37 +127,30 @@ class ComicTarLoader(ComicLoader):
 
     def load(self, file_name):
 
-        try:
-            tar = tarfile.open(file_name, 'r')
-        except tarfile.CompressionError as exception:
-            raise InvalidTypeFileException(exception.message)
-        except IOError as exception:
-            raise LoadComicsException(exception.message)
+        with tarfile.open(file_name, 'r') as tar:
 
-        name_list = tar.getnames()
-        name_list.sort()
-        aux = 100.0 / len(name_list)
-        page_number = 1
-        self.data = []
+            name_list = tar.getnames()
+            name_list.sort()
+            aux = 100.0 / len(name_list)
+            page_number = 1
+            self.data = []
 
-        for idx, name in enumerate(name_list):
+            for idx, name in enumerate(name_list):
 
-            if Utility.get_file_extension(name).lower() in self.extension:
-                try:
-                    data = tar.extractfile(name).read()
-                    self.data.append(Page(data, name, page_number))
-                    page_number += 1
-                except tarfile.ExtractError as err:
-                    logger.exception('%20s' % name)
-                except tarfile.ReadError as err:
-                    logger.exception('%20s' % name)
+                if Utility.get_file_extension(name).lower() in self.extension:
+                    try:
+                        data = tar.extractfile(name).read()
+                        self.data.append(Page(data, name, page_number))
+                        page_number += 1
+                    except tarfile.ExtractError as err:
+                        logger.exception('%20s' % name)
+                    except tarfile.ReadError as err:
+                        logger.exception('%20s' % name)
 
-            self.progress.emit(idx * aux)
+                self.progress.emit(idx * aux)
 
-        tar.close()
-
-        if not self.data:
-            raise NoDataFindException
+            if not self.data:
+                raise NoDataFindException
 
     @staticmethod
     def type_verify(file_name):
@@ -204,10 +183,10 @@ class ComicFolderLoader(ComicLoader):
         for idx, name in enumerate(file_list):
 
             if Utility.get_file_extension(name).lower() in self.extension:
-                img_file = open(Utility.join_path(dir_name, '', name), 'r')
-                self.data.append(Page(img_file.read(), name, page_number))
-                page_number += 1
-                img_file.close()
+
+                with open(Utility.join_path(dir_name, '', name), 'r') as img_file:
+                    self.data.append(Page(img_file.read(), name, page_number))
+                    page_number += 1
 
             self.progress.emit(idx * aux)
 
