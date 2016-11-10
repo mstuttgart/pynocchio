@@ -20,17 +20,18 @@ from pynocchio.exception import DependenceNotFoundException
 try:
     import rarfile
 except ImportError as err:
-    msg = 'rarfile module not installed.\n' \
-          'you not can load .rar and .cbr files.' \
-          'Please install it using: sudo pip install rarfile\n'
+    msg = """"rarfile module not installed.
+          you not can load .rar and .cbr files.
+          Please install it using: sudo pip install rarfile"""
     raise DependenceNotFoundException(msg)
 
 from .compact_file_loader import Loader
-from pynocchio.utility import Utility
-from pynocchio.page import Page
-from pynocchio.exception import LoadComicsException
-from pynocchio.exception import InvalidTypeFileException
-from pynocchio.exception import NoDataFindException
+from .utility import Utility
+from .page import Page
+from .exception import LoadComicsException
+from .exception import InvalidTypeFileException
+from .exception import NoDataFindException
+
 import logging
 
 logger = logging.getLogger(__name__)

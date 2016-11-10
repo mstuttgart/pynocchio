@@ -16,12 +16,12 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-import logging
-
 from PyQt5 import QtCore, QtGui, QtWidgets, QtSql
 
-from pynocchio.utility import Utility
+from .utility import Utility
 from .uic_files import bookmark_manager_dialog_ui
+
+import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 

@@ -17,8 +17,8 @@
 
 import glob
 
-from pynocchio.exception import NoDataFindException
-from pynocchio.utility import Utility
+from .exception import NoDataFindException
+from .utility import Utility
 from .compact_file_loader import Loader
 from .page import Page
 

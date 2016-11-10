@@ -18,10 +18,10 @@
 import logging
 import tarfile
 
-from pynocchio.exception import InvalidTypeFileException
-from pynocchio.exception import LoadComicsException
-from pynocchio.exception import NoDataFindException
-from pynocchio.utility import Utility
+from .exception import InvalidTypeFileException
+from .exception import LoadComicsException
+from .exception import NoDataFindException
+from .utility import Utility
 from .compact_file_loader import Loader
 from .page import Page
 

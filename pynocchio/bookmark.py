@@ -17,7 +17,7 @@
 
 import peewee
 
-from pynocchio.utility import Utility
+from .utility import Utility
 from .settings_manager import SettingsManager
 
 
