@@ -23,7 +23,7 @@ from PyQt5 import QtCore, QtGui
 from .exception import NoDataFindException
 from .utility import Utility
 from .bookmark_database_manager import BookmarkManager
-from .compact_file_loader_factory import LoaderFactory
+from .comic_file_loader_factory import ComicLoaderFactory
 from .comic import Comic
 # from .comic_page_handler import ComicPageHandler
 from .comic_page_handler_factory import ComicPageHandlerFactory
@@ -79,7 +79,7 @@ class MainWindowModel(QtCore.QObject):
         image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
                             '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
 
-        loader = LoaderFactory.create_loader(filename, set(image_extensions))
+        loader = ComicLoaderFactory.create_loader(filename, set(image_extensions))
         loader.progress.connect(self.load_progressbar_value)
 
         try:

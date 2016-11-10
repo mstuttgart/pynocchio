@@ -32,3 +32,4 @@ class Comic:
 
     def get_path(self):
         return self.directory + '/' + self.name
+

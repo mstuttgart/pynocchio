@@ -17,19 +17,20 @@
 
 from .exception import InvalidTypeFileException
 from .utility import Utility
-from .compact_file_loader_rar import RarLoader
-from .compact_file_loader_tar import TarLoader
-from .compact_file_loader_zip import ZipLoader
-from .compact_folder_loader import FolderLoader
+from .comic_file_loader import ComicZipLoader
+from .comic_file_loader import ComicRarLoader
+from .comic_file_loader import ComicTarLoader
+from .comic_file_loader import ComicFolderLoader
 
 
-class LoaderFactory:
+class ComicLoaderFactory:
+
     @staticmethod
     def create_loader(filename, data_extension):
 
         if Utility.is_file(file_name=filename):
 
-            loaders = [ZipLoader, RarLoader, TarLoader]
+            loaders = [ComicZipLoader, ComicRarLoader, ComicTarLoader]
 
             # Return appropriate loader by with file compact coding
             for loader in loaders:
@@ -40,7 +41,7 @@ class LoaderFactory:
                                            Utility.get_file_extension(
                                                filename))
         elif Utility.is_dir(filename):
-            return FolderLoader(data_extension)
+            return ComicFolderLoader(data_extension)
         else:
             raise InvalidTypeFileException('Invalid file extension: %s' %
                                            Utility.get_file_extension(
