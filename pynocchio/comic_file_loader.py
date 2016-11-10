@@ -20,15 +20,8 @@ from PyQt5 import QtCore
 import glob
 import logging
 import zipfile
+import rarfile
 import tarfile
-
-try:
-    import rarfile
-except ImportError as err:
-    msg = """"rarfile module not installed.
-          you not can load .rar and .cbr files.
-          Please install it using: sudo pip install rarfile"""
-    raise DependenceNotFoundException(msg)
 
 from .utility import Utility
 from .page import Page
