@@ -23,6 +23,10 @@ from .exception import NoDataFindException
 from .utility import Utility
 from .uic_files import main_window_view_ui
 
+from .go_to_page_dialog import GoToDialog
+from .bookmark_manager_dialog import BookmarkManagerDialog
+from .about_dialog import AboutDialog
+
 import os
 import logging
 
@@ -150,7 +154,6 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
-        from .go_to_page_dialog import GoToDialog
         go_to_dlg = GoToDialog(self.model.comic_page_handler, parent=self)
         go_to_dlg.show()
         ret = go_to_dlg.exec_()
@@ -173,7 +176,6 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_bookmark_manager_triggered(self):
-        from .bookmark_manager_dialog import BookmarkManagerDialog
         bookmark_dialog = BookmarkManagerDialog(self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
@@ -242,8 +244,6 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
-        from .version import __version__
-        from .about_dialog import AboutDialog
         ab_dlg = AboutDialog(self)
         ab_dlg.show()
         ab_dlg.exec_()
@@ -514,10 +514,8 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.model.scroll_area_size = self.ui.qscroll_area_viewer.size()
         self.update_viewer_content()
 
-    # def get_current_view_container_size(self):
-    #     return self.ui.qscroll_area_viewer.size()
-
     def keyPressEvent(self, event):
+
         if event.key() == QtCore.Qt.Key_F:
             self.on_action_fullscreen_triggered()
 
