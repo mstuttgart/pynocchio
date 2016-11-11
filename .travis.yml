@@ -46,4 +46,4 @@ deploy:
     - "linuxmint/sara"
 
 after_success:
-- coveralls
+ - codecov
