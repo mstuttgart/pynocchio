@@ -79,7 +79,8 @@ class MainWindowModel(QtCore.QObject):
         image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
                             '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
 
-        loader = ComicLoaderFactory.create_loader(filename, set(image_extensions))
+        loader = ComicLoaderFactory.create_loader(filename,
+                                                  set(image_extensions))
         loader.progress.connect(self.load_progressbar_value)
 
         try:
@@ -106,20 +107,16 @@ class MainWindowModel(QtCore.QObject):
         self.get_current_page().save(file_name)
 
     def next_page(self):
-        if self.comic_page_handler:
-            self.comic_page_handler.go_next_page()
+        self.comic_page_handler.go_next_page()
 
     def previous_page(self):
-        if self.comic_page_handler:
-            self.comic_page_handler.go_previous_page()
+        self.comic_page_handler.go_previous_page()
 
     def first_page(self):
-        if self.comic_page_handler:
-            self.comic_page_handler.go_first_page()
+        self.comic_page_handler.go_first_page()
 
     def last_page(self):
-        if self.comic_page_handler:
-            self.comic_page_handler.go_last_page()
+        self.comic_page_handler.go_last_page()
 
     def previous_comic(self):
         return self.comic_file_filter.get_previous_comic(self.comic.name)
@@ -134,55 +131,45 @@ class MainWindowModel(QtCore.QObject):
         self.rotate_angle = (self.rotate_angle + 90) % 360
 
     def get_comic_name(self):
-        return self.comic.name if self.comic else ''
+        return self.comic.name
 
     def get_comic_path(self):
-        return self.comic.get_path() if self.comic else ''
+        return self.comic.get_path()
 
     def get_comic_title(self):
         return self.comic.name
 
     def get_current_page(self):
-
-        if self.comic:
-            # pix_map = QtGui.QPixmap()
-            # pix_map.loadFromData(self.comic.get_current_page().data)
+        try:
             pix_map = self.comic_page_handler.get_current_page_image()
-            # pix_map = self.comic.get_current_page().pixmap
+        except AttributeError:
+            return None
+        else:
             pix_map = self._rotate_page(pix_map)
             pix_map = self._resize_page(pix_map)
             return pix_map
 
-        return None
-
     def get_current_page_title(self):
-        return self.comic_page_handler.get_current_page().title if self.comic_page_handler else ''
+        return self.comic_page_handler.get_current_page().title
 
     def set_current_page_index(self, idx):
-        if self.comic_page_handler:
-            self.comic_page_handler.set_current_page_index(idx)
+        self.comic_page_handler.set_current_page_index(idx)
 
     def get_current_page_index(self):
-        return self.comic_page_handler.current_page_index if self.comic_page_handler else -1
+        return self.comic_page_handler.current_page_index
 
     def get_current_page_number(self):
-        return self.comic_page_handler.get_current_page().number if self.comic_page_handler else -1
+        return self.comic_page_handler.get_current_page().number
 
     def get_number_of_pages(self):
         return self.comic.get_number_of_pages()
 
     def is_first_page(self):
-        if self.comic_page_handler and self.comic_page_handler.current_page_index == 0:
-            return True
-        else:
-            return False
+        return self.comic_page_handler.current_page_index == 0
 
     def is_last_page(self):
-        if self.comic and self.comic_page_handler.current_page_index + 1 == \
-                self.comic.get_number_of_pages():
-            return True
-        else:
-            return False
+        return self.comic_page_handler.current_page_index + 1 == \
+               self.comic.get_number_of_pages()
 
     def is_first_comic(self):
         return self.comic_file_filter.is_first_comic(self.comic.name)
@@ -246,34 +233,21 @@ class MainWindowModel(QtCore.QObject):
 
     @staticmethod
     def get_bookmark_list(qty):
-        BookmarkManager.connect()
-        bookmark_list = BookmarkManager.get_bookmarks(qty)
-        BookmarkManager.close()
-        return bookmark_list
+        return BookmarkManager.get_bookmarks(qty)
 
     def is_bookmark(self):
-        BookmarkManager.connect()
-        is_bookmark = BookmarkManager.is_bookmark(self.comic.get_path())
-        BookmarkManager.close()
-        return is_bookmark
+        return BookmarkManager.is_bookmark(self.comic.get_path())
 
     @staticmethod
     def get_bookmark_from_path(path):
-        BookmarkManager.connect()
-        bookmark = BookmarkManager.get_bookmark_by_path(path)
-        BookmarkManager.close()
-        return bookmark
+        return BookmarkManager.get_bookmark_by_path(path)
 
     def add_bookmark(self):
-        if self.comic:
-            BookmarkManager.connect()
-            BookmarkManager.add_bookmark(self.comic.name,
-                                         self.comic.get_path(),
-                                         self.comic_page_handler.get_current_page().number,
-                                         self.comic_page_handler.get_current_page().data)
-            BookmarkManager.close()
+        BookmarkManager.add_bookmark(self.comic.name,
+                                     self.comic.get_path(),
+                                     self.comic_page_handler.get_current_page().number,
+                                     self.comic_page_handler.get_current_page().data)
 
-    def remove_bookmark(self, path):
-        BookmarkManager.connect()
+    @staticmethod
+    def remove_bookmark(path):
         BookmarkManager.remove_bookmark(path)
-        BookmarkManager.close()
