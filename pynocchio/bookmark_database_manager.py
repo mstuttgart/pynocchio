@@ -41,7 +41,7 @@ class BookmarkManager(BookmarkBaseModel):
 
     @staticmethod
     def add_bookmark(name, path, page, data):
-
+        BookmarkManager.connect()
         try:
             q = Bookmark.insert(comic_name=name, comic_path=path,
                                 comic_page=page, page_data=data)
@@ -52,15 +52,18 @@ class BookmarkManager(BookmarkBaseModel):
                 Bookmark.comic_path == path)
             q.execute()
             logger.info('Bookmark updated')
+        BookmarkManager.close()
 
     @staticmethod
     def remove_bookmark(path):
+        BookmarkManager.connect()
         try:
             q = Bookmark.delete().where(Bookmark.comic_path == path)
             q.execute()
             logger.info('Bookmark deleted.')
         except IntegrityError:
             logger.exception('Bookmark not find!')
+        BookmarkManager.close()
 
     @staticmethod
     def get_bookmarks(rows_number):
@@ -70,11 +73,15 @@ class BookmarkManager(BookmarkBaseModel):
 
     @staticmethod
     def get_bookmark_by_path(path):
+        BookmarkManager.connect()
         bk_list = Bookmark.select().where(Bookmark.comic_path == path)
+        BookmarkManager.close()
         return bk_list[0] if bk_list else None
 
     @staticmethod
     def is_bookmark(path):
+        BookmarkManager.connect()
         bk_list = Bookmark.select().where(Bookmark.comic_path == path)
+        BookmarkManager.close()
         return True if bk_list else False
 
