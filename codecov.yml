@@ -1,0 +1,17 @@
+codecov:
+  notify:
+    require_ci_to_pass: true
+comment:
+  behavior: default
+  layout: header, diff
+  require_changes: false
+coverage:
+  precision: 2
+  range:
+  - 70.0
+  - 100.0
+  round: down
+  ignore:    # files and folders that will be removed during processing
+    - "tests/*"
+    - "pynocchio/uic_files/*_ui.py"
+
