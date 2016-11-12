@@ -21,7 +21,7 @@ from .utility import Utility
 from .settings_manager import SettingsManager
 
 
-# get settings path. In Linux is .config/Pynocchio Comic Reader
+# get settings path. In Linux is .config/Pynocchio
 def get_settings_path():
     path = Utility.get_dir_name(SettingsManager().settings.fileName())
     return path + '/bookmark.db'

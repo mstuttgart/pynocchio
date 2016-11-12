@@ -16,16 +16,14 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/
 #
 
-import logging
-
 from PyQt5 import QtCore, QtGui
+import logging
 
 from .exception import NoDataFindException
 from .utility import Utility
 from .bookmark_database_manager import BookmarkManager
 from .comic_file_loader_factory import ComicLoaderFactory
 from .comic import Comic
-# from .comic_page_handler import ComicPageHandler
 from .comic_page_handler_factory import ComicPageHandlerFactory
 from .comic_path_filter import ComicPathFilter
 from .settings_manager import SettingsManager
@@ -62,14 +60,8 @@ class MainWindowModel(QtCore.QObject):
     def load_recent_files(self):
         return self.settings_manager.load_recent_files()
 
-    def save_view_adjust(self, object_name):
-        self.settings_manager.save_view_adjust(object_name)
-
     def load_view_adjust(self, default_object_name):
         return self.settings_manager.load_view_adjust(default_object_name)
-
-    def save_current_directory(self, current_directory):
-        self.settings_manager.save_current_directory(current_directory)
 
     def load_current_directory(self):
         return self.settings_manager.load_current_directory()
@@ -228,8 +220,8 @@ class MainWindowModel(QtCore.QObject):
         self.load_done.emit()
 
     def save_settings(self):
-        self.save_view_adjust(self.fit_type)
-        self.save_current_directory(self.current_directory)
+        self.settings_manager.save_view_adjust(self.fit_type)
+        self.settings_manager.save_current_directory(self.current_directory)
 
     @staticmethod
     def get_bookmark_list(qty):

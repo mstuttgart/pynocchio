@@ -22,7 +22,7 @@ from pynocchio.page import Page
 from pynocchio.comic_page_handler import ComicPageHandler
 
 
-class TestComic(TestCase):
+class TestComicPageHandler(TestCase):
 
     def setUp(self):
         TestCase.setUp(self)

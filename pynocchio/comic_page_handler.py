@@ -23,6 +23,7 @@ from .page import Page
 
 
 class ComicPageHandler:
+
     def __init__(self, comic, index=0):
         self.comic = comic
         self.current_page_index = index
@@ -53,6 +54,7 @@ class ComicPageHandler:
 
 
 class ComicPageHandlerSinglePage(ComicPageHandler):
+
     def get_current_page_image(self):
         pix_map = QtGui.QPixmap()
         pix_map.loadFromData(self.get_current_page().data)
@@ -60,6 +62,7 @@ class ComicPageHandlerSinglePage(ComicPageHandler):
 
 
 class ComicPageHandlerDoublePage(ComicPageHandler):
+
     def go_next_page(self):
         if self.current_page_index < self.comic.get_number_of_pages() - 2:
             self.current_page_index += 2
