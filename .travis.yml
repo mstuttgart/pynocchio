@@ -9,6 +9,7 @@ dist: trusty
 install:
   - pip3 install -r requirements-dev.txt
   - sudo apt-get install upx
+  - pip install codacy-coverage
 
 before_script:
 - export DISPLAY=:99.0
@@ -17,6 +18,7 @@ before_script:
 
 script:
 - coverage run setup.py test
+- coverage xml
 - python setup.py build_deb
 - sudo dpkg -i pynocchio*.deb
 
@@ -47,3 +49,4 @@ deploy:
 
 after_success:
  - codecov
+ - python-codacy-coverage -r coverage.xml
