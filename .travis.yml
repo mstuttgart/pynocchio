@@ -49,4 +49,4 @@ deploy:
 
 after_success:
  - codecov
- - python-codacy-coverage $TRAVIS_COMMIT -r coverage.xml
+ - python-codacy-coverage -c $TRAVIS_COMMIT -r coverage.xml
