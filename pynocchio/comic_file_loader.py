@@ -141,10 +141,12 @@ class ComicTarLoader(ComicLoader):
                         data = tar.extractfile(name).read()
                         self.data.append(Page(data, name, page))
                         page += 1
-                    except tarfile.ExtractError as err:
-                        logger.exception('%20s' % name)
-                    except tarfile.ReadError as err:
-                        logger.exception('%20s' % name)
+                    except tarfile.ExtractError as exc:
+                        logger.exception('Error in extract %s file. %s' %
+                                         (name, exc))
+                    except tarfile.ReadError as exc:
+                        logger.exception('Error in read %s file. %s' % (name,
+                                                                        exc))
 
                 self.progress.emit(idx * aux)
 
