@@ -1,12 +1,12 @@
 Pynocchio Comic Reader
 ==================
-[![Build Status](https://travis-ci.org/pynocchio/pynocchio.svg?branch=master)](https://travis-ci.org/pynocchio/pynocchio)
-[![codecov](https://codecov.io/gh/pynocchio/pynocchio/branch/develop/graph/badge.svg)](https://codecov.io/gh/pynocchio/pynocchio)
+[![Travis branch](https://img.shields.io/travis/pynocchio/pynocchio/develop.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
+[![Codacy branch grade](https://img.shields.io/codacy/grade/9580e875252d429597886e7d0861d652/develop.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
 [![Code Health](https://landscape.io/github/pynocchio/pynocchio/develop/landscape.svg?style=flat)](https://landscape.io/github/pynocchio/pynocchio/master)
-[![GitHub issues](https://img.shields.io/github/issues/pynocchio/pynocchio.svg)](https://github.com/pynocchio/pynocchio)
-[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?maxAge=2592000?style=plastic)](https://github.com/pynocchio/pynocchio)
-[![Github All Releases](https://img.shields.io/github/downloads/pynocchio/pynocchio/total.svg)]()
-[![AUR](https://img.shields.io/aur/license/yaourt.svg?maxAge=2592000?style=plastic)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
+[![GitHub issues](https://img.shields.io/github/issues/pynocchio/pynocchio.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
+[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
+[![Github Releases](https://img.shields.io/github/downloads/pynocchio/pynocchio/latest/total.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
+[![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg?style=flat-square)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 
 Pynocchio is a image viewer specialized in manga/comic reading developed on
 PyQt5 API.
