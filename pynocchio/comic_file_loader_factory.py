@@ -43,6 +43,6 @@ class ComicLoaderFactory:
         elif Utility.is_dir(filename):
             return ComicFolderLoader(data_extension)
         else:
-            raise InvalidTypeFileException('Invalid file extension: %s' %
+            raise InvalidTypeFileException('File is not folder: %s' %
                                            Utility.get_file_extension(
                                                filename))

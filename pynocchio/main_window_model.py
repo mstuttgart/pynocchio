@@ -79,7 +79,7 @@ class MainWindowModel(QtCore.QObject):
             loader.load(filename)
         except NoDataFindException as exc:
             from pynocchio.page import Page
-            logger.exception('Error in load comic')
+            logger.exception('Error in load comic! %s' % exc)
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))

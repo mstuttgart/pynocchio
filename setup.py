@@ -16,9 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from setuptools import setup, find_packages
-import distutils.log
 import os
-import re
 import sys
 
 from pynocchio.version import __version__

@@ -26,12 +26,6 @@ class PynocchioBaseException(Exception):
         return repr(self.message)
 
 
-class LoadComicsException(PynocchioBaseException):
-
-    def __str__(self):
-        return repr(self.message)
-
-
 class InvalidTypeFileException(PynocchioBaseException):
 
     def __str__(self):

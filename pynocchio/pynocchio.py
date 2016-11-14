@@ -18,7 +18,6 @@
 from PyQt5 import QtCore, QtWidgets
 import sys
 import os
-import qdarkstyle
 
 from .main_window_model import MainWindowModel
 from .main_window_view import MainWindowView
@@ -72,7 +71,6 @@ class Pynocchio(QtWidgets.QApplication):
         self.view.show()
 
         if len(sys.argv) > 1:
-            a = sys.argv
             filename = ''
             for s in sys.argv[1:]:
                 filename += s

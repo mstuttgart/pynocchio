@@ -16,10 +16,7 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/
 #
 
-from PyQt5 import QtCore, QtGui
-
-from .comic import Comic
-from .page import Page
+from PyQt5 import QtGui
 
 
 class ComicPageHandler:
@@ -84,18 +81,20 @@ class ComicPageHandlerDoublePage(ComicPageHandler):
             page_right.loadFromData(
                 self.comic.pages[self.current_page_index + 1].data)
 
+        except IndexError:
+            width = page_left.width()
+            height = page_left.height()
+        else:
             if page_left.height() < page_right.height():
                 height = page_right.height()
             else:
                 height = page_left.height()
 
+            page_right, page_left = page_left, page_right
+
             width = page_left.width() + page_right.width()
 
             pages.append([page_left.width(), 0, page_right])
-
-        except IndexError:
-            width = page_left.width()
-            height = page_left.height()
 
         pages.append([0, 0, page_left])
 

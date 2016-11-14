@@ -18,7 +18,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from .exception import InvalidTypeFileException
-from .exception import LoadComicsException
 from .exception import NoDataFindException
 from .utility import Utility
 from .uic_files import main_window_view_ui
@@ -27,7 +26,6 @@ from .go_to_page_dialog import GoToDialog
 from .bookmark_manager_dialog import BookmarkManagerDialog
 from .about_dialog import AboutDialog
 
-import os
 import logging
 
 logging.basicConfig(level=logging.INFO)
