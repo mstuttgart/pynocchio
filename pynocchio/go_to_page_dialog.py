@@ -49,13 +49,12 @@ class GoToDialog(QtWidgets.QDialog):
         step_qty = abs(self.ui.horizontal_slider.value() - self.last_page)
 
         if self.last_page < self.ui.horizontal_slider.value():
-
-            for i in range(step_qty):
-                self.handler.go_next_page()
-
+            go_action = self.handler.go_next_page
         else:
-            for i in range(step_qty):
-                self.handler.go_previous_page()
+            go_action = self.handler.go_previous_page
+
+        for go in [go_action] * step_qty:
+            go()
 
         self.last_page = self.ui.spin_box_go_page.value()
 
