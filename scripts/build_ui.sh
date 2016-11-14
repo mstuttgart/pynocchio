@@ -12,7 +12,7 @@
 #
 ################################################################################
 
-echo "\n---- Start script ----"
+printf "\n---- Start script ----\n"
 
 #--------------------------------------------------
 # Define variables
@@ -28,39 +28,38 @@ resource_destiny="pynocchio/uic_files"
 # Scan directories and scan for .ui and .qrc files
 #--------------------------------------------------
 
-echo "\n---- Search by .ui files in ${forms_src} folder ----\n"
+printf "\n---- Search by .ui files in ${forms_src} folder ----\n\n"
 
 form_list=$(find -iname *.ui)
-echo "${form_list}"
+printf "${form_list}\n"
 
-echo "\n---- Search by .qrc files in ${resource_src} folder ----\n"
+printf "\n---- Search by .qrc files in ${resource_src} folder ----\n\n"
 
 resource_list=$(find -iname *.qrc)
-echo "${resource_list}"
 
-echo "\n---- Compile .ui files. The compiled will be store in \"${forms_destiny}\" folder ----\n"
+printf "${resource_list}\n"
+
+printf "\n---- Compile .ui files. The compiled will be store in \"${forms_destiny}\" folder ----\n\n"
 
 for filename in ${form_list}; do
     pyuic5 --from-imports ${filename} -o ${forms_destiny}/$(basename ${filename} .ui)_ui.py
     if [ $? = 0 ]; then
-        echo "Compile ${filename} file successfully!!"
+        printf "Compile ${filename} file successfully!!\n"
     else
-        echo "Compile ${filename} file failed!!"
+        printf "Compile ${filename} file failed!!\n"
     fi
 done
 
-#echo "\n---- Compile .ui files successfully!! ----\n"
-
-echo "\n---- Compile .qrc files.  The compiled will be store in \"${resource_destiny}\" folder ----\n"
+printf "\n---- Compile .qrc files.  The compiled will be store in \"${resource_destiny}\" folder ----\n\n"
 
 for filename in ${resource_list}; do
     pyrcc5 ${filename} -o ${resource_destiny}/$(basename ${filename} .qrc)_rc.py
     if [ $? = 0 ]; then
-        echo "Compile ${filename} file successfully!!"
+        printf "Compile ${filename} file successfully!!\n"
 
     else
-        echo "Compile ${filename} file failed!!"
+        printf "Compile ${filename} file failed!!\n"
     fi
 done
 
-echo "\n---- Compile .qrc files successfully!! ----\n"
+printf "\n---- Compile .qrc files successfully!! ----\n\n"

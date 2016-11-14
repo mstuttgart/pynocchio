@@ -12,7 +12,7 @@
 #
 ################################################################################
 
-echo "\n---- Start script ----"
+printf "\n---- Start script ----\n"
 
 #--------------------------------------------------
 # Define variables
@@ -28,17 +28,17 @@ package_name="pynocchio_${package_version}_amd64.deb"
 # Create the executable with PyInstaller
 #--------------------------------------------------
 
-echo "\n---- Run PyInstaller ----"
+printf "\n---- Run PyInstaller ----\n"
 pyinstaller pynocchio.spec
 
 #--------------------------------------------------
 # Create the package directory tree to .deb package
 #--------------------------------------------------
 
-echo "\n---- Create ${build_deb_folder}/DEBIAN folder ----"
+printf "\n---- Create ${build_deb_folder}/DEBIAN folder ----\n"
 mkdir -p ${build_deb_folder}/DEBIAN
 
-echo "\n---- Mount .deb package directory tree ----"
+printf "\n---- Mount .deb package directory tree ----\n"
 mkdir -p ${build_deb_folder}/usr/share
 mkdir -p ${build_deb_folder}/usr/bin
 mkdir -p ${build_deb_folder}/usr/share/pynocchio
@@ -52,14 +52,14 @@ cp ${dist}/* ${build_deb_folder}/usr/bin
 cp linux/control ${build_deb_folder}/DEBIAN
 cp linux/changelog ${build_deb_folder}/DEBIAN
 
-echo "\n---- Build ${package_name} package ----"
+printf "\n---- Build ${package_name} package ----\n"
 dpkg --build ${build_deb_folder}/ ${package_name}
 
 #--------------------------------------------------
 # Clean directory
 #--------------------------------------------------
 
-echo "\n---- Remove ${build}, ${dist} and ${build_deb_folder} ----"
+printf "\n---- Remove ${build}, ${dist} and ${build_deb_folder} ----\n"
 rm -rf ${build}
 rm -rf ${dist}
 rm -rf ${build_deb_folder}
