@@ -2,7 +2,6 @@ Pynocchio Comic Reader
 ==================
 [![Travis branch](https://img.shields.io/travis/pynocchio/pynocchio/develop.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
 [![Codacy branch grade](https://img.shields.io/codacy/grade/9580e875252d429597886e7d0861d652/develop.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
-[![Code Health](https://landscape.io/github/pynocchio/pynocchio/develop/landscape.svg?style=flat)](https://landscape.io/github/pynocchio/pynocchio/master)
 [![GitHub issues](https://img.shields.io/github/issues/pynocchio/pynocchio.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
 [![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
 [![Github Releases](https://img.shields.io/github/downloads/pynocchio/pynocchio/latest/total.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
