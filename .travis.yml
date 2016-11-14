@@ -48,5 +48,4 @@ deploy:
     - "linuxmint/sara"
 
 after_success:
- - codecov
  - python-codacy-coverage -c $TRAVIS_COMMIT -r coverage.xml
