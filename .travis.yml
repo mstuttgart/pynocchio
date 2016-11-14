@@ -9,6 +9,7 @@ dist: trusty
 install:
   - pip3 install -r requirements-dev.txt
   - sudo apt-get install upx
+  - pip install coveralls
   - pip install codacy-coverage
 
 before_script:
