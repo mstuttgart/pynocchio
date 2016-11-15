@@ -17,8 +17,8 @@
 
 from .version import __version__
 
-__title__ = 'Pynocchio Comic Reader'
+__title__ = 'Pynocchio'
 __author__ = 'Michell Stuttgart Faria'
-__license__ = 'GPL v3'
+__license__ = 'GPL-v3'
 __copyright__ = 'Copyright 2014-2016 Michell Stuttgart Faria'
 
