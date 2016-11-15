@@ -145,7 +145,7 @@ class MainWindowModel(QtCore.QObject):
         return self.comic_page_handler.get_current_page().title
 
     def set_current_page_index(self, idx):
-        self.comic_page_handler.set_current_page_index(idx)
+        self.comic_page_handler.current_page_index = idx
 
     def get_current_page_index(self):
         return self.comic_page_handler.current_page_index
