@@ -1,12 +1,10 @@
 Pynocchio Comic Reader
 ==================
-[![Travis branch](https://img.shields.io/travis/pynocchio/pynocchio/develop.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
-[![Codacy coverage](https://img.shields.io/codacy/coverage/a7dfde0bb92a486796cadbe70a036d09/develop.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
-[![Codacy branch grade](https://img.shields.io/codacy/grade/a7dfde0bb92a486796cadbe70a036d09/develop.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
-[![GitHub issues](https://img.shields.io/github/issues/pynocchio/pynocchio.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
-[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
-[![Github Releases](https://img.shields.io/github/downloads/pynocchio/pynocchio/latest/total.svg?style=flat-square)](https://github.com/pynocchio/pynocchio)
-[![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg?style=flat-square)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
+[![Travis branch](https://img.shields.io/travis/pynocchio/pynocchio/develop.svg)](https://github.com/pynocchio/pynocchio)
+[![Codacy coverage](https://img.shields.io/codacy/coverage/a7dfde0bb92a486796cadbe70a036d09/develop.svg)](https://www.codacy.com/app/michellstut/pynocchio/dashboard)
+[![Codacy branch grade](https://img.shields.io/codacy/grade/a7dfde0bb92a486796cadbe70a036d09/develop.svg)](https://www.codacy.com/app/michellstut/pynocchio/dashboard)
+[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg)](https://github.com/pynocchio/pynocchio)
+[![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 
 Pynocchio is a image viewer specialized in manga/comic reading.
 
@@ -22,8 +20,6 @@ The current version is stable and we intend to improve it even more.
 * Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ.
 
 * Elegant visual, free and easy to use.
-
-![Ubunchu Manga by Hiroshi Seo (Seotch)](https://lh3.googleusercontent.com/-pedd53CIEtc/VwwYg1TpnoI/AAAAAAAAF04/gOJWtN5XZwYwQT_IBwYQEk-sYhqrw_owgCCo/s1152-Ic42/snapshot12.png)
 
 ### Install
 
