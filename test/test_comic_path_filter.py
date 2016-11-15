@@ -22,7 +22,8 @@ from pynocchio.comic_path_filter import ComicPathFilter
 from pynocchio.exception import NoDataFindException
 
 
-class PathComicFilterTest(TestCase):
+class TestComicPathFilter(TestCase):
+    
     def setUp(self):
         TestCase.setUp(self)
         self.obj = ComicPathFilter(["*.cbr", "*.cbz", "*.rar", "*.zip",
