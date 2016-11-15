@@ -4,12 +4,11 @@ python:
 - '3.5'
 
 sudo: required
-dist: trusty
+dist: xenial
 
 install:
   - pip3 install -r requirements.txt
   - sudo apt-get install upx
-  - pip install codacy-coverage
 
 before_script:
 - export DISPLAY=:99.0
