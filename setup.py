@@ -83,6 +83,7 @@ setup(
     install_requires=[
         'rarfile',
         'peewee',
+        'PyQt5',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
