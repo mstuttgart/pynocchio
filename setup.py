@@ -42,8 +42,6 @@ if sys.argv[-1] == 'publish':
     os.system("git push --tags")
     sys.exit()
 
-exec(open('pynocchio/version.py').read())
-
 setup(
     name='pynocchio',
     version=version,
