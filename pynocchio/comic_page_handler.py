@@ -23,7 +23,7 @@ class ComicPageHandler:
 
     def __init__(self, comic, index=0):
         self.comic = comic
-        self.current_page_index = index
+        self._current_page_index = index
 
     def get_current_page(self):
         return self.comic.pages[self.current_page_index]
@@ -42,9 +42,14 @@ class ComicPageHandler:
     def go_last_page(self):
         self.current_page_index = self.comic.get_number_of_pages() - 1
 
-    def set_current_page_index(self, idx):
-        if idx in range(self.comic.get_number_of_pages()):
-            self.current_page_index = idx
+    @property
+    def current_page_index(self):
+        return self._current_page_index
+
+    @current_page_index.setter
+    def current_page_index(self, idx):
+        if 0 <= idx < self.comic.get_number_of_pages():
+            self._current_page_index = idx
 
     def get_current_page_image(self):
         raise NotImplementedError('Must subclass me!')
