@@ -1,6 +1,0 @@
-[submodule "pynocchio/peewee"]
-	path = pynocchio/peewee
-	url = https://github.com/pynocchio/peewee.git
-[submodule "pynocchio/rarfile"]
-	path = pynocchio/rarfile
-	url = https://github.com/pynocchio/rarfile.git
