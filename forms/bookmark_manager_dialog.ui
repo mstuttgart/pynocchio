@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>750</width>
-    <height>436</height>
+    <width>776</width>
+    <height>441</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -24,7 +24,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../data/main_window_view.qrc">
-    <normaloff>:/icons/elementary3-icon-theme/apps/48/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/48/office-database.svg</iconset>
+    <normaloff>:/icons/icons/applications-libraries.svg</normaloff>:/icons/icons/applications-libraries.svg</iconset>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -85,91 +85,71 @@
       </widget>
      </item>
      <item>
-      <widget class="QFrame" name="verticalFrame">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <spacer name="vertical_spacer_top">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Expanding</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="page_image_label">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="../data/main_window_view.qrc">:/icons/pynocchio_icon.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="page_preview_label">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="font">
-           <font>
-            <italic>true</italic>
-           </font>
-          </property>
-          <property name="locale">
-           <locale language="English" country="UnitedStates"/>
-          </property>
-          <property name="text">
-           <string>Page Preview</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="vertical_spacer_botton">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="page_image_label">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="../data/main_window_view.qrc">:/icons/pynocchio_icon.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="page_preview_label">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="font">
+          <font>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="locale">
+          <locale language="English" country="UnitedStates"/>
+         </property>
+         <property name="text">
+          <string>Page Preview</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
@@ -198,7 +178,7 @@
        </property>
        <property name="icon">
         <iconset resource="../data/main_window_view.qrc">
-         <normaloff>:/icons/elementary3-icon-theme/actions/48/stock_delete.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/stock_delete.svg</iconset>
+         <normaloff>:/icons/icons/edit-delete.svg</normaloff>:/icons/icons/edit-delete.svg</iconset>
        </property>
        <property name="default">
         <bool>false</bool>
@@ -224,7 +204,7 @@
         <string>Cancel</string>
        </property>
        <property name="icon">
-        <iconset resource="../data/main_window_view.qrc">
+        <iconset>
          <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</iconset>
        </property>
       </widget>
@@ -239,7 +219,7 @@
        </property>
        <property name="icon">
         <iconset resource="../data/main_window_view.qrc">
-         <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-apply.svg</iconset>
+         <normaloff>:/icons/icons/archive-extract.svg</normaloff>:/icons/icons/archive-extract.svg</iconset>
        </property>
        <property name="default">
         <bool>true</bool>

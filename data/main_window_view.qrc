@@ -1,39 +1,41 @@
 <RCC>
   <qresource prefix="/icons">
-    <file>elementary3-icon-theme/actions/48/media-playback-start.svg</file>
-    <file>elementary3-icon-theme/actions/48/go-down.svg</file>
-    <file>notCover.png</file>
-    <file>elementary3-icon-theme/apps/48/office-database.svg</file>
-    <file>elementary3-icon-theme/actions/48/document-open-recent.svg</file>
-    <file>elementary3-icon-theme/actions/48/gtk-media-pause.svg</file>
-    <file>elementary3-icon-theme/actions/48/document-open.svg</file>
-    <file>elementary3-icon-theme/categories/48/applications-painting.svg</file>
+    <file>icons/system-shutdown.svg</file>
+    <file>icons/applications-libraries.svg</file>
+    <file>icons/address-book-new.svg</file>
+    <file>icons/folder-pictures.svg</file>
+    <file>icons/archive-extract.svg</file>
+    <file>icons/bookmark-new.svg</file>
+    <file>icons/dialog-apply.svg</file>
+    <file>icons/distribute-horizontal-margin.svg</file>
+    <file>icons/document-open.svg</file>
+    <file>icons/document-properties.svg</file>
+    <file>icons/document-save.svg</file>
+    <file>icons/edit-clear.svg</file>
+    <file>icons/edit-delete.svg</file>
+    <file>icons/edit-find.svg</file>
+    <file>icons/go-down.svg</file>
+    <file>icons/go-first.svg</file>
+    <file>icons/go-last.svg</file>
+    <file>icons/go-next.svg</file>
+    <file>icons/go-previous.svg</file>
+    <file>icons/help-info.svg</file>
+    <file>icons/media-skip-backward.svg</file>
+    <file>icons/media-skip-forward.svg</file>
+    <file>icons/object-rotate-left.svg</file>
+    <file>icons/object-rotate-right.svg</file>
+    <file>icons/view-fullscreen.svg</file>
+    <file>icons/window-close.svg</file>
+    <file>icons/zoom-best-fit.svg</file>
+    <file>icons/zoom-fit-height.svg</file>
+    <file>icons/zoom-fit-width.svg</file>
+    <file>icons/zoom-original.svg</file>
     <file>pynocchio_icon.png</file>
-    <file>freeiconmaker-icons/best-fit.svg</file>
-    <file>freeiconmaker-icons/fullscreen.svg</file>
-    <file>freeiconmaker-icons/horizontal-fit.svg</file>
-    <file>freeiconmaker-icons/original-fit.svg</file>
-    <file>freeiconmaker-icons/vertical-fit.svg</file>
-    <file>elementary3-icon-theme/actions/48/object-rotate-left.svg</file>
-    <file>elementary3-icon-theme/actions/48/object-rotate-right.svg</file>
-    <file>elementary3-icon-theme/actions/48/archive-extract.svg</file>
-    <file>elementary3-icon-theme/actions/48/help-info.svg</file>
-    <file>elementary3-icon-theme/actions/48/help-hint.svg</file>
-    <file>elementary3-icon-theme/actions/48/stock_delete.svg</file>
-    <file>elementary3-icon-theme/actions/48/bookmark-new.svg</file>
-    <file>elementary3-icon-theme/actions/48/application-exit.svg</file>
-    <file>elementary3-icon-theme/actions/48/document-properties.svg</file>
-    <file>elementary3-icon-theme/actions/48/go-next.svg</file>
-    <file>elementary3-icon-theme/actions/48/go-previous.svg</file>
-    <file>elementary3-icon-theme/actions/48/go-first.svg</file>
-    <file>elementary3-icon-theme/actions/48/go-last.svg</file>
-    <file>elementary3-icon-theme/actions/48/media-skip-backward.svg</file>
-    <file>elementary3-icon-theme/actions/48/media-skip-forward.svg</file>
-    <file>elementary3-icon-theme/actions/48/search.svg</file>
-    <file>elementary3-icon-theme/actions/48/dialog-apply.svg</file>
-    <file>elementary3-icon-theme/actions/48/dialog-cancel.svg</file>
+  </qresource>
+  <qresource prefix="others">
+    <file>others/not_cover.png</file>
   </qresource>
   <qresource prefix="html">
-    <file>about.html</file>
+    <file>html/about.html</file>
   </qresource>
 </RCC>

@@ -19,7 +19,7 @@ class Ui_AboutDialog(object):
         sizePolicy.setHeightForWidth(AboutDialog.sizePolicy().hasHeightForWidth())
         AboutDialog.setSizePolicy(sizePolicy)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/help-info.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icons/pynocchio_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutDialog.setWindowIcon(icon)
         AboutDialog.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         AboutDialog.setModal(True)
@@ -34,6 +34,11 @@ class Ui_AboutDialog(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.about_text_browser = QtWidgets.QTextBrowser(self.about)
         self.about_text_browser.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.about_text_browser.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.about_text_browser.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.about_text_browser.setSource(QtCore.QUrl("qrc:/html/html/about.html"))
+        self.about_text_browser.setSearchPaths([''])
+        self.about_text_browser.setOpenExternalLinks(True)
         self.about_text_browser.setObjectName("about_text_browser")
         self.horizontalLayout_2.addWidget(self.about_text_browser)
         self.tabWidget.addTab(self.about, "")
@@ -47,7 +52,7 @@ class Ui_AboutDialog(object):
         sizePolicy.setHeightForWidth(self.button_close.sizePolicy().hasHeightForWidth())
         self.button_close.setSizePolicy(sizePolicy)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/icons/icons/edit-delete.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.button_close.setIcon(icon1)
         self.button_close.setDefault(True)
         self.button_close.setObjectName("button_close")
@@ -66,7 +71,17 @@ class Ui_AboutDialog(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'DejaVu Sans\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/icons/pynocchio_icon.png\" /> </p>\n"
+"<p align=\"center\" style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#9bca22;\">Pynocchio 0.1.1</span> </p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Pynocchio is a image viewer specialized in comic book reading. </p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ and <br />has a elegant visual, free and easy to use. </p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Pynocchio is licensed under the <a href=\"https://github.com/pynocchio/pynocchio/raw/develop/LICENSE\"><span style=\" text-decoration: underline; color:#9bca3b;\">GNU General Public License</span></a>. </p>\n"
+"<p align=\"center\" style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#9bca22;\">Web site</span> </p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"http://pynocchio.github.io\"><span style=\" text-decoration: underline; color:#9bca3b;\">Pynocchio Website</span></a> <br /><a href=\"https://github.com/pynocchio/pynocchio\"><span style=\" text-decoration: underline; color:#9bca3b;\">Pynocchio Github Repository</span></a> </p>\n"
+"<p align=\"center\" style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#9bca22;\">Third-party resources</span> </p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Pynocchio use some icons from <a href=\"https://github.com/opengraphix/elementary3-icon-theme\"><span style=\" text-decoration: underline; color:#9bca3b;\">Elementary Icon</span></a>. </p>\n"
+"<p align=\"center\" style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#9bca22;\">Credits</span> </p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Copyright(C) 2014-2016 by <a href=\"https://github.com/mstuttgart/\"><span style=\" text-decoration: underline; color:#9bca3b;\">Michell Stuttgart Faria</span></a> </p></body></html>"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.about), _translate("AboutDialog", "About"))
         self.button_close.setText(_translate("AboutDialog", "Close"))
 

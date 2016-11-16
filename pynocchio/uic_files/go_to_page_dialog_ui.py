@@ -13,7 +13,7 @@ class Ui_GoPageDialog(object):
         GoPageDialog.setObjectName("GoPageDialog")
         GoPageDialog.resize(306, 514)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/search.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icons/icons/edit-find.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         GoPageDialog.setWindowIcon(icon)
         GoPageDialog.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         GoPageDialog.setModal(True)

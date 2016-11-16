@@ -269,10 +269,6 @@
      <property name="title">
       <string>Recent files</string>
      </property>
-     <property name="icon">
-      <iconset resource="../data/main_window_view.qrc">
-       <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
-     </property>
      <property name="separatorsCollapsible">
       <bool>false</bool>
      </property>
@@ -362,10 +358,6 @@
      <property name="title">
       <string>Recente bookmarks</string>
      </property>
-     <property name="icon">
-      <iconset resource="../data/main_window_view.qrc">
-       <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
-     </property>
      <addaction name="actionRecent_bookmark_1"/>
      <addaction name="actionRecent_bookmark_2"/>
      <addaction name="actionRecent_bookmark_3"/>
@@ -443,6 +435,7 @@
    <addaction name="action_vertical_fit"/>
    <addaction name="action_horizontal_fit"/>
    <addaction name="action_best_fit"/>
+   <addaction name="separator"/>
    <addaction name="action_fullscreen"/>
    <addaction name="separator"/>
    <addaction name="action_double_page_mode"/>
@@ -453,7 +446,7 @@
   <action name="action_about">
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/help-info.svg</iconset>
+     <normaloff>:/icons/icons/help-info.svg</normaloff>:/icons/icons/help-info.svg</iconset>
    </property>
    <property name="text">
     <string>About Pynocchio</string>
@@ -467,7 +460,7 @@
   <action name="action_exit">
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</iconset>
+     <normaloff>:/icons/icons/system-shutdown.svg</normaloff>:/icons/icons/system-shutdown.svg</iconset>
    </property>
    <property name="text">
     <string>Exit</string>
@@ -482,7 +475,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</iconset>
+     <normaloff>:/icons/icons/go-next.svg</normaloff>:/icons/icons/go-next.svg</iconset>
    </property>
    <property name="text">
     <string>Next page</string>
@@ -506,7 +499,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</iconset>
+     <normaloff>:/icons/icons/go-previous.svg</normaloff>:/icons/icons/go-previous.svg</iconset>
    </property>
    <property name="text">
     <string>Previous page</string>
@@ -527,7 +520,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</iconset>
+     <normaloff>:/icons/icons/go-first.svg</normaloff>:/icons/icons/go-first.svg</iconset>
    </property>
    <property name="text">
     <string>First page</string>
@@ -545,7 +538,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</iconset>
+     <normaloff>:/icons/icons/go-last.svg</normaloff>:/icons/icons/go-last.svg</iconset>
    </property>
    <property name="text">
     <string>Last page</string>
@@ -566,7 +559,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-left.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-left.svg</iconset>
+     <normaloff>:/icons/icons/object-rotate-left.svg</normaloff>:/icons/icons/object-rotate-left.svg</iconset>
    </property>
    <property name="text">
     <string>Rotate left</string>
@@ -584,7 +577,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-right.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-right.svg</iconset>
+     <normaloff>:/icons/icons/object-rotate-right.svg</normaloff>:/icons/icons/object-rotate-right.svg</iconset>
    </property>
    <property name="text">
     <string>Rotate right</string>
@@ -608,7 +601,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</iconset>
+     <normaloff>:/icons/icons/zoom-fit-width.svg</normaloff>:/icons/icons/zoom-fit-width.svg</iconset>
    </property>
    <property name="text">
     <string>Horizontal fit</string>
@@ -629,7 +622,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</iconset>
+     <normaloff>:/icons/icons/view-fullscreen.svg</normaloff>:/icons/icons/view-fullscreen.svg</iconset>
    </property>
    <property name="text">
     <string>Fullscreen</string>
@@ -650,7 +643,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</iconset>
+     <normaloff>:/icons/icons/edit-find.svg</normaloff>:/icons/icons/edit-find.svg</iconset>
    </property>
    <property name="text">
     <string>Go to page</string>
@@ -671,7 +664,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/freeiconmaker-icons/original-fit.svg</normaloff>:/icons/freeiconmaker-icons/original-fit.svg</iconset>
+     <normaloff>:/icons/icons/zoom-original.svg</normaloff>:/icons/icons/zoom-original.svg</iconset>
    </property>
    <property name="text">
     <string>Original fit</string>
@@ -703,7 +696,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/bookmark-new.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/bookmark-new.svg</iconset>
+     <normaloff>:/icons/icons/bookmark-new.svg</normaloff>:/icons/icons/bookmark-new.svg</iconset>
    </property>
    <property name="text">
     <string>Add bookmark</string>
@@ -718,7 +711,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/stock_delete.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/stock_delete.svg</iconset>
+     <normaloff>:/icons/icons/edit-delete.svg</normaloff>:/icons/icons/edit-delete.svg</iconset>
    </property>
    <property name="text">
     <string>Remove bookmark</string>
@@ -736,7 +729,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/apps/48/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/48/office-database.svg</iconset>
+     <normaloff>:/icons/icons/applications-libraries.svg</normaloff>:/icons/icons/applications-libraries.svg</iconset>
    </property>
    <property name="text">
     <string>Bookmark manager</string>
@@ -745,7 +738,7 @@
   <action name="action_open_folder">
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open.svg</iconset>
+     <normaloff>:/icons/icons/folder-pictures.svg</normaloff>:/icons/icons/folder-pictures.svg</iconset>
    </property>
    <property name="text">
     <string>Open Folder</string>
@@ -766,7 +759,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-forward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-forward.svg</iconset>
+     <normaloff>:/icons/icons/media-skip-forward.svg</normaloff>:/icons/icons/media-skip-forward.svg</iconset>
    </property>
    <property name="text">
     <string>Next Comic</string>
@@ -784,7 +777,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-backward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-backward.svg</iconset>
+     <normaloff>:/icons/icons/media-skip-backward.svg</normaloff>:/icons/icons/media-skip-backward.svg</iconset>
    </property>
    <property name="text">
     <string>Previous Comic</string>
@@ -798,7 +791,7 @@
   </action>
   <action name="action_preference_dialog">
    <property name="icon">
-    <iconset resource="../data/main_window_view.qrc">
+    <iconset>
      <normaloff>:/icons/elementary3-icon-theme/actions/48/document-properties.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-properties.svg</iconset>
    </property>
    <property name="text">
@@ -820,7 +813,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</iconset>
+     <normaloff>:/icons/icons/zoom-fit-height.svg</normaloff>:/icons/icons/zoom-fit-height.svg</iconset>
    </property>
    <property name="text">
     <string>Vertical fit</string>
@@ -847,7 +840,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/freeiconmaker-icons/best-fit.svg</normaloff>:/icons/freeiconmaker-icons/best-fit.svg</iconset>
+     <normaloff>:/icons/icons/zoom-best-fit.svg</normaloff>:/icons/icons/zoom-best-fit.svg</iconset>
    </property>
    <property name="text">
     <string>Best fit</string>
@@ -865,7 +858,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-down.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-down.svg</iconset>
+     <normaloff>:/icons/icons/document-save.svg</normaloff>:/icons/icons/document-save.svg</iconset>
    </property>
    <property name="text">
     <string>Save image</string>
@@ -880,7 +873,7 @@
   <action name="action_open_file">
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</iconset>
+     <normaloff>:/icons/icons/archive-extract.svg</normaloff>:/icons/icons/archive-extract.svg</iconset>
    </property>
    <property name="text">
     <string>Open File</string>
@@ -1146,7 +1139,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/gtk-media-pause.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/gtk-media-pause.svg</iconset>
+     <normaloff>:/icons/icons/distribute-horizontal-margin.svg</normaloff>:/icons/icons/distribute-horizontal-margin.svg</iconset>
    </property>
    <property name="text">
     <string>Double Page Mode</string>

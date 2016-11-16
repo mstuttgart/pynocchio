@@ -24,7 +24,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../data/main_window_view.qrc">
-    <normaloff>:/icons/elementary3-icon-theme/actions/48/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/help-info.svg</iconset>
+    <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -54,12 +54,41 @@
            <height>16777215</height>
           </size>
          </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
          <property name="html">
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/icons/pynocchio_icon.png&quot; /&gt; &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Pynocchio 0.1.1&lt;/span&gt; &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio is a image viewer specialized in comic book reading. &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ and &lt;br /&gt;has a elegant visual, free and easy to use. &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio is licensed under the &lt;a href=&quot;https://github.com/pynocchio/pynocchio/raw/develop/LICENSE&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;GNU General Public License&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Web site&lt;/span&gt; &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://pynocchio.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Pynocchio Website&lt;/span&gt;&lt;/a&gt; &lt;br /&gt;&lt;a href=&quot;https://github.com/pynocchio/pynocchio&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Pynocchio Github Repository&lt;/span&gt;&lt;/a&gt; &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Third-party resources&lt;/span&gt; &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio use some icons from &lt;a href=&quot;https://github.com/opengraphix/elementary3-icon-theme&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Elementary Icon&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Credits&lt;/span&gt; &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright(C) 2014-2016 by &lt;a href=&quot;https://github.com/mstuttgart/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt; &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="source">
+          <url>
+           <string>qrc:/html/html/about.html</string>
+          </url>
+         </property>
+         <property name="searchPaths">
+          <stringlist>
+           <string></string>
+          </stringlist>
+         </property>
+         <property name="openExternalLinks">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -82,7 +111,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="icon">
         <iconset resource="../data/main_window_view.qrc">
-         <normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/dialog-cancel.svg</iconset>
+         <normaloff>:/icons/icons/edit-delete.svg</normaloff>:/icons/icons/edit-delete.svg</iconset>
        </property>
        <property name="default">
         <bool>true</bool>

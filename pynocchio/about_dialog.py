@@ -25,6 +25,3 @@ class AboutDialog(QtWidgets.QDialog):
         super(AboutDialog, self).__init__(parent=parent)
         self.ui = about_dialog_ui.Ui_AboutDialog()
         self.ui.setupUi(self)
-
-        self.ui.about_text_browser.setSource(QtCore.QUrl(
-            'qrc:///html/about.html'))
