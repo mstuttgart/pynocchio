@@ -59,7 +59,7 @@ class GoToDialog(QtWidgets.QDialog):
         self.last_page = self.ui.spin_box_go_page.value()
 
         image_page = self.handler.get_current_page_image()
-        image_page = image_page.scaledToHeight(self.height() * 0.6,
+        image_page = image_page.scaledToHeight(self.height() * 0.7,
                                                QtCore.Qt.SmoothTransformation)
         self.ui.page_label.setPixmap(image_page)
 

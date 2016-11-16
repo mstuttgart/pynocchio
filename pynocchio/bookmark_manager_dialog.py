@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 
 class BookmarkManagerDialog(QtWidgets.QDialog):
 
-    SCALE_RATIO = 0.18
+    SCALE_RATIO = 0.25
 
     def __init__(self, controller, parent=None):
         super(BookmarkManagerDialog, self).__init__(parent=parent)
