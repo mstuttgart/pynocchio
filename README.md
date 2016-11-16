@@ -31,7 +31,7 @@ If you'd like to contribute, please see [contributing session in Pynocchio Wiki]
 
 ### Third party resources
 
-Pynocchio use [Elementary Icon Theme](https://github.com/opengraphix/elementary3-icon-theme) icon set free pack.
+Pynocchio use [Elementary USU Icon Theme](https://store.kde.org/content/show.php/elementary+USU?content=148128) icon set free pack.
 
 ### Credits
 
