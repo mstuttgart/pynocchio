@@ -1,8 +1,8 @@
 Pynocchio Comic Reader
 ==================
-[![Travis branch](https://img.shields.io/travis/pynocchio/pynocchio/develop.svg)](https://github.com/pynocchio/pynocchio)
-[![Codacy coverage](https://img.shields.io/codacy/coverage/a7dfde0bb92a486796cadbe70a036d09/develop.svg)](https://www.codacy.com/app/michellstut/pynocchio/dashboard)
-[![Codacy branch grade](https://img.shields.io/codacy/grade/a7dfde0bb92a486796cadbe70a036d09/develop.svg)](https://www.codacy.com/app/michellstut/pynocchio/dashboard)
+[![Travis branch](https://img.shields.io/travis/pynocchio/pynocchio/develop.svg)](8d26e64eb5016f69e72fbd5ea45ecb7b213dc721)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a7dfde0bb92a486796cadbe70a036d09)](https://www.codacy.com/app/michellstut/pynocchio?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pynocchio/pynocchio&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a7dfde0bb92a486796cadbe70a036d09)](https://www.codacy.com/app/michellstut/pynocchio?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pynocchio/pynocchio&amp;utm_campaign=Badge_Coverage)
 [![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg)](https://github.com/pynocchio/pynocchio)
 [![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 
