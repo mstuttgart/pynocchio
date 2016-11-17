@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5 import QtCore
+from PyQt5 import QtCore, QtGui
 
 import glob
 import logging
@@ -36,10 +36,11 @@ class ComicLoader(QtCore.QObject):
     progress = QtCore.pyqtSignal(int)
     done = QtCore.pyqtSignal()
 
-    def __init__(self, extension):
+    def __init__(self):
         super(ComicLoader, self).__init__()
-        self.extension = extension
         self.data = []
+        self.extension = [str(ext, encoding='utf8') for ext in
+                          QtGui.QImageReader.supportedImageFormats()]
 
     def load(self, file_name):
         raise NotImplementedError("Must subclass me")
@@ -51,8 +52,8 @@ class ComicLoader(QtCore.QObject):
 
 class ComicRarLoader(ComicLoader):
 
-    def __init__(self, extension):
-        super(ComicRarLoader, self).__init__(extension)
+    def __init__(self):
+        super(ComicRarLoader, self).__init__()
 
     def load(self, file_name):
 
@@ -86,8 +87,8 @@ class ComicRarLoader(ComicLoader):
 
 class ComicZipLoader(ComicLoader):
 
-    def __init__(self, extension):
-        super(ComicZipLoader, self).__init__(extension)
+    def __init__(self):
+        super(ComicZipLoader, self).__init__()
 
     def load(self, file_name):
 
@@ -121,8 +122,8 @@ class ComicZipLoader(ComicLoader):
 
 class ComicTarLoader(ComicLoader):
 
-    def __init__(self, extension):
-        super(ComicTarLoader, self).__init__(extension)
+    def __init__(self):
+        super(ComicTarLoader, self).__init__()
 
     def load(self, file_name):
 
@@ -160,8 +161,8 @@ class ComicTarLoader(ComicLoader):
 
 class ComicFolderLoader(ComicLoader):
 
-    def __init__(self, extension):
-        super(ComicFolderLoader, self).__init__(extension)
+    def __init__(self):
+        super(ComicFolderLoader, self).__init__()
 
     def load(self, dir_name):
 

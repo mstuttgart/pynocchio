@@ -26,7 +26,7 @@ from .comic_file_loader import ComicFolderLoader
 class ComicLoaderFactory:
 
     @staticmethod
-    def create_loader(filename, data_extension):
+    def create_loader(filename):
 
         if Utility.is_file(file_name=filename):
 
@@ -35,13 +35,13 @@ class ComicLoaderFactory:
             # Return appropriate loader by with file compact coding
             for loader in loaders:
                 if loader.type_verify(file_name=filename):
-                    return loader(data_extension)
+                    return loader()
 
             raise InvalidTypeFileException('Invalid file extension: %s' %
                                            Utility.get_file_extension(
                                                filename))
         elif Utility.is_dir(filename):
-            return ComicFolderLoader(data_extension)
+            return ComicFolderLoader()
         else:
             raise InvalidTypeFileException('File is not folder: %s' %
                                            Utility.get_file_extension(

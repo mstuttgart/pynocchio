@@ -27,7 +27,7 @@ class TestUtility(TestCase):
         self.obj = Utility()
 
     def test_get_file_extension(self):
-        self.assertEqual(Utility.get_file_extension('myfile.zip'), '.zip')
+        self.assertEqual(Utility.get_file_extension('myfile.zip'), 'zip')
         self.assertEqual(Utility.get_file_extension('myfile'), '')
 
     def test_get_dir_name(self):

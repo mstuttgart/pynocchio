@@ -33,6 +33,7 @@ logger.setLevel(logging.INFO)
 
 
 class MainWindowModel(QtCore.QObject):
+
     _ORIGINAL_FIT = 'action_original_fit'
     _VERTICAL_FIT = 'action_vertical_fit'
     _HORIZONTAL_FIT = 'action_horizontal_fit'
@@ -68,11 +69,7 @@ class MainWindowModel(QtCore.QObject):
 
     def load(self, filename, initial_page=0):
 
-        image_extensions = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
-                            '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
-
-        loader = ComicLoaderFactory.create_loader(filename,
-                                                  set(image_extensions))
+        loader = ComicLoaderFactory.create_loader(filename)
         loader.progress.connect(self.load_progressbar_value)
 
         try:
