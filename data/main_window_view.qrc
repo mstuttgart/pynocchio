@@ -1,5 +1,12 @@
 <RCC>
   <qresource prefix="/icons">
+    <file>icons/system-file-manager2.svg</file>
+    <file>icons/edit-copy.svg</file>
+    <file>icons/others/best-fit.svg</file>
+    <file>icons/others/fullscreen.svg</file>
+    <file>icons/others/horizontal-fit.svg</file>
+    <file>icons/others/original-fit.svg</file>
+    <file>icons/others/vertical-fit.svg</file>
     <file>icons/system-shutdown.svg</file>
     <file>icons/applications-libraries.svg</file>
     <file>icons/address-book-new.svg</file>

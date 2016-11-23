@@ -601,7 +601,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/icons/zoom-fit-width.svg</normaloff>:/icons/icons/zoom-fit-width.svg</iconset>
+     <normaloff>:/icons/icons/others/horizontal-fit.svg</normaloff>:/icons/icons/others/horizontal-fit.svg</iconset>
    </property>
    <property name="text">
     <string>Horizontal fit</string>
@@ -622,7 +622,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/icons/view-fullscreen.svg</normaloff>:/icons/icons/view-fullscreen.svg</iconset>
+     <normaloff>:/icons/icons/others/fullscreen.svg</normaloff>:/icons/icons/others/fullscreen.svg</iconset>
    </property>
    <property name="text">
     <string>Fullscreen</string>
@@ -664,7 +664,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/icons/zoom-original.svg</normaloff>:/icons/icons/zoom-original.svg</iconset>
+     <normaloff>:/icons/icons/others/original-fit.svg</normaloff>:/icons/icons/others/original-fit.svg</iconset>
    </property>
    <property name="text">
     <string>Original fit</string>
@@ -729,7 +729,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/icons/applications-libraries.svg</normaloff>:/icons/icons/applications-libraries.svg</iconset>
+     <normaloff>:/icons/icons/system-file-manager2.svg</normaloff>:/icons/icons/system-file-manager2.svg</iconset>
    </property>
    <property name="text">
     <string>Bookmark manager</string>
@@ -813,7 +813,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/icons/zoom-fit-height.svg</normaloff>:/icons/icons/zoom-fit-height.svg</iconset>
+     <normaloff>:/icons/icons/others/vertical-fit.svg</normaloff>:/icons/icons/others/vertical-fit.svg</iconset>
    </property>
    <property name="text">
     <string>Vertical fit</string>
@@ -840,7 +840,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/icons/zoom-best-fit.svg</normaloff>:/icons/icons/zoom-best-fit.svg</iconset>
+     <normaloff>:/icons/icons/others/best-fit.svg</normaloff>:/icons/icons/others/best-fit.svg</iconset>
    </property>
    <property name="text">
     <string>Best fit</string>
@@ -1139,7 +1139,7 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/icons/distribute-horizontal-margin.svg</normaloff>:/icons/icons/distribute-horizontal-margin.svg</iconset>
+     <normaloff>:/icons/icons/edit-copy.svg</normaloff>:/icons/icons/edit-copy.svg</iconset>
    </property>
    <property name="text">
     <string>Double Page Mode</string>

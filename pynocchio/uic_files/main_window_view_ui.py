@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file './forms/main_window_view.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -215,7 +215,7 @@ class Ui_MainWindowView(object):
         self.action_horizontal_fit.setChecked(False)
         self.action_horizontal_fit.setEnabled(False)
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(":/icons/icons/zoom-fit-width.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap(":/icons/icons/others/horizontal-fit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_horizontal_fit.setIcon(icon9)
         self.action_horizontal_fit.setVisible(True)
         self.action_horizontal_fit.setObjectName("action_horizontal_fit")
@@ -223,7 +223,7 @@ class Ui_MainWindowView(object):
         self.action_fullscreen.setCheckable(False)
         self.action_fullscreen.setEnabled(False)
         icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap(":/icons/icons/view-fullscreen.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon10.addPixmap(QtGui.QPixmap(":/icons/icons/others/fullscreen.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_fullscreen.setIcon(icon10)
         self.action_fullscreen.setShortcutContext(QtCore.Qt.WidgetShortcut)
         self.action_fullscreen.setIconVisibleInMenu(True)
@@ -239,7 +239,7 @@ class Ui_MainWindowView(object):
         self.action_original_fit.setChecked(True)
         self.action_original_fit.setEnabled(False)
         icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap(":/icons/icons/zoom-original.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon12.addPixmap(QtGui.QPixmap(":/icons/icons/others/original-fit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_original_fit.setIcon(icon12)
         self.action_original_fit.setShortcutContext(QtCore.Qt.ApplicationShortcut)
         self.action_original_fit.setVisible(True)
@@ -266,7 +266,7 @@ class Ui_MainWindowView(object):
         self.action_bookmark_manager = QtWidgets.QAction(MainWindowView)
         self.action_bookmark_manager.setEnabled(True)
         icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap(":/icons/icons/applications-libraries.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon15.addPixmap(QtGui.QPixmap(":/icons/icons/system-file-manager2.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_bookmark_manager.setIcon(icon15)
         self.action_bookmark_manager.setObjectName("action_bookmark_manager")
         self.action_open_folder = QtWidgets.QAction(MainWindowView)
@@ -302,7 +302,7 @@ class Ui_MainWindowView(object):
         self.action_vertical_fit.setChecked(False)
         self.action_vertical_fit.setEnabled(False)
         icon20 = QtGui.QIcon()
-        icon20.addPixmap(QtGui.QPixmap(":/icons/icons/zoom-fit-height.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon20.addPixmap(QtGui.QPixmap(":/icons/icons/others/vertical-fit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_vertical_fit.setIcon(icon20)
         self.action_vertical_fit.setAutoRepeat(True)
         self.action_vertical_fit.setVisible(True)
@@ -312,7 +312,7 @@ class Ui_MainWindowView(object):
         self.action_best_fit.setChecked(False)
         self.action_best_fit.setEnabled(False)
         icon21 = QtGui.QIcon()
-        icon21.addPixmap(QtGui.QPixmap(":/icons/icons/zoom-best-fit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon21.addPixmap(QtGui.QPixmap(":/icons/icons/others/best-fit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_best_fit.setIcon(icon21)
         self.action_best_fit.setVisible(True)
         self.action_best_fit.setObjectName("action_best_fit")
@@ -438,7 +438,7 @@ class Ui_MainWindowView(object):
         self.action_double_page_mode.setCheckable(True)
         self.action_double_page_mode.setEnabled(False)
         icon26 = QtGui.QIcon()
-        icon26.addPixmap(QtGui.QPixmap(":/icons/icons/distribute-horizontal-margin.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon26.addPixmap(QtGui.QPixmap(":/icons/icons/edit-copy.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_double_page_mode.setIcon(icon26)
         self.action_double_page_mode.setIconVisibleInMenu(True)
         self.action_double_page_mode.setObjectName("action_double_page_mode")
