@@ -42,3 +42,9 @@ class NoDataFindException(PynocchioBaseException):
 
     def __str__(self):
         return repr(self.message)
+
+
+class LoadComicsException(PynocchioBaseException):
+
+    def __str__(self):
+        return repr(self.message)
