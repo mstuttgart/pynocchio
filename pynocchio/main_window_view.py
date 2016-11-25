@@ -16,23 +16,23 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import logging
 
 from .exception import InvalidTypeFileException
+from .exception import LoadComicsException
 from .exception import NoDataFindException
 from .utility import Utility
-from .uic_files import main_window_view_ui
-
 from .go_to_page_dialog import GoToDialog
 from .bookmark_manager_dialog import BookmarkManagerDialog
 from .about_dialog import AboutDialog
-
-import logging
+from .uic_files import main_window_view_ui
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 class MainWindowView(QtWidgets.QMainWindow):
+
     MaxRecentFiles = 5
     MaxBookmarkFiles = 5
 
@@ -224,6 +224,12 @@ class MainWindowView(QtWidgets.QMainWindow):
     @QtCore.pyqtSlot(bool)
     def on_action_double_page_mode_triggered(self, checked):
         self.model.double_page_mode(checked)
+        self.update_viewer_content()
+        self.ui.action_manga_mode.setEnabled(checked)
+
+    @QtCore.pyqtSlot(bool)
+    def on_action_manga_mode_triggered(self, checked):
+        self.model.manga_page_mode(checked)
         self.update_viewer_content()
 
     @QtCore.pyqtSlot()

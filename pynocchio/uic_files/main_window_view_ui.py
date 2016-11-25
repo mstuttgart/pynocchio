@@ -442,6 +442,10 @@ class Ui_MainWindowView(object):
         self.action_double_page_mode.setIcon(icon26)
         self.action_double_page_mode.setIconVisibleInMenu(True)
         self.action_double_page_mode.setObjectName("action_double_page_mode")
+        self.action_manga_mode = QtWidgets.QAction(MainWindowView)
+        self.action_manga_mode.setCheckable(True)
+        self.action_manga_mode.setEnabled(False)
+        self.action_manga_mode.setObjectName("action_manga_mode")
         self.menu_recent_files.addAction(self.actionRecent_file_1)
         self.menu_recent_files.addAction(self.actionRecent_file_2)
         self.menu_recent_files.addAction(self.actionRecent_file_3)
@@ -470,6 +474,7 @@ class Ui_MainWindowView(object):
         self.menu_view.addAction(self.action_rotate_right)
         self.menu_view.addSeparator()
         self.menu_view.addAction(self.action_double_page_mode)
+        self.menu_view.addAction(self.action_manga_mode)
         self.menu_navegation.addAction(self.action_next_page)
         self.menu_navegation.addAction(self.action_previous_page)
         self.menu_navegation.addSeparator()
@@ -596,6 +601,7 @@ class Ui_MainWindowView(object):
         self.action_show_toolbar.setText(_translate("MainWindowView", "Show Toolbar"))
         self.action_double_page_mode.setText(_translate("MainWindowView", "Double Page Mode"))
         self.action_double_page_mode.setToolTip(_translate("MainWindowView", "Active double page mode"))
+        self.action_manga_mode.setText(_translate("MainWindowView", "Manga Mode"))
 
 from .custom_widgets.qscroll_area_viewer import QScrollAreaViewer
 from .custom_widgets.status_bar import StatusBar

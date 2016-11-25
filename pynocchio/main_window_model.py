@@ -25,6 +25,7 @@ from .bookmark_database_manager import BookmarkManager
 from .comic_file_loader_factory import ComicLoaderFactory
 from .comic import Comic
 from .comic_page_handler_factory import ComicPageHandlerFactory
+from .comic_page_handler import ComicPageHandlerDoublePage
 from .comic_path_filter import ComicPathFilter
 from .settings_manager import SettingsManager
 
@@ -207,6 +208,10 @@ class MainWindowModel(QtCore.QObject):
         index = self.comic_page_handler.current_page_index
         self.comic_page_handler = ComicPageHandlerFactory.create_handler(
             checked, self.comic, index=index)
+
+    def manga_page_mode(self, checked):
+        if isinstance(self.comic_page_handler, ComicPageHandlerDoublePage):
+            self.comic_page_handler.manga_mode = checked
 
     @QtCore.pyqtSlot(int)
     def load_progressbar_value(self, percent):

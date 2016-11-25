@@ -306,6 +306,7 @@
     <addaction name="action_rotate_right"/>
     <addaction name="separator"/>
     <addaction name="action_double_page_mode"/>
+    <addaction name="action_manga_mode"/>
    </widget>
    <widget class="QMenu" name="menu_navegation">
     <property name="acceptDrops">
@@ -1149,6 +1150,17 @@
    </property>
    <property name="iconVisibleInMenu">
     <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_manga_mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Manga Mode</string>
    </property>
   </action>
  </widget>
