@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>306</width>
+    <width>299</width>
     <height>514</height>
    </rect>
   </property>
@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../data/main_window_view.qrc">
-    <normaloff>:/icons/icons/edit-find.svg</normaloff>:/icons/icons/edit-find.svg</iconset>
+    <normaloff>:/icons/icons/edit-find.png</normaloff>:/icons/icons/edit-find.png</iconset>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -24,20 +24,29 @@
    <bool>true</bool>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="sizeConstraint">
+    <enum>QLayout::SetDefaultConstraint</enum>
+   </property>
    <property name="leftMargin">
-    <number>4</number>
+    <number>0</number>
    </property>
    <property name="topMargin">
-    <number>4</number>
+    <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>4</number>
+    <number>0</number>
    </property>
    <property name="bottomMargin">
-    <number>4</number>
+    <number>0</number>
    </property>
    <item>
     <layout class="QVBoxLayout" name="vertical_layout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
      <item>
       <widget class="QGroupBox" name="group_box">
        <property name="title">
@@ -96,8 +105,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>290</width>
-             <height>372</height>
+             <width>289</width>
+             <height>405</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -130,6 +139,12 @@
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="frameShape">
+               <enum>QFrame::Panel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -147,6 +162,22 @@
      </item>
      <item>
       <layout class="QGridLayout" name="grid_layout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item row="2" column="5">
+        <spacer name="horizontal_spacer_right">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
        <item row="2" column="2">
         <widget class="QSpinBox" name="spin_box_go_page">
          <property name="wrapping">
@@ -178,45 +209,12 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="5">
-        <spacer name="horizontal_spacer_right">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="2" column="1">
         <widget class="QLabel" name="page_label_2">
          <property name="text">
           <string>Page </string>
          </property>
         </widget>
-       </item>
-       <item row="2" column="3">
-        <widget class="QLabel" name="total_page_label">
-         <property name="text">
-          <string>page</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item row="3" column="0" colspan="6">
         <widget class="QSlider" name="horizontal_slider">
@@ -240,6 +238,26 @@
          </property>
          <property name="tickInterval">
           <number>4</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="3">
+        <widget class="QLabel" name="total_page_label">
+         <property name="text">
+          <string>page</string>
          </property>
         </widget>
        </item>

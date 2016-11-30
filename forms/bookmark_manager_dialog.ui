@@ -24,7 +24,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../data/main_window_view.qrc">
-    <normaloff>:/icons/icons/applications-libraries.svg</normaloff>:/icons/icons/applications-libraries.svg</iconset>
+    <normaloff>:/others/pynocchio.png</normaloff>:/others/pynocchio.png</iconset>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -105,7 +105,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="../data/main_window_view.qrc">:/icons/pynocchio_icon.png</pixmap>
+          <pixmap>:/icons/pynocchio_icon.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -178,7 +178,7 @@
        </property>
        <property name="icon">
         <iconset resource="../data/main_window_view.qrc">
-         <normaloff>:/icons/icons/edit-delete.svg</normaloff>:/icons/icons/edit-delete.svg</iconset>
+         <normaloff>:/icons/icons/edit-delete.png</normaloff>:/icons/icons/edit-delete.png</iconset>
        </property>
        <property name="default">
         <bool>false</bool>
@@ -219,7 +219,7 @@
        </property>
        <property name="icon">
         <iconset resource="../data/main_window_view.qrc">
-         <normaloff>:/icons/icons/archive-extract.svg</normaloff>:/icons/icons/archive-extract.svg</iconset>
+         <normaloff>:/icons/icons/archive-extract.png</normaloff>:/icons/icons/archive-extract.png</iconset>
        </property>
        <property name="default">
         <bool>true</bool>

@@ -20,9 +20,488 @@ class Ui_MainWindowView(object):
         MainWindowView.setBaseSize(QtCore.QSize(0, 3))
         MainWindowView.setFocusPolicy(QtCore.Qt.WheelFocus)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/pynocchio_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/others/pynocchio.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindowView.setWindowIcon(icon)
-        MainWindowView.setStyleSheet("")
+        MainWindowView.setStyleSheet("QToolTip\n"
+"{\n"
+"     border: 1px solid black;\n"
+"     background-color: #D1DBCB;\n"
+"     padding: 1px;\n"
+"     border-radius: 3px;\n"
+"     opacity: 100;\n"
+"}\n"
+"\n"
+"QWidget\n"
+"{\n"
+"    color: #b1b1b1;\n"
+"    background-color: #323232;\n"
+"}\n"
+"\n"
+"QWidget:item:hover\n"
+"{\n"
+"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #D1DBCB, stop: 1 #b2b6af);\n"
+"    color: #000000;\n"
+"}\n"
+"\n"
+"QWidget:item:selected\n"
+"{\n"
+"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #D1DBCB, stop: 1 #b2b6af);\n"
+"}\n"
+"\n"
+"QMenuBar::item\n"
+"{\n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"QMenuBar::item:selected\n"
+"{\n"
+"    background: transparent;\n"
+"    border: 1px solid #fdf6e3;\n"
+"}\n"
+"\n"
+"QMenuBar::item:pressed\n"
+"{\n"
+"    background: #444;\n"
+"    border: 1px solid #000;\n"
+"    background-color: QLinearGradient(\n"
+"        x1:0, y1:0,\n"
+"        x2:0, y2:1,\n"
+"        stop:1 #212121,\n"
+"        stop:0.4 #343434/*,\n"
+"        stop:0.2 #343434,\n"
+"        stop:0.1 #fdf6e3*/\n"
+"    );\n"
+"    margin-bottom:-1px;\n"
+"    padding-bottom:1px;\n"
+"}\n"
+"\n"
+"QMenu\n"
+"{\n"
+"    border: 1px solid #000;\n"
+"}\n"
+"\n"
+"QMenu::item\n"
+"{\n"
+"    padding: 2px 20px 2px 20px;\n"
+"}\n"
+"\n"
+"QMenu::item:selected\n"
+"{\n"
+"    color: #000000;\n"
+"}\n"
+"\n"
+"QWidget:disabled\n"
+"{\n"
+"    color: #404040;\n"
+"    background-color: #323232;\n"
+"}\n"
+"\n"
+"QAbstractItemView\n"
+"{\n"
+"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4d4d4d, stop: 0.1 #646464, stop: 1 #5d5d5d);\n"
+"}\n"
+"\n"
+"QWidget:focus\n"
+"{\n"
+"    /*border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0\n"
+"     #D1DBCB, stop: 1 #b2b6af);*/\n"
+"}\n"
+"\n"
+"QLineEdit\n"
+"{\n"
+"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4d4d4d, stop: 0 #646464, stop: 1 #5d5d5d);\n"
+"    padding: 1px;\n"
+"    border-style: solid;\n"
+"    border: 1px solid #1e1e1e;\n"
+"    border-radius: 5;\n"
+"}\n"
+"\n"
+"QPushButton\n"
+"{\n"
+"    color: #b1b1b1;\n"
+"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
+"    border-width: 1px;\n"
+"    border-color: #1e1e1e;\n"
+"    border-style: solid;\n"
+"    border-radius: 6;\n"
+"    padding: 3px;\n"
+"    font-size: 12px;\n"
+"    padding-left: 5px;\n"
+"    padding-right: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed\n"
+"{\n"
+"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);\n"
+"}\n"
+"\n"
+"QComboBox\n"
+"{\n"
+"    selection-background-color: #fdf6e3;\n"
+"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
+"    border-style: solid;\n"
+"    border: 1px solid #1e1e1e;\n"
+"    border-radius: 5;\n"
+"}\n"
+"\n"
+"QComboBox:hover,QPushButton:hover\n"
+"{\n"
+"    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0\n"
+"    #D1DBCB, stop: 1 #b2b6af);\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox:on\n"
+"{\n"
+"    padding-top: 3px;\n"
+"    padding-left: 4px;\n"
+"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);\n"
+"    selection-background-color: #fdf6e3;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView\n"
+"{\n"
+"    border: 2px solid darkgray;\n"
+"    selection-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"     stop: 0 #D1DBCB, stop: 1 #b2b6af);\n"
+"}\n"
+"\n"
+"QComboBox::drop-down\n"
+"{\n"
+"     subcontrol-origin: padding;\n"
+"     subcontrol-position: top right;\n"
+"     width: 15px;\n"
+"\n"
+"     border-left-width: 0px;\n"
+"     border-left-color: darkgray;\n"
+"     border-left-style: solid; /* just a single line */\n"
+"     border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+"     border-bottom-right-radius: 3px;\n"
+" }\n"
+"\n"
+"QComboBox::down-arrow\n"
+"{\n"
+"     image: url(:/down_arrow.png);\n"
+"}\n"
+"\n"
+"QGroupBox:focus\n"
+"{\n"
+"border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0\n"
+"#D1DBCB, stop: 1 #b2b6af);\n"
+"}\n"
+"\n"
+"QTextEdit:focus\n"
+"{\n"
+"    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0\n"
+"    #D1DBCB, stop: 1 #b2b6af);\n"
+"}\n"
+"\n"
+"QScrollArea:focus {\n"
+"border: 1px solid black;\n"
+"}\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"     border: 1px solid #222222;\n"
+"     background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0.0 #121212, stop: 0.2 #282828, stop: 1 #484848);\n"
+"     height: 7px;\n"
+"     margin: 0px 16px 0 16px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:horizontal\n"
+"{\n"
+"      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0\n"
+"      #D1DBCB, stop: 0.5 #b2b6af, stop: 1 #D1DBCB);\n"
+"      min-height: 20px;\n"
+"      border-radius: 2px;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:horizontal {\n"
+"      border: 1px solid #1b1b19;\n"
+"      border-radius: 2px;\n"
+"      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0\n"
+"      #D1DBCB, stop: 1 #b2b6af);\n"
+"      width: 14px;\n"
+"      subcontrol-position: right;\n"
+"      subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:horizontal {\n"
+"      border: 1px solid #1b1b19;\n"
+"      border-radius: 2px;\n"
+"      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0\n"
+"      #D1DBCB, stop: 1 #b2b6af);\n"
+"      width: 14px;\n"
+"     subcontrol-position: left;\n"
+"     subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::right-arrow:horizontal, QScrollBar::left-arrow:horizontal\n"
+"{\n"
+"      border: 1px solid black;\n"
+"      width: 1px;\n"
+"      height: 1px;\n"
+"      background: white;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
+"{\n"
+"      background: none;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical\n"
+"{\n"
+"      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0.0 #121212, stop: 0.2 #282828, stop: 1 #484848);\n"
+"      width: 7px;\n"
+"      margin: 16px 0 16px 0;\n"
+"      border: 1px solid #222222;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0\n"
+"      #D1DBCB, stop: 0.5 #b2b6af, stop: 1 #D1DBCB);\n"
+"      min-height: 20px;\n"
+"      border-radius: 2px;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical\n"
+"{\n"
+"      border: 1px solid #1b1b19;\n"
+"      border-radius: 2px;\n"
+"      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0\n"
+"      #D1DBCB, stop: 1 #b2b6af);\n"
+"      height: 14px;\n"
+"      subcontrol-position: bottom;\n"
+"      subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:vertical\n"
+"{\n"
+"      border: 1px solid #1b1b19;\n"
+"      border-radius: 2px;\n"
+"      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b2b6af,\n"
+"      stop: 1 #D1DBCB);\n"
+"      height: 14px;\n"
+"      subcontrol-position: top;\n"
+"      subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical\n"
+"{\n"
+"      border: 1px solid black;\n"
+"      width: 1px;\n"
+"      height: 1px;\n"
+"      background: white;\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"{\n"
+"      background: none;\n"
+"}\n"
+"\n"
+"QTextEdit\n"
+"{\n"
+"    background-color: #242424;\n"
+"}\n"
+"\n"
+"QPlainTextEdit\n"
+"{\n"
+"    background-color: #242424;\n"
+"}\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #616161, stop: 0.5 #505050, stop: 0.6 #434343, stop:1 #656565);\n"
+"    color: white;\n"
+"    padding-left: 4px;\n"
+"    border: 1px solid #6c6c6c;\n"
+"}\n"
+"\n"
+"QCheckBox:disabled\n"
+"{\n"
+"color: #414141;\n"
+"}\n"
+"\n"
+"QDockWidget::title\n"
+"{\n"
+"    text-align: center;\n"
+"    spacing: 3px; /* spacing between items in the tool bar */\n"
+"    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #323232, stop: 0.5 #242424, stop:1 #323232);\n"
+"}\n"
+"\n"
+"QDockWidget::close-button, QDockWidget::float-button\n"
+"{\n"
+"    text-align: center;\n"
+"    spacing: 1px; /* spacing between items in the tool bar */\n"
+"    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #323232, stop: 0.5 #242424, stop:1 #323232);\n"
+"}\n"
+"\n"
+"QDockWidget::close-button:hover, QDockWidget::float-button:hover\n"
+"{\n"
+"    background: #242424;\n"
+"}\n"
+"\n"
+"QDockWidget::close-button:pressed, QDockWidget::float-button:pressed\n"
+"{\n"
+"    padding: 1px -1px -1px 1px;\n"
+"}\n"
+"\n"
+"QMainWindow::separator\n"
+"{\n"
+"    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #161616, stop: 0.5 #151515, stop: 0.6 #212121, stop:1 #343434);\n"
+"    color: white;\n"
+"    padding-left: 4px;\n"
+"    border: 1px solid #4c4c4c;\n"
+"    spacing: 3px; /* spacing between items in the tool bar */\n"
+"}\n"
+"\n"
+"QMainWindow::separator:hover\n"
+"{\n"
+"\n"
+"    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #b2b6af,\n"
+"    stop:0.5 #b56c17 stop:1 #D1DBCB);\n"
+"    color: white;\n"
+"    padding-left: 4px;\n"
+"    border: 1px solid #6c6c6c;\n"
+"    spacing: 3px; /* spacing between items in the tool bar */\n"
+"}\n"
+"\n"
+"QToolBar {\n"
+"    border: 1px transparent #323232;\n"
+"    background: 1px solid #323232;\n"
+"}\n"
+"\n"
+"QToolBar::handle\n"
+"{\n"
+"     spacing: 3px; /* spacing between items in the tool bar */\n"
+"     background: url(:/images/handle.png);\n"
+"}\n"
+"\n"
+"QMenu::separator\n"
+"{\n"
+"    height: 2px;\n"
+"    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #161616, stop: 0.5 #151515, stop: 0.6 #212121, stop:1 #343434);\n"
+"    color: white;\n"
+"    padding-left: 4px;\n"
+"    margin-left: 10px;\n"
+"    margin-right: 5px;\n"
+"}\n"
+"\n"
+"QProgressBar\n"
+"{\n"
+"    border: 2px solid grey;\n"
+"    border-radius: 5px;\n"
+"    text-align: center;\n"
+"}\n"
+"\n"
+"QProgressBar::chunk\n"
+"{\n"
+"    background-color: #b2b6af;\n"
+"    width: 2.15px;\n"
+"    margin: 0.5px;\n"
+"}\n"
+"\n"
+"QTabBar::tab {\n"
+"    color: #b1b1b1;\n"
+"    border: 1px solid #444;\n"
+"    border-bottom-style: none;\n"
+"    background-color: #323232;\n"
+"    padding-left: 10px;\n"
+"    padding-right: 10px;\n"
+"    padding-top: 3px;\n"
+"    padding-bottom: 2px;\n"
+"    margin-right: -1px;\n"
+"}\n"
+"\n"
+"QTabWidget::pane {\n"
+"    border: 1px solid #444;\n"
+"    top: 1px;\n"
+"}\n"
+"\n"
+"QTabBar::tab:last\n"
+"{\n"
+"    margin-right: 0; /* the last selected tab has nothing to overlap with on the right */\n"
+"    border-top-right-radius: 3px;\n"
+"}\n"
+"\n"
+"QTabBar::tab:first:!selected\n"
+"{\n"
+" margin-left: 0px; /* the last selected tab has nothing to overlap with on the right */\n"
+"\n"
+"\n"
+"    border-top-left-radius: 3px;\n"
+"}\n"
+"\n"
+"QTabBar::tab:!selected\n"
+"{\n"
+"    color: #b1b1b1;\n"
+"    border-bottom-style: solid;\n"
+"    margin-top: 3px;\n"
+"    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:1 #212121, stop:.4 #343434);\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected\n"
+"{\n"
+"    border-top-left-radius: 3px;\n"
+"    border-top-right-radius: 3px;\n"
+"    margin-bottom: 0px;\n"
+"}\n"
+"\n"
+"QTabBar::tab:!selected:hover\n"
+"{\n"
+"    /*border-top: 2px solid #fdf6e3;\n"
+"    padding-bottom: 3px;*/\n"
+"    border-top-left-radius: 3px;\n"
+"    border-top-right-radius: 3px;\n"
+"    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:1 #212121, stop:0.4 #343434, stop:0.2 #343434, stop:0.1 #fdf6e3);\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked, QRadioButton::indicator:unchecked{\n"
+"    color: #b1b1b1;\n"
+"    background-color: #323232;\n"
+"    border: 1px solid #b1b1b1;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:checked\n"
+"{\n"
+"    background-color: qradialgradient(\n"
+"        cx: 0.5, cy: 0.5,\n"
+"        fx: 0.5, fy: 0.5,\n"
+"        radius: 1.0,\n"
+"        stop: 0.25 #fdf6e3,\n"
+"        stop: 0.3 #323232\n"
+"    );\n"
+"}\n"
+"\n"
+"QCheckBox::indicator{\n"
+"    color: #b1b1b1;\n"
+"    background-color: #323232;\n"
+"    border: 1px solid #b1b1b1;\n"
+"    width: 9px;\n"
+"    height: 9px;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator\n"
+"{\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:hover, QCheckBox::indicator:hover\n"
+"{\n"
+"    border: 1px solid #fdf6e3;\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked\n"
+"{\n"
+"    image:url(:/images/checkbox.png);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:disabled, QRadioButton::indicator:disabled\n"
+"{\n"
+"    border: 1px solid #444;\n"
+"}")
         MainWindowView.setIconSize(QtCore.QSize(22, 22))
         MainWindowView.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
         MainWindowView.setAnimated(True)
@@ -60,7 +539,7 @@ class Ui_MainWindowView(object):
         self.qscroll_area_viewer.setAlignment(QtCore.Qt.AlignCenter)
         self.qscroll_area_viewer.setObjectName("qscroll_area_viewer")
         self.scroll_area_widget_contents = QtWidgets.QWidget()
-        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 1048, 476))
+        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 1048, 483))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -100,7 +579,7 @@ class Ui_MainWindowView(object):
         self.horizontalLayout.addWidget(self.qscroll_area_viewer)
         MainWindowView.setCentralWidget(self.central_widget)
         self.menubar = QtWidgets.QMenuBar(MainWindowView)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1048, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1048, 23))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -145,7 +624,7 @@ class Ui_MainWindowView(object):
         self.toolbar.setAcceptDrops(True)
         self.toolbar.setAutoFillBackground(False)
         self.toolbar.setMovable(False)
-        self.toolbar.setToolButtonStyle(QtCore.Qt.ToolButtonFollowStyle)
+        self.toolbar.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
         self.toolbar.setFloatable(False)
         self.toolbar.setObjectName("toolbar")
         MainWindowView.addToolBar(QtCore.Qt.TopToolBarArea, self.toolbar)
@@ -154,93 +633,90 @@ class Ui_MainWindowView(object):
         MainWindowView.setStatusBar(self.statusbar)
         self.action_about = QtWidgets.QAction(MainWindowView)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/icons/icons/help-info.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/icons/icons/help-info.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_about.setIcon(icon1)
         self.action_about.setObjectName("action_about")
         self.action_about_qt = QtWidgets.QAction(MainWindowView)
         self.action_about_qt.setObjectName("action_about_qt")
         self.action_exit = QtWidgets.QAction(MainWindowView)
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/icons/icons/system-shutdown.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_exit.setIcon(icon2)
         self.action_exit.setObjectName("action_exit")
         self.action_next_page = QtWidgets.QAction(MainWindowView)
         self.action_next_page.setEnabled(False)
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/icons/icons/go-next.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_next_page.setIcon(icon3)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/icons/icons/go-next.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_next_page.setIcon(icon2)
         self.action_next_page.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_next_page.setVisible(True)
         self.action_next_page.setPriority(QtWidgets.QAction.HighPriority)
         self.action_next_page.setObjectName("action_next_page")
         self.action_previous_page = QtWidgets.QAction(MainWindowView)
         self.action_previous_page.setEnabled(False)
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/icons/icons/go-previous.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_previous_page.setIcon(icon4)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/icons/icons/go-previous.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_previous_page.setIcon(icon3)
         self.action_previous_page.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_previous_page.setVisible(True)
         self.action_previous_page.setObjectName("action_previous_page")
         self.action_first_page = QtWidgets.QAction(MainWindowView)
         self.action_first_page.setEnabled(False)
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(":/icons/icons/go-first.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_first_page.setIcon(icon5)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/icons/icons/go-first.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_first_page.setIcon(icon4)
         self.action_first_page.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_first_page.setObjectName("action_first_page")
         self.action_last_page = QtWidgets.QAction(MainWindowView)
         self.action_last_page.setEnabled(False)
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(":/icons/icons/go-last.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_last_page.setIcon(icon6)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(":/icons/icons/go-last.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_last_page.setIcon(icon5)
         self.action_last_page.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_last_page.setObjectName("action_last_page")
         self.action_rotate_left = QtWidgets.QAction(MainWindowView)
         self.action_rotate_left.setCheckable(False)
         self.action_rotate_left.setEnabled(False)
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap(":/icons/icons/object-rotate-left.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_rotate_left.setIcon(icon7)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap(":/icons/icons/object-rotate-left.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_rotate_left.setIcon(icon6)
         self.action_rotate_left.setShortcutContext(QtCore.Qt.WidgetShortcut)
         self.action_rotate_left.setObjectName("action_rotate_left")
         self.action_rotate_right = QtWidgets.QAction(MainWindowView)
         self.action_rotate_right.setEnabled(False)
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(":/icons/icons/object-rotate-right.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_rotate_right.setIcon(icon8)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap(":/icons/icons/object-rotate-right.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_rotate_right.setIcon(icon7)
         self.action_rotate_right.setShortcutContext(QtCore.Qt.WidgetShortcut)
         self.action_rotate_right.setObjectName("action_rotate_right")
         self.action_horizontal_fit = QtWidgets.QAction(MainWindowView)
         self.action_horizontal_fit.setCheckable(True)
         self.action_horizontal_fit.setChecked(False)
         self.action_horizontal_fit.setEnabled(False)
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(":/icons/icons/others/horizontal-fit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_horizontal_fit.setIcon(icon9)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap(":/icons/icons/horizontal-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_horizontal_fit.setIcon(icon8)
         self.action_horizontal_fit.setVisible(True)
         self.action_horizontal_fit.setObjectName("action_horizontal_fit")
         self.action_fullscreen = QtWidgets.QAction(MainWindowView)
         self.action_fullscreen.setCheckable(False)
         self.action_fullscreen.setEnabled(False)
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap(":/icons/icons/others/fullscreen.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_fullscreen.setIcon(icon10)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap(":/icons/icons/fullscreen.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_fullscreen.setIcon(icon9)
         self.action_fullscreen.setShortcutContext(QtCore.Qt.WidgetShortcut)
         self.action_fullscreen.setIconVisibleInMenu(True)
         self.action_fullscreen.setObjectName("action_fullscreen")
         self.action_go_to_page = QtWidgets.QAction(MainWindowView)
         self.action_go_to_page.setEnabled(False)
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap(":/icons/icons/edit-find.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_go_to_page.setIcon(icon11)
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap(":/icons/icons/edit-find.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_go_to_page.setIcon(icon10)
         self.action_go_to_page.setObjectName("action_go_to_page")
         self.action_original_fit = QtWidgets.QAction(MainWindowView)
         self.action_original_fit.setCheckable(True)
         self.action_original_fit.setChecked(True)
         self.action_original_fit.setEnabled(False)
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap(":/icons/icons/others/original-fit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_original_fit.setIcon(icon12)
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap(":/icons/icons/original-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_original_fit.setIcon(icon11)
         self.action_original_fit.setShortcutContext(QtCore.Qt.ApplicationShortcut)
         self.action_original_fit.setVisible(True)
         self.action_original_fit.setObjectName("action_original_fit")
@@ -250,60 +726,60 @@ class Ui_MainWindowView(object):
         self.action_show_statusbar.setObjectName("action_show_statusbar")
         self.action_add_bookmark = QtWidgets.QAction(MainWindowView)
         self.action_add_bookmark.setEnabled(False)
-        icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap(":/icons/icons/bookmark-new.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_add_bookmark.setIcon(icon13)
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap(":/icons/icons/bookmark-new.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_add_bookmark.setIcon(icon12)
         self.action_add_bookmark.setVisible(True)
         self.action_add_bookmark.setObjectName("action_add_bookmark")
         self.action_remove_bookmark = QtWidgets.QAction(MainWindowView)
         self.action_remove_bookmark.setEnabled(False)
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap(":/icons/icons/edit-delete.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_remove_bookmark.setIcon(icon14)
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap(":/icons/icons/edit-delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_remove_bookmark.setIcon(icon13)
         self.action_remove_bookmark.setVisible(False)
         self.action_remove_bookmark.setIconVisibleInMenu(True)
         self.action_remove_bookmark.setObjectName("action_remove_bookmark")
         self.action_bookmark_manager = QtWidgets.QAction(MainWindowView)
         self.action_bookmark_manager.setEnabled(True)
-        icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap(":/icons/icons/system-file-manager2.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_bookmark_manager.setIcon(icon15)
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap(":/icons/icons/system-file-manager2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_bookmark_manager.setIcon(icon14)
         self.action_bookmark_manager.setObjectName("action_bookmark_manager")
         self.action_open_folder = QtWidgets.QAction(MainWindowView)
-        icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap(":/icons/icons/folder-pictures.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_open_folder.setIcon(icon16)
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap(":/icons/icons/document-open.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_open_folder.setIcon(icon15)
         self.action_open_folder.setVisible(True)
         self.action_open_folder.setMenuRole(QtWidgets.QAction.TextHeuristicRole)
         self.action_open_folder.setIconVisibleInMenu(True)
         self.action_open_folder.setObjectName("action_open_folder")
         self.action_next_comic = QtWidgets.QAction(MainWindowView)
         self.action_next_comic.setEnabled(False)
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap(":/icons/icons/media-skip-forward.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_next_comic.setIcon(icon17)
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap(":/icons/icons/media-skip-forward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_next_comic.setIcon(icon16)
         self.action_next_comic.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_next_comic.setObjectName("action_next_comic")
         self.action_previous_comic = QtWidgets.QAction(MainWindowView)
         self.action_previous_comic.setEnabled(False)
-        icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap(":/icons/icons/media-skip-backward.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_previous_comic.setIcon(icon18)
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap(":/icons/icons/media-skip-backward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_previous_comic.setIcon(icon17)
         self.action_previous_comic.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_previous_comic.setObjectName("action_previous_comic")
         self.action_preference_dialog = QtWidgets.QAction(MainWindowView)
-        icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/document-properties.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_preference_dialog.setIcon(icon19)
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/document-properties.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_preference_dialog.setIcon(icon18)
         self.action_preference_dialog.setVisible(False)
         self.action_preference_dialog.setObjectName("action_preference_dialog")
         self.action_vertical_fit = QtWidgets.QAction(MainWindowView)
         self.action_vertical_fit.setCheckable(True)
         self.action_vertical_fit.setChecked(False)
         self.action_vertical_fit.setEnabled(False)
-        icon20 = QtGui.QIcon()
-        icon20.addPixmap(QtGui.QPixmap(":/icons/icons/others/vertical-fit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_vertical_fit.setIcon(icon20)
+        icon19 = QtGui.QIcon()
+        icon19.addPixmap(QtGui.QPixmap(":/icons/icons/vertical-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_vertical_fit.setIcon(icon19)
         self.action_vertical_fit.setAutoRepeat(True)
         self.action_vertical_fit.setVisible(True)
         self.action_vertical_fit.setObjectName("action_vertical_fit")
@@ -311,21 +787,18 @@ class Ui_MainWindowView(object):
         self.action_best_fit.setCheckable(True)
         self.action_best_fit.setChecked(False)
         self.action_best_fit.setEnabled(False)
-        icon21 = QtGui.QIcon()
-        icon21.addPixmap(QtGui.QPixmap(":/icons/icons/others/best-fit.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_best_fit.setIcon(icon21)
+        icon20 = QtGui.QIcon()
+        icon20.addPixmap(QtGui.QPixmap(":/icons/icons/best-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_best_fit.setIcon(icon20)
         self.action_best_fit.setVisible(True)
         self.action_best_fit.setObjectName("action_best_fit")
         self.action_save_image = QtWidgets.QAction(MainWindowView)
         self.action_save_image.setEnabled(True)
-        icon22 = QtGui.QIcon()
-        icon22.addPixmap(QtGui.QPixmap(":/icons/icons/document-save.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_save_image.setIcon(icon22)
         self.action_save_image.setObjectName("action_save_image")
         self.action_open_file = QtWidgets.QAction(MainWindowView)
-        icon23 = QtGui.QIcon()
-        icon23.addPixmap(QtGui.QPixmap(":/icons/icons/archive-extract.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_open_file.setIcon(icon23)
+        icon21 = QtGui.QIcon()
+        icon21.addPixmap(QtGui.QPixmap(":/icons/icons/archive-extract.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_open_file.setIcon(icon21)
         font = QtGui.QFont()
         self.action_open_file.setFont(font)
         self.action_open_file.setObjectName("action_open_file")
@@ -419,15 +892,15 @@ class Ui_MainWindowView(object):
         self.actionRecent_bookmark_5.setObjectName("actionRecent_bookmark_5")
         self.action_en_us = QtWidgets.QAction(MainWindowView)
         self.action_en_us.setCheckable(True)
-        icon24 = QtGui.QIcon()
-        icon24.addPixmap(QtGui.QPixmap(":/icons/famfamfam_flag_icons/png/us.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_en_us.setIcon(icon24)
+        icon22 = QtGui.QIcon()
+        icon22.addPixmap(QtGui.QPixmap(":/icons/famfamfam_flag_icons/png/us.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_en_us.setIcon(icon22)
         self.action_en_us.setObjectName("action_en_us")
         self.action_pt_br = QtWidgets.QAction(MainWindowView)
         self.action_pt_br.setCheckable(True)
-        icon25 = QtGui.QIcon()
-        icon25.addPixmap(QtGui.QPixmap(":/icons/famfamfam_flag_icons/png/br.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_pt_br.setIcon(icon25)
+        icon23 = QtGui.QIcon()
+        icon23.addPixmap(QtGui.QPixmap(":/icons/famfamfam_flag_icons/png/br.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_pt_br.setIcon(icon23)
         self.action_pt_br.setIconText("pt_BR")
         self.action_pt_br.setObjectName("action_pt_br")
         self.action_show_toolbar = QtWidgets.QAction(MainWindowView)
@@ -437,9 +910,9 @@ class Ui_MainWindowView(object):
         self.action_double_page_mode = QtWidgets.QAction(MainWindowView)
         self.action_double_page_mode.setCheckable(True)
         self.action_double_page_mode.setEnabled(False)
-        icon26 = QtGui.QIcon()
-        icon26.addPixmap(QtGui.QPixmap(":/icons/icons/edit-copy.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.action_double_page_mode.setIcon(icon26)
+        icon24 = QtGui.QIcon()
+        icon24.addPixmap(QtGui.QPixmap(":/icons/icons/distribute-horizontal-margin.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.action_double_page_mode.setIcon(icon24)
         self.action_double_page_mode.setIconVisibleInMenu(True)
         self.action_double_page_mode.setObjectName("action_double_page_mode")
         self.action_manga_mode = QtWidgets.QAction(MainWindowView)
