@@ -19,50 +19,6 @@
 from PyQt5 import QtGui
 
 
-class ComicHandler:
-
-    def __init__(self, comic, index=0):
-        self.comic = comic
-        self._current_page_index = index
-        self.page_handler = PageHandler(comic.pages, index)
-
-
-class PageHandler:
-
-    def __init__(self, pages, index):
-        self._index = index
-        self.pages = pages
-
-    def get_current_page(self):
-        return self.pages[self.index]
-
-    def go_next_page(self):
-        if self.index < len(self.pages) - 1:
-            self.index += 1
-
-    def go_previous_page(self):
-        if self.index > 0:
-            self.index -= 1
-
-    def go_first_page(self):
-        self.index = 0
-
-    def go_last_page(self):
-        self.index = len(self.pages) - 1
-
-    @property
-    def index(self):
-        return self._index
-
-    @index.setter
-    def index(self, idx):
-        if 0 <= idx < len(self.pages):
-            self._index = idx
-
-    def get_page_image(self):
-        raise NotImplementedError('Must subclass me!')
-
-
 class ComicPageHandler:
 
     def __init__(self, comic, index=0):
