@@ -33,8 +33,7 @@ if sys.argv[-1] == 'build_ui':
     sys.exit()
 
 if sys.argv[-1] == 'compile_pro':
-    path = 'i18n/pynocchio.pro'
-    os.system('pyside-lupdate -verbose %s' % path)
+    os.system('sh scripts/build_pro.sh')
     sys.exit()
 
 if sys.argv[-1] == 'publish':
@@ -66,8 +65,8 @@ setup(
         ('/usr/share/applications', ['linux/applications/pynocchio.desktop']),
         ('/usr/share/pixmaps', ['linux/pixmaps/pynocchio.png']),
         ('/usr/share/pynocchio/locale/', [
-            'pynocchio/locale/pynocchio_en_US.qm',
-            'pynocchio/locale/pynocchio_pt_BR.qm',
+            'pynocchio/locale/en-US.qm',
+            'pynocchio/locale/pt-BR.qm',
         ]),
         ('/usr/share/icons/hicolor/16x16/apps',
          ['linux/hicolor/16x16/apps/pynocchio.png']),
