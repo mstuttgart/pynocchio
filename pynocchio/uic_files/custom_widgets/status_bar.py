@@ -113,7 +113,8 @@ class StatusBar(QtWidgets.QStatusBar):
         if not self.page_resolution:
             self.add_page_resolution_label()
 
-        text = self.tr('Resolution: ') + str(width) + 'x' + str(height) + ' px'
+        text = self.tr('Resolution: ') + str(width) + ' px X ' + \
+            str(height) + ' px'
         self.page_resolution.setText(text)
 
     def set_comic_path(self, path):
