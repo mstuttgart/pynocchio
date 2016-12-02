@@ -51,7 +51,7 @@ class Pynocchio(QtWidgets.QApplication):
             self.addLibraryPath(path)
 
         translator = QTranslator(self)
-        language = 'pynocchio_' + QLocale.system().uiLanguages()[0]
+        language = QLocale.system().uiLanguages()[0] + '.qm'
 
         for path in DATADIRS:
             if translator.load(language, os.path.join(path, 'locale')):
