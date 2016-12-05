@@ -32,7 +32,7 @@ if sys.argv[-1] == 'build_ui':
     os.system('sh scripts/build_ui.sh')
     sys.exit()
 
-if sys.argv[-1] == 'compile_pro':
+if sys.argv[-1] == 'build_pro':
     os.system('sh scripts/build_pro.sh')
     sys.exit()
 
