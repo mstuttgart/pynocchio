@@ -18,6 +18,8 @@ before_script:
 script:
 - coverage run setup.py test
 - coverage xml
+- python setup.py build_pro
+- python setup.py build_ui
 - python setup.py build_deb
 - sudo dpkg -i pynocchio*.deb
 
