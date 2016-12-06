@@ -18,6 +18,8 @@ printf "\n---- Start script ----\n"
 # Define variables
 #--------------------------------------------------
 
+package_version=$1
+HTML_FOLDER="data/others/about.html"
 forms_src="forms"
 forms_destiny="pynocchio/uic_files"
 
@@ -27,6 +29,9 @@ resource_destiny="pynocchio/uic_files"
 #--------------------------------------------------
 # Scan directories and scan for .ui and .qrc files
 #--------------------------------------------------
+
+# Change package version in html about file
+sed -i -e "s:<h1>Pynocchio *.*.*</h1>:<h1>Pynocchio ${package_version}</h1>:g" ${HTML_FOLDER}
 
 printf "\n---- Search by .ui files in ${forms_src} folder ----\n\n"
 

@@ -29,7 +29,7 @@ if sys.argv[-1] == 'build_deb':
     sys.exit()
 #
 if sys.argv[-1] == 'build_ui':
-    os.system('sh scripts/build_ui.sh')
+    os.system('sh scripts/build_ui.sh %s' % version)
     sys.exit()
 
 if sys.argv[-1] == 'build_pro':
