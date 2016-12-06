@@ -50,7 +50,6 @@ cp -r pynocchio/locale ${BUILD_DEB_FOLDER}/usr/share/pynocchio/
 
 cp ${DIST}/* ${BUILD_DEB_FOLDER}/usr/bin
 cp linux/control ${BUILD_DEB_FOLDER}/DEBIAN
-cp linux/changelog ${BUILD_DEB_FOLDER}/DEBIAN
 
 printf "\n---- Build ${PACKAGE_NAME} package ----\n"
 dpkg --build ${BUILD_DEB_FOLDER}/ ${PACKAGE_NAME}
