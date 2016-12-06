@@ -18,17 +18,16 @@ printf "\n---- Start script ----\n"
 # Define variables
 #--------------------------------------------------
 
-pro_path="i18n"
-forms_destiny="pynocchio/uic_files"
+PRO_PATH="i18n"
 
 #--------------------------------------------------
 # Scan directories and scan for .ui and .qrc files
 #--------------------------------------------------
 
-printf "\n---- Search by .ui files in ${pro_path} folder ----\n\n"
+printf "\n---- Search by .ui files in ${PRO_PATH} folder ----\n\n"
 
-pro_list=$(find -iname *.pro)
-printf "${pro_list}\n"
+PRO_LIST=$(find -iname *.pro)
+printf "${PRO_LIST}\n"
 
 #--------------------------------------------------
 # Compile .pro files
@@ -36,12 +35,12 @@ printf "${pro_list}\n"
 
 printf "\n---- Compile .pro files. ----\n\n"
 
-for filename in ${pro_list}; do
-    /usr/lib/x86_64-linux-gnu/qt5/bin/lupdate -verbose ${filename}
+for FILENAME in ${PRO_LIST}; do
+    /usr/lib/x86_64-linux-gnu/qt5/bin/lupdate -verbose ${FILENAME}
     if [ $? = 0 ]; then
-        printf "Compile ${filename} file successfully!!\n"
+        printf "Compile ${FILENAME} file successfully!!\n"
     else
-        printf "Compile ${filename} file failed!!\n"
+        printf "Compile ${FILENAME} file failed!!\n"
     fi
 done
 
