@@ -12,7 +12,7 @@ class Ui_AboutDialog(object):
     def setupUi(self, AboutDialog):
         AboutDialog.setObjectName("AboutDialog")
         AboutDialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        AboutDialog.resize(459, 309)
+        AboutDialog.resize(506, 363)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -72,17 +72,7 @@ class Ui_AboutDialog(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Noto Sans\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/others/pynocchio.png\" width=\"64\" height=\"64\" /> </p>\n"
-"<p align=\"center\" style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#9bca22;\">Pynocchio 0.1.1</span> </p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Pynocchio is a image viewer specialized in comic book reading. </p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ and <br />has a elegant visual, free and easy to use. </p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Pynocchio is licensed under the <a href=\"https://github.com/pynocchio/pynocchio/raw/develop/LICENSE\"><span style=\" text-decoration: underline; color:#9bca3b;\">GNU General Public License</span></a>. </p>\n"
-"<p align=\"center\" style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#9bca22;\">Web site</span> </p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"http://pynocchio.github.io\"><span style=\" text-decoration: underline; color:#9bca3b;\">Pynocchio Website</span></a> <br /><a href=\"https://github.com/pynocchio/pynocchio\"><span style=\" text-decoration: underline; color:#9bca3b;\">Pynocchio Github Repository</span></a> </p>\n"
-"<p align=\"center\" style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#9bca22;\">Third-party resources</span> </p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Pynocchio use some icons from <a href=\"https://store.kde.org/content/show.php/elementary+USU?content=148128\"><span style=\" text-decoration: underline; color:#9bca3b;\">Elementary USU Icon Theme</span></a>. </p>\n"
-"<p align=\"center\" style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; color:#9bca22;\">Credits</span> </p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Copyright(C) 2014-2016 by <a href=\"https://github.com/mstuttgart/\"><span style=\" text-decoration: underline; color:#9bca3b;\">Michell Stuttgart Faria</span></a> </p></body></html>"))
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.about), _translate("AboutDialog", "About"))
         self.button_close.setText(_translate("AboutDialog", "Close"))
 
