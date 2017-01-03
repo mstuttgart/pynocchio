@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file './forms/go_to_page_dialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.7
+# Created by: PyQt5 UI code generator 5.7.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -45,7 +45,7 @@ class Ui_GoPageDialog(object):
         self.scroll_area.setAlignment(QtCore.Qt.AlignCenter)
         self.scroll_area.setObjectName("scroll_area")
         self.scroll_area_widget_contents = QtWidgets.QWidget()
-        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 289, 405))
+        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 293, 408))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
