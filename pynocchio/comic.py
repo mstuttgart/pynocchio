@@ -33,3 +33,10 @@ class Comic:
     def get_path(self):
         return self.directory + '/' + self.name
 
+
+class Page:
+
+    def __init__(self, data, title, number):
+        self.data = data
+        self.title = title
+        self.number = number

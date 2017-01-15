@@ -17,7 +17,7 @@
 
 from unittest import TestCase
 
-from pynocchio.comic import Comic
+from pynocchio.comic import Comic, Page
 from pynocchio.page import Page
 
 
@@ -38,3 +38,12 @@ class TestComic(TestCase):
     def test_get_path(self):
         self.assertEqual(self.obj.directory + '/' + self.obj.name,
                          self.obj.get_path())
+
+
+class TestPage(TestCase):
+
+    def test__init__(self):
+        page = Page(None, 'title', 1)
+        self.assertEqual(page.data, None)
+        self.assertEqual(page.title, 'title')
+        self.assertEqual(page.number, 1)
