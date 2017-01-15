@@ -97,10 +97,10 @@ class MainWindowModel(QtCore.QObject):
         self.get_current_page().save(file_name)
 
     def next_page(self):
-        self.comic_page_handler.go_next_page()
+        return self.comic_page_handler.go_next_page()
 
     def previous_page(self):
-        self.comic_page_handler.go_previous_page()
+        return self.comic_page_handler.go_previous_page()
 
     def first_page(self):
         self.comic_page_handler.go_first_page()

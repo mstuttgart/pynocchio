@@ -100,15 +100,15 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_previous_page_triggered(self):
-        self.model.previous_page()
-        self.update_viewer_content()
-        self.update_navegation_actions()
+        if self.model.previous_page():
+            self.update_viewer_content()
+            self.update_navegation_actions()
 
     @QtCore.pyqtSlot()
     def on_action_next_page_triggered(self):
-        self.model.next_page()
-        self.update_viewer_content()
-        self.update_navegation_actions()
+        if self.model.next_page():
+            self.update_viewer_content()
+            self.update_navegation_actions()
 
     @QtCore.pyqtSlot()
     def on_action_first_page_triggered(self):

@@ -31,10 +31,15 @@ class ComicPageHandler:
     def go_next_page(self):
         if self.current_page_index < self.comic.get_number_of_pages() - 1:
             self.current_page_index += 1
+            return True
+        return False
 
     def go_previous_page(self):
         if self.current_page_index > 0:
             self.current_page_index -= 1
+            return True
+        else:
+            return False
 
     def go_first_page(self):
         self.current_page_index = 0
