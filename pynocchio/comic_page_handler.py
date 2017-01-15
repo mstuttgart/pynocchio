@@ -98,10 +98,7 @@ class ComicPageHandlerDoublePage(ComicPageHandler):
             width = page_a.width()
             height = page_a.height()
         else:
-            if page_a.height() < page_b.height():
-                height = page_b.height()
-            else:
-                height = page_a.height()
+            height = max(page_a.height(), page_b.height())
 
             if self.manga_mode or direction == -1:
                 page_b, page_a = page_a, page_b
