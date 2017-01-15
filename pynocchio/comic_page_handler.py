@@ -82,35 +82,35 @@ class ComicPageHandlerDoublePage(ComicPageHandler):
 
         pages = []
 
-        page_right = QtGui.QPixmap()
-        page_right.loadFromData(self.get_current_page().data)
+        page_a = QtGui.QPixmap()
+        page_a.loadFromData(self.get_current_page().data)
 
         try:
 
-            page_left = QtGui.QPixmap()
+            page_b = QtGui.QPixmap()
 
             direction = -1 if self.get_current_page().number % 2 == 0 else 1
 
-            page_left.loadFromData(
+            page_b.loadFromData(
                 self.comic.pages[self.current_page_index + direction].data)
 
         except IndexError:
-            width = page_right.width()
-            height = page_right.height()
+            width = page_a.width()
+            height = page_a.height()
         else:
-            if page_right.height() < page_left.height():
-                height = page_left.height()
+            if page_a.height() < page_b.height():
+                height = page_b.height()
             else:
-                height = page_right.height()
+                height = page_a.height()
 
             if self.manga_mode or direction == -1:
-                page_left, page_right = page_right, page_left
+                page_b, page_a = page_a, page_b
 
-            width = page_right.width() + page_left.width()
+            width = page_a.width() + page_b.width()
 
-            pages.append([page_right.width(), 0, page_left])
+            pages.append([page_a.width(), 0, page_b])
 
-        pages.append([0, 0, page_right])
+        pages.append([0, 0, page_a])
 
         double_page = QtGui.QPixmap(width, height)
         painter = QtGui.QPainter(double_page)
