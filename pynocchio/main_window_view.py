@@ -103,12 +103,16 @@ class MainWindowView(QtWidgets.QMainWindow):
         if self.model.previous_page():
             self.update_viewer_content()
             self.update_navegation_actions()
+        else:
+            self.on_action_previous_page_triggered()
 
     @QtCore.pyqtSlot()
     def on_action_next_page_triggered(self):
         if self.model.next_page():
             self.update_viewer_content()
             self.update_navegation_actions()
+        else:
+            self.on_action_next_comic_triggered()
 
     @QtCore.pyqtSlot()
     def on_action_first_page_triggered(self):
@@ -472,11 +476,12 @@ class MainWindowView(QtWidgets.QMainWindow):
         is_first_page = self.model.is_first_page()
         is_last_page = self.model.is_last_page()
 
-        self.ui.action_previous_page.setEnabled(not is_first_page)
-        self.ui.action_first_page.setEnabled(not is_first_page)
+        self.ui.action_previous_page.setEnabled(
+            not self.model.is_first_comic())
+        self.ui.action_first_page.setEnabled(not self.model.is_first_comic())
 
-        self.ui.action_next_page.setEnabled(not is_last_page)
-        self.ui.action_last_page.setEnabled(not is_last_page)
+        self.ui.action_next_page.setEnabled(not self.model.is_last_comic())
+        self.ui.action_last_page.setEnabled(not self.model.is_last_comic())
 
         self.ui.action_previous_comic.setEnabled(
             not self.model.is_first_comic())
