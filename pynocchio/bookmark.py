@@ -40,3 +40,7 @@ class Bookmark(BookmarkBaseModel):
     comic_name = peewee.CharField(default='')
     comic_page = peewee.IntegerField(default=0)
     page_data = peewee.BlobField(null=True, default=None)
+
+
+class TemporaryBookmark(Bookmark):
+    pass
