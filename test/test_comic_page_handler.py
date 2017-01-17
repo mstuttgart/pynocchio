@@ -18,7 +18,6 @@
 from unittest import TestCase
 
 from pynocchio.comic import Comic, Page
-from pynocchio.page import Page
 from pynocchio.comic_page_handler import ComicPageHandler
 
 
