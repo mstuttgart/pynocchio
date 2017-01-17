@@ -113,7 +113,7 @@ class StatusBar(QtWidgets.QStatusBar):
         if not self.page_resolution:
             self.add_page_resolution_label()
 
-        text = self.tr('Resolution: ') + str(width) + ' px X ' + \
+        text = self.tr('Resolution: ') + str(width) + ' x ' + \
             str(height) + ' px'
         self.page_resolution.setText(text)
 
