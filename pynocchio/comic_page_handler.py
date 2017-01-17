@@ -78,10 +78,16 @@ class ComicPageHandlerDoublePage(ComicPageHandler):
     def go_next_page(self):
         if self.current_page_index < self.comic.get_number_of_pages() - 2:
             self.current_page_index += 2
+            return True
+        else:
+            return False
 
     def go_previous_page(self):
         if self.current_page_index > 1:
             self.current_page_index -= 2
+            return True
+        else:
+            return False
 
     def get_current_page_image(self):
 
