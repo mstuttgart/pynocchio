@@ -112,6 +112,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             vert_scroll_bar.setValue(self.last_scroll_position)
         else:
             self.on_action_previous_comic_triggered()
+            self.on_action_last_page_triggered()
 
     @QtCore.pyqtSlot()
     def on_action_next_page_triggered(self):
