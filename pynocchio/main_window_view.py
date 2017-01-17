@@ -64,6 +64,8 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.vertical_animation = QtCore.QPropertyAnimation(
             self.ui.qscroll_area_viewer.verticalScrollBar())
 
+        self.last_scroll_position = 0
+
     @QtCore.pyqtSlot()
     def on_action_open_file_triggered(self):
 
@@ -106,12 +108,16 @@ class MainWindowView(QtWidgets.QMainWindow):
         if self.model.previous_page():
             self.update_viewer_content()
             self.update_navegation_actions()
+            vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
+            vert_scroll_bar.setValue(self.last_scroll_position)
         else:
             self.on_action_previous_comic_triggered()
 
     @QtCore.pyqtSlot()
     def on_action_next_page_triggered(self):
         if self.model.next_page():
+            vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
+            self.last_scroll_position = vert_scroll_bar.sliderPosition()
             self.update_viewer_content()
             self.update_navegation_actions()
         else:
