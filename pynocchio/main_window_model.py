@@ -22,6 +22,7 @@ import logging
 from .exception import NoDataFindException
 from .utility import Utility
 from .bookmark_database_manager import BookmarkManager
+from .bookmark import TemporaryBookmark, Bookmark
 from .comic_file_loader_factory import ComicLoaderFactory
 from .comic import Comic
 from .comic_page_handler_factory import ComicPageHandlerFactory
@@ -34,7 +35,6 @@ logger.setLevel(logging.INFO)
 
 
 class MainWindowModel(QtCore.QObject):
-
     _ORIGINAL_FIT = 'action_original_fit'
     _VERTICAL_FIT = 'action_vertical_fit'
     _HORIZONTAL_FIT = 'action_horizontal_fit'
@@ -233,15 +233,18 @@ class MainWindowModel(QtCore.QObject):
         return BookmarkManager.is_bookmark(self.comic.get_path())
 
     @staticmethod
-    def get_bookmark_from_path(path):
-        return BookmarkManager.get_bookmark_by_path(path)
+    def get_bookmark_from_path(path, table=Bookmark):
+        return BookmarkManager.get_bookmark_by_path(path, table=table)
 
-    def add_bookmark(self):
-        BookmarkManager.add_bookmark(self.comic.name,
-                                     self.comic.get_path(),
-                                     self.comic_page_handler.get_current_page().number,
-                                     self.comic_page_handler.get_current_page().data)
+    def add_bookmark(self, table=Bookmark):
+
+        if self.comic:
+            BookmarkManager.add_bookmark(
+                self.comic.name, self.comic.get_path(),
+                self.comic_page_handler.get_current_page().number,
+                data=self.comic_page_handler.get_current_page().data,
+                table=table)
 
     @staticmethod
-    def remove_bookmark(path):
-        BookmarkManager.remove_bookmark(path)
+    def remove_bookmark(path, table=Bookmark):
+        BookmarkManager.remove_bookmark(path, table=table)
