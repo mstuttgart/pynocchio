@@ -16,11 +16,17 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from peewee import OperationalError, IntegrityError
-from .bookmark import Bookmark, BookmarkBaseModel, db
+from .bookmark import Bookmark, TemporaryBookmark, BookmarkBaseModel, db
 
 import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+
+TABLES = {
+    False: Bookmark,
+    True: TemporaryBookmark,
+}
 
 
 class BookmarkManager(BookmarkBaseModel):
@@ -29,8 +35,9 @@ class BookmarkManager(BookmarkBaseModel):
     def connect():
         db.connect()
         try:
-            db.create_tables([Bookmark], safe=True)
-            logger.info('Table Bookmark create/updates successfully!')
+            db.create_tables([Bookmark, TemporaryBookmark], safe=True)
+            logger.info('Table Bookmark and TemporaryBookmark create/updates '
+                        'successfully!')
         except OperationalError:
             logger.exception("Error to create table Bookmark!")
 
@@ -40,25 +47,25 @@ class BookmarkManager(BookmarkBaseModel):
         logger.info('Bookmark database closed.')
 
     @staticmethod
-    def add_bookmark(name, path, page, data):
+    def add_bookmark(name, path, page, data=None, table=Bookmark):
         BookmarkManager.connect()
         try:
-            q = Bookmark.insert(comic_name=name, comic_path=path,
-                                comic_page=page, page_data=data)
+            q = table.insert(comic_name=name, comic_path=path,
+                             comic_page=page, page_data=data)
             q.execute()
-            logger.info('Bookmark %s inserted.' % name)
+            logger.info('%s item inserted.' % table.__class__)
         except IntegrityError:
-            q = Bookmark.update(comic_page=page, page_data=data).where(
-                Bookmark.comic_path == path)
+            q = table.update(comic_page=page, page_data=data).where(
+                table.comic_path == path)
             q.execute()
-            logger.info('Bookmark updated')
+            logger.info('Bookmark updated.')
         BookmarkManager.close()
 
     @staticmethod
-    def remove_bookmark(path):
+    def remove_bookmark(path, table=Bookmark):
         BookmarkManager.connect()
         try:
-            q = Bookmark.delete().where(Bookmark.comic_path == path)
+            q = table.delete().where(table.comic_path == path)
             q.execute()
             logger.info('Bookmark deleted.')
         except IntegrityError:
@@ -66,22 +73,21 @@ class BookmarkManager(BookmarkBaseModel):
         BookmarkManager.close()
 
     @staticmethod
-    def get_bookmarks(rows_number):
-        query = Bookmark.select().order_by(Bookmark.comic_id.desc()).limit(
+    def get_bookmarks(rows_number, table=Bookmark):
+        query = table.select().order_by(table.comic_id.desc()).limit(
             rows_number)
         return list(query)
 
     @staticmethod
-    def get_bookmark_by_path(path):
+    def get_bookmark_by_path(path, table=Bookmark):
         BookmarkManager.connect()
-        bk_list = Bookmark.select().where(Bookmark.comic_path == path)
+        bk_list = table.select().where(table.comic_path == path)
         BookmarkManager.close()
         return bk_list[0] if bk_list else None
 
     @staticmethod
-    def is_bookmark(path):
+    def is_bookmark(path, table=Bookmark):
         BookmarkManager.connect()
-        bk_list = Bookmark.select().where(Bookmark.comic_path == path)
+        bk_list = table.select().where(table.comic_path == path)
         BookmarkManager.close()
         return True if bk_list else False
-

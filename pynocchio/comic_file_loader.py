@@ -24,7 +24,7 @@ import rarfile
 import tarfile
 
 from .utility import Utility
-from .page import Page
+from pynocchio.comic import Page
 from .exception import NoDataFindException
 
 logger = logging.getLogger(__name__)
