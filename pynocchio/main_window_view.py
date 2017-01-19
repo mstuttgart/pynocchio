@@ -274,7 +274,11 @@ class MainWindowView(QtWidgets.QMainWindow):
     def on_action_exit_triggered(self):
         super(MainWindowView, self).close()
         self.model.save_settings()
-        self.model.add_bookmark(table=TemporaryBookmark)
+
+        if not self.model.is_first_page() and not self.model.is_last_page():
+            self.model.add_bookmark(table=TemporaryBookmark)
+        else:
+            self.model.remove_bookmark(table=TemporaryBookmark)
 
     def create_connections(self):
 

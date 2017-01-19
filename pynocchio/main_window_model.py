@@ -82,6 +82,13 @@ class MainWindowModel(QtCore.QObject):
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
 
+        # Memorize last page on comic
+        if self.comic:
+            if not self.is_first_page() and not self.is_last_page():
+                self.add_bookmark(table=TemporaryBookmark)
+            else:
+                self.remove_bookmark(table=TemporaryBookmark)
+
         self.comic = Comic(Utility.get_base_name(filename),
                            Utility.get_dir_name(filename))
 
@@ -245,6 +252,6 @@ class MainWindowModel(QtCore.QObject):
                 data=self.comic_page_handler.get_current_page().data,
                 table=table)
 
-    @staticmethod
-    def remove_bookmark(path, table=Bookmark):
+    def remove_bookmark(self, path=False, table=Bookmark):
+        path = self.comic.get_path() if not path else path
         BookmarkManager.remove_bookmark(path, table=table)
