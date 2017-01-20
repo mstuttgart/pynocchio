@@ -8,7 +8,7 @@ dist: xenial
 
 install:
   - pip3 install -r requirements.txt
-  - sudo apt-get install upx build-essential git python3-dev python3-pip qt5-qmake libqt5sql5-sqlite unrar-free
+  - sudo apt-get install upx build-essential git python3-dev python3-pip qt5-qmake qttools5-dev-tools libqt5sql5-sqlite unrar-free
 
 before_script:
 - export DISPLAY=:99.0
