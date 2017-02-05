@@ -275,10 +275,13 @@ class MainWindowView(QtWidgets.QMainWindow):
         super(MainWindowView, self).close()
         self.model.save_settings()
 
-        if not self.model.is_first_page() and not self.model.is_last_page():
-            self.model.add_bookmark(table=TemporaryBookmark)
-        else:
-            self.model.remove_bookmark(table=TemporaryBookmark)
+        try:
+            if not self.model.is_first_page() and not self.model.is_last_page():
+                self.model.add_bookmark(table=TemporaryBookmark)
+            else:
+                self.model.remove_bookmark(table=TemporaryBookmark)
+        except AttributeError as exc:
+            logger.warning(exc)
 
     def create_connections(self):
 
