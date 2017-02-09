@@ -16,7 +16,7 @@ before_script:
 - sleep 3
 
 script:
-- coverage run setup.py test
+- coverage run --source=pynocchio setup.py test
 - coverage xml
 - python setup.py build_pro
 - python setup.py build_ui
