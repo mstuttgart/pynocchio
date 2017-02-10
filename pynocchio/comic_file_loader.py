@@ -95,7 +95,7 @@ class ComicZipLoader(ComicLoader):
         with zipfile.ZipFile(file_name, 'r') as zf:
 
             name_list = zf.namelist()
-            name_list.sort()
+            # name_list.sort()
             aux = 100.0 / len(name_list)
             page = 1
             self.data = []
