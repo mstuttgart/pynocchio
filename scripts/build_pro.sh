@@ -36,7 +36,7 @@ printf "${PRO_LIST}\n"
 printf "\n---- Compile .pro files. ----\n\n"
 
 for FILENAME in ${PRO_LIST}; do
-    /usr/lib/x86_64-linux-gnu/qt5/bin/lupdate -verbose ${FILENAME}
+    pylupdate5 -verbose ${FILENAME}
     if [ $? = 0 ]; then
         printf "Compile ${FILENAME} file successfully!!\n"
     else
