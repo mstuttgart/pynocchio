@@ -23,6 +23,7 @@ BUILD_DEB_FOLDER="build_deb_package"
 DIST='dist'
 BUILD='build'
 PACKAGE_NAME="pynocchio_${PACKAGE_VERSION}_amd64.deb"
+CONTROL_FILE='linux/control'
 
 #--------------------------------------------------
 # Create the executable with PyInstaller
@@ -34,6 +35,9 @@ pyinstaller pynocchio.spec
 #--------------------------------------------------
 # Create the package directory tree to .deb package
 #--------------------------------------------------
+
+# Change package version in html about file
+sed -i -e "s:Version\: *.*.*:Version\: ${PACKAGE_VERSION}:g" ${CONTROL_FILE}
 
 printf "\n---- Create ${BUILD_DEB_FOLDER}/DEBIAN folder ----\n"
 mkdir -p ${BUILD_DEB_FOLDER}/DEBIAN

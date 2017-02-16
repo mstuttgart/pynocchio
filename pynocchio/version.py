@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-__version__ = '1.0.0'
+__version__ = '2.0.0'
 
 # Version synonym
 VERSION = __version__
