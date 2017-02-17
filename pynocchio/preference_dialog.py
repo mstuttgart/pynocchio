@@ -15,15 +15,15 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide import QtGui
+from PyQt5 import QtWidgets
 
-from uic_files import preference_dialog_ui
+from .uic_files import preference_dialog_ui
 
 
-class PreferenceDialog(QtGui.QDialog):
+class PreferenceDialog(QtWidgets.QDialog):
 
     def __init__(self, preference, parent=None):
-        QtGui.QDialog.__init__(self, parent)
+        super(PreferenceDialog, self).__init__(parent=parent)
 
         self.ui = preference_dialog_ui.Ui_config_dialog()
         self.ui.setupUi(self)
@@ -35,7 +35,7 @@ class PreferenceDialog(QtGui.QDialog):
             self._open_color_dialog)
 
     def _open_color_dialog(self):
-        col_dialog = QtGui.QColorDialog(self)
+        col_dialog = QtWidgets.QColorDialog(self)
         col = col_dialog.getColor(self.preference.background_color)
         if col.isValid():
             self.preference.background_color = col
@@ -44,4 +44,4 @@ class PreferenceDialog(QtGui.QDialog):
     def close(self):
         self.preference.background_color = \
             self.ui.line_edit_color.background_color
-        QtGui.QDialog.close(self)
+        super(PreferenceDialog, self).close(self)

@@ -15,12 +15,16 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide import QtGui
-from uic_files import about_dialog_ui
+from PyQt5 import QtWidgets, QtCore
+from .uic_files import about_dialog_ui
 
 
-class AboutDialog(QtGui.QDialog):
+class AboutDialog(QtWidgets.QDialog):
+
     def __init__(self, parent=None):
-        QtGui.QDialog.__init__(self, parent)
+        super(AboutDialog, self).__init__(parent=parent)
         self.ui = about_dialog_ui.Ui_AboutDialog()
         self.ui.setupUi(self)
+
+        self.ui.about_text_browser.setSource(QtCore.QUrl(
+            'qrc:///others/others/about.html'))

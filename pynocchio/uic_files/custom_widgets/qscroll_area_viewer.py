@@ -15,10 +15,10 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide import QtCore, QtGui
+from PyQt5 import QtCore, QtWidgets
 
 
-class QScrollAreaViewer(QtGui.QScrollArea):
+class QScrollAreaViewer(QtWidgets.QScrollArea):
 
     def __init__(self, parent=None):
         super(QScrollAreaViewer, self).__init__(parent)

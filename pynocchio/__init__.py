@@ -15,11 +15,10 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-__title__ = 'Pynocchio Comic Reader'
-__version__ = '0.1.1'
+from .version import __version__
+
+__title__ = 'Pynocchio'
 __author__ = 'Michell Stuttgart Faria'
-__license__ = 'GPL v3'
+__license__ = 'GPL-v3'
 __copyright__ = 'Copyright 2014-2016 Michell Stuttgart Faria'
 
-# Version synonym
-VERSION = __version__

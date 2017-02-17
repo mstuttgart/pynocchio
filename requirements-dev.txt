@@ -1,5 +1,0 @@
--r requirements.txt
-coveralls==1.1
-pyqt-distutils==0.6.2
-stdeb==0.8.5
-PyInstaller==3.2

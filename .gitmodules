@@ -1,9 +1,0 @@
-[submodule "data/elementary3-icon-theme"]
-	path = data/elementary3-icon-theme
-	url = https://github.com/opengraphix/elementary3-icon-theme.git
-[submodule "pynocchio/peewee"]
-	path = pynocchio/peewee
-	url = https://github.com/pynocchio/peewee.git
-[submodule "pynocchio/rarfile"]
-	path = pynocchio/rarfile
-	url = https://github.com/pynocchio/rarfile.git

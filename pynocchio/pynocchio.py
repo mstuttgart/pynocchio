@@ -15,12 +15,12 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from PyQt5 import QtCore, QtWidgets
 import sys
-from PySide import QtGui, QtCore
 import os
 
-from main_window_model import MainWindowModel
-from main_window_view import MainWindowView
+from .main_window_model import MainWindowModel
+from .main_window_view import MainWindowView
 
 DATADIRS = (
         os.path.abspath('./pynocchio'),
@@ -36,12 +36,14 @@ QFileInfo = QtCore.QFileInfo
 QFile = QtCore.QFile
 
 
-class Pynocchio(QtGui.QApplication):
+class Pynocchio(QtWidgets.QApplication):
 
     def __init__(self):
         super(Pynocchio, self).__init__(sys.argv)
         self.setOrganizationName('Pynocchio')
         self.setApplicationName('Pynocchio')
+        self.setStyle(QtWidgets.QStyleFactory.create('fusion'))
+
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')
 
@@ -49,7 +51,7 @@ class Pynocchio(QtGui.QApplication):
             self.addLibraryPath(path)
 
         translator = QTranslator(self)
-        language = 'pynocchio_' + QLocale.system().uiLanguages()[0]
+        language = QLocale.system().uiLanguages()[0] + '.qm'
 
         for path in DATADIRS:
             if translator.load(language, os.path.join(path, 'locale')):
@@ -69,7 +71,6 @@ class Pynocchio(QtGui.QApplication):
         self.view.show()
 
         if len(sys.argv) > 1:
-            a = sys.argv
             filename = ''
             for s in sys.argv[1:]:
                 filename += s

@@ -1,9 +1,0 @@
-[run]
-branch = True
-source = pynocchio
-omit =
-    pynocchio/uic_files/*_ui.py
-    pynocchio/uic_files/main_window_view_rc.py
-    pynocchio/pynocchio_exception.py
-    pynocchio/preference_dialog.py
-    pynocchio_run

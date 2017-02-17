@@ -15,12 +15,12 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide import QtGui
+from PyQt5 import QtWidgets, QtGui
 
 
-class ColorLine(QtGui.QLineEdit):
+class ColorLine(QtWidgets.QLineEdit):
     def __init__(self, parent=None):
-        QtGui.QLineEdit.__init__(self, parent)
+        super(ColorLine, self).__init__(parent=parent)
         self.background_color = QtGui.QColor()
 
     def paintEvent(self, e):

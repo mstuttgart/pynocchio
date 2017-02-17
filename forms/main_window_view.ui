@@ -27,14 +27,14 @@
    <enum>Qt::WheelFocus</enum>
   </property>
   <property name="windowTitle">
-   <string>Pynocchio Comic Reader</string>
+   <string>Pynocchio</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../data/main_window_view.qrc">
-    <normaloff>:/icons/pynocchio_icon.png</normaloff>:/icons/pynocchio_icon.png</iconset>
+    <normaloff>:/others/pynocchio.png</normaloff>:/others/pynocchio.png</iconset>
   </property>
   <property name="accessibleName">
-   <string>Pynocchio Comic Reader</string>
+   <string>Pynocchio</string>
   </property>
   <property name="accessibleDescription">
    <string>The Best Comic Reader</string>
@@ -49,7 +49,7 @@
    <enum>Qt::ToolButtonIconOnly</enum>
   </property>
   <property name="animated">
-   <bool>false</bool>
+   <bool>true</bool>
   </property>
   <property name="documentMode">
    <bool>false</bool>
@@ -71,10 +71,19 @@
     </sizepolicy>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="margin">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
      <number>0</number>
     </property>
     <item>
@@ -95,7 +104,7 @@
        <bool>true</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(5, 5, 5);</string>
+       <string notr="true">background-color: rgb(50, 50, 50)</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::HLine</enum>
@@ -124,7 +133,7 @@
          <x>0</x>
          <y>0</y>
          <width>1048</width>
-         <height>486</height>
+         <height>470</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -136,6 +145,9 @@
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <property name="spacing">
          <number>0</number>
@@ -143,7 +155,16 @@
         <property name="sizeConstraint">
          <enum>QLayout::SetMaximumSize</enum>
         </property>
-        <property name="margin">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
          <number>0</number>
         </property>
         <item>
@@ -185,7 +206,7 @@
            <enum>Qt::PlainText</enum>
           </property>
           <property name="pixmap">
-           <pixmap resource="../data/main_window_view.qrc">:/icons/pynocchio_icon.png</pixmap>
+           <pixmap>:/icons/pynocchio_icon.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>false</bool>
@@ -213,7 +234,7 @@
      <x>0</x>
      <y>0</y>
      <width>1048</width>
-     <height>23</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -243,11 +264,7 @@
       <bool>false</bool>
      </property>
      <property name="title">
-      <string>Recent files</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../data/main_window_view.qrc">
-       <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
+      <string>&amp;Recent files</string>
      </property>
      <property name="separatorsCollapsible">
       <bool>false</bool>
@@ -284,6 +301,9 @@
     <addaction name="separator"/>
     <addaction name="action_rotate_left"/>
     <addaction name="action_rotate_right"/>
+    <addaction name="separator"/>
+    <addaction name="action_double_page_mode"/>
+    <addaction name="action_manga_mode"/>
    </widget>
    <widget class="QMenu" name="menu_navegation">
     <property name="acceptDrops">
@@ -334,11 +354,7 @@
     </property>
     <widget class="QMenu" name="menu_recent_bookmarks">
      <property name="title">
-      <string>Recente bookmarks</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../data/main_window_view.qrc">
-       <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open-recent.svg</iconset>
+      <string>R&amp;ecente bookmarks</string>
      </property>
      <addaction name="actionRecent_bookmark_1"/>
      <addaction name="actionRecent_bookmark_2"/>
@@ -379,7 +395,7 @@
     <string>toolBar</string>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="movable">
     <bool>false</bool>
@@ -417,7 +433,10 @@
    <addaction name="action_vertical_fit"/>
    <addaction name="action_horizontal_fit"/>
    <addaction name="action_best_fit"/>
+   <addaction name="separator"/>
    <addaction name="action_fullscreen"/>
+   <addaction name="separator"/>
+   <addaction name="action_double_page_mode"/>
    <addaction name="separator"/>
    <addaction name="action_exit"/>
   </widget>
@@ -425,24 +444,20 @@
   <action name="action_about">
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/help-info.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/help-info.svg</iconset>
+     <normaloff>:/icons/icons/help-info.png</normaloff>:/icons/icons/help-info.png</iconset>
    </property>
    <property name="text">
-    <string>About Pynocchio</string>
+    <string>&amp;About Pynocchio</string>
    </property>
   </action>
   <action name="action_about_qt">
    <property name="text">
-    <string>About Qt</string>
+    <string>About &amp;Qt</string>
    </property>
   </action>
   <action name="action_exit">
-   <property name="icon">
-    <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/application-exit.svg</iconset>
-   </property>
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Exit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
@@ -454,10 +469,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-next.svg</iconset>
+     <normaloff>:/icons/icons/go-next.png</normaloff>:/icons/icons/go-next.png</iconset>
    </property>
    <property name="text">
-    <string>Next page</string>
+    <string>&amp;Next page</string>
    </property>
    <property name="shortcut">
     <string>Right</string>
@@ -478,10 +493,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-previous.svg</iconset>
+     <normaloff>:/icons/icons/go-previous.png</normaloff>:/icons/icons/go-previous.png</iconset>
    </property>
    <property name="text">
-    <string>Previous page</string>
+    <string>&amp;Previous page</string>
    </property>
    <property name="shortcut">
     <string>Left</string>
@@ -499,10 +514,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-first.svg</iconset>
+     <normaloff>:/icons/icons/go-first.png</normaloff>:/icons/icons/go-first.png</iconset>
    </property>
    <property name="text">
-    <string>First page</string>
+    <string>&amp;First page</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Left</string>
@@ -517,10 +532,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-last.svg</iconset>
+     <normaloff>:/icons/icons/go-last.png</normaloff>:/icons/icons/go-last.png</iconset>
    </property>
    <property name="text">
-    <string>Last page</string>
+    <string>&amp;Last page</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Right</string>
@@ -538,10 +553,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-left.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-left.svg</iconset>
+     <normaloff>:/icons/icons/object-rotate-left.png</normaloff>:/icons/icons/object-rotate-left.png</iconset>
    </property>
    <property name="text">
-    <string>Rotate left</string>
+    <string>&amp;Rotate left</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+R</string>
@@ -556,10 +571,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-right.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/object-rotate-right.svg</iconset>
+     <normaloff>:/icons/icons/object-rotate-right.png</normaloff>:/icons/icons/object-rotate-right.png</iconset>
    </property>
    <property name="text">
-    <string>Rotate right</string>
+    <string>Rotat&amp;e right</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
@@ -580,10 +595,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</normaloff>:/icons/freeiconmaker-icons/horizontal-fit.svg</iconset>
+     <normaloff>:/icons/icons/horizontal-fit.png</normaloff>:/icons/icons/horizontal-fit.png</iconset>
    </property>
    <property name="text">
-    <string>Horizontal fit</string>
+    <string>&amp;Horizontal fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+K</string>
@@ -601,16 +616,19 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</normaloff>:/icons/freeiconmaker-icons/fullscreen.svg</iconset>
+     <normaloff>:/icons/icons/fullscreen.png</normaloff>:/icons/icons/fullscreen.png</iconset>
    </property>
    <property name="text">
-    <string>Fullscreen</string>
+    <string>&amp;Fullscreen</string>
    </property>
    <property name="shortcut">
     <string>F</string>
    </property>
    <property name="shortcutContext">
     <enum>Qt::WidgetShortcut</enum>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
    </property>
   </action>
   <action name="action_go_to_page">
@@ -619,10 +637,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/search.svg</iconset>
+     <normaloff>:/icons/icons/edit-find.png</normaloff>:/icons/icons/edit-find.png</iconset>
    </property>
    <property name="text">
-    <string>Go to page</string>
+    <string>&amp;Go to page</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+G</string>
@@ -640,10 +658,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/freeiconmaker-icons/original-fit.svg</normaloff>:/icons/freeiconmaker-icons/original-fit.svg</iconset>
+     <normaloff>:/icons/icons/original-fit.png</normaloff>:/icons/icons/original-fit.png</iconset>
    </property>
    <property name="text">
-    <string>Original fit</string>
+    <string>&amp;Original fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+H</string>
@@ -663,7 +681,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Show Statusbar</string>
+    <string>S&amp;how Statusbar</string>
    </property>
   </action>
   <action name="action_add_bookmark">
@@ -672,10 +690,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/bookmark-new.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/bookmark-new.svg</iconset>
+     <normaloff>:/icons/icons/bookmark-new.png</normaloff>:/icons/icons/bookmark-new.png</iconset>
    </property>
    <property name="text">
-    <string>Add bookmark</string>
+    <string>&amp;Add bookmark</string>
    </property>
    <property name="visible">
     <bool>true</bool>
@@ -687,10 +705,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/stock_delete.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/stock_delete.svg</iconset>
+     <normaloff>:/icons/icons/edit-delete.png</normaloff>:/icons/icons/edit-delete.png</iconset>
    </property>
    <property name="text">
-    <string>Remove bookmark</string>
+    <string>&amp;Remove bookmark</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -705,19 +723,19 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/apps/48/office-database.svg</normaloff>:/icons/elementary3-icon-theme/apps/48/office-database.svg</iconset>
+     <normaloff>:/icons/icons/system-file-manager2.png</normaloff>:/icons/icons/system-file-manager2.png</iconset>
    </property>
    <property name="text">
-    <string>Bookmark manager</string>
+    <string>&amp;Bookmark manager</string>
    </property>
   </action>
   <action name="action_open_folder">
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/document-open.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-open.svg</iconset>
+     <normaloff>:/icons/icons/document-open.png</normaloff>:/icons/icons/document-open.png</iconset>
    </property>
    <property name="text">
-    <string>Open Folder</string>
+    <string>Open &amp;Folder</string>
    </property>
    <property name="visible">
     <bool>true</bool>
@@ -735,10 +753,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-forward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-forward.svg</iconset>
+     <normaloff>:/icons/icons/media-skip-forward.png</normaloff>:/icons/icons/media-skip-forward.png</iconset>
    </property>
    <property name="text">
-    <string>Next Comic</string>
+    <string>Next &amp;Comic</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+Right</string>
@@ -753,10 +771,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-backward.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/media-skip-backward.svg</iconset>
+     <normaloff>:/icons/icons/media-skip-backward.png</normaloff>:/icons/icons/media-skip-backward.png</iconset>
    </property>
    <property name="text">
-    <string>Previous Comic</string>
+    <string>P&amp;revious Comic</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+Left</string>
@@ -767,11 +785,11 @@
   </action>
   <action name="action_preference_dialog">
    <property name="icon">
-    <iconset resource="../data/main_window_view.qrc">
+    <iconset>
      <normaloff>:/icons/elementary3-icon-theme/actions/48/document-properties.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/document-properties.svg</iconset>
    </property>
    <property name="text">
-    <string>Preferences</string>
+    <string>&amp;Preferences</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -789,10 +807,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</normaloff>:/icons/freeiconmaker-icons/vertical-fit.svg</iconset>
+     <normaloff>:/icons/icons/vertical-fit.png</normaloff>:/icons/icons/vertical-fit.png</iconset>
    </property>
    <property name="text">
-    <string>Vertical fit</string>
+    <string>&amp;Vertical fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+J</string>
@@ -816,10 +834,10 @@
    </property>
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/freeiconmaker-icons/best-fit.svg</normaloff>:/icons/freeiconmaker-icons/best-fit.svg</iconset>
+     <normaloff>:/icons/icons/best-fit.png</normaloff>:/icons/icons/best-fit.png</iconset>
    </property>
    <property name="text">
-    <string>Best fit</string>
+    <string>&amp;Best fit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+L</string>
@@ -832,12 +850,8 @@
    <property name="enabled">
     <bool>true</bool>
    </property>
-   <property name="icon">
-    <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/go-down.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/go-down.svg</iconset>
-   </property>
    <property name="text">
-    <string>Save image</string>
+    <string>&amp;Save image</string>
    </property>
    <property name="whatsThis">
     <string>Save current image in disk.</string>
@@ -849,10 +863,10 @@
   <action name="action_open_file">
    <property name="icon">
     <iconset resource="../data/main_window_view.qrc">
-     <normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</normaloff>:/icons/elementary3-icon-theme/actions/48/archive-extract.svg</iconset>
+     <normaloff>:/icons/icons/archive-extract.png</normaloff>:/icons/icons/archive-extract.png</iconset>
    </property>
    <property name="text">
-    <string>Open File</string>
+    <string>&amp;Open File</string>
    </property>
    <property name="font">
     <font/>
@@ -863,7 +877,7 @@
   </action>
   <action name="actionRecent_file_1">
    <property name="text">
-    <string notr="true">recent_file_1</string>
+    <string notr="true">&amp;recent_file_1</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_file_1</string>
@@ -877,7 +891,7 @@
   </action>
   <action name="actionRecent_file_2">
    <property name="text">
-    <string notr="true">recent_file_2</string>
+    <string notr="true">recent_&amp;file_2</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_file_2</string>
@@ -891,7 +905,7 @@
   </action>
   <action name="actionRecent_file_3">
    <property name="text">
-    <string notr="true">recent_file_3</string>
+    <string notr="true">recent_file_&amp;3</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_file_3</string>
@@ -905,7 +919,7 @@
   </action>
   <action name="actionRecent_file_4">
    <property name="text">
-    <string notr="true">recent_file_4</string>
+    <string notr="true">recent_file_&amp;4</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_file_4</string>
@@ -919,7 +933,7 @@
   </action>
   <action name="actionRecent_file_5">
    <property name="text">
-    <string notr="true">recent_file_5</string>
+    <string notr="true">recent_file_&amp;5</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_file_5</string>
@@ -933,7 +947,7 @@
   </action>
   <action name="actionRecent_file_6">
    <property name="text">
-    <string notr="true">recent_file_6</string>
+    <string notr="true">recent_file_&amp;6</string>
    </property>
    <property name="toolTip">
     <string notr="true">recent_file_6</string>
@@ -944,7 +958,7 @@
   </action>
   <action name="actionRecent_file_7">
    <property name="text">
-    <string notr="true">recent_file_7</string>
+    <string notr="true">recent_file_&amp;7</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_file_7</string>
@@ -958,7 +972,7 @@
   </action>
   <action name="actionRecent_file_8">
    <property name="text">
-    <string notr="true">recent_file_8</string>
+    <string notr="true">recent_file_&amp;8</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_file_8</string>
@@ -972,7 +986,7 @@
   </action>
   <action name="actionRecent_file_9">
    <property name="text">
-    <string notr="true">recent_file_9</string>
+    <string notr="true">recent_file_&amp;9</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_file_9</string>
@@ -986,7 +1000,7 @@
   </action>
   <action name="actionRecent_file_10">
    <property name="text">
-    <string notr="true">recent_file_10</string>
+    <string notr="true">recent_file_&amp;10</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_file_10</string>
@@ -1000,7 +1014,7 @@
   </action>
   <action name="actionRecent_bookmark_1">
    <property name="text">
-    <string notr="true">recent_bookmark_1</string>
+    <string notr="true">&amp;recent_bookmark_1</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_bookmark_1</string>
@@ -1014,7 +1028,7 @@
   </action>
   <action name="actionRecent_bookmark_2">
    <property name="text">
-    <string notr="true">recent_bookmark_2</string>
+    <string notr="true">recent_&amp;bookmark_2</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_bookmark_2</string>
@@ -1028,7 +1042,7 @@
   </action>
   <action name="actionRecent_bookmark_3">
    <property name="text">
-    <string notr="true">recent_bookmark_3</string>
+    <string notr="true">recent_bookmark_&amp;3</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_bookmark_3</string>
@@ -1042,7 +1056,7 @@
   </action>
   <action name="actionRecent_bookmark_4">
    <property name="text">
-    <string notr="true">recent_bookmark_4</string>
+    <string notr="true">recent_bookmark_&amp;4</string>
    </property>
    <property name="toolTip">
     <string notr="true">recent_bookmark_4</string>
@@ -1053,7 +1067,7 @@
   </action>
   <action name="actionRecent_bookmark_5">
    <property name="text">
-    <string notr="true">recent_bookmark_5</string>
+    <string notr="true">recent_bookmark_&amp;5</string>
    </property>
    <property name="iconText">
     <string notr="true">recent_bookmark_5</string>
@@ -1103,7 +1117,39 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Show Toolbar</string>
+    <string>&amp;Show Toolbar</string>
+   </property>
+  </action>
+  <action name="action_double_page_mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../data/main_window_view.qrc">
+     <normaloff>:/icons/icons/distribute-horizontal-margin.png</normaloff>:/icons/icons/distribute-horizontal-margin.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Double Page Mode</string>
+   </property>
+   <property name="toolTip">
+    <string>Active double page mode</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_manga_mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Manga Mode</string>
    </property>
   </action>
  </widget>
@@ -1111,19 +1157,16 @@
   <customwidget>
    <class>QScrollAreaViewer</class>
    <extends>QScrollArea</extends>
-   <header location="global">custom_widgets/qscroll_area_viewer.h</header>
+   <header location="global">.custom_widgets/qscroll_area_viewer.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>StatusBar</class>
    <extends>QStatusBar</extends>
-   <header location="global">custom_widgets/status_bar.h</header>
+   <header location="global">.custom_widgets/status_bar.h</header>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../data/main_window_view.qrc"/>
-  <include location="../data/main_window_view.qrc"/>
-  <include location="../data/main_window_view.qrc"/>
   <include location="../data/main_window_view.qrc"/>
  </resources>
  <connections/>

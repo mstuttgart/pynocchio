@@ -16,22 +16,21 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from PySide import QtCore, QtGui, QtSql
+from PyQt5 import QtCore, QtGui, QtWidgets, QtSql
 
-from uic_files import bookmark_manager_dialog_ui
-from utility import Utility
+from .utility import Utility
+from .uic_files import bookmark_manager_dialog_ui
 
 import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class BookmarkManagerDialog(QtGui.QDialog):
+class BookmarkManagerDialog(QtWidgets.QDialog):
 
-    SCALE_RATIO = 0.18
+    SCALE_RATIO = 0.25
 
     def __init__(self, controller, parent=None):
-        # QtGui.QDialog.__init__(self, parent)
         super(BookmarkManagerDialog, self).__init__(parent=parent)
 
         self.ui = bookmark_manager_dialog_ui.Ui_Bookmark_Dialog()
@@ -42,7 +41,7 @@ class BookmarkManagerDialog(QtGui.QDialog):
             controller.model.settings_manager.settings.fileName())
 
         self.db = QtSql.QSqlDatabase().addDatabase("QSQLITE")
-        self.db.setDatabaseName(path + u'/bookmark.db')
+        self.db.setDatabaseName(path + '/bookmark.db')
 
         if self.db.open():
 
@@ -59,10 +58,10 @@ class BookmarkManagerDialog(QtGui.QDialog):
             self.ui.bookmark_table.hideColumn(1)
             self.ui.bookmark_table.hideColumn(4)
 
-            self.ui.bookmark_table.horizontalHeader().setResizeMode(
-                2, QtGui.QHeaderView.Stretch)
-            self.ui.bookmark_table.horizontalHeader().setResizeMode(
-                3, QtGui.QHeaderView.ResizeToContents)
+            self.ui.bookmark_table.horizontalHeader().setSectionResizeMode(
+                2, QtWidgets.QHeaderView.Stretch)
+            self.ui.bookmark_table.horizontalHeader().setSectionResizeMode(
+                3, QtWidgets.QHeaderView.ResizeToContents)
 
             self.ui.button_remove.clicked.connect(self._remove_table_item)
             self.ui.button_load.clicked.connect(self._get_comic_to_open)
@@ -75,6 +74,9 @@ class BookmarkManagerDialog(QtGui.QDialog):
                             QtCore.Qt.SmoothTransformation)
 
             self.ui.page_image_label.setPixmap(self.no_cover_label)
+            if self.model.rowCount():
+                self.ui.button_load.setEnabled(True)
+                self.ui.button_remove.setEnabled(True)
             logger.info('Database load!')
 
         else:
@@ -98,13 +100,13 @@ class BookmarkManagerDialog(QtGui.QDialog):
 
     def _remove_table_item(self):
 
-        option = QtGui.QMessageBox().warning(
+        option = QtWidgets.QMessageBox().warning(
             self, self.tr('Delete bookmarks'),
             self.tr('This action will go delete you bookmarks! Proceed?'),
-            QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel,
-            QtGui.QMessageBox.Ok)
+            QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel,
+            QtWidgets.QMessageBox.Ok)
 
-        if option == QtGui.QMessageBox.Ok:
+        if option == QtWidgets.QMessageBox.Ok:
             selected_idx = self.ui.bookmark_table.selectedIndexes()
 
             if selected_idx:
@@ -112,28 +114,37 @@ class BookmarkManagerDialog(QtGui.QDialog):
                     self.model.removeRow(index.row())
 
                 self.model.submitAll()
+                self.ui.page_image_label.setPixmap(self.no_cover_label)
+
+                if not self.model.rowCount():
+                    self.ui.button_load.setEnabled(False)
+                    self.ui.button_remove.setEnabled(False)
 
     def _get_comic_to_open(self):
         selection_model = self.ui.bookmark_table.selectionModel()
-        path = selection_model.selectedRows(1)[0].data()
-        page = selection_model.selectedRows(3)[0].data()
 
-        if Utility.file_exist(path):
-            self.controller.open_comics(path, page - 1)
-        else:
-            option = QtGui.QMessageBox().warning(
-                self, self.tr('Comic not exist'),
-                self.tr('Selected comic not exist! Do you like to remove it from bookmark list?'),
-                QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel,
-                QtGui.QMessageBox.Ok)
+        if selection_model.hasSelection():
+            path = selection_model.selectedRows(1)[0].data()
+            page = selection_model.selectedRows(3)[0].data()
 
-            if option == QtGui.QMessageBox.Ok:
-                selected_idx = self.ui.bookmark_table.selectedIndexes()
+            if Utility.file_exist(path):
+                self.controller.open_comics(path, page - 1)
+                self.close()
+            else:
+                option = QtWidgets.QMessageBox().warning(
+                    self, self.tr('Comic not exist'),
+                    self.tr('Selected comic not exist! Do you '
+                            'like to remove it from bookmark list?'),
+                    QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel,
+                    QtWidgets.QMessageBox.Ok)
 
-                if selected_idx:
-                    for index in selected_idx:
-                        self.model.removeRow(index.row())
+                if option == QtWidgets.QMessageBox.Ok:
+                    selected_idx = self.ui.bookmark_table.selectedIndexes()
+
+                    if selected_idx:
+                        for index in selected_idx:
+                            self.model.removeRow(index.row())
 
     def close(self):
         self.db.close()
-        QtGui.QDialog.close(self)
+        super(BookmarkManagerDialog, self).close()

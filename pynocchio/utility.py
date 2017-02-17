@@ -14,14 +14,15 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 import os
 
 
-class Utility(object):
+class Utility:
 
     @staticmethod
     def get_file_extension(file_name):
-        return os.path.splitext(file_name)[1]
+        return os.path.splitext(file_name)[1][1:]
 
     @staticmethod
     def get_dir_name(file_path):

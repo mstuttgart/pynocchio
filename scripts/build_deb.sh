@@ -1,29 +1,68 @@
-#!/usr/bin/env bash
+#!/bin/bash
+################################################################################
+# Script for build of .deb package to Pynocchio Comic Reader
+# Author: Michell Stuttgart Faria
+#-------------------------------------------------------------------------------
+#
+# This script will build a .deb package to Pynocchio Comic Reader
+#-------------------------------------------------------------------------------
+# USAGE:
+#
+# sh scripts/build_deb.sh
+#
+################################################################################
 
-package_version=$1
-build_deb_folder="build_deb_package"
-dist='dist'
-build='build'
-package_name="pynocchio_${package_version}_amd64.deb"
+printf "\n---- Start script ----\n"
 
+#--------------------------------------------------
+# Define variables
+#--------------------------------------------------
+
+PACKAGE_VERSION=$1
+BUILD_DEB_FOLDER="build_deb_package"
+DIST='dist'
+BUILD='build'
+PACKAGE_NAME="pynocchio_${PACKAGE_VERSION}_amd64.deb"
+CONTROL_FILE='linux/control'
+
+#--------------------------------------------------
+# Create the executable with PyInstaller
+#--------------------------------------------------
+
+printf "\n---- Run PyInstaller ----\n"
 pyinstaller pynocchio.spec
 
-mkdir -p ${build_deb_folder}/DEBIAN
-mkdir -p ${build_deb_folder}/usr/share
-mkdir -p ${build_deb_folder}/usr/bin
-mkdir -p ${build_deb_folder}/usr/share/pynocchio
+#--------------------------------------------------
+# Create the package directory tree to .deb package
+#--------------------------------------------------
 
-cp -r linux/applications ${build_deb_folder}/usr/share/
-cp -r linux/hicolor ${build_deb_folder}/usr/share/
-cp -r linux/pixmaps ${build_deb_folder}/usr/share/
-cp -r pynocchio/locale ${build_deb_folder}/usr/share/pynocchio/
+# Change package version in html about file
+sed -i -e "s:Version\: *.*.*:Version\: ${PACKAGE_VERSION}:g" ${CONTROL_FILE}
 
-cp ${dist}/* ${build_deb_folder}/usr/bin
-cp linux/control ${build_deb_folder}/DEBIAN
-cp linux/changelog ${build_deb_folder}/DEBIAN
+printf "\n---- Create ${BUILD_DEB_FOLDER}/DEBIAN folder ----\n"
+mkdir -p ${BUILD_DEB_FOLDER}/DEBIAN
 
-dpkg --build ${build_deb_folder}/ ${package_name}
+printf "\n---- Mount .deb package directory tree ----\n"
+mkdir -p ${BUILD_DEB_FOLDER}/usr/share
+mkdir -p ${BUILD_DEB_FOLDER}/usr/bin
+mkdir -p ${BUILD_DEB_FOLDER}/usr/share/pynocchio
 
-rm -rf ${build}
-rm -rf ${dist}
-rm -rf ${build_deb_folder}
+cp -r linux/applications ${BUILD_DEB_FOLDER}/usr/share/
+cp -r linux/hicolor ${BUILD_DEB_FOLDER}/usr/share/
+cp -r linux/pixmaps ${BUILD_DEB_FOLDER}/usr/share/
+cp -r pynocchio/locale ${BUILD_DEB_FOLDER}/usr/share/pynocchio/
+
+cp ${DIST}/* ${BUILD_DEB_FOLDER}/usr/bin
+cp linux/control ${BUILD_DEB_FOLDER}/DEBIAN
+
+printf "\n---- Build ${PACKAGE_NAME} package ----\n"
+dpkg --build ${BUILD_DEB_FOLDER}/ ${PACKAGE_NAME}
+
+#--------------------------------------------------
+# Clean directory
+#--------------------------------------------------
+
+printf "\n---- Remove ${BUILD}, ${DIST} and ${BUILD_DEB_FOLDER} ----\n"
+rm -rf ${BUILD}
+rm -rf ${DIST}
+rm -rf ${BUILD_DEB_FOLDER}

@@ -15,21 +15,30 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide import QtGui, QtCore
+from PyQt5 import QtCore, QtGui, QtWidgets
+import logging
 
-from uic_files import main_window_view_ui
-from pynocchio_exception import InvalidTypeFileException
-from pynocchio_exception import LoadComicsException
-from utility import Utility
+from .exception import InvalidTypeFileException
+from .exception import LoadComicsException
+from .exception import NoDataFindException
+from .utility import Utility
+from .go_to_page_dialog import GoToDialog
+from .bookmark_manager_dialog import BookmarkManagerDialog
+from .bookmark import TemporaryBookmark
+from .about_dialog import AboutDialog
+from .uic_files import main_window_view_ui
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
-class MainWindowView(QtGui.QMainWindow):
+class MainWindowView(QtWidgets.QMainWindow):
 
     MaxRecentFiles = 5
     MaxBookmarkFiles = 5
 
     def __init__(self, model, parent=None):
-        QtGui.QMainWindow.__init__(self, parent)
+        super(MainWindowView, self).__init__(parent=parent)
         self.model = model
 
         self.ui = main_window_view_ui.Ui_MainWindowView()
@@ -53,12 +62,14 @@ class MainWindowView(QtGui.QMainWindow):
             self.ui.statusbar.set_progressbar_value)
 
         self.vertical_animation = QtCore.QPropertyAnimation(
-            self.ui.qscroll_area_viewer.verticalScrollBar(), "sliderPosition")
+            self.ui.qscroll_area_viewer.verticalScrollBar())
 
-    @QtCore.Slot()
+        self.last_scroll_position = 0
+
+    @QtCore.pyqtSlot()
     def on_action_open_file_triggered(self):
 
-        filename = QtGui.QFileDialog().getOpenFileName(
+        filename = QtWidgets.QFileDialog().getOpenFileName(
             self, self.tr('open_comic_file'),
             self.model.current_directory,
             self.tr(
@@ -66,125 +77,146 @@ class MainWindowView(QtGui.QMainWindow):
                 'zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; '
                 'tar_files (*.tar *.cbt);; all_files (*)'))
 
-        self.open_comics(filename[0])
+        initial_page = self.get_page_from_temporary_bookmarks(filename[0])
 
-    @QtCore.Slot()
+        self.open_comics(filename[0], initial_page)
+
+    @QtCore.pyqtSlot()
     def on_action_open_folder_triggered(self):
 
-        folder_name = QtGui.QFileDialog().getExistingDirectory(self,
-                                                               self.tr('open_comic_folder'),
-                                                               self.model.current_directory)
+        folder_name = QtWidgets.QFileDialog().getExistingDirectory(
+            self, self.tr('open_comic_folder'), self.model.current_directory)
 
         self.open_comics(folder_name)
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_save_image_triggered(self):
 
         if self.model.comic:
 
             path = self.model.current_directory + \
-                self.model.comic.get_current_page_title()
-            file_path = QtGui.QFileDialog().getSaveFileName(
+                   self.model.comic.get_current_page_title()
+            file_path = QtWidgets.QFileDialog().getSaveFileName(
                 self, self.tr('save_current_page'), path,
                 self.tr("images (*.png *.xpm *.jpeg *.jpg *.gif)"))
 
             if file_path:
                 self.model.save_current_page_image(file_path[0])
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_previous_page_triggered(self):
-        self.model.previous_page()
-        self.update_viewer_content()
-        self.update_navegation_actions()
+        if self.model.previous_page():
+            self.update_viewer_content()
+            self.update_navegation_actions()
+            vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
+            vert_scroll_bar.setValue(self.last_scroll_position)
+        else:
+            self.on_action_previous_comic_triggered()
+            self.on_action_last_page_triggered()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_next_page_triggered(self):
-        self.model.next_page()
-        self.update_viewer_content()
-        self.update_navegation_actions()
+        if self.model.next_page():
+            vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
+            self.last_scroll_position = vert_scroll_bar.sliderPosition()
+            self.update_viewer_content()
+            self.update_navegation_actions()
+        else:
+            self.on_action_next_comic_triggered()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_first_page_triggered(self):
         self.model.first_page()
         self.update_viewer_content()
         self.update_navegation_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_last_page_triggered(self):
         self.model.last_page()
         self.update_viewer_content()
         self.update_navegation_actions()
 
-    @QtCore.Slot()
-    def on_action_next_comic_triggered(self):
-        self.open_comics(self.model.next_comic())
-        self.update_navegation_actions()
-
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_previous_comic_triggered(self):
-        self.open_comics(self.model.previous_comic())
+        try:
+            self.open_comics(self.model.previous_comic())
+        except NoDataFindException as exc:
+            logger.exception(exc.message)
+
         self.update_navegation_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
+    def on_action_next_comic_triggered(self):
+        try:
+            self.open_comics(self.model.next_comic())
+        except NoDataFindException as exc:
+            logger.exception(exc.message)
+
+        self.update_navegation_actions()
+
+    @QtCore.pyqtSlot()
     def on_action_rotate_left_triggered(self):
         self.model.rotate_left()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_rotate_right_triggered(self):
         self.model.rotate_right()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_go_to_page_triggered(self):
-        import go_to_page_dialog
-        go_to_dlg = go_to_page_dialog.GoToDialog(self)
+        go_to_dlg = GoToDialog(self.model.comic_page_handler, parent=self)
         go_to_dlg.show()
-        go_to_dlg.exec_()
-        self.update_navegation_actions()
+        ret = go_to_dlg.exec_()
 
-    @QtCore.Slot()
+        if ret == QtWidgets.QDialog.Accepted:
+            self.model.set_current_page_index(
+                go_to_dlg.handler.current_page_index)
+            self.update_viewer_content()
+            self.update_navegation_actions()
+
+    @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
         self.model.add_bookmark()
         self.update_bookmark_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_remove_bookmark_triggered(self):
         self.model.remove_bookmark(self.model.get_comic_path())
         self.update_bookmark_actions()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_bookmark_manager_triggered(self):
-        from bookmark_manager_dialog import BookmarkManagerDialog
-        bookmark_dialog = BookmarkManagerDialog(self, self)
+        bookmark_dialog = BookmarkManagerDialog(self, parent=self)
         bookmark_dialog.show()
         bookmark_dialog.exec_()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_preference_dialog_triggered(self):
-        print
+        pass
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_original_fit_triggered(self):
         self.model.original_fit()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_vertical_fit_triggered(self):
         self.model.vertical_fit()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_horizontal_fit_triggered(self):
         self.model.horizontal_fit()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_best_fit_triggered(self):
         self.model.best_fit()
         self.update_viewer_content()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_fullscreen_triggered(self):
 
         if self.isFullScreen():
@@ -203,40 +235,58 @@ class MainWindowView(QtGui.QMainWindow):
             for sc in self.global_shortcuts:
                 sc.setEnabled(True)
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot(bool)
+    def on_action_double_page_mode_triggered(self, checked):
+        self.model.double_page_mode(checked)
+        self.update_viewer_content()
+        self.ui.action_manga_mode.setEnabled(checked)
+
+    @QtCore.pyqtSlot(bool)
+    def on_action_manga_mode_triggered(self, checked):
+        self.model.manga_page_mode(checked)
+        self.update_viewer_content()
+
+    @QtCore.pyqtSlot()
     def on_action_show_toolbar_triggered(self):
         if self.ui.action_show_toolbar.isChecked():
             self.ui.toolbar.show()
         else:
             self.ui.toolbar.hide()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_show_statusbar_triggered(self):
         if self.ui.action_show_statusbar.isChecked():
             self.ui.statusbar.show()
         else:
             self.ui.statusbar.hide()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
-        import about_dialog
-        ab_dlg = about_dialog.AboutDialog()
+        ab_dlg = AboutDialog(self)
         ab_dlg.show()
         ab_dlg.exec_()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_about_qt_triggered(self):
-        QtGui.QMessageBox().aboutQt(self, self.tr(u'About Qt'))
+        QtWidgets.QMessageBox().aboutQt(self, self.tr('About Qt'))
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):
-        QtGui.QMainWindow.close(self)
+        super(MainWindowView, self).close()
         self.model.save_settings()
+
+        try:
+            if not self.model.is_first_page() and not self.model.is_last_page():
+                self.model.add_bookmark(table=TemporaryBookmark)
+            else:
+                self.model.remove_bookmark(table=TemporaryBookmark)
+        except AttributeError as exc:
+            logger.warning(exc)
 
     def create_connections(self):
 
         # Define group to action fit items and load fit of settings file
-        self.ui.action_group_view = QtGui.QActionGroup(self)
+        self.ui.action_group_view = QtWidgets.QActionGroup(self)
 
         self.ui.action_group_view.addAction(self.ui.action_original_fit)
         self.ui.action_group_view.addAction(self.ui.action_vertical_fit)
@@ -279,23 +329,57 @@ class MainWindowView(QtGui.QMainWindow):
             'Ctrl+Shift+R': self.on_action_rotate_right_triggered,
         }
 
-        for key, value in sequence.items():
-            s = QtGui.QShortcut(QtGui.QKeySequence(key),
-                                self.ui.qscroll_area_viewer, value)
+        for key, value in list(sequence.items()):
+            s = QtWidgets.QShortcut(QtGui.QKeySequence(key),
+                                    self.ui.qscroll_area_viewer, value)
             s.setEnabled(False)
             shortcuts.append(s)
 
         return shortcuts
+
+    def get_page_from_temporary_bookmarks(self, path):
+
+        bk = self.model.get_bookmark_from_path(path=path,
+                                               table=TemporaryBookmark)
+        initial_page = 0
+
+        if bk:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle(self.tr(
+                'Continue reading from page %d?' % bk.comic_page))
+            msg.setIcon(QtWidgets.QMessageBox.Question)
+            msg.setText(self.tr('<p>You stopped reading here.</p>'
+                                '<p> If you choose <b>"Yes"</b>, reading will '
+                                'resume on <b>page %d</b>. </p>'
+                                '<p>Otherwise, the first page will be '
+                                'loaded.</p>'
+                                % bk.comic_page))
+            msg.setStandardButtons(
+                QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+            msg.setDefaultButton(QtWidgets.QMessageBox.Ok)
+            q = QtGui.QPixmap()
+            q.loadFromData(bk.page_data)
+            q = q.scaledToWidth(msg.width() * 0.2,
+                                QtCore.Qt.SmoothTransformation)
+            msg.setIconPixmap(q)
+
+            option = msg.exec_()
+
+            if option == QtWidgets.QMessageBox.Ok:
+                initial_page = bk.comic_page - 1
+
+        return initial_page
 
     def open_comics(self, filename, initial_page=0):
 
         if filename:
 
             try:
+
                 # Load comic
                 self.model.load(filename, initial_page)
 
-                # Update label and scrool_area_viewer
+                # Update label and scroll_area_viewer
                 self.update_viewer_content()
 
                 # set window title
@@ -313,19 +397,26 @@ class MainWindowView(QtGui.QMainWindow):
                 # Update status of add and remove bookmark buttons
                 self.update_bookmark_actions()
 
+                # Update next page, previous page, next and previous comics
+                # actions
+                self.update_navegation_actions()
+
+                # Register view like listener of ComicPageHandler events
+                # self.model.comic_page_handler.listener.append(self)
+
                 return True
 
             except LoadComicsException as excp:
-                QtGui.QMessageBox().warning(self,
-                                            self.tr('LoadComicsException'),
-                                            self.tr(excp.message),
-                                            QtGui.QMessageBox.Close)
+                QtWidgets.QMessageBox().warning(self,
+                                                self.tr('LoadComicsException'),
+                                                self.tr(excp.message),
+                                                QtWidgets.QMessageBox.Close)
             except InvalidTypeFileException as excp:
-                QtGui.QMessageBox().warning(self,
-                                            self.tr('InvalidTypeFile'
-                                                    'Exception'),
-                                            self.tr(excp.message),
-                                            QtGui.QMessageBox.Close)
+                QtWidgets.QMessageBox().warning(self,
+                                                self.tr('InvalidTypeFile'
+                                                        'Exception'),
+                                                self.tr(excp.message),
+                                                QtWidgets.QMessageBox.Close)
 
         return False
 
@@ -334,7 +425,8 @@ class MainWindowView(QtGui.QMainWindow):
         if action:
             filename = action.data()
             if Utility.file_exist(filename):
-                self.open_comics(filename)
+                initial_page = self.get_page_from_temporary_bookmarks(filename)
+                self.open_comics(filename, initial_page=initial_page)
             else:
                 files = self.model.load_recent_files()
                 files.remove(filename)
@@ -372,14 +464,14 @@ class MainWindowView(QtGui.QMainWindow):
                                                           False)
         recent_file_actions = self.ui.menu_recent_files.actions()
 
-        for i in xrange(num_recent_files):
+        for i in range(num_recent_files):
             text = QtCore.QFileInfo(files[i]).fileName()
             recent_file_actions[i].setText(text)
             recent_file_actions[i].setData(files[i])
             recent_file_actions[i].setVisible(True)
             recent_file_actions[i].setStatusTip(files[i])
 
-        for j in xrange(num_recent_files, MainWindowView.MaxRecentFiles):
+        for j in range(num_recent_files, MainWindowView.MaxRecentFiles):
             recent_file_actions[j].setVisible(False)
 
     def update_bookmark_actions(self):
@@ -401,7 +493,7 @@ class MainWindowView(QtGui.QMainWindow):
         num_bookmarks_files = min(num_bookmarks_files,
                                   MainWindowView.MaxBookmarkFiles)
 
-        for i in xrange(num_bookmarks_files):
+        for i in range(num_bookmarks_files):
             bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
                                    bookmark_list[i].comic_page)
             bk_actions[i].setText(bk_text)
@@ -409,7 +501,7 @@ class MainWindowView(QtGui.QMainWindow):
             bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
             bk_actions[i].setVisible(True)
 
-        for j in xrange(num_bookmarks_files, MainWindowView.MaxBookmarkFiles):
+        for j in range(num_bookmarks_files, MainWindowView.MaxBookmarkFiles):
             bk_actions[j].setVisible(False)
 
     def open_recent_bookmark(self):
@@ -437,26 +529,27 @@ class MainWindowView(QtGui.QMainWindow):
         is_first_page = self.model.is_first_page()
         is_last_page = self.model.is_last_page()
 
-        self.ui.action_previous_page.setEnabled(not is_first_page)
-        self.ui.action_first_page.setEnabled(not is_first_page)
-
-        self.ui.action_next_page.setEnabled(not is_last_page)
-        self.ui.action_last_page.setEnabled(not is_last_page)
+        # self.ui.action_previous_page.setEnabled(
+        #     not self.model.is_first_comic())
+        # self.ui.action_first_page.setEnabled(not self.model.is_first_comic())
+        #
+        # self.ui.action_next_page.setEnabled(not self.model.is_last_comic())
+        # self.ui.action_last_page.setEnabled(not self.model.is_last_comic())
 
         self.ui.action_previous_comic.setEnabled(
-                    not self.model.is_first_comic())
+            not self.model.is_first_comic())
 
         self.ui.action_next_comic.setEnabled(
-                    not self.model.is_last_comic())
+            not self.model.is_last_comic())
 
     def update_status_bar(self):
 
         if self.model.comic:
-            page_number = self.model.comic.get_current_page_number()
-            total_pages = self.model.comic.get_number_of_pages()
+            page_number = self.model.get_current_page_number()
+            total_pages = self.model.get_number_of_pages()
             page_width = self.model.get_current_page().width()
             page_height = self.model.get_current_page().height()
-            page_title = self.model.comic.get_current_page_title()
+            page_title = self.model.get_current_page_title()
 
             if self.ui.statusbar.isVisible():
                 self.ui.statusbar.set_comic_page(page_number, total_pages)
@@ -464,7 +557,7 @@ class MainWindowView(QtGui.QMainWindow):
                 self.ui.statusbar.set_comic_path(page_title)
 
     def centralize_window(self):
-        screen = QtGui.QDesktopWidget().screenGeometry()
+        screen = QtWidgets.QDesktopWidget().screenGeometry()
         self.setMinimumSize(screen.size() * 0.8)
         size = self.geometry()
         x_center = (screen.width() - size.width()) / 2
@@ -473,19 +566,18 @@ class MainWindowView(QtGui.QMainWindow):
 
     def update_viewer_content(self):
         content = self.model.get_current_page()
-        if content and isinstance(content, QtGui.QPixmap):
+
+        if content:
             self.ui.label.setPixmap(content)
             self.ui.qscroll_area_viewer.reset_scroll_position()
             self.update_status_bar()
 
     def update_current_view_container_size(self):
-        self.model.scroll_area_size = self.get_current_view_container_size()
+        self.model.scroll_area_size = self.ui.qscroll_area_viewer.size()
         self.update_viewer_content()
 
-    def get_current_view_container_size(self):
-        return self.ui.qscroll_area_viewer.size()
-
     def keyPressEvent(self, event):
+
         if event.key() == QtCore.Qt.Key_F:
             self.on_action_fullscreen_triggered()
 
@@ -494,7 +586,8 @@ class MainWindowView(QtGui.QMainWindow):
             next_pos = vert_scroll_bar.sliderPosition() - self.height() * 0.8
 
             self.vertical_animation.setDuration(250)
-            self.vertical_animation.setStartValue(vert_scroll_bar.sliderPosition())
+            self.vertical_animation.setStartValue(
+                vert_scroll_bar.sliderPosition())
             self.vertical_animation.setEndValue(next_pos)
             self.vertical_animation.start()
 
@@ -503,24 +596,25 @@ class MainWindowView(QtGui.QMainWindow):
             next_pos = vert_scroll_bar.sliderPosition() + self.height() * 0.8
 
             self.vertical_animation.setDuration(250)
-            self.vertical_animation.setStartValue(vert_scroll_bar.sliderPosition())
+            self.vertical_animation.setStartValue(
+                vert_scroll_bar.sliderPosition())
             self.vertical_animation.setEndValue(next_pos)
             self.vertical_animation.start()
 
-        QtGui.QMainWindow.keyPressEvent(self, event)
+        super(MainWindowView, self).keyPressEvent(event)
 
     def mouseDoubleClickEvent(self, event):
         if event.button() == QtCore.Qt.LeftButton:
             self.on_action_fullscreen_triggered()
-        QtGui.QMainWindow.mousePressEvent(self, event)
+        super(MainWindowView, self).mousePressEvent(event)
 
     def resizeEvent(self, event):
         self.update_current_view_container_size()
-        QtGui.QMainWindow.resizeEvent(self, event)
+        super(MainWindowView, self).resizeEvent(event)
 
     def show(self):
         """
         :doc: Added to set the correct scrool_area_view size in model
         """
-        QtGui.QMainWindow.show(self)
+        super(MainWindowView, self).show()
         self.update_current_view_container_size()

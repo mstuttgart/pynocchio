@@ -16,46 +16,30 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from setuptools import setup, find_packages
-from distutils.cmd import Command
-import distutils.log
 import os
-import re
 import sys
 
-try:
-    from pyqt_distutils.build_ui import build_ui
-    cmdclass = {'build_ui': build_ui}
-except ImportError:
-    build_ui = None  # user won't have pyqt_distutils when deploying
-    cmdclass = {}
+from pynocchio.version import __version__
 
 
-def get_version(package):
-    """
-    Based in https://github.com/tomchristie/django-rest-framework/blob/
-    971578ca345c3d3bae7fd93b87c41d43483b6f05/setup.py
-    :param package Package name
-    Return package version as listed in `__version__` in `init.py`.
-    """
-    init_py = open(os.path.join(package, '__init__.py')).read()
-    return re.search("__version__ = ['\"]([^'\"]+)['\"]", init_py).group(1)
-
-version = get_version('pynocchio')
+version = __version__
 
 if sys.argv[-1] == 'build_deb':
     os.system('sh scripts/build_deb.sh %s' % version)
     sys.exit()
+#
+if sys.argv[-1] == 'build_ui':
+    os.system('sh scripts/build_ui.sh %s' % version)
+    sys.exit()
 
-if sys.argv[-1] == 'compile_pro':
-    path = 'i18n/pynocchio.pro'
-    os.system('pyside-lupdate -verbose %s' % path)
+if sys.argv[-1] == 'build_pro':
+    os.system('sh scripts/build_pro.sh')
     sys.exit()
 
 if sys.argv[-1] == 'publish':
     os.system("git tag -a %s -m 'version %s'" % (version, version))
     os.system("git push --tags")
     sys.exit()
-
 
 setup(
     name='pynocchio',
@@ -73,7 +57,6 @@ setup(
     keywords="pynocchio comics manga viewer image",
     packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
     test_suite='test',
-    cmdclass=cmdclass,
     scripts=[
         'pynocchio-client.py',
     ],
@@ -82,8 +65,8 @@ setup(
         ('/usr/share/applications', ['linux/applications/pynocchio.desktop']),
         ('/usr/share/pixmaps', ['linux/pixmaps/pynocchio.png']),
         ('/usr/share/pynocchio/locale/', [
-            'pynocchio/locale/pynocchio_en_US.qm',
-            'pynocchio/locale/pynocchio_pt_BR.qm',
+            'pynocchio/locale/en-US.qm',
+            'pynocchio/locale/pt-BR.qm',
         ]),
         ('/usr/share/icons/hicolor/16x16/apps',
          ['linux/hicolor/16x16/apps/pynocchio.png']),
@@ -99,12 +82,13 @@ setup(
     install_requires=[
         'rarfile',
         'peewee',
+        'PyQt5',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Users',
         'License :: OSI Approved :: GPLv3 License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
+        'Programming Language :: Python 3.5',
     ],
 )

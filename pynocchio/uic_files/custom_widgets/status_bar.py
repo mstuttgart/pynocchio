@@ -15,10 +15,10 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide import QtCore, QtGui
+from PyQt5 import QtCore, QtWidgets
 
 
-class StatusBar(QtGui.QStatusBar):
+class StatusBar(QtWidgets.QStatusBar):
 
     def __init__(self, parent=None):
         super(StatusBar, self).__init__(parent)
@@ -32,7 +32,7 @@ class StatusBar(QtGui.QStatusBar):
     def add_page_number_label(self):
         if self.page_number is None:
             self.remove_progress_bar()
-            self.page_number = QtGui.QLabel(self)
+            self.page_number = QtWidgets.QLabel(self)
             self.page_number.setMinimumWidth(120)
             self.addWidget(self.page_number, 0)
 
@@ -41,7 +41,7 @@ class StatusBar(QtGui.QStatusBar):
     def add_page_resolution_label(self):
         if self.page_resolution is None:
             self.remove_progress_bar()
-            self.page_resolution = QtGui.QLabel(self)
+            self.page_resolution = QtWidgets.QLabel(self)
             self.page_resolution.setMinimumWidth(140)
             self.addWidget(self.page_resolution, 1)
 
@@ -50,7 +50,7 @@ class StatusBar(QtGui.QStatusBar):
     def add_comic_path_label(self):
         if self.comic_path is None:
             self.remove_progress_bar()
-            self.comic_path = QtGui.QLabel(self)
+            self.comic_path = QtWidgets.QLabel(self)
             self.addWidget(self.comic_path, 2)
 
         self.comic_path.show()
@@ -59,7 +59,7 @@ class StatusBar(QtGui.QStatusBar):
 
         self.remove_labels()
         self.remove_slider()
-        self.progress_bar = QtGui.QProgressBar()
+        self.progress_bar = QtWidgets.QProgressBar()
         self.progress_bar.setFixedHeight(15)
         self.progress_bar.setMaximum(maximum_value)
         self.progress_bar.setMaximumWidth(self.width())
@@ -70,10 +70,10 @@ class StatusBar(QtGui.QStatusBar):
 
         if self.slider is None:
             self.remove_progress_bar()
-            self.slider = QtGui.QSlider(QtCore.Qt.Horizontal, self)
+            self.slider = QtWidgets.QSlider(QtCore.Qt.Horizontal, self)
             self.slider.setFixedWidth(200)
             self.slider.setValue(50)
-            self.slider.setTickPosition(QtGui.QSlider.TicksBelow)
+            self.slider.setTickPosition(QtWidgets.QSlider.TicksBelow)
             self.addWidget(self.slider, 3)
 
     def remove_slider(self):
@@ -113,7 +113,8 @@ class StatusBar(QtGui.QStatusBar):
         if not self.page_resolution:
             self.add_page_resolution_label()
 
-        text = self.tr('Resolution: ') + str(width) + 'x' + str(height) + ' px'
+        text = self.tr('Resolution: ') + str(width) + ' x ' + \
+            str(height) + ' px'
         self.page_resolution.setText(text)
 
     def set_comic_path(self, path):
@@ -122,16 +123,15 @@ class StatusBar(QtGui.QStatusBar):
 
         self.comic_path.setText(self.tr('Title: ') + path)
 
-    @QtCore.Slot(int)
+    @QtCore.pyqtSlot(int)
     def set_progressbar_value(self, n):
         if self.progress_bar is None:
             self.add_progress_bar()
         self.progress_bar.setValue(n)
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def close_progress_bar(self):
         self.remove_progress_bar()
         self.add_page_number_label()
         self.add_page_resolution_label()
         self.add_comic_path_label()
-        # self.add_slider()
