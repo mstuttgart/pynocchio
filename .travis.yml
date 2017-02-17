@@ -17,7 +17,6 @@ before_script:
 
 script:
 - coverage run --source=pynocchio setup.py test
-- coverage xml
 - python setup.py build_pro
 - python setup.py build_ui
 - python setup.py build_deb
@@ -35,4 +34,4 @@ deploy:
     branch: master
 
 after_success:
- - python-codacy-coverage -c $TRAVIS_COMMIT -r coverage.xml
+ - coveralls
