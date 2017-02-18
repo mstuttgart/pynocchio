@@ -8,7 +8,7 @@ dist: xenial
 
 install:
   - pip3 install -r requirements.txt
-  - sudo apt-get install upx build-essential git python3-dev python3-pip qt5-qmake qttools5-dev-tools libqt5sql5-sqlite unrar-free
+  - sudo apt-get install upx build-essential git python3-dev qt5-qmake qttools5-dev-tools libqt5sql5-sqlite unrar-free
 
 before_script:
 - export DISPLAY=:99.0
@@ -17,7 +17,6 @@ before_script:
 
 script:
 - coverage run --source=pynocchio setup.py test
-- coverage xml
 - python setup.py build_pro
 - python setup.py build_ui
 - python setup.py build_deb
@@ -27,28 +26,12 @@ deploy:
   provider: releases
   api_key:
      secure: FbZOk633cPQK70SwNHV29vddB48pQhZYXK6tBi6rNOQFCmtsRltiAZx1mn9cBA89yYcbiEGi8SKNTUKFAOtn8xsftXtRQbh7NLH+1S1rXoFLTKqd/e2K8V+I3qPnSIflXgw4jipkVJEtaTnYjjM39Dd9LYVlOfzTdDS3gePGOGKvLIx+T7nmzNTfPb/jVmBo9d68vlcMvDApMcocURXXHPK2Yoz4cjfGU1s674GOycoPPxE0Ovmdhj/PHLYqnSL0Q78UQ9luL8q6Lv15PeDKynpsi5ajm6p8p7DKp6ilvwWN+iKZA9ged8E8FbA7eLu3DA3pPmghph0dlRpYwbanosccTlbeFrNM6p3s6huxUzHt6Fkdzk5ubtz30FkA0LzvxwxOn6u1W4iTTI1Z1p07SpoyNrRw8wZY/hqcPkD+rDhQX1jmxfzaro8M0QRZ92cOI1nX3N8HRwMTZ2o+vMvaTvmHglfLN1aTpm3z/Pbp2gqj/uxE1aQlXKc3b+V5cGCEmsJKNp3TFhKyRdI7pMNF6E+vWfOLjTjif6h8Vy4nYkCX0C5h8eVmL6y8qfVMS1yATAM8B8K1dXvP3JaDKJoNUvH3VHgH/AxZGYHgycObU7GVUc/XhpCErBuMv1JZmLYE3tEGVFpt93RX2/MVmO8yp7/X6hxeIvfpsFUp2yk1q6k=
-  file: "pynocchio_0.1.1_amd64.deb"
+  file: "pynocchio_2.0.0_amd64.deb"
   skip_cleanup: true
   on:
     tags: true
     repo: pynocchio/pynocchio
     branch: master
-    
-deploy:
-  provider: packagecloud
-  repository: "pynocchio"
-  username: "mstuttgart"
-  token:
-    secure: 04F87fZmibN2FSgOp+2V/rI/Q44BXPsusTZ9lkWpaY1tDmaUyfvl9v0LtWWLlLE4NYOKiB6Ngi4aWmdQOU5jbGmCyzFlUHj7cX+KffNB3qkf+7VrL+9xPZL/77AiirGhvvVj6OvKG3uw9h9snGcATYkOhMWrJ+zOX3WcDp0xZklAWKcAg/NJSd8fbX2nLAEep0qrn+iotb9aQD4HirYiI6aj6J7ClEUWun77aJWSir6bdcI3RxJIDBuV7iOGqKOkS0botkXMIdlH7PAObP+zoNyG1N/3Xv0QaK/ZaUJ9ZyDwHMU/OcmclU+mHpoKuQpuxpIkNr+zEPRycQgRZxQ5/gXdLebp49SQxl/x//XKDt8EQYmFgpPhAcBlqVI3EYRalN8vryWf8GbFLFzAt5q0oX/iPcg+ZSBEMPl44R+q9BHZMH546YnT0lcUjpIOBotFzQhzdPzyWbF9Jp3T+0QXsvOUPPq4LrhqPDxLWFJbC4+itK49jZoabftUkc8lKQrlYVjwlkX1gWkbgJJdCsrGydvoDDeJhfdLhqAua1VaG/M4AZQtC69mtDnn3s9zwrvt48CyZD909ks7sdC4PBX1wUKZESuAozt/MSC4JE6OVxjaZEGfKuHBP+zuTn5BHq1UV1RD6F8NNrGEvnX8dJeXfGnpN4qnOAKt03cQFkaTWwc=
-  skip_cleanup: true
-  file: "pynocchio_1.0.0_amd64.deb"
-  on:
-    tags: false
-    repo: pynocchio/pynocchio
-    branch: develop
-  dist:
-    - "ubuntu/xenial"
-    - "linuxmint/sara"
 
 after_success:
- - python-codacy-coverage -c $TRAVIS_COMMIT -r coverage.xml
+ - coveralls
