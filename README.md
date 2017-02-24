@@ -34,4 +34,4 @@ Pynocchio use [Elementary USU Icon Theme](https://store.kde.org/content/show.php
 
 ### Credits
 
-Copyright (C) 2014-2016 by Michell Stuttgart Faria
+Copyright (C) 2014-2017 by Michell Stuttgart Faria
