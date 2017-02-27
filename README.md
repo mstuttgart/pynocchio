@@ -1,9 +1,11 @@
 Pynocchio Comic Reader
 ==================
-[![Build Status](https://travis-ci.org/pynocchio/pynocchio.svg?branch=develop)](https://travis-ci.org/pynocchio/pynocchio)
-[![Coverage Status](https://coveralls.io/repos/github/pynocchio/pynocchio/badge.svg?branch=develop)](https://coveralls.io/github/pynocchio/pynocchio?branch=develop)
-[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg)](https://github.com/pynocchio/pynocchio)
-[![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
+[![Travis branch](https://img.shields.io/travis/pynocchio/pynocchio/develop.svg?style=flat-square)](https://travis-ci.org/pynocchio/pynocchio)
+[![Coveralls branch](https://img.shields.io/coveralls/pynocchio/pynocchio/develop.svg?style=flat-square)](https://coveralls.io/github/pynocchio/pynocchio?branch=develop)
+[![Code Health](https://landscape.io/github/pynocchio/pynocchio/develop/landscape.svg?style=flat)](https://landscape.io/github/pynocchio/pynocchio/develop)
+[![Github All Releases](https://img.shields.io/github/downloads/pynocchio/pynocchio/total.svg?style=flat-square)](https://github.com/pynocchio/pynocchio/releases)
+[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?style=flat-square)](https://github.com/pynocchio/pynocchio/releases/latest)
+[![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg?style=flat-square)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 
 Pynocchio is a image viewer specialized in manga/comic reading.
 
