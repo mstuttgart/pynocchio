@@ -1,8 +1,7 @@
 Pynocchio Comic Reader
 ==================
 [![Build Status](https://travis-ci.org/pynocchio/pynocchio.svg?branch=develop)](https://travis-ci.org/pynocchio/pynocchio)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a7dfde0bb92a486796cadbe70a036d09)](https://www.codacy.com/app/michellstut/pynocchio?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pynocchio/pynocchio&amp;utm_campaign=Badge_Grade)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a7dfde0bb92a486796cadbe70a036d09)](https://www.codacy.com/app/michellstut/pynocchio?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pynocchio/pynocchio&amp;utm_campaign=Badge_Coverage)
+[![Coverage Status](https://coveralls.io/repos/github/pynocchio/pynocchio/badge.svg?branch=develop)](https://coveralls.io/github/pynocchio/pynocchio?branch=develop)
 [![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg)](https://github.com/pynocchio/pynocchio)
 [![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 
@@ -35,4 +34,4 @@ Pynocchio use [Elementary USU Icon Theme](https://store.kde.org/content/show.php
 
 ### Credits
 
-Copyright (C) 2014-2016 by Michell Stuttgart Faria
+Copyright (C) 2014-2017 by Michell Stuttgart Faria

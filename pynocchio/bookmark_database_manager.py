@@ -33,8 +33,8 @@ class BookmarkManager(BookmarkBaseModel):
 
     @staticmethod
     def connect():
-        db.connect()
         try:
+            db.connect()
             db.create_tables([Bookmark, TemporaryBookmark], safe=True)
             logger.info('Table Bookmark and TemporaryBookmark create/updates '
                         'successfully!')
@@ -43,8 +43,9 @@ class BookmarkManager(BookmarkBaseModel):
 
     @staticmethod
     def close():
-        db.close()
-        logger.info('Bookmark database closed.')
+        if not -db.is_closed():
+            db.close()
+            logger.info('Bookmark database closed.')
 
     @staticmethod
     def add_bookmark(name, path, page, data=None, table=Bookmark):

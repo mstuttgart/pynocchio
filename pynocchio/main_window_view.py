@@ -95,7 +95,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         if self.model.comic:
 
             path = self.model.current_directory + \
-                   self.model.comic.get_current_page_title()
+                   self.model.get_current_page_title()
             file_path = QtWidgets.QFileDialog().getSaveFileName(
                 self, self.tr('save_current_page'), path,
                 self.tr("images (*.png *.xpm *.jpeg *.jpg *.gif)"))
