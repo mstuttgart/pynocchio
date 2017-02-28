@@ -80,9 +80,9 @@ setup(
          ['linux/hicolor/256x256/apps/pynocchio.png']),
     ],
     install_requires=[
-        'rarfile',
-        'peewee',
-        'PyQt5',
+        'rarfile>=2.8',
+        'peewee>=2.8.1',
+        'PyQt5>=5.7.1',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
