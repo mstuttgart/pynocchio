@@ -4,6 +4,7 @@ Pynocchio Comic Reader
 [![Coveralls branch](https://img.shields.io/coveralls/pynocchio/pynocchio/develop.svg?style=flat-square)](https://coveralls.io/github/pynocchio/pynocchio?branch=develop)
 [![Code Health](https://landscape.io/github/pynocchio/pynocchio/develop/landscape.svg?style=flat-square)](https://landscape.io/github/pynocchio/pynocchio/develop)
 [![Github All Releases](https://img.shields.io/github/downloads/pynocchio/pynocchio/total.svg?style=flat-square)](https://github.com/pynocchio/pynocchio/releases)
+[![Requires.io](https://img.shields.io/requires/github/pynocchio/pynocchio.svg?style=flat-square)](https://requires.io/github/pynocchio/pynocchio/requirements/?branch=develop)
 [![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?style=flat-square)](https://github.com/pynocchio/pynocchio/releases/latest)
 [![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg?style=flat-square)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 
