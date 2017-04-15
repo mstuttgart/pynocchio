@@ -1,6 +1,6 @@
 coverage==4.3.4
 coveralls==1.1
-peewee==2.8.8
+peewee==2.9.2
 PyInstaller==3.2.1
-PyQt5==5.8
+PyQt5==5.8.2
 rarfile==3.0
