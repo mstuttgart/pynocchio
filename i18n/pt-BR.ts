@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<!DOCTYPE TS><TS version="2.0" language="pt_BR" sourcelanguage="">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -60,22 +59,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BookmarkManagerDialog</name>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="103"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="87"/>
         <source>Delete bookmarks</source>
         <translation>Deletar favoritos</translation>
     </message>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="103"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="87"/>
         <source>This action will go delete you bookmarks! Proceed?</source>
         <translation>Esta ação irá deletar os favoritos selecionados! Deseja prosseguir?</translation>
     </message>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="134"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="118"/>
         <source>Comic not exist</source>
         <translation>Arquiovo não existe</translation>
     </message>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="134"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="118"/>
         <source>Selected comic not exist! Do you like to remove it from bookmark list?</source>
         <translation>Arquivo selecionado não existe! Você deseja removê-lo da lista de favoritos?</translation>
     </message>
@@ -129,7 +128,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>GoToDialog</name>
     <message>
-        <location filename="../pynocchio/go_to_page_dialog.py" line="40"/>
+        <location filename="../pynocchio/go_to_page_dialog.py" line="25"/>
         <source>of %d</source>
         <translation>de %d</translation>
     </message>
@@ -139,7 +138,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="37"/>
         <source>Pynocchio</source>
-        <translation>PYnocchio</translation>
+        <translation>Pynocchio</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="40"/>
@@ -197,7 +196,7 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Sobre Pynocchio</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="271"/>
+        <location filename="../pynocchio/main_window_view.py" line="256"/>
         <source>About Qt</source>
         <translation>Sobre Qt</translation>
     </message>
@@ -592,47 +591,47 @@ p, li { white-space: pre-wrap; }
         <translation>Modo Mangá</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="72"/>
+        <location filename="../pynocchio/main_window_view.py" line="57"/>
         <source>open_comic_file</source>
         <translation>Abrir arquivo</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="72"/>
+        <location filename="../pynocchio/main_window_view.py" line="57"/>
         <source>all_supported_files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; tar_files (*.tar *.cbt);; all_files (*)</source>
         <translation>Todos os formatos suportados (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; Arquivos zip (*.zip *.cbz);; Arquivos rar (*.rar *.cbr);; Arquivos tar (*.tar *.cbt);; Todos os arquivos (*)</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="87"/>
+        <location filename="../pynocchio/main_window_view.py" line="72"/>
         <source>open_comic_folder</source>
         <translation>Abrir diretório</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="99"/>
+        <location filename="../pynocchio/main_window_view.py" line="84"/>
         <source>save_current_page</source>
         <translation>Salvar página atual</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="99"/>
+        <location filename="../pynocchio/main_window_view.py" line="84"/>
         <source>images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
         <translation>imagens (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="348"/>
+        <location filename="../pynocchio/main_window_view.py" line="333"/>
         <source>Continue reading from page %d?</source>
         <translation>Continuar lendo da página %d?</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="351"/>
+        <location filename="../pynocchio/main_window_view.py" line="336"/>
         <source>&lt;p&gt;You stopped reading here.&lt;/p&gt;&lt;p&gt; If you choose &lt;b&gt;&quot;Yes&quot;&lt;/b&gt;, reading will resume on &lt;b&gt;page %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Otherwise, the first page will be loaded.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Você parou de ler aqui.&lt;/p&gt;&lt;p&gt; Se você escolher &lt;b&gt;&quot;Sim&quot;&lt;/b&gt;, você continuaŕ a leitura de onde parou &lt;b&gt;página %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Caso contrário,a primeira página será carregada.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="410"/>
+        <location filename="../pynocchio/main_window_view.py" line="395"/>
         <source>LoadComicsException</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="415"/>
+        <location filename="../pynocchio/main_window_view.py" line="400"/>
         <source>InvalidTypeFileException</source>
         <translation></translation>
     </message>
@@ -640,17 +639,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>StatusBar</name>
     <message>
-        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="109"/>
+        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="94"/>
         <source>Page: </source>
         <translation>Página:</translation>
     </message>
     <message>
-        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="116"/>
+        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="101"/>
         <source>Resolution: </source>
         <translation>Resolução:</translation>
     </message>
     <message>
-        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="124"/>
+        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="109"/>
         <source>Title: </source>
         <translation>Título:</translation>
     </message>
@@ -663,24 +662,24 @@ p, li { white-space: pre-wrap; }
         <translation>Preferências</translation>
     </message>
     <message>
-        <location filename="../forms/preference_dialog.ui" line="46"/>
+        <location filename="../forms/preference_dialog.ui" line="37"/>
         <source>General</source>
         <translation>Geral</translation>
     </message>
     <message>
-        <location filename="../forms/preference_dialog.ui" line="74"/>
+        <location filename="../forms/preference_dialog.ui" line="51"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Background color: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/preference_dialog.ui" line="135"/>
+        <location filename="../forms/preference_dialog.ui" line="112"/>
         <source>Close</source>
         <translation>Fechar</translation>
     </message>
     <message>
         <location filename="../forms/preference_dialog.ui" line="60"/>
         <source>Language: </source>
-        <translation>Idioma:</translation>
+        <translation type="obsolete">Idioma:</translation>
     </message>
 </context>
 </TS>

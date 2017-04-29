@@ -45,22 +45,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BookmarkManagerDialog</name>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="103"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="87"/>
         <source>Delete bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="103"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="87"/>
         <source>This action will go delete you bookmarks! Proceed?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="134"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="118"/>
         <source>Comic not exist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="134"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="118"/>
         <source>Selected comic not exist! Do you like to remove it from bookmark list?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -114,7 +114,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>GoToDialog</name>
     <message>
-        <location filename="../pynocchio/go_to_page_dialog.py" line="40"/>
+        <location filename="../pynocchio/go_to_page_dialog.py" line="25"/>
         <source>of %d</source>
         <translation type="unfinished"></translation>
     </message>
@@ -167,7 +167,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="271"/>
+        <location filename="../pynocchio/main_window_view.py" line="256"/>
         <source>About Qt</source>
         <translation type="unfinished"></translation>
     </message>
@@ -432,47 +432,47 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="72"/>
+        <location filename="../pynocchio/main_window_view.py" line="57"/>
         <source>open_comic_file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="72"/>
+        <location filename="../pynocchio/main_window_view.py" line="57"/>
         <source>all_supported_files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; tar_files (*.tar *.cbt);; all_files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="87"/>
+        <location filename="../pynocchio/main_window_view.py" line="72"/>
         <source>open_comic_folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="99"/>
+        <location filename="../pynocchio/main_window_view.py" line="84"/>
         <source>save_current_page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="99"/>
+        <location filename="../pynocchio/main_window_view.py" line="84"/>
         <source>images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="348"/>
+        <location filename="../pynocchio/main_window_view.py" line="333"/>
         <source>Continue reading from page %d?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="351"/>
+        <location filename="../pynocchio/main_window_view.py" line="336"/>
         <source>&lt;p&gt;You stopped reading here.&lt;/p&gt;&lt;p&gt; If you choose &lt;b&gt;&quot;Yes&quot;&lt;/b&gt;, reading will resume on &lt;b&gt;page %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Otherwise, the first page will be loaded.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="410"/>
+        <location filename="../pynocchio/main_window_view.py" line="395"/>
         <source>LoadComicsException</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="415"/>
+        <location filename="../pynocchio/main_window_view.py" line="400"/>
         <source>InvalidTypeFileException</source>
         <translation type="unfinished"></translation>
     </message>
@@ -480,17 +480,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>StatusBar</name>
     <message>
-        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="109"/>
+        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="94"/>
         <source>Page: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="116"/>
+        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="101"/>
         <source>Resolution: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="124"/>
+        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="109"/>
         <source>Title: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -503,23 +503,18 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/preference_dialog.ui" line="46"/>
+        <location filename="../forms/preference_dialog.ui" line="37"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/preference_dialog.ui" line="74"/>
+        <location filename="../forms/preference_dialog.ui" line="51"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Background color: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/preference_dialog.ui" line="135"/>
+        <location filename="../forms/preference_dialog.ui" line="112"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/preference_dialog.ui" line="60"/>
-        <source>Language: </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
