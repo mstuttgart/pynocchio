@@ -8,10 +8,10 @@ Pynocchio Comic Reader
 [![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?style=flat-square)](https://github.com/pynocchio/pynocchio/releases/latest)
 [![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg?style=flat-square)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 
+### About
 Pynocchio is a image viewer specialized in manga/comic reading.
 
 ![Ubunchu Manga by Hiroshi Seo (Seotch)](https://lh3.googleusercontent.com/-p0TtjyX-GgM/VwwYhAAUjrI/AAAAAAAAF04/_JSom_IMmasZfnRn4EPhxKejjj_9aHzYwCCo/s1152-Ic42/snapshot11.png)
-
 
 ### Features
 

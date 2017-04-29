@@ -28,7 +28,7 @@ class BookmarkManager(BookmarkBaseModel):
 
     @staticmethod
     def close():
-        if not -db.is_closed():
+        if not db.is_closed():
             db.close()
             logger.info('Bookmark database closed.')
 

@@ -66,7 +66,7 @@ setup(
     ],
     install_requires=[
         'rarfile>=2.8',
-        'peewee>=2.8.1',
+        'peewee>=2.9.2',
         'PyQt5>=5.7.1',
     ],
     classifiers=[
