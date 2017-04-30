@@ -4,17 +4,14 @@ from setuptools import setup, find_packages
 import os
 import sys
 
-from pynocchio.version import __version__
-
-
-version = __version__
+from pynocchio import __version__
 
 if sys.argv[-1] == 'build_deb':
-    os.system('sh scripts/build_deb.sh %s' % version)
+    os.system('sh scripts/build_deb.sh %s' % __version__)
     sys.exit()
 #
 if sys.argv[-1] == 'build_ui':
-    os.system('sh scripts/build_ui.sh %s' % version)
+    os.system('sh scripts/build_ui.sh %s' % __version__)
     sys.exit()
 
 if sys.argv[-1] == 'build_pro':
@@ -22,13 +19,13 @@ if sys.argv[-1] == 'build_pro':
     sys.exit()
 
 if sys.argv[-1] == 'publish':
-    os.system("git tag -a %s -m 'version %s'" % (version, version))
+    os.system("git tag -a %s -m 'version %s'" % (__version__, __version__))
     os.system("git push --tags")
     sys.exit()
 
 setup(
     name='pynocchio',
-    version=version,
+    version=__version__,
     author='Michell Stuttgart Faria',
     author_email='michellstut@gmail.com',
     url='https://github.com/pynocchio',
