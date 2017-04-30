@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5 import QtCore, QtWidgets
 import sys
 import os
+from PyQt5 import QtCore, QtWidgets, QtGui
 
 from .main_window_model import MainWindowModel
 from .main_window_view import MainWindowView
+
+import qdarkgraystyle
 
 DATADIRS = (
         os.path.abspath('./pynocchio'),
@@ -27,7 +29,9 @@ class Pynocchio(QtWidgets.QApplication):
         super(Pynocchio, self).__init__(sys.argv)
         self.setOrganizationName('Pynocchio')
         self.setApplicationName('Pynocchio')
-        self.setStyle(QtWidgets.QStyleFactory.create('fusion'))
+
+        self.setStyle('Fusion')
+        self.setStyleSheet(qdarkgraystyle.load_stylesheet_pyqt5())
 
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')
