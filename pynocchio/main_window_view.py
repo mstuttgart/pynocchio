@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 class MainWindowView(QtWidgets.QMainWindow):
 
     MAX_RECENT_FILES = 5
-    MaxBookmarkFiles = 5
+    MAX_BOOKMARK_FILES = 5
 
     def __init__(self, model, parent=None):
         super(MainWindowView, self).__init__(parent=parent)
@@ -32,7 +32,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         MainWindowView.MAX_RECENT_FILES = len(
             self.ui.menu_recent_files.actions())
 
-        MainWindowView.MaxBookmarkFiles = \
+        MainWindowView.MAX_BOOKMARK_FILES = \
             len(self.ui.menu_recent_bookmarks.actions())
 
         self.ui.menu_recent_files.menuAction().setVisible(False)
@@ -465,7 +465,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.ui.action_add_bookmark.setVisible(not is_bookmark)
 
         bookmark_list = self.model.get_bookmark_list(
-            MainWindowView.MaxBookmarkFiles)
+            MainWindowView.MAX_BOOKMARK_FILES)
         self.ui.menu_recent_bookmarks.menuAction().setVisible(
             True if bookmark_list else False)
 
@@ -476,7 +476,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         num_bookmarks_files = len(bookmark_list) if bookmark_list else 0
         num_bookmarks_files = min(num_bookmarks_files,
-                                  MainWindowView.MaxBookmarkFiles)
+                                  MainWindowView.MAX_BOOKMARK_FILES)
 
         for i in range(num_bookmarks_files):
             bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
@@ -486,7 +486,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
             bk_actions[i].setVisible(True)
 
-        for j in range(num_bookmarks_files, MainWindowView.MaxBookmarkFiles):
+        for j in range(num_bookmarks_files, MainWindowView.MAX_BOOKMARK_FILES):
             bk_actions[j].setVisible(False)
 
     def open_recent_bookmark(self):
