@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 class MainWindowView(QtWidgets.QMainWindow):
 
-    MaxRecentFiles = 5
+    MAX_RECENT_FILES = 5
     MaxBookmarkFiles = 5
 
     def __init__(self, model, parent=None):
@@ -29,7 +29,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.ui = main_window_view_ui.Ui_MainWindowView()
         self.ui.setupUi(self)
 
-        MainWindowView.MaxRecentFiles = len(
+        MainWindowView.MAX_RECENT_FILES = len(
             self.ui.menu_recent_files.actions())
 
         MainWindowView.MaxBookmarkFiles = \
@@ -431,7 +431,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         # Insert it on top of recent file list
         files.insert(0, filename)
-        del files[MainWindowView.MaxRecentFiles:]
+        del files[MainWindowView.MAX_RECENT_FILES:]
 
         # Save recent file list
         self.model.save_recent_files(files)
@@ -443,7 +443,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         files = self.model.load_recent_files()
         num_recent_files = len(files) if files else 0
-        num_recent_files = min(num_recent_files, MainWindowView.MaxRecentFiles)
+        num_recent_files = min(num_recent_files, MainWindowView.MAX_RECENT_FILES)
 
         self.ui.menu_recent_files.menuAction().setVisible(True if files else
                                                           False)
@@ -456,7 +456,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             recent_file_actions[i].setVisible(True)
             recent_file_actions[i].setStatusTip(files[i])
 
-        for j in range(num_recent_files, MainWindowView.MaxRecentFiles):
+        for j in range(num_recent_files, MainWindowView.MAX_RECENT_FILES):
             recent_file_actions[j].setVisible(False)
 
     def update_bookmark_actions(self):
