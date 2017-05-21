@@ -5,3 +5,4 @@ PyInstaller==3.2.1
 PyQt5==5.8.2
 rarfile==3.0
 qdarkgraystyle>=0.0.3
+pyqtdeploy>=1.3.2
