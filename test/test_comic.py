@@ -3,7 +3,8 @@
 
 from unittest import TestCase
 
-from pynocchio.comic import Comic, Page
+from pynocchio.comic import Comic
+from pynocchio.comic import Page
 
 
 class TestComic(TestCase):
