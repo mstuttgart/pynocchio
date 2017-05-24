@@ -49,6 +49,14 @@ class Page:
     """This is basic class of Pynocchio. Represents a comic page object"""
 
     def __init__(self, data, title, number):
+        """
+        Comic Page class __init__ method
+
+        Args:
+            data (bin): comic page binary data
+            title (str): page title
+            number (int): page number
+        """
         self.data = data
         self.title = title
         self.number = number
