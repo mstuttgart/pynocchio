@@ -14,12 +14,12 @@ class TestComic(TestCase):
         self.obj = Comic('comic_test', 'comic_dir')
         self.page = Page(None, 'page_title_1', 1)
 
-    def test_get_number_of_pages(self):
-        self.obj.pages = []
-        self.obj.pages.append(self.page)
-        self.obj.pages.append(Page(None, 'page_title_2', 2))
-
-        self.assertEqual(self.obj.get_number_of_pages(), 2)
+    # def test_get_number_of_pages(self):
+    #     self.obj.pages = []
+    #     self.obj.pages.append(self.page)
+    #     self.obj.pages.append(Page(None, 'page_title_2', 2))
+    #
+    #     self.assertEqual(self.obj.get_number_of_pages(), 2)
 
     def test_get_path(self):
         self.assertEqual(self.obj.directory + '/' + self.obj.name,

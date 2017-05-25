@@ -143,14 +143,14 @@ class MainWindowModel(QtCore.QObject):
         return self.comic_page_handler.get_current_page().number
 
     def get_number_of_pages(self):
-        return self.comic.get_number_of_pages()
+        return len(self.comic.pages)
 
     def is_first_page(self):
         return self.comic_page_handler.current_page_index == 0
 
     def is_last_page(self):
         return self.comic_page_handler.current_page_index + 1 == \
-               self.comic.get_number_of_pages()
+               len(self.comic.pages)
 
     def is_first_comic(self):
         return self.comic_file_filter.is_first_comic(self.comic.name)

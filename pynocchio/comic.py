@@ -27,14 +27,6 @@ class Comic:
         # list of Page: list to store the comic pages objects
         self.pages = []
 
-    def get_number_of_pages(self):
-        """ Return comic pages amount
-
-        Returns:
-            int: The retirn value. Represents amount of comic pages
-        """
-        return len(self.pages)
-
     def get_path(self):
         """ Get complete comic path, i.g. comic path concatenaded with
              comic name.
