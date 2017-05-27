@@ -13,7 +13,7 @@ class ComicPageHandler:
         return self.comic.pages[self.current_page_index]
 
     def go_next_page(self):
-        if self.current_page_index < self.comic.get_number_of_pages() - 1:
+        if self.current_page_index < len(self.comic.pages) - 1:
             self.current_page_index += 1
             return True
         return False
@@ -29,7 +29,7 @@ class ComicPageHandler:
         self.current_page_index = 0
 
     def go_last_page(self):
-        self.current_page_index = self.comic.get_number_of_pages() - 1
+        self.current_page_index = len(self.comic.pages) - 1
 
     @property
     def current_page_index(self):
@@ -37,7 +37,7 @@ class ComicPageHandler:
 
     @current_page_index.setter
     def current_page_index(self, idx):
-        if 0 <= idx < self.comic.get_number_of_pages():
+        if 0 <= idx < len(self.comic.pages):
             self._current_page_index = idx
 
     def get_current_page_image(self):
@@ -60,7 +60,7 @@ class ComicPageHandlerDoublePage(ComicPageHandler):
         self.manga_mode = False
 
     def go_next_page(self):
-        if self.current_page_index < self.comic.get_number_of_pages() - 2:
+        if self.current_page_index < len(self.comic.pages) - 2:
             self.current_page_index += 2
             return True
         else:
