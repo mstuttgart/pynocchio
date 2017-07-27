@@ -13,7 +13,7 @@ class GoToDialog(QtWidgets.QDialog):
         self.ui = go_to_page_dialog_ui.Ui_GoPageDialog()
         self.ui.setupUi(self)
 
-        page_qty = comic_handler.comic.get_number_of_pages()
+        page_qty = len(comic_handler.comic.pages)
         page_number = comic_handler.get_current_page().number
 
         self.model_handler = comic_handler
