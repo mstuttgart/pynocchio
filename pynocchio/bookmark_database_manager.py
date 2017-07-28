@@ -19,12 +19,13 @@ class BookmarkManager(BookmarkBaseModel):
     @staticmethod
     def connect():
         try:
+            BookmarkManager.close()
             db.connect()
             db.create_tables([Bookmark, TemporaryBookmark], safe=True)
             logger.info('Table Bookmark and TemporaryBookmark create/updates '
                         'successfully!')
-        except OperationalError:
-            logger.exception("Error to create table Bookmark!")
+        except OperationalError as exc:
+            logger.exception(exc)
 
     @staticmethod
     def close():
