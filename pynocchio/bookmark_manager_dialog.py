@@ -128,6 +128,7 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
                     if selected_idx:
                         for index in selected_idx:
                             self.model.removeRow(index.row())
+                        self.model.submitAll()
 
     def close(self):
         self.db.close()
