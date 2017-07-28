@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 
+
 class Comic:
     """This is basic class of Pynocchio. Represents a comic object"""
 
@@ -28,7 +29,7 @@ class Comic:
         self.pages = []
 
     def get_path(self):
-        """ Get complete comic path, i.g. comic path concatenaded with
+        """ Get complete comic path, i.g. comic path concatenated with
              comic name.
 
         Returns:
