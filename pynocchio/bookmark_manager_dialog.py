@@ -91,18 +91,16 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
             QtWidgets.QMessageBox.Ok)
 
         if option == QtWidgets.QMessageBox.Ok:
-            selected_idx = self.ui.bookmark_table.selectedIndexes()
 
-            if selected_idx:
-                for index in selected_idx:
-                    self.model.removeRow(index.row())
+            for index in self.ui.bookmark_table.selectedIndexes():
+                self.model.removeRow(index.row())
 
-                self.model.submitAll()
-                self.ui.page_image_label.setPixmap(self.no_cover_label)
+            self.model.submitAll()
+            self.ui.page_image_label.setPixmap(self.no_cover_label)
 
-                if not self.model.rowCount():
-                    self.ui.button_load.setEnabled(False)
-                    self.ui.button_remove.setEnabled(False)
+            if not self.model.rowCount():
+                self.ui.button_load.setEnabled(False)
+                self.ui.button_remove.setEnabled(False)
 
     def _get_comic_to_open(self):
         selection_model = self.ui.bookmark_table.selectionModel()
@@ -123,12 +121,15 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
                     QtWidgets.QMessageBox.Ok)
 
                 if option == QtWidgets.QMessageBox.Ok:
-                    selected_idx = self.ui.bookmark_table.selectedIndexes()
+                    for index in self.ui.bookmark_table.selectedIndexes():
+                        self.model.removeRow(index.row())
 
-                    if selected_idx:
-                        for index in selected_idx:
-                            self.model.removeRow(index.row())
-                        self.model.submitAll()
+                    self.model.submitAll()
+                    self.ui.page_image_label.setPixmap(self.no_cover_label)
+
+                    if not self.model.rowCount():
+                        self.ui.button_load.setEnabled(False)
+                        self.ui.button_remove.setEnabled(False)
 
     def close(self):
         self.db.close()
