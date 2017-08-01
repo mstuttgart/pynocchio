@@ -22,12 +22,8 @@ class ComicLoaderFactory:
                 if loader.type_verify(file_name=filename):
                     return loader()
 
-            raise InvalidTypeFileException('Invalid file extension: %s' %
-                                           Utility.get_file_extension(
-                                               filename))
+            raise InvalidTypeFileException('Invalid file extension: %s' % Utility.get_file_extension(filename))  # noqa: 501
         elif Utility.is_dir(filename):
             return ComicFolderLoader()
         else:
-            raise InvalidTypeFileException('File is not folder: %s' %
-                                           Utility.get_file_extension(
-                                               filename))
+            raise InvalidTypeFileException('File is not folder: %s' % Utility.get_file_extension(filename))  # noqa: 501
