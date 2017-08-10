@@ -26,14 +26,14 @@ class ComicPathFilter:
 
     def is_first_comic(self, filename):
         try:
-            return True if self.file_list[0] == filename else False
+            return self.file_list[0] == filename
         except IndexError as exc:
             raise NoDataFindException(
                 'ComicPathFilter file list is empty!') from exc
 
     def is_last_comic(self, filename):
         try:
-            return True if self.file_list[-1] == filename else False
+            return self.file_list[-1] == filename
         except IndexError as exc:
             raise NoDataFindException(
                 'ComicPathFilter file list is empty!') from exc

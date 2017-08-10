@@ -5,15 +5,6 @@ import os
 class Comic:
     """This is basic class of Pynocchio. Represents a comic object"""
 
-    # FILE = 0
-    # FOLDER = 1
-    #
-    # def __init__(self, name, directory, comic_type=FILE):
-    #     self.name = name
-    #     self.directory = directory
-    #     self.type = comic_type
-    #     self.pages = []
-
     def __init__(self, name, directory):
         """
         Comic class __init__ method
