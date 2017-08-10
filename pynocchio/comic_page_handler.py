@@ -13,17 +13,10 @@ class ComicPageHandler:
         return self.comic.pages[self.current_page_index]
 
     def go_next_page(self):
-        if self.current_page_index < len(self.comic.pages) - 1:
-            self.current_page_index += 1
-            return True
-        return False
+        raise NotImplementedError('Must subclass me!')
 
     def go_previous_page(self):
-        if self.current_page_index > 0:
-            self.current_page_index -= 1
-            return True
-        else:
-            return False
+        raise NotImplementedError('Must subclass me!')
 
     def go_first_page(self):
         self.current_page_index = 0
@@ -46,6 +39,20 @@ class ComicPageHandler:
 
 class ComicPageHandlerSinglePage(ComicPageHandler):
 
+    def go_next_page(self):
+        if self.current_page_index < len(self.comic.pages) - 1:
+            self.current_page_index += 1
+            return True
+        else:
+            return False
+
+    def go_previous_page(self):
+        if self.current_page_index > 0:
+            self.current_page_index -= 1
+            return True
+        else:
+            return False
+
     def get_current_page_image(self):
         pix_map = QtGui.QPixmap()
         pix_map.loadFromData(self.get_current_page().data)
@@ -54,10 +61,10 @@ class ComicPageHandlerSinglePage(ComicPageHandler):
 
 class ComicPageHandlerDoublePage(ComicPageHandler):
 
-    def __init__(self, comic, index=0):
+    def __init__(self, comic, inverse=False, index=0):
         super(ComicPageHandlerDoublePage, self).__init__(comic=comic,
                                                          index=index)
-        self.manga_mode = False
+        self.inverse = inverse
 
     def go_next_page(self):
         if self.current_page_index < len(self.comic.pages) - 2:
@@ -95,7 +102,7 @@ class ComicPageHandlerDoublePage(ComicPageHandler):
         else:
             height = max(page_a.height(), page_b.height())
 
-            if self.manga_mode or direction == -1:
+            if self.inverse or direction == -1:
                 page_b, page_a = page_a, page_b
 
             width = page_a.width() + page_b.width()

@@ -202,7 +202,7 @@ class MainWindowModel(QtCore.QObject):
 
     def manga_page_mode(self, checked):
         if isinstance(self.comic_page_handler, ComicPageHandlerDoublePage):
-            self.comic_page_handler.manga_mode = checked
+            self.comic_page_handler.inverse = checked
 
     @QtCore.pyqtSlot(int)
     def load_progressbar_value(self, percent):
