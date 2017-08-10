@@ -115,7 +115,7 @@ class MainWindowModel(QtCore.QObject):
         return self.comic.name
 
     def get_comic_path(self):
-        return self.comic.get_path()
+        return self.comic. path
 
     def get_comic_title(self):
         return self.comic.name
@@ -221,7 +221,7 @@ class MainWindowModel(QtCore.QObject):
         return BookmarkManager.get_bookmarks(qty)
 
     def is_bookmark(self):
-        return BookmarkManager.is_bookmark(self.comic.get_path())
+        return BookmarkManager.is_bookmark(self.comic.path)
 
     @staticmethod
     def get_bookmark_from_path(path, table=Bookmark):
@@ -231,11 +231,11 @@ class MainWindowModel(QtCore.QObject):
 
         if self.comic:
             BookmarkManager.add_bookmark(
-                self.comic.name, self.comic.get_path(),
+                self.comic.name, self.comic.path,
                 self.comic_page_handler.get_current_page().number,
                 data=self.comic_page_handler.get_current_page().data,
                 table=table)
 
     def remove_bookmark(self, path=False, table=Bookmark):
-        path = self.comic.get_path() if not path else path
+        path = self.comic.path if not path else path
         BookmarkManager.remove_bookmark(path, table=table)

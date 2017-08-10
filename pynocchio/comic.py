@@ -5,28 +5,33 @@ import os
 class Comic:
     """This is basic class of Pynocchio. Represents a comic object"""
 
-    def __init__(self, name, directory):
+    def __init__(self, name, path):
         """
         Comic class __init__ method
 
         Args:
             name (str): comic name
-            directory (str): comic file directory
+            path (str): comic file path
         """
         self.name = name
-        self.directory = directory
+        self._path = path
 
         # list of Page: list to store the comic pages objects
         self.pages = []
 
-    def get_path(self):
+    @property
+    def path(self):
         """ Get complete comic path, i.g. comic path concatenated with
-             comic name.
+                     comic name.
 
         Returns:
             str: The return value. Represents complete comic path.
         """
-        return os.path.join(self.directory, self.name)
+        return os.path.join(self._path, self.name)
+
+    @path.setter
+    def path(self, value):
+        self._path = value
 
 
 class Page:
