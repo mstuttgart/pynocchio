@@ -2,7 +2,8 @@
 
 import sys
 import os
-from PyQt5 import QtCore, QtWidgets, QtGui
+
+from PyQt5 import QtCore, QtWidgets
 
 from .main_window_model import MainWindowModel
 from .main_window_view import MainWindowView
