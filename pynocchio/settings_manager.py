@@ -39,3 +39,4 @@ class SettingsManager:
 
     def load_current_directory(self):
         return self.settings.value('current_directory', '.')
+

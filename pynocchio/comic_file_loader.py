@@ -8,8 +8,8 @@ import zipfile
 import rarfile
 import tarfile
 
-from .utility import Utility
-from pynocchio.comic import Page
+from .utility import get_file_extension, join_path, is_dir
+from .comic import Page
 from .exception import NoDataFindException
 
 logger = logging.getLogger(__name__)
@@ -52,7 +52,7 @@ class ComicRarLoader(ComicLoader):
 
             for idx, name in enumerate(name_list):
 
-                if Utility.get_file_extension(name).lower() in self.extension:
+                if get_file_extension(name).lower() in self.extension:
                     try:
                         self.data.append(Page(rar.read(name), name, page))
                         page += 1
@@ -87,7 +87,7 @@ class ComicZipLoader(ComicLoader):
 
             for idx, name in enumerate(name_list):
 
-                if Utility.get_file_extension(name).lower() in self.extension:
+                if get_file_extension(name).lower() in self.extension:
                     try:
                         self.data.append(Page(zf.read(name), name, page))
                         page += 1
@@ -122,7 +122,7 @@ class ComicTarLoader(ComicLoader):
 
             for idx, name in enumerate(name_list):
 
-                if Utility.get_file_extension(name).lower() in self.extension:
+                if get_file_extension(name).lower() in self.extension:
                     try:
                         data = tar.extractfile(name).read()
                         self.data.append(Page(data, name, page))
@@ -169,9 +169,9 @@ class ComicFolderLoader(ComicLoader):
 
         for idx, name in enumerate(file_list):
 
-            if Utility.get_file_extension(name).lower() in self.extension:
+            if get_file_extension(name).lower() in self.extension:
 
-                with open(Utility.join_path(dir_name, '', name), 'r') as img:
+                with open(join_path(dir_name, '', name), 'r') as img:
                     self.data.append(Page(img.read(), name, page))
                     page += 1
 
@@ -182,4 +182,4 @@ class ComicFolderLoader(ComicLoader):
 
     @staticmethod
     def type_verify(folder_name):
-        return Utility.is_dir(folder_name)
+        return is_dir(folder_name)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import glob
-from .utility import Utility
+from .utility import join_path
 from .exception import NoDataFindException
 
 
@@ -42,7 +42,7 @@ class ComicPathFilter:
 
         if not self.is_first_comic(filename):
             name = self.file_list[self.file_list.index(filename) - 1]
-            return Utility.join_path(self.current_path, '', name)
+            return join_path(self.current_path, '', name)
         else:
             raise NoDataFindException('ComicPathFilter reach first file!')
 
@@ -50,6 +50,6 @@ class ComicPathFilter:
 
         if not self.is_last_comic(filename):
             name = self.file_list[self.file_list.index(filename) + 1]
-            return Utility.join_path(self.current_path, '', name)
+            return join_path(self.current_path, '', name)
         else:
             raise NoDataFindException('ComicPathFilter reach last file!')

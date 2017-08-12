@@ -2,7 +2,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets, QtSql
 
-from .utility import Utility
+from .utility import get_dir_name, file_exist
 from .uic_files import bookmark_manager_dialog_ui
 
 import logging
@@ -21,7 +21,7 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
         self.ui.setupUi(self)
 
         self.controller = controller
-        path = Utility.get_dir_name(
+        path = get_dir_name(
             controller.model.settings_manager.settings.fileName())
 
         self.db = QtSql.QSqlDatabase().addDatabase("QSQLITE")
@@ -109,7 +109,7 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
             path = selection_model.selectedRows(1)[0].data()
             page = selection_model.selectedRows(3)[0].data()
 
-            if Utility.file_exist(path):
+            if file_exist(path):
                 self.controller.open_comics(path, page - 1)
                 self.close()
             else:

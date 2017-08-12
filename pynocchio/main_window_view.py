@@ -6,7 +6,7 @@ import logging
 from .exception import InvalidTypeFileException
 from .exception import LoadComicsException
 from .exception import NoDataFindException
-from .utility import Utility
+from .utility import file_exist
 from .go_to_page_dialog import GoToDialog
 from .bookmark_manager_dialog import BookmarkManagerDialog
 from .bookmark import TemporaryBookmark
@@ -409,7 +409,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         action = self.sender()
         if action:
             filename = action.data()
-            if Utility.file_exist(filename):
+            if file_exist(filename):
                 initial_page = self.get_page_from_temporary_bookmarks(filename)
                 self.open_comics(filename, initial_page=initial_page)
             else:
@@ -493,7 +493,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         action = self.sender()
         if action:
             filename = action.statusTip()
-            if Utility.file_exist(filename):
+            if file_exist(filename):
                 self.open_comics(action.statusTip(), action.data() - 1)
             else:
                 self.model.remove_bookmark(action.statusTip())

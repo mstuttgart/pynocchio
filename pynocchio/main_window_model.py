@@ -4,7 +4,7 @@ from PyQt5 import QtCore, QtGui
 import logging
 
 from .exception import NoDataFindException
-from .utility import Utility
+from .utility import get_base_name, get_dir_name, is_file
 from .bookmark_database_manager import BookmarkManager
 from .bookmark import TemporaryBookmark, Bookmark
 from .comic_file_loader_factory import ComicLoaderFactory
@@ -73,15 +73,15 @@ class MainWindowModel(QtCore.QObject):
             else:
                 self.remove_bookmark(table=TemporaryBookmark)
 
-        self.comic = Comic(Utility.get_base_name(filename),
-                           Utility.get_dir_name(filename))
+        self.comic = Comic(get_base_name(filename),
+                           get_dir_name(filename))
 
         self.comic.pages = loader.data
         self.comic_page_handler = ComicPageHandlerFactory.create_handler(
             False, self.comic, index=initial_page)
-        self.current_directory = Utility.get_dir_name(filename)
+        self.current_directory = get_dir_name(filename)
 
-        if Utility.is_file(filename):
+        if is_file(filename):
             self.comic_file_filter.parse(self.current_directory)
 
     def save_current_page_image(self, file_name):

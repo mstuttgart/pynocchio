@@ -3,13 +3,13 @@
 import peewee
 import os
 
-from .utility import Utility
+from .utility import get_dir_name
 from .settings_manager import SettingsManager
 
 
 # get settings path. In Linux is .config/Pynocchio
 def get_settings_path():
-    path = Utility.get_dir_name(SettingsManager().settings.fileName())
+    path = get_dir_name(SettingsManager().settings.fileName())
     return os.path.join(path, 'bookmark.db')
 
 db = peewee.SqliteDatabase(get_settings_path())
