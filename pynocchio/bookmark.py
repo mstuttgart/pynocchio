@@ -12,6 +12,7 @@ def get_settings_path():
     path = get_dir_name(SettingsManager().settings.fileName())
     return os.path.join(path, 'bookmark.db')
 
+
 db = peewee.SqliteDatabase(get_settings_path())
 
 

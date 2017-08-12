@@ -261,7 +261,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.model.save_settings()
 
         try:
-            if not self.model.is_first_page() and not self.model.is_last_page():
+            if not self.model.is_first_page() and not self.model.is_last_page():  # noqa: 501
                 self.model.add_bookmark(table=TemporaryBookmark)
             else:
                 self.model.remove_bookmark(table=TemporaryBookmark)
@@ -443,7 +443,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         files = self.model.load_recent_files()
         num_recent_files = len(files) if files else 0
-        num_recent_files = min(num_recent_files, MainWindowView.MAX_RECENT_FILES)
+        num_recent_files = min(num_recent_files, MainWindowView.MAX_RECENT_FILES)  # noqa: 501
 
         self.ui.menu_recent_files.menuAction().setVisible(True if files else
                                                           False)
@@ -511,8 +511,8 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     def update_navegation_actions(self):
 
-        is_first_page = self.model.is_first_page()
-        is_last_page = self.model.is_last_page()
+        # is_first_page = self.model.is_first_page()
+        # is_last_page = self.model.is_last_page()
 
         # self.ui.action_previous_page.setEnabled(
         #     not self.model.is_first_comic())

@@ -13,7 +13,6 @@ class TestComic(TestCase):
         self.path = 'comic_dir/comic.zip'
         self.name = 'Comic Test'
         self.obj = Comic('Comic Test', 'comic_dir/comic.zip')
-        # self.page = Page(None, 'page_title_1', 1)
 
     def test_path(self):
         self.assertEqual(self.path + '/' + self.name, self.obj.path)
