@@ -68,8 +68,6 @@ src/resource/freeiconmaker_amarelo/
 src/resource/flags
 
 # Config files
-*.ini
-
 # Database files
 *.db
 
