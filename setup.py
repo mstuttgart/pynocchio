@@ -7,15 +7,15 @@ import sys
 from pynocchio import __version__
 
 if sys.argv[-1] == 'build_deb':
-    os.system('sh scripts/build_deb.sh %s' % __version__)
+    os.system('./scripts/build_deb.sh %s' % __version__)
     sys.exit()
 #
 if sys.argv[-1] == 'build_ui':
-    os.system('sh scripts/build_ui.sh %s' % __version__)
+    os.system('./scripts/build_ui.sh %s' % __version__)
     sys.exit()
 
 if sys.argv[-1] == 'build_pro':
-    os.system('sh scripts/build_pro.sh')
+    os.system('./scripts/build_pro.sh')
     sys.exit()
 
 if sys.argv[-1] == 'publish':
