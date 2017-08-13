@@ -1,47 +1,42 @@
-#!bin/bash
+#!/bin/bash
 ################################################################################
 # Script for build pro files to Pynocchio Comic Reader
-# Author: Michell Stuttgart Faria
+# Author: Michell Stuttgart
 #-------------------------------------------------------------------------------
 #
 # This script will build a .pro files to Pynocchio Comic Reader
 #-------------------------------------------------------------------------------
 # USAGE:
 #
-# sh scripts/build_pro.sh
+# python setup.py build_pro or ./scripts/build_pro.sh
 #
 ################################################################################
 
-printf "\n---- Start script ----\n"
+export Off=$'\e[0m'
+export White=$'\e[1;37m'
+export BlueBG=$'\e[1;44m'
+export Yellow=$'\e[1;33m'
 
-#--------------------------------------------------
-# Define variables
-#--------------------------------------------------
+echo -e ""
+echo -e " ${White}${BlueBG}                                                         ${Off}"
+echo -e " ${White}${BlueBG}         -= Build .pro files =-                          ${Off}"
+echo -e " ${White}${BlueBG}                                                         ${Off}"
+echo -e ""
 
-PRO_PATH="i18n"
+FILENAME='i18n/pynocchio.pro'
 
-#--------------------------------------------------
-# Scan directories and scan for .ui and .qrc files
-#--------------------------------------------------
+echo -e ""
+echo -e "${Yellow} Start build ${FILENAME} file..."
+echo -e "${White}"
 
-printf "\n---- Search by .ui files in ${PRO_PATH} folder ----\n\n"
+env/bin/pylupdate5 -verbose ${FILENAME}
 
-PRO_LIST=$(find -iname *.pro)
-printf "${PRO_LIST}\n"
-
-#--------------------------------------------------
-# Compile .pro files
-#--------------------------------------------------
-
-printf "\n---- Compile .pro files. ----\n\n"
-
-for FILENAME in ${PRO_LIST}; do
-    pylupdate5 -verbose ${FILENAME}
-    if [ $? = 0 ]; then
-        printf "Compile ${FILENAME} file successfully!!\n"
-    else
-        printf "Compile ${FILENAME} file failed!!\n"
-    fi
-done
-
-printf "\n---- Compile .pro files successfully!! ----\n\n"
+if [ $? = 0 ]; then
+    echo -e ""
+    echo -e "${Yellow} Compile ${FILENAME} file successfully!!"
+    echo -e ""
+else
+    echo -e ""
+    echo -e "${Yellow} Compile ${FILENAME} file failed!!"
+    echo -e ""
+fi
