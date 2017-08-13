@@ -8,8 +8,8 @@ import zipfile
 import rarfile
 import tarfile
 
-from pynocchio import IMAGE_FILE_FORMATS
-from .utility import get_file_extension, join_path, is_dir, get_dir_name
+from .utility import get_file_extension, join_path, get_dir_name
+from .utility import IMAGE_FILE_FORMATS
 from .comic import Page
 from .exception import NoDataFindException
 

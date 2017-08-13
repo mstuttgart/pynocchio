@@ -2,6 +2,15 @@
 
 import os
 
+from PyQt5 import QtGui
+
+IMAGE_FILE_FORMATS = ['.' + str(ext, encoding='utf8') for ext in
+                      QtGui.QImageReader.supportedImageFormats()]
+
+COMPACT_FILE_FORMATS = ['.cbr', '.cbz', '.rar', '.zip', '.tar', '.cbt']
+
+SUPPORTED_FILES = IMAGE_FILE_FORMATS + COMPACT_FILE_FORMATS
+
 
 def get_file_extension(file_name):
     return os.path.splitext(file_name)[1]

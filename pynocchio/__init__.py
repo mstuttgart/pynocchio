@@ -11,12 +11,3 @@ from .__version__ import (__title__,  # noqa: F401
                           __download_url__,
                           __copyright__,
                           __license__)
-
-from PyQt5 import QtGui
-
-IMAGE_FILE_FORMATS = ['.' + str(ext, encoding='utf8') for ext in
-                      QtGui.QImageReader.supportedImageFormats()]
-
-COMPACT_FILE_FORMATS = ['.cbr', '.cbz', '.rar', '.zip', '.tar', '.cbt']
-
-SUPPORTED_FILES = IMAGE_FILE_FORMATS + COMPACT_FILE_FORMATS

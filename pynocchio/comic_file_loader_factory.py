@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from pynocchio import IMAGE_FILE_FORMATS, SUPPORTED_FILES
-
 from .exception import InvalidTypeFileException
-from .utility import get_file_extension
+from .utility import get_file_extension, IMAGE_FILE_FORMATS, SUPPORTED_FILES
 from .comic_file_loader import ComicZipLoader
 from .comic_file_loader import ComicRarLoader
 from .comic_file_loader import ComicTarLoader

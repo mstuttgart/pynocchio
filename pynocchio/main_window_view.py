@@ -3,7 +3,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import logging
 
-from pynocchio import IMAGE_FILE_FORMATS
+from .utility import IMAGE_FILE_FORMATS
 from .exception import InvalidTypeFileException
 from .exception import LoadComicsException
 from .exception import NoDataFindException
