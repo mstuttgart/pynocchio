@@ -38,6 +38,9 @@ class MainWindowModel(QtCore.QObject):
         self.current_directory = self.load_current_directory()
 
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
+        # ext_list += ['*.' + str(ext, encoding='utf8') for ext in
+        #              QtGui.QImageReader.supportedImageFormats()]
+
         self.comic_file_filter = ComicPathFilter(ext_list)
 
     def save_recent_files(self, recent_files_list):

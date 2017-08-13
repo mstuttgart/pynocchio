@@ -3,6 +3,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import logging
 
+from pynocchio import IMAGE_FILE_FORMATS
 from .exception import InvalidTypeFileException
 from .exception import LoadComicsException
 from .exception import NoDataFindException
@@ -54,25 +55,25 @@ class MainWindowView(QtWidgets.QMainWindow):
     @QtCore.pyqtSlot()
     def on_action_open_file_triggered(self):
 
+        img_formats = ''
+
+        for img in IMAGE_FILE_FORMATS:
+            img_formats += ' *' + img
+
+        all_files = '*.zip *.cbz *.rar *.cbr *.tar *.cbt' + img_formats
+
         filename = QtWidgets.QFileDialog().getOpenFileName(
             self, self.tr('open_comic_file'),
             self.model.current_directory,
             self.tr(
-                'all_supported_files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
+                'all_supported_files (%s);; '
                 'zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; '
-                'tar_files (*.tar *.cbt);; all_files (*)'))
+                'tar_files (*.tar *.cbt);; image_files (%s);;'
+                'all_files (*)' % (all_files, img_formats)))
 
         initial_page = self.get_page_from_temporary_bookmarks(filename[0])
 
         self.open_comics(filename[0], initial_page)
-
-    @QtCore.pyqtSlot()
-    def on_action_open_folder_triggered(self):
-
-        folder_name = QtWidgets.QFileDialog().getExistingDirectory(
-            self, self.tr('open_comic_folder'), self.model.current_directory)
-
-        self.open_comics(folder_name)
 
     @QtCore.pyqtSlot()
     def on_action_save_image_triggered(self):

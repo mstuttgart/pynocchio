@@ -449,7 +449,6 @@ class Ui_MainWindowView(object):
         self.menu_recent_files.addAction(self.actionRecent_file_9)
         self.menu_recent_files.addAction(self.actionRecent_file_10)
         self.menu_file.addAction(self.action_open_file)
-        self.menu_file.addAction(self.action_open_folder)
         self.menu_file.addAction(self.menu_recent_files.menuAction())
         self.menu_file.addSeparator()
         self.menu_file.addAction(self.action_save_image)

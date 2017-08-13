@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5 import QtCore, QtGui
+from PyQt5 import QtCore
 
 import glob
 import logging
@@ -8,7 +8,8 @@ import zipfile
 import rarfile
 import tarfile
 
-from .utility import get_file_extension, join_path, is_dir
+from pynocchio import IMAGE_FILE_FORMATS
+from .utility import get_file_extension, join_path, is_dir, get_dir_name
 from .comic import Page
 from .exception import NoDataFindException
 
@@ -24,15 +25,13 @@ class ComicLoader(QtCore.QObject):
     def __init__(self):
         super(ComicLoader, self).__init__()
         self.data = []
-        self.extension = [str(ext, encoding='utf8') for ext in
-                          QtGui.QImageReader.supportedImageFormats()]
 
     def load(self, file_name):
-        raise NotImplementedError("Must subclass me")
+        raise NotImplementedError('Must subclass me')
 
     @staticmethod
     def type_verify(file_name):
-        raise NotImplementedError("Must subclass me")
+        pass
 
 
 class ComicRarLoader(ComicLoader):
@@ -52,7 +51,7 @@ class ComicRarLoader(ComicLoader):
 
             for idx, name in enumerate(name_list):
 
-                if get_file_extension(name).lower() in self.extension:
+                if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
                     try:
                         self.data.append(Page(rar.read(name), name, page))
                         page += 1
@@ -63,6 +62,7 @@ class ComicRarLoader(ComicLoader):
                 self.progress.emit(idx * aux)
 
             if not self.data:
+                logger.exception('No one file is loaded!')
                 raise NoDataFindException('No one file is loaded!')
 
     @staticmethod
@@ -87,7 +87,7 @@ class ComicZipLoader(ComicLoader):
 
             for idx, name in enumerate(name_list):
 
-                if get_file_extension(name).lower() in self.extension:
+                if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
                     try:
                         self.data.append(Page(zf.read(name), name, page))
                         page += 1
@@ -122,7 +122,7 @@ class ComicTarLoader(ComicLoader):
 
             for idx, name in enumerate(name_list):
 
-                if get_file_extension(name).lower() in self.extension:
+                if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
                     try:
                         data = tar.extractfile(name).read()
                         self.data.append(Page(data, name, page))
@@ -144,20 +144,19 @@ class ComicTarLoader(ComicLoader):
         return tarfile.is_tarfile(file_name)
 
 
-class ComicFolderLoader(ComicLoader):
+class ComicImageLoader(ComicLoader):
 
     def __init__(self):
-        super(ComicFolderLoader, self).__init__()
+        super(ComicImageLoader, self).__init__()
 
-    def load(self, dir_name):
-
-        extension_list = ['.bmp', '.jpg', '.jpeg', '.gif', '.png', '.pbm',
-                          '.pgm', '.ppm', '.tiff', '.xbm', '.xpm', '.webp']
+    def load(self, file_name):
 
         # get files with extension stored in ext
         file_list = []
 
-        for ext in extension_list:
+        dir_name = get_dir_name(file_name)
+
+        for ext in IMAGE_FILE_FORMATS:
             file_list += glob.glob1(dir_name, '*' + ext)
 
         # sort list
@@ -169,17 +168,13 @@ class ComicFolderLoader(ComicLoader):
 
         for idx, name in enumerate(file_list):
 
-            if get_file_extension(name).lower() in self.extension:
+            if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
 
-                with open(join_path(dir_name, '', name), 'r') as img:
+                with open(join_path('', dir_name, name), 'rb') as img:
                     self.data.append(Page(img.read(), name, page))
                     page += 1
 
             self.progress.emit(idx * aux)
 
         if not self.data:
-            raise NoDataFindException('Folder is not loaded!')
-
-    @staticmethod
-    def type_verify(folder_name):
-        return is_dir(folder_name)
+            raise NoDataFindException('Image file not loaded!')

@@ -278,7 +278,6 @@
      <addaction name="actionRecent_file_10"/>
     </widget>
     <addaction name="action_open_file"/>
-    <addaction name="action_open_folder"/>
     <addaction name="menu_recent_files"/>
     <addaction name="separator"/>
     <addaction name="action_save_image"/>

@@ -19,7 +19,7 @@ class ComicPathFilter:
         self.file_list = []
 
         for ext in self.extension_list:
-            self.file_list.extend(glob.glob1(path, ext))
+            self.file_list.extend(glob.glob1(path, '*' + ext))
 
         # sort list
         self.file_list.sort()
@@ -40,7 +40,7 @@ class ComicPathFilter:
 
     def get_previous_comic(self, filename):
 
-        if not self.is_first_comic(filename):
+        if not self.is_first_comic(filename) and filename in self.file_list:
             name = self.file_list[self.file_list.index(filename) - 1]
             return join_path(self.current_path, '', name)
         else:
@@ -48,7 +48,7 @@ class ComicPathFilter:
 
     def get_next_comic(self, filename):
 
-        if not self.is_last_comic(filename):
+        if not self.is_last_comic(filename) and filename in self.file_list:
             name = self.file_list[self.file_list.index(filename) + 1]
             return join_path(self.current_path, '', name)
         else:
