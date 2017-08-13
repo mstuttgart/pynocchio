@@ -27,6 +27,7 @@ FILENAME='i18n/pynocchio.pro'
 
 echo -e ""
 echo -e "${Yellow} Start build ${FILENAME} file..."
+echo -e "${Yellow} =-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ${Off}"
 echo -e "${White}"
 
 env/bin/pylupdate5 -verbose ${FILENAME}
@@ -34,9 +35,13 @@ env/bin/pylupdate5 -verbose ${FILENAME}
 if [ $? = 0 ]; then
     echo -e ""
     echo -e "${Yellow} Compile ${FILENAME} file successfully!!"
+    echo -e "${Yellow} =-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ${Off}"
     echo -e ""
 else
     echo -e ""
     echo -e "${Yellow} Compile ${FILENAME} file failed!!"
+    echo -e "${Yellow} =-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ${Off}"
     echo -e ""
 fi
+
+echo -e ""
