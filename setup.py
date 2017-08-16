@@ -4,14 +4,23 @@ from setuptools import setup, find_packages
 import os
 import sys
 
-from pynocchio import __version__
+from codecs import open
+
+version_path = os.path.join(os.path.abspath(os.path.dirname(__file__)),
+                            'pynocchio',
+                            '__version__.py')
+
+about = {}
+with open(version_path, 'r') as f:
+    exec(f.read(), about)
 
 if sys.argv[-1] == 'build_deb':
-    os.system('./scripts/build_deb.sh %s' % __version__)
+    os.system('./scripts/build_ui.sh %s' % about['__version__'])
+    os.system('./scripts/build_deb.sh %s' % about['__version__'])
     sys.exit()
-#
+
 if sys.argv[-1] == 'build_ui':
-    os.system('./scripts/build_ui.sh %s' % __version__)
+    os.system('./scripts/build_ui.sh %s' % about['__version__'])
     sys.exit()
 
 if sys.argv[-1] == 'build_pro':
@@ -19,18 +28,19 @@ if sys.argv[-1] == 'build_pro':
     sys.exit()
 
 if sys.argv[-1] == 'publish':
-    os.system("git tag -a %s -m 'version %s'" % (__version__, __version__))
+    os.system("git tag -a %s -m 'version %s'" % (about['__version__'],
+                                                 about['__version__']))
     os.system("git push --tags")
     sys.exit()
 
 setup(
-    name='pynocchio',
-    version=__version__,
-    author='Michell Stuttgart Faria',
-    author_email='michellstut@gmail.com',
-    url='https://github.com/pynocchio',
-    license='GPLv3 License',
-    description='Pynocchio is a image viewer specialized in comic reading.',
+    name=about['__title__'],
+    version=about['__version__'],
+    author=about['__author__'],
+    author_email=about['__author_email__'],
+    url=about['__url__'],
+    license=about['__license__'],
+    description=about['__description__'],
     long_description='Pynocchio Comic Reader is a new and nice image viewer '
                      'which uses PySide API specialized in comic reading. '
                      'It is a comic reader that allow read cbr, cbz and cbt '
@@ -43,24 +53,6 @@ setup(
         'pynocchio-client.py',
     ],
     include_package_data=True,
-    data_files=[
-        ('/usr/share/applications', ['linux/applications/pynocchio.desktop']),
-        ('/usr/share/pixmaps', ['linux/pixmaps/pynocchio.png']),
-        ('/usr/share/pynocchio/locale/', [
-            'pynocchio/locale/en-US.qm',
-            'pynocchio/locale/pt-BR.qm',
-        ]),
-        ('/usr/share/icons/hicolor/16x16/apps',
-         ['linux/hicolor/16x16/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/32x32/apps',
-         ['linux/hicolor/32x32/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/48x48/apps',
-         ['linux/hicolor/48x48/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/128x128/apps',
-         ['linux/hicolor/128x128/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/256x256/apps',
-         ['linux/hicolor/256x256/apps/pynocchio.png']),
-    ],
     install_requires=[
         'rarfile>=2.8',
         'peewee>=2.9.2',
