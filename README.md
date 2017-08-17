@@ -33,10 +33,10 @@ Pynocchio is a image viewer specialized in comic reading.
 The current version is stable and we intend to improve it even more.
 
 * Support several view adjust modes using anti-aliasing.
-* Support the several image formats provide by Qt: JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM, WEBP.
+* Support the several image formats provide by Qt5: WEBP, JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM.
 * Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ.
-
-* Elegant visual, free and easy to use.
+* Double page and manga read mode
+* Elegant visual, free and easy to use! :) 
 
 ### Install
 
