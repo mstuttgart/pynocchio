@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from peewee import OperationalError, IntegrityError
+import peewee
+import sqlite3
 from .bookmark import Bookmark, TemporaryBookmark, BookmarkBaseModel, db
 
 import logging
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
 
 TABLES = {
     False: Bookmark,
@@ -15,7 +16,6 @@ TABLES = {
 
 
 class BookmarkManager(BookmarkBaseModel):
-
     @staticmethod
     def connect():
         try:
@@ -24,7 +24,9 @@ class BookmarkManager(BookmarkBaseModel):
             db.create_tables([Bookmark, TemporaryBookmark], safe=True)
             logger.info('Table Bookmark and TemporaryBookmark create/updates '
                         'successfully!')
-        except OperationalError as exc:
+        except peewee.OperationalError as exc:
+            logger.exception(exc)
+        except sqlite3.OperationalError as exc:
             logger.exception(exc)
 
     @staticmethod
@@ -41,7 +43,7 @@ class BookmarkManager(BookmarkBaseModel):
                              comic_page=page, page_data=data)
             q.execute()
             logger.info('%s item inserted.' % table.__class__)
-        except IntegrityError:
+        except peewee.IntegrityError:
             q = table.update(comic_page=page, page_data=data).where(
                 table.comic_path == path)
             q.execute()
@@ -55,26 +57,38 @@ class BookmarkManager(BookmarkBaseModel):
             q = table.delete().where(table.comic_path == path)
             q.execute()
             logger.info('Bookmark deleted.')
-        except IntegrityError:
+        except peewee.IntegrityError:
             logger.exception('Bookmark not find!')
         BookmarkManager.close()
 
     @staticmethod
     def get_bookmarks(rows_number, table=Bookmark):
-        query = table.select().order_by(table.comic_id.desc()).limit(
-            rows_number)
-        return list(query)
+        try:
+            query = table.select().order_by(table.comic_id.desc()).limit(
+                rows_number)
+            return list(query)
+        except peewee.OperationalError as exc:
+            logger.exception(exc)
+            return []
 
     @staticmethod
     def get_bookmark_by_path(path, table=Bookmark):
-        BookmarkManager.connect()
-        bk_list = table.select().where(table.comic_path == path)
-        BookmarkManager.close()
-        return bk_list[0] if bk_list else None
+        try:
+            BookmarkManager.connect()
+            bk_list = table.select().where(table.comic_path == path)
+            BookmarkManager.close()
+            return bk_list[0] if bk_list else None
+        except peewee.OperationalError as exc:
+            logger.exception(exc)
+            return None
 
     @staticmethod
     def is_bookmark(path, table=Bookmark):
-        BookmarkManager.connect()
-        bk_list = table.select().where(table.comic_path == path)
-        BookmarkManager.close()
-        return True if bk_list else False
+        try:
+            BookmarkManager.connect()
+            bk_list = table.select().where(table.comic_path == path)
+            BookmarkManager.close()
+            return True if bk_list else False
+        except peewee.OperationalError as exc:
+            logger.exception(exc)
+            return False
