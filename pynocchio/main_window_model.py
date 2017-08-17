@@ -1,26 +1,10 @@
 # -*- coding: utf-8 -*-
-#
-# Copyright (C) 2014-2016  Michell Stuttgart Faria
-
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version.
-
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-# more details.
-
-# You should have received a copy of the GNU General Public License along
-# with this program.  If not, see <http://www.gnu.org/licenses/
-#
 
 from PyQt5 import QtCore, QtGui
 import logging
 
 from .exception import NoDataFindException
-from .utility import Utility
+from .utility import get_base_name, get_dir_name, is_file
 from .bookmark_database_manager import BookmarkManager
 from .bookmark import TemporaryBookmark, Bookmark
 from .comic_file_loader_factory import ComicLoaderFactory
@@ -54,6 +38,9 @@ class MainWindowModel(QtCore.QObject):
         self.current_directory = self.load_current_directory()
 
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
+        # ext_list += ['*.' + str(ext, encoding='utf8') for ext in
+        #              QtGui.QImageReader.supportedImageFormats()]
+
         self.comic_file_filter = ComicPathFilter(ext_list)
 
     def save_recent_files(self, recent_files_list):
@@ -89,15 +76,15 @@ class MainWindowModel(QtCore.QObject):
             else:
                 self.remove_bookmark(table=TemporaryBookmark)
 
-        self.comic = Comic(Utility.get_base_name(filename),
-                           Utility.get_dir_name(filename))
+        self.comic = Comic(get_base_name(filename),
+                           get_dir_name(filename))
 
         self.comic.pages = loader.data
         self.comic_page_handler = ComicPageHandlerFactory.create_handler(
             False, self.comic, index=initial_page)
-        self.current_directory = Utility.get_dir_name(filename)
+        self.current_directory = get_dir_name(filename)
 
-        if Utility.is_file(filename):
+        if is_file(filename):
             self.comic_file_filter.parse(self.current_directory)
 
     def save_current_page_image(self, file_name):
@@ -131,7 +118,7 @@ class MainWindowModel(QtCore.QObject):
         return self.comic.name
 
     def get_comic_path(self):
-        return self.comic.get_path()
+        return self.comic. path
 
     def get_comic_title(self):
         return self.comic.name
@@ -159,14 +146,14 @@ class MainWindowModel(QtCore.QObject):
         return self.comic_page_handler.get_current_page().number
 
     def get_number_of_pages(self):
-        return self.comic.get_number_of_pages()
+        return len(self.comic.pages)
 
     def is_first_page(self):
         return self.comic_page_handler.current_page_index == 0
 
     def is_last_page(self):
         return self.comic_page_handler.current_page_index + 1 == \
-               self.comic.get_number_of_pages()
+               len(self.comic.pages)
 
     def is_first_comic(self):
         return self.comic_file_filter.is_first_comic(self.comic.name)
@@ -218,7 +205,7 @@ class MainWindowModel(QtCore.QObject):
 
     def manga_page_mode(self, checked):
         if isinstance(self.comic_page_handler, ComicPageHandlerDoublePage):
-            self.comic_page_handler.manga_mode = checked
+            self.comic_page_handler.inverse = checked
 
     @QtCore.pyqtSlot(int)
     def load_progressbar_value(self, percent):
@@ -237,7 +224,7 @@ class MainWindowModel(QtCore.QObject):
         return BookmarkManager.get_bookmarks(qty)
 
     def is_bookmark(self):
-        return BookmarkManager.is_bookmark(self.comic.get_path())
+        return BookmarkManager.is_bookmark(self.comic.path)
 
     @staticmethod
     def get_bookmark_from_path(path, table=Bookmark):
@@ -247,11 +234,11 @@ class MainWindowModel(QtCore.QObject):
 
         if self.comic:
             BookmarkManager.add_bookmark(
-                self.comic.name, self.comic.get_path(),
+                self.comic.name, self.comic.path,
                 self.comic_page_handler.get_current_page().number,
                 data=self.comic_page_handler.get_current_page().data,
                 table=table)
 
     def remove_bookmark(self, path=False, table=Bookmark):
-        path = self.comic.get_path() if not path else path
+        path = self.comic.path if not path else path
         BookmarkManager.remove_bookmark(path, table=table)

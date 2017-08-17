@@ -1,19 +1,4 @@
 # -*- coding: utf-8 -*-
-#
-# Copyright (C) 2014-2016  Michell Stuttgart Faria
-
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version.
-
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-# more details.
-
-# You should have received a copy of the GNU General Public License along
-# with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from peewee import OperationalError, IntegrityError
 from .bookmark import Bookmark, TemporaryBookmark, BookmarkBaseModel, db
@@ -34,16 +19,17 @@ class BookmarkManager(BookmarkBaseModel):
     @staticmethod
     def connect():
         try:
+            BookmarkManager.close()
             db.connect()
             db.create_tables([Bookmark, TemporaryBookmark], safe=True)
             logger.info('Table Bookmark and TemporaryBookmark create/updates '
                         'successfully!')
-        except OperationalError:
-            logger.exception("Error to create table Bookmark!")
+        except OperationalError as exc:
+            logger.exception(exc)
 
     @staticmethod
     def close():
-        if not -db.is_closed():
+        if not db.is_closed():
             db.close()
             logger.info('Bookmark database closed.')
 

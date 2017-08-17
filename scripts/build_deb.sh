@@ -1,7 +1,7 @@
 #!/bin/bash
 ################################################################################
 # Script for build of .deb package to Pynocchio Comic Reader
-# Author: Michell Stuttgart Faria
+# Author: Michell Stuttgart
 #-------------------------------------------------------------------------------
 #
 # This script will build a .deb package to Pynocchio Comic Reader
@@ -12,7 +12,16 @@
 #
 ################################################################################
 
-printf "\n---- Start script ----\n"
+export Off=$'\e[0m'
+export White=$'\e[1;37m'
+export BlueBG=$'\e[1;44m'
+export Yellow=$'\e[1;33m'
+
+echo -e ""
+echo -e " ${White}${BlueBG}                                                         ${Off}"
+echo -e " ${White}${BlueBG}         -= Build .deb package =-                       ${Off}"
+echo -e " ${White}${BlueBG}                                                         ${Off}"
+echo -e ""
 
 #--------------------------------------------------
 # Define variables
@@ -29,7 +38,15 @@ CONTROL_FILE='linux/control'
 # Create the executable with PyInstaller
 #--------------------------------------------------
 
-printf "\n---- Run PyInstaller ----\n"
+rm -vrf ${BUILD}
+rm -vrf ${DIST}
+rm -vrf ${BUILD_DEB_FOLDER}
+
+echo -e ""
+echo -e "${Yellow} Run PyInstaller"
+echo -e "${Yellow} =-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ${Off}"
+echo -e "${White}"
+
 pyinstaller pynocchio.spec
 
 #--------------------------------------------------
@@ -39,30 +56,53 @@ pyinstaller pynocchio.spec
 # Change package version in html about file
 sed -i -e "s:Version\: *.*.*:Version\: ${PACKAGE_VERSION}:g" ${CONTROL_FILE}
 
-printf "\n---- Create ${BUILD_DEB_FOLDER}/DEBIAN folder ----\n"
-mkdir -p ${BUILD_DEB_FOLDER}/DEBIAN
+echo -e ""
+echo -e "${Yellow} Create ${BUILD_DEB_FOLDER}/DEBIAN folder"
+echo -e "${Yellow} =-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ${Off}"
+echo -e "${White}"
 
-printf "\n---- Mount .deb package directory tree ----\n"
-mkdir -p ${BUILD_DEB_FOLDER}/usr/share
-mkdir -p ${BUILD_DEB_FOLDER}/usr/bin
-mkdir -p ${BUILD_DEB_FOLDER}/usr/share/pynocchio
+mkdir -v -p ${BUILD_DEB_FOLDER}/DEBIAN
 
-cp -r linux/applications ${BUILD_DEB_FOLDER}/usr/share/
-cp -r linux/hicolor ${BUILD_DEB_FOLDER}/usr/share/
-cp -r linux/pixmaps ${BUILD_DEB_FOLDER}/usr/share/
-cp -r pynocchio/locale ${BUILD_DEB_FOLDER}/usr/share/pynocchio/
+echo -e ""
+echo -e "${Yellow} Create .deb package directory tree in ${BUILD_DEB_FOLDER}"
+echo -e "${Yellow} =-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ${Off}"
+echo -e "${White}"
 
-cp ${DIST}/* ${BUILD_DEB_FOLDER}/usr/bin
-cp linux/control ${BUILD_DEB_FOLDER}/DEBIAN
+mkdir -v -p ${BUILD_DEB_FOLDER}/usr/share
+mkdir -v -p ${BUILD_DEB_FOLDER}/usr/bin
+mkdir -v -p ${BUILD_DEB_FOLDER}/usr/share/pynocchio
 
-printf "\n---- Build ${PACKAGE_NAME} package ----\n"
+echo -e ""
+echo -e "${Yellow} Copy specific linux files to ${BUILD_DEB_FOLDER}"
+echo -e "${Yellow} =-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ${Off}"
+echo -e "${White}"
+
+cp -v -r linux/applications ${BUILD_DEB_FOLDER}/usr/share/
+cp -v -r linux/hicolor ${BUILD_DEB_FOLDER}/usr/share/
+cp -v -r linux/pixmaps ${BUILD_DEB_FOLDER}/usr/share/
+cp -v -r pynocchio/locale ${BUILD_DEB_FOLDER}/usr/share/pynocchio/
+
+cp -v ${DIST}/* ${BUILD_DEB_FOLDER}/usr/bin
+cp -v linux/control ${BUILD_DEB_FOLDER}/DEBIAN
+
+echo -e ""
+echo -e "${Yellow} Build ${PACKAGE_NAME} package"
+echo -e "${Yellow} =-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ${Off}"
+echo -e "${White}"
+
 dpkg --build ${BUILD_DEB_FOLDER}/ ${PACKAGE_NAME}
 
 #--------------------------------------------------
 # Clean directory
 #--------------------------------------------------
 
-printf "\n---- Remove ${BUILD}, ${DIST} and ${BUILD_DEB_FOLDER} ----\n"
-rm -rf ${BUILD}
-rm -rf ${DIST}
-rm -rf ${BUILD_DEB_FOLDER}
+echo -e ""
+echo -e "${Yellow} Remove ${BUILD}, ${DIST} and ${BUILD_DEB_FOLDER}"
+echo -e "${Yellow} =-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ${Off}"
+echo -e "${White}"
+
+rm -vrf ${BUILD}
+rm -vrf ${DIST}
+rm -vrf ${BUILD_DEB_FOLDER}
+
+echo -e ""

@@ -1,27 +1,13 @@
 # -*- coding: utf-8 -*-
-#
-# Copyright (C) 2014-2016  Michell Stuttgart Faria
-
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version.
-
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-# more details.
-
-# You should have received a copy of the GNU General Public License along
-# with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import logging
 
+from .utility import IMAGE_FILE_FORMATS
 from .exception import InvalidTypeFileException
 from .exception import LoadComicsException
 from .exception import NoDataFindException
-from .utility import Utility
+from .utility import file_exist
 from .go_to_page_dialog import GoToDialog
 from .bookmark_manager_dialog import BookmarkManagerDialog
 from .bookmark import TemporaryBookmark
@@ -34,8 +20,8 @@ logger = logging.getLogger(__name__)
 
 class MainWindowView(QtWidgets.QMainWindow):
 
-    MaxRecentFiles = 5
-    MaxBookmarkFiles = 5
+    MAX_RECENT_FILES = 5
+    MAX_BOOKMARK_FILES = 5
 
     def __init__(self, model, parent=None):
         super(MainWindowView, self).__init__(parent=parent)
@@ -44,10 +30,10 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.ui = main_window_view_ui.Ui_MainWindowView()
         self.ui.setupUi(self)
 
-        MainWindowView.MaxRecentFiles = len(
+        MainWindowView.MAX_RECENT_FILES = len(
             self.ui.menu_recent_files.actions())
 
-        MainWindowView.MaxBookmarkFiles = \
+        MainWindowView.MAX_BOOKMARK_FILES = \
             len(self.ui.menu_recent_bookmarks.actions())
 
         self.ui.menu_recent_files.menuAction().setVisible(False)
@@ -69,25 +55,25 @@ class MainWindowView(QtWidgets.QMainWindow):
     @QtCore.pyqtSlot()
     def on_action_open_file_triggered(self):
 
+        img_formats = ''
+
+        for img in IMAGE_FILE_FORMATS:
+            img_formats += ' *' + img
+
+        all_files = '*.zip *.cbz *.rar *.cbr *.tar *.cbt' + img_formats
+
         filename = QtWidgets.QFileDialog().getOpenFileName(
             self, self.tr('open_comic_file'),
             self.model.current_directory,
             self.tr(
-                'all_supported_files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; '
+                'all_supported_files (%s);; '
                 'zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; '
-                'tar_files (*.tar *.cbt);; all_files (*)'))
+                'tar_files (*.tar *.cbt);; image_files (%s);;'
+                'all_files (*)' % (all_files, img_formats)))
 
         initial_page = self.get_page_from_temporary_bookmarks(filename[0])
 
         self.open_comics(filename[0], initial_page)
-
-    @QtCore.pyqtSlot()
-    def on_action_open_folder_triggered(self):
-
-        folder_name = QtWidgets.QFileDialog().getExistingDirectory(
-            self, self.tr('open_comic_folder'), self.model.current_directory)
-
-        self.open_comics(folder_name)
 
     @QtCore.pyqtSlot()
     def on_action_save_image_triggered(self):
@@ -276,7 +262,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.model.save_settings()
 
         try:
-            if not self.model.is_first_page() and not self.model.is_last_page():
+            if not self.model.is_first_page() and not self.model.is_last_page():  # noqa: 501
                 self.model.add_bookmark(table=TemporaryBookmark)
             else:
                 self.model.remove_bookmark(table=TemporaryBookmark)
@@ -424,7 +410,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         action = self.sender()
         if action:
             filename = action.data()
-            if Utility.file_exist(filename):
+            if file_exist(filename):
                 initial_page = self.get_page_from_temporary_bookmarks(filename)
                 self.open_comics(filename, initial_page=initial_page)
             else:
@@ -446,7 +432,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         # Insert it on top of recent file list
         files.insert(0, filename)
-        del files[MainWindowView.MaxRecentFiles:]
+        del files[MainWindowView.MAX_RECENT_FILES:]
 
         # Save recent file list
         self.model.save_recent_files(files)
@@ -458,7 +444,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         files = self.model.load_recent_files()
         num_recent_files = len(files) if files else 0
-        num_recent_files = min(num_recent_files, MainWindowView.MaxRecentFiles)
+        num_recent_files = min(num_recent_files, MainWindowView.MAX_RECENT_FILES)  # noqa: 501
 
         self.ui.menu_recent_files.menuAction().setVisible(True if files else
                                                           False)
@@ -471,7 +457,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             recent_file_actions[i].setVisible(True)
             recent_file_actions[i].setStatusTip(files[i])
 
-        for j in range(num_recent_files, MainWindowView.MaxRecentFiles):
+        for j in range(num_recent_files, MainWindowView.MAX_RECENT_FILES):
             recent_file_actions[j].setVisible(False)
 
     def update_bookmark_actions(self):
@@ -480,7 +466,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.ui.action_add_bookmark.setVisible(not is_bookmark)
 
         bookmark_list = self.model.get_bookmark_list(
-            MainWindowView.MaxBookmarkFiles)
+            MainWindowView.MAX_BOOKMARK_FILES)
         self.ui.menu_recent_bookmarks.menuAction().setVisible(
             True if bookmark_list else False)
 
@@ -491,7 +477,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         num_bookmarks_files = len(bookmark_list) if bookmark_list else 0
         num_bookmarks_files = min(num_bookmarks_files,
-                                  MainWindowView.MaxBookmarkFiles)
+                                  MainWindowView.MAX_BOOKMARK_FILES)
 
         for i in range(num_bookmarks_files):
             bk_text = '%s [%d]' % (bookmark_list[i].comic_name,
@@ -501,14 +487,14 @@ class MainWindowView(QtWidgets.QMainWindow):
             bk_actions[i].setStatusTip(bookmark_list[i].comic_path)
             bk_actions[i].setVisible(True)
 
-        for j in range(num_bookmarks_files, MainWindowView.MaxBookmarkFiles):
+        for j in range(num_bookmarks_files, MainWindowView.MAX_BOOKMARK_FILES):
             bk_actions[j].setVisible(False)
 
     def open_recent_bookmark(self):
         action = self.sender()
         if action:
             filename = action.statusTip()
-            if Utility.file_exist(filename):
+            if file_exist(filename):
                 self.open_comics(action.statusTip(), action.data() - 1)
             else:
                 self.model.remove_bookmark(action.statusTip())
@@ -526,8 +512,8 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     def update_navegation_actions(self):
 
-        is_first_page = self.model.is_first_page()
-        is_last_page = self.model.is_last_page()
+        # is_first_page = self.model.is_first_page()
+        # is_last_page = self.model.is_last_page()
 
         # self.ui.action_previous_page.setEnabled(
         #     not self.model.is_first_comic())

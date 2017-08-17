@@ -1,26 +1,14 @@
 # -*- coding: utf-8 -*-
-#
-# Copyright (C) 2014-2016  Michell Stuttgart Faria
 
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version.
-
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-# more details.
-
-# You should have received a copy of the GNU General Public License along
-# with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-from PyQt5 import QtCore, QtWidgets
 import sys
 import os
 
+from PyQt5 import QtCore, QtWidgets
+
 from .main_window_model import MainWindowModel
 from .main_window_view import MainWindowView
+
+import qdarkgraystyle
 
 DATADIRS = (
         os.path.abspath('./pynocchio'),
@@ -42,7 +30,9 @@ class Pynocchio(QtWidgets.QApplication):
         super(Pynocchio, self).__init__(sys.argv)
         self.setOrganizationName('Pynocchio')
         self.setApplicationName('Pynocchio')
-        self.setStyle(QtWidgets.QStyleFactory.create('fusion'))
+
+        self.setStyle('Fusion')
+        self.setStyleSheet(qdarkgraystyle.load_stylesheet_pyqt5())
 
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')

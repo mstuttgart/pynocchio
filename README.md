@@ -1,28 +1,46 @@
 Pynocchio Comic Reader
 ==================
-[![Build Status](https://travis-ci.org/pynocchio/pynocchio.svg?branch=develop)](https://travis-ci.org/pynocchio/pynocchio)
-[![Coverage Status](https://coveralls.io/repos/github/pynocchio/pynocchio/badge.svg?branch=develop)](https://coveralls.io/github/pynocchio/pynocchio?branch=develop)
-[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg)](https://github.com/pynocchio/pynocchio)
-[![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
+[![Travis branch](https://img.shields.io/travis/pynocchio/pynocchio/develop.svg?style=flat-square)](https://travis-ci.org/pynocchio/pynocchio)
+[![Coveralls branch](https://img.shields.io/coveralls/pynocchio/pynocchio/develop.svg?style=flat-square)](https://coveralls.io/github/pynocchio/pynocchio?branch=develop)
+[![Code Health](https://landscape.io/github/pynocchio/pynocchio/develop/landscape.svg?style=flat-square)](https://landscape.io/github/pynocchio/pynocchio/develop)
+[![Github All Releases](https://img.shields.io/github/downloads/pynocchio/pynocchio/total.svg?style=flat-square)](https://github.com/pynocchio/pynocchio/releases)
+[![GitHub release](https://img.shields.io/github/release/pynocchio/pynocchio.svg?style=flat-square)](https://github.com/pynocchio/pynocchio/releases/latest)
+[![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg?style=flat-square)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 
-Pynocchio is a image viewer specialized in manga/comic reading.
+### About
+Pynocchio is a image viewer specialized in comic reading.
 
-![Ubunchu Manga by Hiroshi Seo (Seotch)](https://lh3.googleusercontent.com/-p0TtjyX-GgM/VwwYhAAUjrI/AAAAAAAAF04/_JSom_IMmasZfnRn4EPhxKejjj_9aHzYwCCo/s1152-Ic42/snapshot11.png)
+<p align="center">
+<img src="data/screenshots/screenshot_02.png" alt="Pynocchio Comic Reader - Main Screen">
+</p>
 
+* Pynocchio Comic Reader - Go To Page Dialog
+
+<p align="center">
+<img src="data/screenshots/screenshot_04.png" alt="Pynocchio Comic Reader - Go To Page Dialog">
+</p>
+
+* Pynocchio Comic Reader - Bookmark Manager
+
+<p align="center">
+<img src="data/screenshots/screenshot_03.png" alt="Pynocchio Comic Reader - Bookmark Manager">
+</p>
+
+* This screenshots contains a page of the webcomic [Pepper&Carrot](https://www.peppercarrot.com/) by David Revoy licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 ### Features
 
 The current version is stable and we intend to improve it even more.
 
 * Support several view adjust modes using anti-aliasing.
-* Support the several image formates provide by Qt: JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM, WEBP.
+* Support the several image formats provide by Qt5: WEBP, JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM.
 * Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ.
-
-* Elegant visual, free and easy to use.
+* Double page and manga read mode
+* Elegant visual, free and easy to use! :) 
 
 ### Install
 
-Please, download the latest release [here](https://github.com/pynocchio/pynocchio/releases/latest), in [Linux Apps](https://www.linux-apps.com/p/1126786) or in [packagecloud](https://packagecloud.io/mstuttgart/pynocchio).
+Please, download the latest release [here](https://github.com/pynocchio/pynocchio/releases/latest), in [Linux Apps](https://www.linux-apps.com/p/1126786).
 
 ### Contributing
 

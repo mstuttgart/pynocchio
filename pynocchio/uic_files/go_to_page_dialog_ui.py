@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file './forms/go_to_page_dialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.7.1
+# Created by: PyQt5 UI code generator 5.8.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_GoPageDialog(object):
     def setupUi(self, GoPageDialog):
         GoPageDialog.setObjectName("GoPageDialog")
-        GoPageDialog.resize(299, 514)
+        GoPageDialog.resize(285, 514)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icons/icons/edit-find.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         GoPageDialog.setWindowIcon(icon)
@@ -35,6 +35,7 @@ class Ui_GoPageDialog(object):
         self.vertical_layout_3.setSpacing(0)
         self.vertical_layout_3.setObjectName("vertical_layout_3")
         self.scroll_area = QtWidgets.QScrollArea(self.group_box)
+        self.scroll_area.setFocusPolicy(QtCore.Qt.NoFocus)
         self.scroll_area.setStyleSheet("background-color: rgb(0, 0, 0);")
         self.scroll_area.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.scroll_area.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -45,7 +46,7 @@ class Ui_GoPageDialog(object):
         self.scroll_area.setAlignment(QtCore.Qt.AlignCenter)
         self.scroll_area.setObjectName("scroll_area")
         self.scroll_area_widget_contents = QtWidgets.QWidget()
-        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 293, 408))
+        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 275, 405))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -65,6 +66,7 @@ class Ui_GoPageDialog(object):
         self.page_label.setFrameShape(QtWidgets.QFrame.Panel)
         self.page_label.setFrameShadow(QtWidgets.QFrame.Raised)
         self.page_label.setText("")
+        self.page_label.setPixmap(QtGui.QPixmap(":/icons/icons/edit-find.png"))
         self.page_label.setAlignment(QtCore.Qt.AlignCenter)
         self.page_label.setObjectName("page_label")
         self.horizontal_layout.addWidget(self.page_label)
@@ -76,6 +78,8 @@ class Ui_GoPageDialog(object):
         self.grid_layout.setObjectName("grid_layout")
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.grid_layout.addItem(spacerItem, 2, 5, 1, 1)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.grid_layout.addItem(spacerItem1, 2, 0, 1, 1)
         self.spin_box_go_page = QtWidgets.QSpinBox(GoPageDialog)
         self.spin_box_go_page.setWrapping(False)
         self.spin_box_go_page.setAlignment(QtCore.Qt.AlignCenter)
@@ -91,7 +95,12 @@ class Ui_GoPageDialog(object):
         self.page_label_2 = QtWidgets.QLabel(GoPageDialog)
         self.page_label_2.setObjectName("page_label_2")
         self.grid_layout.addWidget(self.page_label_2, 2, 1, 1, 1)
+        self.total_page_label = QtWidgets.QLabel(GoPageDialog)
+        self.total_page_label.setObjectName("total_page_label")
+        self.grid_layout.addWidget(self.total_page_label, 2, 3, 1, 1)
         self.horizontal_slider = QtWidgets.QSlider(GoPageDialog)
+        self.horizontal_slider.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.horizontal_slider.setAutoFillBackground(False)
         self.horizontal_slider.setMinimum(1)
         self.horizontal_slider.setPageStep(4)
         self.horizontal_slider.setOrientation(QtCore.Qt.Horizontal)
@@ -101,14 +110,10 @@ class Ui_GoPageDialog(object):
         self.horizontal_slider.setTickInterval(4)
         self.horizontal_slider.setObjectName("horizontal_slider")
         self.grid_layout.addWidget(self.horizontal_slider, 3, 0, 1, 6)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.grid_layout.addItem(spacerItem1, 2, 0, 1, 1)
-        self.total_page_label = QtWidgets.QLabel(GoPageDialog)
-        self.total_page_label.setObjectName("total_page_label")
-        self.grid_layout.addWidget(self.total_page_label, 2, 3, 1, 1)
         self.vertical_layout.addLayout(self.grid_layout)
         self.verticalLayout.addLayout(self.vertical_layout)
         self.buttonBox = QtWidgets.QDialogButtonBox(GoPageDialog)
+        self.buttonBox.setFocusPolicy(QtCore.Qt.NoFocus)
         self.buttonBox.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
@@ -117,11 +122,11 @@ class Ui_GoPageDialog(object):
         self.verticalLayout.addWidget(self.buttonBox)
 
         self.retranslateUi(GoPageDialog)
-        self.buttonBox.accepted.connect(GoPageDialog.accept)
-        self.buttonBox.rejected.connect(GoPageDialog.reject)
         self.horizontal_slider.valueChanged['int'].connect(self.spin_box_go_page.setValue)
         self.spin_box_go_page.valueChanged['int'].connect(self.horizontal_slider.setValue)
         self.horizontal_slider.valueChanged['int'].connect(GoPageDialog.update)
+        self.buttonBox.accepted.connect(GoPageDialog.accept)
+        self.buttonBox.rejected.connect(GoPageDialog.reject)
         QtCore.QMetaObject.connectSlotsByName(GoPageDialog)
 
     def retranslateUi(self, GoPageDialog):

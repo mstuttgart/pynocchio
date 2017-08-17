@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file './forms/main_window_view.ui'
 #
-# Created by: PyQt5 UI code generator 5.7.1
+# Created by: PyQt5 UI code generator 5.8.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindowView(object):
     def setupUi(self, MainWindowView):
         MainWindowView.setObjectName("MainWindowView")
-        MainWindowView.resize(1048, 561)
+        MainWindowView.resize(1048, 537)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -48,8 +48,7 @@ class Ui_MainWindowView(object):
         self.qscroll_area_viewer.setSizePolicy(sizePolicy)
         self.qscroll_area_viewer.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.qscroll_area_viewer.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.qscroll_area_viewer.setAutoFillBackground(True)
-        self.qscroll_area_viewer.setStyleSheet("background-color: rgb(50, 50, 50)")
+        self.qscroll_area_viewer.setAutoFillBackground(False)
         self.qscroll_area_viewer.setFrameShape(QtWidgets.QFrame.HLine)
         self.qscroll_area_viewer.setFrameShadow(QtWidgets.QFrame.Plain)
         self.qscroll_area_viewer.setLineWidth(0)
@@ -59,13 +58,13 @@ class Ui_MainWindowView(object):
         self.qscroll_area_viewer.setAlignment(QtCore.Qt.AlignCenter)
         self.qscroll_area_viewer.setObjectName("qscroll_area_viewer")
         self.scroll_area_widget_contents = QtWidgets.QWidget()
-        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 1048, 470))
+        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 1048, 454))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.scroll_area_widget_contents.sizePolicy().hasHeightForWidth())
         self.scroll_area_widget_contents.setSizePolicy(sizePolicy)
-        self.scroll_area_widget_contents.setAutoFillBackground(False)
+        self.scroll_area_widget_contents.setAutoFillBackground(True)
         self.scroll_area_widget_contents.setStyleSheet("")
         self.scroll_area_widget_contents.setObjectName("scroll_area_widget_contents")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.scroll_area_widget_contents)
@@ -99,7 +98,7 @@ class Ui_MainWindowView(object):
         self.horizontalLayout.addWidget(self.qscroll_area_viewer)
         MainWindowView.setCentralWidget(self.central_widget)
         self.menubar = QtWidgets.QMenuBar(MainWindowView)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1048, 30))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1048, 23))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -450,7 +449,6 @@ class Ui_MainWindowView(object):
         self.menu_recent_files.addAction(self.actionRecent_file_9)
         self.menu_recent_files.addAction(self.actionRecent_file_10)
         self.menu_file.addAction(self.action_open_file)
-        self.menu_file.addAction(self.action_open_folder)
         self.menu_file.addAction(self.menu_recent_files.menuAction())
         self.menu_file.addSeparator()
         self.menu_file.addAction(self.action_save_image)

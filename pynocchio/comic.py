@@ -1,42 +1,51 @@
 # -*- coding: utf-8 -*-
-#
-# Copyright (C) 2014-2016  Michell Stuttgart Faria
-
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version.
-
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-# more details.
-
-# You should have received a copy of the GNU General Public License along
-# with this program.  If not, see <http://www.gnu.org/licenses/>.
+import os
 
 
 class Comic:
+    """This is basic class of Pynocchio. Represents a comic object"""
 
-    FILE = 0
-    FOLDER = 1
+    def __init__(self, name, path):
+        """
+        Comic class __init__ method
 
-    def __init__(self, name, directory, comic_type=FILE):
+        Args:
+            name (str): comic name
+            path (str): comic file path
+        """
         self.name = name
-        self.directory = directory
-        self.type = comic_type
+        self._path = path
+
+        # list of Page: list to store the comic pages objects
         self.pages = []
 
-    def get_number_of_pages(self):
-        return len(self.pages)
+    @property
+    def path(self):
+        """ Get complete comic path, i.g. comic path concatenated with
+                     comic name.
 
-    def get_path(self):
-        return self.directory + '/' + self.name
+        Returns:
+            str: The return value. Represents complete comic path.
+        """
+        return os.path.join(self._path, self.name)
+
+    @path.setter
+    def path(self, value):
+        self._path = value
 
 
 class Page:
+    """This is basic class of Pynocchio. Represents a comic page object"""
 
     def __init__(self, data, title, number):
+        """
+        Comic Page class __init__ method
+
+        Args:
+            data (bin): comic page binary data
+            title (str): page title
+            number (int): page number
+        """
         self.data = data
         self.title = title
         self.number = number

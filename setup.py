@@ -1,54 +1,46 @@
 # -*- coding: utf-8 -*-
-#
-# Copyright (C) 2014-2016  Michell Stuttgart Faria
-
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version.
-
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-# more details.
-
-# You should have received a copy of the GNU General Public License along
-# with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from setuptools import setup, find_packages
 import os
 import sys
 
-from pynocchio.version import __version__
+from codecs import open
 
+version_path = os.path.join(os.path.abspath(os.path.dirname(__file__)),
+                            'pynocchio',
+                            '__version__.py')
 
-version = __version__
+about = {}
+with open(version_path, 'r') as f:
+    exec(f.read(), about)
 
 if sys.argv[-1] == 'build_deb':
-    os.system('sh scripts/build_deb.sh %s' % version)
+    os.system('./scripts/build_ui.sh %s' % about['__version__'])
+    os.system('./scripts/build_deb.sh %s' % about['__version__'])
     sys.exit()
-#
+
 if sys.argv[-1] == 'build_ui':
-    os.system('sh scripts/build_ui.sh %s' % version)
+    os.system('./scripts/build_ui.sh %s' % about['__version__'])
     sys.exit()
 
 if sys.argv[-1] == 'build_pro':
-    os.system('sh scripts/build_pro.sh')
+    os.system('./scripts/build_pro.sh')
     sys.exit()
 
 if sys.argv[-1] == 'publish':
-    os.system("git tag -a %s -m 'version %s'" % (version, version))
+    os.system("git tag -a %s -m 'version %s'" % (about['__version__'],
+                                                 about['__version__']))
     os.system("git push --tags")
     sys.exit()
 
 setup(
-    name='pynocchio',
-    version=version,
-    author='Michell Stuttgart Faria',
-    author_email='michellstut@gmail.com',
-    url='https://github.com/pynocchio',
-    license='GPLv3 License',
-    description='Pynocchio is a image viewer specialized in comic reading.',
+    name=about['__title__'],
+    version=about['__version__'],
+    author=about['__author__'],
+    author_email=about['__author_email__'],
+    url=about['__url__'],
+    license=about['__license__'],
+    description=about['__description__'],
     long_description='Pynocchio Comic Reader is a new and nice image viewer '
                      'which uses PySide API specialized in comic reading. '
                      'It is a comic reader that allow read cbr, cbz and cbt '
@@ -61,28 +53,11 @@ setup(
         'pynocchio-client.py',
     ],
     include_package_data=True,
-    data_files=[
-        ('/usr/share/applications', ['linux/applications/pynocchio.desktop']),
-        ('/usr/share/pixmaps', ['linux/pixmaps/pynocchio.png']),
-        ('/usr/share/pynocchio/locale/', [
-            'pynocchio/locale/en-US.qm',
-            'pynocchio/locale/pt-BR.qm',
-        ]),
-        ('/usr/share/icons/hicolor/16x16/apps',
-         ['linux/hicolor/16x16/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/32x32/apps',
-         ['linux/hicolor/32x32/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/48x48/apps',
-         ['linux/hicolor/48x48/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/128x128/apps',
-         ['linux/hicolor/128x128/apps/pynocchio.png']),
-        ('/usr/share/icons/hicolor/256x256/apps',
-         ['linux/hicolor/256x256/apps/pynocchio.png']),
-    ],
     install_requires=[
-        'rarfile',
-        'peewee',
-        'PyQt5',
+        'rarfile>=2.8',
+        'peewee>=2.9.2',
+        'PyQt5>=5.7.1',
+        'qdarkgraystyle>=0.0.2',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',

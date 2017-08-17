@@ -1,24 +1,8 @@
 # -*- coding: utf-8 -*-
-#
-# Copyright (C) 2014-2016  Michell Stuttgart Faria
-
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version.
-
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-# more details.
-
-# You should have received a copy of the GNU General Public License along
-# with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
 
 from PyQt5 import QtCore, QtGui, QtWidgets, QtSql
 
-from .utility import Utility
+from .utility import get_dir_name, file_exist
 from .uic_files import bookmark_manager_dialog_ui
 
 import logging
@@ -37,7 +21,7 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
         self.ui.setupUi(self)
 
         self.controller = controller
-        path = Utility.get_dir_name(
+        path = get_dir_name(
             controller.model.settings_manager.settings.fileName())
 
         self.db = QtSql.QSqlDatabase().addDatabase("QSQLITE")
@@ -107,18 +91,16 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
             QtWidgets.QMessageBox.Ok)
 
         if option == QtWidgets.QMessageBox.Ok:
-            selected_idx = self.ui.bookmark_table.selectedIndexes()
 
-            if selected_idx:
-                for index in selected_idx:
-                    self.model.removeRow(index.row())
+            for index in self.ui.bookmark_table.selectedIndexes():
+                self.model.removeRow(index.row())
 
-                self.model.submitAll()
-                self.ui.page_image_label.setPixmap(self.no_cover_label)
+            self.model.submitAll()
+            self.ui.page_image_label.setPixmap(self.no_cover_label)
 
-                if not self.model.rowCount():
-                    self.ui.button_load.setEnabled(False)
-                    self.ui.button_remove.setEnabled(False)
+            if not self.model.rowCount():
+                self.ui.button_load.setEnabled(False)
+                self.ui.button_remove.setEnabled(False)
 
     def _get_comic_to_open(self):
         selection_model = self.ui.bookmark_table.selectionModel()
@@ -127,7 +109,7 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
             path = selection_model.selectedRows(1)[0].data()
             page = selection_model.selectedRows(3)[0].data()
 
-            if Utility.file_exist(path):
+            if file_exist(path):
                 self.controller.open_comics(path, page - 1)
                 self.close()
             else:
@@ -139,11 +121,15 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
                     QtWidgets.QMessageBox.Ok)
 
                 if option == QtWidgets.QMessageBox.Ok:
-                    selected_idx = self.ui.bookmark_table.selectedIndexes()
+                    for index in self.ui.bookmark_table.selectedIndexes():
+                        self.model.removeRow(index.row())
 
-                    if selected_idx:
-                        for index in selected_idx:
-                            self.model.removeRow(index.row())
+                    self.model.submitAll()
+                    self.ui.page_image_label.setPixmap(self.no_cover_label)
+
+                    if not self.model.rowCount():
+                        self.ui.button_load.setEnabled(False)
+                        self.ui.button_remove.setEnabled(False)
 
     def close(self):
         self.db.close()

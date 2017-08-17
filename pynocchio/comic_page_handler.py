@@ -1,20 +1,4 @@
 # -*- coding: utf-8 -*-
-#
-# Copyright (C) 2014-2016  Michell Stuttgart Faria
-
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version.
-
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-# more details.
-
-# You should have received a copy of the GNU General Public License along
-# with this program.  If not, see <http://www.gnu.org/licenses/
-#
 
 from PyQt5 import QtGui
 
@@ -29,23 +13,16 @@ class ComicPageHandler:
         return self.comic.pages[self.current_page_index]
 
     def go_next_page(self):
-        if self.current_page_index < self.comic.get_number_of_pages() - 1:
-            self.current_page_index += 1
-            return True
-        return False
+        raise NotImplementedError('Must subclass me!')
 
     def go_previous_page(self):
-        if self.current_page_index > 0:
-            self.current_page_index -= 1
-            return True
-        else:
-            return False
+        raise NotImplementedError('Must subclass me!')
 
     def go_first_page(self):
         self.current_page_index = 0
 
     def go_last_page(self):
-        self.current_page_index = self.comic.get_number_of_pages() - 1
+        self.current_page_index = len(self.comic.pages) - 1
 
     @property
     def current_page_index(self):
@@ -53,7 +30,7 @@ class ComicPageHandler:
 
     @current_page_index.setter
     def current_page_index(self, idx):
-        if 0 <= idx < self.comic.get_number_of_pages():
+        if 0 <= idx < len(self.comic.pages):
             self._current_page_index = idx
 
     def get_current_page_image(self):
@@ -61,6 +38,20 @@ class ComicPageHandler:
 
 
 class ComicPageHandlerSinglePage(ComicPageHandler):
+
+    def go_next_page(self):
+        if self.current_page_index < len(self.comic.pages) - 1:
+            self.current_page_index += 1
+            return True
+        else:
+            return False
+
+    def go_previous_page(self):
+        if self.current_page_index > 0:
+            self.current_page_index -= 1
+            return True
+        else:
+            return False
 
     def get_current_page_image(self):
         pix_map = QtGui.QPixmap()
@@ -70,13 +61,13 @@ class ComicPageHandlerSinglePage(ComicPageHandler):
 
 class ComicPageHandlerDoublePage(ComicPageHandler):
 
-    def __init__(self, comic, index=0):
+    def __init__(self, comic, inverse=False, index=0):
         super(ComicPageHandlerDoublePage, self).__init__(comic=comic,
                                                          index=index)
-        self.manga_mode = False
+        self.inverse = inverse
 
     def go_next_page(self):
-        if self.current_page_index < self.comic.get_number_of_pages() - 2:
+        if self.current_page_index < len(self.comic.pages) - 2:
             self.current_page_index += 2
             return True
         else:
@@ -111,7 +102,7 @@ class ComicPageHandlerDoublePage(ComicPageHandler):
         else:
             height = max(page_a.height(), page_b.height())
 
-            if self.manga_mode or direction == -1:
+            if self.inverse or direction == -1:
                 page_b, page_a = page_a, page_b
 
             width = page_a.width() + page_b.width()

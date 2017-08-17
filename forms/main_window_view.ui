@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>1048</width>
-    <height>561</height>
+    <height>537</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -101,10 +101,7 @@
        <enum>Qt::LeftToRight</enum>
       </property>
       <property name="autoFillBackground">
-       <bool>true</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(50, 50, 50)</string>
+       <bool>false</bool>
       </property>
       <property name="frameShape">
        <enum>QFrame::HLine</enum>
@@ -133,7 +130,7 @@
          <x>0</x>
          <y>0</y>
          <width>1048</width>
-         <height>470</height>
+         <height>454</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -143,7 +140,7 @@
         </sizepolicy>
        </property>
        <property name="autoFillBackground">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="styleSheet">
         <string notr="true"/>
@@ -234,7 +231,7 @@
      <x>0</x>
      <y>0</y>
      <width>1048</width>
-     <height>30</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -281,7 +278,6 @@
      <addaction name="actionRecent_file_10"/>
     </widget>
     <addaction name="action_open_file"/>
-    <addaction name="action_open_folder"/>
     <addaction name="menu_recent_files"/>
     <addaction name="separator"/>
     <addaction name="action_save_image"/>
