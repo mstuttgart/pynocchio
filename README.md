@@ -8,20 +8,32 @@ Pynocchio Comic Reader
 [![license](https://img.shields.io/github/license/pynocchio/pynocchio.svg?style=flat-square)](https://pt.wikipedia.org/wiki/GNU_General_Public_License)
 
 ### About
-Pynocchio is a image viewer specialized in manga/comic reading.
+Pynocchio is a image viewer specialized in comic reading.
 
-![Pynocchio Main Screen and Go To Dialog](data/screenshots/screenshot_02.png)
+<p align="center">
+<img src="data/screenshots/screenshot_02.png" alt="Pynocchio Comic Reader - Main Screen">
+</p>
 
-![Pynocchio Bookmark Manager](data/screenshots/screenshot_03.png)
+* Pynocchio Comic Reader - Go To Page Dialog
 
-* This screenshots contains as example the webcomic [Pepper&Carrot](https://www.peppercarrot.com/) by David Revoy licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+<p align="center">
+<img src="data/screenshots/screenshot_04.png" alt="Pynocchio Comic Reader - Go To Page Dialog">
+</p>
+
+* Pynocchio Comic Reader - Bookmark Manager
+
+<p align="center">
+<img src="data/screenshots/screenshot_03.png" alt="Pynocchio Comic Reader - Bookmark Manager">
+</p>
+
+* This screenshots contains a page of the webcomic [Pepper&Carrot](https://www.peppercarrot.com/) by David Revoy licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 ### Features
 
 The current version is stable and we intend to improve it even more.
 
 * Support several view adjust modes using anti-aliasing.
-* Support the several image formates provide by Qt: JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM, WEBP.
+* Support the several image formats provide by Qt: JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM, WEBP.
 * Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ.
 
 * Elegant visual, free and easy to use.
