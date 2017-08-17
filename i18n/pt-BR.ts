@@ -623,7 +623,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../pynocchio/main_window_view.py" line="336"/>
         <source>&lt;p&gt;You stopped reading here.&lt;/p&gt;&lt;p&gt; If you choose &lt;b&gt;&quot;Yes&quot;&lt;/b&gt;, reading will resume on &lt;b&gt;page %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Otherwise, the first page will be loaded.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Você parou de ler aqui.&lt;/p&gt;&lt;p&gt; Se você escolher &lt;b&gt;&quot;Sim&quot;&lt;/b&gt;, você continuaŕ a leitura de onde parou &lt;b&gt;página %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Caso contrário,a primeira página será carregada.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Você parou de ler aqui.&lt;/p&gt;&lt;p&gt; Se você escolher &lt;b&gt;&quot;Sim&quot;&lt;/b&gt;, você continuará a leitura de onde parou &lt;b&gt;página %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Caso contrário,a primeira página será carregada.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../pynocchio/main_window_view.py" line="395"/>
