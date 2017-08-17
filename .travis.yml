@@ -32,7 +32,7 @@ deploy:
   provider: releases
   api_key:
      secure: FbZOk633cPQK70SwNHV29vddB48pQhZYXK6tBi6rNOQFCmtsRltiAZx1mn9cBA89yYcbiEGi8SKNTUKFAOtn8xsftXtRQbh7NLH+1S1rXoFLTKqd/e2K8V+I3qPnSIflXgw4jipkVJEtaTnYjjM39Dd9LYVlOfzTdDS3gePGOGKvLIx+T7nmzNTfPb/jVmBo9d68vlcMvDApMcocURXXHPK2Yoz4cjfGU1s674GOycoPPxE0Ovmdhj/PHLYqnSL0Q78UQ9luL8q6Lv15PeDKynpsi5ajm6p8p7DKp6ilvwWN+iKZA9ged8E8FbA7eLu3DA3pPmghph0dlRpYwbanosccTlbeFrNM6p3s6huxUzHt6Fkdzk5ubtz30FkA0LzvxwxOn6u1W4iTTI1Z1p07SpoyNrRw8wZY/hqcPkD+rDhQX1jmxfzaro8M0QRZ92cOI1nX3N8HRwMTZ2o+vMvaTvmHglfLN1aTpm3z/Pbp2gqj/uxE1aQlXKc3b+V5cGCEmsJKNp3TFhKyRdI7pMNF6E+vWfOLjTjif6h8Vy4nYkCX0C5h8eVmL6y8qfVMS1yATAM8B8K1dXvP3JaDKJoNUvH3VHgH/AxZGYHgycObU7GVUc/XhpCErBuMv1JZmLYE3tEGVFpt93RX2/MVmO8yp7/X6hxeIvfpsFUp2yk1q6k=
-  file: "pynocchio_2.0.0_amd64.deb"
+  file: "pynocchio_2.2.0_amd64.deb"
   skip_cleanup: true
   on:
     tags: true
