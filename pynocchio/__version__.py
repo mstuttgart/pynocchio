@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-__title__ = 'Pynocchio'
+__title__ = 'pynocchio'
 __description__ = 'Pynocchio is a image viewer specialized in comic reading'
 __version__ = '2.2.1'
 __url__ = 'https://github.com/pynocchio/pynocchio'
