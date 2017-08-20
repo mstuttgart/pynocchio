@@ -4,7 +4,6 @@ from PyQt5 import QtCore
 
 import glob
 import logging
-import tarfile
 
 from .utility import get_file_extension, join_path, get_dir_name
 from .utility import IMAGE_FILE_FORMATS
@@ -30,45 +29,6 @@ class ComicLoader(QtCore.QObject):
     @staticmethod
     def type_verify(file_name):
         pass
-
-
-class ComicTarLoader(ComicLoader):
-
-    def __init__(self):
-        super(ComicTarLoader, self).__init__()
-
-    def load(self, file_name):
-
-        with tarfile.open(file_name, 'r') as tar:
-
-            name_list = tar.getnames()
-            name_list.sort()
-            aux = 100.0 / len(name_list)
-            page = 1
-            self.data = []
-
-            for idx, name in enumerate(name_list):
-
-                if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
-                    try:
-                        data = tar.extractfile(name).read()
-                        self.data.append(Page(data, name, page))
-                        page += 1
-                    except tarfile.ExtractError as exc:
-                        logger.exception('Error in extract %s file. %s' %
-                                         (name, exc))
-                    except tarfile.ReadError as exc:
-                        logger.exception('Error in read %s file. %s' % (name,
-                                                                        exc))
-
-                self.progress.emit(idx * aux)
-
-            if not self.data:
-                raise NoDataFindException('No one file is loaded!')
-
-    @staticmethod
-    def type_verify(file_name):
-        return tarfile.is_tarfile(file_name)
 
 
 class ComicImageLoader(ComicLoader):
