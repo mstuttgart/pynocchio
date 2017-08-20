@@ -26,7 +26,7 @@ def is_zipfile(filename):
 
 
 class ComicZipLoader(ComicLoader):
-    """ This class load Zip compact files
+    """ This class load Zip compact files.
     """
 
     def __init__(self):
@@ -37,6 +37,9 @@ class ComicZipLoader(ComicLoader):
 
         Args:
             filename: name of compact zip file
+
+        Raises:
+            NoDataFindException: if not data loaded from zip file
         """
 
         with zipfile.ZipFile(filename, 'r') as zf:
