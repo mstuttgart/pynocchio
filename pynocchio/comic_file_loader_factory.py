@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from .exception import InvalidTypeFileException
-from .utility import get_file_extension, IMAGE_FILE_FORMATS, SUPPORTED_FILES
-from .comic_file_loader import ComicZipLoader
-from .comic_file_loader import ComicRarLoader
-from .comic_file_loader import ComicTarLoader
-from .comic_file_loader import ComicImageLoader
+from .utility import get_file_extension
+from .utility import IMAGE_FILE_FORMATS, SUPPORTED_FILES
+from .comic_file_loader_zip import ComicZipLoader, is_zipfile
+from .comic_file_loader_rar import ComicRarLoader, is_rarfile
+from .comic_file_loader_tar import ComicTarLoader, is_tarfile
+from .comic_file_loader_image import ComicImageLoader
 
 
 class ComicLoaderFactory:
@@ -20,11 +21,11 @@ class ComicLoaderFactory:
         if get_file_extension(file_name=filename) in IMAGE_FILE_FORMATS:
             return ComicImageLoader()
 
-        elif ComicZipLoader.type_verify(file_name=filename):
+        elif is_zipfile(file_name=filename):
             return ComicZipLoader()
-        elif ComicRarLoader.type_verify(file_name=filename):
+        elif is_rarfile(file_name=filename):
             return ComicRarLoader()
-        elif ComicTarLoader.type_verify(file_name=filename):
+        elif is_tarfile(file_name=filename):
             return ComicTarLoader()
         else:
             raise InvalidTypeFileException(
