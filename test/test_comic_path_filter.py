@@ -42,8 +42,8 @@ class TestComicPathFilter(TestCase):
 
             self.obj.file_list = []
 
-            self.assertRaises(NoDataFindException, self.obj.is_first_comic,
-                              'co.cbr')
+            with self.assertRaises(NoDataFindException):
+                self.obj.is_first_comic('co.cbr')
 
     def test_is_last_comic(self):
         with mock.patch('glob.glob1') as mock_glob:
@@ -57,8 +57,8 @@ class TestComicPathFilter(TestCase):
 
             self.obj.file_list = []
 
-            self.assertRaises(NoDataFindException, self.obj.is_last_comic,
-                              'co.cbr')
+            with self.assertRaises(NoDataFindException):
+                self.obj.is_last_comic('co.cbr')
 
     def test_get_previous_comic(self):
         with mock.patch('glob.glob1') as mock_glob:
@@ -70,8 +70,8 @@ class TestComicPathFilter(TestCase):
             previous_comics = self.obj.get_previous_comic('comic_1.cbr')
             self.assertEqual('pynocchio/comics/' + 'abc.cbr', previous_comics)
 
-            self.assertRaises(NoDataFindException, self.obj.get_previous_comic,
-                              'abc.cbr')
+            with self.assertRaises(NoDataFindException):
+                self.obj.get_previous_comic('abc.cbr')
 
     def test_get_next_comic(self):
         with mock.patch('glob.glob1') as mock_glob:
@@ -83,5 +83,5 @@ class TestComicPathFilter(TestCase):
             next_comics = self.obj.get_next_comic('comic_1.cbr')
             self.assertEqual('pynocchio/comics/' + 'comic_3.cbr', next_comics)
 
-            self.assertRaises(NoDataFindException, self.obj.get_next_comic,
-                              'comic_3.cbr')
+            with self.assertRaises(NoDataFindException):
+                self.obj.get_next_comic('comic_3.cbr')
