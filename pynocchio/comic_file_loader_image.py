@@ -18,17 +18,17 @@ class ComicImageLoader(ComicLoader):
     def __init__(self):
         super(ComicImageLoader, self).__init__()
 
-    def load(self, file_name):
+    def load(self, filename):
         """ Load image file and create Page objects whit them.
 
             Args:
-                file_name: name of compact image file
+                filename: name of compact image file
         """
 
         # get files with extension stored in ext
         file_list = []
 
-        dir_name = get_dir_name(file_name)
+        dir_name = get_dir_name(filename)
 
         for ext in IMAGE_FILE_FORMATS:
             file_list += glob.glob1(dir_name, '*' + ext)

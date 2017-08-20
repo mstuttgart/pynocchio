@@ -13,16 +13,16 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-def is_tarfile(file_name):
+def is_tarfile(filename):
     """Verify if file is tar file
 
     Args:
-        file_name: name of file
+        filename: name of file
 
     Returns: True if file is a tar file otherwise, False
 
     """
-    return tarfile.is_tarfile(file_name)
+    return tarfile.is_tarfile(filename)
 
 
 class ComicTarLoader(ComicLoader):
@@ -30,14 +30,14 @@ class ComicTarLoader(ComicLoader):
     def __init__(self):
         super(ComicTarLoader, self).__init__()
 
-    def load(self, file_name):
+    def load(self, filename):
         """ Load zip file and create Page objects whit them.
 
             Args:
-                file_name: name of compact zip file
+                filename: name of compact zip file
         """
 
-        with tarfile.open(file_name, 'r') as tar:
+        with tarfile.open(filename, 'r') as tar:
 
             name_list = tar.getnames()
             name_list.sort()

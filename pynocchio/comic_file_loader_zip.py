@@ -13,31 +13,33 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-def is_zipfile(file_name):
+def is_zipfile(filename):
     """Verify if file is zip file
 
     Args:
-        file_name: name of file
+        filename: name of file
 
     Returns: True if file is a zip file otherwise, False
 
     """
-    return zipfile.is_zipfile(file_name)
+    return zipfile.is_zipfile(filename)
 
 
 class ComicZipLoader(ComicLoader):
+    """ This class load Zip compact files
+    """
 
     def __init__(self):
         super(ComicZipLoader, self).__init__()
 
-    def load(self, file_name):
+    def load(self, filename):
         """ Load zip file and create Page objects whit them.
 
         Args:
-            file_name: name of compact zip file
+            filename: name of compact zip file
         """
 
-        with zipfile.ZipFile(file_name, 'r') as zf:
+        with zipfile.ZipFile(filename, 'r') as zf:
 
             name_list = zf.namelist()
             name_list.sort()

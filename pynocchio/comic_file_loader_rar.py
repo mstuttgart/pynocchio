@@ -13,16 +13,16 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-def is_rarfile(file_name):
+def is_rarfile(filename):
     """Verify if file is rar file
 
         Args:
-            file_name: name of file
+            filename: name of file
 
         Returns: True if file is a rar file otherwise, False
 
     """
-    return rarfile.is_rarfile(file_name)
+    return rarfile.is_rarfile(filename)
 
 
 class ComicRarLoader(ComicLoader):
@@ -30,14 +30,14 @@ class ComicRarLoader(ComicLoader):
     def __init__(self):
         super(ComicRarLoader, self).__init__()
 
-    def load(self, file_name):
+    def load(self, filename):
         """ Load zip file and create Page objects whit them.
 
             Args:
-                file_name: name of compact zip file
+                filename: name of compact zip file
         """
 
-        with rarfile.RarFile(file_name, 'r') as rar:
+        with rarfile.RarFile(filename, 'r') as rar:
 
             name_list = rar.namelist()
             name_list.sort()

@@ -14,18 +14,18 @@ class ComicLoaderFactory:
     @staticmethod
     def create_loader(filename):
 
-        if get_file_extension(file_name=filename) not in SUPPORTED_FILES:
+        if get_file_extension(filename=filename) not in SUPPORTED_FILES:
             raise InvalidTypeFileException('Format File is not supported: %s'
                                            % get_file_extension(filename))
 
-        if get_file_extension(file_name=filename) in IMAGE_FILE_FORMATS:
+        if get_file_extension(filename=filename) in IMAGE_FILE_FORMATS:
             return ComicImageLoader()
 
-        elif is_zipfile(file_name=filename):
+        elif is_zipfile(filename=filename):
             return ComicZipLoader()
-        elif is_rarfile(file_name=filename):
+        elif is_rarfile(filename=filename):
             return ComicRarLoader()
-        elif is_tarfile(file_name=filename):
+        elif is_tarfile(filename=filename):
             return ComicTarLoader()
         else:
             raise InvalidTypeFileException(

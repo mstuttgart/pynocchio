@@ -12,8 +12,8 @@ COMPACT_FILE_FORMATS = ['.cbr', '.cbz', '.rar', '.zip', '.tar', '.cbt']
 SUPPORTED_FILES = IMAGE_FILE_FORMATS + COMPACT_FILE_FORMATS
 
 
-def get_file_extension(file_name):
-    return os.path.splitext(file_name)[1]
+def get_file_extension(filename):
+    return os.path.splitext(filename)[1]
 
 
 def get_dir_name(file_path):
@@ -28,8 +28,8 @@ def get_parent_path(file_path):
     return os.path.split(os.path.abspath(os.path.dirname(file_path)))[0]
 
 
-def join_path(root_dir, directory, file_name):
-    return os.path.join(root_dir, directory, file_name)
+def join_path(root_dir, directory, filename):
+    return os.path.join(root_dir, directory, filename)
 
 
 def path_exist(file_path):
@@ -44,8 +44,8 @@ def is_dir(file_path):
     return os.path.isdir(file_path)
 
 
-def is_file(file_name):
-    return os.path.isfile(file_name)
+def is_file(filename):
+    return os.path.isfile(filename)
 
 
 def convert_string_to_boolean(string):
