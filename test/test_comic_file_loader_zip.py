@@ -3,7 +3,7 @@
 import os
 import random
 import builtins
-import zipfile
+import zipfile  # noqa: F401
 
 from unittest import TestCase
 from unittest import mock
@@ -146,5 +146,3 @@ class TestComicZipLoader(TestCase):
 
             with self.assertRaises(NoDataFindException):
                 self.loader.load(self.comic_name)
-
-            print(self.loader.data)
