@@ -25,6 +25,29 @@ def is_tarfile(filename):
     return tarfile.is_tarfile(filename)
 
 
+class TarFile(tarfile.TarFile):
+    """Inherit the base class to create read and namelist methods.
+    """
+
+    def read(self, filename):
+        """Read compact file
+
+        Args:
+            filename: name of compact file
+
+        Returns: binary data of file
+        """
+        return self.extractfile(filename).read()
+
+    def namelist(self):
+        """ Get the name of files on .tar file.
+
+        Returns: list of filename
+
+        """
+        return self.getnames()
+
+
 class ComicTarLoader(ComicLoader):
 
     def __init__(self):
@@ -37,9 +60,9 @@ class ComicTarLoader(ComicLoader):
                 filename: name of compact zip file
         """
 
-        with tarfile.open(filename, 'r') as tar:
+        with TarFile(filename, 'r') as tar:
 
-            name_list = tar.getnames()
+            name_list = tar.namelist()
             name_list.sort()
             aux = 100.0 / len(name_list)
             page = 1
@@ -49,7 +72,7 @@ class ComicTarLoader(ComicLoader):
 
                 if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
                     try:
-                        data = tar.extractfile(name).read()
+                        data = tar.read(name)
                         self.data.append(Page(data, name, page))
                         page += 1
                     except tarfile.ExtractError as exc:
