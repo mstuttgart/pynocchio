@@ -3,6 +3,10 @@ language: python
 sudo: required
 dist: xenial
 
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y build-essential python3-dev xvfb python3-pyqt5.qtmultimedia
+
 matrix:
     include:
       - python: 3.5
@@ -14,7 +18,7 @@ matrix:
 
 install:
   - pip install tox
-  - sudo apt-get install upx build-essential git python3-dev qt5-qmake qttools5-dev-tools libqt5sql5-sqlite unrar-free
+  - sudo apt-get install upx git qt5-qmake qttools5-dev-tools libqt5sql5-sqlite unrar-free
 
 before_script:
 - export DISPLAY=:99.0
