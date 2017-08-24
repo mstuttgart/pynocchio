@@ -57,6 +57,6 @@ class ComicRarLoader(ComicLoader):
 
                 self.progress.emit(idx * aux)
 
-            if not self.data:
-                logger.exception('No one file is loaded!')
-                raise NoDataFindException('No one file is loaded!')
+        if not self.data:
+            logger.exception('No one file is loaded!')
+            raise NoDataFindException('No one file is loaded!')
