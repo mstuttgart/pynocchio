@@ -1,32 +1,30 @@
 language: python
 
+python:
+  - "3.5"
+  - "3.6"
+
 sudo: required
 dist: xenial
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y build-essential python3-dev xvfb python3-pyqt5.qtmultimedia
+  - sudo apt-get install -y build-essential python3-dev xvfb
   
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - sleep 3
 
-matrix:
-    include:
-      - python: 3.5
-        env: TOX_ENV=py35
-      - python: 3.6
-        env: TOX_ENV=py36
-      - python: 3.5
-        env: TOX_ENV=flake8
-
 install:
-  - pip install tox
+  - pip install -r requirements.txt
+  - pip install tox-travis
   - sudo apt-get install upx git qt5-qmake qttools5-dev-tools libqt5sql5-sqlite unrar-free
 
 script:
-- tox -e ${TOX_ENV}
+- tox
+- coverage run --source pynocchio setup.py test
+- coverage report -m
 - python setup.py build_pro
 - python setup.py build_ui
 - python setup.py build_deb
