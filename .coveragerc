@@ -1,0 +1,17 @@
+[run]
+branch = False
+
+source =
+    pynocchio
+
+omit = 
+    test/*.py
+    pynocchio/*_ui.py
+    pynocchio/*_rc.py
+
+[report]
+exclude_lines = 
+    pragma: no_cover
+    def __repr__
+    raise NotImplementedError
+    if __name__ == .__main__:
