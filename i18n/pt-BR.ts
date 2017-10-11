@@ -71,7 +71,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../pynocchio/bookmark_manager_dialog.py" line="118"/>
         <source>Comic not exist</source>
-        <translation>Arquiovo não existe</translation>
+        <translation>Arquivo não existe</translation>
     </message>
     <message>
         <location filename="../pynocchio/bookmark_manager_dialog.py" line="118"/>
@@ -89,7 +89,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/bookmark_manager_dialog.ui" line="132"/>
         <source>Page Preview</source>
-        <translation>Página</translation>
+        <translation>Pré-visualização da Página</translation>
     </message>
     <message>
         <location filename="../forms/bookmark_manager_dialog.ui" line="177"/>
@@ -117,7 +117,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/go_to_page_dialog.ui" line="215"/>
         <source>Page </source>
-        <translation>Página</translation>
+        <translation>Página </translation>
     </message>
     <message>
         <location filename="../forms/go_to_page_dialog.ui" line="260"/>
@@ -213,12 +213,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="957"/>
         <source>Next page</source>
-        <translation type="obsolete">Poxima página</translation>
+        <translation type="obsolete">Proxima página</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="478"/>
         <source>Right</source>
-        <translation></translation>
+        <translation>Direita</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="981"/>
@@ -228,7 +228,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="502"/>
         <source>Left</source>
-        <translation></translation>
+        <translation>Esquerda</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="1002"/>
@@ -293,7 +293,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="1125"/>
         <source>Go to page</source>
-        <translation type="obsolete">Ir para a página</translation>
+        <translation type="obsolete">Ir para página</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="646"/>
@@ -373,7 +373,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="1322"/>
         <source>Best fit</source>
-        <translation type="obsolete">Melhor ajustre</translation>
+        <translation type="obsolete">Melhor ajuste</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="843"/>
@@ -468,7 +468,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="475"/>
         <source>&amp;Next page</source>
-        <translation>Poxima página</translation>
+        <translation>Proxima página</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="499"/>
@@ -563,7 +563,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="840"/>
         <source>&amp;Best fit</source>
-        <translation>Melhor ajustre</translation>
+        <translation>Melhor ajuste</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="854"/>
@@ -669,7 +669,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/preference_dialog.ui" line="51"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Background color: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cor de fundo: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../forms/preference_dialog.ui" line="112"/>
