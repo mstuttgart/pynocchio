@@ -279,12 +279,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="1091"/>
         <source>English</source>
-        <translation>Anglais</translation>
+        <translation>Français</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="1094"/>
         <source>en_US</source>
-        <translation>en_US</translation>
+        <translation>fr_FR</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="1106"/>
