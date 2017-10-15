@@ -20,13 +20,13 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/others/pynocchio.png&quot; /&gt; &lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Pynocchio 1.0.3&lt;/span&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio is a image viewer specialized in comic book reading. &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ and &lt;br /&gt;has a elegant visual, free and easy to use. &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio is an image viewer specialized in comic book reading. &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Supports a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ and &lt;br /&gt;has a elegant visual, free and easy to use. &lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio is licensed under the &lt;a href=&quot;https://github.com/pynocchio/pynocchio/raw/develop/LICENSE&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;GNU General Public License&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Web site&lt;/span&gt; &lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://pynocchio.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Pynocchio Website&lt;/span&gt;&lt;/a&gt; &lt;br /&gt;&lt;a href=&quot;https://github.com/pynocchio/pynocchio&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Pynocchio Github Repository&lt;/span&gt;&lt;/a&gt; &lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Third-party resources&lt;/span&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio use some icons from &lt;a href=&quot;https://store.kde.org/content/show.php/elementary+USU?content=148128&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Elementary USU Icon Theme&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio uses some icons from &lt;a href=&quot;https://store.kde.org/content/show.php/elementary+USU?content=148128&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Elementary USU Icon Theme&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Credits&lt;/span&gt; &lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright(C) 2014-2016 by &lt;a href=&quot;https://github.com/mstuttgart/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt; &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
@@ -51,17 +51,17 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../pynocchio/bookmark_manager_dialog.py" line="87"/>
-        <source>This action will go delete you bookmarks! Proceed?</source>
+        <source>This action will delete your bookmarks! Proceed?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../pynocchio/bookmark_manager_dialog.py" line="118"/>
-        <source>Comic not exist</source>
+        <source>Comic does not exist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../pynocchio/bookmark_manager_dialog.py" line="118"/>
-        <source>Selected comic not exist! Do you like to remove it from bookmark list?</source>
+        <source>Selected comic does not exist! Would you like to remove it from your bookmark list?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -143,7 +143,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="316"/>
-        <source>&amp;Navegation</source>
+        <source>&amp;Navigation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -163,7 +163,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="395"/>
-        <source>toolBar</source>
+        <source>ToolBar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -248,7 +248,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="857"/>
-        <source>Save current image in disk.</source>
+        <source>Save current image on disk.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -278,7 +278,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="1138"/>
-        <source>Active double page mode</source>
+        <source>Activate double page mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -288,7 +288,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="357"/>
-        <source>R&amp;ecente bookmarks</source>
+        <source>R&amp;ecent bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
