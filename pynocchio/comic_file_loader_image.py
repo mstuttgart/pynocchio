@@ -19,7 +19,7 @@ class ComicImageLoader(ComicLoader):
         super(ComicImageLoader, self).__init__()
 
     def load(self, filename):
-        """ Load image file and create Page objects whit them.
+        """ Load image file and create Page objects with them.
 
             Args:
                 filename: name of compact image file
@@ -36,7 +36,7 @@ class ComicImageLoader(ComicLoader):
         # sort list
         file_list.sort()
 
-        aux = 100.0 / len(file_list)
+        aux = (100.0 / len(file_list)) if len(file_list) else 100.0
         page = 1
         self.data = []
 
