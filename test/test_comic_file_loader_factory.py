@@ -51,3 +51,19 @@ class TestComicLoaderFactory(TestCase):
 			with self.subTest(image_format=image_format):
 				loader = ComicLoaderFactory.create_loader("test"+image_format)
 				self.assertTrue(isinstance(loader, ComicImageLoader))
+
+	@mock.patch(
+		"pynocchio.comic_file_loader_factory.is_rarfile",
+		lambda filename: False
+	)
+	@mock.patch(
+		"pynocchio.comic_file_loader_factory.is_tarfile",
+		lambda filename: False
+	)
+	def test_create_loader_archive_type_but_not_archive(self):
+		for archive_format in [".cbt", ".cbr", "cbz"]:
+			with self.subTest(archive_format=archive_format):
+				with self.assertRaises(InvalidTypeFileException):
+					loader = ComicLoaderFactory.create_loader(
+						"test"+archive_format
+					)
