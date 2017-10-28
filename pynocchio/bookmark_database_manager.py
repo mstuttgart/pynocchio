@@ -22,7 +22,7 @@ class BookmarkManager(BookmarkBaseModel):
             BookmarkManager.close()
             db.connect()
             db.create_tables([Bookmark, TemporaryBookmark], safe=True)
-            logger.info('Table Bookmark and TemporaryBookmark create/updates '
+            logger.info('Tables Bookmark and TemporaryBookmark created '
                         'successfully!')
         except peewee.OperationalError as exc:
             logger.exception(exc)
@@ -58,7 +58,7 @@ class BookmarkManager(BookmarkBaseModel):
             q.execute()
             logger.info('Bookmark deleted.')
         except peewee.IntegrityError:
-            logger.exception('Bookmark not find!')
+            logger.exception('Bookmark not found!')
         BookmarkManager.close()
 
     @staticmethod

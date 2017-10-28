@@ -8,25 +8,36 @@ from .comic_file_loader_rar import ComicRarLoader, is_rarfile
 from .comic_file_loader_tar import ComicTarLoader, is_tarfile
 from .comic_file_loader_image import ComicImageLoader
 
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 
 class ComicLoaderFactory:
 
     @staticmethod
     def create_loader(filename):
+        file_extension = get_file_extension(filename=filename)
+        if file_extension not in SUPPORTED_FILES:
+            message = 'File format is not supported: %s' % file_extension
+            logger.exception(message)
+            raise InvalidTypeFileException(message)
 
-        if get_file_extension(filename=filename) not in SUPPORTED_FILES:
-            raise InvalidTypeFileException('Format File is not supported: %s'
-                                           % get_file_extension(filename))
-
-        if get_file_extension(filename=filename) in IMAGE_FILE_FORMATS:
+        if file_extension in IMAGE_FILE_FORMATS:
+            logger.info("Creating image loader")
             return ComicImageLoader()
 
         elif is_zipfile(filename=filename):
+            logger.info("Creating zip loader")
             return ComicZipLoader()
         elif is_rarfile(filename=filename):
+            logger.info("Creating rar loader")
             return ComicRarLoader()
         elif is_tarfile(filename=filename):
+            logger.info("Creating tar loader")
             return ComicTarLoader()
         else:
-            raise InvalidTypeFileException(
-                'File is not folder: %s' % get_file_extension(filename))
+            message = 'File is not folder: %s' % file_extension
+            logger.exception(message)
+            raise InvalidTypeFileException(message)

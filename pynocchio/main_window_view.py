@@ -54,7 +54,6 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_open_file_triggered(self):
-
         img_formats = ''
 
         for img in IMAGE_FILE_FORMATS:
@@ -71,9 +70,10 @@ class MainWindowView(QtWidgets.QMainWindow):
                 'tar_files (*.tar *.cbt);; image_files (%s);;'
                 'all_files (*)' % (all_files, img_formats)))
 
-        initial_page = self.get_page_from_temporary_bookmarks(filename[0])
+        if filename:
+            initial_page = self.get_page_from_temporary_bookmarks(filename[0])
 
-        self.open_comics(filename[0], initial_page)
+            self.open_comics(filename[0], initial_page)
 
     @QtCore.pyqtSlot()
     def on_action_save_image_triggered(self):
@@ -357,8 +357,8 @@ class MainWindowView(QtWidgets.QMainWindow):
         return initial_page
 
     def open_comics(self, filename, initial_page=0):
-
         if filename:
+            logger.info('Opening comic %s' % filename)
 
             try:
 

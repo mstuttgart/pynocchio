@@ -26,6 +26,8 @@ class ComicImageLoader(ComicLoader):
         """
 
         # get files with extension stored in ext
+        logger.info('Loading from %s' % filename)
+
         file_list = []
 
         dir_name = get_dir_name(filename)
@@ -41,8 +43,10 @@ class ComicImageLoader(ComicLoader):
         self.data = []
 
         for idx, name in enumerate(file_list):
+            logger.info('Trying to load %s' % name)
 
             if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
+                logger.info('Adding page %s' % name)
 
                 with open(join_path('', dir_name, name), 'rb') as img:
                     self.data.append(Page(img.read(), name, page))
@@ -51,4 +55,6 @@ class ComicImageLoader(ComicLoader):
             self.progress.emit(idx * aux)
 
         if not self.data:
-            raise NoDataFindException('Image file not loaded!')
+            message = 'Image file not loaded!'
+            logger.exception(message)
+            raise NoDataFindException(message)
