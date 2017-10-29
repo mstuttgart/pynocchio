@@ -60,6 +60,8 @@ class ComicTarLoader(ComicLoader):
                 filename: name of compact zip file
         """
 
+        logger.info('Trying to load %s' % filename)
+
         with TarFile(filename, 'r') as tar:
 
             name_list = tar.namelist()
@@ -69,8 +71,10 @@ class ComicTarLoader(ComicLoader):
             self.data = []
 
             for idx, name in enumerate(name_list):
+                logger.info('Trying to load %s' % name)
 
                 if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
+                    logger.info('Adding page %s' % name)
                     try:
                         data = tar.read(name)
                         self.data.append(Page(data, name, page))
@@ -85,4 +89,6 @@ class ComicTarLoader(ComicLoader):
                 self.progress.emit(idx * aux)
 
         if not self.data:
-            raise NoDataFindException('No one file is loaded!')
+            message = 'File not loaded'
+            logger.exception(message)
+            raise NoDataFindException(message)
