@@ -44,7 +44,7 @@ Please, download the latest release [here](https://github.com/pynocchio/pynocchi
 
 ### Contributing
 
-If you'd like to contribute, please see [contributing session in Pynocchio Wiki](https://github.com/pynocchio/pynocchio/wiki/Contributing).
+If you'd like to contribute, please see [CONTRIBUTING.rst](https://github.com/pynocchio/pynocchio/blob/develop/CONTRIBUTING.rst).
 
 ### Third party resources
 
