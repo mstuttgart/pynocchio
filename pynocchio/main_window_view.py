@@ -71,6 +71,8 @@ class MainWindowView(QtWidgets.QMainWindow):
                 'all_files (*)' % (all_files, img_formats)))
 
         if filename:
+            logger.info('Opening file')
+
             initial_page = self.get_page_from_temporary_bookmarks(filename[0])
 
             self.open_comics(filename[0], initial_page)
@@ -87,6 +89,7 @@ class MainWindowView(QtWidgets.QMainWindow):
                 self.tr("images (*.png *.xpm *.jpeg *.jpg *.gif)"))
 
             if file_path:
+                logger.info('Saving image')
                 self.model.save_current_page_image(file_path[0])
 
     @QtCore.pyqtSlot()
