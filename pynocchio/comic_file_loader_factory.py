@@ -6,6 +6,7 @@ from .utility import IMAGE_FILE_FORMATS, SUPPORTED_FILES
 from .comic_file_loader_zip import ComicZipLoader, is_zipfile
 from .comic_file_loader_rar import ComicRarLoader, is_rarfile
 from .comic_file_loader_tar import ComicTarLoader, is_tarfile
+from .comic_file_loader_7z import Comic7zLoader, is_7zfile
 from .comic_file_loader_image import ComicImageLoader
 
 import logging
@@ -37,6 +38,8 @@ class ComicLoaderFactory:
         elif is_tarfile(filename=filename):
             logger.info("Creating tar loader")
             return ComicTarLoader()
+        elif is_7zfile(filename=filename):
+            return Comic7zLoader()
         else:
             message = 'File is not folder: %s' % file_extension
             logger.exception(message)
