@@ -60,7 +60,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         for img in IMAGE_FILE_FORMATS:
             img_formats += ' *' + img
 
-        all_files = '*.zip *.cbz *.rar *.cbr *.tar *.cbt' + img_formats
+        all_files = '*.zip *.cbz *.rar *.cbr *.tar *.cbt *.7z *.cb7' + img_formats
 
         filename = QtWidgets.QFileDialog().getOpenFileName(
             self, self.tr('open_comic_file'),
@@ -69,6 +69,7 @@ class MainWindowView(QtWidgets.QMainWindow):
                 'all_supported_files (%s);; '
                 'zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; '
                 'tar_files (*.tar *.cbt);; image_files (%s);;'
+                '7zip_files (*.7z *.cb7);;'
                 'all_files (*)' % (all_files, img_formats)))
 
         initial_page = self.get_page_from_temporary_bookmarks(filename[0])
