@@ -75,3 +75,4 @@ src/resource/flags
 *.xml~
 *.deb
 env*/
+.python-version
