@@ -23,7 +23,7 @@ echo -e " ${White}${BlueBG}         -= Build .pro files =-                      
 echo -e " ${White}${BlueBG}                                                         ${Off}"
 echo -e ""
 
-FILENAME='i18n/pynocchio.pro'
+FILENAME='pynocchio.pro'
 
 echo -e ""
 echo -e "${Yellow} Start build ${FILENAME} file..."
