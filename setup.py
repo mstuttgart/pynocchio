@@ -54,10 +54,10 @@ setup(
     ],
     include_package_data=True,
     install_requires=[
-        'rarfile>=2.8',
-        'peewee>=2.9.2',
-        'PyQt5>=5.7.1',
-        'qdarkgraystyle>=0.0.2',
+        'rarfile==3.0',
+        'peewee==2.9.2',
+        'PyQt5==5.9',
+        'qdarkgraystyle>=0.0.3',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
