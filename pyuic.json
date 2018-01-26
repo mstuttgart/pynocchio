@@ -1,7 +1,7 @@
 {
     "files": [
         [
-            "forms/main_window_view.ui",
+            "forms/*.ui",
             "pynocchio/uic_files"
         ],
         [
