@@ -15,22 +15,11 @@ with open(version_path, 'r') as f:
     exec(f.read(), about)
 
 if sys.argv[-1] == 'build_deb':
-    os.system('./scripts/build_ui.sh %s' % about['__version__'])
     os.system('./scripts/build_deb.sh %s' % about['__version__'])
-    sys.exit()
-
-if sys.argv[-1] == 'build_ui22':
-    os.system('./scripts/build_ui.sh %s' % about['__version__'])
     sys.exit()
 
 if sys.argv[-1] == 'build_pro':
     os.system('./scripts/build_pro.sh')
-    sys.exit()
-
-if sys.argv[-1] == 'publish':
-    os.system("git tag -a %s -m 'version %s'" % (about['__version__'],
-                                                 about['__version__']))
-    os.system("git push --tags")
     sys.exit()
 
 try:
