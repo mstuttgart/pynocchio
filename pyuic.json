@@ -1,0 +1,17 @@
+{
+    "files": [
+        [
+            "forms/main_window_view.ui",
+            "pynocchio/uic_files"
+        ],
+        [
+            "data/main_window_view.qrc",
+            "pynocchio/uic_files"
+        ]
+    ],
+    "hooks": [],
+    "pyrcc": "pyrcc5",
+    "pyrcc_options": "",
+    "pyuic": "pyuic5",
+    "pyuic_options": "--from-import"
+}

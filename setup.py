@@ -19,7 +19,7 @@ if sys.argv[-1] == 'build_deb':
     os.system('./scripts/build_deb.sh %s' % about['__version__'])
     sys.exit()
 
-if sys.argv[-1] == 'build_ui':
+if sys.argv[-1] == 'build_ui22':
     os.system('./scripts/build_ui.sh %s' % about['__version__'])
     sys.exit()
 
@@ -32,6 +32,13 @@ if sys.argv[-1] == 'publish':
                                                  about['__version__']))
     os.system("git push --tags")
     sys.exit()
+
+try:
+ from pyqt_distutils.build_ui import build_ui
+    cmdclass = {'build_ui': build_ui}
+except ImportError:
+    build_ui = None
+    cmdclass = {}
 
 setup(
     name=about['__title__'],
@@ -48,6 +55,7 @@ setup(
                      'interface.',
     keywords="pynocchio comics manga viewer image",
     packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
+    cmdclass=cmdclass,
     test_suite='test',
     scripts=[
         'pynocchio-client.py',
