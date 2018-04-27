@@ -3,5 +3,5 @@ peewee==2.10.2
 PyInstaller==3.3.1
 PyQt5==5.10
 rarfile==3.0
-darkgraystyle>=0.0.3
+qdarkgraystyle>=0.0.3
 pyqt-distutils==0.7.3
