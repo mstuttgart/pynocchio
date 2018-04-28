@@ -29,10 +29,6 @@ install:
 
 script:
 - tox -e ${TOX_ENV}
-- python setup.py build_pro
-- python setup.py build_ui
-- python setup.py build_deb
-- sudo dpkg -i pynocchio*.deb
 
 deploy:
   provider: releases
@@ -46,3 +42,4 @@ deploy:
 
 after_success:
  - coveralls
+ - sudo dpkg -i pynocchio*.deb
