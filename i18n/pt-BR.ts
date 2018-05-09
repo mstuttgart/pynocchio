@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="pt_BR" sourcelanguage="">
+<!DOCTYPE TS>
+<TS version="2.1" language="pt_BR" sourcelanguage="en_US">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -318,7 +319,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="1178"/>
         <source>Add bookmark</source>
-        <translation type="obsolete">Adicionar aos favoritos</translation>
+        <translation type="obsolete">Adicioen_USnar aos favoritos</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="1193"/>
