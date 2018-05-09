@@ -2,6 +2,14 @@
 History
 =======
 
+2.3.0 (2018-05-09)
+------------------
+
+* [NEW] Add es, fi-FL, fr-FR, nl-NL, pl-PL, pt-BR and tr-TR translations
+* [NEW] Add new tests
+* [NEW] Add new logging reports
+* [FIX] Fix ui bugs
+
 2.2.1 (2017-08-17)
 ------------------
 
