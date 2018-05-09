@@ -62,13 +62,19 @@ Ready to contribute? Here's how to set up `pynocchio` for local development.
 1. Fork the `pynocchio` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/pynocchio.git
+    $ git clone --recursive git@github.com:your_name_here/pynocchio.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
     $ mkvirtualenv pynocchio
     $ cd pynocchio/
     $ python setup.py develop
+
+3.5. Install Qt5 Tools QtLinguist (to made translatios) and QtDesigner (to edit pynocchio ui)::
+
+    $ sudo apt-get install build-essential git python3-dev python3-pip qt5-qmake libqt5sql5-sqlite unrar-free
+
+    Now, use `linguist -qt5` to start *QtLinguist5* and `desginer -qt5` to start *QtDesginer5*.
 
 4. Create a branch for local development::
 
