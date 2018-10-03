@@ -12,6 +12,7 @@ from .go_to_page_dialog import GoToDialog
 from .bookmark_manager_dialog import BookmarkManagerDialog
 from .bookmark import TemporaryBookmark
 from .about_dialog import AboutDialog
+from .not_found_dialog import NotFoundDialog
 from .uic_files import main_window_view_ui
 
 logging.basicConfig(level=logging.INFO)
@@ -421,6 +422,9 @@ class MainWindowView(QtWidgets.QMainWindow):
                 files.remove(filename)
                 self.model.save_recent_files(files)
                 self.update_recent_file_actions()
+                not_found_dialog = NotFoundDialog(self)
+                not_found_dialog.show()
+                not_found_dialog.exec_()
 
     def set_current_file(self, filename):
 
