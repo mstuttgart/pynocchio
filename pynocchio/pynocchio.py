@@ -32,7 +32,7 @@ class Pynocchio(QtWidgets.QApplication):
         self.setApplicationName('Pynocchio')
 
         self.setStyle('Fusion')
-        self.setStyleSheet(qdarkgraystyle.load_stylesheet_pyqt5())
+        self.setStyleSheet(qdarkgraystyle.load_stylesheet())
 
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')
