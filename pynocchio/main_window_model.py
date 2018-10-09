@@ -28,7 +28,7 @@ class MainWindowModel(QtCore.QObject):
     load_done = QtCore.pyqtSignal()
 
     def __init__(self):
-        super(MainWindowModel, self).__init__()
+        super().__init__()
         self.comic = None
         self.comic_page_handler = None
         self.settings_manager = SettingsManager()
@@ -56,7 +56,7 @@ class MainWindowModel(QtCore.QObject):
         return self.settings_manager.load_current_directory()
 
     def load(self, filename, initial_page=0):
-        logger.info('Loading %s at %i' % (filename, initial_page))
+        logger.info('Loading %s at %i', filename, initial_page)
 
         loader = ComicLoaderFactory.create_loader(filename)
         loader.progress.connect(self.load_progressbar_value)
@@ -65,7 +65,7 @@ class MainWindowModel(QtCore.QObject):
             loader.load(filename)
         except NoDataFindException as exc:
             from pynocchio.comic import Page
-            logger.exception('Error in load comic! %s' % exc)
+            logger.exception('Error in load comic! %s', exc)
             q_file = QtCore.QFile(":/icons/notCover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))

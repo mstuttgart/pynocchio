@@ -16,7 +16,7 @@ logger.setLevel(logging.INFO)
 class ComicImageLoader(ComicLoader):
 
     def __init__(self):
-        super(ComicImageLoader, self).__init__()
+        super().__init__()
 
     def load(self, filename):
         """ Load image file and create Page objects with them.
@@ -26,7 +26,7 @@ class ComicImageLoader(ComicLoader):
         """
 
         # get files with extension stored in ext
-        logger.info('Loading from %s' % filename)
+        logger.info('Loading from %s', filename)
 
         file_list = []
 
@@ -43,10 +43,10 @@ class ComicImageLoader(ComicLoader):
         self.data = []
 
         for idx, name in enumerate(file_list):
-            logger.info('Trying to load %s' % name)
+            logger.info('Trying to load %s', name)
 
             if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
-                logger.info('Adding page %s' % name)
+                logger.info('Adding page %s', name)
 
                 with open(join_path('', dir_name, name), 'rb') as img:
                     self.data.append(Page(img.read(), name, page))

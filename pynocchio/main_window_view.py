@@ -25,7 +25,7 @@ class MainWindowView(QtWidgets.QMainWindow):
     MAX_BOOKMARK_FILES = 5
 
     def __init__(self, model, parent=None):
-        super(MainWindowView, self).__init__(parent=parent)
+        super().__init__(parent=parent)
         self.model = model
 
         self.ui = main_window_view_ui.Ui_MainWindowView()
@@ -362,7 +362,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     def open_comics(self, filename, initial_page=0):
         if filename:
-            logger.info('Opening comic %s' % filename)
+            logger.info('Opening comic %s', filename)
 
             try:
 

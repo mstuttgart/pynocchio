@@ -27,7 +27,7 @@ QFile = QtCore.QFile
 class Pynocchio(QtWidgets.QApplication):
 
     def __init__(self):
-        super(Pynocchio, self).__init__(sys.argv)
+        super().__init__(sys.argv)
         self.setOrganizationName('Pynocchio')
         self.setApplicationName('Pynocchio')
 

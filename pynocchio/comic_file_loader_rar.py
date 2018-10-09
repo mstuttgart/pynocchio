@@ -28,7 +28,7 @@ def is_rarfile(filename):
 class ComicRarLoader(ComicLoader):
 
     def __init__(self):
-        super(ComicRarLoader, self).__init__()
+        super().__init__()
 
     def load(self, filename):
         """ Load zip file and create Page objects whit them.
@@ -52,11 +52,10 @@ class ComicRarLoader(ComicLoader):
                         self.data.append(Page(rar.read(name), name, page))
                         page += 1
                     except rarfile.BadRarFile as exc:
-                        logger.exception('Error reading %s file. %s' % (name,
-                                                                        exc))
+                        logger.exception('Error reading %s file. %s', name, exc)
 
                 self.progress.emit(idx * aux)
-            logger.info('Successfully loaded %s' % filename)
+            logger.info('Successfully loaded %s', filename)
 
         if not self.data:
             error_text = 'File not loaded!'

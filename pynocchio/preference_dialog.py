@@ -8,7 +8,7 @@ from .uic_files import preference_dialog_ui
 class PreferenceDialog(QtWidgets.QDialog):
 
     def __init__(self, preference, parent=None):
-        super(PreferenceDialog, self).__init__(parent=parent)
+        super().__init__(parent=parent)
 
         self.ui = preference_dialog_ui.Ui_config_dialog()
         self.ui.setupUi(self)

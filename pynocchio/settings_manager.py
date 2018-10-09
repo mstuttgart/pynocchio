@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-class SettingsManager:
+class SettingsManager():
 
     def __init__(self):
         self.settings = QtCore.QSettings('Pynocchio', 'Pynocchio')
@@ -38,7 +38,7 @@ class SettingsManager:
         return recent_files_list
 
     def save_view_adjust(self, object_name):
-        logger.info('Saving view adjust: %s' % object_name)
+        logger.info('Saving view adjust: %s', object_name)
         self.settings.setValue('view_adjust', object_name)
 
     def load_view_adjust(self, default_object_name):
@@ -46,7 +46,7 @@ class SettingsManager:
         return self.settings.value('view_adjust', default_object_name)
 
     def save_current_directory(self, current_directory):
-        logger.info('Saving current directory %s' % current_directory)
+        logger.info('Saving current directory %s', current_directory)
         self.settings.setValue('current_directory', current_directory)
 
     def load_current_directory(self):

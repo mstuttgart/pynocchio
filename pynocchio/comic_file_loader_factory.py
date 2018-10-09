@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-class ComicLoaderFactory:
+class ComicLoaderFactory():
 
     @staticmethod
     def create_loader(filename):
