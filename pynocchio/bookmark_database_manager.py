@@ -42,7 +42,7 @@ class BookmarkManager(BookmarkBaseModel):
             q = table.insert(comic_name=name, comic_path=path,
                              comic_page=page, page_data=data)
             q.execute()
-            logger.info('%s item inserted.' % table.__class__)
+            logger.info('%s item inserted.', table.__class__)
         except peewee.IntegrityError:
             q = table.update(comic_page=page, page_data=data).where(
                 table.comic_path == path)

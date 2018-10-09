@@ -8,7 +8,7 @@ from .comic_page_handler_factory import ComicPageHandlerFactory
 
 class GoToDialog(QtWidgets.QDialog):
     def __init__(self, comic_handler, parent=None):
-        super(GoToDialog, self).__init__(parent=parent)
+        super().__init__(parent=parent)
 
         self.ui = go_to_page_dialog_ui.Ui_GoPageDialog()
         self.ui.setupUi(self)

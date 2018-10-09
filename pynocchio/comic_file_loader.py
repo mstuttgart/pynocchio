@@ -14,7 +14,7 @@ class ComicLoader(QtCore.QObject):
     done = QtCore.pyqtSignal()
 
     def __init__(self):
-        super(ComicLoader, self).__init__()
+        super().__init__()
         self.data = []
 
     def load(self, filename):

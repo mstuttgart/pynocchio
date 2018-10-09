@@ -30,7 +30,7 @@ class ComicZipLoader(ComicLoader):
     """
 
     def __init__(self):
-        super(ComicZipLoader, self).__init__()
+        super().__init__()
 
     def load(self, filename):
         """ Load zip file and create Page objects whit them.
@@ -42,7 +42,7 @@ class ComicZipLoader(ComicLoader):
             NoDataFindException: if not data loaded from zip file
         """
 
-        logger.info('Trying to load %s' % filename)
+        logger.info('Trying to load %s', filename)
 
         with zipfile.ZipFile(filename, 'r') as zf:
 
@@ -53,16 +53,15 @@ class ComicZipLoader(ComicLoader):
             self.data = []
 
             for idx, name in enumerate(name_list):
-                logger.info('Trying to load %s' % name)
+                logger.info('Trying to load %s', name)
 
                 if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
-                    logger.info('Adding page %s' % name)
+                    logger.info('Adding page %s', name)
                     try:
                         self.data.append(Page(zf.read(name), name, page))
                         page += 1
                     except zipfile.BadZipfile as exc:
-                        logger.exception('Error in read %s file. %s' % (name,
-                                                                        exc))
+                        logger.exception('Error in read %s file. %s', name, exc)
 
                 self.progress.emit(idx * aux)
 

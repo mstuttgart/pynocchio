@@ -3,7 +3,7 @@
 from PyQt5 import QtGui
 
 
-class ComicPageHandler:
+class ComicPageHandler():
 
     def __init__(self, comic, index=0):
         self.comic = comic
@@ -62,8 +62,7 @@ class ComicPageHandlerSinglePage(ComicPageHandler):
 class ComicPageHandlerDoublePage(ComicPageHandler):
 
     def __init__(self, comic, inverse=False, index=0):
-        super(ComicPageHandlerDoublePage, self).__init__(comic=comic,
-                                                         index=index)
+        super().__init__(comic=comic, index=index)
         self.inverse = inverse
 
     def go_next_page(self):

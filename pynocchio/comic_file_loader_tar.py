@@ -51,7 +51,7 @@ class TarFile(tarfile.TarFile):
 class ComicTarLoader(ComicLoader):
 
     def __init__(self):
-        super(ComicTarLoader, self).__init__()
+        super().__init__()
 
     def load(self, filename):
         """ Load zip file and create Page objects whit them.
@@ -60,7 +60,7 @@ class ComicTarLoader(ComicLoader):
                 filename: name of compact zip file
         """
 
-        logger.info('Trying to load %s' % filename)
+        logger.info('Trying to load %s', filename)
 
         with TarFile(filename, 'r') as tar:
 
@@ -71,20 +71,18 @@ class ComicTarLoader(ComicLoader):
             self.data = []
 
             for idx, name in enumerate(name_list):
-                logger.info('Trying to load %s' % name)
+                logger.info('Trying to load %s', name)
 
                 if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
-                    logger.info('Adding page %s' % name)
+                    logger.info('Adding page %s', name)
                     try:
                         data = tar.read(name)
                         self.data.append(Page(data, name, page))
                         page += 1
                     except tarfile.ExtractError as exc:
-                        logger.exception('Error in extract %s file. %s' %
-                                         (name, exc))
+                        logger.exception('Error in extract %s file. %s', name, exc)
                     except tarfile.ReadError as exc:
-                        logger.exception('Error in read %s file. %s' % (name,
-                                                                        exc))
+                        logger.exception('Error in read %s file. %s', name, exc)
 
                 self.progress.emit(idx * aux)
 

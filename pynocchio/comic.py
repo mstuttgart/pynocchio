@@ -2,7 +2,7 @@
 import os
 
 
-class Comic:
+class Comic():
     """This is basic class of Pynocchio. Represents a comic object"""
 
     def __init__(self, name, path):
@@ -34,7 +34,7 @@ class Comic:
         self._path = value
 
 
-class Page:
+class Page():
     """This is basic class of Pynocchio. Represents a comic page object"""
 
     def __init__(self, data, title, number):
