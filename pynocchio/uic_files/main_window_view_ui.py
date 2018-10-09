@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file './forms/main_window_view.ui'
+# Form implementation generated from reading ui file 'main_window_view.ui'
 #
-# Created by: PyQt5 UI code generator 5.9
+# Created by: PyQt5 UI code generator 5.10
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -117,10 +117,10 @@ class Ui_MainWindowView(object):
         self.menu_recent_files.setObjectName("menu_recent_files")
         self.menu_view = QtWidgets.QMenu(self.menubar)
         self.menu_view.setObjectName("menu_view")
-        self.menu_navegation = QtWidgets.QMenu(self.menubar)
-        self.menu_navegation.setAcceptDrops(False)
-        self.menu_navegation.setTearOffEnabled(False)
-        self.menu_navegation.setObjectName("menu_navegation")
+        self.menu_navigation = QtWidgets.QMenu(self.menubar)
+        self.menu_navigation.setAcceptDrops(False)
+        self.menu_navigation.setTearOffEnabled(False)
+        self.menu_navigation.setObjectName("menu_navigation")
         self.menu_help = QtWidgets.QMenu(self.menubar)
         self.menu_help.setObjectName("menu_help")
         self.menu_settings = QtWidgets.QMenu(self.menubar)
@@ -466,16 +466,16 @@ class Ui_MainWindowView(object):
         self.menu_view.addSeparator()
         self.menu_view.addAction(self.action_double_page_mode)
         self.menu_view.addAction(self.action_manga_mode)
-        self.menu_navegation.addAction(self.action_next_page)
-        self.menu_navegation.addAction(self.action_previous_page)
-        self.menu_navegation.addSeparator()
-        self.menu_navegation.addAction(self.action_first_page)
-        self.menu_navegation.addAction(self.action_last_page)
-        self.menu_navegation.addSeparator()
-        self.menu_navegation.addAction(self.action_go_to_page)
-        self.menu_navegation.addSeparator()
-        self.menu_navegation.addAction(self.action_next_comic)
-        self.menu_navegation.addAction(self.action_previous_comic)
+        self.menu_navigation.addAction(self.action_next_page)
+        self.menu_navigation.addAction(self.action_previous_page)
+        self.menu_navigation.addSeparator()
+        self.menu_navigation.addAction(self.action_first_page)
+        self.menu_navigation.addAction(self.action_last_page)
+        self.menu_navigation.addSeparator()
+        self.menu_navigation.addAction(self.action_go_to_page)
+        self.menu_navigation.addSeparator()
+        self.menu_navigation.addAction(self.action_next_comic)
+        self.menu_navigation.addAction(self.action_previous_comic)
         self.menu_help.addAction(self.action_about)
         self.menu_help.addAction(self.action_about_qt)
         self.menu_settings.addAction(self.action_show_toolbar)
@@ -494,7 +494,7 @@ class Ui_MainWindowView(object):
         self.menu_bookmarks.addAction(self.menu_recent_bookmarks.menuAction())
         self.menubar.addAction(self.menu_file.menuAction())
         self.menubar.addAction(self.menu_view.menuAction())
-        self.menubar.addAction(self.menu_navegation.menuAction())
+        self.menubar.addAction(self.menu_navigation.menuAction())
         self.menubar.addAction(self.menu_bookmarks.menuAction())
         self.menubar.addAction(self.menu_settings.menuAction())
         self.menubar.addAction(self.menu_help.menuAction())
@@ -537,7 +537,7 @@ class Ui_MainWindowView(object):
         self.menu_file.setTitle(_translate("MainWindowView", "&File"))
         self.menu_recent_files.setTitle(_translate("MainWindowView", "&Recent files"))
         self.menu_view.setTitle(_translate("MainWindowView", "&View"))
-        self.menu_navegation.setTitle(_translate("MainWindowView", "&Navegation"))
+        self.menu_navigation.setTitle(_translate("MainWindowView", "&Navigation"))
         self.menu_help.setTitle(_translate("MainWindowView", "&Help"))
         self.menu_settings.setTitle(_translate("MainWindowView", "&Settings"))
         self.menu_bookmarks.setTitle(_translate("MainWindowView", "&Bookmarks"))
