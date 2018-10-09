@@ -301,7 +301,7 @@
     <addaction name="action_double_page_mode"/>
     <addaction name="action_manga_mode"/>
    </widget>
-   <widget class="QMenu" name="menu_navegation">
+   <widget class="QMenu" name="menu_navigation">
     <property name="acceptDrops">
      <bool>false</bool>
     </property>
@@ -309,7 +309,7 @@
      <bool>false</bool>
     </property>
     <property name="title">
-     <string>&amp;Navegation</string>
+     <string>&amp;Navigation</string>
     </property>
     <addaction name="action_next_page"/>
     <addaction name="action_previous_page"/>
@@ -366,7 +366,7 @@
    </widget>
    <addaction name="menu_file"/>
    <addaction name="menu_view"/>
-   <addaction name="menu_navegation"/>
+   <addaction name="menu_navigation"/>
    <addaction name="menu_bookmarks"/>
    <addaction name="menu_settings"/>
    <addaction name="menu_help"/>

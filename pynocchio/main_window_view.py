@@ -97,7 +97,7 @@ class MainWindowView(QtWidgets.QMainWindow):
     def on_action_previous_page_triggered(self):
         if self.model.previous_page():
             self.update_viewer_content()
-            self.update_navegation_actions()
+            self.update_navigation_actions()
             vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
             vert_scroll_bar.setValue(self.last_scroll_position)
         else:
@@ -110,7 +110,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
             self.last_scroll_position = vert_scroll_bar.sliderPosition()
             self.update_viewer_content()
-            self.update_navegation_actions()
+            self.update_navigation_actions()
         else:
             self.on_action_next_comic_triggered()
 
@@ -118,13 +118,13 @@ class MainWindowView(QtWidgets.QMainWindow):
     def on_action_first_page_triggered(self):
         self.model.first_page()
         self.update_viewer_content()
-        self.update_navegation_actions()
+        self.update_navigation_actions()
 
     @QtCore.pyqtSlot()
     def on_action_last_page_triggered(self):
         self.model.last_page()
         self.update_viewer_content()
-        self.update_navegation_actions()
+        self.update_navigation_actions()
 
     @QtCore.pyqtSlot()
     def on_action_previous_comic_triggered(self):
@@ -133,7 +133,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         except NoDataFindException as exc:
             logger.exception(exc.message)
 
-        self.update_navegation_actions()
+        self.update_navigation_actions()
 
     @QtCore.pyqtSlot()
     def on_action_next_comic_triggered(self):
@@ -142,7 +142,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         except NoDataFindException as exc:
             logger.exception(exc.message)
 
-        self.update_navegation_actions()
+        self.update_navigation_actions()
 
     @QtCore.pyqtSlot()
     def on_action_rotate_left_triggered(self):
@@ -164,7 +164,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.model.set_current_page_index(
                 go_to_dlg.handler.current_page_index)
             self.update_viewer_content()
-            self.update_navegation_actions()
+            self.update_navigation_actions()
 
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
@@ -389,7 +389,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
                 # Update next page, previous page, next and previous comics
                 # actions
-                self.update_navegation_actions()
+                self.update_navigation_actions()
 
                 # Register view like listener of ComicPageHandler events
                 # self.model.comic_page_handler.listener.append(self)
@@ -511,13 +511,13 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         action_list = self.ui.menu_file.actions()
         action_list += self.ui.menu_view.actions()
-        action_list += self.ui.menu_navegation.actions()
+        action_list += self.ui.menu_navigation.actions()
         action_list += self.ui.menu_bookmarks.actions()
 
         for action in action_list:
             action.setEnabled(True)
 
-    def update_navegation_actions(self):
+    def update_navigation_actions(self):
 
         # is_first_page = self.model.is_first_page()
         # is_last_page = self.model.is_last_page()
