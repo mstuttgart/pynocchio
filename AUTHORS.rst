@@ -5,9 +5,9 @@ Credits
 Development Lead
 ----------------
 
-* Michell Stuttgart <michellstut@gmail.com>
+* Michell Stuttgart <https://github.com/mstuttgart>
 
 Contributors
 ------------
 
-None yet. Why not be the first?
+* Søren Howe Gersager <https://github.com/syre>
