@@ -52,7 +52,11 @@ class ComicRarLoader(ComicLoader):
                         self.data.append(Page(rar.read(name), name, page))
                         page += 1
                     except rarfile.BadRarFile as exc:
-                        logger.exception('Error reading %s file. %s', name, exc)
+                        logger.exception(
+                            'Error reading %s file. %s',
+                            name,
+                            exc
+                        )
 
                 self.progress.emit(idx * aux)
             logger.info('Successfully loaded %s', filename)

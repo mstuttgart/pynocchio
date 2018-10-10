@@ -61,7 +61,11 @@ class ComicZipLoader(ComicLoader):
                         self.data.append(Page(zf.read(name), name, page))
                         page += 1
                     except zipfile.BadZipfile as exc:
-                        logger.exception('Error in read %s file. %s', name, exc)
+                        logger.exception(
+                            'Error in read %s file. %s',
+                            name,
+                            exc
+                        )
 
                 self.progress.emit(idx * aux)
 
