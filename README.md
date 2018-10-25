@@ -32,14 +32,11 @@
 </p>
 
 <p align="center">
-  <a href="#about">About</a> |
   <a href="#features">Features</a> | 
   <a href="#installation">Installation</a> |
   <a href="#contributing">Contributing</a> |
   <a href="#credits">Credits</a>
 </p>
-
-Pynocchio is a image viewer specialized in comic reading.
 
 <p align="center">
 <img src="data/screenshots/screenshot_02.png" alt="Pynocchio Comic Reader - Main Screen">
