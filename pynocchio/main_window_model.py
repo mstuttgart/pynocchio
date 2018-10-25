@@ -37,8 +37,6 @@ class MainWindowModel(QtCore.QObject):
         self.current_directory = self.load_current_directory()
 
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
-        # ext_list += ['*.' + str(ext, encoding='utf8') for ext in
-        #              QtGui.QImageReader.supportedImageFormats()]
 
         self.comic_file_filter = ComicPathFilter(ext_list)
 
@@ -65,7 +63,7 @@ class MainWindowModel(QtCore.QObject):
         except NoDataFindException as exc:
             from pynocchio.comic import Page
             logger.exception('Error in load comic! %s', exc)
-            q_file = QtCore.QFile(":/icons/notCover.png")
+            q_file = QtCore.QFile(":/icons/not_cover.png")
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
 
