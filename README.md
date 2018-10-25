@@ -39,8 +39,6 @@
   <a href="#credits">Credits</a>
 </p>
 
-## About
-
 Pynocchio is a image viewer specialized in comic reading.
 
 <p align="center">
