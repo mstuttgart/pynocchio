@@ -1,16 +1,15 @@
-# -*- coding: utf-8 -*-
-
-from setuptools import setup, find_packages
 import os
 import sys
-
 from codecs import open
+
+from setuptools import find_packages, setup
 
 version_path = os.path.join(os.path.abspath(os.path.dirname(__file__)),
                             'pynocchio',
                             '__version__.py')
 
 about = {}
+
 with open(version_path, 'r') as f:
     exec(f.read(), about)
 
@@ -50,12 +49,6 @@ setup(
         'pynocchio-client.py',
     ],
     include_package_data=True,
-    install_requires=[
-        'rarfile==3.0',
-        'peewee==2.10.2',
-        'PyQt5==5.10',
-        'qdarkgraystyle>=0.0.3',
-    ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Users',
