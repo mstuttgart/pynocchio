@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-
-from .comic_page_handler import ComicPageHandlerSinglePage
-from .comic_page_handler import ComicPageHandlerDoublePage
+from .comic_page_handler import (ComicPageHandlerDoublePage,
+                                 ComicPageHandlerSinglePage)
 
 
 class ComicPageHandlerFactory():

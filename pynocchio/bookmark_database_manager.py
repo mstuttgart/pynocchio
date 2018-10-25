@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
+import logging
+import sqlite3
 
 import peewee
-import sqlite3
-from .bookmark import Bookmark, TemporaryBookmark, BookmarkBaseModel, db
 
-import logging
+from .bookmark import Bookmark, BookmarkBaseModel, TemporaryBookmark, db
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

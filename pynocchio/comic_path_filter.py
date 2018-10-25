@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-
 import glob
-from .utility import join_path
+
 from .exception import NoDataFindException
+from .utility import join_path
 
 
 class ComicPathFilter():

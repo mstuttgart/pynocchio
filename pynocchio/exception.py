@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 class PynocchioBaseException(Exception):
 
     def __init__(self, msg, *args):

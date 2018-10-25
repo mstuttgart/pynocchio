@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
+import logging
 
 from PyQt5 import QtCore
-
-import logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

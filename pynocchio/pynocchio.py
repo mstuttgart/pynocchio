@@ -1,21 +1,18 @@
-# -*- coding: utf-8 -*-
-
-import sys
 import os
+import sys
 
+import qdarkgraystyle
 from PyQt5 import QtCore, QtWidgets
 
 from .main_window_model import MainWindowModel
 from .main_window_view import MainWindowView
 
-import qdarkgraystyle
-
 DATADIRS = (
-        os.path.abspath('./pynocchio'),
-        '/usr/share/pynocchio',
-        '/usr/local/share/pynocchio',
-        os.path.join(QtCore.QDir.homePath(), '.local/share/pynocchio'),
-    )
+    os.path.abspath('./pynocchio'),
+    '/usr/share/pynocchio',
+    '/usr/local/share/pynocchio',
+    os.path.join(QtCore.QDir.homePath(), '.local/share/pynocchio'),
+)
 
 QLocale = QtCore.QLocale
 QLibraryInfo = QtCore.QLibraryInfo

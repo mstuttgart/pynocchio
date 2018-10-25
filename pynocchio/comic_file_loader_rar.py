@@ -1,13 +1,11 @@
-# -*- coding: utf-8 -*-
-
 import logging
+
 import rarfile
 
-from .comic_file_loader import ComicLoader
-from .utility import get_file_extension
-from .utility import IMAGE_FILE_FORMATS
 from .comic import Page
+from .comic_file_loader import ComicLoader
 from .exception import NoDataFindException
+from .utility import IMAGE_FILE_FORMATS, get_file_extension
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

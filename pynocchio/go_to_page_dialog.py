@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from PyQt5 import QtCore, QtWidgets
 
-from .uic_files import go_to_page_dialog_ui
 from .comic_page_handler_factory import ComicPageHandlerFactory
+from .uic_files import go_to_page_dialog_ui
 
 
 class GoToDialog(QtWidgets.QDialog):

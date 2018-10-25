@@ -1,18 +1,17 @@
-# -*- coding: utf-8 -*-
-
-from PyQt5 import QtCore, QtGui
 import logging
 
-from .exception import NoDataFindException
-from .utility import get_base_name, get_dir_name, is_file
+from PyQt5 import QtCore, QtGui
+
+from .bookmark import Bookmark, TemporaryBookmark
 from .bookmark_database_manager import BookmarkManager
-from .bookmark import TemporaryBookmark, Bookmark
-from .comic_file_loader_factory import ComicLoaderFactory
 from .comic import Comic
-from .comic_page_handler_factory import ComicPageHandlerFactory
+from .comic_file_loader_factory import ComicLoaderFactory
 from .comic_page_handler import ComicPageHandlerDoublePage
+from .comic_page_handler_factory import ComicPageHandlerFactory
 from .comic_path_filter import ComicPathFilter
+from .exception import NoDataFindException
 from .settings_manager import SettingsManager
+from .utility import get_base_name, get_dir_name, is_file
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -154,7 +153,7 @@ class MainWindowModel(QtCore.QObject):
 
     def is_last_page(self):
         return self.comic_page_handler.current_page_index + 1 == \
-               len(self.comic.pages)
+            len(self.comic.pages)
 
     def is_first_comic(self):
         return self.comic_file_filter.is_first_comic(self.comic.name)

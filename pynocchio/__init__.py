@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from .__version__ import (__title__,  # noqa: F401
                           __description__,
                           __version__,

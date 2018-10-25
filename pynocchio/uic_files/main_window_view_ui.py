@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 
 # Form implementation generated from reading ui file 'main_window_view.ui'
 #
@@ -8,19 +8,27 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from . import main_window_view_rc
+from .custom_widgets.qscroll_area_viewer import QScrollAreaViewer
+from .custom_widgets.status_bar import StatusBar
+
+
 class Ui_MainWindowView(object):
     def setupUi(self, MainWindowView):
         MainWindowView.setObjectName("MainWindowView")
         MainWindowView.resize(1048, 537)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(MainWindowView.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            MainWindowView.sizePolicy().hasHeightForWidth())
         MainWindowView.setSizePolicy(sizePolicy)
         MainWindowView.setBaseSize(QtCore.QSize(0, 3))
         MainWindowView.setFocusPolicy(QtCore.Qt.WheelFocus)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/others/pynocchio.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/others/pynocchio.png"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindowView.setWindowIcon(icon)
         MainWindowView.setIconSize(QtCore.QSize(22, 22))
         MainWindowView.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
@@ -30,10 +38,12 @@ class Ui_MainWindowView(object):
         MainWindowView.setDockNestingEnabled(False)
         MainWindowView.setUnifiedTitleAndToolBarOnMac(True)
         self.central_widget = QtWidgets.QWidget(MainWindowView)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.central_widget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.central_widget.sizePolicy().hasHeightForWidth())
         self.central_widget.setSizePolicy(sizePolicy)
         self.central_widget.setAutoFillBackground(False)
         self.central_widget.setObjectName("central_widget")
@@ -41,10 +51,12 @@ class Ui_MainWindowView(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.qscroll_area_viewer = QScrollAreaViewer(self.central_widget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.qscroll_area_viewer.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.qscroll_area_viewer.sizePolicy().hasHeightForWidth())
         self.qscroll_area_viewer.setSizePolicy(sizePolicy)
         self.qscroll_area_viewer.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.qscroll_area_viewer.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -52,31 +64,41 @@ class Ui_MainWindowView(object):
         self.qscroll_area_viewer.setFrameShape(QtWidgets.QFrame.HLine)
         self.qscroll_area_viewer.setFrameShadow(QtWidgets.QFrame.Plain)
         self.qscroll_area_viewer.setLineWidth(0)
-        self.qscroll_area_viewer.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        self.qscroll_area_viewer.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.qscroll_area_viewer.setVerticalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOff)
+        self.qscroll_area_viewer.setHorizontalScrollBarPolicy(
+            QtCore.Qt.ScrollBarAlwaysOff)
         self.qscroll_area_viewer.setWidgetResizable(True)
         self.qscroll_area_viewer.setAlignment(QtCore.Qt.AlignCenter)
         self.qscroll_area_viewer.setObjectName("qscroll_area_viewer")
         self.scroll_area_widget_contents = QtWidgets.QWidget()
-        self.scroll_area_widget_contents.setGeometry(QtCore.QRect(0, 0, 1048, 454))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        self.scroll_area_widget_contents.setGeometry(
+            QtCore.QRect(0, 0, 1048, 454))
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.scroll_area_widget_contents.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.scroll_area_widget_contents.sizePolicy().hasHeightForWidth())
         self.scroll_area_widget_contents.setSizePolicy(sizePolicy)
         self.scroll_area_widget_contents.setAutoFillBackground(True)
         self.scroll_area_widget_contents.setStyleSheet("")
-        self.scroll_area_widget_contents.setObjectName("scroll_area_widget_contents")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.scroll_area_widget_contents)
-        self.horizontalLayout_2.setSizeConstraint(QtWidgets.QLayout.SetMaximumSize)
+        self.scroll_area_widget_contents.setObjectName(
+            "scroll_area_widget_contents")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(
+            self.scroll_area_widget_contents)
+        self.horizontalLayout_2.setSizeConstraint(
+            QtWidgets.QLayout.SetMaximumSize)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label = QtWidgets.QLabel(self.scroll_area_widget_contents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(20)
         sizePolicy.setVerticalStretch(20)
-        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy)
         self.label.setMouseTracking(False)
         self.label.setFocusPolicy(QtCore.Qt.ClickFocus)
@@ -99,10 +121,12 @@ class Ui_MainWindowView(object):
         MainWindowView.setCentralWidget(self.central_widget)
         self.menubar = QtWidgets.QMenuBar(MainWindowView)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1048, 23))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.menubar.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.menubar.sizePolicy().hasHeightForWidth())
         self.menubar.setSizePolicy(sizePolicy)
         self.menubar.setAcceptDrops(False)
         self.menubar.setAutoFillBackground(False)
@@ -134,10 +158,12 @@ class Ui_MainWindowView(object):
         MainWindowView.setMenuBar(self.menubar)
         self.toolbar = QtWidgets.QToolBar(MainWindowView)
         self.toolbar.setEnabled(True)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.toolbar.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.toolbar.sizePolicy().hasHeightForWidth())
         self.toolbar.setSizePolicy(sizePolicy)
         self.toolbar.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.toolbar.setAcceptDrops(True)
@@ -152,7 +178,8 @@ class Ui_MainWindowView(object):
         MainWindowView.setStatusBar(self.statusbar)
         self.action_about = QtWidgets.QAction(MainWindowView)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/icons/icons/help-info.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/icons/icons/help-info.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_about.setIcon(icon1)
         self.action_about.setObjectName("action_about")
         self.action_about_qt = QtWidgets.QAction(MainWindowView)
@@ -162,7 +189,8 @@ class Ui_MainWindowView(object):
         self.action_next_page = QtWidgets.QAction(MainWindowView)
         self.action_next_page.setEnabled(False)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/icons/icons/go-next.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(":/icons/icons/go-next.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_next_page.setIcon(icon2)
         self.action_next_page.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_next_page.setVisible(True)
@@ -171,7 +199,8 @@ class Ui_MainWindowView(object):
         self.action_previous_page = QtWidgets.QAction(MainWindowView)
         self.action_previous_page.setEnabled(False)
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/icons/icons/go-previous.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(":/icons/icons/go-previous.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_previous_page.setIcon(icon3)
         self.action_previous_page.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_previous_page.setVisible(True)
@@ -179,14 +208,16 @@ class Ui_MainWindowView(object):
         self.action_first_page = QtWidgets.QAction(MainWindowView)
         self.action_first_page.setEnabled(False)
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/icons/icons/go-first.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(":/icons/icons/go-first.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_first_page.setIcon(icon4)
         self.action_first_page.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_first_page.setObjectName("action_first_page")
         self.action_last_page = QtWidgets.QAction(MainWindowView)
         self.action_last_page.setEnabled(False)
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(":/icons/icons/go-last.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap(":/icons/icons/go-last.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_last_page.setIcon(icon5)
         self.action_last_page.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_last_page.setObjectName("action_last_page")
@@ -194,14 +225,16 @@ class Ui_MainWindowView(object):
         self.action_rotate_left.setCheckable(False)
         self.action_rotate_left.setEnabled(False)
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(":/icons/icons/object-rotate-left.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/object-rotate-left.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_rotate_left.setIcon(icon6)
         self.action_rotate_left.setShortcutContext(QtCore.Qt.WidgetShortcut)
         self.action_rotate_left.setObjectName("action_rotate_left")
         self.action_rotate_right = QtWidgets.QAction(MainWindowView)
         self.action_rotate_right.setEnabled(False)
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap(":/icons/icons/object-rotate-right.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon7.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/object-rotate-right.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_rotate_right.setIcon(icon7)
         self.action_rotate_right.setShortcutContext(QtCore.Qt.WidgetShortcut)
         self.action_rotate_right.setObjectName("action_rotate_right")
@@ -210,7 +243,8 @@ class Ui_MainWindowView(object):
         self.action_horizontal_fit.setChecked(False)
         self.action_horizontal_fit.setEnabled(False)
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(":/icons/icons/horizontal-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon8.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/horizontal-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_horizontal_fit.setIcon(icon8)
         self.action_horizontal_fit.setVisible(True)
         self.action_horizontal_fit.setObjectName("action_horizontal_fit")
@@ -218,7 +252,8 @@ class Ui_MainWindowView(object):
         self.action_fullscreen.setCheckable(False)
         self.action_fullscreen.setEnabled(False)
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(":/icons/icons/fullscreen.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap(":/icons/icons/fullscreen.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_fullscreen.setIcon(icon9)
         self.action_fullscreen.setShortcutContext(QtCore.Qt.WidgetShortcut)
         self.action_fullscreen.setIconVisibleInMenu(True)
@@ -226,7 +261,8 @@ class Ui_MainWindowView(object):
         self.action_go_to_page = QtWidgets.QAction(MainWindowView)
         self.action_go_to_page.setEnabled(False)
         icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap(":/icons/icons/edit-find.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon10.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/edit-find.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_go_to_page.setIcon(icon10)
         self.action_go_to_page.setObjectName("action_go_to_page")
         self.action_original_fit = QtWidgets.QAction(MainWindowView)
@@ -234,9 +270,11 @@ class Ui_MainWindowView(object):
         self.action_original_fit.setChecked(True)
         self.action_original_fit.setEnabled(False)
         icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap(":/icons/icons/original-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon11.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/original-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_original_fit.setIcon(icon11)
-        self.action_original_fit.setShortcutContext(QtCore.Qt.ApplicationShortcut)
+        self.action_original_fit.setShortcutContext(
+            QtCore.Qt.ApplicationShortcut)
         self.action_original_fit.setVisible(True)
         self.action_original_fit.setObjectName("action_original_fit")
         self.action_show_statusbar = QtWidgets.QAction(MainWindowView)
@@ -246,14 +284,16 @@ class Ui_MainWindowView(object):
         self.action_add_bookmark = QtWidgets.QAction(MainWindowView)
         self.action_add_bookmark.setEnabled(False)
         icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap(":/icons/icons/bookmark-new.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon12.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/bookmark-new.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_add_bookmark.setIcon(icon12)
         self.action_add_bookmark.setVisible(True)
         self.action_add_bookmark.setObjectName("action_add_bookmark")
         self.action_remove_bookmark = QtWidgets.QAction(MainWindowView)
         self.action_remove_bookmark.setEnabled(False)
         icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap(":/icons/icons/edit-delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon13.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/edit-delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_remove_bookmark.setIcon(icon13)
         self.action_remove_bookmark.setVisible(False)
         self.action_remove_bookmark.setIconVisibleInMenu(True)
@@ -261,34 +301,40 @@ class Ui_MainWindowView(object):
         self.action_bookmark_manager = QtWidgets.QAction(MainWindowView)
         self.action_bookmark_manager.setEnabled(True)
         icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap(":/icons/icons/system-file-manager2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon14.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/system-file-manager2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_bookmark_manager.setIcon(icon14)
         self.action_bookmark_manager.setObjectName("action_bookmark_manager")
         self.action_open_folder = QtWidgets.QAction(MainWindowView)
         icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap(":/icons/icons/document-open.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon15.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/document-open.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_open_folder.setIcon(icon15)
         self.action_open_folder.setVisible(True)
-        self.action_open_folder.setMenuRole(QtWidgets.QAction.TextHeuristicRole)
+        self.action_open_folder.setMenuRole(
+            QtWidgets.QAction.TextHeuristicRole)
         self.action_open_folder.setIconVisibleInMenu(True)
         self.action_open_folder.setObjectName("action_open_folder")
         self.action_next_comic = QtWidgets.QAction(MainWindowView)
         self.action_next_comic.setEnabled(False)
         icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap(":/icons/icons/media-skip-forward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon16.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/media-skip-forward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_next_comic.setIcon(icon16)
         self.action_next_comic.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_next_comic.setObjectName("action_next_comic")
         self.action_previous_comic = QtWidgets.QAction(MainWindowView)
         self.action_previous_comic.setEnabled(False)
         icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap(":/icons/icons/media-skip-backward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon17.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/media-skip-backward.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_previous_comic.setIcon(icon17)
         self.action_previous_comic.setShortcutContext(QtCore.Qt.WindowShortcut)
         self.action_previous_comic.setObjectName("action_previous_comic")
         self.action_preference_dialog = QtWidgets.QAction(MainWindowView)
         icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap(":/icons/elementary3-icon-theme/actions/48/document-properties.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon18.addPixmap(QtGui.QPixmap(
+            ":/icons/elementary3-icon-theme/actions/48/document-properties.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_preference_dialog.setIcon(icon18)
         self.action_preference_dialog.setVisible(False)
         self.action_preference_dialog.setObjectName("action_preference_dialog")
@@ -297,7 +343,8 @@ class Ui_MainWindowView(object):
         self.action_vertical_fit.setChecked(False)
         self.action_vertical_fit.setEnabled(False)
         icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap(":/icons/icons/vertical-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon19.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/vertical-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_vertical_fit.setIcon(icon19)
         self.action_vertical_fit.setAutoRepeat(True)
         self.action_vertical_fit.setVisible(True)
@@ -307,7 +354,8 @@ class Ui_MainWindowView(object):
         self.action_best_fit.setChecked(False)
         self.action_best_fit.setEnabled(False)
         icon20 = QtGui.QIcon()
-        icon20.addPixmap(QtGui.QPixmap(":/icons/icons/best-fit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon20.addPixmap(QtGui.QPixmap(":/icons/icons/best-fit.png"),
+                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_best_fit.setIcon(icon20)
         self.action_best_fit.setVisible(True)
         self.action_best_fit.setObjectName("action_best_fit")
@@ -316,7 +364,8 @@ class Ui_MainWindowView(object):
         self.action_save_image.setObjectName("action_save_image")
         self.action_open_file = QtWidgets.QAction(MainWindowView)
         icon21 = QtGui.QIcon()
-        icon21.addPixmap(QtGui.QPixmap(":/icons/icons/archive-extract.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon21.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/archive-extract.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_open_file.setIcon(icon21)
         font = QtGui.QFont()
         self.action_open_file.setFont(font)
@@ -412,13 +461,15 @@ class Ui_MainWindowView(object):
         self.action_en_us = QtWidgets.QAction(MainWindowView)
         self.action_en_us.setCheckable(True)
         icon22 = QtGui.QIcon()
-        icon22.addPixmap(QtGui.QPixmap(":/icons/famfamfam_flag_icons/png/us.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon22.addPixmap(QtGui.QPixmap(
+            ":/icons/famfamfam_flag_icons/png/us.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_en_us.setIcon(icon22)
         self.action_en_us.setObjectName("action_en_us")
         self.action_pt_br = QtWidgets.QAction(MainWindowView)
         self.action_pt_br.setCheckable(True)
         icon23 = QtGui.QIcon()
-        icon23.addPixmap(QtGui.QPixmap(":/icons/famfamfam_flag_icons/png/br.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon23.addPixmap(QtGui.QPixmap(
+            ":/icons/famfamfam_flag_icons/png/br.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_pt_br.setIcon(icon23)
         self.action_pt_br.setIconText("pt_BR")
         self.action_pt_br.setObjectName("action_pt_br")
@@ -430,7 +481,8 @@ class Ui_MainWindowView(object):
         self.action_double_page_mode.setCheckable(True)
         self.action_double_page_mode.setEnabled(False)
         icon24 = QtGui.QIcon()
-        icon24.addPixmap(QtGui.QPixmap(":/icons/icons/distribute-horizontal-margin.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon24.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/distribute-horizontal-margin.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_double_page_mode.setIcon(icon24)
         self.action_double_page_mode.setIconVisibleInMenu(True)
         self.action_double_page_mode.setObjectName("action_double_page_mode")
@@ -531,69 +583,114 @@ class Ui_MainWindowView(object):
 
     def retranslateUi(self, MainWindowView):
         _translate = QtCore.QCoreApplication.translate
-        MainWindowView.setWindowTitle(_translate("MainWindowView", "Pynocchio"))
-        MainWindowView.setAccessibleName(_translate("MainWindowView", "Pynocchio"))
-        MainWindowView.setAccessibleDescription(_translate("MainWindowView", "The Best Comic Reader"))
+        MainWindowView.setWindowTitle(
+            _translate("MainWindowView", "Pynocchio"))
+        MainWindowView.setAccessibleName(
+            _translate("MainWindowView", "Pynocchio"))
+        MainWindowView.setAccessibleDescription(
+            _translate("MainWindowView", "The Best Comic Reader"))
         self.menu_file.setTitle(_translate("MainWindowView", "&File"))
-        self.menu_recent_files.setTitle(_translate("MainWindowView", "&Recent files"))
+        self.menu_recent_files.setTitle(
+            _translate("MainWindowView", "&Recent files"))
         self.menu_view.setTitle(_translate("MainWindowView", "&View"))
-        self.menu_navigation.setTitle(_translate("MainWindowView", "&Navigation"))
+        self.menu_navigation.setTitle(
+            _translate("MainWindowView", "&Navigation"))
         self.menu_help.setTitle(_translate("MainWindowView", "&Help"))
         self.menu_settings.setTitle(_translate("MainWindowView", "&Settings"))
-        self.menu_bookmarks.setTitle(_translate("MainWindowView", "&Bookmarks"))
-        self.menu_recent_bookmarks.setTitle(_translate("MainWindowView", "R&ecente bookmarks"))
+        self.menu_bookmarks.setTitle(
+            _translate("MainWindowView", "&Bookmarks"))
+        self.menu_recent_bookmarks.setTitle(
+            _translate("MainWindowView", "R&ecente bookmarks"))
         self.toolbar.setWindowTitle(_translate("MainWindowView", "toolBar"))
-        self.action_about.setText(_translate("MainWindowView", "&About Pynocchio"))
+        self.action_about.setText(_translate(
+            "MainWindowView", "&About Pynocchio"))
         self.action_about_qt.setText(_translate("MainWindowView", "About &Qt"))
         self.action_exit.setText(_translate("MainWindowView", "&Exit"))
         self.action_exit.setShortcut(_translate("MainWindowView", "Ctrl+Q"))
-        self.action_next_page.setText(_translate("MainWindowView", "&Next page"))
-        self.action_next_page.setShortcut(_translate("MainWindowView", "Right"))
-        self.action_previous_page.setText(_translate("MainWindowView", "&Previous page"))
-        self.action_previous_page.setShortcut(_translate("MainWindowView", "Left"))
-        self.action_first_page.setText(_translate("MainWindowView", "&First page"))
-        self.action_first_page.setShortcut(_translate("MainWindowView", "Ctrl+Left"))
-        self.action_last_page.setText(_translate("MainWindowView", "&Last page"))
-        self.action_last_page.setShortcut(_translate("MainWindowView", "Ctrl+Right"))
-        self.action_rotate_left.setText(_translate("MainWindowView", "&Rotate left"))
-        self.action_rotate_left.setShortcut(_translate("MainWindowView", "Ctrl+Shift+R"))
-        self.action_rotate_right.setText(_translate("MainWindowView", "Rotat&e right"))
-        self.action_rotate_right.setShortcut(_translate("MainWindowView", "Ctrl+R"))
-        self.action_horizontal_fit.setText(_translate("MainWindowView", "&Horizontal fit"))
-        self.action_horizontal_fit.setShortcut(_translate("MainWindowView", "Ctrl+K"))
-        self.action_fullscreen.setText(_translate("MainWindowView", "&Fullscreen"))
+        self.action_next_page.setText(
+            _translate("MainWindowView", "&Next page"))
+        self.action_next_page.setShortcut(
+            _translate("MainWindowView", "Right"))
+        self.action_previous_page.setText(
+            _translate("MainWindowView", "&Previous page"))
+        self.action_previous_page.setShortcut(
+            _translate("MainWindowView", "Left"))
+        self.action_first_page.setText(
+            _translate("MainWindowView", "&First page"))
+        self.action_first_page.setShortcut(
+            _translate("MainWindowView", "Ctrl+Left"))
+        self.action_last_page.setText(
+            _translate("MainWindowView", "&Last page"))
+        self.action_last_page.setShortcut(
+            _translate("MainWindowView", "Ctrl+Right"))
+        self.action_rotate_left.setText(
+            _translate("MainWindowView", "&Rotate left"))
+        self.action_rotate_left.setShortcut(
+            _translate("MainWindowView", "Ctrl+Shift+R"))
+        self.action_rotate_right.setText(
+            _translate("MainWindowView", "Rotat&e right"))
+        self.action_rotate_right.setShortcut(
+            _translate("MainWindowView", "Ctrl+R"))
+        self.action_horizontal_fit.setText(
+            _translate("MainWindowView", "&Horizontal fit"))
+        self.action_horizontal_fit.setShortcut(
+            _translate("MainWindowView", "Ctrl+K"))
+        self.action_fullscreen.setText(
+            _translate("MainWindowView", "&Fullscreen"))
         self.action_fullscreen.setShortcut(_translate("MainWindowView", "F"))
-        self.action_go_to_page.setText(_translate("MainWindowView", "&Go to page"))
-        self.action_go_to_page.setShortcut(_translate("MainWindowView", "Ctrl+G"))
-        self.action_original_fit.setText(_translate("MainWindowView", "&Original fit"))
-        self.action_original_fit.setShortcut(_translate("MainWindowView", "Ctrl+H"))
-        self.action_show_statusbar.setText(_translate("MainWindowView", "S&how Statusbar"))
-        self.action_add_bookmark.setText(_translate("MainWindowView", "&Add bookmark"))
-        self.action_remove_bookmark.setText(_translate("MainWindowView", "&Remove bookmark"))
-        self.action_bookmark_manager.setText(_translate("MainWindowView", "&Bookmark manager"))
-        self.action_open_folder.setText(_translate("MainWindowView", "Open &Folder"))
-        self.action_next_comic.setText(_translate("MainWindowView", "Next &Comic"))
-        self.action_next_comic.setShortcut(_translate("MainWindowView", "Ctrl+Shift+Right"))
-        self.action_previous_comic.setText(_translate("MainWindowView", "P&revious Comic"))
-        self.action_previous_comic.setShortcut(_translate("MainWindowView", "Ctrl+Shift+Left"))
-        self.action_preference_dialog.setText(_translate("MainWindowView", "&Preferences"))
-        self.action_vertical_fit.setText(_translate("MainWindowView", "&Vertical fit"))
-        self.action_vertical_fit.setShortcut(_translate("MainWindowView", "Ctrl+J"))
+        self.action_go_to_page.setText(
+            _translate("MainWindowView", "&Go to page"))
+        self.action_go_to_page.setShortcut(
+            _translate("MainWindowView", "Ctrl+G"))
+        self.action_original_fit.setText(
+            _translate("MainWindowView", "&Original fit"))
+        self.action_original_fit.setShortcut(
+            _translate("MainWindowView", "Ctrl+H"))
+        self.action_show_statusbar.setText(
+            _translate("MainWindowView", "S&how Statusbar"))
+        self.action_add_bookmark.setText(
+            _translate("MainWindowView", "&Add bookmark"))
+        self.action_remove_bookmark.setText(
+            _translate("MainWindowView", "&Remove bookmark"))
+        self.action_bookmark_manager.setText(
+            _translate("MainWindowView", "&Bookmark manager"))
+        self.action_open_folder.setText(
+            _translate("MainWindowView", "Open &Folder"))
+        self.action_next_comic.setText(
+            _translate("MainWindowView", "Next &Comic"))
+        self.action_next_comic.setShortcut(
+            _translate("MainWindowView", "Ctrl+Shift+Right"))
+        self.action_previous_comic.setText(
+            _translate("MainWindowView", "P&revious Comic"))
+        self.action_previous_comic.setShortcut(
+            _translate("MainWindowView", "Ctrl+Shift+Left"))
+        self.action_preference_dialog.setText(
+            _translate("MainWindowView", "&Preferences"))
+        self.action_vertical_fit.setText(
+            _translate("MainWindowView", "&Vertical fit"))
+        self.action_vertical_fit.setShortcut(
+            _translate("MainWindowView", "Ctrl+J"))
         self.action_best_fit.setText(_translate("MainWindowView", "&Best fit"))
-        self.action_best_fit.setShortcut(_translate("MainWindowView", "Ctrl+L"))
-        self.action_save_image.setText(_translate("MainWindowView", "&Save image"))
-        self.action_save_image.setWhatsThis(_translate("MainWindowView", "Save current image in disk."))
-        self.action_save_image.setShortcut(_translate("MainWindowView", "Ctrl+S"))
-        self.action_open_file.setText(_translate("MainWindowView", "&Open File"))
-        self.action_open_file.setShortcut(_translate("MainWindowView", "Ctrl+O"))
+        self.action_best_fit.setShortcut(
+            _translate("MainWindowView", "Ctrl+L"))
+        self.action_save_image.setText(
+            _translate("MainWindowView", "&Save image"))
+        self.action_save_image.setWhatsThis(_translate(
+            "MainWindowView", "Save current image in disk."))
+        self.action_save_image.setShortcut(
+            _translate("MainWindowView", "Ctrl+S"))
+        self.action_open_file.setText(
+            _translate("MainWindowView", "&Open File"))
+        self.action_open_file.setShortcut(
+            _translate("MainWindowView", "Ctrl+O"))
         self.action_en_us.setText(_translate("MainWindowView", "English"))
         self.action_en_us.setIconText(_translate("MainWindowView", "en_US"))
         self.action_pt_br.setText(_translate("MainWindowView", "Portuguese"))
-        self.action_show_toolbar.setText(_translate("MainWindowView", "&Show Toolbar"))
-        self.action_double_page_mode.setText(_translate("MainWindowView", "&Double Page Mode"))
-        self.action_double_page_mode.setToolTip(_translate("MainWindowView", "Active double page mode"))
-        self.action_manga_mode.setText(_translate("MainWindowView", "&Manga Mode"))
-
-from .custom_widgets.qscroll_area_viewer import QScrollAreaViewer
-from .custom_widgets.status_bar import StatusBar
-from . import main_window_view_rc
+        self.action_show_toolbar.setText(
+            _translate("MainWindowView", "&Show Toolbar"))
+        self.action_double_page_mode.setText(
+            _translate("MainWindowView", "&Double Page Mode"))
+        self.action_double_page_mode.setToolTip(
+            _translate("MainWindowView", "Active double page mode"))
+        self.action_manga_mode.setText(
+            _translate("MainWindowView", "&Manga Mode"))

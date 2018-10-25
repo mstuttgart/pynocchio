@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from PyQt5 import QtWidgets
 
 from .uic_files import preference_dialog_ui

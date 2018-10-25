@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
-
-import peewee
 import os
 
-from .utility import get_dir_name
+import peewee
+
 from .settings_manager import SettingsManager
+from .utility import get_dir_name
 
 
 # get settings path. In Linux is .config/Pynocchio

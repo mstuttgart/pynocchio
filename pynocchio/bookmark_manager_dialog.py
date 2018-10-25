@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
-
-from PyQt5 import QtCore, QtGui, QtWidgets, QtSql
-
-from .utility import get_dir_name, file_exist
-from .uic_files import bookmark_manager_dialog_ui
-
 import logging
+
+from PyQt5 import QtCore, QtGui, QtSql, QtWidgets
+
+from .uic_files import bookmark_manager_dialog_ui
+from .utility import file_exist, get_dir_name
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 

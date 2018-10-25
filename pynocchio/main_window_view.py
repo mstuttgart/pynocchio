@@ -1,19 +1,16 @@
-# -*- coding: utf-8 -*-
-
-from PyQt5 import QtCore, QtGui, QtWidgets
 import logging
 
-from .utility import IMAGE_FILE_FORMATS
-from .exception import InvalidTypeFileException
-from .exception import LoadComicsException
-from .exception import NoDataFindException
-from .utility import file_exist
-from .go_to_page_dialog import GoToDialog
-from .bookmark_manager_dialog import BookmarkManagerDialog
-from .bookmark import TemporaryBookmark
+from PyQt5 import QtCore, QtGui, QtWidgets
+
 from .about_dialog import AboutDialog
+from .bookmark import TemporaryBookmark
+from .bookmark_manager_dialog import BookmarkManagerDialog
+from .exception import (InvalidTypeFileException, LoadComicsException,
+                        NoDataFindException)
+from .go_to_page_dialog import GoToDialog
 from .not_found_dialog import NotFoundDialog
 from .uic_files import main_window_view_ui
+from .utility import IMAGE_FILE_FORMATS, file_exist
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -84,7 +81,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         if self.model.comic:
 
             path = self.model.current_directory + \
-                   self.model.get_current_page_title()
+                self.model.get_current_page_title()
             file_path = QtWidgets.QFileDialog().getSaveFileName(
                 self, self.tr('save_current_page'), path,
                 self.tr("images (*.png *.xpm *.jpeg *.jpg *.gif)"))

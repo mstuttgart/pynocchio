@@ -1,14 +1,11 @@
-# -*- coding: utf-8 -*-
+import logging
 
-from .exception import InvalidTypeFileException
-from .utility import get_file_extension
-from .utility import IMAGE_FILE_FORMATS, SUPPORTED_FILES
-from .comic_file_loader_zip import ComicZipLoader, is_zipfile
+from .comic_file_loader_image import ComicImageLoader
 from .comic_file_loader_rar import ComicRarLoader, is_rarfile
 from .comic_file_loader_tar import ComicTarLoader, is_tarfile
-from .comic_file_loader_image import ComicImageLoader
-
-import logging
+from .comic_file_loader_zip import ComicZipLoader, is_zipfile
+from .exception import InvalidTypeFileException
+from .utility import IMAGE_FILE_FORMATS, SUPPORTED_FILES, get_file_extension
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
