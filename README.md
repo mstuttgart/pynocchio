@@ -62,6 +62,8 @@ Please, download the latest release [here](https://github.com/pynocchio/pynocchi
 
 If you'd like to contribute, please see [CONTRIBUTING.rst](https://github.com/pynocchio/pynocchio/blob/develop/CONTRIBUTING.rst).
 
+* [Authors](https://github.com/pynocchio/pynocchio/blob/develop/AUTHORS.rst)
+
 ## Credits
 
 ### Third party resources
