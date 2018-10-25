@@ -1,17 +1,14 @@
-# -*- coding: utf-8 -*-
 
+
+import builtins
 import os
 import random
-import builtins
+from unittest import TestCase, mock
 
-from unittest import TestCase
-from unittest import mock
-
-from pynocchio.comic_file_loader_tar import ComicTarLoader, is_tarfile
 from pynocchio.comic_file_loader_tar import TarFile  # noqa: F401
-from pynocchio.utility import get_file_extension
-from pynocchio.utility import IMAGE_FILE_FORMATS
+from pynocchio.comic_file_loader_tar import ComicTarLoader, is_tarfile
 from pynocchio.exception import NoDataFindException
+from pynocchio.utility import IMAGE_FILE_FORMATS, get_file_extension
 
 
 class TestComicTarLoader(TestCase):

@@ -1,16 +1,10 @@
-# -*- coding: utf-8 -*-
+
 
 from unittest import TestCase
 
-from pynocchio.utility import (get_file_extension,
-                               get_dir_name,
-                               get_base_name,
-                               convert_string_to_boolean,
-                               is_dir,
-                               file_exist,
-                               path_exist,
-                               get_parent_path,
-                               join_path)
+from pynocchio.utility import (convert_string_to_boolean, file_exist,
+                               get_base_name, get_dir_name, get_file_extension,
+                               get_parent_path, is_dir, join_path, path_exist)
 
 
 class TestUtility(TestCase):

@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
+
 
 from unittest import TestCase
 
-from pynocchio.comic import Comic
-from pynocchio.comic import Page
+from pynocchio.comic import Comic, Page
 
 
 class TestComic(TestCase):

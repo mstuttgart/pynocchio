@@ -1,17 +1,15 @@
-# -*- coding: utf-8 -*-
 
-import os
-import rarfile  # noqa: F401
-import random
+
 import builtins
+import os
+import random
+from unittest import TestCase, mock
 
-from unittest import TestCase
-from unittest import mock
+import rarfile  # noqa: F401
 
 from pynocchio.comic_file_loader_rar import ComicRarLoader, is_rarfile
-from pynocchio.utility import get_file_extension
-from pynocchio.utility import IMAGE_FILE_FORMATS
 from pynocchio.exception import NoDataFindException
+from pynocchio.utility import IMAGE_FILE_FORMATS, get_file_extension
 
 
 class TestComicRarLoader(TestCase):

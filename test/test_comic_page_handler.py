@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
+
 
 from unittest import TestCase
 
 from pynocchio.comic import Comic, Page
 from pynocchio.comic_page_handler import (ComicPageHandler,
-                                          ComicPageHandlerSinglePage,
-                                          ComicPageHandlerDoublePage)
+                                          ComicPageHandlerDoublePage,
+                                          ComicPageHandlerSinglePage)
 
 
 class TestComicPageHandler(TestCase):

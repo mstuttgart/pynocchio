@@ -1,17 +1,14 @@
-# -*- coding: utf-8 -*-
 
+
+import builtins
 import os
 import random
-import builtins
 import zipfile  # noqa: F401
-
-from unittest import TestCase
-from unittest import mock
+from unittest import TestCase, mock
 
 from pynocchio.comic_file_loader_zip import ComicZipLoader, is_zipfile
 from pynocchio.exception import NoDataFindException
-from pynocchio.utility import get_file_extension
-from pynocchio.utility import IMAGE_FILE_FORMATS
+from pynocchio.utility import IMAGE_FILE_FORMATS, get_file_extension
 
 
 class TestComicZipLoader(TestCase):

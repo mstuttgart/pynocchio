@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 
-from unittest import TestCase
-from unittest import mock
+
+from unittest import TestCase, mock
 
 from pynocchio.comic_path_filter import ComicPathFilter
 from pynocchio.exception import NoDataFindException
