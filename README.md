@@ -17,11 +17,11 @@
   <a href="https://coveralls.io/github/pynocchio/pynocchio?branch=develop">
     <img src="https://img.shields.io/coveralls/pynocchio/pynocchio/develop.svg?style=flat-square" alt="Coveralls">
   </a>
-  <a href="https://landscape.io/github/pynocchio/pynocchio/develop">
-      <img src="https://landscape.io/github/pynocchio/pynocchio/develop/landscape.svg?style=flat-square" alt="Code Health">
+  <a href="https://codeclimate.com/github/pynocchio/pynocchio/maintainability">
+    <img src="https://img.shields.io/codeclimate/maintainability/pynocchio/pynocchio.svg?style=flat-square" />
   </a>
   <a href="https://github.com/pynocchio/pynocchio/releases">
-      <img src="https://img.shields.io/github/downloads/pynocchio/pynocchio/total.svg?style=flat-square" alt="Github All Releases">
+        <img src="https://img.shields.io/github/downloads/pynocchio/pynocchio/total.svg?style=flat-square" alt="Github All Releases">
   </a>
     <a href="https://github.com/pynocchio/pynocchio/releases/latest">
       <img src="https://img.shields.io/github/release/pynocchio/pynocchio.svg?style=flat-square" alt="Release">
