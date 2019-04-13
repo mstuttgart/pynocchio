@@ -1,3 +1,0 @@
-[submodule "i18n"]
-	path = i18n
-	url = git@github.com:pynocchio/pynocchio-translations.git
