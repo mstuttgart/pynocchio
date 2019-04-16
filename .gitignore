@@ -59,13 +59,6 @@ target/
 
 # Diretory files
 .directory
-quadrinhos/
-zzz/
-src/resource/freeiconmaker_blue/
-TODO.txt
-src/resource/freeiconmaker_amarelo.zip
-src/resource/freeiconmaker_amarelo/
-src/resource/flags
 
 # Config files
 # Database files
@@ -75,5 +68,6 @@ src/resource/flags
 *.xml~
 *.deb
 env*/
+.env
 .python-version
 .vscode
