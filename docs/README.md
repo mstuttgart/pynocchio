@@ -1,5 +1,3 @@
-# Pynocchio Comic Reader
-
 Pynocchio is a image viewer specialized in comic reading.
 
 <p align="center">
