@@ -30,13 +30,13 @@ class ComicZipLoader(ComicLoader):
         super().__init__()
 
     def load(self, filename):
-        """ Load zip file and create Page objects whit them.
+        """ Load zip file and create Page objects with them.
 
         Args:
             filename: name of compact zip file
 
         Raises:
-            NoDataFindException: if not data loaded from zip file
+            NoDataFindException: if no data loaded from zip file
         """
 
         logger.info('Trying to load %s', filename)

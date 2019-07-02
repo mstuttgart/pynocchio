@@ -74,7 +74,7 @@ Ready to contribute? Here's how to set up `pynocchio` for local development.
 
     $ sudo apt-get install build-essential git python3-dev python3-pip qt5-qmake libqt5sql5-sqlite unrar-free
 
-    Now, use `linguist -qt5` to start *QtLinguist5* and `desginer -qt5` to start *QtDesginer5*.
+    Now, use `linguist -qt5` to start *QtLinguist5* and `designer -qt5` to start *QtDesginer5*.
 
 4. Create a branch for local development::
 

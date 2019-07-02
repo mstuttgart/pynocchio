@@ -29,10 +29,10 @@ class ComicRarLoader(ComicLoader):
         super().__init__()
 
     def load(self, filename):
-        """ Load zip file and create Page objects whit them.
+        """ Load rar file and create Page objects with them.
 
             Args:
-                filename: name of compact zip file
+                filename: name of rar file
         """
 
         with rarfile.RarFile(filename, 'r') as rar:
