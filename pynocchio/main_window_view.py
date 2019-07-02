@@ -602,3 +602,10 @@ class MainWindowView(QtWidgets.QMainWindow):
         if event.button() == QtCore.Qt.LeftButton:
             self.on_action_fullscreen_triggered()
         super(MainWindowView, self).mousePressEvent(event)
+
+    def wheelEvent(self, event):
+        if event.angleDelta().y() < 0:
+            self.on_action_next_page_triggered()
+        else:
+            self.on_action_previous_page_triggered()
+        event.accept()
