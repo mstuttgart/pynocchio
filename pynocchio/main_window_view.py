@@ -539,11 +539,14 @@ class MainWindowView(QtWidgets.QMainWindow):
             total_pages = self.model.get_number_of_pages()
             page_width = self.model.get_current_page().width()
             page_height = self.model.get_current_page().height()
+            original_width = self.model.get_current_page().original_width
+            original_height = self.model.get_current_page().original_height
             page_title = self.model.get_current_page_title()
 
             if self.ui.statusbar.isVisible():
                 self.ui.statusbar.set_comic_page(page_number, total_pages)
-                self.ui.statusbar.set_page_resolution(page_width, page_height)
+                self.ui.statusbar.set_page_resolution(page_width, page_height,
+                                              original_width, original_height)
                 self.ui.statusbar.set_comic_path(page_title)
 
     def centralize_window(self):

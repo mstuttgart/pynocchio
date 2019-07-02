@@ -167,6 +167,9 @@ class MainWindowModel(QtCore.QObject):
 
     def _resize_page(self, pix_map):
 
+        width = pix_map.width()
+        height = pix_map.height()
+
         if self.fit_type == MainWindowModel._VERTICAL_FIT:
             pix_map = pix_map.scaledToHeight(
                 self.scroll_area_size.height(),
@@ -181,6 +184,9 @@ class MainWindowModel(QtCore.QObject):
             pix_map = pix_map.scaledToWidth(
                 self.scroll_area_size.width() * 0.8,
                 QtCore.Qt.SmoothTransformation)
+
+        pix_map.original_width = width
+        pix_map.original_height = height
 
         return pix_map
 
