@@ -5,6 +5,8 @@ from PyQt5 import QtCore, QtWidgets
 
 class QScrollAreaViewer(QtWidgets.QScrollArea):
 
+    resized = QtCore.pyqtSignal()
+
     def __init__(self, parent=None):
         super(QScrollAreaViewer, self).__init__(parent)
         self.drag_mouse = False
@@ -50,3 +52,8 @@ class QScrollAreaViewer(QtWidgets.QScrollArea):
             self.drag_position['y'] = pos.y()
 
         super(QScrollAreaViewer, self).mouseMoveEvent(*args, **kwargs)
+
+    def resizeEvent(self, event):
+        self.resized.emit()
+        super(QScrollAreaViewer, self).resizeEvent(event)
+

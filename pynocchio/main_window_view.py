@@ -36,6 +36,8 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         self.ui.menu_recent_files.menuAction().setVisible(False)
 
+        self.ui.qscroll_area_viewer.resized.connect(self.update_current_view_container_size)
+
         self.global_shortcuts = self._define_global_shortcuts()
         self.create_connections()
         self.centralize_window()
@@ -600,14 +602,3 @@ class MainWindowView(QtWidgets.QMainWindow):
         if event.button() == QtCore.Qt.LeftButton:
             self.on_action_fullscreen_triggered()
         super(MainWindowView, self).mousePressEvent(event)
-
-    def resizeEvent(self, event):
-        self.update_current_view_container_size()
-        super(MainWindowView, self).resizeEvent(event)
-
-    def show(self):
-        """
-        :doc: Added to set the correct scrool_area_view size in model
-        """
-        super(MainWindowView, self).show()
-        self.update_current_view_container_size()
