@@ -1,7 +1,10 @@
 import os
 import sys
 
-import qdarkgraystyle
+try:
+    import qdarkgraystyle
+except ImportError:
+    pass
 from PyQt5 import QtCore, QtWidgets
 
 from .main_window_model import MainWindowModel
@@ -29,7 +32,10 @@ class Pynocchio(QtWidgets.QApplication):
         self.setApplicationName('Pynocchio')
 
         self.setStyle('Fusion')
-        self.setStyleSheet(qdarkgraystyle.load_stylesheet())
+        try:
+            self.setStyleSheet(qdarkgraystyle.load_stylesheet())
+        except:
+            pass
 
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')
