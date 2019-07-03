@@ -22,6 +22,7 @@ class MainWindowModel(QtCore.QObject):
     _VERTICAL_FIT = 'action_vertical_fit'
     _HORIZONTAL_FIT = 'action_horizontal_fit'
     _BEST_FIT = 'action_best_fit'
+    _PAGE_FIT = 'action_page_fit'
 
     load_progress = QtCore.pyqtSignal(int)
     load_done = QtCore.pyqtSignal()
@@ -185,6 +186,13 @@ class MainWindowModel(QtCore.QObject):
                 self.scroll_area_size.width() * 0.8,
                 QtCore.Qt.SmoothTransformation)
 
+        elif self.fit_type == MainWindowModel._PAGE_FIT:
+            pix_map = pix_map.scaled(
+                self.scroll_area_size.width(),
+                self.scroll_area_size.height(),
+                QtCore.Qt.KeepAspectRatio,
+                QtCore.Qt.SmoothTransformation)
+
         pix_map.original_width = width
         pix_map.original_height = height
 
@@ -201,6 +209,9 @@ class MainWindowModel(QtCore.QObject):
 
     def best_fit(self):
         self.fit_type = MainWindowModel._BEST_FIT
+
+    def page_fit(self):
+        self.fit_type = MainWindowModel._PAGE_FIT
 
     def double_page_mode(self, checked):
         index = self.comic_page_handler.current_page_index

@@ -290,6 +290,7 @@
     </property>
     <addaction name="action_fullscreen"/>
     <addaction name="separator"/>
+    <addaction name="action_page_fit"/>
     <addaction name="action_original_fit"/>
     <addaction name="action_vertical_fit"/>
     <addaction name="action_horizontal_fit"/>
@@ -426,6 +427,7 @@
    <addaction name="action_rotate_left"/>
    <addaction name="action_rotate_right"/>
    <addaction name="separator"/>
+   <addaction name="action_page_fit"/>
    <addaction name="action_original_fit"/>
    <addaction name="action_vertical_fit"/>
    <addaction name="action_horizontal_fit"/>
@@ -453,6 +455,10 @@
    </property>
   </action>
   <action name="action_exit">
+   <property name="icon">
+    <iconset resource="../data/main_window_view.qrc">
+     <normaloff>:/icons/icons/system-shutdown.png</normaloff>:/icons/icons/system-shutdown.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Exit</string>
    </property>
@@ -838,6 +844,30 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+L</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_page_fit">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../data/main_window_view.qrc">
+     <normaloff>:/icons/icons/page-fit.png</normaloff>:/icons/icons/page-fit.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Page fit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
    </property>
    <property name="visible">
     <bool>true</bool>

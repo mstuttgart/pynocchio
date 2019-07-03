@@ -206,6 +206,11 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.update_viewer_content()
 
     @QtCore.pyqtSlot()
+    def on_action_page_fit_triggered(self):
+        self.model.page_fit()
+        self.update_viewer_content()
+
+    @QtCore.pyqtSlot()
     def on_action_fullscreen_triggered(self):
 
         if self.isFullScreen():
@@ -281,6 +286,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.ui.action_group_view.addAction(self.ui.action_vertical_fit)
         self.ui.action_group_view.addAction(self.ui.action_horizontal_fit)
         self.ui.action_group_view.addAction(self.ui.action_best_fit)
+        self.ui.action_group_view.addAction(self.ui.action_page_fit)
 
         view_adjust = self.model.load_view_adjust(
             self.ui.action_group_view.checkedAction().objectName())
