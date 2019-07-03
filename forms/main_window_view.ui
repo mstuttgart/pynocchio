@@ -335,6 +335,7 @@
     </property>
     <addaction name="action_show_toolbar"/>
     <addaction name="action_show_statusbar"/>
+    <addaction name="action_page_across_files"/>
     <addaction name="separator"/>
     <addaction name="action_preference_dialog"/>
    </widget>
@@ -677,7 +678,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>S&amp;how Statusbar</string>
+    <string>S&amp;how statusbar</string>
    </property>
   </action>
   <action name="action_add_bookmark">
@@ -1075,36 +1076,6 @@
     <bool>false</bool>
    </property>
   </action>
-  <action name="action_en_us">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>:/icons/famfamfam_flag_icons/png/us.png</normaloff>:/icons/famfamfam_flag_icons/png/us.png</iconset>
-   </property>
-   <property name="text">
-    <string>English</string>
-   </property>
-   <property name="iconText">
-    <string>en_US</string>
-   </property>
-  </action>
-  <action name="action_pt_br">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>:/icons/famfamfam_flag_icons/png/br.png</normaloff>:/icons/famfamfam_flag_icons/png/br.png</iconset>
-   </property>
-   <property name="text">
-    <string>Portuguese</string>
-   </property>
-   <property name="iconText">
-    <string notr="true">pt_BR</string>
-   </property>
-  </action>
   <action name="action_show_toolbar">
    <property name="checkable">
     <bool>true</bool>
@@ -1113,7 +1084,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;Show Toolbar</string>
+    <string>&amp;Show toolbar</string>
    </property>
   </action>
   <action name="action_double_page_mode">
@@ -1146,6 +1117,17 @@
    </property>
    <property name="text">
     <string>&amp;Manga Mode</string>
+   </property>
+  </action>
+  <action name="action_page_across_files">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Page across files</string>
    </property>
   </action>
  </widget>

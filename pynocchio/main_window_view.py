@@ -99,7 +99,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.update_navigation_actions()
             vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
             vert_scroll_bar.setValue(self.last_scroll_position)
-        else:
+        elif self.ui.action_page_across_files.isChecked():
             self.on_action_previous_comic_triggered()
             self.on_action_last_page_triggered()
 
@@ -110,7 +110,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.last_scroll_position = vert_scroll_bar.sliderPosition()
             self.update_viewer_content()
             self.update_navigation_actions()
-        else:
+        elif self.ui.action_page_across_files.isChecked():
             self.on_action_next_comic_triggered()
 
     @QtCore.pyqtSlot()
