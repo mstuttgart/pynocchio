@@ -246,6 +246,8 @@ class MainWindowModel(QtCore.QObject):
         self.load_done.emit()
 
     def save_settings(self):
+        self.settings_manager.save_toggles(self.parent.ui)
+        self.settings_manager.save_window(self.parent)
         self.settings_manager.save_view_adjust(self.fit_type)
         self.settings_manager.save_current_directory(self.current_directory)
 
@@ -272,3 +274,10 @@ class MainWindowModel(QtCore.QObject):
     def remove_bookmark(self, path=False, table=Bookmark):
         path = self.comic.path if not path else path
         BookmarkManager.remove_bookmark(path, table=table)
+
+    def load_window(self, size, position):
+        return (self.settings_manager.load_window_size(size),
+                self.settings_manager.load_window_position(position))
+
+    def load_toggles(self):
+        return self.settings_manager.load_toggles()

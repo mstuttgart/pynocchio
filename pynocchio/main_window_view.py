@@ -24,6 +24,7 @@ class MainWindowView(QtWidgets.QMainWindow):
     def __init__(self, model, parent=None):
         super().__init__(parent=parent)
         self.model = model
+        model.parent = self
 
         self.ui = main_window_view_ui.Ui_MainWindowView()
         self.ui.setupUi(self)
@@ -43,6 +44,8 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.centralize_window()
 
         self.update_recent_file_actions()
+
+        self.update_settings()
 
         self.model.load_progress.connect(
             self.ui.statusbar.set_progressbar_value)
@@ -253,6 +256,7 @@ class MainWindowView(QtWidgets.QMainWindow):
     def on_action_show_statusbar_triggered(self):
         if self.ui.action_show_statusbar.isChecked():
             self.ui.statusbar.show()
+            self.update_status_bar()
         else:
             self.ui.statusbar.hide()
 
@@ -505,6 +509,15 @@ class MainWindowView(QtWidgets.QMainWindow):
         for j in range(num_bookmarks_files, MainWindowView.MAX_BOOKMARK_FILES):
             bk_actions[j].setVisible(False)
 
+    def update_settings(self):
+        settings = self.model.load_toggles()
+        self.ui.action_show_toolbar.setChecked(settings['show_toolbar'])
+        self.on_action_show_toolbar_triggered()
+        self.ui.action_show_statusbar.setChecked(settings['show_statusbar'])
+        self.on_action_show_statusbar_triggered()
+        self.ui.action_page_across_files.setChecked(
+            settings['page_across_files'])
+
     def open_recent_bookmark(self):
         action = self.sender()
         if action:
@@ -562,11 +575,15 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     def centralize_window(self):
         screen = QtWidgets.QDesktopWidget().screenGeometry()
-        self.setMinimumSize(screen.size() * 0.8)
         size = self.geometry()
         x_center = (screen.width() - size.width()) / 2
         y_center = (screen.height() - size.height()) / 2
         self.move(x_center, y_center)
+        size = self.size()
+        pos = self.pos()
+        size, pos = self.model.load_window(size, pos)
+        self.resize(size)
+        self.move(pos)
 
     def update_viewer_content(self):
         content = self.model.get_current_page()
@@ -620,4 +637,8 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.on_action_next_page_triggered()
         else:
             self.on_action_previous_page_triggered()
+        event.accept()
+
+    def closeEvent(self, event):
+        self.model.save_settings()
         event.accept()
