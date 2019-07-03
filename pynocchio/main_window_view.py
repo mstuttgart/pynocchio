@@ -215,9 +215,11 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         if self.isFullScreen():
             self.ui.menubar.show()
-            self.ui.toolbar.show()
-            self.ui.statusbar.show()
-            self.showMaximized()
+            if self.ui.action_show_toolbar.isChecked():
+                self.ui.toolbar.show()
+            if self.ui.action_show_statusbar.isChecked():
+                self.ui.statusbar.show()
+            self.showNormal()
 
             for sc in self.global_shortcuts:
                 sc.setEnabled(False)
@@ -322,6 +324,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             'Ctrl+Shift+Right': self.on_action_next_comic_triggered,
             'Ctrl+R': self.on_action_rotate_left_triggered,
             'Ctrl+Shift+R': self.on_action_rotate_right_triggered,
+            'Esc': self.on_action_fullscreen_triggered,
         }
 
         for key, value in list(sequence.items()):
