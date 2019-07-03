@@ -34,6 +34,7 @@ class MainWindowModel(QtCore.QObject):
         self.settings_manager = SettingsManager()
         self.rotate_angle = 0
         self.scroll_area_size = None
+        self.scroll_bar_size = None
         self.fit_type = self.load_view_adjust(MainWindowModel._ORIGINAL_FIT)
         self.current_directory = self.load_current_directory()
 
@@ -172,13 +173,27 @@ class MainWindowModel(QtCore.QObject):
         height = pix_map.height()
 
         if self.fit_type == MainWindowModel._VERTICAL_FIT:
-            pix_map = pix_map.scaledToHeight(
-                self.scroll_area_size.height(),
+            h = self.scroll_area_size.height()
+            f = h / height
+            if int(f*width) > self.scroll_area_size.width():
+                h -= self.scroll_bar_size
+                f = h / height
+                if int(f*width) < self.scroll_area_size.width():
+                    f = self.scroll_area_size.width() / width
+                    h = int(f*height)
+            pix_map = pix_map.scaledToHeight(h,
                 QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._HORIZONTAL_FIT:
-            pix_map = pix_map.scaledToWidth(
-                self.scroll_area_size.width(),
+            w = self.scroll_area_size.width()
+            f = w / width
+            if int(f*height) > self.scroll_area_size.height():
+                w -= self.scroll_bar_size
+                f = w / width
+                if int(f*height) < self.scroll_area_size.height():
+                    f = self.scroll_area_size.height() / height
+                    w = int(f*width)
+            pix_map = pix_map.scaledToWidth(w,
                 QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._BEST_FIT:

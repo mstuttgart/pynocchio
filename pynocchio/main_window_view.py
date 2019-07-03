@@ -575,6 +575,9 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     def update_current_view_container_size(self):
         self.model.scroll_area_size = self.ui.qscroll_area_viewer.size()
+        self.model.scroll_bar_size = \
+            self.ui.qscroll_area_viewer.style().pixelMetric(
+                QtWidgets.QStyle.PM_ScrollBarExtent)
         self.update_viewer_content()
 
     def keyPressEvent(self, event):
