@@ -320,14 +320,6 @@ class MainWindowView(QtWidgets.QMainWindow):
         shortcuts = []
 
         sequence = {
-            'Ctrl+Shift+Left': self.on_action_previous_comic_triggered,
-            'Ctrl+Left': self.on_action_first_page_triggered,
-            'Left': self.on_action_previous_page_triggered,
-            'Right': self.on_action_next_page_triggered,
-            'Ctrl+Right': self.on_action_last_page_triggered,
-            'Ctrl+Shift+Right': self.on_action_next_comic_triggered,
-            'Ctrl+R': self.on_action_rotate_left_triggered,
-            'Ctrl+Shift+R': self.on_action_rotate_right_triggered,
             'Esc': self.on_action_fullscreen_triggered,
         }
 
@@ -632,6 +624,10 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.on_action_fullscreen_triggered()
         super(MainWindowView, self).mousePressEvent(event)
 
+    def contextMenuEvent(self, event):
+        self.ui.menu_context.exec(event.globalPos())
+        super(MainWindowView, self).contextMenuEvent(event)
+  
     def wheelEvent(self, event):
         if event.angleDelta().y() < 0:
             self.on_action_next_page_triggered()
