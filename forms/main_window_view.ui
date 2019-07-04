@@ -336,6 +336,7 @@
     </property>
     <addaction name="action_show_toolbar"/>
     <addaction name="action_show_statusbar"/>
+    <addaction name="action_show_thumbnails"/>
     <addaction name="action_page_across_files"/>
     <addaction name="separator"/>
     <addaction name="action_preference_dialog"/>
@@ -1158,6 +1159,17 @@
    </property>
    <property name="text">
     <string>&amp;Page across files</string>
+   </property>
+  </action>
+  <action name="action_show_thumbnails">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show &amp;thumbnails</string>
    </property>
   </action>
   <widget class="QMenu" name="menu_context">

@@ -9,6 +9,7 @@ from .exception import (InvalidTypeFileException, LoadComicsException,
                         NoDataFindException)
 from .go_to_page_dialog import GoToDialog
 from .not_found_dialog import NotFoundDialog
+from .thumbnails import ThumbnailsDock
 from .uic_files import main_window_view_ui
 from .utility import IMAGE_FILE_FORMATS, file_exist
 
@@ -36,6 +37,10 @@ class MainWindowView(QtWidgets.QMainWindow):
             len(self.ui.menu_recent_bookmarks.actions())
 
         self.ui.menu_recent_files.menuAction().setVisible(False)
+
+        self.thumbnails_dock = ThumbnailsDock()
+        self.addDockWidget(QtCore.Qt.LeftDockWidgetArea, self.thumbnails_dock)
+        self.thumbnails_dock.visibilityChanged.connect(self.on_thumbnails_dock_changed)
 
         self.ui.qscroll_area_viewer.resized.connect(self.update_current_view_container_size)
 
@@ -163,10 +168,12 @@ class MainWindowView(QtWidgets.QMainWindow):
         ret = go_to_dlg.exec_()
 
         if ret == QtWidgets.QDialog.Accepted:
-            self.model.set_current_page_index(
-                go_to_dlg.handler.current_page_index)
-            self.update_viewer_content()
-            self.update_navigation_actions()
+            self._go_to_page(go_to_dlg.handler.current_page_index)
+
+    def _go_to_page(self, idx):
+        self.model.set_current_page_index(idx)
+        self.update_viewer_content()
+        self.update_navigation_actions()
 
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
@@ -261,6 +268,13 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.ui.statusbar.hide()
 
     @QtCore.pyqtSlot()
+    def on_action_show_thumbnails_triggered(self):
+        if self.ui.action_show_thumbnails.isChecked():
+            self.thumbnails_dock.show()
+        else:
+            self.thumbnails_dock.hide()
+
+    @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
         ab_dlg = AboutDialog(self)
         ab_dlg.show()
@@ -282,6 +296,10 @@ class MainWindowView(QtWidgets.QMainWindow):
                 self.model.remove_bookmark(table=TemporaryBookmark)
         except AttributeError as exc:
             logger.warning(exc)
+
+    @QtCore.pyqtSlot()
+    def on_thumbnails_dock_changed(self):
+        self.ui.action_show_thumbnails.setChecked(self.thumbnails_dock.isVisible())
 
     def create_connections(self):
 
@@ -395,6 +413,8 @@ class MainWindowView(QtWidgets.QMainWindow):
                 # actions
                 self.update_navigation_actions()
 
+                self.update_thumbnails()
+
                 # Register view like listener of ComicPageHandler events
                 # self.model.comic_page_handler.listener.append(self)
 
@@ -507,8 +527,15 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.on_action_show_toolbar_triggered()
         self.ui.action_show_statusbar.setChecked(settings['show_statusbar'])
         self.on_action_show_statusbar_triggered()
+        self.ui.action_show_thumbnails.setChecked(settings['show_thumbnails'])
+        self.on_action_show_thumbnails_triggered()
         self.ui.action_page_across_files.setChecked(
             settings['page_across_files'])
+
+    def update_thumbnails(self):
+        self.thumbnails_dock.clear()
+        num = self.model.get_current_page_number()-1
+        self.thumbnails_dock.populate(current=num)
 
     def open_recent_bookmark(self):
         action = self.sender()
@@ -573,15 +600,18 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.move(x_center, y_center)
         size = self.size()
         pos = self.pos()
-        size, pos = self.model.load_window(size, pos)
+        size, pos, state = self.model.load_window(size, pos)
         self.resize(size)
         self.move(pos)
+        if (state):
+            self.restoreState(state)
 
     def update_viewer_content(self):
         content = self.model.get_current_page()
 
         if content:
             self.ui.label.setPixmap(content)
+            self.thumbnails_dock.highlight(self.model.get_current_page_number()-1)
             self.ui.qscroll_area_viewer.reset_scroll_position()
             self.update_status_bar()
 

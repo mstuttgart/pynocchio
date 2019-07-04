@@ -277,7 +277,8 @@ class MainWindowModel(QtCore.QObject):
 
     def load_window(self, size, position):
         return (self.settings_manager.load_window_size(size),
-                self.settings_manager.load_window_position(position))
+                self.settings_manager.load_window_position(position),
+                self.settings_manager.load_window_state())
 
     def load_toggles(self):
         return self.settings_manager.load_toggles()

@@ -441,6 +441,10 @@ class Ui_MainWindowView(object):
         self.action_page_across_files.setCheckable(True)
         self.action_page_across_files.setChecked(True)
         self.action_page_across_files.setObjectName("action_page_across_files")
+        self.action_show_thumbnails = QtWidgets.QAction(MainWindowView)
+        self.action_show_thumbnails.setCheckable(True)
+        self.action_show_thumbnails.setChecked(True)
+        self.action_show_thumbnails.setObjectName("action_show_thumbnails")
         self.menu_context = QtWidgets.QMenu(MainWindowView)
         self.menu_context.setEnabled(True)
         self.menu_context.setObjectName("menu_context")
@@ -487,6 +491,7 @@ class Ui_MainWindowView(object):
         self.menu_help.addAction(self.action_about_qt)
         self.menu_settings.addAction(self.action_show_toolbar)
         self.menu_settings.addAction(self.action_show_statusbar)
+        self.menu_settings.addAction(self.action_show_thumbnails)
         self.menu_settings.addAction(self.action_page_across_files)
         self.menu_settings.addSeparator()
         self.menu_settings.addAction(self.action_preference_dialog)
@@ -630,6 +635,7 @@ class Ui_MainWindowView(object):
         self.action_double_page_mode.setToolTip(_translate("MainWindowView", "Active double page mode"))
         self.action_manga_mode.setText(_translate("MainWindowView", "&Manga Mode"))
         self.action_page_across_files.setText(_translate("MainWindowView", "&Page across files"))
+        self.action_show_thumbnails.setText(_translate("MainWindowView", "Show &thumbnails"))
 
 from .custom_widgets.qscroll_area_viewer import QScrollAreaViewer
 from .custom_widgets.status_bar import StatusBar

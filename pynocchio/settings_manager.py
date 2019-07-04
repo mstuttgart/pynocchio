@@ -52,9 +52,10 @@ class SettingsManager():
         return self.settings.value('current_directory', '.')
 
     def save_window(self, window):
-        logger.info('Saving window size and position')
+        logger.info('Saving window geometry and state')
         self.settings.setValue('window_size', window.size())
         self.settings.setValue('window_position', window.pos())
+        self.settings.setValue('window_state', window.saveState())
 
     def load_window_size(self, default):
         logger.info('Loading window size')
@@ -64,14 +65,20 @@ class SettingsManager():
         logger.info('Loading window position')
         return self.settings.value('window_position', default)
 
+    def load_window_state(self):
+        logger.info('Loading window state')
+        return self.settings.value('window_state')
+
     def save_toggles(self, ui):
         logger.info('Saving togglable settings')
         self.settings.setValue('show_toolbar', ui.action_show_toolbar.isChecked())
         self.settings.setValue('show_statusbar', ui.action_show_statusbar.isChecked())
+        self.settings.setValue('show_thumbnails', ui.action_show_thumbnails.isChecked())
         self.settings.setValue('page_across_files', ui.action_page_across_files.isChecked())
 
     def load_toggles(self):
         logger.info('Loading togglable settings')
         return {'show_toolbar': self.settings.value('show_toolbar', True, type=bool),
                 'show_statusbar': self.settings.value('show_statusbar', True, type=bool),
+                'show_thumbnails': self.settings.value('show_thumbnails', True, type=bool),
                 'page_across_files': self.settings.value('page_across_files', True, type=bool)}
