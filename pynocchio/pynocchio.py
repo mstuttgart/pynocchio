@@ -34,7 +34,7 @@ class Pynocchio(QtWidgets.QApplication):
         self.setStyle('Fusion')
         try:
             self.setStyleSheet(qdarkgraystyle.load_stylesheet())
-        except ImportError:
+        except NameError:
             pass
 
         if hasattr(self, 'setApplicationDisplayName'):
