@@ -181,8 +181,8 @@ class MainWindowModel(QtCore.QObject):
                 if int(f*width) < self.scroll_area_size.width():
                     f = self.scroll_area_size.width() / width
                     h = int(f*height)
-            pix_map = pix_map.scaledToHeight(h,
-                QtCore.Qt.SmoothTransformation)
+            pix_map = pix_map.scaledToHeight(
+                h, QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._HORIZONTAL_FIT:
             w = self.scroll_area_size.width()
@@ -193,8 +193,8 @@ class MainWindowModel(QtCore.QObject):
                 if int(f*height) < self.scroll_area_size.height():
                     f = self.scroll_area_size.height() / height
                     w = int(f*width)
-            pix_map = pix_map.scaledToWidth(w,
-                QtCore.Qt.SmoothTransformation)
+            pix_map = pix_map.scaledToWidth(
+                w, QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._BEST_FIT:
             pix_map = pix_map.scaledToWidth(

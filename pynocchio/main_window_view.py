@@ -40,9 +40,11 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         self.thumbnails_dock = ThumbnailsDock()
         self.addDockWidget(QtCore.Qt.LeftDockWidgetArea, self.thumbnails_dock)
-        self.thumbnails_dock.visibilityChanged.connect(self.on_thumbnails_dock_changed)
+        self.thumbnails_dock.visibilityChanged.connect(
+            self.on_thumbnails_dock_changed)
 
-        self.ui.qscroll_area_viewer.resized.connect(self.update_current_view_container_size)
+        self.ui.qscroll_area_viewer.resized.connect(
+            self.update_current_view_container_size)
 
         self.global_shortcuts = self._define_global_shortcuts()
         self.create_connections()
@@ -290,7 +292,8 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.model.save_settings()
 
         try:
-            if not self.model.is_first_page() and not self.model.is_last_page():  # noqa: 501
+            if (not self.model.is_first_page() and not
+                self.model.is_last_page()):  # noqa: 501
                 self.model.add_bookmark(table=TemporaryBookmark)
             else:
                 self.model.remove_bookmark(table=TemporaryBookmark)
@@ -299,7 +302,8 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_thumbnails_dock_changed(self):
-        self.ui.action_show_thumbnails.setChecked(self.thumbnails_dock.isVisible())
+        self.ui.action_show_thumbnails.setChecked(
+            self.thumbnails_dock.isVisible())
 
     def create_connections(self):
 
@@ -588,8 +592,8 @@ class MainWindowView(QtWidgets.QMainWindow):
 
             if self.ui.statusbar.isVisible():
                 self.ui.statusbar.set_comic_page(page_number, total_pages)
-                self.ui.statusbar.set_page_resolution(page_width, page_height,
-                                              original_width, original_height)
+                self.ui.statusbar.set_page_resolution(
+                    page_width, page_height, original_width, original_height)
                 self.ui.statusbar.set_comic_path(page_title)
 
     def centralize_window(self):
@@ -611,7 +615,8 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         if content:
             self.ui.label.setPixmap(content)
-            self.thumbnails_dock.highlight(self.model.get_current_page_number()-1)
+            self.thumbnails_dock.highlight(
+                self.model.get_current_page_number()-1)
             self.ui.qscroll_area_viewer.reset_scroll_position()
             self.update_status_bar()
 
@@ -657,7 +662,7 @@ class MainWindowView(QtWidgets.QMainWindow):
     def contextMenuEvent(self, event):
         self.ui.menu_context.exec(event.globalPos())
         super(MainWindowView, self).contextMenuEvent(event)
-  
+
     def wheelEvent(self, event):
         if event.angleDelta().y() < 0:
             self.on_action_next_page_triggered()

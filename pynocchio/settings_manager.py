@@ -71,14 +71,22 @@ class SettingsManager():
 
     def save_toggles(self, ui):
         logger.info('Saving togglable settings')
-        self.settings.setValue('show_toolbar', ui.action_show_toolbar.isChecked())
-        self.settings.setValue('show_statusbar', ui.action_show_statusbar.isChecked())
-        self.settings.setValue('show_thumbnails', ui.action_show_thumbnails.isChecked())
-        self.settings.setValue('page_across_files', ui.action_page_across_files.isChecked())
+        self.settings.setValue('show_toolbar',
+                               ui.action_show_toolbar.isChecked())
+        self.settings.setValue('show_statusbar',
+                               ui.action_show_statusbar.isChecked())
+        self.settings.setValue('show_thumbnails',
+                               ui.action_show_thumbnails.isChecked())
+        self.settings.setValue('page_across_files',
+                               ui.action_page_across_files.isChecked())
 
     def load_toggles(self):
         logger.info('Loading togglable settings')
-        return {'show_toolbar': self.settings.value('show_toolbar', True, type=bool),
-                'show_statusbar': self.settings.value('show_statusbar', True, type=bool),
-                'show_thumbnails': self.settings.value('show_thumbnails', True, type=bool),
-                'page_across_files': self.settings.value('page_across_files', True, type=bool)}
+        return {'show_toolbar':
+                self.settings.value('show_toolbar', True, type=bool),
+                'show_statusbar':
+                self.settings.value('show_statusbar', True, type=bool),
+                'show_thumbnails':
+                self.settings.value('show_thumbnails', True, type=bool),
+                'page_across_files':
+                self.settings.value('page_across_files', True, type=bool)}

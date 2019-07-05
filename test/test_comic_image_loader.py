@@ -2,7 +2,6 @@
 from unittest import TestCase, mock
 from unittest.mock import mock_open
 
-from pynocchio.comic import Page
 from pynocchio.comic_file_loader_image import ComicImageLoader
 from pynocchio.exception import NoDataFindException
 from pynocchio.utility import IMAGE_FILE_FORMATS
