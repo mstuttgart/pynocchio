@@ -56,4 +56,3 @@ class QScrollAreaViewer(QtWidgets.QScrollArea):
     def resizeEvent(self, event):
         self.resized.emit()
         super(QScrollAreaViewer, self).resizeEvent(event)
-
