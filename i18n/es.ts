@@ -287,27 +287,27 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">Modo Mangá</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="73"/>
+        <location filename="../pynocchio/main_window_view.py" line="75"/>
         <source>open_comic_file</source>
         <translation type="unfinished">Abrir archivo</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="96"/>
+        <location filename="../pynocchio/main_window_view.py" line="98"/>
         <source>save_current_page</source>
         <translation type="unfinished">Guardar página actual</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="96"/>
+        <location filename="../pynocchio/main_window_view.py" line="98"/>
         <source>images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
         <translation type="unfinished">imagens (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="361"/>
+        <location filename="../pynocchio/main_window_view.py" line="355"/>
         <source>Continue reading from page %d?</source>
         <translation type="unfinished">Continue lendo da página% d?</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="364"/>
+        <location filename="../pynocchio/main_window_view.py" line="358"/>
         <source>&lt;p&gt;You stopped reading here.&lt;/p&gt;&lt;p&gt; If you choose &lt;b&gt;&quot;Yes&quot;&lt;/b&gt;, reading will resume on &lt;b&gt;page %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Otherwise, the first page will be loaded.&lt;/p&gt;</source>
         <translation type="unfinished">&lt;p&gt;Dejaste de leer aquí.&lt;/p&gt;&lt;p&gt; Si tu eliges &lt;b&gt;&quot;Si&quot;&lt;/b&gt;, la lectura se reanudará &lt;b&gt;página %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;De lo contrario, se cargará la primera página.Página:&lt;/p&gt;</translation>
     </message>
@@ -427,22 +427,22 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="73"/>
+        <location filename="../pynocchio/main_window_view.py" line="75"/>
         <source>all_supported_files (%s);; zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; tar_files (*.tar *.cbt);; image_files (%s);;all_files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="286"/>
+        <location filename="../pynocchio/main_window_view.py" line="288"/>
         <source>About Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="425"/>
+        <location filename="../pynocchio/main_window_view.py" line="419"/>
         <source>LoadComicsException</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="430"/>
+        <location filename="../pynocchio/main_window_view.py" line="424"/>
         <source>InvalidTypeFileException</source>
         <translation type="unfinished"></translation>
     </message>
@@ -496,6 +496,14 @@ p, li { white-space: pre-wrap; }
         <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="110"/>
         <source>Title: </source>
         <translation type="unfinished">Título</translation>
+    </message>
+</context>
+<context>
+    <name>Thumbnails</name>
+    <message>
+        <location filename="../forms/thumbnails.ui" line="29"/>
+        <source>Thumbnails</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
