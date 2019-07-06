@@ -51,10 +51,10 @@ class ComicTarLoader(ComicLoader):
         super().__init__()
 
     def load(self, filename):
-        """ Load zip file and create Page objects whit them.
+        """ Load tar file and create Page objects with them.
 
             Args:
-                filename: name of compact zip file
+                filename: name of tar file
         """
 
         logger.info('Trying to load %s', filename)
@@ -63,7 +63,7 @@ class ComicTarLoader(ComicLoader):
 
             name_list = tar.namelist()
             name_list.sort()
-            aux = 100.0 / len(name_list)
+            aux = 100.0 / max(1, len(name_list))
             page = 1
             self.data = []
 

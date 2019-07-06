@@ -95,7 +95,7 @@
        </sizepolicy>
       </property>
       <property name="focusPolicy">
-       <enum>Qt::ClickFocus</enum>
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="layoutDirection">
        <enum>Qt::LeftToRight</enum>
@@ -113,10 +113,10 @@
        <number>0</number>
       </property>
       <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
+       <enum>Qt::ScrollBarAsNeeded</enum>
       </property>
       <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
+       <enum>Qt::ScrollBarAsNeeded</enum>
       </property>
       <property name="widgetResizable">
        <bool>true</bool>
@@ -176,7 +176,7 @@
            <bool>false</bool>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::ClickFocus</enum>
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="layoutDirection">
            <enum>Qt::LeftToRight</enum>
@@ -290,6 +290,7 @@
     </property>
     <addaction name="action_fullscreen"/>
     <addaction name="separator"/>
+    <addaction name="action_page_fit"/>
     <addaction name="action_original_fit"/>
     <addaction name="action_vertical_fit"/>
     <addaction name="action_horizontal_fit"/>
@@ -335,6 +336,8 @@
     </property>
     <addaction name="action_show_toolbar"/>
     <addaction name="action_show_statusbar"/>
+    <addaction name="action_show_thumbnails"/>
+    <addaction name="action_page_across_files"/>
     <addaction name="separator"/>
     <addaction name="action_preference_dialog"/>
    </widget>
@@ -425,6 +428,7 @@
    <addaction name="action_rotate_left"/>
    <addaction name="action_rotate_right"/>
    <addaction name="separator"/>
+   <addaction name="action_page_fit"/>
    <addaction name="action_original_fit"/>
    <addaction name="action_vertical_fit"/>
    <addaction name="action_horizontal_fit"/>
@@ -452,6 +456,10 @@
    </property>
   </action>
   <action name="action_exit">
+   <property name="icon">
+    <iconset resource="../data/main_window_view.qrc">
+     <normaloff>:/icons/icons/system-shutdown.png</normaloff>:/icons/icons/system-shutdown.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Exit</string>
    </property>
@@ -677,7 +685,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>S&amp;how Statusbar</string>
+    <string>S&amp;how statusbar</string>
    </property>
   </action>
   <action name="action_add_bookmark">
@@ -837,6 +845,30 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+L</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_page_fit">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../data/main_window_view.qrc">
+     <normaloff>:/icons/icons/page-fit.png</normaloff>:/icons/icons/page-fit.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Page fit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
    </property>
    <property name="visible">
     <bool>true</bool>
@@ -1075,36 +1107,6 @@
     <bool>false</bool>
    </property>
   </action>
-  <action name="action_en_us">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>:/icons/famfamfam_flag_icons/png/us.png</normaloff>:/icons/famfamfam_flag_icons/png/us.png</iconset>
-   </property>
-   <property name="text">
-    <string>English</string>
-   </property>
-   <property name="iconText">
-    <string>en_US</string>
-   </property>
-  </action>
-  <action name="action_pt_br">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>:/icons/famfamfam_flag_icons/png/br.png</normaloff>:/icons/famfamfam_flag_icons/png/br.png</iconset>
-   </property>
-   <property name="text">
-    <string>Portuguese</string>
-   </property>
-   <property name="iconText">
-    <string notr="true">pt_BR</string>
-   </property>
-  </action>
   <action name="action_show_toolbar">
    <property name="checkable">
     <bool>true</bool>
@@ -1113,7 +1115,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;Show Toolbar</string>
+    <string>&amp;Show toolbar</string>
    </property>
   </action>
   <action name="action_double_page_mode">
@@ -1148,6 +1150,61 @@
     <string>&amp;Manga Mode</string>
    </property>
   </action>
+  <action name="action_page_across_files">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Page across files</string>
+   </property>
+  </action>
+  <action name="action_show_thumbnails">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show &amp;thumbnails</string>
+   </property>
+  </action>
+  <widget class="QMenu" name="menu_context">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <addaction name="action_go_to_page"/>
+   <addaction name="separator"/>
+   <addaction name="action_rotate_left"/>
+   <addaction name="action_rotate_right"/>
+   <addaction name="separator"/>
+   <addaction name="action_page_fit"/>
+   <addaction name="action_original_fit"/>
+   <addaction name="action_vertical_fit"/>
+   <addaction name="action_horizontal_fit"/>
+   <addaction name="action_best_fit"/>
+   <addaction name="separator"/>
+   <addaction name="action_fullscreen"/>
+  </widget>
+  <addaction name="action_next_page"/>
+  <addaction name="action_previous_page"/>
+  <addaction name="action_first_page"/>
+  <addaction name="action_last_page"/>
+  <addaction name="action_go_to_page"/>
+  <addaction name="action_next_comic"/>
+  <addaction name="action_previous_comic"/>
+  <addaction name="action_go_to_page"/>
+  <addaction name="action_page_fit"/>
+  <addaction name="action_original_fit"/>
+  <addaction name="action_vertical_fit"/>
+  <addaction name="action_horizontal_fit"/>
+  <addaction name="action_best_fit"/>
+  <addaction name="action_rotate_left"/>
+  <addaction name="action_rotate_right"/>
+  <addaction name="action_fullscreen"/>
  </widget>
  <customwidgets>
   <customwidget>

@@ -9,8 +9,9 @@ from .exception import (InvalidTypeFileException, LoadComicsException,
                         NoDataFindException)
 from .go_to_page_dialog import GoToDialog
 from .not_found_dialog import NotFoundDialog
+from .thumbnails import ThumbnailsDock
 from .uic_files import main_window_view_ui
-from .utility import IMAGE_FILE_FORMATS, file_exist
+from .utility import IMAGE_FILE_FORMATS, COMPACT_FILE_FORMATS, file_exist
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -24,6 +25,7 @@ class MainWindowView(QtWidgets.QMainWindow):
     def __init__(self, model, parent=None):
         super().__init__(parent=parent)
         self.model = model
+        model.parent = self
 
         self.ui = main_window_view_ui.Ui_MainWindowView()
         self.ui.setupUi(self)
@@ -36,11 +38,21 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         self.ui.menu_recent_files.menuAction().setVisible(False)
 
+        self.thumbnails_dock = ThumbnailsDock()
+        self.addDockWidget(QtCore.Qt.LeftDockWidgetArea, self.thumbnails_dock)
+        self.thumbnails_dock.visibilityChanged.connect(
+            self.on_thumbnails_dock_changed)
+
+        self.ui.qscroll_area_viewer.resized.connect(
+            self.update_current_view_container_size)
+
         self.global_shortcuts = self._define_global_shortcuts()
         self.create_connections()
         self.centralize_window()
 
         self.update_recent_file_actions()
+
+        self.update_settings()
 
         self.model.load_progress.connect(
             self.ui.statusbar.set_progressbar_value)
@@ -52,21 +64,18 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_open_file_triggered(self):
-        img_formats = ''
-
-        for img in IMAGE_FILE_FORMATS:
-            img_formats += ' *' + img
-
-        all_files = '*.zip *.cbz *.rar *.cbr *.tar *.cbt' + img_formats
+        cb_formats = ' '.join(['*' + cb for cb in COMPACT_FILE_FORMATS])
+        img_formats = ' '.join(['*' + img for img in IMAGE_FILE_FORMATS])
+        all_files = '%s %s' % (cb_formats, img_formats)
 
         filename = QtWidgets.QFileDialog().getOpenFileName(
             self, self.tr('open_comic_file'),
             self.model.current_directory,
             self.tr(
-                'all_supported_files (%s);; '
-                'zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; '
-                'tar_files (*.tar *.cbt);; image_files (%s);;'
-                'all_files (*)' % (all_files, img_formats)))
+                'all supported files (%s);; '
+                'zip files (*.zip *.cbz);; rar files (*.rar *.cbr);; '
+                'tar files (*.tar *.cbt);; image files (%s);; '
+                'all files (*)' % (all_files, img_formats)))
 
         if filename:
             logger.info('Opening file')
@@ -97,7 +106,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.update_navigation_actions()
             vert_scroll_bar = self.ui.qscroll_area_viewer.verticalScrollBar()
             vert_scroll_bar.setValue(self.last_scroll_position)
-        else:
+        elif self.ui.action_page_across_files.isChecked():
             self.on_action_previous_comic_triggered()
             self.on_action_last_page_triggered()
 
@@ -108,7 +117,7 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.last_scroll_position = vert_scroll_bar.sliderPosition()
             self.update_viewer_content()
             self.update_navigation_actions()
-        else:
+        elif self.ui.action_page_across_files.isChecked():
             self.on_action_next_comic_triggered()
 
     @QtCore.pyqtSlot()
@@ -158,10 +167,12 @@ class MainWindowView(QtWidgets.QMainWindow):
         ret = go_to_dlg.exec_()
 
         if ret == QtWidgets.QDialog.Accepted:
-            self.model.set_current_page_index(
-                go_to_dlg.handler.current_page_index)
-            self.update_viewer_content()
-            self.update_navigation_actions()
+            self._go_to_page(go_to_dlg.handler.current_page_index)
+
+    def _go_to_page(self, idx):
+        self.model.set_current_page_index(idx)
+        self.update_viewer_content()
+        self.update_navigation_actions()
 
     @QtCore.pyqtSlot()
     def on_action_add_bookmark_triggered(self):
@@ -204,13 +215,20 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.update_viewer_content()
 
     @QtCore.pyqtSlot()
+    def on_action_page_fit_triggered(self):
+        self.model.page_fit()
+        self.update_viewer_content()
+
+    @QtCore.pyqtSlot()
     def on_action_fullscreen_triggered(self):
 
         if self.isFullScreen():
             self.ui.menubar.show()
-            self.ui.toolbar.show()
-            self.ui.statusbar.show()
-            self.showMaximized()
+            if self.ui.action_show_toolbar.isChecked():
+                self.ui.toolbar.show()
+            if self.ui.action_show_statusbar.isChecked():
+                self.ui.statusbar.show()
+            self.showNormal()
 
             for sc in self.global_shortcuts:
                 sc.setEnabled(False)
@@ -244,8 +262,16 @@ class MainWindowView(QtWidgets.QMainWindow):
     def on_action_show_statusbar_triggered(self):
         if self.ui.action_show_statusbar.isChecked():
             self.ui.statusbar.show()
+            self.update_status_bar()
         else:
             self.ui.statusbar.hide()
+
+    @QtCore.pyqtSlot()
+    def on_action_show_thumbnails_triggered(self):
+        if self.ui.action_show_thumbnails.isChecked():
+            self.thumbnails_dock.show()
+        else:
+            self.thumbnails_dock.hide()
 
     @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
@@ -259,16 +285,12 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):
-        super(MainWindowView, self).close()
-        self.model.save_settings()
+        self.close()
 
-        try:
-            if not self.model.is_first_page() and not self.model.is_last_page():  # noqa: 501
-                self.model.add_bookmark(table=TemporaryBookmark)
-            else:
-                self.model.remove_bookmark(table=TemporaryBookmark)
-        except AttributeError as exc:
-            logger.warning(exc)
+    @QtCore.pyqtSlot()
+    def on_thumbnails_dock_changed(self):
+        self.ui.action_show_thumbnails.setChecked(
+            self.thumbnails_dock.isVisible())
 
     def create_connections(self):
 
@@ -279,6 +301,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.ui.action_group_view.addAction(self.ui.action_vertical_fit)
         self.ui.action_group_view.addAction(self.ui.action_horizontal_fit)
         self.ui.action_group_view.addAction(self.ui.action_best_fit)
+        self.ui.action_group_view.addAction(self.ui.action_page_fit)
 
         view_adjust = self.model.load_view_adjust(
             self.ui.action_group_view.checkedAction().objectName())
@@ -306,14 +329,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         shortcuts = []
 
         sequence = {
-            'Ctrl+Shift+Left': self.on_action_previous_comic_triggered,
-            'Ctrl+Left': self.on_action_first_page_triggered,
-            'Left': self.on_action_previous_page_triggered,
-            'Right': self.on_action_next_page_triggered,
-            'Ctrl+Right': self.on_action_last_page_triggered,
-            'Ctrl+Shift+Right': self.on_action_next_comic_triggered,
-            'Ctrl+R': self.on_action_rotate_left_triggered,
-            'Ctrl+Shift+R': self.on_action_rotate_right_triggered,
+            'Esc': self.on_action_fullscreen_triggered,
         }
 
         for key, value in list(sequence.items()):
@@ -328,7 +344,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         bk = self.model.get_bookmark_from_path(path=path,
                                                table=TemporaryBookmark)
-        initial_page = 0
+        initial_page = None
 
         if bk:
             msg = QtWidgets.QMessageBox()
@@ -357,7 +373,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         return initial_page
 
-    def open_comics(self, filename, initial_page=0):
+    def open_comics(self, filename, initial_page=None):
         if filename:
             logger.info('Opening comic %s', filename)
 
@@ -387,6 +403,8 @@ class MainWindowView(QtWidgets.QMainWindow):
                 # Update next page, previous page, next and previous comics
                 # actions
                 self.update_navigation_actions()
+
+                self.update_thumbnails()
 
                 # Register view like listener of ComicPageHandler events
                 # self.model.comic_page_handler.listener.append(self)
@@ -448,7 +466,8 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         files = self.model.load_recent_files()
         num_recent_files = len(files) if files else 0
-        num_recent_files = min(num_recent_files, MainWindowView.MAX_RECENT_FILES)  # noqa: 501
+        num_recent_files = min(num_recent_files,
+                               MainWindowView.MAX_RECENT_FILES)
 
         self.ui.menu_recent_files.menuAction().setVisible(True if files else
                                                           False)
@@ -493,6 +512,22 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         for j in range(num_bookmarks_files, MainWindowView.MAX_BOOKMARK_FILES):
             bk_actions[j].setVisible(False)
+
+    def update_settings(self):
+        settings = self.model.load_toggles()
+        self.ui.action_show_toolbar.setChecked(settings['show_toolbar'])
+        self.on_action_show_toolbar_triggered()
+        self.ui.action_show_statusbar.setChecked(settings['show_statusbar'])
+        self.on_action_show_statusbar_triggered()
+        self.ui.action_show_thumbnails.setChecked(settings['show_thumbnails'])
+        self.on_action_show_thumbnails_triggered()
+        self.ui.action_page_across_files.setChecked(
+            settings['page_across_files'])
+
+    def update_thumbnails(self):
+        self.thumbnails_dock.clear()
+        num = self.model.get_current_page_number()-1
+        self.thumbnails_dock.populate(current=num)
 
     def open_recent_bookmark(self):
         action = self.sender()
@@ -539,31 +574,45 @@ class MainWindowView(QtWidgets.QMainWindow):
             total_pages = self.model.get_number_of_pages()
             page_width = self.model.get_current_page().width()
             page_height = self.model.get_current_page().height()
+            original_width = self.model.get_current_page().original_width
+            original_height = self.model.get_current_page().original_height
             page_title = self.model.get_current_page_title()
 
             if self.ui.statusbar.isVisible():
                 self.ui.statusbar.set_comic_page(page_number, total_pages)
-                self.ui.statusbar.set_page_resolution(page_width, page_height)
+                self.ui.statusbar.set_page_resolution(
+                    page_width, page_height, original_width, original_height)
                 self.ui.statusbar.set_comic_path(page_title)
 
     def centralize_window(self):
         screen = QtWidgets.QDesktopWidget().screenGeometry()
-        self.setMinimumSize(screen.size() * 0.8)
         size = self.geometry()
         x_center = (screen.width() - size.width()) / 2
         y_center = (screen.height() - size.height()) / 2
         self.move(x_center, y_center)
+        size = self.size()
+        pos = self.pos()
+        size, pos, state = self.model.load_window(size, pos)
+        self.resize(size)
+        self.move(pos)
+        if (state):
+            self.restoreState(state)
 
     def update_viewer_content(self):
         content = self.model.get_current_page()
 
         if content:
             self.ui.label.setPixmap(content)
+            self.thumbnails_dock.highlight(
+                self.model.get_current_page_number()-1)
             self.ui.qscroll_area_viewer.reset_scroll_position()
             self.update_status_bar()
 
     def update_current_view_container_size(self):
         self.model.scroll_area_size = self.ui.qscroll_area_viewer.size()
+        self.model.scroll_bar_size = \
+            self.ui.qscroll_area_viewer.style().pixelMetric(
+                QtWidgets.QStyle.PM_ScrollBarExtent)
         self.update_viewer_content()
 
     def keyPressEvent(self, event):
@@ -598,13 +647,27 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.on_action_fullscreen_triggered()
         super(MainWindowView, self).mousePressEvent(event)
 
-    def resizeEvent(self, event):
-        self.update_current_view_container_size()
-        super(MainWindowView, self).resizeEvent(event)
+    def contextMenuEvent(self, event):
+        self.ui.menu_context.exec(event.globalPos())
+        super(MainWindowView, self).contextMenuEvent(event)
 
-    def show(self):
-        """
-        :doc: Added to set the correct scrool_area_view size in model
-        """
-        super(MainWindowView, self).show()
-        self.update_current_view_container_size()
+    def wheelEvent(self, event):
+        if event.angleDelta().y() < 0:
+            self.on_action_next_page_triggered()
+        else:
+            self.on_action_previous_page_triggered()
+        event.accept()
+
+    def closeEvent(self, event):
+        self.model.save_settings()
+
+        try:
+            if self.model.is_first_page() or self.model.is_last_page():
+                self.model.remove_bookmark(table=TemporaryBookmark)
+            else:
+                self.model.add_bookmark(table=TemporaryBookmark)
+        except AttributeError as exc:
+            logger.warning(exc)
+
+        super(MainWindowView, self).close()
+        event.accept()

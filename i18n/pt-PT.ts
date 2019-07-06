@@ -1,83 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt_PT" sourcelanguage="en_US">
+<!DOCTYPE TS><TS version="2.0" language="pt_PT" sourcelanguage="en_US">
 <context>
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/about_dialog.ui" line="23"/>
         <source>About Pynocchio</source>
-        <translation>Sobre Pynocchio</translation>
+        <translation type="unfinished">Sobre Pynocchio</translation>
     </message>
     <message>
-        <location filename="../forms/about_dialog.ui" line="46"/>
-        <source>About</source>
-        <translation>Sobre</translation>
+        <location filename="../forms/about_dialog.ui" line="59"/>
+        <source>qrc:/others/others/about.html</source>
+        <translation type="unfinished">qrc:/others/others/about.html</translation>
     </message>
     <message>
-        <location filename="../forms/about_dialog.ui" line="64"/>
+        <location filename="../forms/about_dialog.ui" line="83"/>
+        <source>Close</source>
+        <translation type="unfinished">Fechar</translation>
+    </message>
+    <message>
+        <location filename="../forms/about_dialog.ui" line="51"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/others/pynocchio.png&quot; /&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Pynocchio 1.0.3&lt;/span&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio is a image viewer specialized in comic book reading. &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Support a several comic formats like .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ and &lt;br /&gt;has a elegant visual, free and easy to use. &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio is licensed under the &lt;a href=&quot;https://github.com/pynocchio/pynocchio/raw/develop/LICENSE&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;GNU General Public License&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Web site&lt;/span&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://pynocchio.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Pynocchio Website&lt;/span&gt;&lt;/a&gt; &lt;br /&gt;&lt;a href=&quot;https://github.com/pynocchio/pynocchio&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Pynocchio Github Repository&lt;/span&gt;&lt;/a&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Third-party resources&lt;/span&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio use some icons from &lt;a href=&quot;https://store.kde.org/content/show.php/elementary+USU?content=148128&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Elementary USU Icon Theme&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Credits&lt;/span&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright(C) 2014-2016 by &lt;a href=&quot;https://github.com/mstuttgart/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt; &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/others/pynocchio.png&quot; /&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Pynocchio 1.0.3&lt;/span&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio é um visualizador de imagens especializado na leitura de banda desenhada. &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Suporta muitos de ficheiros como .ZIP, .RAR, .TAR, .CBT, .CBR, .CBZ and &lt;br /&gt;tem um visual elegante, grátis e fácil de usar. &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio está licenciado sob o &lt;a href=&quot;https://github.com/pynocchio/pynocchio/raw/develop/LICENSE&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;GNU General Public License&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Web site&lt;/span&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://pynocchio.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Pynocchio Website&lt;/span&gt;&lt;/a&gt; &lt;br /&gt;&lt;a href=&quot;https://github.com/pynocchio/pynocchio&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Pynocchio Repositório Github&lt;/span&gt;&lt;/a&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Recursos de terceiros&lt;/span&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pynocchio usa alguns ícones de &lt;a href=&quot;https://store.kde.org/content/show.php/elementary+USU?content=148128&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Elementary USU Icon Theme&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; color:#9bca22;&quot;&gt;Créditos&lt;/span&gt; &lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright(C) 2014-2016 by &lt;a href=&quot;https://github.com/mstuttgart/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#9bca3b;&quot;&gt;Michell Stuttgart Faria&lt;/span&gt;&lt;/a&gt; &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../forms/about_dialog.ui" line="82"/>
-        <source>qrc:/others/others/about.html</source>
-        <translation>qrc:/others/others/about.html</translation>
-    </message>
-    <message>
-        <location filename="../forms/about_dialog.ui" line="110"/>
-        <source>Close</source>
-        <translation>Fechar</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>BookmarkManagerDialog</name>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="87"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="86"/>
         <source>Delete bookmarks</source>
-        <translation>Apagar marcadores</translation>
+        <translation type="unfinished">Apagar marcadores</translation>
     </message>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="87"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="86"/>
         <source>This action will go delete you bookmarks! Proceed?</source>
-        <translation>Esta ação irá eliminar os seus marcadores! Proceder?</translation>
+        <translation type="unfinished">Esta ação irá eliminar os seus marcadores! Proceder?</translation>
     </message>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="118"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="115"/>
         <source>Comic not exist</source>
-        <translation>Banda desenhada não existe</translation>
+        <translation type="unfinished">Banda desenhada não existe</translation>
     </message>
     <message>
-        <location filename="../pynocchio/bookmark_manager_dialog.py" line="118"/>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="115"/>
         <source>Selected comic not exist! Do you like to remove it from bookmark list?</source>
-        <translation>Banda desenhada selecionada não existe! Deseja removê-la da lista de marcadores?</translation>
+        <translation type="unfinished">Banda desenhada selecionada não existe! Deseja removê-la da lista de marcadores?</translation>
     </message>
 </context>
 <context>
@@ -85,27 +55,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/bookmark_manager_dialog.ui" line="23"/>
         <source>Bookmark manager</source>
-        <translation>Gestor de marcadores</translation>
+        <translation type="unfinished">Gestor de marcadores</translation>
     </message>
     <message>
         <location filename="../forms/bookmark_manager_dialog.ui" line="132"/>
         <source>Page Preview</source>
-        <translation>Pré-visualização de Página</translation>
+        <translation type="unfinished">Pré-visualização de Página</translation>
     </message>
     <message>
         <location filename="../forms/bookmark_manager_dialog.ui" line="177"/>
         <source>Remove</source>
-        <translation>Remover</translation>
+        <translation type="unfinished">Remover</translation>
     </message>
     <message>
         <location filename="../forms/bookmark_manager_dialog.ui" line="204"/>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="unfinished">Cancelar</translation>
     </message>
     <message>
         <location filename="../forms/bookmark_manager_dialog.ui" line="218"/>
         <source>Load</source>
-        <translation>Carregar</translation>
+        <translation type="unfinished">Carregar</translation>
     </message>
 </context>
 <context>
@@ -113,25 +83,25 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/go_to_page_dialog.ui" line="14"/>
         <source>Go to Page</source>
-        <translation>Ir para a página</translation>
+        <translation type="unfinished">Ir para a página</translation>
     </message>
     <message>
-        <location filename="../forms/go_to_page_dialog.ui" line="215"/>
+        <location filename="../forms/go_to_page_dialog.ui" line="234"/>
         <source>Page </source>
-        <translation>Página</translation>
+        <translation type="unfinished">Página</translation>
     </message>
     <message>
-        <location filename="../forms/go_to_page_dialog.ui" line="260"/>
+        <location filename="../forms/go_to_page_dialog.ui" line="241"/>
         <source>page</source>
-        <translation>página</translation>
+        <translation type="unfinished">página</translation>
     </message>
 </context>
 <context>
     <name>GoToDialog</name>
     <message>
-        <location filename="../pynocchio/go_to_page_dialog.py" line="25"/>
+        <location filename="../pynocchio/go_to_page_dialog.py" line="23"/>
         <source>of %d</source>
-        <translation>de %d</translation>
+        <translation type="unfinished">de %d</translation>
     </message>
 </context>
 <context>
@@ -139,375 +109,401 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="37"/>
         <source>Pynocchio</source>
-        <translation>Pynocchio</translation>
+        <translation type="unfinished">Pynocchio</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="40"/>
         <source>The Best Comic Reader</source>
-        <translation>O melhor leitor de banda desenhada</translation>
+        <translation type="unfinished">O melhor leitor de banda desenhada</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="257"/>
+        <location filename="../forms/main_window_view.ui" line="254"/>
         <source>&amp;File</source>
-        <translation>&amp;Ficheiro</translation>
+        <translation type="unfinished">&amp;Ficheiro</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="293"/>
+        <location filename="../forms/main_window_view.ui" line="289"/>
         <source>&amp;View</source>
-        <translation>&amp;Visualização</translation>
+        <translation type="unfinished">&amp;Visualização</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="316"/>
-        <source>&amp;Navegation</source>
-        <translation>&amp;Navegação</translation>
-    </message>
-    <message>
-        <location filename="../forms/main_window_view.ui" line="331"/>
+        <location filename="../forms/main_window_view.ui" line="328"/>
         <source>&amp;Help</source>
-        <translation>&amp;Ajuda</translation>
+        <translation type="unfinished">&amp;Ajuda</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="338"/>
+        <location filename="../forms/main_window_view.ui" line="335"/>
         <source>&amp;Settings</source>
-        <translation>&amp;Configurações</translation>
+        <translation type="unfinished">&amp;Configurações</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="350"/>
+        <location filename="../forms/main_window_view.ui" line="349"/>
         <source>&amp;Bookmarks</source>
-        <translation>&amp;Marcadores</translation>
+        <translation type="unfinished">&amp;Marcadores</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="395"/>
+        <location filename="../forms/main_window_view.ui" line="394"/>
         <source>toolBar</source>
-        <translation>barraDeTarefas</translation>
+        <translation type="unfinished">barraDeTarefas</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="256"/>
+        <location filename="../pynocchio/main_window_view.py" line="284"/>
         <source>About Qt</source>
-        <translation>Sobre Qt</translation>
+        <translation type="unfinished">Sobre Qt</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="463"/>
+        <location filename="../forms/main_window_view.ui" line="467"/>
         <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
+        <translation type="unfinished">Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="478"/>
+        <location filename="../forms/main_window_view.ui" line="482"/>
         <source>Right</source>
-        <translation>Direita</translation>
+        <translation type="unfinished">Direita</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="502"/>
+        <location filename="../forms/main_window_view.ui" line="506"/>
         <source>Left</source>
-        <translation>Esquerda</translation>
+        <translation type="unfinished">Esquerda</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="523"/>
+        <location filename="../forms/main_window_view.ui" line="527"/>
         <source>Ctrl+Left</source>
-        <translation>Ctrl+Esquerda</translation>
+        <translation type="unfinished">Ctrl+Esquerda</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="541"/>
+        <location filename="../forms/main_window_view.ui" line="545"/>
         <source>Ctrl+Right</source>
-        <translation>Ctrl+Direita</translation>
+        <translation type="unfinished">Ctrl+Direita</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="562"/>
+        <location filename="../forms/main_window_view.ui" line="566"/>
         <source>Ctrl+Shift+R</source>
-        <translation>Ctrl+Shift+R</translation>
+        <translation type="unfinished">Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="580"/>
+        <location filename="../forms/main_window_view.ui" line="584"/>
         <source>Ctrl+R</source>
-        <translation>Ctrl+R</translation>
+        <translation type="unfinished">Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="604"/>
+        <location filename="../forms/main_window_view.ui" line="608"/>
         <source>Ctrl+K</source>
-        <translation>Ctrl+K</translation>
+        <translation type="unfinished">Ctrl+K</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="625"/>
+        <location filename="../forms/main_window_view.ui" line="629"/>
         <source>F</source>
-        <translation>F</translation>
+        <translation type="unfinished">F</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="646"/>
+        <location filename="../forms/main_window_view.ui" line="650"/>
         <source>Ctrl+G</source>
-        <translation>Ctrl+G</translation>
+        <translation type="unfinished">Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="667"/>
+        <location filename="../forms/main_window_view.ui" line="671"/>
         <source>Ctrl+H</source>
-        <translation>Ctrl+H</translation>
+        <translation type="unfinished">Ctrl+H</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="762"/>
+        <location filename="../forms/main_window_view.ui" line="766"/>
         <source>Ctrl+Shift+Right</source>
-        <translation>Ctrl+Shift+Right</translation>
+        <translation type="unfinished">Ctrl+Shift+Right</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="780"/>
+        <location filename="../forms/main_window_view.ui" line="784"/>
         <source>Ctrl+Shift+Left</source>
-        <translation>Ctrl+Shift+Left</translation>
+        <translation type="unfinished">Ctrl+Shift+Left</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="816"/>
+        <location filename="../forms/main_window_view.ui" line="820"/>
         <source>Ctrl+J</source>
-        <translation>Ctrl+J</translation>
+        <translation type="unfinished">Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="843"/>
+        <location filename="../forms/main_window_view.ui" line="847"/>
         <source>Ctrl+L</source>
-        <translation>Ctrl+L</translation>
+        <translation type="unfinished">Ctrl+L</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="857"/>
+        <location filename="../forms/main_window_view.ui" line="885"/>
         <source>Save current image in disk.</source>
-        <translation>Guardar imagem currente para o disco.</translation>
+        <translation type="unfinished">Guardar imagem currente para o disco.</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="860"/>
+        <location filename="../forms/main_window_view.ui" line="888"/>
         <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
+        <translation type="unfinished">Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="875"/>
+        <location filename="../forms/main_window_view.ui" line="903"/>
         <source>Ctrl+O</source>
-        <translation>Ctrl+O</translation>
+        <translation type="unfinished">Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="1091"/>
-        <source>English</source>
-        <translation>Inglês</translation>
-    </message>
-    <message>
-        <location filename="../forms/main_window_view.ui" line="1094"/>
-        <source>en_US</source>
-        <translation>en_US</translation>
-    </message>
-    <message>
-        <location filename="../forms/main_window_view.ui" line="1106"/>
-        <source>Portuguese</source>
-        <translation>Português</translation>
-    </message>
-    <message>
-        <location filename="../forms/main_window_view.ui" line="1138"/>
+        <location filename="../forms/main_window_view.ui" line="1136"/>
         <source>Active double page mode</source>
-        <translation>Ativar modo de dupla página</translation>
+        <translation type="unfinished">Ativar modo de dupla página</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="267"/>
+        <location filename="../forms/main_window_view.ui" line="264"/>
         <source>&amp;Recent files</source>
-        <translation>&amp;Ficheiros recentes</translation>
+        <translation type="unfinished">&amp;Ficheiros recentes</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="357"/>
+        <location filename="../forms/main_window_view.ui" line="356"/>
         <source>R&amp;ecente bookmarks</source>
-        <translation>Marcadores recentes</translation>
+        <translation type="unfinished">Marcadores recentes</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="450"/>
         <source>&amp;About Pynocchio</source>
-        <translation>&amp;Sobre Pynocchio</translation>
+        <translation type="unfinished">&amp;Sobre Pynocchio</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="455"/>
         <source>About &amp;Qt</source>
-        <translation>Sobre &amp;Qt</translation>
+        <translation type="unfinished">Sobre &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="460"/>
+        <location filename="../forms/main_window_view.ui" line="464"/>
         <source>&amp;Exit</source>
-        <translation>&amp;Sair</translation>
+        <translation type="unfinished">&amp;Sair</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="475"/>
+        <location filename="../forms/main_window_view.ui" line="479"/>
         <source>&amp;Next page</source>
-        <translation>&amp;Próxima página</translation>
+        <translation type="unfinished">&amp;Próxima página</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="499"/>
+        <location filename="../forms/main_window_view.ui" line="503"/>
         <source>&amp;Previous page</source>
-        <translation>&amp;Página anterior</translation>
+        <translation type="unfinished">&amp;Página anterior</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="520"/>
+        <location filename="../forms/main_window_view.ui" line="524"/>
         <source>&amp;First page</source>
-        <translation>&amp;Primeira página</translation>
+        <translation type="unfinished">&amp;Primeira página</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="538"/>
+        <location filename="../forms/main_window_view.ui" line="542"/>
         <source>&amp;Last page</source>
-        <translation>&amp;Última página</translation>
+        <translation type="unfinished">&amp;Última página</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="559"/>
+        <location filename="../forms/main_window_view.ui" line="563"/>
         <source>&amp;Rotate left</source>
-        <translation>&amp;Rodar esquerda</translation>
+        <translation type="unfinished">&amp;Rodar esquerda</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="577"/>
+        <location filename="../forms/main_window_view.ui" line="581"/>
         <source>Rotat&amp;e right</source>
-        <translation>Rodar direita</translation>
+        <translation type="unfinished">Rodar direita</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="601"/>
+        <location filename="../forms/main_window_view.ui" line="605"/>
         <source>&amp;Horizontal fit</source>
-        <translation>&amp;Ajustar horizontalmente</translation>
+        <translation type="unfinished">&amp;Ajustar horizontalmente</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="622"/>
+        <location filename="../forms/main_window_view.ui" line="626"/>
         <source>&amp;Fullscreen</source>
-        <translation>&amp;Tela Cheia</translation>
+        <translation type="unfinished">&amp;Tela Cheia</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="643"/>
+        <location filename="../forms/main_window_view.ui" line="647"/>
         <source>&amp;Go to page</source>
-        <translation>&amp;Ir para página</translation>
+        <translation type="unfinished">&amp;Ir para página</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="664"/>
+        <location filename="../forms/main_window_view.ui" line="668"/>
         <source>&amp;Original fit</source>
-        <translation>&amp;Ajuste original</translation>
+        <translation type="unfinished">&amp;Ajuste original</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="684"/>
-        <source>S&amp;how Statusbar</source>
-        <translation>&amp;Mostrar barra de estado</translation>
-    </message>
-    <message>
-        <location filename="../forms/main_window_view.ui" line="696"/>
+        <location filename="../forms/main_window_view.ui" line="700"/>
         <source>&amp;Add bookmark</source>
-        <translation>&amp;Adicionar marcador</translation>
+        <translation type="unfinished">&amp;Adicionar marcador</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="711"/>
+        <location filename="../forms/main_window_view.ui" line="715"/>
         <source>&amp;Remove bookmark</source>
-        <translation>&amp;Remover marcador</translation>
+        <translation type="unfinished">&amp;Remover marcador</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="729"/>
+        <location filename="../forms/main_window_view.ui" line="733"/>
         <source>&amp;Bookmark manager</source>
-        <translation>&amp;Gestor de marcadores</translation>
+        <translation type="unfinished">&amp;Gestor de marcadores</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="738"/>
+        <location filename="../forms/main_window_view.ui" line="742"/>
         <source>Open &amp;Folder</source>
-        <translation>Abrir &amp;Pasta</translation>
+        <translation type="unfinished">Abrir &amp;Pasta</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="759"/>
+        <location filename="../forms/main_window_view.ui" line="763"/>
         <source>Next &amp;Comic</source>
-        <translation>Próxima &amp;Banda Desenhada</translation>
+        <translation type="unfinished">Próxima &amp;Banda Desenhada</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="777"/>
+        <location filename="../forms/main_window_view.ui" line="781"/>
         <source>P&amp;revious Comic</source>
-        <translation>Próxima Banda desenhada</translation>
+        <translation type="unfinished">Próxima Banda desenhada</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="792"/>
+        <location filename="../forms/main_window_view.ui" line="796"/>
         <source>&amp;Preferences</source>
-        <translation>&amp;Preferências</translation>
+        <translation type="unfinished">&amp;Preferências</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="813"/>
+        <location filename="../forms/main_window_view.ui" line="817"/>
         <source>&amp;Vertical fit</source>
-        <translation>Ajuste vertical</translation>
+        <translation type="unfinished">Ajuste vertical</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="840"/>
+        <location filename="../forms/main_window_view.ui" line="844"/>
         <source>&amp;Best fit</source>
-        <translation>Melhor ajuste</translation>
+        <translation type="unfinished">Melhor ajuste</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="854"/>
+        <location filename="../forms/main_window_view.ui" line="882"/>
         <source>&amp;Save image</source>
-        <translation>Guardar imagem</translation>
+        <translation type="unfinished">Guardar imagem</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="869"/>
+        <location filename="../forms/main_window_view.ui" line="897"/>
         <source>&amp;Open File</source>
-        <translation>Abrir ficheiro</translation>
+        <translation type="unfinished">Abrir ficheiro</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="1120"/>
-        <source>&amp;Show Toolbar</source>
-        <translation>Mostrar barra de ferramentas</translation>
-    </message>
-    <message>
-        <location filename="../forms/main_window_view.ui" line="1135"/>
+        <location filename="../forms/main_window_view.ui" line="1133"/>
         <source>&amp;Double Page Mode</source>
-        <translation>Modo dupla página</translation>
+        <translation type="unfinished">Modo dupla página</translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="1152"/>
+        <location filename="../forms/main_window_view.ui" line="1150"/>
         <source>&amp;Manga Mode</source>
-        <translation>Modo manga</translation>
+        <translation type="unfinished">Modo manga</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="57"/>
+        <location filename="../pynocchio/main_window_view.py" line="71"/>
         <source>open_comic_file</source>
-        <translation>abrir_ficheiro_banda_desenhada</translation>
+        <translation type="unfinished">abrir_ficheiro_banda_desenhada</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="57"/>
-        <source>all_supported_files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; tar_files (*.tar *.cbt);; all_files (*)</source>
-        <translation>todos_ficheiros_suportados (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; tar_files (*.tar *.cbt);; todos_ficheiros (*)</translation>
-    </message>
-    <message>
-        <location filename="../pynocchio/main_window_view.py" line="72"/>
-        <source>open_comic_folder</source>
-        <translation>abrir_pasta_banda_desenhada</translation>
-    </message>
-    <message>
-        <location filename="../pynocchio/main_window_view.py" line="84"/>
+        <location filename="../pynocchio/main_window_view.py" line="94"/>
         <source>save_current_page</source>
-        <translation>guardar_imagem_currente</translation>
+        <translation type="unfinished">guardar_imagem_currente</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="84"/>
+        <location filename="../pynocchio/main_window_view.py" line="94"/>
         <source>images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
-        <translation>imagens (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
+        <translation type="unfinished">imagens (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="333"/>
+        <location filename="../pynocchio/main_window_view.py" line="351"/>
         <source>Continue reading from page %d?</source>
-        <translation>Continuar a ler da página %d?</translation>
+        <translation type="unfinished">Continuar a ler da página %d?</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="336"/>
+        <location filename="../pynocchio/main_window_view.py" line="354"/>
         <source>&lt;p&gt;You stopped reading here.&lt;/p&gt;&lt;p&gt; If you choose &lt;b&gt;&quot;Yes&quot;&lt;/b&gt;, reading will resume on &lt;b&gt;page %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Otherwise, the first page will be loaded.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Você parou de ler aqui.&lt;/p&gt;&lt;p&gt; Se escolher &lt;b&gt;&quot;Sim&quot;&lt;/b&gt;, a leitura vai resumer na &lt;b&gt;página %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Se não, a primeira página vai ser carregada.&lt;/p&gt;</translation>
+        <translation type="unfinished">&lt;p&gt;Você parou de ler aqui.&lt;/p&gt;&lt;p&gt; Se escolher &lt;b&gt;&quot;Sim&quot;&lt;/b&gt;, a leitura vai resumer na &lt;b&gt;página %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Se não, a primeira página vai ser carregada.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="395"/>
+        <location filename="../forms/main_window_view.ui" line="313"/>
+        <source>&amp;Navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/main_window_view.ui" line="688"/>
+        <source>S&amp;how statusbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/main_window_view.ui" line="1118"/>
+        <source>&amp;Show toolbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/main_window_view.ui" line="1161"/>
+        <source>&amp;Page across files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pynocchio/main_window_view.py" line="415"/>
         <source>LoadComicsException</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="400"/>
+        <location filename="../pynocchio/main_window_view.py" line="420"/>
         <source>InvalidTypeFileException</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/main_window_view.ui" line="868"/>
+        <source>&amp;Page fit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/main_window_view.ui" line="871"/>
+        <source>Ctrl+P</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/main_window_view.ui" line="1172"/>
+        <source>Show &amp;thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pynocchio/main_window_view.py" line="71"/>
+        <source>all supported files (%s);; zip files (*.zip *.cbz);; rar files (*.rar *.cbr);; tar files (*.tar *.cbt);; image files (%s);; all files (*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NotFoundDialog</name>
+    <message>
+        <location filename="../forms/not_found_dialog.ui" line="63"/>
+        <source>Close</source>
+        <translation type="unfinished">Fechar</translation>
+    </message>
+    <message>
+        <location filename="../forms/not_found_dialog.ui" line="23"/>
+        <source>File not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/not_found_dialog.ui" line="45"/>
+        <source>The file was not found</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>StatusBar</name>
     <message>
-        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="94"/>
+        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="93"/>
         <source>Page: </source>
-        <translation>Página:</translation>
+        <translation type="unfinished">Página:</translation>
     </message>
     <message>
-        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="101"/>
+        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="100"/>
         <source>Resolution: </source>
-        <translation>Resolução: </translation>
+        <translation type="unfinished">Resolução: </translation>
     </message>
     <message>
-        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="109"/>
+        <location filename="../pynocchio/uic_files/custom_widgets/status_bar.py" line="110"/>
         <source>Title: </source>
-        <translation>Título: </translation>
+        <translation type="unfinished">Título: </translation>
+    </message>
+</context>
+<context>
+    <name>Thumbnails</name>
+    <message>
+        <location filename="../forms/thumbnails.ui" line="29"/>
+        <source>Thumbnails</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -515,22 +511,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/preference_dialog.ui" line="17"/>
         <source>Pynocchio Preferences</source>
-        <translation>Preferências Pynocchio</translation>
+        <translation type="unfinished">Preferências Pynocchio</translation>
     </message>
     <message>
         <location filename="../forms/preference_dialog.ui" line="37"/>
         <source>General</source>
-        <translation>Geral</translation>
-    </message>
-    <message>
-        <location filename="../forms/preference_dialog.ui" line="51"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Background color: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation type="unfinished">Geral</translation>
     </message>
     <message>
         <location filename="../forms/preference_dialog.ui" line="112"/>
         <source>Close</source>
-        <translation>Fechar</translation>
+        <translation type="unfinished">Fechar</translation>
+    </message>
+    <message>
+        <location filename="../forms/preference_dialog.ui" line="51"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Background color: &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

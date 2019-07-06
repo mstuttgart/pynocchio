@@ -65,3 +65,4 @@ class TestComicLoaderFactory(TestCase):
                     loader = ComicLoaderFactory.create_loader(
                         "test"+archive_format
                     )
+                    assert loader

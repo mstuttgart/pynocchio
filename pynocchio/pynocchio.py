@@ -1,7 +1,10 @@
 import os
 import sys
 
-import qdarkgraystyle
+try:
+    import qdarkgraystyle
+except ImportError:
+    pass
 from PyQt5 import QtCore, QtWidgets
 
 from .main_window_model import MainWindowModel
@@ -29,7 +32,10 @@ class Pynocchio(QtWidgets.QApplication):
         self.setApplicationName('Pynocchio')
 
         self.setStyle('Fusion')
-        self.setStyleSheet(qdarkgraystyle.load_stylesheet())
+        try:
+            self.setStyleSheet(qdarkgraystyle.load_stylesheet())
+        except NameError:
+            pass
 
         if hasattr(self, 'setApplicationDisplayName'):
             self.setApplicationDisplayName('Pynocchio')
@@ -64,7 +70,9 @@ class Pynocchio(QtWidgets.QApplication):
 
             filename = filename.replace('\\', ' ')
 
-            if os.path.isfile(filename):
-                self.view.open_comics(filename)
+            if os.path.isfile(filename) or os.path.isdir(filename):
+                initial_page = self.view.get_page_from_temporary_bookmarks(
+                    filename)
+                self.view.open_comics(filename, initial_page=initial_page)
 
         sys.exit(self.exec_())

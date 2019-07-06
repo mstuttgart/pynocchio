@@ -11,7 +11,7 @@ from .comic_page_handler_factory import ComicPageHandlerFactory
 from .comic_path_filter import ComicPathFilter
 from .exception import NoDataFindException
 from .settings_manager import SettingsManager
-from .utility import get_base_name, get_dir_name, is_file
+from .utility import get_base_name, get_dir_name, is_file, is_dir
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -22,6 +22,7 @@ class MainWindowModel(QtCore.QObject):
     _VERTICAL_FIT = 'action_vertical_fit'
     _HORIZONTAL_FIT = 'action_horizontal_fit'
     _BEST_FIT = 'action_best_fit'
+    _PAGE_FIT = 'action_page_fit'
 
     load_progress = QtCore.pyqtSignal(int)
     load_done = QtCore.pyqtSignal()
@@ -33,6 +34,7 @@ class MainWindowModel(QtCore.QObject):
         self.settings_manager = SettingsManager()
         self.rotate_angle = 0
         self.scroll_area_size = None
+        self.scroll_bar_size = None
         self.fit_type = self.load_view_adjust(MainWindowModel._ORIGINAL_FIT)
         self.current_directory = self.load_current_directory()
 
@@ -52,8 +54,9 @@ class MainWindowModel(QtCore.QObject):
     def load_current_directory(self):
         return self.settings_manager.load_current_directory()
 
-    def load(self, filename, initial_page=0):
-        logger.info('Loading %s at %i', filename, initial_page)
+    def load(self, filename, initial_page=None):
+        logger.info('Loading %s at %i', filename,
+                    0 if initial_page is None else initial_page)
 
         loader = ComicLoaderFactory.create_loader(filename)
         loader.progress.connect(self.load_progressbar_value)
@@ -67,6 +70,9 @@ class MainWindowModel(QtCore.QObject):
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
 
+        page = initial_page if initial_page is not None \
+            else loader.initial_page
+
         # Memorize last page on comic
         if self.comic:
             if not self.is_first_page() and not self.is_last_page():
@@ -79,10 +85,12 @@ class MainWindowModel(QtCore.QObject):
 
         self.comic.pages = loader.data
         self.comic_page_handler = ComicPageHandlerFactory.create_handler(
-            False, self.comic, index=initial_page)
+            False, self.comic, index=page)
         self.current_directory = get_dir_name(filename)
 
-        if is_file(filename):
+        if is_dir(filename) or type(loader).__name__ == 'ComicImageLoader':
+            self.comic_file_filter.parse(filename, isdir=True)
+        elif is_file(filename):
             self.comic_file_filter.parse(self.current_directory)
 
     def save_current_page_image(self, file_name):
@@ -116,7 +124,7 @@ class MainWindowModel(QtCore.QObject):
         return self.comic.name
 
     def get_comic_path(self):
-        return self.comic. path
+        return self.comic.path
 
     def get_comic_title(self):
         return self.comic.name
@@ -167,20 +175,47 @@ class MainWindowModel(QtCore.QObject):
 
     def _resize_page(self, pix_map):
 
+        width = pix_map.width()
+        height = pix_map.height()
+
         if self.fit_type == MainWindowModel._VERTICAL_FIT:
+            h = self.scroll_area_size.height()
+            f = h / height
+            if int(f*width) > self.scroll_area_size.width():
+                h -= self.scroll_bar_size
+                f = h / height
+                if int(f*width) < self.scroll_area_size.width():
+                    f = self.scroll_area_size.width() / width
+                    h = int(f*height)
             pix_map = pix_map.scaledToHeight(
-                self.scroll_area_size.height(),
-                QtCore.Qt.SmoothTransformation)
+                h, QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._HORIZONTAL_FIT:
+            w = self.scroll_area_size.width()
+            f = w / width
+            if int(f*height) > self.scroll_area_size.height():
+                w -= self.scroll_bar_size
+                f = w / width
+                if int(f*height) < self.scroll_area_size.height():
+                    f = self.scroll_area_size.height() / height
+                    w = int(f*width)
             pix_map = pix_map.scaledToWidth(
-                self.scroll_area_size.width(),
-                QtCore.Qt.SmoothTransformation)
+                w, QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._BEST_FIT:
             pix_map = pix_map.scaledToWidth(
                 self.scroll_area_size.width() * 0.8,
                 QtCore.Qt.SmoothTransformation)
+
+        elif self.fit_type == MainWindowModel._PAGE_FIT:
+            pix_map = pix_map.scaled(
+                self.scroll_area_size.width(),
+                self.scroll_area_size.height(),
+                QtCore.Qt.KeepAspectRatio,
+                QtCore.Qt.SmoothTransformation)
+
+        pix_map.original_width = width
+        pix_map.original_height = height
 
         return pix_map
 
@@ -195,6 +230,9 @@ class MainWindowModel(QtCore.QObject):
 
     def best_fit(self):
         self.fit_type = MainWindowModel._BEST_FIT
+
+    def page_fit(self):
+        self.fit_type = MainWindowModel._PAGE_FIT
 
     def double_page_mode(self, checked):
         index = self.comic_page_handler.current_page_index
@@ -214,6 +252,8 @@ class MainWindowModel(QtCore.QObject):
         self.load_done.emit()
 
     def save_settings(self):
+        self.settings_manager.save_toggles(self.parent.ui)
+        self.settings_manager.save_window(self.parent)
         self.settings_manager.save_view_adjust(self.fit_type)
         self.settings_manager.save_current_directory(self.current_directory)
 
@@ -240,3 +280,11 @@ class MainWindowModel(QtCore.QObject):
     def remove_bookmark(self, path=False, table=Bookmark):
         path = self.comic.path if not path else path
         BookmarkManager.remove_bookmark(path, table=table)
+
+    def load_window(self, size, position):
+        return (self.settings_manager.load_window_size(size),
+                self.settings_manager.load_window_position(position),
+                self.settings_manager.load_window_state())
+
+    def load_toggles(self):
+        return self.settings_manager.load_toggles()

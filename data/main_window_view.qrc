@@ -24,7 +24,9 @@
     <file>icons/object-rotate-left.png</file>
     <file>icons/object-rotate-right.png</file>
     <file>icons/original-fit.png</file>
+    <file>icons/page-fit.png</file>
     <file>icons/system-file-manager2.png</file>
+    <file>icons/system-shutdown.png</file>
     <file>icons/user-trash.png</file>
     <file>icons/vertical-fit.png</file>
     <file>icons/window-close.png</file>

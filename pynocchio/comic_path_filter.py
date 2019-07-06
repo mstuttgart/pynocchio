@@ -12,10 +12,14 @@ class ComicPathFilter():
         self.extension_list = extension_list
         self.current_index = None
 
-    def parse(self, path):
+    def parse(self, path, isdir=False):
 
         self.current_path = path
         self.file_list = []
+
+        if isdir:
+            self.file_list = [None]
+            return
 
         for ext in self.extension_list:
             self.file_list.extend(glob.glob1(path, '*' + ext))
@@ -25,7 +29,8 @@ class ComicPathFilter():
 
     def is_first_comic(self, filename):
         try:
-            return self.file_list[0] == filename
+            return (self.file_list[0] == filename or
+                    self.file_list[0] is None)
         except IndexError as exc:
             raise NoDataFindException(
                 'ComicPathFilter file list is empty!'
@@ -33,7 +38,8 @@ class ComicPathFilter():
 
     def is_last_comic(self, filename):
         try:
-            return self.file_list[-1] == filename
+            return (self.file_list[-1] == filename or
+                    self.file_list[-1] is None)
         except IndexError as exc:
             raise NoDataFindException(
                 'ComicPathFilter file list is empty!'

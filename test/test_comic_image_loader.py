@@ -2,7 +2,6 @@
 from unittest import TestCase, mock
 from unittest.mock import mock_open
 
-from pynocchio.comic import Page
 from pynocchio.comic_file_loader_image import ComicImageLoader
 from pynocchio.exception import NoDataFindException
 from pynocchio.utility import IMAGE_FILE_FORMATS
@@ -13,11 +12,11 @@ class TestComicImageLoader(TestCase):
         self.comic_image_loader = ComicImageLoader()
 
     @mock.patch(
-        "pynocchio.comic_file_loader_image.glob.glob1",
+        "pynocchio.comic_file_loader_dir.glob.glob1",
         lambda dir, ext: ["image"+ext[1:]]
     )
     @mock.patch(
-        "pynocchio.comic_file_loader_image.open",
+        "pynocchio.comic_file_loader_dir.open",
         mock_open()
     )
     def test_load_images(self):
@@ -39,7 +38,7 @@ class TestComicImageLoader(TestCase):
                 )
 
     @mock.patch(
-        "pynocchio.comic_file_loader_image.glob.glob1",
+        "pynocchio.comic_file_loader_dir.glob.glob1",
         lambda dir, ext: []
     )
     def test_load_image_no_files(self):

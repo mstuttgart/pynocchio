@@ -1,17 +1,13 @@
-import glob
 import logging
 
-from .comic import Page
-from .comic_file_loader import ComicLoader
-from .exception import NoDataFindException
-from .utility import (IMAGE_FILE_FORMATS, get_dir_name, get_file_extension,
-                      join_path)
+from .comic_file_loader_dir import ComicDirLoader
+from .utility import get_dir_name, get_base_name, is_dir
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-class ComicImageLoader(ComicLoader):
+class ComicImageLoader(ComicDirLoader):
 
     def __init__(self):
         super().__init__()
@@ -23,36 +19,13 @@ class ComicImageLoader(ComicLoader):
                 filename: name of compact image file
         """
 
-        # get files with extension stored in ext
-        logger.info('Loading from %s', filename)
+        if is_dir(filename):
+            dir_name = filename
+        else:
+            dir_name = get_dir_name(filename)
 
-        file_list = []
+        super().load(dir_name)
 
-        dir_name = get_dir_name(filename)
-
-        for ext in IMAGE_FILE_FORMATS:
-            file_list += glob.glob1(dir_name, '*' + ext)
-
-        # sort list
-        file_list.sort()
-
-        aux = (100.0 / len(file_list)) if len(file_list) else 100.0
-        page = 1
-        self.data = []
-
-        for idx, name in enumerate(file_list):
-            logger.info('Trying to load %s', name)
-
-            if get_file_extension(name).lower() in IMAGE_FILE_FORMATS:
-                logger.info('Adding page %s', name)
-
-                with open(join_path('', dir_name, name), 'rb') as img:
-                    self.data.append(Page(img.read(), name, page))
-                    page += 1
-
-            self.progress.emit(idx * aux)
-
-        if not self.data:
-            message = 'Image file not loaded!'
-            logger.exception(message)
-            raise NoDataFindException(message)
+        for i, page in enumerate(self.data):
+            if page.title == get_base_name(filename):
+                self.initial_page = i
