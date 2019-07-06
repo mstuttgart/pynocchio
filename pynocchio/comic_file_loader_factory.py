@@ -40,6 +40,6 @@ class ComicLoaderFactory():
             logger.info("Creating tar loader")
             return ComicTarLoader()
         else:
-            message = 'File is not folder: %s' % file_extension
+            message = 'File is not suported: %s' % file_extension
             logger.exception(message)
             raise InvalidTypeFileException(message)

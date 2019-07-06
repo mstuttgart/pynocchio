@@ -55,7 +55,7 @@ class MainWindowModel(QtCore.QObject):
         return self.settings_manager.load_current_directory()
 
     def load(self, filename, initial_page=None):
-        logger.info('Loading %s at %i', filename, initial_page)
+        logger.info('Loading %s at %i', filename, 0 if initial_page is None else initial_page)
 
         loader = ComicLoaderFactory.create_loader(filename)
         loader.progress.connect(self.load_progressbar_value)

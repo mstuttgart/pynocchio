@@ -11,7 +11,7 @@ from .go_to_page_dialog import GoToDialog
 from .not_found_dialog import NotFoundDialog
 from .thumbnails import ThumbnailsDock
 from .uic_files import main_window_view_ui
-from .utility import IMAGE_FILE_FORMATS, file_exist
+from .utility import IMAGE_FILE_FORMATS, COMPACT_FILE_FORMATS, file_exist
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -64,21 +64,18 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_open_file_triggered(self):
-        img_formats = ''
-
-        for img in IMAGE_FILE_FORMATS:
-            img_formats += ' *' + img
-
-        all_files = '*.zip *.cbz *.rar *.cbr *.tar *.cbt' + img_formats
+        cb_formats = ' '.join(['*' + cb for cb in COMPACT_FILE_FORMATS])
+        img_formats = ' '.join(['*' + img for img in IMAGE_FILE_FORMATS])
+        all_files = '%s %s' % (cb_formats, img_formats)
 
         filename = QtWidgets.QFileDialog().getOpenFileName(
             self, self.tr('open_comic_file'),
             self.model.current_directory,
             self.tr(
-                'all_supported_files (%s);; '
-                'zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; '
-                'tar_files (*.tar *.cbt);; image_files (%s);;'
-                'all_files (*)' % (all_files, img_formats)))
+                'all supported files (%s);; '
+                'zip files (*.zip *.cbz);; rar files (*.rar *.cbr);; '
+                'tar files (*.tar *.cbt);; image files (%s);; '
+                'all files (*)' % (all_files, img_formats)))
 
         if filename:
             logger.info('Opening file')
