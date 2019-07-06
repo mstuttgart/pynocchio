@@ -10,6 +10,7 @@ class ComicLoader(QtCore.QObject):
 
     progress = QtCore.pyqtSignal(int)
     done = QtCore.pyqtSignal()
+    initial_page = 0
 
     def __init__(self):
         super().__init__()

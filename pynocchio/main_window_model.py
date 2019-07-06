@@ -54,7 +54,7 @@ class MainWindowModel(QtCore.QObject):
     def load_current_directory(self):
         return self.settings_manager.load_current_directory()
 
-    def load(self, filename, initial_page=0):
+    def load(self, filename, initial_page=None):
         logger.info('Loading %s at %i', filename, initial_page)
 
         loader = ComicLoaderFactory.create_loader(filename)
@@ -69,6 +69,9 @@ class MainWindowModel(QtCore.QObject):
             q_file.open(QtCore.QIODevice.ReadOnly)
             loader.data.append(Page(q_file.readAll(), 'exit_red_1.png', 0))
 
+        page = initial_page if initial_page is not None \
+            else loader.initial_page
+
         # Memorize last page on comic
         if self.comic:
             if not self.is_first_page() and not self.is_last_page():
@@ -81,7 +84,7 @@ class MainWindowModel(QtCore.QObject):
 
         self.comic.pages = loader.data
         self.comic_page_handler = ComicPageHandlerFactory.create_handler(
-            False, self.comic, index=initial_page)
+            False, self.comic, index=page)
         self.current_directory = get_dir_name(filename)
 
         if is_file(filename):

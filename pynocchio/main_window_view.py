@@ -347,7 +347,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         bk = self.model.get_bookmark_from_path(path=path,
                                                table=TemporaryBookmark)
-        initial_page = 0
+        initial_page = None
 
         if bk:
             msg = QtWidgets.QMessageBox()
@@ -376,7 +376,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         return initial_page
 
-    def open_comics(self, filename, initial_page=0):
+    def open_comics(self, filename, initial_page=None):
         if filename:
             logger.info('Opening comic %s', filename)
 

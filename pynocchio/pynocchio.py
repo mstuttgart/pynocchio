@@ -70,7 +70,7 @@ class Pynocchio(QtWidgets.QApplication):
 
             filename = filename.replace('\\', ' ')
 
-            if os.path.isfile(filename):
+            if os.path.isfile(filename) or os.path.isdir(filename):
                 initial_page = self.view.get_page_from_temporary_bookmarks(
                     filename)
                 self.view.open_comics(filename, initial_page=initial_page)
