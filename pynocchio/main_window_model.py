@@ -11,7 +11,7 @@ from .comic_page_handler_factory import ComicPageHandlerFactory
 from .comic_path_filter import ComicPathFilter
 from .exception import NoDataFindException
 from .settings_manager import SettingsManager
-from .utility import get_base_name, get_dir_name, is_file
+from .utility import get_base_name, get_dir_name, is_file, is_dir
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -55,7 +55,8 @@ class MainWindowModel(QtCore.QObject):
         return self.settings_manager.load_current_directory()
 
     def load(self, filename, initial_page=None):
-        logger.info('Loading %s at %i', filename, 0 if initial_page is None else initial_page)
+        logger.info('Loading %s at %i', filename,
+                    0 if initial_page is None else initial_page)
 
         loader = ComicLoaderFactory.create_loader(filename)
         loader.progress.connect(self.load_progressbar_value)
@@ -87,7 +88,9 @@ class MainWindowModel(QtCore.QObject):
             False, self.comic, index=page)
         self.current_directory = get_dir_name(filename)
 
-        if is_file(filename):
+        if is_dir(filename) or type(loader).__name__ == 'ComicImageLoader':
+            self.comic_file_filter.parse(filename, isdir=True)
+        elif is_file(filename):
             self.comic_file_filter.parse(self.current_directory)
 
     def save_current_page_image(self, file_name):
@@ -121,7 +124,7 @@ class MainWindowModel(QtCore.QObject):
         return self.comic.name
 
     def get_comic_path(self):
-        return self.comic. path
+        return self.comic.path
 
     def get_comic_title(self):
         return self.comic.name

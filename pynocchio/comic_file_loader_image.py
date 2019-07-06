@@ -1,7 +1,7 @@
 import logging
 
 from .comic_file_loader_dir import ComicDirLoader
-from .utility import IMAGE_FILE_FORMATS, get_dir_name, get_base_name
+from .utility import get_dir_name, get_base_name, is_dir
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -19,7 +19,10 @@ class ComicImageLoader(ComicDirLoader):
                 filename: name of compact image file
         """
 
-        dir_name = get_dir_name(filename)
+        if is_dir(filename):
+            dir_name = filename
+        else:
+            dir_name = get_dir_name(filename)
 
         super().load(dir_name)
 

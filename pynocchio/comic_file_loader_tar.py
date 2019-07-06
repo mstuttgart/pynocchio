@@ -63,7 +63,7 @@ class ComicTarLoader(ComicLoader):
 
             name_list = tar.namelist()
             name_list.sort()
-            aux = 100.0 / len(name_list)
+            aux = 100.0 / max(1, len(name_list))
             page = 1
             self.data = []
 

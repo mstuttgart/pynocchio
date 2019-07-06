@@ -1,5 +1,4 @@
 import glob
-import os.path
 import logging
 
 from .comic import Page
@@ -50,7 +49,7 @@ class ComicDirLoader(ComicLoader):
 
         # sort list
         name_list.sort()
-        aux = 100.0 / len(name_list)
+        aux = 100.0 / max(1, len(name_list))
         page = 1
         self.data = []
 
