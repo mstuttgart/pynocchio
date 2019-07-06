@@ -147,7 +147,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">barre d&apos;outils</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="288"/>
+        <location filename="../pynocchio/main_window_view.py" line="284"/>
         <source>About Qt</source>
         <translation type="unfinished">À propos de Qt</translation>
     </message>
@@ -387,37 +387,37 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">&amp;Mode manga</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="75"/>
+        <location filename="../pynocchio/main_window_view.py" line="71"/>
         <source>open_comic_file</source>
         <translation type="unfinished">ouvrir_fichier_bd</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="98"/>
+        <location filename="../pynocchio/main_window_view.py" line="94"/>
         <source>save_current_page</source>
         <translation type="unfinished">sauver_page_courante</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="98"/>
+        <location filename="../pynocchio/main_window_view.py" line="94"/>
         <source>images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
         <translation type="unfinished">images (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="355"/>
+        <location filename="../pynocchio/main_window_view.py" line="351"/>
         <source>Continue reading from page %d?</source>
         <translation type="unfinished">Continuer la lecture à partir de la page %d ?</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="358"/>
+        <location filename="../pynocchio/main_window_view.py" line="354"/>
         <source>&lt;p&gt;You stopped reading here.&lt;/p&gt;&lt;p&gt; If you choose &lt;b&gt;&quot;Yes&quot;&lt;/b&gt;, reading will resume on &lt;b&gt;page %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Otherwise, the first page will be loaded.&lt;/p&gt;</source>
         <translation type="unfinished">&lt;p&gt;Vous avez cessé la lecture ici.&lt;/p&gt;&lt;p&gt; Si vous choisissez &lt;b&gt;&quot;Oui&quot;&lt;/b&gt;, la lecture reprendra à la &lt;b&gt;page %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Autrement, la première page sera chargée.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="419"/>
+        <location filename="../pynocchio/main_window_view.py" line="415"/>
         <source>LoadComicsException</source>
         <translation type="unfinished">ChargerExceptionsBD</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="424"/>
+        <location filename="../pynocchio/main_window_view.py" line="420"/>
         <source>InvalidTypeFileException</source>
         <translation type="unfinished">ExceptionTypeFichierInvalide</translation>
     </message>
@@ -442,11 +442,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="75"/>
-        <source>all_supported_files (%s);; zip_files (*.zip *.cbz);; rar_files (*.rar *.cbr);; tar_files (*.tar *.cbt);; image_files (%s);;all_files (*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../forms/main_window_view.ui" line="868"/>
         <source>&amp;Page fit</source>
         <translation type="unfinished"></translation>
@@ -459,6 +454,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="1172"/>
         <source>Show &amp;thumbnails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pynocchio/main_window_view.py" line="71"/>
+        <source>all supported files (%s);; zip files (*.zip *.cbz);; rar files (*.rar *.cbr);; tar files (*.tar *.cbt);; image files (%s);; all files (*)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
