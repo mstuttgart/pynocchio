@@ -48,9 +48,9 @@ class ThumbnailsDock(QtWidgets.QDockWidget):
             w = self.thumb_widget(pix_map, i)
             self.thumbs.append(w)
             self.ui.verticalLayout.addWidget(w)
+            QtGui.QGuiApplication.processEvents()
             if (i == current):
                 self.highlight(i)
-            QtGui.QGuiApplication.processEvents()
 
         self.ui.widget.adjustSize()
 

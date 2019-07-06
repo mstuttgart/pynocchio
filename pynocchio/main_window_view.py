@@ -288,17 +288,7 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_exit_triggered(self):
-        super(MainWindowView, self).close()
-        self.model.save_settings()
-
-        try:
-            if (not self.model.is_first_page() and not
-                self.model.is_last_page()):  # noqa: 501
-                self.model.add_bookmark(table=TemporaryBookmark)
-            else:
-                self.model.remove_bookmark(table=TemporaryBookmark)
-        except AttributeError as exc:
-            logger.warning(exc)
+        self.close()
 
     @QtCore.pyqtSlot()
     def on_thumbnails_dock_changed(self):
@@ -479,7 +469,8 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         files = self.model.load_recent_files()
         num_recent_files = len(files) if files else 0
-        num_recent_files = min(num_recent_files, MainWindowView.MAX_RECENT_FILES)  # noqa: 501
+        num_recent_files = min(num_recent_files,
+                               MainWindowView.MAX_RECENT_FILES)
 
         self.ui.menu_recent_files.menuAction().setVisible(True if files else
                                                           False)
@@ -672,4 +663,14 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     def closeEvent(self, event):
         self.model.save_settings()
+
+        try:
+            if self.model.is_first_page() or self.model.is_last_page():
+                self.model.remove_bookmark(table=TemporaryBookmark)
+            else:
+                self.model.add_bookmark(table=TemporaryBookmark)
+        except AttributeError as exc:
+            logger.warning(exc)
+
+        super(MainWindowView, self).close()
         event.accept()
