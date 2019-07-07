@@ -37,17 +37,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../pynocchio/bookmark_manager_dialog.py" line="86"/>
         <source>This action will go delete you bookmarks! Proceed?</source>
-        <translation type="unfinished">Esta ação irá deletar os favoritos selecionados! Deseja prosseguir?</translation>
+        <translation type="obsolete">Esta ação irá deletar os favoritos selecionados! Deseja prosseguir?</translation>
     </message>
     <message>
         <location filename="../pynocchio/bookmark_manager_dialog.py" line="115"/>
-        <source>Comic not exist</source>
+        <source>Comic does not exist</source>
         <translation type="unfinished">Arquivo não existe</translation>
     </message>
     <message>
         <location filename="../pynocchio/bookmark_manager_dialog.py" line="115"/>
         <source>Selected comic not exist! Do you like to remove it from bookmark list?</source>
-        <translation type="unfinished">Arquivo selecionado não existe! Você deseja removê-lo da lista de favoritos?</translation>
+        <translation type="obsolete">Arquivo selecionado não existe! Você deseja removê-lo da lista de favoritos?</translation>
+    </message>
+    <message>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="86"/>
+        <source>This action will delete your bookmarks! Proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pynocchio/bookmark_manager_dialog.py" line="115"/>
+        <source>The selected comic does not exist! Would you like to remove it from the bookmark list?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -142,7 +152,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">&amp;Favoritos</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="298"/>
+        <location filename="../pynocchio/main_window_view.py" line="299"/>
         <source>About Qt</source>
         <translation type="unfinished">Sobre Qt</translation>
     </message>
@@ -178,12 +188,12 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="887"/>
-        <source>Save current image in disk.</source>
+        <source>Save current image in disk</source>
         <translation type="unfinished">Salvar página atual em disco.</translation>
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="1138"/>
-        <source>Active double page mode</source>
+        <source>Enable double page mode</source>
         <translation type="unfinished">Ativar modo de página dupla</translation>
     </message>
     <message>
@@ -193,7 +203,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="358"/>
-        <source>R&amp;ecente bookmarks</source>
+        <source>R&amp;ecent bookmarks</source>
         <translation type="unfinished">&amp;Favoritos recentes</translation>
     </message>
     <message>
@@ -328,26 +338,26 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../pynocchio/main_window_view.py" line="80"/>
-        <source>open_comic_file</source>
-        <translation type="unfinished">Abrir arquivo</translation>
+        <source>Open Comic File</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../pynocchio/main_window_view.py" line="103"/>
         <source>save_current_page</source>
-        <translation type="unfinished">Salvar página atual</translation>
+        <translation type="obsolete">Salvar página atual</translation>
     </message>
     <message>
         <location filename="../pynocchio/main_window_view.py" line="103"/>
         <source>images (*.png *.xpm *.jpeg *.jpg *.gif)</source>
-        <translation type="unfinished">imagens (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
+        <translation type="obsolete">imagens (*.png *.xpm *.jpeg *.jpg *.gif)</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="376"/>
+        <location filename="../pynocchio/main_window_view.py" line="377"/>
         <source>Continue reading from page %d?</source>
         <translation type="unfinished">Continuar lendo da página %d?</translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="379"/>
+        <location filename="../pynocchio/main_window_view.py" line="380"/>
         <source>&lt;p&gt;You stopped reading here.&lt;/p&gt;&lt;p&gt; If you choose &lt;b&gt;&quot;Yes&quot;&lt;/b&gt;, reading will resume on &lt;b&gt;page %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Otherwise, the first page will be loaded.&lt;/p&gt;</source>
         <translation type="unfinished">&lt;p&gt;Você parou de ler aqui.&lt;/p&gt;&lt;p&gt; Se você escolher &lt;b&gt;&quot;Sim&quot;&lt;/b&gt;, você continuará a leitura de onde parou &lt;b&gt;página %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Caso contrário,a primeira página será carregada.&lt;/p&gt;</translation>
     </message>
@@ -358,7 +368,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../forms/main_window_view.ui" line="396"/>
-        <source>toolBar</source>
+        <source>toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -432,16 +442,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="440"/>
-        <source>LoadComicsException</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../pynocchio/main_window_view.py" line="445"/>
-        <source>InvalidTypeFileException</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../forms/main_window_view.ui" line="870"/>
         <source>&amp;Page fit</source>
         <translation type="unfinished"></translation>
@@ -469,6 +469,16 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/main_window_view.ui" line="1196"/>
         <source>Shrink &amp;only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pynocchio/main_window_view.py" line="104"/>
+        <source>Save Current Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pynocchio/main_window_view.py" line="104"/>
+        <source>images (%s)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

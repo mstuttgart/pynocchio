@@ -355,7 +355,7 @@
     </property>
     <widget class="QMenu" name="menu_recent_bookmarks">
      <property name="title">
-      <string>R&amp;ecente bookmarks</string>
+      <string>R&amp;ecent bookmarks</string>
      </property>
      <addaction name="actionRecent_bookmark_1"/>
      <addaction name="actionRecent_bookmark_2"/>
@@ -393,7 +393,7 @@
     <bool>true</bool>
    </property>
    <property name="windowTitle">
-    <string>toolBar</string>
+    <string>toolbar</string>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -884,7 +884,7 @@
     <string>&amp;Save image</string>
    </property>
    <property name="whatsThis">
-    <string>Save current image in disk.</string>
+    <string>Save current image in disk</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
@@ -1135,7 +1135,7 @@
     <string>&amp;Double Page Mode</string>
    </property>
    <property name="toolTip">
-    <string>Active double page mode</string>
+    <string>Enable double page mode</string>
    </property>
    <property name="iconVisibleInMenu">
     <bool>true</bool>

@@ -78,7 +78,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         all_files = '%s %s' % (cb_formats, img_formats)
 
         filename = QtWidgets.QFileDialog().getOpenFileName(
-            self, self.tr('open_comic_file'),
+            self, self.tr('Open Comic File'),
             self.model.current_directory,
             self.tr(
                 'all supported files (%s);; '
@@ -95,14 +95,15 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_save_image_triggered(self):
+        img_formats = ' '.join(['*' + img for img in IMAGE_FILE_FORMATS])
 
         if self.model.comic:
 
             path = self.model.current_directory + \
                 self.model.get_current_page_title()
             file_path = QtWidgets.QFileDialog().getSaveFileName(
-                self, self.tr('save_current_page'), path,
-                self.tr("images (*.png *.xpm *.jpeg *.jpg *.gif)"))
+                self, self.tr('Save Current Page'), path,
+                self.tr('images (%s)' % (img_formats)))
 
             if file_path:
                 logger.info('Saving image')
@@ -438,13 +439,12 @@ class MainWindowView(QtWidgets.QMainWindow):
 
             except LoadComicsException as excp:
                 QtWidgets.QMessageBox().warning(self,
-                                                self.tr('LoadComicsException'),
+                                                'LoadComicsException',
                                                 self.tr(excp.message),
                                                 QtWidgets.QMessageBox.Close)
             except InvalidTypeFileException as excp:
                 QtWidgets.QMessageBox().warning(self,
-                                                self.tr('InvalidTypeFile'
-                                                        'Exception'),
+                                                'InvalidTypeFileException',
                                                 self.tr(excp.message),
                                                 QtWidgets.QMessageBox.Close)
 
