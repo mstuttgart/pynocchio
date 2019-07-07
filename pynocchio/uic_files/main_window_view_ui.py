@@ -445,6 +445,10 @@ class Ui_MainWindowView(object):
         self.action_show_thumbnails.setCheckable(True)
         self.action_show_thumbnails.setChecked(True)
         self.action_show_thumbnails.setObjectName("action_show_thumbnails")
+        self.action_dark_style = QtWidgets.QAction(MainWindowView)
+        self.action_dark_style.setCheckable(True)
+        self.action_dark_style.setChecked(True)
+        self.action_dark_style.setObjectName("action_dark_style")
         self.menu_context = QtWidgets.QMenu(MainWindowView)
         self.menu_context.setEnabled(True)
         self.menu_context.setObjectName("menu_context")
@@ -493,6 +497,7 @@ class Ui_MainWindowView(object):
         self.menu_settings.addAction(self.action_show_statusbar)
         self.menu_settings.addAction(self.action_show_thumbnails)
         self.menu_settings.addAction(self.action_page_across_files)
+        self.menu_settings.addAction(self.action_dark_style)
         self.menu_settings.addSeparator()
         self.menu_settings.addAction(self.action_preference_dialog)
         self.menu_recent_bookmarks.addAction(self.actionRecent_bookmark_1)
@@ -636,6 +641,7 @@ class Ui_MainWindowView(object):
         self.action_manga_mode.setText(_translate("MainWindowView", "&Manga Mode"))
         self.action_page_across_files.setText(_translate("MainWindowView", "&Page across files"))
         self.action_show_thumbnails.setText(_translate("MainWindowView", "Show &thumbnails"))
+        self.action_dark_style.setText(_translate("MainWindowView", "Force &dark style"))
 
 from .custom_widgets.qscroll_area_viewer import QScrollAreaViewer
 from .custom_widgets.status_bar import StatusBar

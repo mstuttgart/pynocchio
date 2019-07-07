@@ -2,6 +2,11 @@ import logging
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+try:
+    import qdarkgraystyle
+except ImportError:
+    pass
+
 from .about_dialog import AboutDialog
 from .bookmark import TemporaryBookmark
 from .bookmark_manager_dialog import BookmarkManagerDialog
@@ -29,6 +34,10 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         self.ui = main_window_view_ui.Ui_MainWindowView()
         self.ui.setupUi(self)
+
+        self.default_stylesheet = \
+            QtWidgets.QApplication.instance().styleSheet()
+        print(self.default_stylesheet)
 
         MainWindowView.MAX_RECENT_FILES = len(
             self.ui.menu_recent_files.actions())
@@ -292,6 +301,17 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.ui.action_show_thumbnails.setChecked(
             self.thumbnails_dock.isVisible())
 
+    @QtCore.pyqtSlot(bool)
+    def on_action_dark_style_triggered(self):
+        qApp = QtWidgets.QApplication.instance()
+        if self.ui.action_dark_style.isChecked():
+            try:
+                qApp.setStyleSheet(qdarkgraystyle.load_stylesheet())
+            except NameError:
+                pass
+        else:
+            qApp.setStyleSheet(self.default_stylesheet)
+
     def create_connections(self):
 
         # Define group to action fit items and load fit of settings file
@@ -523,6 +543,8 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.on_action_show_thumbnails_triggered()
         self.ui.action_page_across_files.setChecked(
             settings['page_across_files'])
+        self.ui.action_dark_style.setChecked(settings['dark_style'])
+        self.on_action_dark_style_triggered()
 
     def update_thumbnails(self):
         self.thumbnails_dock.clear()
@@ -609,7 +631,10 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.update_status_bar()
 
     def update_current_view_container_size(self):
-        self.model.scroll_area_size = self.ui.qscroll_area_viewer.size()
+        margins = (self.ui.qscroll_area_viewer.size() -
+                   self.ui.qscroll_area_viewer.contentsRect().size())
+        self.model.scroll_area_size = \
+            self.ui.qscroll_area_viewer.size() - 2*margins
         self.model.scroll_bar_size = \
             self.ui.qscroll_area_viewer.style().pixelMetric(
                 QtWidgets.QStyle.PM_ScrollBarExtent)

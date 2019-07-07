@@ -79,6 +79,8 @@ class SettingsManager():
                                ui.action_show_thumbnails.isChecked())
         self.settings.setValue('page_across_files',
                                ui.action_page_across_files.isChecked())
+        self.settings.setValue('dark_style',
+                               ui.action_dark_style.isChecked())
 
     def load_toggles(self):
         logger.info('Loading togglable settings')
@@ -89,4 +91,6 @@ class SettingsManager():
                 'show_thumbnails':
                 self.settings.value('show_thumbnails', True, type=bool),
                 'page_across_files':
-                self.settings.value('page_across_files', True, type=bool)}
+                self.settings.value('page_across_files', True, type=bool),
+                'dark_style':
+                self.settings.value('dark_style', True, type=bool)}
