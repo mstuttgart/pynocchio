@@ -337,6 +337,7 @@
     <addaction name="action_show_toolbar"/>
     <addaction name="action_show_statusbar"/>
     <addaction name="action_show_thumbnails"/>
+    <addaction name="action_shrink_only"/>
     <addaction name="action_page_across_files"/>
     <addaction name="action_dark_style"/>
     <addaction name="separator"/>
@@ -1182,6 +1183,17 @@
    </property>
    <property name="text">
     <string>Force &amp;dark style</string>
+   </property>
+  </action>
+  <action name="action_shrink_only">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Shrink &amp;only</string>
    </property>
   </action>
   <widget class="QMenu" name="menu_context">

@@ -77,6 +77,8 @@ class SettingsManager():
                                ui.action_show_statusbar.isChecked())
         self.settings.setValue('show_thumbnails',
                                ui.action_show_thumbnails.isChecked())
+        self.settings.setValue('shrink_only',
+                               ui.action_shrink_only.isChecked())
         self.settings.setValue('page_across_files',
                                ui.action_page_across_files.isChecked())
         self.settings.setValue('dark_style',
@@ -90,6 +92,8 @@ class SettingsManager():
                 self.settings.value('show_statusbar', True, type=bool),
                 'show_thumbnails':
                 self.settings.value('show_thumbnails', True, type=bool),
+                'shrink_only':
+                self.settings.value('shrink_only', False, type=bool),
                 'page_across_files':
                 self.settings.value('page_across_files', True, type=bool),
                 'dark_style':

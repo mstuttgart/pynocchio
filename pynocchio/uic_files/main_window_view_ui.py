@@ -449,6 +449,10 @@ class Ui_MainWindowView(object):
         self.action_dark_style.setCheckable(True)
         self.action_dark_style.setChecked(True)
         self.action_dark_style.setObjectName("action_dark_style")
+        self.action_shrink_only = QtWidgets.QAction(MainWindowView)
+        self.action_shrink_only.setCheckable(True)
+        self.action_shrink_only.setChecked(False)
+        self.action_shrink_only.setObjectName("action_shrink_only")
         self.menu_context = QtWidgets.QMenu(MainWindowView)
         self.menu_context.setEnabled(True)
         self.menu_context.setObjectName("menu_context")
@@ -496,6 +500,7 @@ class Ui_MainWindowView(object):
         self.menu_settings.addAction(self.action_show_toolbar)
         self.menu_settings.addAction(self.action_show_statusbar)
         self.menu_settings.addAction(self.action_show_thumbnails)
+        self.menu_settings.addAction(self.action_shrink_only)
         self.menu_settings.addAction(self.action_page_across_files)
         self.menu_settings.addAction(self.action_dark_style)
         self.menu_settings.addSeparator()
@@ -642,6 +647,7 @@ class Ui_MainWindowView(object):
         self.action_page_across_files.setText(_translate("MainWindowView", "&Page across files"))
         self.action_show_thumbnails.setText(_translate("MainWindowView", "Show &thumbnails"))
         self.action_dark_style.setText(_translate("MainWindowView", "Force &dark style"))
+        self.action_shrink_only.setText(_translate("MainWindowView", "Shrink &only"))
 
 from .custom_widgets.qscroll_area_viewer import QScrollAreaViewer
 from .custom_widgets.status_bar import StatusBar

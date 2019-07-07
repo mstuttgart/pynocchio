@@ -147,257 +147,257 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="350"/>
+        <location filename="../forms/main_window_view.ui" line="351"/>
         <source>&amp;Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="357"/>
+        <location filename="../forms/main_window_view.ui" line="358"/>
         <source>R&amp;ecente bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="395"/>
+        <location filename="../forms/main_window_view.ui" line="396"/>
         <source>toolBar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="451"/>
+        <location filename="../forms/main_window_view.ui" line="452"/>
         <source>&amp;About Pynocchio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="456"/>
+        <location filename="../forms/main_window_view.ui" line="457"/>
         <source>About &amp;Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="465"/>
+        <location filename="../forms/main_window_view.ui" line="466"/>
         <source>&amp;Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="468"/>
+        <location filename="../forms/main_window_view.ui" line="469"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="480"/>
+        <location filename="../forms/main_window_view.ui" line="481"/>
         <source>&amp;Next page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="483"/>
+        <location filename="../forms/main_window_view.ui" line="484"/>
         <source>Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="504"/>
+        <location filename="../forms/main_window_view.ui" line="505"/>
         <source>&amp;Previous page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="507"/>
+        <location filename="../forms/main_window_view.ui" line="508"/>
         <source>Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="525"/>
+        <location filename="../forms/main_window_view.ui" line="526"/>
         <source>&amp;First page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="528"/>
+        <location filename="../forms/main_window_view.ui" line="529"/>
         <source>Ctrl+Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="543"/>
+        <location filename="../forms/main_window_view.ui" line="544"/>
         <source>&amp;Last page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="546"/>
+        <location filename="../forms/main_window_view.ui" line="547"/>
         <source>Ctrl+Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="564"/>
+        <location filename="../forms/main_window_view.ui" line="565"/>
         <source>&amp;Rotate left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="567"/>
+        <location filename="../forms/main_window_view.ui" line="568"/>
         <source>Ctrl+Shift+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="582"/>
+        <location filename="../forms/main_window_view.ui" line="583"/>
         <source>Rotat&amp;e right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="585"/>
+        <location filename="../forms/main_window_view.ui" line="586"/>
         <source>Ctrl+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="606"/>
+        <location filename="../forms/main_window_view.ui" line="607"/>
         <source>&amp;Horizontal fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="609"/>
+        <location filename="../forms/main_window_view.ui" line="610"/>
         <source>Ctrl+K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="627"/>
+        <location filename="../forms/main_window_view.ui" line="628"/>
         <source>&amp;Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="630"/>
+        <location filename="../forms/main_window_view.ui" line="631"/>
         <source>F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="648"/>
+        <location filename="../forms/main_window_view.ui" line="649"/>
         <source>&amp;Go to page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="651"/>
+        <location filename="../forms/main_window_view.ui" line="652"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="669"/>
+        <location filename="../forms/main_window_view.ui" line="670"/>
         <source>&amp;Original fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="672"/>
+        <location filename="../forms/main_window_view.ui" line="673"/>
         <source>Ctrl+H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="689"/>
+        <location filename="../forms/main_window_view.ui" line="690"/>
         <source>S&amp;how statusbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="701"/>
+        <location filename="../forms/main_window_view.ui" line="702"/>
         <source>&amp;Add bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="716"/>
+        <location filename="../forms/main_window_view.ui" line="717"/>
         <source>&amp;Remove bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="734"/>
+        <location filename="../forms/main_window_view.ui" line="735"/>
         <source>&amp;Bookmark manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="743"/>
+        <location filename="../forms/main_window_view.ui" line="744"/>
         <source>Open &amp;Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="764"/>
+        <location filename="../forms/main_window_view.ui" line="765"/>
         <source>Next &amp;Comic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="767"/>
+        <location filename="../forms/main_window_view.ui" line="768"/>
         <source>Ctrl+Shift+Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="782"/>
+        <location filename="../forms/main_window_view.ui" line="783"/>
         <source>P&amp;revious Comic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="785"/>
+        <location filename="../forms/main_window_view.ui" line="786"/>
         <source>Ctrl+Shift+Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="797"/>
+        <location filename="../forms/main_window_view.ui" line="798"/>
         <source>&amp;Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="818"/>
+        <location filename="../forms/main_window_view.ui" line="819"/>
         <source>&amp;Vertical fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="821"/>
+        <location filename="../forms/main_window_view.ui" line="822"/>
         <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="845"/>
+        <location filename="../forms/main_window_view.ui" line="846"/>
         <source>&amp;Best fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="848"/>
+        <location filename="../forms/main_window_view.ui" line="849"/>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="883"/>
+        <location filename="../forms/main_window_view.ui" line="884"/>
         <source>&amp;Save image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="886"/>
+        <location filename="../forms/main_window_view.ui" line="887"/>
         <source>Save current image in disk.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="889"/>
+        <location filename="../forms/main_window_view.ui" line="890"/>
         <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="898"/>
+        <location filename="../forms/main_window_view.ui" line="899"/>
         <source>&amp;Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="904"/>
+        <location filename="../forms/main_window_view.ui" line="905"/>
         <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="1119"/>
+        <location filename="../forms/main_window_view.ui" line="1120"/>
         <source>&amp;Show toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="1134"/>
+        <location filename="../forms/main_window_view.ui" line="1135"/>
         <source>&amp;Double Page Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="1137"/>
+        <location filename="../forms/main_window_view.ui" line="1138"/>
         <source>Active double page mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="1151"/>
+        <location filename="../forms/main_window_view.ui" line="1152"/>
         <source>&amp;Manga Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="1162"/>
+        <location filename="../forms/main_window_view.ui" line="1163"/>
         <source>&amp;Page across files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -417,42 +417,42 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="293"/>
+        <location filename="../pynocchio/main_window_view.py" line="298"/>
         <source>About Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="371"/>
+        <location filename="../pynocchio/main_window_view.py" line="376"/>
         <source>Continue reading from page %d?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="374"/>
+        <location filename="../pynocchio/main_window_view.py" line="379"/>
         <source>&lt;p&gt;You stopped reading here.&lt;/p&gt;&lt;p&gt; If you choose &lt;b&gt;&quot;Yes&quot;&lt;/b&gt;, reading will resume on &lt;b&gt;page %d&lt;/b&gt;. &lt;/p&gt;&lt;p&gt;Otherwise, the first page will be loaded.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="435"/>
+        <location filename="../pynocchio/main_window_view.py" line="440"/>
         <source>LoadComicsException</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../pynocchio/main_window_view.py" line="440"/>
+        <location filename="../pynocchio/main_window_view.py" line="445"/>
         <source>InvalidTypeFileException</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="869"/>
+        <location filename="../forms/main_window_view.ui" line="870"/>
         <source>&amp;Page fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="872"/>
+        <location filename="../forms/main_window_view.ui" line="873"/>
         <source>Ctrl+P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="1173"/>
+        <location filename="../forms/main_window_view.ui" line="1174"/>
         <source>Show &amp;thumbnails</source>
         <translation type="unfinished"></translation>
     </message>
@@ -462,8 +462,13 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/main_window_view.ui" line="1184"/>
+        <location filename="../forms/main_window_view.ui" line="1185"/>
         <source>Force &amp;dark style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/main_window_view.ui" line="1196"/>
+        <source>Shrink &amp;only</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

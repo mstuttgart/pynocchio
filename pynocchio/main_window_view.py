@@ -283,6 +283,11 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.thumbnails_dock.hide()
 
     @QtCore.pyqtSlot()
+    def on_action_shrink_only_triggered(self):
+        self.model.resize_always = not self.ui.action_shrink_only.isChecked()
+        self.update_viewer_content()
+
+    @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
         ab_dlg = AboutDialog(self)
         ab_dlg.show()
@@ -541,6 +546,8 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.on_action_show_statusbar_triggered()
         self.ui.action_show_thumbnails.setChecked(settings['show_thumbnails'])
         self.on_action_show_thumbnails_triggered()
+        self.ui.action_shrink_only.setChecked(settings['shrink_only'])
+        self.on_action_shrink_only_triggered()
         self.ui.action_page_across_files.setChecked(
             settings['page_across_files'])
         self.ui.action_dark_style.setChecked(settings['dark_style'])
