@@ -34,6 +34,7 @@
   <qresource prefix="others">
     <file>pynocchio.png</file>
     <file>others/about.html</file>
+    <file>others/about_es.html</file>
     <file>others/not_cover.png</file>
   </qresource>
 </RCC>

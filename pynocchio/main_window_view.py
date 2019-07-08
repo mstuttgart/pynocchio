@@ -2,6 +2,11 @@ import logging
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+try:
+    import qdarkgraystyle
+except ImportError:
+    pass
+
 from .about_dialog import AboutDialog
 from .bookmark import TemporaryBookmark
 from .bookmark_manager_dialog import BookmarkManagerDialog
@@ -29,6 +34,10 @@ class MainWindowView(QtWidgets.QMainWindow):
 
         self.ui = main_window_view_ui.Ui_MainWindowView()
         self.ui.setupUi(self)
+
+        self.default_stylesheet = \
+            QtWidgets.QApplication.instance().styleSheet()
+        print(self.default_stylesheet)
 
         MainWindowView.MAX_RECENT_FILES = len(
             self.ui.menu_recent_files.actions())
@@ -69,7 +78,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         all_files = '%s %s' % (cb_formats, img_formats)
 
         filename = QtWidgets.QFileDialog().getOpenFileName(
-            self, self.tr('open_comic_file'),
+            self, self.tr('Open Comic File'),
             self.model.current_directory,
             self.tr(
                 'all supported files (%s);; '
@@ -86,14 +95,15 @@ class MainWindowView(QtWidgets.QMainWindow):
 
     @QtCore.pyqtSlot()
     def on_action_save_image_triggered(self):
+        img_formats = ' '.join(['*' + img for img in IMAGE_FILE_FORMATS])
 
         if self.model.comic:
 
             path = self.model.current_directory + \
                 self.model.get_current_page_title()
             file_path = QtWidgets.QFileDialog().getSaveFileName(
-                self, self.tr('save_current_page'), path,
-                self.tr("images (*.png *.xpm *.jpeg *.jpg *.gif)"))
+                self, self.tr('Save Current Page'), path,
+                self.tr('images (%s)' % (img_formats)))
 
             if file_path:
                 logger.info('Saving image')
@@ -274,6 +284,11 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.thumbnails_dock.hide()
 
     @QtCore.pyqtSlot()
+    def on_action_shrink_only_triggered(self):
+        self.model.resize_always = not self.ui.action_shrink_only.isChecked()
+        self.update_viewer_content()
+
+    @QtCore.pyqtSlot()
     def on_action_about_triggered(self):
         ab_dlg = AboutDialog(self)
         ab_dlg.show()
@@ -291,6 +306,17 @@ class MainWindowView(QtWidgets.QMainWindow):
     def on_thumbnails_dock_changed(self):
         self.ui.action_show_thumbnails.setChecked(
             self.thumbnails_dock.isVisible())
+
+    @QtCore.pyqtSlot(bool)
+    def on_action_dark_style_triggered(self):
+        qApp = QtWidgets.QApplication.instance()
+        if self.ui.action_dark_style.isChecked():
+            try:
+                qApp.setStyleSheet(qdarkgraystyle.load_stylesheet())
+            except NameError:
+                pass
+        else:
+            qApp.setStyleSheet(self.default_stylesheet)
 
     def create_connections(self):
 
@@ -413,13 +439,12 @@ class MainWindowView(QtWidgets.QMainWindow):
 
             except LoadComicsException as excp:
                 QtWidgets.QMessageBox().warning(self,
-                                                self.tr('LoadComicsException'),
+                                                'LoadComicsException',
                                                 self.tr(excp.message),
                                                 QtWidgets.QMessageBox.Close)
             except InvalidTypeFileException as excp:
                 QtWidgets.QMessageBox().warning(self,
-                                                self.tr('InvalidTypeFile'
-                                                        'Exception'),
+                                                'InvalidTypeFileException',
                                                 self.tr(excp.message),
                                                 QtWidgets.QMessageBox.Close)
 
@@ -521,8 +546,12 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.on_action_show_statusbar_triggered()
         self.ui.action_show_thumbnails.setChecked(settings['show_thumbnails'])
         self.on_action_show_thumbnails_triggered()
+        self.ui.action_shrink_only.setChecked(settings['shrink_only'])
+        self.on_action_shrink_only_triggered()
         self.ui.action_page_across_files.setChecked(
             settings['page_across_files'])
+        self.ui.action_dark_style.setChecked(settings['dark_style'])
+        self.on_action_dark_style_triggered()
 
     def update_thumbnails(self):
         self.thumbnails_dock.clear()
@@ -609,7 +638,10 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.update_status_bar()
 
     def update_current_view_container_size(self):
-        self.model.scroll_area_size = self.ui.qscroll_area_viewer.size()
+        margins = (self.ui.qscroll_area_viewer.size() -
+                   self.ui.qscroll_area_viewer.contentsRect().size())
+        self.model.scroll_area_size = \
+            self.ui.qscroll_area_viewer.size() - 2*margins
         self.model.scroll_bar_size = \
             self.ui.qscroll_area_viewer.style().pixelMetric(
                 QtWidgets.QStyle.PM_ScrollBarExtent)

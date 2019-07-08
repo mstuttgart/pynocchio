@@ -85,7 +85,7 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
 
         option = QtWidgets.QMessageBox().warning(
             self, self.tr('Delete bookmarks'),
-            self.tr('This action will go delete you bookmarks! Proceed?'),
+            self.tr('This action will delete your bookmarks! Proceed?'),
             QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel,
             QtWidgets.QMessageBox.Ok)
 
@@ -113,9 +113,9 @@ class BookmarkManagerDialog(QtWidgets.QDialog):
                 self.close()
             else:
                 option = QtWidgets.QMessageBox().warning(
-                    self, self.tr('Comic not exist'),
-                    self.tr('Selected comic not exist! Do you '
-                            'like to remove it from bookmark list?'),
+                    self, self.tr('Comic does not exist'),
+                    self.tr('The selected comic does not exist! Would you '
+                            'like to remove it from the bookmark list?'),
                     QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel,
                     QtWidgets.QMessageBox.Ok)
 

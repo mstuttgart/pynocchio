@@ -337,7 +337,9 @@
     <addaction name="action_show_toolbar"/>
     <addaction name="action_show_statusbar"/>
     <addaction name="action_show_thumbnails"/>
+    <addaction name="action_shrink_only"/>
     <addaction name="action_page_across_files"/>
+    <addaction name="action_dark_style"/>
     <addaction name="separator"/>
     <addaction name="action_preference_dialog"/>
    </widget>
@@ -353,7 +355,7 @@
     </property>
     <widget class="QMenu" name="menu_recent_bookmarks">
      <property name="title">
-      <string>R&amp;ecente bookmarks</string>
+      <string>R&amp;ecent bookmarks</string>
      </property>
      <addaction name="actionRecent_bookmark_1"/>
      <addaction name="actionRecent_bookmark_2"/>
@@ -391,7 +393,7 @@
     <bool>true</bool>
    </property>
    <property name="windowTitle">
-    <string>toolBar</string>
+    <string>toolbar</string>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -882,7 +884,7 @@
     <string>&amp;Save image</string>
    </property>
    <property name="whatsThis">
-    <string>Save current image in disk.</string>
+    <string>Save current image in disk</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
@@ -1133,7 +1135,7 @@
     <string>&amp;Double Page Mode</string>
    </property>
    <property name="toolTip">
-    <string>Active double page mode</string>
+    <string>Enable double page mode</string>
    </property>
    <property name="iconVisibleInMenu">
     <bool>true</bool>
@@ -1170,6 +1172,28 @@
    </property>
    <property name="text">
     <string>Show &amp;thumbnails</string>
+   </property>
+  </action>
+  <action name="action_dark_style">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Force &amp;dark style</string>
+   </property>
+  </action>
+  <action name="action_shrink_only">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Shrink &amp;only</string>
    </property>
   </action>
   <widget class="QMenu" name="menu_context">

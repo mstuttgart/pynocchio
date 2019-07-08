@@ -36,6 +36,7 @@ class MainWindowModel(QtCore.QObject):
         self.scroll_area_size = None
         self.scroll_bar_size = None
         self.fit_type = self.load_view_adjust(MainWindowModel._ORIGINAL_FIT)
+        self.resize_always = True
         self.current_directory = self.load_current_directory()
 
         ext_list = ["*.cbr", "*.cbz", "*.rar", "*.zip", "*.tar", "*.cbt"]
@@ -178,41 +179,45 @@ class MainWindowModel(QtCore.QObject):
         width = pix_map.width()
         height = pix_map.height()
 
+        h = self.scroll_area_size.height()
+        w = self.scroll_area_size.width()
+
         if self.fit_type == MainWindowModel._VERTICAL_FIT:
-            h = self.scroll_area_size.height()
             f = h / height
-            if int(f*width) > self.scroll_area_size.width():
+            if int(f*width) > w:
                 h -= self.scroll_bar_size
                 f = h / height
-                if int(f*width) < self.scroll_area_size.width():
-                    f = self.scroll_area_size.width() / width
+                if int(f*width) < w:
+                    f = w / width
                     h = int(f*height)
-            pix_map = pix_map.scaledToHeight(
-                h, QtCore.Qt.SmoothTransformation)
+            if self.resize_always or h < height:
+                pix_map = pix_map.scaledToHeight(
+                    h, QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._HORIZONTAL_FIT:
-            w = self.scroll_area_size.width()
             f = w / width
-            if int(f*height) > self.scroll_area_size.height():
+            if int(f*height) > h:
                 w -= self.scroll_bar_size
                 f = w / width
-                if int(f*height) < self.scroll_area_size.height():
-                    f = self.scroll_area_size.height() / height
+                if int(f*height) < h:
+                    f = h / height
                     w = int(f*width)
-            pix_map = pix_map.scaledToWidth(
-                w, QtCore.Qt.SmoothTransformation)
+            if self.resize_always or w < width:
+                pix_map = pix_map.scaledToWidth(
+                    w, QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._BEST_FIT:
-            pix_map = pix_map.scaledToWidth(
-                self.scroll_area_size.width() * 0.8,
-                QtCore.Qt.SmoothTransformation)
+            w *= 0.8
+            if self.resize_always or w < width:
+                pix_map = pix_map.scaledToWidth(
+                    w, QtCore.Qt.SmoothTransformation)
 
         elif self.fit_type == MainWindowModel._PAGE_FIT:
-            pix_map = pix_map.scaled(
-                self.scroll_area_size.width(),
-                self.scroll_area_size.height(),
-                QtCore.Qt.KeepAspectRatio,
-                QtCore.Qt.SmoothTransformation)
+            if self.resize_always or w < width or h < height:
+                pix_map = pix_map.scaled(
+                    w, h,
+                    QtCore.Qt.KeepAspectRatio,
+                    QtCore.Qt.SmoothTransformation)
 
         pix_map.original_width = width
         pix_map.original_height = height
