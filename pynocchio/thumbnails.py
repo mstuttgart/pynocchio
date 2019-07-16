@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+import random
 
 from .uic_files import thumbnails_ui
 
@@ -19,7 +20,13 @@ class ThumbnailsDock(QtWidgets.QDockWidget):
         self.thumbs = []
         self.page = None
 
+        self.get_lock()
+
+    def get_lock(self):
+        self.lock = random.getrandbits(128)
+
     def clear(self):
+        self.get_lock()
 
         while self.ui.verticalLayout.count() > 0:
             item = self.ui.verticalLayout.takeAt(0)
@@ -35,10 +42,13 @@ class ThumbnailsDock(QtWidgets.QDockWidget):
         QtGui.QGuiApplication.processEvents()
 
     def populate(self, current=None):
+        my_key = self.lock
         pages = self.parent().model.comic_page_handler.comic.pages
         self.ui.widget.adjustSize()
 
         for i, p in enumerate(pages):
+            if my_key != self.lock:
+                return
             pix_map = QtGui.QPixmap()
             pix_map.loadFromData(p.data)
             pix_map = pix_map.scaled(
