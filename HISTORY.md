@@ -1,5 +1,23 @@
 # History
 
+## 3.0.0 (2019-07-24)
+
+Thanks [Jellby](https://github.com/Jellby) for all improvements and fixies.
+
+* [NEW] Make qdarkgraystyle optional (I don't call it "elegant" when it doesn't follow my desktop's style).
+* [NEW] Show original image size in status bar (in brackets).
+* [FIX] Properly resize the image when toggling toolbar, etc.
+* [NEW] Flip pages with mouse wheel.
+* [NEW] Let the user choose whether next/prev page should go to next/prev file.
+* [NEW] Add a "page fit" option. I would actually call this "best fit", I don't see the point in the current "best fit", that's simply an unconditional fit to 80% window width.
+* [BEW] Show scrollbars if the page does not fit the window, and take them into account when resizing.
+* [FIX] Esc returns from fullscreen, and window size is restored (rather than forcing it maximized).
+* [FIX] Save/restore settings and window size.
+* [NEW] Add context (right click) menu and enable shortcuts in fullscreen.
+* [NEW] Dockable thumbnails view.
+* [NEW] Restore last page (bookmarked) also when loading from command line.
+* [NEW] Allow loading a directory from command line.
+
 ## 2.3.0 (2018-05-09)
 
 * [NEW] Add es, fi-FL, fr-FR, nl-NL, pl-PL, pt-BR and tr-TR translations
