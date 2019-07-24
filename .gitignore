@@ -68,6 +68,6 @@ target/
 *.xml~
 *.deb
 env*/
-.env
+.venv
 .python-version
 .vscode
