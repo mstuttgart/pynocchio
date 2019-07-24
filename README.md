@@ -60,9 +60,9 @@ Please, download the latest release [here](https://github.com/mstuttgart/pynocch
 
 ## Contributing
 
-If you'd like to contribute, please see [CONTRIBUTING.rst](https://github.com/mstuttgart/pynocchio/blob/develop/CONTRIBUTING.rst).
+If you'd like to contribute, please see [CONTRIBUTING.md](https://github.com/mstuttgart/pynocchio/blob/develop/CONTRIBUTING.md).
 
-* [Authors](https://github.com/mstuttgart/pynocchio/blob/develop/AUTHORS.rst)
+* [Authors](https://github.com/mstuttgart/pynocchio/blob/develop/AUTHORS.md)
 
 ## Credits
 
