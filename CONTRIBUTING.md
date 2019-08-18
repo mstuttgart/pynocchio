@@ -61,7 +61,7 @@ Ready to contribute? Here's how to set up `pynocchio` for local development.
 
 3.5. Install Qt5 Tools QtLinguist (to made translatios) and QtDesigner (to edit pynocchio ui)::
 
-    $ sudo apt-get install build-essential git python3-dev python3-pip qt5-qmake libqt5sql5-sqlite unrar-free
+    $ sudo apt-get install build-essential git python3-dev python3-pip qt5-qmake libqt5sql5-sqlite unrar-free qttools5-dev-tools
 
     Now, use `linguist -qt5` to start *QtLinguist5* and `designer -qt5` to start *QtDesginer5*.
 
