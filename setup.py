@@ -55,5 +55,6 @@ setup(
         'License :: OSI Approved :: GPLv3 License',
         'Operating System :: OS Independent',
         'Programming Language :: Python 3.5',
+        'Programming Language :: Python 3.6',
     ],
 )
