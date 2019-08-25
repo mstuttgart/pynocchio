@@ -1,5 +1,14 @@
 # History
 
+## 3.1.0 (2019-08-25)
+
+* [NEW] Add cs_CZ translation
+* [FIX] Compilte translation files
+* [DEL] Remove Python 3.4 support
+* [NEW] Add Python 3.6 support
+* [FIX] Fix package version
+* [FIX] Fix package icon name
+
 ## 3.0.0 (2019-07-24)
 
 Thanks [Jellby](https://github.com/Jellby) for all improvements and fixies.
