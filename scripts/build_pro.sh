@@ -30,7 +30,7 @@ echo -e "${Yellow} Start build ${FILENAME} file..."
 echo -e "${Yellow} =-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ${Off}"
 echo -e "${White}"
 
-env/bin/pylupdate5 -verbose ${FILENAME}
+.venv/bin/pylupdate5 -verbose ${FILENAME}
 
 if [ $? = 0 ]; then
     echo -e ""
