@@ -1,5 +1,10 @@
 # History
 
+## 3.1.1 (2019-09-03)
+
+* [FIX] Translations erros
+* [FIX] Version in about dialog
+
 ## 3.1.0 (2019-08-25)
 
 * [NEW] Add cs_CZ translation
