@@ -37,7 +37,7 @@ script:
 deploy:
   provider: releases
   api_key: $GITHUB_OAUTH_TOKEN
-  file: "pynocchio_3.1.0_amd64.deb"
+  file: "pynocchio_3.1.1_amd64.deb"
   skip_cleanup: true
   on:
     tags: true
