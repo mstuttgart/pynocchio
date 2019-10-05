@@ -41,7 +41,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    repo: pynocchio/pynocchio
+    repo: mstuttgart/pynocchio
     branch: master
 
 after_success:
