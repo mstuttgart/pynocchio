@@ -2,6 +2,6 @@ SOURCES = pynocchio/main_window_view.py pynocchio/bookmark_manager_dialog.py pyn
 
 FORMS = forms/about_dialog.ui forms/not_found_dialog.ui forms/bookmark_manager_dialog.ui forms/go_to_page_dialog.ui forms/preference_dialog.ui forms/main_window_view.ui forms/thumbnails.ui
 
-TRANSLATIONS = en-US.ts es.ts fi-FI.ts fr-FR.ts nl-NL.ts pl-PL.ts pt-BR.ts pt-PT.ts tr-TR.ts base.ts
+TRANSLATIONS = en-US.ts es-ES.ts fi-FI.ts fr-FR.ts nl-NL.ts pl-PL.ts pt-BR.ts pt-PT.ts tr-TR.ts base.ts
 
 RESOURCES = data/main_window_view.qrc
