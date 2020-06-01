@@ -55,6 +55,7 @@ class MainWindowView(QtWidgets.QMainWindow):
         self.ui.qscroll_area_viewer.resized.connect(
             self.update_current_view_container_size)
 
+        self.extra_shortcuts = self._define_extra_shortcuts()
         self.global_shortcuts = self._define_global_shortcuts()
         self.create_connections()
         self.centralize_window()
@@ -349,6 +350,28 @@ class MainWindowView(QtWidgets.QMainWindow):
         # update recent bookmark menu when mouse hover
         self.ui.menu_recent_bookmarks.aboutToShow.connect(
             self.update_recent_bookmarks_menu)
+
+    def _define_extra_shortcuts(self):
+        
+        shortcuts = []
+        
+        sequence = {
+            'Up': self.on_action_previous_page_triggered,
+            'PgUp': self.on_action_previous_page_triggered,
+            'Down': self.on_action_next_page_triggered,
+            'PgDown': self.on_action_next_page_triggered,
+            'Ctrl+Up': self.on_action_first_page_triggered,
+            'Home': self.on_action_first_page_triggered,
+            'Ctrl+Down': self.on_action_last_page_triggered,
+            'End': self.on_action_last_page_triggered,
+        }
+
+        for key, value in list(sequence.items()):
+            s = QtWidgets.QShortcut(QtGui.QKeySequence(key),
+                                    self.ui.qscroll_area_viewer, value)
+            s.setEnabled(True)
+
+        return shortcuts
 
     def _define_global_shortcuts(self):
 
