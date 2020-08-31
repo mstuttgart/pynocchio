@@ -1,5 +1,10 @@
 # History
 
+## 3.2.0 (2020-08-31)
+
+* [NEW] Add Up/Down, PgUp/PgDown, Home/End shortcuts. Thanks [Jellby](https://github.com/Jellby)
+* [FIX] Dependencies and autodeploy
+
 ## 3.1.1 (2019-09-03)
 
 * [FIX] Translations erros
