@@ -16,4 +16,4 @@ Translate Pynocchio to your language is simple, you only need to edit the `base.
 
 ## Credits
 
-Copyright (C) 2014-2019 by Michell Stuttgart
+Copyright (C) 2014-2020 by Michell Stuttgart

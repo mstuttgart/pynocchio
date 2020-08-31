@@ -70,4 +70,4 @@ If you'd like to contribute, please see [CONTRIBUTING.md](https://github.com/mst
 
 Pynocchio use [Elementary USU Icon Theme](https://store.kde.org/content/show.php/elementary+USU?content=148128) icon set free pack.
 
-Copyright (C) 2014-2019 by Michell Stuttgart
+Copyright (C) 2014-2020 by Michell Stuttgart
