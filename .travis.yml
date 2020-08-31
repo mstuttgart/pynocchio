@@ -24,8 +24,6 @@ matrix:
         env: TOX_ENV=py36
       - python: 3.5
         env: TOX_ENV=flake8
-      - python: 3.5
-        env: TOX_ENV=coverage
 
 install:
   - pip install tox
@@ -45,5 +43,4 @@ deploy:
     branch: master
 
 after_success:
- - coveralls
  - sudo dpkg -i pynocchio*.deb
