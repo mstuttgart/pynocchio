@@ -352,9 +352,9 @@ class MainWindowView(QtWidgets.QMainWindow):
             self.update_recent_bookmarks_menu)
 
     def _define_extra_shortcuts(self):
-        
+
         shortcuts = []
-        
+
         sequence = {
             'Up': self.on_action_previous_page_triggered,
             'PgUp': self.on_action_previous_page_triggered,
