@@ -31,16 +31,3 @@ install:
 
 script:
 - tox -e ${TOX_ENV}
-
-deploy:
-  provider: releases
-  api_key: $GITHUB_OAUTH_TOKEN
-  file: "pynocchio_3.2.1_amd64.deb"
-  skip_cleanup: true
-  on:
-    tags: true
-    repo: mstuttgart/pynocchio
-    branch: master
-
-after_success:
- - sudo dpkg -i pynocchio*.deb
