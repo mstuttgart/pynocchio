@@ -1,5 +1,10 @@
 # History
 
+## 3.2.1 (2021-10-10)
+
+* [FIX] Version number in about page
+* [FIX] Limit size of page title
+
 ## 3.2.0 (2020-08-31)
 
 * [NEW] Add Up/Down, PgUp/PgDown, Home/End shortcuts. Thanks [Jellby](https://github.com/Jellby)
