@@ -108,7 +108,7 @@ class StatusBar(QtWidgets.QStatusBar):
         if not self.comic_path:
             self.add_comic_path_label()
 
-        self.comic_path.setText(self.tr('Title: ') + path)
+        self.comic_path.setText(self.tr('Title: ') + path[:50])
 
     @QtCore.pyqtSlot(int)
     def set_progressbar_value(self, n):
