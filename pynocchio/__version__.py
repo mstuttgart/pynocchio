@@ -1,6 +1,6 @@
 __title__ = 'pynocchio'
 __description__ = 'Pynocchio is a image viewer specialized in comic reading'
-__version__ = '3.2.0'
+__version__ = '3.2.1'
 __url__ = 'https://github.com/pynocchio/pynocchio'
 __download_url__ = 'https://github.com/pynocchio/pynocchio/releases'
 __author__ = 'Michell Stuttgart'
