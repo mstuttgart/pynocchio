@@ -1,8 +1,8 @@
 coveralls==1.2
 peewee==3.7.1
 PyInstaller==3.6
-PyQt5==5.11.3
+PyQt5==5.15.6
 rarfile==3.0
 qdarkgraystyle>=0.0.3
-pyqt-distutils==0.7.3
-sip==4.19.8
+pyqt-distutils
+sip
