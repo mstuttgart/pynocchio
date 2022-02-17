@@ -1,5 +1,9 @@
 # History
 
+## 3.2.2 (2022-02-17)
+
+* [FIX] Version requirements
+
 ## 3.2.1 (2021-10-10)
 
 * [FIX] Version number in about page
