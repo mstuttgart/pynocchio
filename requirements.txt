@@ -1,6 +1,6 @@
 coveralls==1.2
 peewee==3.7.1
-PyInstaller==3.6
+PyInstaller==5.13.1
 PyQt5==5.15.6
 rarfile==3.0
 qdarkgraystyle>=0.0.3
