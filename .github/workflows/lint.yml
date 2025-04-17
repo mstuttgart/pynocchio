@@ -1,0 +1,34 @@
+---
+name: Github CI Lint
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: 'Update Packages'
+        run: sudo apt update -y
+
+      - name: 'Install Dependencies'
+        run: sudo apt install -y patchelf libopengl0 libegl-dev libgles2-mesa-dev nuitka
+
+      - name: Install test dependencies for linting
+        run: |
+          pip install ".[dev]"
+
+      - name: Lint with ruff
+        run: make lint

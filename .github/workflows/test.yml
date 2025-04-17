@@ -1,0 +1,58 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+---
+name: Github CI PyTest
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+
+# Cancel running jobs for the same workflow and branch.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+
+      matrix:
+        python-version: ["3.12"]
+        qt-lib: [pyside6]
+        os: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set QT_QPA_PLATFORM environment variable
+        run: echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5.5.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Dependencies
+        run: |
+          if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
+            sudo apt-get update -y
+            sudo apt-get install -y libgles2-mesa-dev libxcb-cursor0
+          fi
+        shell: bash
+
+      - name: Install test dependencies
+        run: |
+          pip install ".[dev]"
+
+      - name: "Check PySide6 Installation"
+        run: |
+          python -c "from PySide6.QtWidgets import QApplication; app = QApplication([]); print('PySide6 is working!')"
+
+      - name: Run application tests
+        run: make test

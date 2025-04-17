@@ -1,0 +1,144 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pynocchio"
+description = "Pynocchio is a image viewer specialized in comic reading"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Michell Stuttgart", email = "michellstut@gmail.com" }]
+requires-python = ">=3.9"
+dynamic = ["version"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    'Intended Audience :: Users',
+    'License :: OSI Approved :: GPLv3 License',
+    'Operating System :: OS Independent',
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Natural Language :: English",
+]
+dependencies = [
+    "PySide6>=6.9.0",
+    "rarfile",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.3.1",
+    "pytest-qt",
+    "qt-material-icons",
+    "mypy>=1.0,<1.5",
+    "mypy-extensions",
+    "black>=23.0,<24.0",
+    "isort>=5.12,<5.13",
+    "pre-commit>=4.0.1",
+    "ruff",
+    "ipdb",
+    "tomlkit",
+    "PyInstaller",
+]
+
+coverage = ["coveralls>=3.3.1", "pytest-cov>=4.0.0", "codecov-cli>=2.0.15"]
+
+build = ["build==1.2.2.post1"]
+
+[project.urls]
+Repository = "https://github.com/pynocchio/pynocchio"
+Tracker = "https://github.com/pynocchio/pynocchio/issues"
+Changelog = "https://github.com/pynocchio/pynocchio/blob/main/CHANGELOG"
+
+[tool.check-manifest]
+ignore = [".*", "tests/**", "docs/**", "bin/**", "*.yml", ".pylintrc"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+exclude = ["*.tests", "*.tests.*", "tests.*", "tests", "docs*", "scripts*"]
+
+[tool.setuptools.package-data]
+src = ["py.typed"]
+
+[tool.setuptools.dynamic]
+version = { attr = "src.__version__.__version__" }
+
+[tool.black]
+line-length = 100
+include = '\.pyi?$'
+exclude = '''
+(
+  __pycache__
+  | \.git
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.vscode
+  | \.venv
+  | \bdist\b
+  | \bdoc\b
+  | \.nox
+  | \.github
+)
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+skip = ["docs"]
+
+[tool.pyright]
+reportPrivateImportUsage = false
+
+[tool.mypy]
+strict = false
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+strict_optional = false
+
+[tool.coverage.run]
+branch = true
+omit = ["tests/*", "src/app_rc.py", "src/__init__.py", "src/app.py", "src/__version__.py"]
+
+[tool.pyside6-project]
+files = ["app.py"]
