@@ -54,6 +54,8 @@ The current version is stable, and we aim to improve it further.
 * Includes double-page and manga reading modes (coming soon)
 * Minimalist design, free, and easy to use!
 
+### Roadmap: https://github.com/mstuttgart/pynocchio/issues/103
+
 ## Installation
 
 Coming soon...
