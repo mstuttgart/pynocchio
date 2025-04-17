@@ -62,7 +62,7 @@ Coming soon...
 
 ## Contributing
 
-If you'd like to contribute, please see the [CONTRIBUTING](https://github.com/mstuttgart/pynocchio/blob/develop/CONTRIBUTING.md) file.
+If you'd like to contribute, please see the [CONTRIBUTING](https://github.com/mstuttgart/pynocchio/blob/develop/CONTRIBUTING) file.
 
 ## Credits
 
