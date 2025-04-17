@@ -1,7 +1,0 @@
-peewee
-PyInstaller
-PyQt5
-rarfile
-qdarkgraystyle>=0.0.3
-pyqt-distutils
-sip

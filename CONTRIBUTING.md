@@ -1,106 +1,101 @@
 # Contributing
 
-Contributions are welcome, and they are greatly appreciated! Every
-little bit helps, and credit will always be given.
+Thank you for considering contributing! This document outlines the various ways you can contribute to this project and how to get started.
 
-You can contribute in many ways:
+## Bug Reports and Feature Requests
 
-## Types of Contributions
+### Found a Bug?
 
-### Report Bugs
+Before reporting an issue, please perform [a quick search](https://github.com/mstuttgart/pynocchio/issues) to check if it has already been reported. If it exists, feel free to comment on the existing issue. Otherwise, open [a new GitHub issue](https://github.com/mstuttgart/pynocchio/issues).
 
-Report bugs at https://github.com/pynocchio/pynocchio/issues.
+When reporting a bug, ensure you include:
 
-If you are reporting a bug, please include:
+- A clear and concise title.
+- A detailed description with relevant information.
+- Steps to reproduce the issue and the expected behavior.
+- If possible, a code sample or an executable test case demonstrating the issue.
 
-* Your operating system name and version.
-* Any details about your local setup that might be helpful in troubleshooting.
-* Detailed steps to reproduce the bug.
+### Have a Suggestion for an Enhancement or New Feature?
 
-### Fix Bugs
+We use GitHub issues to track feature requests. Before creating a feature request:
 
-Look through the GitHub issues for bugs. Anything tagged with "bug"
-and "help wanted" is open to whoever wants to implement it.
+- Ensure you have a clear idea of the enhancement. If unsure, consider discussing it first in a GitHub issue.
+- Check the documentation to confirm the feature does not already exist.
+- Perform [a quick search](https://github.com/mstuttgart/pynocchio/issues) to see if the feature has already been suggested.
 
-### Implement Features
+When submitting a feature request, please:
 
-Look through the GitHub issues for features. Anything tagged with "enhancement"
-and "help wanted" is open to whoever wants to implement it.
+- Provide a clear and descriptive title.
+- Explain why the enhancement would be useful, possibly referencing similar features in other libraries.
+- Include code examples to demonstrate how the feature would be used.
 
-### Write Documentation
+Contributions are always welcome and greatly appreciated!
 
-Pynocchio could always use more documentation, whether as part of the
-official Pynocchio docs, in docstrings, or even on the web in blog posts,
-articles, and such.
+## Contributing Fixes and New Features
 
-### Submit Feedback
+When contributing fixes or new features, start by forking or branching from the [main branch](https://github.com/mstuttgart/pynocchio/tree/main) to ensure you work on the latest code and minimize merge conflicts.
 
-The best way to send feedback is to file an issue at https://github.com/pynocchio/pynocchio/issues.
+All contributed [PRs](https://github.com/mstuttgart/pynocchio/pulls) must include valid test coverage to be considered for merging. If you need help with writing tests, don't hesitate to ask.
 
-If you are proposing a feature:
+Thank you for your support!
 
-* Explain in detail how it would work.
-* Keep the scope as narrow as possible, to make it easier to implement.
-* Remember that this is a volunteer-driven project, and that contributions
-  are welcome :)
+## Running Tests
 
-## Get Started!
+To set up the development environment and install all required dependencies, run:
 
-Ready to contribute? Here's how to set up `pynocchio` for local development.
+```shell
+$ virtualenv -p python3 .venv
+$ source .venv/bin/activate
+$ make setup
+```
 
-1. Fork the `pynocchio` repo on GitHub.
-2. Clone your fork locally::
+The project provides automated style checks, tests, and coverage reports:
 
-    $ git clone --recursive git@github.com:your_name_here/pynocchio.git
+```shell
+$ make check
+```
 
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
+You can also run them individually:
 
-    $ mkvirtualenv pynocchio
-    $ cd pynocchio/
-    $ python setup.py develop
+```shell
+$ make pre-commit
+$ make test
+```
 
-3.5. Install Qt5 Tools QtLinguist (to made translatios) and QtDesigner (to edit pynocchio ui)::
+To retrieve uncovered lines, use:
 
-    $ sudo apt-get install build-essential git python3-dev python3-pip qt5-qmake libqt5sql5-sqlite unrar-free qttools5-dev-tools
+```shell
+$ make coverage
+```
 
-    Now, use `linguist -qt5` to start *QtLinguist5* and `designer -qt5` to start *QtDesginer5*.
+To run specific tests, use the `pytest` command:
 
-4. Create a branch for local development::
+```shell
+$ pytest tests/test_page.py
+```
 
-    $ git checkout -b name-of-your-bugfix-or-feature
+For more granular testing:
 
-   Now you can make your changes locally.
+```shell
+$ pytest tests/test_page.py::test_create_page
+```
 
-5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox::
+To run tests against the real API, create a `.env` file in the project's root directory with the following content:
 
-    $ flake8 pynocchio tests
-    $ python setup.py test
-    $ tox
+```ini
+SKIP_REAL_TEST=False
+```
 
-   To get flake8 and tox, just pip install them into your virtualenv.
+This will enable tests that interact with the live API. Ensure you have the necessary permissions and understand the implications of running tests against the real API.
 
-6. Commit your changes and push your branch to GitHub::
+## Code Style
 
-    $ git add .
-    $ git commit -m "Your detailed description of your changes."
-    $ git push origin name-of-your-bugfix-or-feature
+pynocchio uses a collection of tools to maintain consistent code style. These tools are orchestrated using [pre-commit](https://pre-commit.com/), which can be installed locally to check your changes before opening a PR. The CI process will also run these checks before merging.
 
-7. Submit a pull request through the GitHub website.
+To run pre-commit checks locally:
 
-## Pull Request Guidelines
+```shell
+$ make pre-commit
+```
 
-Before you submit a pull request, check that it meets these guidelines:
-
-1. The pull request should include tests.
-2. If the pull request adds functionality, the docs should be updated. Put
-   your new functionality into a function with a docstring, and add the
-   feature to the list in README.rst.
-3. The pull request should work for Python 3.5 and later. Check
-   https://travis-ci.org/pynocchio/pynocchio/pull_requests
-   and make sure that the tests pass for all supported Python versions.
-
-## Tips
-
-To run a subset of tests::
-
-    $ python -m unittest tests.test_pynocchio
+The full list of formatting requirements is specified in the [`.pre-commit-config.yaml`](https://github.com/mstuttgart/pynocchio/blob/main/.pre-commit-config.yaml) file located in the project's root directory.

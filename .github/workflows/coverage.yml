@@ -1,0 +1,51 @@
+---
+name: Github CI Coverage
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set QT_QPA_PLATFORM environment variable
+        run: echo "QT_QPA_PLATFORM=offscreen" >> $GITHUB_ENV
+
+      - uses: actions/setup-python@v5.5.0
+        with:
+          python-version: "3.12"
+
+      - name: 'Update Packages'
+        run: sudo apt update -y
+
+      - name: 'Install Dependencies'
+        run: sudo apt install -y patchelf libopengl0 libegl-dev libgles2-mesa-dev nuitka
+
+      - name: Install coverage dependencies
+        run: |
+          pip install ".[dev]"
+          pip install ".[coverage]"
+
+      - name: Run coverage tests
+        run: make coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
