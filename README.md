@@ -19,13 +19,13 @@
     <img alt="Codecov" src="https://img.shields.io/codecov/c/github/mstuttgart/pynocchio">
   </a>
   <a href="https://github.com/mstuttgart/pynocchio/releases">
-    <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/mstuttgart/pynocchio/total.svg?style=flat-square">
+    <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/mstuttgart/pynocchio/total.svg">
   </a>
   <a href="https://github.com/mstuttgart/pynocchio/releases/latest">
-    <img alt="Latest Release" src="https://img.shields.io/github/release/mstuttgart/pynocchio.svg?style=flat-square">
+    <img alt="Latest Release" src="https://img.shields.io/github/release/mstuttgart/pynocchio.svg">
   </a>
   <a href="https://github.com/mstuttgart/pynocchio/blob/develop/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/mstuttgart/pynocchio.svg?style=flat-square">
+    <img alt="License" src="https://img.shields.io/github/license/mstuttgart/pynocchio.svg">
   </a>
 </p>
 
@@ -51,16 +51,16 @@ The current version is stable, and we aim to improve it further.
 * Supports several view adjustment modes with anti-aliasing.
 * Compatible with multiple image formats supported by Qt5: WEBP, JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM.
 * Supports various comic archive formats: `.ZIP`, `.RAR`, `.TAR`, `.CBT`, `.CBR`, `.CBZ`.
-* Includes double-page and manga reading modes.
+* Includes double-page and manga reading modes (coming soon)
 * Minimalist design, free, and easy to use!
 
 ## Installation
 
-Download the latest release [here](https://github.com/mstuttgart/pynocchio/releases/latest).
+Coming soon...
 
 ## Contributing
 
-If you'd like to contribute, please see the [CONTRIBUTING.md](https://github.com/mstuttgart/pynocchio/blob/develop/CONTRIBUTING.md) file.
+If you'd like to contribute, please see the [CONTRIBUTING](https://github.com/mstuttgart/pynocchio/blob/develop/CONTRIBUTING.md) file.
 
 ## Credits
 
