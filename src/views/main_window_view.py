@@ -3,10 +3,12 @@ import logging
 import sys
 from typing import TYPE_CHECKING, Any, Callable, Union
 
-from PySide6.QtCore import Qt, Slot
+from PySide6.QtCore import QSize, Qt, Slot
 from PySide6.QtGui import (
     QAction,
     QActionGroup,
+    QColor,
+    QGuiApplication,
     QIcon,
     QKeySequence,
     QPixmap,
@@ -28,7 +30,6 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
-from qt_material_icons import MaterialIcon
 
 from src.models.constants import APP_NAME, COPYRIGHT, LICENSE_URL, VERSION
 from src.widgets.qscroll_area_viewer import QScrollAreaViewer
@@ -248,6 +249,8 @@ class MainWindowView(QMainWindow):
         # Set the window icon
         self.setWindowIcon(QIcon(":/logo.ico"))
 
+        self.setIconSize(QSize(24, 24))
+
         # Center the window on the screen
         self.move(w // 2 - self.width() // 2, h // 2 - self.height() // 2)
 
@@ -301,9 +304,20 @@ class MainWindowView(QMainWindow):
         Returns:
             QAction: The configured QAction instance.
         """
+        logger.debug("Creating action: %s", text)
 
+        # Determine the color scheme (light or dark) based on the application's style hints
+        if QGuiApplication.styleHints().colorScheme() == Qt.ColorScheme.Dark:
+            prefix = "light"  # Use light icons for dark mode
+        else:
+            prefix = "dark"  # Use dark icons for light mode
+
+        # Create a new QAction instance
         action = QAction(self)
-        action.setIcon(MaterialIcon(iconName))
+
+        # Set the icon for the action using the determined color scheme and icon name
+        action.setIcon(QIcon(f":/icons/{prefix}/{iconName}.svg"))
+
         action.setObjectName(objectName)
         action.setText(self.tr(text))
         action.setCheckable(checkable)
@@ -446,7 +460,7 @@ class MainWindowView(QMainWindow):
 
         # Fit Vertical action
         self._actionFitVertical = self._createAction(
-            iconName="height",
+            iconName="fit_page_height",
             text="Fit Vertical",
             objectName="actionFitVertical",
             shortcut="V",
@@ -457,7 +471,7 @@ class MainWindowView(QMainWindow):
 
         # Fit Horizontal action
         self._actionFitHorizontal = self._createAction(
-            iconName="arrow_range",
+            iconName="fit_page_width",
             text="Fit Horizontal",
             objectName="actionFitHorizontal",
             shortcut="H",
@@ -479,7 +493,7 @@ class MainWindowView(QMainWindow):
 
         # Fit Page action
         self._actionFitPage = self._createAction(
-            iconName="open_with",
+            iconName="fit_page",
             text="Fit Page",
             objectName="actionFitPage",
             shortcut="P",
@@ -538,9 +552,9 @@ class MainWindowView(QMainWindow):
         logger.info("Setting up the toolbar")
 
         self._toolBar.setMovable(False)
-        self._toolBar.setContentsMargins(0, 0, 0, 0)
-        self._toolBar.setAutoFillBackground(False)
-        self._toolBar.setStyleSheet("QToolBar { border: 0; padding: 0; margin: 5; }")
+        # self._toolBar.setContentsMargins(0, 0, 0, 0)
+        self._toolBar.setAutoFillBackground(True)
+        self._toolBar.setStyleSheet("QToolBar { border: 0; padding: 5; margin: 5; }")
         self._toolBar.setToolButtonStyle(Qt.ToolButtonIconOnly)
         self._toolBar.setFloatable(False)
 
@@ -586,6 +600,7 @@ class MainWindowView(QMainWindow):
         # Configure the scroll area to make its content resizable
         self._centralWidgetScrollArea.setWidgetResizable(True)
         self._centralWidgetScrollArea.setAutoFillBackground(False)
+        self._centralWidgetScrollArea.changeBackgroundColor(QColor(28, 28, 28))
 
         # Set scroll bar policies to show them only when needed
         self._centralWidgetScrollArea.setVerticalScrollBarPolicy(

@@ -31,13 +31,15 @@ clean:
 	find . -name "*.mo" -delete
 	find . -name "*.pyc" -delete
 	rm -rf .mypy_cache/ .pytest_cache/ .ruff_cache/ dist/ tox/
-	rm -f .coverage .coverage.xml
-	pyside6-project clean src
+	rm -rf .coverage .coverage.xml htmlcov junit.xml
+	rm -rf .pytest_cache/ .ruff_cache/ .mypy_cache/
+	rm -rf build
+	pyside6-project clean .
 
 # Build package distribution
 build:
 	rm -rf *.egg-info/
-	pyside6-project build src
+	pyside6-project build .
 
 # Run coverage analysis
 coverage:
@@ -80,4 +82,9 @@ rcc:
 
 # build executable of pynocchio
 deploy:
-	pyside6-project deploy src
+	pyside6-project deploy .
+
+appimage:
+	pyinstaller  --onedir -n AppRun src/__init__.py
+	cp deploy/appimage/* dist/*/
+	appimagetool dist/*/

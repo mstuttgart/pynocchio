@@ -1,4 +1,42 @@
 <RCC>
+<qresource prefix="/">
+  <file>icons/dark/bug_report.svg</file>
+  <file>icons/dark/close.svg</file>
+  <file>icons/dark/file_open.svg</file>
+  <file>icons/dark/first_page.svg</file>
+  <file>icons/dark/fit_page_height.svg</file>
+  <file>icons/dark/fit_page_width.svg</file>
+  <file>icons/dark/fit_page.svg</file>
+  <file>icons/dark/forward.svg</file>
+  <file>icons/dark/fullscreen.svg</file>
+  <file>icons/dark/info.svg</file>
+  <file>icons/dark/keyboard_arrow_left.svg</file>
+  <file>icons/dark/keyboard_arrow_right.svg</file>
+  <file>icons/dark/last_page.svg</file>
+  <file>icons/dark/reply_all.svg</file>
+  <file>icons/dark/rotate_left.svg</file>
+  <file>icons/dark/rotate_right.svg</file>
+  <file>icons/dark/view_real_size.svg</file>
+  </qresource>
+  <qresource prefix="/">
+  <file>icons/light/bug_report.svg</file>
+  <file>icons/light/close.svg</file>
+  <file>icons/light/file_open.svg</file>
+  <file>icons/light/first_page.svg</file>
+  <file>icons/light/fit_page_height.svg</file>
+  <file>icons/light/fit_page_width.svg</file>
+  <file>icons/light/fit_page.svg</file>
+  <file>icons/light/forward.svg</file>
+  <file>icons/light/fullscreen.svg</file>
+  <file>icons/light/info.svg</file>
+  <file>icons/light/keyboard_arrow_left.svg</file>
+  <file>icons/light/keyboard_arrow_right.svg</file>
+  <file>icons/light/last_page.svg</file>
+  <file>icons/light/reply_all.svg</file>
+  <file>icons/light/rotate_left.svg</file>
+  <file>icons/light/rotate_right.svg</file>
+  <file>icons/light/view_real_size.svg</file>
+  </qresource>
   <qresource prefix="/">
     <file>logo.ico</file>
   </qresource>

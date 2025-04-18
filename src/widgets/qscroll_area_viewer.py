@@ -111,5 +111,5 @@ class QScrollAreaViewer(QScrollArea):
         Args:
             event (QResizeEvent): The resize event.
         """
-        self.resizedSignal.emit()
         super().resizeEvent(event)
+        self.resizedSignal.emit()

@@ -74,3 +74,5 @@ env*/
 *.bin
 .backup
 .env*
+
+deploy
