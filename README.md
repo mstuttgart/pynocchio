@@ -15,9 +15,6 @@
   <a href="https://github.com/mstuttgart/pynocchio/actions?query=workflow%3A%22Github+CI%22">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/mstuttgart/pynocchio/test.yml?branch=develop">
   </a>
-  <a href="https://codecov.io/gh/mstuttgart/pynocchio">
-    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/mstuttgart/pynocchio">
-  </a>
   <a href="https://github.com/mstuttgart/pynocchio/releases">
     <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/mstuttgart/pynocchio/total.svg">
   </a>
