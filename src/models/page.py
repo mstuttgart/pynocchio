@@ -18,6 +18,7 @@ class Page:
         self._data: bytes = data
         self._title: str = title
         self._number: int = number
+        self._pixmap: QPixmap = QPixmap()
 
     def getPixmap(self):
         """
@@ -26,12 +27,16 @@ class Page:
         Returns:
             None: The return value. Represents page pixmap.
         """
-        image = QImage()
 
-        if image.loadFromData(self._data):
-            return QPixmap.fromImage(image)
+        if self._pixmap.isNull():
+            # Create a QImage from the binary data
+            # and convert it to a QPixmap
+            image = QImage()
 
-        return QPixmap()
+            if image.loadFromData(self._data):
+                self._pixmap = QPixmap.fromImage(image)
+
+        return self._pixmap
 
     def getTitle(self) -> str:
         """

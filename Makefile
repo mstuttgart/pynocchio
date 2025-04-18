@@ -85,6 +85,6 @@ deploy:
 	pyside6-project deploy .
 
 appimage:
-	pyinstaller  --onedir -n AppRun src/__init__.py
+	pyinstaller pysidedeploy.spec --onedir -n AppRun
 	cp deploy/appimage/* dist/*/
 	appimagetool dist/*/

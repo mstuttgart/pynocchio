@@ -899,19 +899,23 @@ class MainWindowView(QMainWindow):
         """
         logger.info("Fullscreen action triggered")
 
+        # Check if the window is currently in fullscreen mode
         if self.isFullScreen():
-            self._toolBar.show()
-            self.showNormal()
-            self._mainController.updateCentralWidgetContent()
+            self._toolBar.show()  # Show the toolbar
+            self.showNormal()  # Restore the window to normal mode
+            self._mainController.updateCentralWidgetContent()  # Update the central widget content
 
+            # Disable global shortcuts when exiting fullscreen mode
             for shortcut in self._globalShortcuts:
                 shortcut.setEnabled(False)
 
         else:
-            self.showFullScreen()
+            # Enter fullscreen mode
+            self.showFullScreen()  # Switch the window to fullscreen mode
             self._toolBar.hide()
-            self._mainController.updateCentralWidgetContent()
+            self._mainController.updateCentralWidgetContent()  # Update the central widget content
 
+            # Enable global shortcuts when entering fullscreen mode
             for shortcut in self._globalShortcuts:
                 shortcut.setEnabled(True)
 
@@ -977,17 +981,6 @@ class MainWindowView(QMainWindow):
 
         logger.debug("UI setup for AboutView completed")
 
-        # description = self.tr(
-        #     f'<h3>{APP_NAME} - v{VERSION}</h3><br/>A minimalist comic book reader.\
-        #     <br/><br/>GNU General Public License v3 (<a href="{LICENSE_URL}">GPLv3</a>) <br/><br/>{COPYRIGHT}<br/><br/>'
-        # )
-
-        # QMessageBox.about(
-        #     self,
-        #     f"About {APP_NAME}",
-        #     description,
-        # )
-
     def closeEvent(self, event: "QCloseEvent") -> None:
         """
         Handles the close event of the main window.
@@ -1001,5 +994,3 @@ class MainWindowView(QMainWindow):
 
         self._mainController.saveData()
         event.accept()
-
-        # super().close()
