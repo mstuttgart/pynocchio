@@ -1,12 +1,13 @@
 import logging
 import sys
 
+from PySide6.QtCore import QLocale, QTranslator
 from PySide6.QtWidgets import QApplication
 
 import src.app_rc  # noqa: F401
 from src.__version__ import __version__
 from src.controllers.main_controller import MainController
-from src.models.constants import APP_NAME
+from src.models.constants import APP_NAME, LANGUAGE, Language
 from src.models.main_model import MainModel
 from src.views.main_window_view import MainWindowView
 
@@ -32,16 +33,35 @@ class App(QApplication):
 
         self.setStyle("Fusion")
 
-        self._mainModel: MainModel = MainModel()
-        self._MainController: MainController = MainController(self._mainModel)
-
-        self._mainWindowView: MainWindowView = MainWindowView(self._MainController)
-
-        self._mainWindowView.show()
-
 
 def main():
     app: App = App(sys.argv)
+
+    # Internationalization
+    translator = QTranslator(app)
+
+    if LANGUAGE == Language.AUTO:
+
+        if translator.load(QLocale.system(), ":/translations/i18n/"):
+            logger.info("Loaded translation file.")
+            app.installTranslator(translator)
+        else:
+            logger.warning("Failed to load translation file.")
+
+    elif LANGUAGE != Language.ENGLISH:
+
+        if translator.load(f":/translations/i18n/{LANGUAGE}.qm"):
+            logger.info("Loaded translation file.")
+            app.installTranslator(translator)
+        else:
+            logger.warning("Failed to load translation file.")
+
+    mainModel: MainModel = MainModel()
+    mainController: MainController = MainController(mainModel)
+
+    mainWindowView: MainWindowView = MainWindowView(mainController)
+    mainWindowView.show()
+
     sys.exit(app.exec())
 
 

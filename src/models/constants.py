@@ -28,6 +28,7 @@ Attributes:
 """
 
 import datetime
+import enum
 import logging
 import os
 from pathlib import Path
@@ -43,6 +44,7 @@ load_dotenv()
 # Debugging and logging configuration
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 LOGGING_VERBOSITY = os.getenv("LOGGING_VERBOSITY", "INFO").upper()
+LANGUAGE = os.getenv("LANGUAGE", "Auto")
 
 # Application metadata
 YEAR = datetime.datetime.now().year
@@ -103,3 +105,11 @@ DATABASE_FILE = os.path.join(
     CONFIG_FOLDER,
     f"{DATABASE_FILE_NAME}",
 )
+
+
+class Language(enum.Enum):
+    """Language enumeration"""
+
+    ENGLISH = "en"
+    PORTUGUESE_BR = "pt_BR"
+    AUTO = "Auto"

@@ -319,7 +319,7 @@ class MainWindowView(QMainWindow):
         action.setIcon(QIcon(f":/icons/{prefix}/{iconName}.svg"))
 
         action.setObjectName(objectName)
-        action.setText(self.tr(text))
+        action.setText(text)
         action.setCheckable(checkable)
         action.setEnabled(enable)
 
@@ -327,8 +327,8 @@ class MainWindowView(QMainWindow):
             action.triggered.connect(slot)
 
         if shortcut:
-            action.setToolTip(self.tr(f"{text} ({shortcut})"))
-            action.setShortcut(self.tr(shortcut))
+            action.setToolTip(f"{text} ({shortcut})")
+            action.setShortcut(shortcut)
 
         return action
 
@@ -344,7 +344,7 @@ class MainWindowView(QMainWindow):
         # Exit action
         self._actionExit = self._createAction(
             iconName="close",
-            text="&Exit",
+            text=self.tr("Exit"),
             objectName="actionExit",
             shortcut="Ctrl+Q",
             slot=self.close,
@@ -353,7 +353,7 @@ class MainWindowView(QMainWindow):
         # Open File action
         self._actionOpenFile = self._createAction(
             iconName="file_open",
-            text="&Open File",
+            text=self.tr("Open File"),
             objectName="actionOpenFile",
             shortcut="Ctrl+O",
             slot=self.onActionOpenFileTriggered,
@@ -371,7 +371,7 @@ class MainWindowView(QMainWindow):
         # About action
         self._actionAbout = self._createAction(
             iconName="info",
-            text="&About",
+            text=self.tr("About"),
             objectName="actionAbout",
             shortcut="F1",
             slot=self.onActionAboutTriggered,
@@ -380,7 +380,7 @@ class MainWindowView(QMainWindow):
         # Report Bug action
         self._actionReportBug = self._createAction(
             iconName="bug_report",
-            text="&Report a Bug",
+            text=self.tr("Report a Bug"),
             objectName="actionReportBug",
             shortcut="",
             slot=self._mainController.onActionReportBugTriggered,
@@ -395,7 +395,7 @@ class MainWindowView(QMainWindow):
         # Previous Page action
         self._actionPreviousPage = self._createAction(
             iconName="keyboard_arrow_left",
-            text="Previous Page",
+            text=self.tr("Previous Page"),
             objectName="actionPreviousPage",
             shortcut="Left",
             slot=self._mainController.onActionPreviousPageTriggered,
@@ -405,7 +405,7 @@ class MainWindowView(QMainWindow):
         # Next Page action
         self._actionNextPage = self._createAction(
             iconName="keyboard_arrow_right",
-            text="Next Page",
+            text=self.tr("Next Page"),
             objectName="actionNextPage",
             shortcut="Right",
             slot=self._mainController.onActionNextPageTriggered,
@@ -415,7 +415,7 @@ class MainWindowView(QMainWindow):
         # First Page action
         self._actionFirstPage = self._createAction(
             iconName="first_page",
-            text="First Page",
+            text=self.tr("First Page"),
             objectName="actionFirstPage",
             shortcut="Ctrl+Left",
             slot=self._mainController.onActionFirstPageTriggered,
@@ -425,7 +425,7 @@ class MainWindowView(QMainWindow):
         # Last Page action
         self._actionLastPage = self._createAction(
             iconName="last_page",
-            text="Last Page",
+            text=self.tr("Last Page"),
             objectName="actionLastPage",
             shortcut="Ctrl+Right",
             slot=self._mainController.onActionLastPageTriggered,
@@ -435,7 +435,7 @@ class MainWindowView(QMainWindow):
         # Previous Comic action
         self._actionPreviousComic = self._createAction(
             iconName="reply_all",
-            text="Previous Comic",
+            text=self.tr("Previous Comic"),
             objectName="actionPreviousComic",
             shortcut="Ctrl+Shift+Left",
             slot=self._mainController.onActionPreviousComicTriggered,
@@ -445,7 +445,7 @@ class MainWindowView(QMainWindow):
         # Next Comic action
         self._actionNextComic = self._createAction(
             iconName="forward",
-            text="Next Comic",
+            text=self.tr("Next Comic"),
             objectName="actionNextComic",
             shortcut="Ctrl+Shift+Right",
             slot=self._mainController.onActionNextComicTriggered,
@@ -461,7 +461,7 @@ class MainWindowView(QMainWindow):
         # Fit Vertical action
         self._actionFitVertical = self._createAction(
             iconName="fit_page_height",
-            text="Fit Vertical",
+            text=self.tr("Fit Vertical"),
             objectName="actionFitVertical",
             shortcut="V",
             slot=lambda: None,
@@ -472,7 +472,7 @@ class MainWindowView(QMainWindow):
         # Fit Horizontal action
         self._actionFitHorizontal = self._createAction(
             iconName="fit_page_width",
-            text="Fit Horizontal",
+            text=self.tr("Fit Horizontal"),
             objectName="actionFitHorizontal",
             shortcut="H",
             slot=lambda: None,
@@ -483,7 +483,7 @@ class MainWindowView(QMainWindow):
         # Fit Original action
         self._actionFitOriginal = self._createAction(
             iconName="view_real_size",
-            text="Fit Original",
+            text=self.tr("Fit Original"),
             objectName="actionFitOriginal",
             shortcut="O",
             slot=lambda: None,
@@ -494,7 +494,7 @@ class MainWindowView(QMainWindow):
         # Fit Page action
         self._actionFitPage = self._createAction(
             iconName="fit_page",
-            text="Fit Page",
+            text=self.tr("Fit Page"),
             objectName="actionFitPage",
             shortcut="P",
             slot=lambda: None,
@@ -527,7 +527,7 @@ class MainWindowView(QMainWindow):
         # Rotate Left action
         self._actionRotateLeft = self._createAction(
             iconName="rotate_left",
-            text="Rotate Left",
+            text=self.tr("Rotate Left"),
             objectName="actionRotateLeft",
             shortcut="Ctrl+Shift+R",
             slot=self._mainController.onActionRotateLeftTriggered,
@@ -537,7 +537,7 @@ class MainWindowView(QMainWindow):
         # Rotate Right action
         self._actionRotateRight = self._createAction(
             iconName="rotate_right",
-            text="Rotate Right",
+            text=self.tr("Rotate Right"),
             objectName="actionRotateRight",
             shortcut="Ctrl+R",
             slot=self._mainController.onActionRotateRightTriggered,

@@ -11,12 +11,13 @@ help:
 	@echo "    coverage      Identify code not covered with tests"
 	@echo "    lint          Run lint checks on the module"
 	@echo "    lint-hint     Run lint checks on the module with hints"
-	@echo "    lint-fix      Run lint checks on the module and fix them"
 	@echo "    pre-commit    Run pre-commit against all files"
 	@echo "    setup         Set up the development environment"
 	@echo "    test          Run tests (in parallel)"
 	@echo "    run			 Run application"
 	@echo "    deploy        Build executable of pynocchio"
+	@echo "    lupdate       Update translation files"
+	@echo "    lrelease      Generate .qm file from .ts file"
 	@echo "    rcc           Run rcc to compile the resources .qrc file"
 	@echo "    help          Show this summary of available commands"
 
@@ -40,6 +41,8 @@ clean:
 build:
 	rm -rf *.egg-info/
 	pyside6-project build .
+	$(MAKE) lrelease
+	$(MAKE) rcc
 
 # Run coverage analysis
 coverage:
@@ -74,7 +77,7 @@ test:
 
 # Run pynocchio
 run:
-	python3 run.py
+	pyside6-project run
 
 # run rcc to compile the resources .qrc file
 rcc:
@@ -82,9 +85,14 @@ rcc:
 
 # build executable of pynocchio
 deploy:
+	$(MAKE) lrelease
+	$(MAKE) rcc
 	pyside6-project deploy .
 
-appimage:
-	pyinstaller pysidedeploy.spec --onedir -n AppRun
-	cp deploy/appimage/* dist/*/
-	appimagetool dist/*/
+# Update and create translation files
+lupdate:
+	pyside6-lupdate src/views/main_window_view.py -ts i18n/en_US.ts i18n/pt_BR.ts i18n/es_ES.ts
+
+# Generate .qm file from .ts file
+lrelease:
+	pyside6-lrelease i18n/pt_BR.ts -qm resources/i18n/pt_BR.qm

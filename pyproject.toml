@@ -26,7 +26,9 @@ classifiers = [
     "Natural Language :: English",
 ]
 dependencies = [
-    "PySide6>=6.9.0",
+    # "PySide6>=6.9.0",
+    "pyside6-essentials==6.9.0",
+    "pywin32>=310; sys_platform == 'win32'",
     "rarfile",
     "python-dotenv",
 ]
@@ -136,7 +138,18 @@ strict_optional = false
 
 [tool.coverage.run]
 branch = true
-omit = ["tests/*", "src/app_rc.py", "src/__init__.py", "src/app.py", "src/__version__.py"]
+omit = [
+    "tests/*",
+    "src/app_rc.py",
+    "src/__init__.py",
+    "src/app.py",
+    "src/__version__.py",
+]
 
 [tool.pyside6-project]
-files = ["run.py"]
+files = ["run.py", "src/views/main_window.py"]
+translations = ["i18n/pt_BR.ts"]
+
+
+# [tool.pyside6-project.translations]
+# translations = ["i18n/pt_BR.ts"]
