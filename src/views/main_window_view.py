@@ -599,15 +599,15 @@ class MainWindowView(QMainWindow):
 
         # Configure the scroll area to make its content resizable
         self._centralWidgetScrollArea.setWidgetResizable(True)
-        self._centralWidgetScrollArea.setAutoFillBackground(False)
+        self._centralWidgetScrollArea.setAutoFillBackground(True)
         self._centralWidgetScrollArea.changeBackgroundColor(QColor(28, 28, 28))
 
         # Set scroll bar policies to show them only when needed
         self._centralWidgetScrollArea.setVerticalScrollBarPolicy(
-            Qt.ScrollBarPolicy.ScrollBarAsNeeded
+            Qt.ScrollBarPolicy.ScrollBarAlwaysOff
         )
         self._centralWidgetScrollArea.setHorizontalScrollBarPolicy(
-            Qt.ScrollBarPolicy.ScrollBarAsNeeded
+            Qt.ScrollBarPolicy.ScrollBarAlwaysOff
         )
 
         # Align the content of the scroll area to the center
