@@ -41,7 +41,6 @@ def main():
     translator = QTranslator(app)
 
     if LANGUAGE == Language.AUTO:
-
         if translator.load(QLocale.system(), ":/translations/i18n/"):
             logger.info("Loaded translation file.")
             app.installTranslator(translator)
@@ -49,7 +48,6 @@ def main():
             logger.warning("Failed to load translation file.")
 
     elif LANGUAGE != Language.ENGLISH:
-
         if translator.load(f":/translations/i18n/{LANGUAGE}.qm"):
             logger.info("Loaded translation file.")
             app.installTranslator(translator)

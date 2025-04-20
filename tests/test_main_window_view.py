@@ -3,6 +3,7 @@ from unittest.mock import MagicMock
 import pytest
 from PySide6.QtWidgets import QApplication
 
+import src.app_rc  # noqa: F401
 from src.controllers.main_controller import MainController
 from src.models.main_model import MainModel
 from src.views.main_window_view import MainWindowView
@@ -46,10 +47,10 @@ def test_setup_ui(main_window_view):
 
 def test_setup_actions(main_window_view):
     """Test the setupActions method."""
-    assert main_window_view._actionExit.text() == "&Exit"
-    assert main_window_view._actionOpenFile.text() == "&Open File"
-    assert main_window_view._actionAbout.text() == "&About"
-    assert main_window_view._actionReportBug.text() == "&Report a Bug"
+    assert main_window_view._actionExit.text() == "Exit"
+    assert main_window_view._actionOpenFile.text() == "Open File"
+    assert main_window_view._actionAbout.text() == "About"
+    assert main_window_view._actionReportBug.text() == "Report a Bug"
     assert main_window_view._actionPreviousPage.text() == "Previous Page"
     assert main_window_view._actionNextPage.text() == "Next Page"
     assert main_window_view._actionFirstPage.text() == "First Page"
