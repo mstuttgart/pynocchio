@@ -76,3 +76,4 @@ env*/
 .env*
 
 deploy
+package/usr/bin/*.bin
