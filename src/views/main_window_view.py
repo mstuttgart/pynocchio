@@ -155,6 +155,7 @@ class MainWindowView(QMainWindow):
         self._actionLastPage: QAction = QAction(self)
         self._actionPreviousComic: QAction = QAction(self)
         self._actionNextComic: QAction = QAction(self)
+        self._actionFullscreen: QAction = QAction(self)
         self._actionFitVertical: QAction = QAction(self)
         self._actionFitHorizontal: QAction = QAction(self)
         self._actionFitOriginal: QAction = QAction(self)
@@ -371,10 +372,7 @@ class MainWindowView(QMainWindow):
         self._setupNavigationActions()
 
         # Fit actions
-        self._setupFitActions()
-
-        # Rotate actions
-        self._setupRotateActions()
+        self._setupViewActions()
 
         # About action
         self._actionAbout = self._createAction(
@@ -460,11 +458,22 @@ class MainWindowView(QMainWindow):
             enable=False,
         )
 
-    def _setupFitActions(self) -> None:
+    def _setupViewActions(self) -> None:
         """
         Configures fit actions for adjusting the content display.
         """
         logger.debug("Setting up fit actions")
+
+        # Set Fullscreen action
+        self._actionFullscreen = self._createAction(
+            iconName="fullscreen",
+            text=self.tr("Fullscreen"),
+            objectName="actionFullscreen",
+            shortcut="F",
+            slot=self.onActionFullscreenTriggered,
+            checkable=False,
+            enable=True,
+        )
 
         # Fit Vertical action
         self._actionFitVertical = self._createAction(
@@ -526,10 +535,6 @@ class MainWindowView(QMainWindow):
         for act in self._actionFitGroup.actions():
             act.setChecked(self._mainController.getCurrentFitMode() == act.objectName())
 
-    def _setupRotateActions(self) -> None:
-        """
-        Configures rotate actions for rotating the content.
-        """
         logger.debug("Setting up rotate actions")
 
         # Rotate Left action
@@ -567,6 +572,8 @@ class MainWindowView(QMainWindow):
         self._menuFile.addAction(self._actionExit)
 
         self._menuView = QMenu(self._menuBar, title=self.tr("&View"))
+        self._menuView.addAction(self._actionFullscreen)
+        self._menuView.addSeparator()
         self._menuView.addActions(self._actionFitGroup.actions())
         self._menuView.addSeparator()
         self._menuView.addAction(self._actionRotateLeft)
@@ -614,6 +621,8 @@ class MainWindowView(QMainWindow):
         self._toolBar.addAction(self._actionNextPage)
         self._toolBar.addAction(self._actionLastPage)
         self._toolBar.addAction(self._actionNextComic)
+        self._toolBar.addSeparator()
+        self._toolBar.addAction(self._actionFullscreen)
 
         # Add spacer to the toolbar
         # to push the page spinbox to the right
@@ -681,10 +690,10 @@ class MainWindowView(QMainWindow):
         logger.debug("Setting up global shortcuts")
 
         # Shortcut to toggle fullscreen mode using the "F" key
-        self.fullScreenShortcut = QShortcut(
-            QKeySequence("F"), self, self.onActionFullscreenTriggered
-        )
-        self.fullScreenShortcut.setEnabled(True)
+        # self.fullScreenShortcut = QShortcut(
+        #     QKeySequence("F"), self, self.onActionFullscreenTriggered
+        # )
+        # self.fullScreenShortcut.setEnabled(True)
 
         # Shortcut to close the application using "Ctrl+Q"
         self.closeShortcut = QShortcut(QKeySequence("Ctrl+Q"), self, self.close)
@@ -699,6 +708,8 @@ class MainWindowView(QMainWindow):
             "Ctrl+Right": self._mainController.onActionLastPageTriggered,  # Navigate to last page
             "Right": self._mainController.onActionNextPageTriggered,  # Navigate to next page
             "Left": self._mainController.onActionPreviousPageTriggered,  # Navigate to previous page
+            "F": self.onActionFullscreenTriggered,  # Toggle fullscreen
+            "ESC": self.onActionFullscreenTriggered,  # Out fullscreen
         }
 
         # Create and configure shortcuts, initially disabled for fullscreen mode
@@ -943,6 +954,7 @@ class MainWindowView(QMainWindow):
         # Check if the window is currently in fullscreen mode
         if self.isFullScreen():
             self._toolBar.show()  # Show the toolbar
+            self._menuBar.show()
             self.showNormal()  # Restore the window to normal mode
             self._mainController.updateCentralWidgetContent()  # Update the central widget content
 
@@ -954,6 +966,7 @@ class MainWindowView(QMainWindow):
             # Enter fullscreen mode
             self.showFullScreen()  # Switch the window to fullscreen mode
             self._toolBar.hide()
+            self._menuBar.hide()
             self._mainController.updateCentralWidgetContent()  # Update the central widget content
 
             # Enable global shortcuts when entering fullscreen mode
