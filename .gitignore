@@ -75,5 +75,9 @@ env*/
 .backup
 .env*
 
-deploy
 package/usr/bin/*.bin
+.flatpak-builder
+repo
+builddir
+dist
+flatpak
