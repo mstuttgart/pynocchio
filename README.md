@@ -18,9 +18,6 @@
   <a style="text-decoration:none">
     <img src="https://img.shields.io/badge/PySide-6.9-blue?color=a6bf2e" alt="PySide 6.9"/>
   </a>
-  <a style="text-decoration:none">
-    <img src="https://img.shields.io/badge/Platform-Win32%20|%20Linux%20|%20macOS-blue?color=a6bf2e" alt="Platform Linux"/>
-  </a>
   <a href="https://github.com/mstuttgart/pynocchio/releases">
     <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/mstuttgart/pynocchio/total.svg?color=a6bf2e">
   </a>
@@ -49,7 +46,7 @@
 The current version is stable, and we aim to improve it further.
 
 * Supports several view adjustment modes with anti-aliasing.
-* Compatible with multiple image formats supported by Qt5: WEBP, JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM.
+* Compatible with multiple image formats supported: WEBP, JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM.
 * Supports various comic archive formats: `.ZIP`, `.RAR`, `.TAR`, `.CBT`, `.CBR`, `.CBZ`.
 * Minimalist design, free, and easy to use!
 
