@@ -38,9 +38,11 @@
   <file>icons/light/view_real_size.svg</file>
   </qresource>
   <qresource prefix="/">
-    <file>logo.ico</file>
+    <file>logo.svg</file>
   </qresource>
   <qresource prefix="translations">
+    <file>i18n/en_US.qm</file>
+    <file>i18n/es_ES.qm</file>
     <file>i18n/pt_BR.qm</file>
   </qresource>
 </RCC>

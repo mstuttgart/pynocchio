@@ -34,8 +34,10 @@ clean:
 	rm -rf .mypy_cache/ .pytest_cache/ .ruff_cache/ dist/ tox/
 	rm -rf .coverage .coverage.xml htmlcov junit.xml
 	rm -rf .pytest_cache/ .ruff_cache/ .mypy_cache/
-	rm -rf build
+	rm -rf build repo flatpak .flatpak-builder builddir
 	pyside6-project clean .
+	rm pynocchio.db
+	rm pynocchio.deb
 
 # Build package distribution
 build:
@@ -91,8 +93,10 @@ deploy:
 
 # Update and create translation files
 lupdate:
-	pyside6-lupdate src/views/main_window_view.py -ts i18n/en_US.ts i18n/pt_BR.ts i18n/es_ES.ts
+	pyside6-lupdate src/views/main_window_view.py -ts i18n/*.ts
 
 # Generate .qm file from .ts file
 lrelease:
+	pyside6-lrelease i18n/en_US.ts -qm resources/i18n/en_US.qm
+	pyside6-lrelease i18n/es_ES.ts -qm resources/i18n/es_ES.qm
 	pyside6-lrelease i18n/pt_BR.ts -qm resources/i18n/pt_BR.qm

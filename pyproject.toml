@@ -148,8 +148,3 @@ omit = [
 
 [tool.pyside6-project]
 files = ["run.py", "src/views/main_window_view.py"]
-translations = ["i18n/pt_BR.ts"]
-
-
-# [tool.pyside6-project.translations]
-# translations = ["i18n/pt_BR.ts"]

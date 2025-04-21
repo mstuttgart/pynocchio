@@ -247,7 +247,7 @@ class MainWindowView(QMainWindow):
         self.setWindowTitle(self.tr(APP_NAME))
 
         # Set the window icon
-        self.setWindowIcon(QIcon(":/logo.ico"))
+        self.setWindowIcon(QIcon(":/logo.svg"))
 
         self.setIconSize(QSize(24, 24))
 
@@ -944,7 +944,7 @@ class MainWindowView(QMainWindow):
 
         layout: QVBoxLayout = QVBoxLayout()
 
-        logoPixmap = QPixmap(":/logo.ico")
+        logoPixmap = QPixmap(":/logo.svg")
         logoPixmap = logoPixmap.scaledToHeight(
             int(logoPixmap.height() * 0.5), Qt.SmoothTransformation
         )
