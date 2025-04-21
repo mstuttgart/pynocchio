@@ -22,6 +22,8 @@ from PySide6.QtWidgets import (
     QFileDialog,
     QLabel,
     QMainWindow,
+    QMenu,
+    QMenuBar,
     QMessageBox,
     QProgressDialog,
     QSizePolicy,
@@ -122,6 +124,9 @@ class MainWindowView(QMainWindow):
         # Create the toolbar for the main window
         self._toolBar: QToolBar = QToolBar(self)
 
+        # Create the menu bar for the main window
+        self._menuBar: QMenuBar = QMenuBar(self)
+
         # Create a QWidget to hold the central content
         self._centralWidget: QWidget = QWidget()
         self._centralWidgetLayout: QVBoxLayout = QVBoxLayout(self._centralWidget)
@@ -170,6 +175,9 @@ class MainWindowView(QMainWindow):
 
         # Set up actions for the menu bar and toolbar
         self._setupActions()
+
+        # Set up the menu bar for the main window
+        self._setupMenuBar()
 
         # Configure the toolbar with actions and layout
         self._setupToolBar()
@@ -544,6 +552,49 @@ class MainWindowView(QMainWindow):
             enable=False,
         )
 
+    def _setupMenuBar(self) -> None:
+        """
+        Sets up the menu bar for the main window.
+
+        This method creates and configures the menu bar, adding menus and actions.
+        """
+        logger.info("Setting up menu bar")
+
+        # Create menus
+        self._menuFile = QMenu(self._menuBar, title=self.tr("&File"))
+        self._menuFile.addAction(self._actionOpenFile)
+        self._menuFile.addSeparator()
+        self._menuFile.addAction(self._actionExit)
+
+        self._menuView = QMenu(self._menuBar, title=self.tr("&View"))
+        self._menuView.addActions(self._actionFitGroup.actions())
+        self._menuView.addSeparator()
+        self._menuView.addAction(self._actionRotateLeft)
+        self._menuView.addAction(self._actionRotateRight)
+
+        self._menuGoTo = QMenu(self._menuBar, title=self.tr("&GoTo"))
+        self._menuGoTo.addAction(self._actionFirstPage)
+        self._menuGoTo.addAction(self._actionPreviousPage)
+        self._menuGoTo.addSeparator()
+        self._menuGoTo.addAction(self._actionNextPage)
+        self._menuGoTo.addAction(self._actionLastPage)
+        self._menuGoTo.addSeparator()
+        self._menuGoTo.addAction(self._actionPreviousComic)
+        self._menuGoTo.addAction(self._actionNextComic)
+
+        self._menuHelp = QMenu(self._menuBar, title=self.tr("&Help"))
+        self._menuHelp.addAction(self._actionReportBug)
+        self._menuHelp.addAction(self._actionAbout)
+
+        # Add menus to the menu bar
+        self._menuBar.addMenu(self._menuFile)
+        self._menuBar.addMenu(self._menuView)
+        self._menuBar.addMenu(self._menuGoTo)
+        self._menuBar.addMenu(self._menuHelp)
+
+        # Set the menu bar for the main window
+        self.setMenuBar(self._menuBar)
+
     def _setupToolBar(self) -> None:
         """
         Sets up the toolbar.
@@ -552,26 +603,17 @@ class MainWindowView(QMainWindow):
         logger.info("Setting up the toolbar")
 
         self._toolBar.setMovable(False)
-        # self._toolBar.setContentsMargins(0, 0, 0, 0)
         self._toolBar.setAutoFillBackground(True)
-        self._toolBar.setStyleSheet("QToolBar { border: 0; padding: 5; margin: 5; }")
+        self._toolBar.setStyleSheet("QToolBar { border: 0; padding: 2; margin: 0; }")
         self._toolBar.setToolButtonStyle(Qt.ToolButtonIconOnly)
         self._toolBar.setFloatable(False)
 
-        self._toolBar.addAction(self._actionOpenFile)
-        self._toolBar.addSeparator()
         self._toolBar.addAction(self._actionPreviousComic)
         self._toolBar.addAction(self._actionFirstPage)
         self._toolBar.addAction(self._actionPreviousPage)
         self._toolBar.addAction(self._actionNextPage)
         self._toolBar.addAction(self._actionLastPage)
         self._toolBar.addAction(self._actionNextComic)
-        self._toolBar.addSeparator()
-        self._toolBar.addAction(self._actionRotateLeft)
-        self._toolBar.addAction(self._actionRotateRight)
-        self._toolBar.addSeparator()
-        self._toolBar.addActions(self._actionFitGroup.actions())
-        self._toolBar.addSeparator()
 
         # Add spacer to the toolbar
         # to push the page spinbox to the right
@@ -581,9 +623,8 @@ class MainWindowView(QMainWindow):
 
         self._toolBar.addWidget(QLabel("Page: "))
         self._toolBar.addWidget(self._pageSpinbox)
-        self._toolBar.addAction(self._actionReportBug)
-        self._toolBar.addAction(self._actionAbout)
 
+        # Add the toolbar to the main window
         self.addToolBar(Qt.TopToolBarArea, self._toolBar)
 
     def _setupCentralWidget(self) -> None:
