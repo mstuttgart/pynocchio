@@ -1,4 +1,11 @@
+import logging
+
 from PySide6.QtGui import QImage, QPixmap
+
+from src.models.constants import LOGGING_VERBOSITY
+
+logger = logging.getLogger(__name__)
+logger.setLevel(LOGGING_VERBOSITY)
 
 
 class Page:
@@ -33,8 +40,13 @@ class Page:
             # and convert it to a QPixmap
             image = QImage()
 
+            logger.debug("Loading image from data")
+
             if image.loadFromData(self._data):
                 self._pixmap = QPixmap.fromImage(image)
+                logger.debug("Image loaded successfully")
+            else:
+                logger.error("Failed to load image from data")
 
         return self._pixmap
 
