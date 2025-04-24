@@ -26,11 +26,11 @@ classifiers = [
     "Natural Language :: English",
 ]
 dependencies = [
-    # "PySide6>=6.9.0",
     "pyside6-essentials==6.9.0",
     "pywin32>=310; sys_platform == 'win32'",
     "rarfile",
     "python-dotenv",
+    "pymupdf",
 ]
 
 [project.optional-dependencies]

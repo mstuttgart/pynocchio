@@ -48,6 +48,7 @@ The current version is stable, and we aim to improve it further.
 * Supports several view adjustment modes with anti-aliasing.
 * Compatible with multiple image formats supported: WEBP, JPG, JPEG, PNG, GIF, BMP, PBM, PGM, PPM, XBM, XPM.
 * Supports various comic archive formats: `.ZIP`, `.RAR`, `.TAR`, `.CBT`, `.CBR`, `.CBZ`.
+* Support PDF comic files.
 * Minimalist design, free, and easy to use!
 
 ### Roadmap: https://github.com/mstuttgart/pynocchio/issues/103

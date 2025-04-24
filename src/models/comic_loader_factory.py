@@ -1,6 +1,7 @@
 import logging
 
 from src.models.comic_loader import ComicLoader
+from src.models.comic_loader_pdf import ComicPdfLoader
 from src.models.comic_loader_rar import ComicRarLoader, is_rarfile
 from src.models.comic_loader_tar import ComicTarLoader, is_tarfile
 from src.models.comic_loader_zip import ComicZipLoader, is_zipfile
@@ -35,6 +36,10 @@ class ComicLoaderFactory:
         if file_extension not in SUPPORTED_FILES:
             logger.error(f"Unsupported file format: {file_extension}")
             raise TypeError(f"Unsupported file format: {file_extension}")
+
+        if file_extension == ".pdf":
+            logger.info("Creating PDF loader")
+            return ComicPdfLoader(filename)
 
         if is_zipfile(filename):
             logger.info("Creating ZIP loader")

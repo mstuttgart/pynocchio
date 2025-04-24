@@ -898,9 +898,9 @@ class MainWindowView(QMainWindow):
             self.tr("Open Comic File"),
             self._mainController.getCurrentComicPath(),
             self.tr(
-                "All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt);; "
+                "All supported files (*.zip *.cbz *.rar *.cbr *.tar *.cbt *.pdf);; "
                 "ZIP files (*.zip *.cbz);; RAR files (*.rar *.cbr);; "
-                "TAR files (*.tar *.cbt);; "
+                "TAR files (*.tar *.cbt);; PDF files (*.pdf);;"
                 "All files (*)"
             ),
         )
