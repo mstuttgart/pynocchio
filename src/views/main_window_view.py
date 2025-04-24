@@ -258,6 +258,7 @@ class MainWindowView(QMainWindow):
         # Set the window icon
         self.setWindowIcon(QIcon(":/logo.svg"))
 
+        # Set icon size of all window
         self.setIconSize(QSize(24, 24))
 
         # Center the window on the screen
@@ -998,7 +999,7 @@ class MainWindowView(QMainWindow):
 
         layout: QVBoxLayout = QVBoxLayout()
 
-        logoPixmap = QPixmap(":/logo.svg")
+        logoPixmap = QPixmap(":/logo.png")
         logoPixmap = logoPixmap.scaledToHeight(
             int(logoPixmap.height() * 0.5), Qt.SmoothTransformation
         )
