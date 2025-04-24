@@ -76,8 +76,7 @@ class ComicRarLoader(ComicLoader):
                         logger.debug("Adding page: %s", name)
 
                         try:
-                            page_data = rar.read(name)
-                            self._data.append(Page(page_data, name, number))
+                            self._data.append(Page(rar.read(name), name, number))
 
                         except rarfile.BadRarFile as exc:
                             logger.error("Error reading RAR file '%s': %s", name, exc)

@@ -78,8 +78,7 @@ class ComicZipLoader(ComicLoader):
                         logger.debug("Adding page: %s", name)
 
                         try:
-                            page_data = zf.read(name)
-                            self._data.append(Page(page_data, name, number))
+                            self._data.append(Page(zf.read(name), name, number))
 
                             logger.debug("Page %d loaded successfully.", number)
 
