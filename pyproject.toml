@@ -28,9 +28,9 @@ classifiers = [
 dependencies = [
     "pyside6-essentials==6.9.0",
     "pywin32>=310; sys_platform == 'win32'",
-    "rarfile",
-    "python-dotenv",
-    "pymupdf",
+    "rarfile==4.2",
+    "python-dotenv==1.1.0",
+    "pdf2image==1.17.0",
 ]
 
 [project.optional-dependencies]
