@@ -1,7 +1,13 @@
 import logging
+import tempfile
 import threading
 
-import pymupdf
+from pdf2image import convert_from_path
+from pdf2image.exceptions import (
+    PDFInfoNotInstalledError,
+    PDFPageCountError,
+    PDFSyntaxError,
+)
 
 from src.models.comic_loader import ComicLoader
 from src.models.constants import LOGGING_VERBOSITY
@@ -40,14 +46,18 @@ class ComicPdfLoader(ComicLoader):
         logger.info("Attempting to load file: %s", filename)
 
         try:
-            with pymupdf.open(filename) as pdf:
+            with tempfile.TemporaryDirectory() as path:
+                pages = convert_from_path(
+                    filename, output_folder=path, thread_count=4, dpi=300, use_cropbox=True
+                )
+
                 logger.debug("PDF file loaded successfully.")
-                logger.debug("Number of pages in PDF: %d", pdf.page_count)
+                logger.debug("Number of pages in PDF: %d", len(pages))
 
                 # # Emit the start progress signal with the number of files
-                self.getSignals().startProgressSignal.emit(pdf.page_count)
+                self.getSignals().startProgressSignal.emit(len(pages))
 
-                def readPdfFileThread(page: pymupdf.Page) -> None:
+                def readPdfFileThread(page, number) -> None:
                     """Thread function to read a single PDF page and convert it to a QImage.
 
                     Args:
@@ -55,10 +65,9 @@ class ComicPdfLoader(ComicLoader):
                     """
 
                     try:
-                        pixmap = page.get_pixmap(dpi=300, alpha=False)
-                        number = page.number + 1
-
-                        self._data.append(Page(pixmap.tobytes(), f"page {number}", number))
+                        number = number + 1
+                        pixmap = page
+                        self._data.append(Page(pixmap, f"page {number}", number))
 
                     except Exception as exc:
                         logger.error("Other error reading PDF file: %s" % exc)
@@ -67,29 +76,33 @@ class ComicPdfLoader(ComicLoader):
                 threads = []
 
                 # Start threads to read each file in the PDF archive
-                for page in pdf:
-                    logger.debug("Processing file: %s", page.number)
+                for index, page in enumerate(pages):
+                    logger.debug("Processing page: %s", index)
 
                     thread = threading.Thread(
                         target=readPdfFileThread,
-                        args=(page,),
+                        args=(page, index),
                     )
 
                     threads.append(thread)
                     thread.start()
                     thread.join()
-                    self.getSignals().loadProgressSignal.emit(page.number)
+                    self.getSignals().loadProgressSignal.emit(index)
 
-                # Sort the pages by their number
-                self._data.sort(key=lambda x: x.getNumber())
+            # Sort the pages by their number
+            self._data.sort(key=lambda x: x.getNumber())
 
-        except pymupdf.FileDataError as exc:
-            logger.error("Error reading PDF file '%s': %s", filename, exc)
-            raise ValueError(f"Error reading PDF file '{filename}'.") from exc
+        except PDFInfoNotInstalledError as exc:
+            logger.error("PDFInfoNotInstalledError: %s", exc)
+            raise ValueError("PDFInfoNotInstalledError: %s" % exc) from exc
 
-        except ValueError as exc:
-            logger.error("PyMuPDF error reading PDF file '%s': %s", filename, exc)
-            raise ValueError(f"PyMuPDF error reading PDF file '{filename}'.") from exc
+        except PDFPageCountError as exc:
+            logger.error("PDFPageCountError: %s", exc)
+            raise ValueError("PDFPageCountError: %s" % exc) from exc
+
+        except PDFSyntaxError as exc:
+            logger.error("PDFSyntaxError: %s", exc)
+            raise ValueError("PDFSyntaxError: %s" % exc) from exc
 
         if not self._data:
             logger.error("No valid data found in the PDF file: %s", filename)

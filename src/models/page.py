@@ -1,5 +1,8 @@
 import logging
+from typing import Union
 
+from PIL import ImageQt
+from PIL.Image import Image
 from PySide6.QtGui import QImage, QPixmap
 
 from src.models.constants import LOGGING_VERBOSITY
@@ -13,7 +16,7 @@ class Page:
     This is basic class of Pynocchio. Represents a comic page object
     """
 
-    def __init__(self, data: bytes, title: str, number: int):
+    def __init__(self, data: Union[bytes, Image], title: str, number: int):
         """
         Comic Page class __init__ method
 
@@ -22,7 +25,7 @@ class Page:
             title (str): page title
             number (int): page number
         """
-        self._data: bytes = data
+        self._data: Union[bytes, Image] = data
         self._title: str = title
         self._number: int = number
         self._pixmap: QPixmap = QPixmap()
@@ -36,17 +39,25 @@ class Page:
         """
 
         if self._pixmap.isNull():
-            # Create a QImage from the binary data
-            # and convert it to a QPixmap
-            image = QImage()
-
             logger.debug("Loading image from data")
 
-            if image.loadFromData(self._data):
+            if isinstance(self._data, bytes):
+                # Create a QImage from the binary data
+                # and convert it to a QPixmap
+                image = QImage()
+
+                if image.loadFromData(self._data):
+                    self._pixmap = QPixmap.fromImage(image)
+                    logger.debug("Image loaded successfully")
+                else:
+                    logger.error("Failed to load image from data")
+
+            else:
+                # If the data is not in bytes, convert from PIL Image to QPixmap
+                # using ImageQt
+                image = ImageQt.ImageQt(self._data)
                 self._pixmap = QPixmap.fromImage(image)
                 logger.debug("Image loaded successfully")
-            else:
-                logger.error("Failed to load image from data")
 
         return self._pixmap
 
