@@ -89,6 +89,7 @@ rcc:
 deploy:
 	$(MAKE) lrelease
 	$(MAKE) rcc
+	mkdir -p build
 	pyside6-project deploy .
 
 # Update and create translation files

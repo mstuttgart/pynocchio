@@ -999,10 +999,7 @@ class MainWindowView(QMainWindow):
 
         layout: QVBoxLayout = QVBoxLayout()
 
-        logoPixmap = QPixmap(":/logo.png")
-        logoPixmap = logoPixmap.scaledToHeight(
-            int(logoPixmap.height() * 0.5), Qt.SmoothTransformation
-        )
+        logoPixmap = QPixmap(":/logo.svg")
 
         # Add an icon to the dialog
         icon_label: QLabel = QLabel()
