@@ -71,7 +71,6 @@ IMAGE_FILE_FORMATS: list[str] = [
     ".png",
     ".gif",
     ".webp",
-    ".pdf",
 ]
 
 # Compact file formats (compressed archives)
