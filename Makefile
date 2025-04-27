@@ -71,7 +71,8 @@ setup:
 	pre-commit install --hook-type pre-commit
 	pre-commit install --hook-type pre-push
 	pre-commit autoupdate
-	mypy --install-types
+	mypy --install-types .
+	sudo apt install -y poppler-utils # dependencies for reading pdf files
 
 # Run tests
 test:

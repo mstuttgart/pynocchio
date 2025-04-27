@@ -55,7 +55,7 @@ The current version is stable, and we aim to improve it further.
 
 ## Installation
 
-Coming soon...
+
 
 ## Contributing
 

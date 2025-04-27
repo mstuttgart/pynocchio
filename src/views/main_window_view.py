@@ -105,7 +105,7 @@ class MainWindowView(QMainWindow):
         FITORIGINAL = "actionFitOriginal"
         FITPAGE = "actionFitPage"
 
-    def __init__(self, MainController: "MainController") -> None:
+    def __init__(self, mainController: "MainController") -> None:
         """
         Initializes the MainWindowView.
 
@@ -119,7 +119,7 @@ class MainWindowView(QMainWindow):
         self.setObjectName("mainWindow")
 
         # Initialize the main controller
-        self._mainController: "MainController" = MainController
+        self._mainController: "MainController" = mainController
 
         # Create the toolbar for the main window
         self._toolBar: QToolBar = QToolBar(self)
@@ -138,7 +138,7 @@ class MainWindowView(QMainWindow):
         self._centralWidgetLabel: QLabel = QLabel(self._centralWidget)
 
         # List to store global shortcuts for the application
-        self._globalShortcuts = []
+        self._globalShortcuts: list[QShortcut] = []
 
         # Create a QSpinBox for page navigation
         self._pageSpinbox: QSpinBox = QSpinBox(self)
@@ -333,7 +333,7 @@ class MainWindowView(QMainWindow):
         action.setCheckable(checkable)
         action.setEnabled(enable)
 
-        if slot:
+        if callable(slot):
             action.triggered.connect(slot)
 
         if shortcut:
@@ -567,12 +567,12 @@ class MainWindowView(QMainWindow):
         logger.info("Setting up menu bar")
 
         # Create menus
-        self._menuFile = QMenu(self._menuBar, title=self.tr("&File"))
+        self._menuFile = QMenu(self.tr("&File"), self._menuBar)
         self._menuFile.addAction(self._actionOpenFile)
         self._menuFile.addSeparator()
         self._menuFile.addAction(self._actionExit)
 
-        self._menuView = QMenu(self._menuBar, title=self.tr("&View"))
+        self._menuView = QMenu(self.tr("&View"), self._menuBar)
         self._menuView.addAction(self._actionFullscreen)
         self._menuView.addSeparator()
         self._menuView.addActions(self._actionFitGroup.actions())
@@ -580,7 +580,7 @@ class MainWindowView(QMainWindow):
         self._menuView.addAction(self._actionRotateLeft)
         self._menuView.addAction(self._actionRotateRight)
 
-        self._menuGoTo = QMenu(self._menuBar, title=self.tr("&GoTo"))
+        self._menuGoTo = QMenu(self.tr("&GoTo"), self._menuBar)
         self._menuGoTo.addAction(self._actionFirstPage)
         self._menuGoTo.addAction(self._actionPreviousPage)
         self._menuGoTo.addSeparator()
@@ -590,7 +590,7 @@ class MainWindowView(QMainWindow):
         self._menuGoTo.addAction(self._actionPreviousComic)
         self._menuGoTo.addAction(self._actionNextComic)
 
-        self._menuHelp = QMenu(self._menuBar, title=self.tr("&Help"))
+        self._menuHelp = QMenu(self.tr("&Help"), self._menuBar)
         self._menuHelp.addAction(self._actionReportBug)
         self._menuHelp.addAction(self._actionAbout)
 
@@ -613,7 +613,7 @@ class MainWindowView(QMainWindow):
         self._toolBar.setMovable(False)
         self._toolBar.setAutoFillBackground(True)
         self._toolBar.setStyleSheet("QToolBar { border: 0; padding: 2; margin: 0; }")
-        self._toolBar.setToolButtonStyle(Qt.ToolButtonIconOnly)
+        self._toolBar.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonIconOnly)
         self._toolBar.setFloatable(False)
 
         self._toolBar.addAction(self._actionPreviousComic)
@@ -628,14 +628,14 @@ class MainWindowView(QMainWindow):
         # Add spacer to the toolbar
         # to push the page spinbox to the right
         spacer = QWidget()
-        spacer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        spacer.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
         self._toolBar.addWidget(spacer)
 
         self._toolBar.addWidget(QLabel("Page: "))
         self._toolBar.addWidget(self._pageSpinbox)
 
         # Add the toolbar to the main window
-        self.addToolBar(Qt.TopToolBarArea, self._toolBar)
+        self.addToolBar(Qt.ToolBarArea.TopToolBarArea, self._toolBar)
 
     def _setupCentralWidget(self) -> None:
         """
@@ -735,8 +735,8 @@ class MainWindowView(QMainWindow):
         self._progressDialog = QProgressDialog(self.tr("Loading Comic..."), "", 0, maximum)
 
         self._progressDialog.setCancelButton(None)
-        self._progressDialog.setWindowModality(Qt.WindowModal)
-        self._progressDialog.setWindowFlags(Qt.FramelessWindowHint)
+        self._progressDialog.setWindowModality(Qt.WindowModality.WindowModal)
+        self._progressDialog.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self._mainController.loadProgressSignal.connect(self._progressDialog.setValue)
 
     @Slot(str)
@@ -754,8 +754,8 @@ class MainWindowView(QMainWindow):
             self,
             self.tr("Error Loading Comic"),
             errorMsg,
-            buttons=QMessageBox.Close,
-            defaultButton=QMessageBox.Close,
+            buttons=QMessageBox.StandardButton.Close,
+            defaultButton=QMessageBox.StandardButton.Close,
         )
 
     @Slot()
@@ -853,16 +853,19 @@ class MainWindowView(QMainWindow):
         fitActionChecked = self._actionFitGroup.checkedAction().objectName()
 
         if fitActionChecked == "actionFitVertical":
-            pixmap = pixmap.scaledToHeight(int(height), Qt.SmoothTransformation)
+            pixmap = pixmap.scaledToHeight(int(height), Qt.TransformationMode.SmoothTransformation)
 
         elif fitActionChecked == "actionFitHorizontal":
-            pixmap = pixmap.scaledToWidth(int(width), Qt.SmoothTransformation)
+            pixmap = pixmap.scaledToWidth(int(width), Qt.TransformationMode.SmoothTransformation)
 
         elif fitActionChecked == "actionFitPage" and (
             width < pixmap.width() or height < pixmap.height()
         ):
             pixmap = pixmap.scaled(
-                int(width), int(height), Qt.KeepAspectRatio, Qt.SmoothTransformation
+                int(width),
+                int(height),
+                Qt.AspectRatioMode.KeepAspectRatio,
+                Qt.TransformationMode.SmoothTransformation,
             )
 
         return pixmap

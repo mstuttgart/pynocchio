@@ -160,8 +160,8 @@ class MainModel(QObject):
         logger.debug("Getting comic files in path: %s", path)
 
         qDir = QDir(path)
-        qDir.setFilter(QDir.Files | QDir.NoDotAndDotDot)
-        qDir.setSorting(QDir.Name)
+        qDir.setFilter(QDir.Filter.Files | QDir.Filter.NoDotAndDotDot)
+        qDir.setSorting(QDir.SortFlag.Name)
         qDir.setNameFilters([f"*{ext}" for ext in COMPACT_FILE_FORMATS])
 
         entryList = qDir.entryList()

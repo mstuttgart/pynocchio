@@ -29,9 +29,9 @@ Attributes:
 
 import datetime
 import enum
-import logging
 import os
 from pathlib import Path
+from typing import Union
 
 from dotenv import load_dotenv
 from PySide6.QtCore import QStandardPaths
@@ -42,26 +42,26 @@ from src.__version__ import __version__
 load_dotenv()
 
 # Debugging and logging configuration
-DEBUG = os.getenv("DEBUG", "False").lower() == "true"
-LOGGING_VERBOSITY = os.getenv("LOGGING_VERBOSITY", "INFO").upper()
-LANGUAGE = os.getenv("LANGUAGE", "Auto")
+DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"
+LOGGING_VERBOSITY: Union[int, str] = os.getenv("LOGGING_VERBOSITY", "INFO").upper()
+LANGUAGE: str = os.getenv("LANGUAGE", "Auto")
 
 # Application metadata
-YEAR = datetime.datetime.now().year
-AUTHOR = "Michell Stuttgart"
-VERSION = __version__
-APP_NAME = "Pynocchio"
+YEAR: int = datetime.datetime.now().year
+AUTHOR: str = "Michell Stuttgart"
+VERSION: str = __version__
+APP_NAME: str = "Pynocchio"
 
 # File names
-DATABASE_FILE_NAME = f"{APP_NAME.lower()}.db"
-CONFIG_FILE_NAME = f"{APP_NAME.lower()}.json"
+DATABASE_FILE_NAME: str = f"{APP_NAME.lower()}.db"
+CONFIG_FILE_NAME: str = f"{APP_NAME.lower()}.json"
 
 # URLs
-HELP_URL = "https://github.com/mstuttgart/pynocchio/issues"
-FEEDBACK_URL = "https://github.com/mstuttgart/pynocchio/issues"
-RELEASE_URL = "https://github.com/mstuttgart/pynocchio/releases/latest"
-LICENSE_URL = "https://github.com/mstuttgart/pynocchio/blob/develop/LICENSE"
-COPYRIGHT = f"Copyright (C) 2014-{YEAR} {AUTHOR}"
+HELP_URL: str = "https://github.com/mstuttgart/pynocchio/issues"
+FEEDBACK_URL: str = "https://github.com/mstuttgart/pynocchio/issues"
+RELEASE_URL: str = "https://github.com/mstuttgart/pynocchio/releases/latest"
+LICENSE_URL: str = "https://github.com/mstuttgart/pynocchio/blob/develop/LICENSE"
+COPYRIGHT: str = f"Copyright (C) 2014-{YEAR} {AUTHOR}"
 
 # Image file formats (supported by the application)
 IMAGE_FILE_FORMATS: list[str] = [
@@ -86,23 +86,24 @@ COMPACT_FILE_FORMATS: list[str] = [
 
 SUPPORTED_FILES: list[str] = IMAGE_FILE_FORMATS + COMPACT_FILE_FORMATS
 
-if DEBUG:
-    CONFIG_FOLDER = Path("AppData").absolute()
-    LOGGING_VERBOSITY = logging.DEBUG
-else:
-    CONFIG_FOLDER = os.path.join(
-        Path(QStandardPaths.writableLocation(QStandardPaths.AppConfigLocation)), APP_NAME
+CONFIG_FOLDER: str = (
+    ""
+    if DEBUG
+    else os.path.join(
+        Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.ConfigLocation)),
+        APP_NAME,
     )
-    LOGGING_VERBOSITY = logging.INFO
+)
+
 
 # config file location
-CONFIG_FILE = os.path.join(
+CONFIG_FILE: str = os.path.join(
     CONFIG_FOLDER,
     f"{CONFIG_FILE_NAME}",
 )
 
 # database file location
-DATABASE_FILE = os.path.join(
+DATABASE_FILE: str = os.path.join(
     CONFIG_FOLDER,
     f"{DATABASE_FILE_NAME}",
 )

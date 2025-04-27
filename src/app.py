@@ -34,11 +34,17 @@ class App(QApplication):
         self.setStyle("Fusion")
 
 
-def main():
+def main() -> None:
+    """
+    Main function to run the application.
+    This function initializes the QApplication, sets up internationalization,
+    creates the main model and controller, and shows the main window view.
+    """
+    # Initialize the application
     app: App = App(sys.argv)
 
     # Internationalization
-    translator = QTranslator(app)
+    translator: QTranslator = QTranslator(app)
 
     if LANGUAGE == Language.AUTO:
         if translator.load(QLocale.system(), ":/translations/i18n/"):

@@ -25,11 +25,11 @@ class QScrollAreaViewer(QScrollArea):
             "y": 0,
         }
 
-        self._cursor: QCursor = QCursor(Qt.OpenHandCursor)
+        self._cursor: QCursor = QCursor(Qt.CursorShape.OpenHandCursor)
         self.setCursor(self._cursor)
 
-        self.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
+        self.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
 
     def resetScrollPosition(self) -> None:
         """
@@ -58,7 +58,7 @@ class QScrollAreaViewer(QScrollArea):
         self._dragMouse = True
         self._dragPosition["x"] = args[0].x()
         self._dragPosition["y"] = args[0].y()
-        self._cursor = QCursor(Qt.ClosedHandCursor)
+        self._cursor = QCursor(Qt.CursorShape.ClosedHandCursor)
         self.setCursor(self._cursor)
 
         super().mousePressEvent(*args, **kwargs)
@@ -72,7 +72,7 @@ class QScrollAreaViewer(QScrollArea):
             **kwargs: Arbitrary keyword arguments.
         """
         self._dragMouse = False
-        self._cursor = QCursor(Qt.OpenHandCursor)
+        self._cursor = QCursor(Qt.CursorShape.OpenHandCursor)
         self.setCursor(self._cursor)
 
         super().mouseReleaseEvent(*args, **kwargs)

@@ -1,5 +1,5 @@
 import logging
-from typing import Optional
+from typing import TYPE_CHECKING, Any, Optional, Union
 
 from PySide6.QtCore import QObject, QThreadPool, QUrl, Signal, Slot
 from PySide6.QtGui import QDesktopServices, QPixmap
@@ -7,6 +7,9 @@ from PySide6.QtGui import QDesktopServices, QPixmap
 from src.models.comic_loader_factory import ComicLoaderFactory
 from src.models.constants import HELP_URL
 from src.models.main_model import MainModel
+
+if TYPE_CHECKING:
+    from src.models.comic_loader import ComicLoader
 
 logger = logging.getLogger(__name__)
 
@@ -40,8 +43,8 @@ class MainController(QObject):
         """
         super().__init__()
         self._mainModel: MainModel = model
-        self._loader = None
-        self.threadpool = None
+        self._loader: Union[None, ComicLoader] = None
+        self.threadpool: Union[None, QThreadPool] = None
 
     def updateCentralWidgetContent(self) -> None:
         """
@@ -134,8 +137,8 @@ class MainController(QObject):
         self.threadpool = None
         self.finishProgressSignal.emit()
 
-    @Slot(str, object)
-    def onDoneProgress(self, filename: str, data: list) -> None:
+    @Slot(str, list)
+    def onDoneProgress(self, filename: str, data: list[Any]) -> None:
         """
         Handles the completion of the comic loading process.
 

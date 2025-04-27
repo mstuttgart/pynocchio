@@ -88,7 +88,7 @@ class Page:
         """
         return self._number
 
-    def getData(self) -> bytes:
+    def getData(self) -> Union[bytes, Image]:
         """
         Get page data.
 
