@@ -2,7 +2,7 @@
 <h1 align="center">
   <br>
   <a href="https://pynocchio.github.io/">
-    <img src="./resources/logo.png" alt="Pynocchio Logo" width="20%"/>
+    <img src="./resources/logo.svg" alt="Pynocchio Logo" width="20%"/>
   </a>
   <br>
   Pynocchio
