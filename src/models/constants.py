@@ -83,7 +83,13 @@ COMPACT_FILE_FORMATS: list[str] = [
     ".cbt",
 ]
 
-SUPPORTED_FILES: list[str] = IMAGE_FILE_FORMATS + COMPACT_FILE_FORMATS
+SUPPORTED_FILES: list[str] = (
+    IMAGE_FILE_FORMATS
+    + COMPACT_FILE_FORMATS
+    + [
+        ".pdf",
+    ]
+)
 
 CONFIG_FOLDER: str = (
     ""

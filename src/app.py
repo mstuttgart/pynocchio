@@ -64,6 +64,7 @@ def main() -> None:
     mainController: MainController = MainController(mainModel)
 
     mainWindowView: MainWindowView = MainWindowView(mainController)
+
     mainWindowView.show()
 
     sys.exit(app.exec())

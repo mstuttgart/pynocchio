@@ -1,0 +1,11 @@
+-C package
+-s dir
+--name pynocchio
+--license gpl3
+--version 4.0.0
+--architecture all
+--depends poppler-utils
+--description "Minimalis comic reader"
+--url "https://github/mstuttgart/pynocchio"
+--maintainer "Michell Stuttgart <michellstut@gmail.com>"
+--category "graphics"

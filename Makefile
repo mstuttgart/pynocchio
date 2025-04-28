@@ -90,8 +90,19 @@ rcc:
 deploy:
 	$(MAKE) lrelease
 	$(MAKE) rcc
+	rm -rf build
 	mkdir -p build
 	pyside6-project deploy .
+
+# build .deb packages
+packages:
+	cp -f build/Pynocchio.bin package/usr/bin/pynocchio
+	cp -f resources/logo.svg package/usr/share/icons/hicolor/scalable/apps/pynocchio.svg
+	rm -f *.deb
+	rm -f *.rpm
+	rm -f *.pacman
+	fpm -t deb -p pynocchio-v4.0.0-amd64.deb
+	fpm -t rpm -p pynocchio-v4.0.0-amd64.rpm
 
 # Update and create translation files
 lupdate:

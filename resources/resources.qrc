@@ -39,7 +39,6 @@
   </qresource>
   <qresource prefix="/">
     <file>logo.svg</file>
-    <file>logo.png</file>
   </qresource>
   <qresource prefix="translations">
     <file>i18n/en_US.qm</file>

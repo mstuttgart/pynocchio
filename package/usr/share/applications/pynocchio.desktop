@@ -2,7 +2,7 @@
 Name=Pynocchio
 GenericName=Comic Book Viewer
 Comment=A minimalist comic reader
-Exec=Pynocchio.bin
+Exec=pynocchio
 Terminal=false
 Type=Application
 MimeType=application/x-cbz;application/x-cbr;application/x-cbt;application/x-zip;application/x-rar;application/x-tar;

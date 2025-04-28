@@ -51,10 +51,9 @@ The current version is stable, and we aim to improve it further.
 * Support PDF comic files.
 * Minimalist design, free, and easy to use!
 
-### Roadmap: https://github.com/mstuttgart/pynocchio/issues/103
-
 ## Installation
 
+Download latest release [here](https://github.com/mstuttgart/pynocchio/releases).
 
 
 ## Contributing
