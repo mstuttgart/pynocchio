@@ -18,7 +18,8 @@ class ComicHandlerSinglePage(ComicHandler):
         """
         Go to the previous page.
         """
-        self.setCurrentPageIndex(self._currentPageIndex - 1)
+        if self._currentPageIndex > 0:
+            self.setCurrentPageIndex(self._currentPageIndex - 1)
 
     def getCurrentPageImage(self) -> QPixmap:
         """
